@@ -1,0 +1,43 @@
+@media (max-width: 767px) {
+  /* Reviews */
+  .trx_addons_reviews_block_short {
+    float: none !important;
+    margin: 1em auto !important;
+  }
+
+  .trx_addons_reviews_block_detailed .trx_addons_reviews_block_mark_wrap {
+    width: 40%;
+  }
+
+  .trx_addons_reviews_block_detailed .trx_addons_reviews_block_summary {
+    width: 60%;
+  }
+}
+@media (max-width: 479px) {
+  /* Reviews */
+  .trx_addons_reviews_block_short {
+    width: 280px;
+  }
+
+  .trx_addons_reviews_block_detailed .trx_addons_reviews_block_mark_wrap,
+  .trx_addons_reviews_block_detailed .trx_addons_reviews_block_summary {
+    display: block;
+    width: 100%;
+  }
+
+  .trx_addons_reviews_block_detailed .trx_addons_reviews_block_summary {
+    margin-top: 1.5em;
+  }
+
+  .trx_addons_reviews_block_detailed .trx_addons_reviews_block_positives,
+  .trx_addons_reviews_block_detailed .trx_addons_reviews_block_negatives {
+    display: block;
+    width: 100%;
+  }
+
+  .trx_addons_reviews_block_detailed .trx_addons_reviews_block_negatives {
+    margin-top: 1.5em;
+  }
+}
+
+/*# sourceMappingURL=reviews.responsive.css.map */

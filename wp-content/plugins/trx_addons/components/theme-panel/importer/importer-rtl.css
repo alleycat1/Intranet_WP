@@ -1,0 +1,24 @@
+.trx_importer_sys_info table th,
+.trx_importer_sys_info_manual_title {
+	text-align: right;
+}
+.trx_importer_sys_info {
+	float: left;
+}
+.trx_importer_sys_info .dashicons {
+	right: -1.3em;
+	left: auto;
+}
+.trx_importer_advanced_settings_block {
+	padding-left: 3em;
+	padding-right: 0;
+}
+.trx_importer_part_pages {
+	margin: 0 2em 1em 0;
+	padding-right: 2px;
+	padding-left: 0;
+}
+.trx_importer_demo_set .trx_importer_demo_set_controls label:not(:last-child) {
+	border-right: 1px solid #dee0e3 !important;
+	border-left: 0 !important;
+}

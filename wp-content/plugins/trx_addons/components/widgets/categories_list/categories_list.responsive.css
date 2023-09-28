@@ -1,0 +1,14 @@
+@media (max-width: 1023px) {
+  /* Widget: Categories List (Style 2) */
+  .widget_categories_list .categories_list_style_2 .categories_list_title {
+    width: 60%;
+  }
+}
+@media (max-width: 767px) {
+  /* Widget: Categories List (Style 2) */
+  .widget_categories_list .categories_list_style_2 .categories_list_title {
+    width: 50%;
+  }
+}
+
+/*# sourceMappingURL=categories_list.responsive.css.map */

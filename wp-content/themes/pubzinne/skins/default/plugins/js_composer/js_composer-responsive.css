@@ -1,0 +1,8 @@
+@media (max-width: 1023px) {
+  /* WPBakery PageBuilder */
+  .wpb_text_column[class*="scheme_"]:not([class*="sc_extra_bg_"]) {
+    padding: 1.5em;
+  }
+}
+
+/*# sourceMappingURL=js_composer-responsive.css.map */

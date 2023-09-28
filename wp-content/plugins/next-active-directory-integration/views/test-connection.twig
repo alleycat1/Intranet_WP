@@ -1,0 +1,103 @@
+<h1>{{ i18n.title }}</h1>
+
+<span>{{ i18n.descriptionLine1|raw }}</span>
+<br>
+<span>{{ i18n.descriptionLine2|raw }}</span>
+<br>
+<span>{{ i18n.descriptionLine3|raw }}</span>
+<br>
+
+<form method="post">
+    <table class="form-table">
+        <tr valign="top">
+            <th scope="row" class="nsp_short_form_table">{{ i18n.username }}</th>
+            <td class="nsp_short_form_table">
+                <input type="text" name="username"/>
+            </td>
+        </tr>
+        <tr valign="top">
+            <th scope="row" class="nsp_short_form_table">{{ i18n.password }}</th>
+            <td class="nsp_short_form_table">
+                <input type="text" name="password" value="" autocomplete="off"/>
+            </td>
+        </tr>
+    </table>
+
+    <input type="hidden" name="security" value="{{ nonce }}"/>
+    <input type="submit" class="button button-primary"
+           value="{{ status is defined ? i18n.tryAgain : i18n.tryAuthenticate }}"/>
+
+</form>
+<div class="container-fluid no-padding-left">
+    {% if status is defined %}
+
+        <div class="adi-status-alert">
+            {% if status == true %}
+                <div class="alert alert-success" role="alert">{{ message }}</div>
+            {% else %}
+                <div class="alert alert-danger" role="alert">{{ message }}</div>
+            {% endif %}
+        </div>
+
+        {% set logs = log %}
+        <h2>Log</h2>
+
+        <button class="button button-primary adi-button" type="button" data-toggle="collapse" data-target="#log-output"
+                aria-expanded="false">
+            {{ i18n.showLogOutput }}
+        </button>
+        <div class="collapse" id="log-output">
+            <table class="table table-hover table-condensed table-responsive adi-log-table">
+                <tr>
+                    <th class="col-md-1 text-align-center">Log Level</th>
+                    <th class="text-align-center">Log Message</th>
+                </tr>
+                {% for logLine in logs %}
+
+                    {% if logLine.level_name == 'DEBUG' %}
+                        <tr class="info">
+                            <td>{{ logLine.level_name }}</td>
+                            <td>{{ logLine.message }}</td>
+                        </tr>
+                    {% elseif logLine.level_name == 'WARNING' %}
+                        <tr class="danger">
+                            <td>{{ logLine.level_name }}</td>
+                            <td>{{ logLine.message }}</td>
+                        </tr>
+                    {% elseif logLine.level_name == 'ERROR' %}
+                        <tr class="danger">
+                            <td>{{ logLine.level_name }}</td>
+                            <td>{{ logLine.message }}</td>
+                        </tr>
+                    {% elseif logLine.level_name == 'INFO' %}
+                        <tr>
+                            <td>{{ logLine.level_name }}</td>
+                            <td>{{ logLine.message }}</td>
+                        </tr>
+                    {% endif %}
+
+                {% endfor %}
+
+                {% if status == true %}
+                    <tr class="success">
+                        <td>[STATUS]</td>
+                        <td>
+                            <b>{{ message }}</b>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr class="danger result-danger">
+                        <td>[STATUS]</td>
+                        <td>
+                            <b>{{ message }}</b>
+                        </td>
+                    </tr>
+                {% endif %}
+
+            </table>
+        </div>
+
+
+    {% endif %}
+</div>
+

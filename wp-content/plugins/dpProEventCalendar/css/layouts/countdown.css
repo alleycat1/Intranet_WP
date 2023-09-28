@@ -1,0 +1,56 @@
+/* Countdown Layout */
+.dp_pec_countdown_wrapper .dp_pec_countdown {
+	margin: 0 10px !important;
+	margin-top:20px !important;
+	padding: 0 !important;
+	text-align: center;
+	list-style: none !important;
+
+}
+
+.dp_pec_countdown_wrapper.dp_pec_400 .dp_pec_countdown {
+	margin-top:15px !important;
+}
+
+.dp_pec_countdown_wrapper .dp_pec_countdown li {
+	margin: 0 !important;
+	padding: 0;
+	text-align: center;
+	list-style: none !important;
+	display:inline-block;
+	margin-right: 10px !important;
+	height: 40px;
+}
+
+.dp_pec_countdown_wrapper .dp_pec_countdown li:last-child {
+	margin: 0 !important;
+}
+
+.dp_pec_countdown_wrapper p,
+.dp_pec_countdown_wrapper .dp_pec_countdown li p {
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+    font-weight: 600 !important;
+    line-height: 24px;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.35);
+    text-align: center;
+    display: inline;
+    text-transform: capitalize;
+    color: #fff !important;
+}
+
+.dp_pec_countdown_wrapper .dp_pec_countdown li span {
+    padding: 10px;
+    margin: 0;
+    margin-right: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,.5);
+    color: #fff !important;
+}
+
+.dp_pec_countdown_wrapper.dp_pec_400 .dp_pec_countdown_event_center_text h2 {
+	font-size: 16px;
+}

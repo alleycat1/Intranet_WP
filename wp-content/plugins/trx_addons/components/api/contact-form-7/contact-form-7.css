@@ -1,0 +1,57 @@
+/* Contact Form 7
+----------------------------------------------------- */
+input[type="submit"].wpcf7-submit,
+div.wpcf7 .ajax-loader {
+  vertical-align: middle;
+}
+
+.wpcf7 form .wpcf7-response-output.trx_addons_message_box {
+  margin: 0;
+  padding: 2em;
+}
+
+.wpcf7-not-valid {
+  border-color: #CC0000 !important;
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(200, 0, 0, 0.2);
+  -ms-box-shadow: 0px 0px 8px 0px rgba(200, 0, 0, 0.2);
+  box-shadow: 0px 0px 8px 0px rgba(200, 0, 0, 0.2);
+}
+
+.wpcf7-not-valid.wpcf7-radio {
+  padding: 6px;
+}
+
+span.wpcf7-not-valid-tip {
+  display: none;
+  font-size: 0.75em;
+}
+
+.wpcf7-not-valid + span.wpcf7-not-valid-tip {
+  display: block;
+}
+
+textarea.wpcf7-form-control,
+.wpcf7-form-control[type="text"],
+.wpcf7-form-control[type="number"],
+.wpcf7-form-control[type="tel"],
+.wpcf7-form-control[type="url"],
+.wpcf7-form-control[type="email"],
+.wpcf7-form-control[type="password"],
+.wpcf7-form-control[type="search"] {
+  width: 100%;
+}
+
+.wpcf7 div.wpcf7-response-output {
+  margin: 2em 0 0;
+}
+
+.wpcf7 p + p,
+.wpcf7 table + p {
+  margin: 1em 0 0;
+}
+
+.wpcf7-wpgdprc {
+  display: inline-block;
+}
+
+/*# sourceMappingURL=contact-form-7.css.map */

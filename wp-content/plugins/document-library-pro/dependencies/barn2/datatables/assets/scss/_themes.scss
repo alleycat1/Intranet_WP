@@ -1,0 +1,54 @@
+
+@import "variables";
+
+@mixin adjust-select-padding( $padding ) {
+    #{$controls-class} select,
+    #{$table-class} select {
+        padding-right: $padding !important;
+    }
+}
+
+.enfold {
+    @include adjust-select-padding(32px);
+
+    #{$controls-class} input[type="search"] {
+        margin-left: 6px !important;
+
+        .rtl & {
+            margin-left: 0 !important;
+            margin-right: 6px !important;
+        }
+    }
+}
+
+.flatsome {
+    @include adjust-select-padding(1.8em);
+}
+
+.jupiter {
+    @include adjust-select-padding(55px);
+}
+
+.uncode {
+    @include adjust-select-padding(35px);
+
+    #{$table-class } {
+        td {
+            font-weight: normal;
+        }
+    }
+
+    .select2-container {
+        .select2-selection--single {
+            background-position-x: 102%;
+        }
+
+        .select2-selection__arrow {
+            display: none;
+        }
+    }
+}
+
+.xstore {
+    @include adjust-select-padding(2.5em);
+}

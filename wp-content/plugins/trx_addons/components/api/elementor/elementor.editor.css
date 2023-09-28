@@ -1,0 +1,50 @@
+/* Styles for controls in the Elementor Editor
+------------------------------------------------ */
+
+/* Make each panel category as accordion */
+#elementor-panel-categories .elementor-panel-category-title {
+	color: #556068;
+	padding: 17px 0;
+	-webkit-transition: color 0.3s ease-out;
+	    -ms-transition: color 0.3s ease-out;
+	        transition: color 0.3s ease-out;
+}
+#elementor-panel-categories .elementor-panel-category-title:hover {
+	color: #8b949a;
+}
+.elementor-panel .elementor-panel-category:not(.elementor-active):after {
+	display: none;
+}
+
+/* Hide native Elementor's responsive params */
+body.replace_hide_on_xxx .elementor-control-hide_widescreen,
+body.replace_hide_on_xxx .elementor-control-hide_laptop,
+body.replace_hide_on_xxx .elementor-control-hide_tablet_extra,
+body.replace_hide_on_xxx .elementor-control-hide_mobile_extra,
+body.replace_hide_on_xxx .elementor-control-hide_desktop,
+body.replace_hide_on_xxx .elementor-control-hide_tablet,
+body.replace_hide_on_xxx .elementor-control-hide_mobile {
+	display: none !important;
+}
+
+/* Icons selector */
+.elementor-control .trx_addons_icon_selector + .trx_addons_list_icons {
+	left: 0 !important;
+}
+.elementor-control .trx_addons_icon_selector + .trx_addons_list_icons span {
+	width: 2.08em;
+}
+
+
+/* Date_Time Control */
+.datepicker_header a.icon-home:before {
+	display: none;
+}
+
+/* Color picker */
+.elementor-control .iris-border .iris-picker-inner {
+	margin-right: -1px;
+}
+.elementor-control .wp-picker-container input[type="text"].wp-color-picker {
+	min-height: 14px;
+}

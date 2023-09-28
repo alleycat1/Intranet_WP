@@ -1,0 +1,22 @@
+body.allow_lazy_load .post_featured [class*='_inline_']:not([class*="trx_addons_inline_"]):not(.lazyload_inited),
+body.allow_lazy_load .post_featured[class*='_inline_']:not([class*="trx_addons_inline_"]):not(.lazyload_inited),
+body.allow_lazy_load .post_thumb[class*='_inline_']:not([class*="trx_addons_inline_"]):not(.lazyload_inited),
+body.allow_lazy_load .banner_wrap[class*='_inline_']:not([class*="trx_addons_inline_"]):not(.lazyload_inited),
+body.allow_lazy_load .sc_panel_thumb[class*='_inline_']:not([class*="trx_addons_inline_"]):not(.lazyload_inited) {
+  background-image: url(images/placeholder.png) !important;
+}
+body.allow_lazy_load img:not([class*="trx_addons_inline_"]).lazyload_loading,
+body.allow_lazy_load [data-trx-lazyload-style]:not([class*="trx_addons_inline_"]).lazyload_loading,
+body.allow_lazy_load .post_featured [class*='_inline_']:not([class*="trx_addons_inline_"]).lazyload_loading,
+body.allow_lazy_load .post_featured[class*='_inline_']:not([class*="trx_addons_inline_"]).lazyload_loading,
+body.allow_lazy_load .post_thumb[class*='_inline_']:not([class*="trx_addons_inline_"]).lazyload_loading,
+body.allow_lazy_load .banner_wrap[class*='_inline_']:not([class*="trx_addons_inline_"]).lazyload_loading,
+body.allow_lazy_load .sc_panel_thumb[class*='_inline_']:not([class*="trx_addons_inline_"]).lazyload_loading {
+  opacity: 0 !important;
+}
+body.allow_lazy_load .page_content_wrap .elementor-element[data-settings]:not(.lazyload_inited),
+body.allow_lazy_load .page_content_wrap .elementor-element[data-settings] > .elementor-column-wrap:not(.lazyload_inited) {
+  background-image: none !important;
+}
+
+/*# sourceMappingURL=lazy-load.css.map */

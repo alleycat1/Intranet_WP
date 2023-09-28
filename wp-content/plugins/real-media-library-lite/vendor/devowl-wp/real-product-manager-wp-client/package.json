@@ -1,0 +1,200 @@
+{
+    "name": "@devowl-wp/real-product-manager-wp-client",
+    "version": "1.17.11",
+    "private": true,
+    "description": "A WordPress client for Real Product Manager",
+    "homepage": "https://devowl.io",
+    "license": "GPL-3.0-or-later",
+    "author": "DevOwl",
+    "sideEffects": [
+        "**/*.{css,scss,less}",
+        "./src/public/ts/*.tsx"
+    ],
+    "main": "lib/index.tsx",
+    "files": [
+        "dist",
+        "dev",
+        "languages/frontend"
+    ],
+    "scripts": {
+        "bootstrap": "while ! composer install --prefer-dist; do rm -rf vendor; done;",
+        "build": "dowl --silent task @devowl-wp/utils:package/build",
+        "build:js:development": "dowl --silent task @devowl-wp/utils:webpack/dev",
+        "build:js:production": "dowl --silent task @devowl-wp/utils:webpack/prod",
+        "dev": "dowl --silent task @devowl-wp/utils:dev",
+        "disclaimer:composer": "dowl --silent task @devowl-wp/composer-licenses:disclaimer",
+        "i18n:generate:backend": "dowl continuous-localization-ts sync --project backend",
+        "i18n:generate:frontend": "dowl continuous-localization-ts sync --project frontend",
+        "lint:eslint": "dowl --silent task @devowl-wp/eslint-config",
+        "lint:phpcs": "dowl --silent task @devowl-wp/phpcs-config",
+        "task": "task --taskfile ./tasks/Taskfile.yml",
+        "test:jest": "dowl --silent task @devowl-wp/utils:jest",
+        "test:jest:coverage": "dowl --silent task @devowl-wp/utils:jest/coverage",
+        "test:phpunit": "dowl --silent task @devowl-wp/phpunit-config",
+        "test:phpunit:coverage": "dowl --silent task @devowl-wp/phpunit-config:coverage",
+        "wp": "$(which wp)$(test $CI && echo ' --allow-root')",
+        "wp:weak": "php -n -dextension=phar.so -dextension=json.so -dextension=mbstring.so -dextension=tokenizer.so -dmemory_limit=-1 $(which wp)$(test $CI && echo ' --allow-root')"
+    },
+    "babel": {
+        "assumptions": {
+            "setPublicClassFields": true
+        },
+        "plugins": [
+            [
+                "@babel/plugin-transform-runtime",
+                {}
+            ],
+            [
+                "@babel/plugin-proposal-decorators",
+                {
+                    "legacy": true
+                }
+            ],
+            [
+                "@babel/plugin-proposal-class-properties",
+                {}
+            ]
+        ],
+        "presets": [
+            "@babel/preset-typescript",
+            [
+                "@babel/preset-env",
+                {
+                    "useBuiltIns": "entry",
+                    "corejs": 3
+                }
+            ],
+            "@babel/preset-react"
+        ],
+        "sourceMaps": true
+    },
+    "browserslist": [
+        "defaults",
+        "not IE 11"
+    ],
+    "eslintConfig": {
+        "extends": [
+            "./node_modules/@devowl-wp/eslint-config/src/.eslintrc.cjs"
+        ]
+    },
+    "eslintIgnore": [
+        "dist",
+        "dev",
+        "docs",
+        "coverage",
+        "node_modules",
+        "vendor"
+    ],
+    "dependencies": {
+        "@ant-design/icons": "~4.8.0",
+        "antd": "~4.24.8",
+        "mobx": "~4.15.7",
+        "mobx-react": "~6.3.1",
+        "react": "~16.14.0",
+        "react-dom": "~16.14.0"
+    },
+    "devDependencies": {
+        "@devowl-wp/composer-licenses": "^0.1.13",
+        "@devowl-wp/continuous-integration": "^0.4.0",
+        "@devowl-wp/continuous-localization": "^0.7.2",
+        "@devowl-wp/eslint-config": "^0.2.1",
+        "@devowl-wp/monorepo-utils": "^0.1.7",
+        "@devowl-wp/node-gitlab-ci": "^0.7.4",
+        "@devowl-wp/npm-licenses": "^0.1.12",
+        "@devowl-wp/phpcs-config": "^0.1.12",
+        "@devowl-wp/phpunit-config": "^0.1.10",
+        "@devowl-wp/ts-config": "^0.1.11",
+        "@devowl-wp/utils": "^1.15.11",
+        "@devowl-wp/webpack-config": "^0.2.18",
+        "@types/jest": "~26.0.24",
+        "@types/react": "~16.14.35",
+        "@types/react-dom": "~16.9.18",
+        "jest": "~26.6.3",
+        "ts-node": "~10.9.1",
+        "tslib": "^2.5.0",
+        "typescript": "~4.9.5",
+        "webpack": "~5.75.0",
+        "webpack-cli": "~4.10.0"
+    },
+    "peerDependencies": {
+        "@devowl-wp/utils": "~1.4.4",
+        "mobx": "*",
+        "react": "*",
+        "react-dom": "*"
+    },
+    "engines": {
+        "node": ">=14.15.0"
+    },
+    "continuous-localization": {
+        "locales": {
+            "de_AT": false,
+            "de_DE": "de@informal",
+            "de_DE_formal": "de@formal",
+            "de_CH": false,
+            "de_CH_informal": false,
+            "hu_HU": "hu",
+            "nb_NO": "nb_NO",
+            "ru_RU": "ru@formal",
+            "sk_SK": "sk",
+            "uk": "uk",
+            "fi": "fi"
+        },
+        "copy-files": {
+            "de@informal.(po)$": [
+                "de_AT.$1",
+                "de_CH_informal.$1"
+            ],
+            "de@formal.(po)$": [
+                "de_CH.$1"
+            ],
+            "uk_UA.(po)$": [
+                "uk.$1"
+            ],
+            "fi_FI.(po)$": [
+                "fi.$1"
+            ]
+        },
+        "projects": {
+            "backend": {
+                "name": "@devowl-wp/real-product-manager-wp-client (Backend, PHP)",
+                "system": "weblate",
+                "sourceFolder": "src",
+                "languageFolder": "languages/backend",
+                "extractCmd": "dowl run --silent wp:weak i18n make-pot src/ languages/backend/real-product-manager-wp-client.pot --headers='{\"POT-Creation-Date\":\"n/a\",\"Project-Id-Version\":\"n/a\"}' --ignore-domain"
+            },
+            "frontend": {
+                "name": "@devowl-wp/real-product-manager-wp-client (Frontend, JavaScript)",
+                "system": "weblate",
+                "sourceFolder": "lib",
+                "languageFolder": "languages/frontend",
+                "extractCmd": "dowl run --silent wp:weak i18n make-pot lib languages/frontend/real-product-manager-wp-client.pot --skip-js --headers='{\"POT-Creation-Date\":\"n/a\",\"Project-Id-Version\":\"n/a\"}' --ignore-domain --merge=$(find $(test \"$NODE_ENV\" = \"production\" && echo \"dist\" || echo \"dev\") -maxdepth 1 -name '*.pot' -type f | tr '\\n' ',' | sed 's/,$//')",
+                "afterPullCmd": "rm -rf languages/frontend/json && dowl run --silent wp i18n make-json languages/frontend languages/frontend/json --no-purge"
+            }
+        }
+    },
+    "license-check": {
+        "spdx": [
+            "MIT",
+            "ISC",
+            "BSD-2-Clause",
+            "BSD-3-Clause",
+            "Apache-2.0",
+            "Artistic-2.0",
+            "WTFPL",
+            "CC-0",
+            "CC0-1.0",
+            "MPL-2.0",
+            "ZLib",
+            "Unlicense",
+            "GPL-2.0",
+            "GPL-2.0-or-later",
+            "GPL-3",
+            "GPL-3.0-or-later",
+            "LGPL-3.0-or-later"
+        ],
+        "packages": [
+            "ignore-packages-here@1.0.0"
+        ]
+    },
+    "phpunit-coverage-threshold": 80
+}

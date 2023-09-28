@@ -1,0 +1,160 @@
+.trx_addons_theme_panel .trx_addons_tabs_section {
+	margin-left: 2em;
+	margin-right: 0;
+}
+.trx_addons_theme_panel_theme_active {
+	padding-left: 12em;
+	padding-right: 0;
+}
+.trx_addons_theme_panel_buttons .trx_addons_theme_panel_prev_step:not(.trx_addons_button_accent):before {
+	content: '\e884';
+	margin-left: 0.4em;
+	margin-right: 0;
+}
+.trx_addons_theme_panel_buttons .trx_addons_theme_panel_next_step:not(.trx_addons_button_accent):after {
+	content: '\e883';
+	margin-right: 0.4em;
+	margin-left: 0;
+}
+#trx_addons_theme_panel_section_general .trx_addons_theme_panel_buttons {
+	text-align: right;
+}
+.trx_addons_theme_panel_buttons .trx_addons_theme_panel_prev_step,
+.trx_addons_theme_panel_buttons .trx_addons_theme_panel_next_step {
+	float: left;
+	margin-right: 1em;
+	margin-left: 0;
+}
+#trx_addons_theme_panel_section_general .trx_addons_theme_panel_buttons .trx_addons_theme_panel_next_step {
+	float: none;
+	margin-right: 0;
+}
+
+/* Featured item */
+.trx_addons_theme_panel_featured_item_wrap {
+	padding-left: 0;
+	padding-right: 2em;
+}
+.trx_addons_theme_panel_featured_item {
+	padding-right: 0;
+	padding-left: 0;
+}
+.trx_addons_theme_panel_featured_item .trx_addons_theme_panel_banners_item_link {
+	float: left;
+}
+.trx_addons_theme_panel_featured_item .trx_addons_theme_panel_banners_item_link:after {
+	right: 0.3em;
+	left: auto;
+}
+.trx_addons_theme_panel_featured_item .trx_addons_theme_panel_banners_item_icon {
+	right: -1.5em;
+	left: auto;
+}
+.trx_addons_theme_panel_featured_item .trx_addons_theme_panel_banners_item_title {
+	float: right;
+}
+
+
+/* System info */
+.trx_addons_theme_panel_sys_info .trx_addons_theme_panel_table th {
+	text-align: right;
+}
+.trx_addons_theme_panel_sys_info .dashicons {
+	left: auto;
+	right: -1.3em;
+}
+
+.trx_addons_theme_panel_links_iconed {
+	margin-left: -3em;
+	margin-right: 0;
+}
+
+.trx_addons_iconed_block {
+	padding: 0 0 3em 3em;
+	text-align: right;
+}
+.trx_addons_iconed_block_inner {
+	padding-right: 3em;
+	padding-left: 0;
+}
+.trx_addons_iconed_block_icon,
+.trx_addons_iconed_block_image {
+	right: 0;
+	left: auto;
+}
+
+.trx_addons_image_block_inner .trx_addons_image_block_image .trx_addons_image_block_link[target]:after {
+	right: 0.3em;
+	left: auto;
+}
+.trx_addons_image_block_footer {
+	padding: 0.5em 1em 0.5em 0.5em;
+}
+.trx_addons_image_block_footer .trx_addons_image_block_link {
+	float: left;
+	margin-right: 1em;
+	margin-left: 0;
+}
+.trx_addons_image_block_footer .trx_addons_image_block_link_active {
+	padding: 7px 0 7px 4px;
+}
+.trx_addons_image_block_footer .trx_addons_image_block_link_active:before {
+	margin-left: 0.2em;
+	margin-right: 0;
+}
+
+.trx_addons_tabs_section.trx_addons_section_mode_list .trx_addons_image_block_footer {
+	padding: 0 2em 0 0;
+}
+@media (max-width: 479px) {
+	.trx_addons_tabs_section.trx_addons_section_mode_list .trx_addons_image_block_footer {
+		padding: 0;
+	}
+}
+@media (min-width: 480px) {
+	.trx_addons_tabs_section.trx_addons_section_mode_list .trx_addons_image_block_footer {
+		padding: 0 1em 0 0;
+	}
+}
+@media (min-width: 1680px) {
+	.trx_addons_tabs_section.trx_addons_section_mode_list .trx_addons_image_block_footer {
+		padding: 0 1.5em 0 0;
+	}
+}
+
+#trx_addons_theme_panel_section_skins.trx_addons_tabs_section.trx_addons_section_mode_list .trx_addons_image_block_footer {
+	padding: 0 2em 0 0;
+}
+@media (min-width: 768px) {
+	#trx_addons_theme_panel_section_skins.trx_addons_tabs_section.trx_addons_section_mode_list .trx_addons_image_block_footer {
+		padding: 0 1.5em 0 0;
+	}
+}
+@media (max-width: 767px) {
+	#trx_addons_theme_panel_section_skins.trx_addons_tabs_section.trx_addons_section_mode_list .trx_addons_image_block_footer {
+		padding: 1em 0 0 0;
+	}
+}
+@media (max-width: 479px) {
+	#trx_addons_theme_panel_section_skins.trx_addons_tabs_section.trx_addons_section_mode_list .trx_addons_image_block_footer {
+		padding: 0.5em 1em;
+	}
+}
+
+.trx_addons_theme_panel .trx_buttons {
+	text-align: right;
+}
+.trx_addons_tabs.trx_addons_panel_wizard > ul.ui-tabs-nav > li > a:before {
+	margin: 0.25em 0 0 0.5em;
+	text-align: right;
+}
+
+/* List of modes */
+.trx_addons_theme_panel_section_content > .trx_addons_theme_panel_section_view_mode {
+	left: 0;
+	right: auto;
+}
+
+.trx_addons_theme_panel_section_filters_form {
+	margin: 0 0 0 2em;
+}

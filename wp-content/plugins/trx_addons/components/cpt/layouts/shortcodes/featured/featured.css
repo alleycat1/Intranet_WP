@@ -1,0 +1,35 @@
+.sc_layouts_featured.with_content {
+  position: relative;
+  min-height: 0em;
+}
+
+.sc_layouts_featured .sc_layouts_featured_content {
+  position: static;
+}
+
+.sc_layouts_featured.with_image.without_content {
+  min-height: 40rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sc_layouts_featured.with_image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sc_layouts_featured.with_image.with_content:before {
+  content: ' ';
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  /* Important! z-index: 1+ place this block over cart and over popups! */
+}
+
+/*# sourceMappingURL=featured.css.map */

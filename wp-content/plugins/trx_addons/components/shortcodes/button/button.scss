@@ -1,0 +1,182 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+.sc_button_wrap:not([class*="sc_align_"]) {
+	display:inline-block;
+	vertical-align: top;
+}
+
+/* Normal button */
+.sc_button {
+	display:inline-block;
+	vertical-align: top;
+	text-transform:uppercase;
+	white-space:nowrap;
+	padding:1.5em 3em;
+	background-position:center center;
+	background-repeat:repeat;
+	overflow:hidden;
+	background-color: #efa758;
+	color: #fff;
+	@include border-box;
+	@include transition-all;
+}
+.sc_button:hover {
+	background-color: #007fc5;
+}
+.sc_button + .sc_button {
+	margin-left: 1em;
+}
+.sc_button_subtitle {
+	@include font(0.85em, 1.25em);
+	text-transform:none;
+	display:block;
+}
+.sc_button_icon,
+.sc_button_text {
+	display:inline-block;
+	vertical-align:middle;
+	white-space:normal;
+	text-decoration:inherit;	/* Need to apply decoration from the parent tag 'a' */
+}
+.sc_button_icon {
+	@include font(2em, 1.25em, 400, normal);
+}
+.sc_button .sc_button_icon svg {
+	stroke: currentColor;
+	fill: currentColor;
+	@include transition-all;
+}
+.sc_button .sc_button_icon svg,
+.sc_button .sc_button_icon object {
+	@include box(1em, 1em);
+}
+.sc_button_icon img {
+	max-height:2.5em;
+	width: auto;
+}
+.sc_button_icon_left .sc_button_icon {
+	margin-right: 0.8em;
+}
+.sc_button_icon_right .sc_button_icon {
+	float:right;
+	margin-left: 0.8em;
+}
+.sc_button_icon_top .sc_button_icon {
+	display:block;
+	margin-bottom: 0.25em;
+	text-align:center;
+}
+
+/* Sizes */
+.sc_button.sc_button_size_small {
+	padding: 1em 2.5em;
+}
+.sc_button.sc_button_size_small {
+	.sc_button_icon {
+		//Conflict with the font-size of the icon in the old themes
+		//font-size: 1.4em;
+
+		img {
+			max-height:2em;
+			width: auto;
+		}
+	}
+}
+.sc_button.sc_button_size_large {
+	font-size: 1.25em;
+}
+.sc_button.sc_button_size_large .sc_button_icon img {
+	max-height:4em;
+	width: auto;
+}
+
+/* Button with image */
+.sc_button_bg_image {
+	position:relative;
+	@include bg-cover;
+}
+.sc_button.sc_button_bg_image,
+.sc_button.sc_button_bg_image:hover {
+	color: #fff !important;
+}
+.sc_button_bg_image .sc_button_text {
+	position:relative;
+	z-index: 2;
+}
+.sc_button_bg_image:before {
+	content: ' ';
+	margin: 0 !important;
+	@include bg-mask(#000, 0.5, 1);
+	@include transition-property( background-color);
+}
+.sc_button_bg_image:hover:before {
+	background-color:rgba(0,0,0,0.75);
+}
+
+
+/* Bordered button */
+.sc_button_bordered {
+	background:none !important;
+	border: 2px solid #efa758;
+	color: #efa758;
+}
+.sc_button_bordered:hover {
+	border-color: #007fc5;
+	color: #007fc5;
+}
+
+
+/* Simple button (link with arrow) */
+.sc_button_simple {
+	display:inline-block;
+	background-color: transparent !important;
+	color: #efa758;
+	position:relative;
+	padding: 0 1.8em 0 0;
+}
+.sc_button_simple:hover {
+	color: #000;
+}
+.sc_button.sc_button_simple:before,
+.sc_button.sc_button_simple:after {
+	content:'\e911';
+	font-family: $trx_addons_icons;
+	margin:0;
+	line-height: inherit;
+	color: inherit;
+	@include abs-rt;
+	@include transition-all;
+}
+.sc_button_with_icon.sc_button_simple:before,
+.sc_button_with_icon.sc_button_simple:after,
+.sc_button_with_image.sc_button_simple:before,
+.sc_button_with_image.sc_button_simple:after {
+	top: 50%;
+	line-height: 1em;
+	margin-top: -0.5em;
+}
+.sc_button.sc_button_simple:before {
+	right:20px;
+	opacity:0;
+}
+.sc_button.sc_button_simple:hover:before {
+	opacity:1;
+	right: 0;
+}
+.sc_button.sc_button_simple:hover:after {
+	opacity:0;
+	right: -20px;
+}
+.sc_button_simple.sc_button_icon_left {
+	padding-left: 1px;
+}
+.sc_button_simple.sc_button_icon_left .sc_button_icon {
+	margin-right: 0.4em;
+}
+.sc_button_simple.sc_button_icon_right {
+	padding-right: 1px;
+}
+.sc_button_simple.sc_button_icon_right .sc_button_icon {
+	margin-left: 0.4em;
+}

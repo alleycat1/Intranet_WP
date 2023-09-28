@@ -1,0 +1,219 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: n/a\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: n/a\n"
+"PO-Revision-Date: 2023-06-21 12:28+0000\n"
+"Last-Translator: Matthias Günter <matthias.guenter@devowl.io>\n"
+"Language-Team: Ukrainian <https://translate.devowl.io/projects/devowl-wp-"
+"real-utils-backend-php/develop/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.16.4\n"
+
+#: cross/CrossRealCategoryLibrary.php:50
+msgid "Do you manage many categories?"
+msgstr "Ви керуєте багатьма категоріями?"
+
+#: cross/CrossRealCategoryLibrary.php:52
+msgid ""
+"Do you still create your categories this way? Get an explorer-like tree view "
+"directly in your posts/page tables!"
+msgstr ""
+"Ви все ще створюєте свої категорії таким чином? Отримайте деревоподібний "
+"вигляд, подібний до провідника, безпосередньо у ваших публікаціях/таблицях "
+"сторінок!"
+
+#: cross/CrossRealCategoryLibrary.php:59
+msgid "Manage product categories/attributes?"
+msgstr "Керувати категоріями/атрибутами товарів?"
+
+#: cross/CrossRealCategoryLibrary.php:61
+msgid ""
+"Do you still create your product categories and attributes this way? Get an "
+"explorer-like tree view directly into your WooCommerce products table!"
+msgstr ""
+"Ви все ще створюєте категорії та атрибути товарів таким чином? Отримайте "
+"деревоподібний вигляд, подібний до провідника, безпосередньо у вашій таблиці "
+"продуктів WooCommerce!"
+
+#: cross/CrossRealCategoryLibrary.php:68
+msgid "Paginate without reload?"
+msgstr "Перегортати сторінки без перезавантаження?"
+
+#: cross/CrossRealCategoryLibrary.php:70
+msgid ""
+"Do you want to paginate through your posts and pages without having to "
+"reload the complete page?"
+msgstr ""
+"Ви хочете переглядати свої дописи та сторінки без необхідності "
+"перезавантажувати всю сторінку?"
+
+#: cross/CrossRealCategoryLibrary.php:77
+msgid "Assigning much faster?"
+msgstr "Переміщення набагато швидше?"
+
+#: cross/CrossRealCategoryLibrary.php:79
+msgid ""
+"You can move or insert a post or page directly into a category without "
+"having to deal with checkboxes."
+msgstr ""
+"Ви можете перемістити або вставити допис або сторінку безпосередньо в "
+"категорію, не використовуючи чекбокс."
+
+#: cross/CrossRealCookieBanner.php:88
+msgid "Is your website GDPR compliant?"
+msgstr "Чи відповідає ваш веб-сайт вимогам GDPR?"
+
+#: cross/CrossRealCookieBanner.php:89
+msgid "cookie-banner-frontend.png"
+msgstr "cookie-banner-frontend.png"
+
+#: cross/CrossRealCookieBanner.php:90
+msgid ""
+"Websites targeting EU users and setting non-essential cookies need an opt-in "
+"cookie banner. We recommend Real Cookie Banner as an ePrivacy Policy and "
+"GDPR compliant solution for WordPress."
+msgstr ""
+"Веб-сайти, орієнтовані на користувачів з ЄС, які встановлюють необов'язкові "
+"файли cookie, потребують банер з підтвердженням згоди на використання файлів "
+"cookie. Ми рекомендуємо Real Cookie Banner як рішення для WordPress, сумісне "
+"з політикою електронної конфіденційності та GDPR."
+
+#: cross/CrossRealCookieBanner.php:94
+msgid "https://devowl.io/go/real-cookie-banner?source=cross-rcb"
+msgstr "https://devowl.io/go/real-cookie-banner?source=cross-rcb"
+
+#: cross/CrossRealMediaLibrary.php:49
+msgid "File finally found?"
+msgstr "Файл знайдений?"
+
+#: cross/CrossRealMediaLibrary.php:51
+msgid ""
+"Your WordPress site will certainly continue to grow. Organize your media "
+"library with folders!"
+msgstr ""
+"Ваш сайт WordPress обов'язково буде рости. Організуйте свою медіабібліотеку "
+"за допомогою папок!"
+
+#: cross/CrossRealMediaLibrary.php:58
+msgid "Does it take long to find a file?"
+msgstr "Потрібно багато часу, щоб знайти файл?"
+
+#: cross/CrossRealMediaLibrary.php:60
+msgid ""
+"Inserting media into a post or page can be stressful. Use folders to "
+"organize your media library!"
+msgstr ""
+"Вставка мультимедіа в повідомлення або сторінку може бути незручною. "
+"Використовуйте папки для організації вашої медіабібліотеки!"
+
+#: cross/CrossRealPhysicalMedia.php:47 cross/CrossRealPhysicalMedia.php:56
+msgid "Did you know that?"
+msgstr "Ви знали про це?"
+
+#: cross/CrossRealPhysicalMedia.php:49 cross/CrossRealPhysicalMedia.php:58
+msgid ""
+"Your uploads can say more than a thousand words. Unfortunately, search "
+"engines do not understand the content of images, for example. Organize your "
+"uploads directly in meaningful folder names and achieve a better ranking in "
+"search engines!"
+msgstr ""
+"Ваші завантаження можуть сказати більше тисячі слів. На жаль, пошукові "
+"системи не розуміють зміст, наприклад, зображень. Сортуйте свої завантаження "
+"в папках і отримаєте кращий рейтинг в пошукових системах!"
+
+#: Service.php:162 Service.php:281
+msgid "No such plugin slug available."
+msgstr "Такий слаг плагіна недоступний."
+
+#: Service.php:217
+msgid "The abstract implementation for your slug could not be found."
+msgstr "Не вдалося знайти абстрактну реалізацію для вашого слагу."
+
+#: Service.php:274
+msgid "You must agree to our privacy policy to continue."
+msgstr ""
+"Щоб продовжити ви повинні погодитися з нашою політикою конфіденційності."
+
+#. translators:
+#: view/Options.php:50
+msgid "Products of %s"
+msgstr "Продукти %s"
+
+#. translators:
+#: view/Options.php:72
+msgid ""
+"Show advertising for not yet installed %s products in the WordPress backend"
+msgstr ""
+"Показувати рекламу в бекенде WordPress для ще не встановлених продуктів %s"
+
+#: WelcomePage.php:59
+msgid "Learn more about this plugin"
+msgstr "Дізнатися більше про цей плагін"
+
+#: WelcomePage.php:66 WelcomePage.php:164
+msgid "Support"
+msgstr "Підтрымка"
+
+#: WelcomePage.php:71 WelcomePage.php:167
+msgid "Rate plugin"
+msgstr "Оцінити плагін"
+
+#: WelcomePage.php:156
+msgid "Version"
+msgstr "Версія"
+
+#: WelcomePage.php:161
+msgid "Info"
+msgstr "Інформація"
+
+#: WelcomePage.php:175
+msgid "Key feature"
+msgid_plural "Key features"
+msgstr[0] ""
+msgstr[1] ""
+
+#: WelcomePage.php:183
+msgid "Newsletter"
+msgstr "Розсилка новин"
+
+#: WelcomePage.php:186
+msgid ""
+"Receive the latest news about devowl.io WordPress plugins directly in your "
+"inbox"
+msgstr ""
+"Отримуйте останні новини від devowl.io плагінах WordPress прямо на пошту"
+
+#: WelcomePage.php:190
+msgid "Enter your email..."
+msgstr "Введіть свій email…"
+
+#. translators:
+#: WelcomePage.php:198
+msgid ""
+"I want to receive WordPress news from devowl.io via email and agree to the "
+"<a %s>privacy policy</a>."
+msgstr ""
+"Я хочу отримувати WordPress новини від devowl.io на email і погоджуюся з <a "
+"%s>політикою конфіденційності</a>."
+
+#: WelcomePage.php:202
+msgid "https://devowl.io/privacy-policy/"
+msgstr "https://devowl.io/privacy-policy/"
+
+#: WelcomePage.php:209
+msgid "Subscribe"
+msgstr "Підписатися"
+
+#: WelcomePage.php:283
+msgid "Additional plugins by devowl.io"
+msgstr "Інші плагіни від devowl.io"
+
+#: WelcomePage.php:353
+msgid "Available in"
+msgstr "Доступно в"

@@ -1,0 +1,249 @@
+.uk-grid{
+    background: #f0f0f1;
+}
+.nwallet_side_menu .uk-card {
+    background: transparent;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.nwallet_set_title strong {
+    margin: 0 15px
+}
+
+.nwallet_setting_content {
+    padding-right: 0;
+}
+
+.nwallet_side_menu > .uk-card-default {
+    box-shadow: none;
+}
+
+.nwallet_side_menu li {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.plugin_name_nwallet {
+    display: flex;
+    align-items: center;
+}
+
+.nwallet_side_menu li.plugin_name_nwallet {
+    padding-bottom: 20px !important;
+}
+
+.plugin_name_nwallet img {
+    margin: 0 10px
+}
+
+.plugin_name_nwallet p {
+    color: #ff7d00;
+    font-size: 18px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.plugin_name_nwallet small {
+    color: #111;
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 10px
+}
+
+.n_s_ticket_item a {
+    text-decoration: none;
+    color: #121116;
+    padding: 20px 10px;
+    transition: 200ms;
+    display: flex;
+    align-items: center;
+    border-left: 3px solid transparent;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.n_s_ticket_item a .menu_title {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.n_s_ticket_item a .menu_description {
+    color: #72777C;
+    margin-top: 10px;
+}
+
+.n_s_ticket_item a i svg {
+    width: 26px;
+}
+
+.n_s_ticket_item a.active, .n_s_ticket_item a:hover {
+    color: #ff7d00;
+    border-left-color: #ff7d00;
+    background: #fff;
+    box-shadow: none !important;
+}
+
+.content_settings > div, .sms_filds > div {
+    display: none
+}
+
+.content_settings > div:first-child, .sms_filds > div.active {
+    display: block
+}
+
+.nwallet_set_title {
+    border-bottom: 1px solid #DDD;
+    height: 66px;
+    line-height: 66px;
+    display: flex;
+    align-items: center;
+}
+
+.nwallet_set_title_icon {
+    display: flex;
+    border-radius: 2px;
+    width: 56px;
+    height: 56px;
+    color: white;
+    background: #ff7d00;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.nwallet_set_title_icon:before {
+    content: '';
+    position: absolute;
+    width: 56px;
+    height: 2px;
+    bottom: -4.6pt;
+    left: 0;
+    background: #ff7d00;
+}
+
+.nwallet_set_title_icon svg {
+    width: 26px
+}
+
+.uk-form-custom {
+    width: 100%;
+}
+
+.uk-form-custom .uk-button-default {
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.uk-form-custom .uk-button-default.disabled {
+    background-color: #eee;
+}
+
+.uk-form-custom .uk-button-default .uk-icon {
+    float: right;
+    position: relative;
+    top: 9px;
+}
+
+.uk-form-custom select {
+    max-width: unset;
+}
+
+.uk-form-custom select:disabled {
+    background-color: #a7aaad;
+}
+
+.set_description {
+    margin-top: 10px;
+    color: #898989
+}
+
+.set_description i {
+    color: #ff7d00;
+    margin: 0 4px;
+}
+
+.uk-input, .uk-select, .uk-textarea {
+    border-color: #E5E5E5 !important;
+    border-radius: 0 !important;
+}
+
+.uk-checkbox {
+    background-repeat: no-repeat !important;
+    background-position-y: 2px !important;
+    border-color: #E5E5E5 !important;
+    border-radius: 0 !important;
+}
+
+input[type=checkbox]:checked::before {
+    display: none
+}
+
+.nwallet_ch label {
+    margin: 0 10px
+}
+
+.btn_save_set_nwallet div {
+    display: none;
+}
+
+.pro_ver {
+    display: flex !important;
+    align-items: center
+}
+
+.pro_ver_txt {
+    margin: 0 15px;
+    padding: 5px 10px 5px 5px;
+    background: #ff7d00;
+    color: #fff;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    height: 22px;
+    line-height: 21px;
+    font-size: 16px;
+}
+
+.pro_ver_txt svg {
+    margin-right: 5px;
+    width: 18px;
+}
+
+.item_rep {
+    display: flex;
+    align-items: center;
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.item_rep input {
+    width: 90%;
+    margin: 0 10px
+}
+
+.item_rep .icons i {
+    color: #aaa
+}
+.plugin_name_nwallet{
+        display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo_support{
+      display: flex;
+    align-items: center;
+}
+.premium_support,.premium_support:hover,.premium_support:focus{
+        background-color: #d63638;
+    font-weight: 900;
+    font-size: 19px;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+}

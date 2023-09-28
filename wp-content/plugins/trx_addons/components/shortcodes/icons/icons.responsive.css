@@ -1,0 +1,19 @@
+@media (max-width: 1279px) {
+  /* Icons */
+  .sc_icons .sc_icons_icon + .sc_icons_item_title,
+  .sc_icons .sc_icons_icon + .sc_icons_item_description {
+    margin-top: 1em;
+  }
+
+  .sc_icons .sc_icons_item_description {
+    font-size: 14px;
+  }
+}
+@media (max-width: 479px) {
+  /* Icons */
+  .sc_icons_columns_wrap .sc_icons_column {
+    width: 100% !important;
+  }
+}
+
+/*# sourceMappingURL=icons.responsive.css.map */

@@ -1,0 +1,5 @@
+$prefix: 'posts-table';
+$table-class: '.posts-data-table';
+
+@import "../../dependencies/barn2/datatables/assets/scss/index";
+@import "main";

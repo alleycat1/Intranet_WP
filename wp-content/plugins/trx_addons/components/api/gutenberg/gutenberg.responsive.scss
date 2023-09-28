@@ -1,0 +1,7 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+//@mixin gutenberg--lg() {
+@media #{$media_lg} {
+    /* Gutenberg */
+}

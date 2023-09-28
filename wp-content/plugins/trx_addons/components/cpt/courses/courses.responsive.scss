@@ -1,0 +1,46 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+//@mixin sc_courses--md() {
+@media #{$media_md} {
+    /* Courses */
+	.sc_courses_default .trx_addons_hover_content .trx_addons_hover_text,
+	.sc_courses_default .trx_addons_hover_content .trx_addons_hover_links a {
+		margin-top: 1.5em;
+	}
+	.sc_courses_default .trx_addons_hover_content .trx_addons_hover_links a {
+		padding: 1em;
+		font-size:10px;
+	}
+}
+
+//@mixin sc_courses--sm() {
+@media #{$media_sm} {
+    /* Courses */
+	.sc_courses_default .trx_addons_hover_content {
+		padding: 10px;
+	}
+	.sc_courses_default .trx_addons_hover_content .trx_addons_hover_text,
+	.sc_courses_default .trx_addons_hover_content .trx_addons_hover_links a {
+		margin-top: 1.25em;
+	}
+	.sc_courses_default .trx_addons_hover_content .trx_addons_hover_links a + a {
+		margin-left: 0.3em;
+	}
+	.sc_courses_default .sc_courses_item_price {
+		font-size:1.5em;
+	}
+
+	.courses_single .courses_page_header > .courses_page_price,
+	.courses_single .courses_page_price + .courses_page_meta {
+		@include font(1.2em, 1.4em);
+	}
+	.courses_single .courses_page_header > .courses_page_price {
+		float:none;
+		margin-bottom: 0.5em;
+		margin-left:0;
+	}
+	.courses_single .courses_page_price + .courses_page_meta {
+		margin-top: 0;
+	}
+}

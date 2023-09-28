@@ -1,0 +1,23 @@
+@media (max-width: 479px) {
+  /* Accordion */
+  .sc_accordionposts .sc_accordionposts_item_top .sc_accordionposts_item_icon {
+    display: none;
+  }
+
+  .sc_accordionposts {
+    padding-left: 0;
+  }
+
+  .sc_accordionposts .sc_accordionposts_item_top .sc_accordionposts_item_title {
+    margin-left: 2px;
+    font-size: 1.3rem;
+    line-height: 100%;
+    font-weight: bold;
+  }
+
+  .sc_accordionposts .sc_accordionposts_item_inner {
+    padding: 2rem;
+  }
+}
+
+/*# sourceMappingURL=accordionposts.responsive.css.map */

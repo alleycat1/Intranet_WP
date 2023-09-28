@@ -1,0 +1,58 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/* To move pagination bullets below the items
+.sc_twitter .sc_twitter_slider.slider_outer_pagination_pos_bottom {
+	padding-bottom: 3em;
+}
+*/
+
+.widget_twitter .widget_content ul {
+	padding-left: 2em;
+	list-style-type:none;
+}
+.widget_twitter .widget_content ul > li {
+	position:relative;
+	text-align: left;
+	color: #bbb;
+}
+.widget_twitter .widget_content ul > li+li {
+	margin-top: 1.5em;
+}
+.widget_twitter .widget_content ul > li:before {
+	content: '\e840';
+	font-family: $trx_addons_icons;
+	font-size:1.2em;
+	font-style:normal;
+	display:inline-block;
+	background-color:transparent !important;
+	@include abs-lt(-1.5em, 0);
+	@include box(1em, 1em, inherit);
+}
+.widget_twitter .widget_content .sc_twitter_item {
+	margin-bottom: 1em; 
+}
+.widget_twitter .widget_content .sc_twitter_item:last-child {
+	margin-bottom: 0; 
+}
+.widget_twitter .widget_content .sc_twitter_item .sc_twitter_item_icon {
+	text-align: center;
+	font-size:1.6em;
+	font-style:normal;
+	margin-bottom: 0.8em;
+}
+.widget_twitter .widget_content .sc_twitter_item a,
+.widget_twitter .widget_content ul > li a {
+	font-weight:normal;
+}
+.widget_twitter .widget_twitter_follow {
+	display: block;
+	text-align:center;
+	margin-top: 1em;
+}
+.widget_twitter .widget_twitter_follow:after {
+	content: '\e884';
+	font-family: $trx_addons_icons;
+	display:inline-block;
+	margin-left:0.5em;
+}

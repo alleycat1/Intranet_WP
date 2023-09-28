@@ -1,0 +1,20 @@
+@import "../../../../../css/_mixins.scss";
+@import "../../../../../css/_trx_addons.vars.scss";
+
+.custom-logo-link img,
+.sc_layouts_logo img {								max-height: 6em; width: auto; vertical-align: middle; }
+.sc_layouts_row_type_compact .custom-logo-link img,
+.sc_layouts_row_type_compact .sc_layouts_logo img {	max-height: 4.5em; }
+.sc_layouts_row_type_narrow .custom-logo-link img,
+.sc_layouts_row_type_narrow .sc_layouts_logo img {	max-height: 3em; }
+
+.sc_layouts_logo .logo_text {
+	display:block;
+	@include transition-property(color);
+}
+.sc_layouts_logo .logo_slogan {
+	display:block;
+	@include font(12px, 15px);
+	letter-spacing:0px;
+	@include transition-property(color);
+}

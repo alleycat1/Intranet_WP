@@ -1,0 +1,58 @@
+@import "../../../../css/_mixins.scss";
+@import "../../../../css/_theme-vars.scss";
+@import "../../css/_skin-vars.scss";
+
+//@mixin blog_styles_classic--lg() {
+@media #{$media_lg} {
+	/* Blog layout: Classic */
+	.post_layout_classic blockquote {
+		padding: 2.5em 2.5em 2.5em 5em;
+	}
+	.post_layout_classic blockquote:before {
+		top: 1.2em;
+		left: 0.8em;
+	}
+}
+
+//@mixin blog_styles_classic--md() {
+@media #{$media_md} {
+	/* Blog layout: Classic */
+	.post_layout_classic blockquote {
+		padding: 2em 2em 2em 5em;
+	}
+	.post_layout_classic blockquote:before {
+		top: 1.1em;
+		left: 0.7em;
+	}
+	.post_layout_classic blockquote p {
+		font-size: 16px;
+	}
+	.post_layout_classic blockquote > a, .post_layout_classic blockquote > p > a,
+	.post_layout_classic blockquote > cite, .post_layout_classic blockquote > p > cite {
+		font-size: 16px;
+	}
+	.post_layout_classic .swiper-container-horizontal > .swiper-pagination,
+	.post_layout_classic .slider_outer > .swiper-pagination {
+		bottom: 15px;
+	}
+	.post_layout_classic .slider_container .swiper-pagination-bullet, 
+	.post_layout_classic .slider_outer .swiper-pagination-bullet {
+		@include square(6px);
+		border-width: 1px;
+	}
+	.post_layout_classic.format-audio .post_featured.with_thumb .post_audio {
+		bottom: 1em;
+	}
+}
+@media #{$media_sm} {
+	.post_layout_classic blockquote:before {
+		top: 0.7em;
+		left: 0.4em;
+	}
+}
+@media #{$media_xs} {
+	.post_layout_classic blockquote:before {
+		top: 0.78em;
+		left: 0.35em;
+	}
+}

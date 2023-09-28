@@ -1,0 +1,88 @@
+/* Common styles */
+.trx_addons_info_box {
+	padding: 1.5em 3.5em 1.5em 1.5em;
+	border-right: 4px solid #00a0d2;
+	border-left: 0;
+}
+.trx_addons_info_box:before {
+	right: 1.15em;
+	left: auto;
+}
+.trx_addons_button:before,
+form input[type="button"].trx_addons_button:before,
+form input[type="submit"].trx_addons_button:before {
+	margin-left: 0.3em;
+	margin-right: 0;
+}
+.trx_addons_image_block_inner .trx_addons_image_block_image .trx_addons_image_block_link[target]:after {
+	left: 0.3em;
+	right: auto;
+}
+.trx_addons_loading:before {
+	margin-left: 0.5em;
+	margin-right: 0;
+}
+
+
+/* Tabs  */
+.trx_addons_tabs > ul.ui-tabs-nav > li > a > i[class*="dashicons-"],
+.trx_addons_tabs > ul.ui-tabs-nav > li > a > i[class*="icon-"] {
+	margin: 0 0 0 0.35em;
+}
+.trx_addons_tabs_vertical > ul.ui-tabs-nav > li.ui-state-active > a.ui-tabs-anchor {
+	right: 1px;
+	left: auto;
+	padding-right: 12px;
+	padding-left: 15px;
+}
+@media (min-width: 1680px) {
+	#trx_addons_theme_panel_section_skins.trx_addons_section_mode_list .trx_addons_image_block {
+		padding: 0 0 1.5em 1.5em !important;
+	}
+	.trx_addons_tabs_section.trx_addons_section_mode_list .trx_addons_image_block {
+		padding:  0 0 2em 2em;
+	}
+}
+@media (min-width: 768px) {
+	#trx_addons_theme_panel_section_skins.trx_addons_section_mode_list .trx_addons_image_block {
+		padding: 0 0 1em 1em !important;
+	}
+	.trx_addons_tabs_section.trx_addons_section_mode_list .trx_addons_image_block {
+		padding:  0 0 1em 1em;
+	}
+}
+
+/* Tab: Plugins */
+.trx_addons_theme_panel_plugins_list_item {
+	padding: 0 0 15px 15px;
+}
+.trx_addons_theme_panel_plugins_list_item_status {
+	left: 0;
+	right: auto !important;
+	border-radius: 0 0 3px 0 !important;
+	-webkit-border-radius: 0 0 3px 0 !important;
+	-ms-border-radius: 0 0 3px 0 !important;
+}
+.trx_addons_theme_panel_plugins_list_item_check {
+	float: left !important;
+	margin-left: 0 !important;
+	margin-right: 1.5em !important;
+}
+.trx_addons_theme_panel_plugins_list_item_state {
+	float: left !important;
+	padding: 2px 6px 2px 0 !important;
+}
+.trx_addons_theme_panel_plugins_list_item_title {
+	padding-right: 14px;
+	padding-left: 0;
+}
+
+/* Addons  */
+.form-table .cpt_to_cart_options .cpt_to_cart_options_column_options .cpt_to_cart_options_popup {
+	right: auto;
+	left: 0;
+}
+.form-table .cpt_to_cart_options .cpt_to_cart_options_column_options .cpt_to_cart_options_popup .cpt_to_cart_options_popup_close {
+	right: auto;
+	left: 0;
+}

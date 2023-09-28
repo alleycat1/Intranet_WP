@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAKA,0BAAoB;EACnB,yBAAyB",
+"sources": ["custom-responsive.scss"],
+"names": [],
+"file": "custom-responsive.css"
+}

@@ -1,0 +1,8 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/* Widget: Socials */
+.widget_socials .socials_description + .socials_wrap,
+.widget_socials .socials_description + .share_wrap {
+	margin-top: 1.5em;
+}

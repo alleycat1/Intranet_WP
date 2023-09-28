@@ -1,0 +1,25 @@
+.trx_addons_ocdi_intro_text ul {
+    list-style-type: disc;
+    padding-left: 1.2em;
+}
+.ocdi__intro-text p:not(:first-child), 
+.ocdi__intro-text ul, 
+.ocdi__intro-text hr:last-child {
+    display: none;
+}
+.ocdi_import_components_descr {
+	font-size: 0.9em;
+	font-style: italic;
+    color: #888;
+}
+.ocdi_import_components_descr b {
+    color: #000;
+    font-weight: 400;
+    border-bottom: 1px dashed #000;
+    display: inline-block;
+    line-height: inherit;
+}
+.ocdi__button-container .ocdi__button.disable {
+    opacity: 0.3;
+    pointer-events: none;
+}

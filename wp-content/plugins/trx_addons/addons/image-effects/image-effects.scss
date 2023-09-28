@@ -1,0 +1,98 @@
+@import "../../css/_mixins.scss";
+@import "../../css/_trx_addons.vars.scss";
+@import "../../css/_trx_addons.colors.scss";
+
+/* Image effects
+--------------------------------------------------------------- */
+
+/* Canvas wrapper (holder) */
+.trx_addons_image_effects_holder {
+	position: relative;
+
+	&.wp-caption .wp-caption-text {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+		@include border-box;
+		padding: 0.5em !important;
+		background-color: rgba(255,255,255,0.75);
+	}
+}
+.post_featured_bg.with_thumb[class*="hover_on_"] .trx_addons_image_effects_holder {
+	@include abs-cover;
+}
+
+/* Canvas with effect */
+body > [id^="trx_addons_image_effects_canvas_"] {
+	@include fixed-cover(0);
+}
+.trx_addons_image_effects_holder > [id^="trx_addons_image_effects_canvas_"] {
+	@include abs-cover(0);
+
+	.slider_container & > canvas {
+		@include abs-cover(0);
+	}
+}
+[id^="trx_addons_image_effects_canvas_"] {
+	opacity: 0;
+//	transition: opacity 0.5s ease-in;
+	pointer-events: none;
+}
+.trx_addons_image_effects_planes_loaded [id^="trx_addons_image_effects_canvas_"] {
+	opacity: 1;
+}
+
+
+/* If no curtains supported or any other errors occured - display original images */
+body.no-curtains {
+	[id^="trx_addons_image_effects_canvas_"] {
+		display: none;
+	}
+}
+
+/* Fix for Elementor editor */
+.elementor-edit-area .post_featured_bg.with_thumb[class*="hover_on_"] .trx_addons_image_effect_original_image {
+	max-width: none;
+	max-height: none;
+	width: auto;
+	height: 100%;
+	@include abs-cc;
+	object-fit: cover;
+}
+
+/* Hide images in blocks with a bg image */
+body:not(.elementor-editor-active):not(.no-curtains) [class*="trx_addons_image_effects_on_"].post_featured_bg {
+	.trx_addons_image_effect_original_image,
+	.trx_addons_secondary_image {
+	    display: none;
+	}
+}
+
+//@mixin image-effects--not_tablet() {
+@media #{$media_not_tablet} {
+	/* Image effects */
+	body:not(.elementor-editor-active):not(.no-curtains) [class*="trx_addons_image_effects_on_"] {
+		img {
+			@include transition-property(opacity);
+		}
+		&:not(.trx_addons_image_effects_inited) img {
+			opacity: 0;
+		}
+		&.trx_addons_image_effects_holder > img,
+		.trx_addons_image_effects_holder > img {
+			visibility: hidden;
+		}
+		img ~ img,
+		.trx_addons_image_effect_original_image,
+		.trx_addons_secondary_image,
+		.post_thumb,
+		.mask {
+			display: none;
+		}
+		.icons {
+			@include abs-cover;
+		}
+	}
+}

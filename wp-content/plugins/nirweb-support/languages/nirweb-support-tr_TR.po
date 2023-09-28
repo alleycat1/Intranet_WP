@@ -1,0 +1,1482 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nirweb support\n"
+"POT-Creation-Date: 2021-08-25 07:54+0430\n"
+"PO-Revision-Date: 2021-08-25 09:21+0430\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: nirweb-support.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: core/core.php:27
+msgid "Are you sure you want to reset?"
+msgstr "Sıfırlamak istediğinizden emin misiniz?"
+
+#: core/core.php:28
+msgid "This will cause data loss."
+msgstr "Bu, veri kaybına neden olur."
+
+#: core/core.php:29
+msgid "Form successfully reset."
+msgstr "Form başarıyla sıfırlandı."
+
+#: core/core.php:30 inc/admin/functions/func_answerd_ticket.php:67
+#: inc/admin/themes/answer-ticket.php:122
+#: inc/admin/themes/answer-ticket.php:126
+#: inc/admin/themes/answer-ticket.php:230
+#: inc/admin/themes/answer-ticket.php:276 inc/admin/themes/send_ticket.php:113
+#: inc/user/functions/ajax_user_send_tiket.php:99
+#: inc/user/themes/new_ticket.php:159 inc/user/themes/new_ticket.php:250
+#: inc/user/themes/new_ticket.php:258 inc/user/themes/replay_ticket.php:85
+#: inc/user/themes/replay_ticket.php:134 inc/user/themes/replay_ticket.php:196
+#: inc/user/themes/replay_ticket.php:295 inc/user/themes/replay_ticket.php:302
+msgid "Attachment File"
+msgstr "Ek Dosya"
+
+#: core/core.php:31
+msgid "Receiving information ..."
+msgstr "Bilgi alınıyor ..."
+
+#: core/core.php:32
+msgid "complete all stared sections Please"
+msgstr "bakılan tüm bölümleri tamamlayınız Lütfen"
+
+#: core/core.php:34
+msgid "File is not valid."
+msgstr "Dosya geçerli değil."
+
+#: core/core.php:35
+msgid "Answerede"
+msgstr "Cevaplandı"
+
+#: core/core.php:36 inc/user/themes/new_ticket.php:90
+msgid "necessary"
+msgstr "gerekli"
+
+#: core/core.php:37 inc/user/themes/new_ticket.php:89
+msgid "normal"
+msgstr "normal"
+
+#: core/core.php:38 inc/user/themes/new_ticket.php:88
+msgid "low"
+msgstr "düşük"
+
+#: core/core.php:39
+msgid "new"
+msgstr "yeni"
+
+#: core/core.php:40
+msgid "inprogress"
+msgstr "işlemde"
+
+#: core/core.php:41
+msgid "answerede"
+msgstr "cevaplandı"
+
+#: core/core.php:42
+msgid "closed"
+msgstr "kapalı"
+
+#: core/core.php:43 inc/admin/functions/scripts.php:27
+#: inc/admin/functions/scripts.php:42
+msgid "Ok"
+msgstr "Tamam"
+
+#: core/core.php:44 inc/admin/functions/scripts.php:28
+#: inc/admin/functions/scripts.php:43
+msgid "Cancel"
+msgstr "İptal"
+
+#: core/core.php:59 core/core.php:60 inc/admin/themes/manage_tickets.php:24
+msgid "Tickets"
+msgstr "Biletler"
+
+#: core/core.php:67
+msgid "All tickets"
+msgstr "Tüm Biletler"
+
+#: core/core.php:68 inc/admin/themes/send_ticket.php:1
+msgid "Send ticket"
+msgstr "Bilet Gönder"
+
+#: core/core.php:69 inc/admin/themes/all_ticket.php:21
+#: inc/admin/themes/all_ticket.php:66 inc/admin/themes/answer-ticket.php:138
+#: inc/admin/themes/answered_ticket.php:18
+#: inc/admin/themes/answered_ticket.php:31
+#: inc/admin/themes/closed_ticket.php:18 inc/admin/themes/closed_ticket.php:31
+#: inc/admin/themes/new_ticket.php:18 inc/admin/themes/new_ticket.php:49
+#: inc/admin/themes/process_ticket.php:18
+#: inc/admin/themes/process_ticket.php:31 inc/admin/themes/send_ticket.php:49
+#: inc/user/themes/replay_ticket.php:49
+msgid "Department"
+msgstr "Departman"
+
+#: core/core.php:70
+msgid "Pre answer"
+msgstr "Ön Cevap"
+
+#: core/core.php:71 inc/admin/themes/FAQ.php:10
+msgid "FAQ"
+msgstr "SSS"
+
+#: core/core.php:79 core/core.php:193 core/core.php:200
+msgid "Transfer Data"
+msgstr ""
+
+#: core/core.php:198
+msgid ""
+"To transfer data from the old table to the new one, please click on the "
+"button below"
+msgstr ""
+
+#: core/core.php:207
+msgid ""
+"To delete old tables, click on the button below (if deleted, it is not "
+"possible to recover)"
+msgstr ""
+
+#: core/core.php:208
+#, fuzzy
+#| msgid "Delete"
+msgid "Delete Data"
+msgstr "Sil"
+
+#: core/core.php:256 inc/admin/themes/department.php:15
+#: inc/admin/themes/department.php:34 inc/admin/themes/department.php:43
+#: option/options/options.php:107 option/options/options.php:142
+msgid "Support"
+msgstr "Destek"
+
+#: core/core.php:287 core/core.php:288 core/core.php:293 core/core.php:295
+msgid "pre answer"
+msgstr "ön cevap"
+
+#: core/core.php:289 core/core.php:290 core/core.php:292
+msgid "New Answer"
+msgstr "Yeni Cevap"
+
+#: core/core.php:291
+msgid "Edit Answer"
+msgstr "Yanıtı Düzenle"
+
+#: core/core.php:294
+msgid "Show Answer"
+msgstr "Yanıtı Göster"
+
+#: core/core.php:350 core/core.php:359
+msgid "Support Ticket"
+msgstr "Destek Bileti"
+
+#: core/core.php:469
+msgid "Count New Ticket"
+msgstr "Yeni Bileti Sayısı"
+
+#: core/core.php:473 inc/user/themes/home.php:42 inc/user/themes/home.php:45
+#: inc/user/themes/new_ticket.php:10
+msgid "New Ticket"
+msgstr "Yeni Destek Talebi"
+
+#: core/core.php:493 core/core.php:499
+msgid " ago"
+msgstr " önce"
+
+#: inc/admin/functions/ajax.php:58
+msgid "Select Prodcut"
+msgstr "Ürün Seç"
+
+#: inc/admin/functions/ajax_search_in_ticketes_wpyar.php:14
+#: inc/admin/themes/FAQ.php:61
+#: inc/user/functions/ajax_wpyar_ticket_user_search.php:21
+#: inc/user/functions/filter_ajax_ticket.php:92
+msgid "not found"
+msgstr "bulunamadı"
+
+#: inc/admin/functions/func_list_tickets.php:68
+#: inc/admin/functions/func_list_tickets.php:103
+#: inc/admin/functions/func_list_tickets.php:137
+#: inc/admin/functions/func_list_tickets.php:172
+#: inc/admin/functions/func_list_tickets.php:207
+#: inc/admin/functions/func_list_tickets.php:241
+#: inc/admin/functions/func_list_tickets.php:277
+#: inc/admin/functions/func_list_tickets.php:313
+#: inc/admin/functions/func_list_tickets.php:348
+#: inc/admin/functions/func_list_tickets.php:383
+#: inc/admin/functions/func_upload_file.php:25
+#: inc/user/functions/func_u_list_ticket.php:49
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: inc/admin/functions/func_list_tickets.php:69
+#: inc/admin/functions/func_list_tickets.php:104
+#: inc/admin/functions/func_list_tickets.php:138
+#: inc/admin/functions/func_list_tickets.php:173
+#: inc/admin/functions/func_list_tickets.php:208
+#: inc/admin/functions/func_list_tickets.php:242
+#: inc/admin/functions/func_list_tickets.php:278
+#: inc/admin/functions/func_list_tickets.php:314
+#: inc/admin/functions/func_list_tickets.php:349
+#: inc/admin/functions/func_list_tickets.php:384
+#: inc/admin/functions/func_upload_file.php:26
+#: inc/user/functions/func_u_list_ticket.php:50
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: inc/admin/functions/scripts.php:18
+msgid "Please complete all starred sections"
+msgstr "Lütfen tüm yıldızlı bölümleri doldurun"
+
+#: inc/admin/functions/scripts.php:19
+msgid "Sending information..."
+msgstr "Bilgi gönderiliyor ..."
+
+#: inc/admin/functions/scripts.php:20
+msgid "Add File"
+msgstr "Dosya Ekle"
+
+#: inc/admin/functions/scripts.php:21
+msgid "Use the file"
+msgstr "Dosyayı kullan"
+
+#: inc/admin/functions/scripts.php:22
+msgid "Your ticket was sent successfully"
+msgstr "Biletiniz başarıyla gönderildi"
+
+#: inc/admin/functions/scripts.php:23
+msgid "Your answer was sent successfully"
+msgstr "Cevabınız başarıyla gönderildi"
+
+#: inc/admin/functions/scripts.php:24
+msgid "There was a problem sending the reply"
+msgstr "Yanıtı gönderirken bir sorun oluştu"
+
+#: inc/admin/functions/scripts.php:25 option/classes/setup.class.php:436
+msgid "Are you sure?"
+msgstr "Emin misiniz?"
+
+#: inc/admin/functions/scripts.php:26
+msgid "The delete action causes the information to be lost."
+msgstr "Silme eylemi bilgilerin kaybolmasına neden olur."
+
+#: inc/admin/functions/scripts.php:29 inc/admin/themes/department.php:25
+msgid "Add Department"
+msgstr "Departman Ekle"
+
+#: inc/admin/functions/scripts.php:30
+msgid "Please enter the name of the department"
+msgstr "Lütfen departman adını giriniz"
+
+#: inc/admin/functions/scripts.php:31
+msgid "Please enter the support of the department"
+msgstr "Lütfen departmanın desteğini girin"
+
+#: inc/admin/functions/scripts.php:32
+msgid "The department changed successfully"
+msgstr "Departman başarıyla değişti"
+
+#: inc/admin/functions/scripts.php:33
+msgid "Please enter a question"
+msgstr "Lütfen bir soru girin"
+
+#: inc/admin/functions/scripts.php:34
+msgid "Please enter the answer text"
+msgstr "Lütfen cevap metnini girin"
+
+#: inc/admin/functions/scripts.php:35
+msgid "Question added"
+msgstr "Soru eklendi"
+
+#: inc/admin/themes/FAQ.php:15
+msgid "Question"
+msgstr "Soru"
+
+#: inc/admin/themes/FAQ.php:16
+msgid "Enter Question"
+msgstr "Soru Girin"
+
+#: inc/admin/themes/FAQ.php:21 inc/admin/themes/all_ticket.php:24
+#: inc/admin/themes/all_ticket.php:69 inc/admin/themes/answer-ticket.php:176
+#: inc/admin/themes/answered_ticket.php:21
+#: inc/admin/themes/answered_ticket.php:34
+#: inc/admin/themes/closed_ticket.php:21 inc/admin/themes/closed_ticket.php:34
+#: inc/admin/themes/new_ticket.php:21 inc/admin/themes/new_ticket.php:52
+#: inc/admin/themes/process_ticket.php:21
+#: inc/admin/themes/process_ticket.php:34
+msgid "Answer"
+msgstr "Cevap"
+
+#: inc/admin/themes/FAQ.php:32
+msgid "Add Question"
+msgstr "Soru Ekle"
+
+#: inc/admin/themes/all_ticket.php:18 inc/admin/themes/all_ticket.php:63
+#: inc/admin/themes/answer-ticket.php:153
+#: inc/admin/themes/answered_ticket.php:15
+#: inc/admin/themes/answered_ticket.php:28
+#: inc/admin/themes/closed_ticket.php:15 inc/admin/themes/closed_ticket.php:28
+#: inc/admin/themes/new_ticket.php:15 inc/admin/themes/new_ticket.php:46
+#: inc/admin/themes/process_ticket.php:15
+#: inc/admin/themes/process_ticket.php:28 inc/admin/themes/send_ticket.php:128
+#: inc/user/themes/replay_ticket.php:53
+msgid "Status"
+msgstr "Durum"
+
+#: inc/admin/themes/all_ticket.php:19 inc/admin/themes/all_ticket.php:64
+#: inc/admin/themes/answered_ticket.php:16
+#: inc/admin/themes/answered_ticket.php:29
+#: inc/admin/themes/closed_ticket.php:16 inc/admin/themes/closed_ticket.php:29
+#: inc/admin/themes/new_ticket.php:16 inc/admin/themes/new_ticket.php:47
+#: inc/admin/themes/process_ticket.php:16
+#: inc/admin/themes/process_ticket.php:29 inc/admin/themes/send_ticket.php:42
+#: inc/user/themes/replay_ticket.php:39 option/options/options.php:151
+#: option/options/options.php:183 option/options/options.php:221
+#: option/options/options.php:249
+msgid "Subject"
+msgstr "Konu"
+
+#: inc/admin/themes/all_ticket.php:20 inc/admin/themes/all_ticket.php:65
+#: inc/admin/themes/answer-ticket.php:71
+#: inc/admin/themes/answered_ticket.php:17
+#: inc/admin/themes/answered_ticket.php:30
+#: inc/admin/themes/closed_ticket.php:17 inc/admin/themes/closed_ticket.php:30
+#: inc/admin/themes/new_ticket.php:17 inc/admin/themes/new_ticket.php:48
+#: inc/admin/themes/process_ticket.php:17
+#: inc/admin/themes/process_ticket.php:30
+msgid "Sender"
+msgstr "Gönderen"
+
+#: inc/admin/themes/all_ticket.php:22 inc/admin/themes/all_ticket.php:67
+#: inc/admin/themes/answer-ticket.php:93
+#: inc/admin/themes/answered_ticket.php:19
+#: inc/admin/themes/answered_ticket.php:32
+#: inc/admin/themes/closed_ticket.php:19 inc/admin/themes/closed_ticket.php:32
+#: inc/admin/themes/new_ticket.php:19 inc/admin/themes/new_ticket.php:50
+#: inc/admin/themes/process_ticket.php:19
+#: inc/admin/themes/process_ticket.php:32 inc/admin/themes/send_ticket.php:58
+#: inc/user/themes/replay_ticket.php:57 option/options/options.php:14
+msgid "Priority"
+msgstr "Öncelik"
+
+#: inc/admin/themes/all_ticket.php:23 inc/admin/themes/all_ticket.php:68
+#: inc/admin/themes/answer-ticket.php:113
+#: inc/admin/themes/answered_ticket.php:20
+#: inc/admin/themes/answered_ticket.php:33
+#: inc/admin/themes/closed_ticket.php:20 inc/admin/themes/closed_ticket.php:33
+#: inc/admin/themes/new_ticket.php:20 inc/admin/themes/new_ticket.php:51
+#: inc/admin/themes/process_ticket.php:20
+#: inc/admin/themes/process_ticket.php:33 inc/admin/themes/send_ticket.php:76
+#: inc/admin/themes/send_ticket.php:91 inc/user/themes/new_ticket.php:97
+#: inc/user/themes/new_ticket.php:131 inc/user/themes/replay_ticket.php:62
+msgid "Product"
+msgstr "Ürün"
+
+#: inc/admin/themes/answer-ticket.php:25
+msgid "Ticket Number "
+msgstr "Bilet Numarası "
+
+#: inc/admin/themes/answer-ticket.php:61
+msgid "Ticket Information "
+msgstr "Bilet Bilgileri "
+
+#: inc/admin/themes/answer-ticket.php:81 inc/admin/themes/send_ticket.php:22
+msgid "Receiver"
+msgstr "Alıcı"
+
+#: inc/admin/themes/answer-ticket.php:103 inc/admin/themes/send_ticket.php:70
+msgid "WebSite"
+msgstr "Website"
+
+#: inc/admin/themes/answer-ticket.php:185
+msgid "Pre Answer"
+msgstr "Ön Cevap"
+
+#: inc/admin/themes/answer-ticket.php:200
+msgid "Insert"
+msgstr "Ekle"
+
+#: inc/admin/themes/answer-ticket.php:235
+msgid "Image Select"
+msgstr "Görüntü Seç"
+
+#: inc/admin/themes/answer-ticket.php:239 inc/user/themes/replay_ticket.php:223
+msgid "Send Answer"
+msgstr "Cevabı Gönder"
+
+#: inc/admin/themes/answer-ticket.php:250
+msgid "List Answer"
+msgstr "Yanıtı Listele"
+
+#: inc/admin/themes/answer-ticket.php:301 inc/user/themes/replay_ticket.php:315
+msgid "You do not have permission to access this ticket"
+msgstr "Bu bilete erişim izniniz yok"
+
+#: inc/admin/themes/department.php:6
+msgid "Departments"
+msgstr "Departmanlar"
+
+#: inc/admin/themes/department.php:11 inc/admin/themes/department.php:12
+#: inc/admin/themes/department.php:33 inc/admin/themes/department.php:42
+msgid "Department Name"
+msgstr "Departman Adı"
+
+#: inc/admin/themes/department.php:18
+msgid "Select Support User"
+msgstr "Destek Kullanıcısı Seçin"
+
+#: inc/admin/themes/department.php:35 inc/admin/themes/department.php:44
+msgid "Edit"
+msgstr "Düzenle"
+
+#: inc/admin/themes/department.php:61 inc/admin/themes/file_uploads.php:45
+msgid "Delete"
+msgstr "Sil"
+
+#: inc/admin/themes/file_uploads.php:7
+msgid "List of uploaded files"
+msgstr "Yüklenen dosyaların listesi"
+
+#: inc/admin/themes/file_uploads.php:15 inc/admin/themes/file_uploads.php:38
+msgid "Image File"
+msgstr "Fotoğraf Dosyası"
+
+#: inc/admin/themes/file_uploads.php:16 inc/admin/themes/file_uploads.php:39
+msgid "Link File"
+msgstr "Dosya Linki"
+
+#: inc/admin/themes/file_uploads.php:30
+msgid "Show Image"
+msgstr "Fotoğrafı Görüntüle"
+
+#: inc/admin/themes/manage_tickets.php:15
+msgid "All Ticket"
+msgstr "Tüm Biletler"
+
+#: inc/admin/themes/manage_tickets.php:16
+msgid "New"
+msgstr "Yeni"
+
+#: inc/admin/themes/manage_tickets.php:17
+msgid "InProgress"
+msgstr "İşlemde"
+
+#: inc/admin/themes/manage_tickets.php:18 inc/user/themes/home.php:30
+msgid "Answered"
+msgstr "Cevaplandı"
+
+#: inc/admin/themes/manage_tickets.php:19 inc/user/themes/home.php:25
+msgid "Closed"
+msgstr "Kapalı"
+
+#: inc/admin/themes/manage_tickets.php:150
+msgid "Enter ID or subject ticket"
+msgstr "ID veya bilet konusu girin"
+
+#: inc/admin/themes/send_ticket.php:13
+msgid "Receiver type"
+msgstr "Alıcı Tipi"
+
+#: inc/admin/themes/send_ticket.php:15
+msgid "Select Receiver type"
+msgstr "Alıcı Tipini Seçin"
+
+#: inc/admin/themes/send_ticket.php:16 option/options/options.php:212
+msgid "User"
+msgstr "Kullanıcı"
+
+#: inc/admin/themes/send_ticket.php:17
+msgid "Suport"
+msgstr "Destek"
+
+#: inc/admin/themes/send_ticket.php:45
+msgid "Enter Subject"
+msgstr "Konu Girin"
+
+#: inc/admin/themes/send_ticket.php:51
+msgid "Select Department"
+msgstr "Departman Seçin"
+
+#: inc/admin/themes/send_ticket.php:60
+msgid "Select Priority"
+msgstr "Öncelik Seçin"
+
+#: inc/admin/themes/send_ticket.php:78 inc/admin/themes/send_ticket.php:93
+#: inc/user/themes/new_ticket.php:102 inc/user/themes/new_ticket.php:134
+msgid "Select Product"
+msgstr "Ürün Seçin"
+
+#: inc/admin/themes/send_ticket.php:105 option/options/options.php:156
+#: option/options/options.php:188 option/options/options.php:226
+#: option/options/options.php:254
+msgid "Message"
+msgstr "Mesaj"
+
+#: inc/admin/themes/send_ticket.php:117
+msgid "Select Image"
+msgstr "Fotoğraf Seçin"
+
+#: inc/admin/themes/send_ticket.php:121 inc/user/themes/new_ticket.php:175
+#: option/options/options.php:146 option/options/options.php:216
+msgid "Send Ticket"
+msgstr "Bileti Gödner"
+
+#: inc/admin/themes/send_ticket.php:132
+msgid "Select Status"
+msgstr "Durum Seçin"
+
+#: inc/admin/themes/send_ticket.php:145
+msgid "Notification"
+msgstr "Bildirim"
+
+#: inc/admin/themes/send_ticket.php:149
+msgid "Select Type Notification"
+msgstr "Bildirim Türü Seçin"
+
+#: inc/admin/themes/send_ticket.php:152 option/options/options.php:132
+msgid "Send Email To User"
+msgstr "Kullanıcıya E-posta Gönder"
+
+#: inc/user/functions/ajax_user_send_answer.php:63
+#: inc/user/functions/ajax_user_send_tiket.php:64
+msgid "open"
+msgstr "açık"
+
+#: inc/user/functions/ajax_user_send_answer.php:99
+msgid "show attachment file"
+msgstr "ek dosyasını göster"
+
+#: inc/user/functions/ajax_user_send_answer.php:110
+#: inc/user/functions/ajax_user_send_answer.php:123
+#: inc/user/functions/filter_ajax_ticket.php:71
+#: inc/user/functions/filter_ajax_ticket.php:131 inc/user/themes/home.php:80
+#: inc/user/themes/replay_ticket.php:147 inc/user/themes/replay_ticket.php:160
+msgid "Hour"
+msgstr "Saat"
+
+#: inc/user/functions/ajax_user_send_answer.php:114
+#: inc/user/functions/ajax_user_send_answer.php:119
+#: inc/user/themes/replay_ticket.php:151 inc/user/themes/replay_ticket.php:156
+msgid "Date :"
+msgstr "Tarih :"
+
+#: inc/user/themes/home.php:9
+msgid "Ticket status"
+msgstr "Bilet durumu"
+
+#: inc/user/themes/home.php:13
+msgid "Open"
+msgstr "Açık"
+
+#: inc/user/themes/home.php:20
+msgid "Inprogress"
+msgstr "İşlemde"
+
+#: inc/user/themes/home.php:35
+msgid "Total"
+msgstr "Toplam"
+
+#: inc/user/themes/home.php:40
+msgid "List of tickets"
+msgstr "Bilet listesi"
+
+#: inc/user/themes/new_ticket.php:24 inc/user/themes/replay_ticket.php:33
+msgid "Back To List Tickets"
+msgstr "Bilet Listesine Geri Dön"
+
+#: inc/user/themes/new_ticket.php:44
+msgid "I didn't find the answer to my question"
+msgstr "Sorumun cevabını bulamadım"
+
+#: inc/user/themes/new_ticket.php:54
+msgid "Enter subject please *"
+msgstr "Konu *"
+
+#: inc/user/themes/new_ticket.php:60
+msgid "Select department please *"
+msgstr "Departman *"
+
+#: inc/user/themes/new_ticket.php:63
+msgid "Select department"
+msgstr "Departman Seçin"
+
+#: inc/user/themes/new_ticket.php:81
+msgid "Priority *"
+msgstr "Öncelik *"
+
+#: inc/user/themes/new_ticket.php:84
+msgid "Select priority"
+msgstr "Öncelik seçin"
+
+#: inc/user/themes/new_ticket.php:149
+msgid "Enter Message"
+msgstr "Detaylı Açıklama"
+
+#: inc/user/themes/new_ticket.php:150
+msgid "Enter Message please"
+msgstr "Lütfen Mesaj Girin"
+
+#: inc/user/themes/new_ticket.php:171 inc/user/themes/replay_ticket.php:215
+msgid "Send Request ..."
+msgstr "İstek gönder ..."
+
+#: inc/user/themes/new_ticket.php:254
+msgid "Send Ticket Success"
+msgstr "Bilet Gönderme Başarılı"
+
+#: inc/user/themes/replay_ticket.php:43
+msgid "Ticket Number"
+msgstr "Bilet Numarası"
+
+#: inc/user/themes/replay_ticket.php:96
+msgid "Date "
+msgstr "Tarih "
+
+#: inc/user/themes/replay_ticket.php:101
+msgid " Hour "
+msgstr " Saat "
+
+#: inc/user/themes/replay_ticket.php:183
+msgid "Message *"
+msgstr "Mesaj *"
+
+#: inc/user/themes/replay_ticket.php:185
+msgid "Enter the text of the message Plase"
+msgstr "Lütfen mesaj metnini giriniz"
+
+#: inc/user/themes/replay_ticket.php:220
+msgid "Close Ticket"
+msgstr "Bileti Kapat"
+
+#: nirweb-support.php:35
+msgid "To activate the free version, please disable the premium version first"
+msgstr ""
+"Ücretsiz sürümü etkinleştirmek için lütfen önce premium sürümü devre dışı "
+"bırakın"
+
+#: option/classes/options.class.php:228
+msgid "Error while saving."
+msgstr "Kaydederken hata oluştu."
+
+#: option/classes/options.class.php:288
+msgid "Success. Imported backup options."
+msgstr "Başarı. İçe aktarılan yedekleme seçenekleri."
+
+#: option/classes/options.class.php:300
+msgid "Default options restored."
+msgstr "Varsayılan seçenekler geri yüklendi."
+
+#: option/classes/options.class.php:316
+msgid "Default options restored for only this section."
+msgstr "Yalnızca bu bölüm için varsayılan seçenekler geri yüklendi."
+
+#: option/classes/options.class.php:387
+msgid "Settings saved."
+msgstr "Ayarlar kaydedildi."
+
+#: option/classes/options.class.php:504
+msgid "wpyar team"
+msgstr "wpyar takımı"
+
+#: option/classes/options.class.php:574
+msgid "Settings have changed, you should save them!"
+msgstr "Ayarlar değişti, onları kaydetmelisin!"
+
+#: option/classes/options.class.php:576
+msgid "show all options"
+msgstr "tüm seçenekleri göster"
+
+#: option/classes/options.class.php:578
+msgid "Search option(s)"
+msgstr "Arama Seçenekleri"
+
+#: option/classes/options.class.php:581 option/classes/options.class.php:708
+msgid "Save"
+msgstr "Kaydet"
+
+#: option/classes/options.class.php:581 option/classes/options.class.php:708
+msgid "Saving..."
+msgstr "Kaydediliyor..."
+
+#: option/classes/options.class.php:582 option/classes/options.class.php:709
+msgid "Reset Section"
+msgstr "Bölümü Sıfırla"
+
+#: option/classes/options.class.php:582 option/classes/options.class.php:709
+msgid "Are you sure to reset this section options?"
+msgstr "Bu bölüm seçeneklerini sıfırlamak istediğinizden emin misiniz?"
+
+#: option/classes/options.class.php:583 option/classes/options.class.php:710
+#: option/fields/backup/backup.php:34
+msgid "Reset All"
+msgstr "Hepsini Sıfırla"
+
+#: option/classes/options.class.php:583 option/classes/options.class.php:710
+msgid "Are you sure to reset all options?"
+msgstr "Tüm seçenekleri sıfırladığınızdan emin misiniz?"
+
+#: option/classes/options.class.php:683
+msgid "No option provided by developer."
+msgstr "Geliştirici tarafından hiçbir seçenek sağlanmadı."
+
+#: option/classes/setup.class.php:437
+msgid "Restoring options."
+msgstr "Seçenekleri geri yükleme."
+
+#: option/classes/setup.class.php:438
+msgid "Importing options."
+msgstr "Seçenekler içe aktarılıyor."
+
+#: option/classes/setup.class.php:441
+#, php-format
+msgid "Please enter %s or more characters"
+msgstr "Lütfen %s veya daha fazla karakter girin"
+
+#: option/classes/setup.class.php:442
+msgid "Searching..."
+msgstr "Aranıyor..."
+
+#: option/classes/setup.class.php:443
+msgid "No results match"
+msgstr "Eşleşen sonuç yok"
+
+#: option/classes/setup.class.php:514
+#, php-format
+msgid "Ooops! This field type (%s) can not be used here, yet."
+msgstr "Hata! Bu alan türü (%s) henüz burada kullanılamaz."
+
+#: option/classes/setup.class.php:584
+msgid "This field class is not available!"
+msgstr "Bu alan sınıfı mevcut değil!"
+
+#: option/classes/setup.class.php:588
+msgid "This type is not found!"
+msgstr "Bu tür bulunamadı!"
+
+#: option/fields/background/background.php:35
+msgid "No background selected"
+msgstr "Arka plan seçilmedi"
+
+#: option/fields/background/background.php:66 option/fields/date/date.php:31
+msgid "From"
+msgstr "Gönderen"
+
+#: option/fields/background/background.php:84 option/fields/date/date.php:32
+msgid "To"
+msgstr "Alıcı"
+
+#: option/fields/background/background.php:102
+msgid "Direction"
+msgstr "Yöne"
+
+#: option/fields/background/background.php:108
+msgid "Gradient Direction"
+msgstr "Gradyan Yönü"
+
+#: option/fields/background/background.php:109
+msgid "&#8659; top to bottom"
+msgstr "&#8659; yukarıdan aşağıya"
+
+#: option/fields/background/background.php:110
+msgid "&#8658; left to right"
+msgstr "&#8658; soldan sağa"
+
+#: option/fields/background/background.php:111
+msgid "&#8664; corner top to right"
+msgstr "&#8664; üstten sağa"
+
+#: option/fields/background/background.php:112
+msgid "&#8665; corner top to left"
+msgstr "&#8665; üstten sola"
+
+#: option/fields/background/background.php:155
+msgid "Background Position"
+msgstr "Arkaplan Pozisyonu"
+
+#: option/fields/background/background.php:156
+msgid "Left Top"
+msgstr "Sol Üst"
+
+#: option/fields/background/background.php:157
+msgid "Left Center"
+msgstr "Sol Orta"
+
+#: option/fields/background/background.php:158
+msgid "Left Bottom"
+msgstr "Sol Alt"
+
+#: option/fields/background/background.php:159
+msgid "Center Top"
+msgstr "Orta Üst"
+
+#: option/fields/background/background.php:160
+msgid "Center Center"
+msgstr "Merkez Orta"
+
+#: option/fields/background/background.php:161
+msgid "Center Bottom"
+msgstr "Orta Alt"
+
+#: option/fields/background/background.php:162
+msgid "Right Top"
+msgstr "Sağ Üst"
+
+#: option/fields/background/background.php:163
+msgid "Right Center"
+msgstr "Sağ Orta"
+
+#: option/fields/background/background.php:164
+msgid "Right Bottom"
+msgstr "Sağ Alt"
+
+#: option/fields/background/background.php:178
+msgid "Background Repeat"
+msgstr "Arkaplan Tekrarı"
+
+#: option/fields/background/background.php:179
+msgid "Repeat"
+msgstr "Tekrar"
+
+#: option/fields/background/background.php:180
+msgid "No Repeat"
+msgstr "Tekrar Yok"
+
+#: option/fields/background/background.php:181
+msgid "Repeat Horizontally"
+msgstr "Yatay olarak tekrarla"
+
+#: option/fields/background/background.php:182
+msgid "Repeat Vertically"
+msgstr "Dikey olarak tekrarla"
+
+#: option/fields/background/background.php:196
+msgid "Background Attachment"
+msgstr "Arka Plan Eklentisi"
+
+#: option/fields/background/background.php:197
+msgid "Scroll"
+msgstr "Scroll"
+
+#: option/fields/background/background.php:198
+msgid "Fixed"
+msgstr "Fixed"
+
+#: option/fields/background/background.php:212
+msgid "Background Size"
+msgstr "Arkaplan Boyutu"
+
+#: option/fields/background/background.php:213
+msgid "Cover"
+msgstr ""
+
+#: option/fields/background/background.php:214
+msgid "Contain"
+msgstr ""
+
+#: option/fields/background/background.php:228
+msgid "Background Origin"
+msgstr ""
+
+#: option/fields/background/background.php:229
+#: option/fields/background/background.php:247
+msgid "Padding Box"
+msgstr ""
+
+#: option/fields/background/background.php:230
+#: option/fields/background/background.php:246
+msgid "Border Box"
+msgstr ""
+
+#: option/fields/background/background.php:231
+#: option/fields/background/background.php:248
+msgid "Content Box"
+msgstr ""
+
+#: option/fields/background/background.php:245
+msgid "Background Clip"
+msgstr ""
+
+#: option/fields/background/background.php:262
+msgid "Background Blend Mode"
+msgstr ""
+
+#: option/fields/background/background.php:263
+#: option/fields/link_color/link_color.php:36
+#: option/fields/typography/typography.php:175
+msgid "Normal"
+msgstr ""
+
+#: option/fields/background/background.php:264
+msgid "Multiply"
+msgstr ""
+
+#: option/fields/background/background.php:265
+msgid "Screen"
+msgstr ""
+
+#: option/fields/background/background.php:266
+msgid "Overlay"
+msgstr ""
+
+#: option/fields/background/background.php:267
+msgid "Darken"
+msgstr ""
+
+#: option/fields/background/background.php:268
+msgid "Lighten"
+msgstr ""
+
+#: option/fields/background/background.php:269
+msgid "Color Dodge"
+msgstr ""
+
+#: option/fields/background/background.php:270
+msgid "Saturation"
+msgstr ""
+
+#: option/fields/background/background.php:271
+msgid "Color"
+msgstr ""
+
+#: option/fields/background/background.php:272
+msgid "Luminosity"
+msgstr ""
+
+#: option/fields/backup/backup.php:26
+msgid "Import"
+msgstr ""
+
+#: option/fields/backup/backup.php:27
+msgid "copy-paste your backup string here"
+msgstr ""
+
+#: option/fields/backup/backup.php:31
+msgid "Export and Download Backup"
+msgstr ""
+
+#: option/fields/backup/backup.php:35
+msgid "Please be sure for reset all of options."
+msgstr ""
+
+#: option/fields/border/border.php:25 option/fields/spacing/spacing.php:25
+msgid "top"
+msgstr ""
+
+#: option/fields/border/border.php:26 option/fields/spacing/spacing.php:26
+msgid "right"
+msgstr ""
+
+#: option/fields/border/border.php:27 option/fields/spacing/spacing.php:27
+msgid "bottom"
+msgstr ""
+
+#: option/fields/border/border.php:28 option/fields/spacing/spacing.php:28
+msgid "left"
+msgstr ""
+
+#: option/fields/border/border.php:29 option/fields/spacing/spacing.php:29
+msgid "all"
+msgstr ""
+
+#: option/fields/border/border.php:51
+#: option/fields/typography/typography.php:203
+msgid "Solid"
+msgstr ""
+
+#: option/fields/border/border.php:52
+#: option/fields/typography/typography.php:206
+msgid "Dashed"
+msgstr ""
+
+#: option/fields/border/border.php:53
+#: option/fields/typography/typography.php:205
+msgid "Dotted"
+msgstr ""
+
+#: option/fields/border/border.php:54
+#: option/fields/typography/typography.php:204
+msgid "Double"
+msgstr ""
+
+#: option/fields/border/border.php:55
+msgid "Inset"
+msgstr ""
+
+#: option/fields/border/border.php:56
+msgid "Outset"
+msgstr ""
+
+#: option/fields/border/border.php:57
+msgid "Groove"
+msgstr ""
+
+#: option/fields/border/border.php:58
+msgid "ridge"
+msgstr ""
+
+#: option/fields/border/border.php:59
+#: option/fields/typography/typography.php:188
+#: option/fields/typography/typography.php:202
+msgid "None"
+msgstr ""
+
+#: option/fields/button_set/button_set.php:56
+#: option/fields/checkbox/checkbox.php:63 option/fields/radio/radio.php:62
+#: option/fields/select/select.php:113
+msgid "No data provided for this option type."
+msgstr ""
+
+#: option/fields/dimensions/dimensions.php:22
+msgid "width"
+msgstr ""
+
+#: option/fields/dimensions/dimensions.php:23
+msgid "height"
+msgstr ""
+
+#: option/fields/gallery/gallery.php:20
+msgid "Add Gallery"
+msgstr ""
+
+#: option/fields/gallery/gallery.php:21
+msgid "Edit Gallery"
+msgstr ""
+
+#: option/fields/gallery/gallery.php:22
+msgid "Clear"
+msgstr ""
+
+#: option/fields/group/group.php:23
+msgid "Add New"
+msgstr ""
+
+#: option/fields/group/group.php:35 option/fields/repeater/repeater.php:30
+msgid "Error: Nested field id can not be same with another nested field id."
+msgstr ""
+
+#: option/fields/group/group.php:46 option/fields/group/group.php:87
+#: option/fields/repeater/repeater.php:51
+#: option/fields/repeater/repeater.php:82
+msgid "Are you sure to delete this item?"
+msgstr ""
+
+#: option/fields/group/group.php:122 option/fields/repeater/repeater.php:96
+msgid "You can not add more than"
+msgstr ""
+
+#: option/fields/group/group.php:123 option/fields/repeater/repeater.php:97
+msgid "You can not remove less than"
+msgstr ""
+
+#: option/fields/icon/icon.php:20 option/functions/actions.php:209
+msgid "Add Icon"
+msgstr ""
+
+#: option/fields/icon/icon.php:21
+msgid "Remove Icon"
+msgstr ""
+
+#: option/fields/link_color/link_color.php:37
+msgid "Hover"
+msgstr ""
+
+#: option/fields/link_color/link_color.php:38
+msgid "Active"
+msgstr ""
+
+#: option/fields/link_color/link_color.php:39
+msgid "Visited"
+msgstr ""
+
+#: option/fields/link_color/link_color.php:40
+msgid "Focus"
+msgstr ""
+
+#: option/fields/map/map.php:23
+msgid "Search your address..."
+msgstr ""
+
+#: option/fields/map/map.php:24
+msgid "Latitude"
+msgstr ""
+
+#: option/fields/map/map.php:25
+msgid "Longitude"
+msgstr ""
+
+#: option/fields/media/media.php:23 option/fields/upload/upload.php:21
+msgid "Upload"
+msgstr ""
+
+#: option/fields/media/media.php:24 option/fields/upload/upload.php:22
+msgid "Remove"
+msgstr ""
+
+#: option/fields/media/media.php:57
+msgid "No media selected"
+msgstr ""
+
+#: option/fields/sorter/sorter.php:21
+msgid "Enabled"
+msgstr ""
+
+#: option/fields/sorter/sorter.php:22
+msgid "Disabled"
+msgstr ""
+
+#: option/fields/switcher/switcher.php:20
+msgid "On"
+msgstr "Açık"
+
+#: option/fields/switcher/switcher.php:21
+msgid "Off"
+msgstr "Kapalı"
+
+#: option/fields/textarea/textarea.php:37
+msgid "Add Shortcode"
+msgstr "Kısa Kod Ekle"
+
+#: option/fields/typography/typography.php:85
+msgid "Font Family"
+msgstr "Font Ailesi"
+
+#: option/fields/typography/typography.php:86
+msgid "Select a font"
+msgstr "Font seç"
+
+#: option/fields/typography/typography.php:94
+msgid "Backup Font Family"
+msgstr "Font Ailesi yedekle"
+
+#: option/fields/typography/typography.php:108
+#: option/fields/typography/typography.php:121
+#: option/fields/typography/typography.php:134
+#: option/fields/typography/typography.php:149
+#: option/fields/typography/typography.php:165
+#: option/fields/typography/typography.php:178
+#: option/fields/typography/typography.php:192
+#: option/fields/typography/typography.php:210
+msgid "Default"
+msgstr "Varsayılan"
+
+#: option/fields/typography/typography.php:119
+msgid "Font Style"
+msgstr "Font Sitili"
+
+#: option/fields/typography/typography.php:133
+#: option/fields/typography/typography.php:134
+msgid "Load Extra Styles"
+msgstr ""
+
+#: option/fields/typography/typography.php:147
+msgid "Subset"
+msgstr ""
+
+#: option/fields/typography/typography.php:157
+msgid "Text Align"
+msgstr ""
+
+#: option/fields/typography/typography.php:159
+msgid "Inherit"
+msgstr ""
+
+#: option/fields/typography/typography.php:160 option/options/options.php:70
+msgid "Left"
+msgstr "Sol"
+
+#: option/fields/typography/typography.php:161
+msgid "Center"
+msgstr "Orta"
+
+#: option/fields/typography/typography.php:162 option/options/options.php:71
+msgid "Right"
+msgstr "Sağ"
+
+#: option/fields/typography/typography.php:163
+msgid "Justify"
+msgstr ""
+
+#: option/fields/typography/typography.php:164
+msgid "Initial"
+msgstr ""
+
+#: option/fields/typography/typography.php:173
+msgid "Font Variant"
+msgstr ""
+
+#: option/fields/typography/typography.php:176
+msgid "Small Caps"
+msgstr ""
+
+#: option/fields/typography/typography.php:177
+msgid "All Small Caps"
+msgstr ""
+
+#: option/fields/typography/typography.php:186
+msgid "Text Transform"
+msgstr ""
+
+#: option/fields/typography/typography.php:189
+msgid "Capitalize"
+msgstr ""
+
+#: option/fields/typography/typography.php:190
+msgid "Uppercase"
+msgstr ""
+
+#: option/fields/typography/typography.php:191
+msgid "Lowercase"
+msgstr ""
+
+#: option/fields/typography/typography.php:200
+msgid "Text Decoration"
+msgstr ""
+
+#: option/fields/typography/typography.php:207
+msgid "Wavy"
+msgstr ""
+
+#: option/fields/typography/typography.php:208
+msgid "Overline"
+msgstr ""
+
+#: option/fields/typography/typography.php:209
+msgid "Line-through"
+msgstr ""
+
+#: option/fields/typography/typography.php:222
+msgid "Font Size"
+msgstr ""
+
+#: option/fields/typography/typography.php:234
+msgid "Line Height"
+msgstr ""
+
+#: option/fields/typography/typography.php:246
+msgid "Letter Spacing"
+msgstr ""
+
+#: option/fields/typography/typography.php:258
+msgid "Word Spacing"
+msgstr ""
+
+#: option/fields/typography/typography.php:273
+msgid "Font Color"
+msgstr ""
+
+#: option/fields/typography/typography.php:284
+msgid "Custom Style"
+msgstr ""
+
+#: option/fields/typography/typography.php:351
+msgid "Custom Web Fonts"
+msgstr ""
+
+#: option/fields/typography/typography.php:357
+msgid "Safe Web Fonts"
+msgstr ""
+
+#: option/fields/typography/typography.php:377
+msgid "Google Web Fonts"
+msgstr ""
+
+#: option/functions/actions.php:16 option/functions/actions.php:68
+#: option/functions/actions.php:106 option/functions/actions.php:141
+#: option/functions/actions.php:170
+msgid "Error: Nonce verification has failed. Please try again."
+msgstr ""
+
+#: option/functions/actions.php:41
+msgid "No data provided by developer"
+msgstr ""
+
+#: option/functions/actions.php:72 option/functions/actions.php:110
+msgid "Error: Options unique id could not valid."
+msgstr ""
+
+#: option/functions/actions.php:114
+msgid "Error: Import data could not valid."
+msgstr ""
+
+#: option/functions/actions.php:174
+msgid "Error: Missing request arguments."
+msgstr ""
+
+#: option/functions/actions.php:180
+msgid "You do not have required permissions to access."
+msgstr ""
+
+#: option/functions/actions.php:213
+msgid "Search a Icon..."
+msgstr "Bir ikon ara..."
+
+#: option/functions/validate.php:14 option/functions/validate.php:86
+msgid "Please write a valid email address!"
+msgstr "Lütfen geçerli bir e-posta adresi yazınız!"
+
+#: option/functions/validate.php:32 option/functions/validate.php:106
+msgid "Please write a numeric data!"
+msgstr "Lütfen sayısal bir veri girin!"
+
+#: option/functions/validate.php:50 option/functions/validate.php:126
+msgid "Error! This field is required!"
+msgstr "Hata! Bu alan gereklidir!"
+
+#: option/functions/validate.php:68 option/functions/validate.php:146
+msgid "Please write a valid url!"
+msgstr "Lütfen geçerli bir url yazın!"
+
+#: option/options/options.php:9
+msgid "Help to create email text"
+msgstr "E-posta metni oluşturmaya yardım edin"
+
+#: option/options/options.php:10
+msgid "ticket number"
+msgstr "bilet numarası"
+
+#: option/options/options.php:11
+msgid "ticket title"
+msgstr "bilet başlığı"
+
+#: option/options/options.php:12
+msgid "name support"
+msgstr "destek ismi"
+
+#: option/options/options.php:13
+msgid "name department"
+msgstr "departman adı"
+
+#: option/options/options.php:15
+msgid "status"
+msgstr "durum"
+
+#: option/options/options.php:23
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: option/options/options.php:26
+msgid "NirWeb Team"
+msgstr "NirWeb Takımı"
+
+#: option/options/options.php:35
+msgid "General settings"
+msgstr "Genel Ayarlar"
+
+#: option/options/options.php:42
+msgid "Display Icon"
+msgstr "Ekran simgesi"
+
+#: option/options/options.php:43 option/options/options.php:124
+#: option/options/options.php:133 option/options/options.php:292
+msgid "active"
+msgstr "aktif"
+
+#: option/options/options.php:44 option/options/options.php:125
+#: option/options/options.php:134 option/options/options.php:293
+msgid "deactivate"
+msgstr "deaktif"
+
+#: option/options/options.php:51
+msgid "If you do not have the WooCommerce plugin installed, select a Page"
+msgstr "WooCommerce eklentisi kurulu değilse, bir Sayfa seçin"
+
+#: option/options/options.php:52
+msgid "Please Select Page"
+msgstr "Lütfen Sayfa Seçiniz"
+
+#: option/options/options.php:53
+msgid "short code : [nirweb_ticket]"
+msgstr "kısa kod : [nirweb_ticket]"
+
+#: option/options/options.php:63
+msgid "Select Icon"
+msgstr "Ikon Seç"
+
+#: option/options/options.php:68
+msgid "Posotion Icon"
+msgstr "Ikon Konumu"
+
+#: option/options/options.php:79
+msgid "Email Template For Send Ticket By Admin"
+msgstr "Yönetici Tarafından Bilet Göndermek İçin E-posta Şablonu"
+
+#: option/options/options.php:80
+msgid "Receiver : {username}"
+msgstr "Alıcı: {username}"
+
+#: option/options/options.php:89
+msgid "Uploads File By User"
+msgstr "Dosyayı Kullanıcıya Göre Yükler"
+
+#: option/options/options.php:116
+msgid "Email"
+msgstr "Eposta"
+
+#: option/options/options.php:123
+msgid "Send Email To Support"
+msgstr "Desteğe E-posta Gönderin"
+
+#: option/options/options.php:178 option/options/options.php:244
+msgid "Answer Ticket"
+msgstr "Bileti Cevapla"
+
+#: option/options/options.php:283
+msgid "Ticket"
+msgstr "Bilet"
+
+#: option/options/options.php:291
+msgid "Select Product Required"
+msgstr "Gerekli Ürünü Seçin"
+
+#: option/options/options.php:300
+msgid "Text above the Send Ticket"
+msgstr "Bilet Gönder'in üstündeki metin"
+
+#: option/options/options.php:309
+msgid "File"
+msgstr "Dosya"
+
+#: option/options/options.php:317
+msgid "Upload volume in MB"
+msgstr "Yükleme Boyutu (MB)"
+
+#: option/options/options.php:324
+msgid "Authorized file extensions"
+msgstr "İzinli dosya uzantıları"
+
+#: option/options/options.php:326
+msgid "Expamle : .png,.jpg,.jpeg"
+msgstr "Örnek : .png,.jpg,.jpeg"
+
+#. Plugin Name of the plugin/theme
+msgid "nirweb support"
+msgstr "nirweb support"
+
+#. Description of the plugin/theme
+msgid ""
+"NirWeb support is a great help desk and support plugin for WordPress with "
+"full support of WooCommerce"
+msgstr ""
+"NirWeb desteği, WooCommerce'in tam desteğiyle WordPress için harika bir "
+"yardım masası ve destek eklentisidir"
+
+#. Author of the plugin/theme
+msgid "nirweb Team"
+msgstr "nirweb Takımı"
+
+#. Author URI of the plugin/theme
+msgid "https://www.nirweb.ir"
+msgstr "https://www.nirweb.ir"
+
+#~ msgid "Reset Form"
+#~ msgstr "Formu Sıfırla"

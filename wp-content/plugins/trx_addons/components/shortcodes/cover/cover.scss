@@ -1,0 +1,9 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+.sc_cover {
+	@include abs-cover(999);
+}
+.sc_cover_link_wrap {
+	position: relative;
+}

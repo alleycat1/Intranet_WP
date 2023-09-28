@@ -1,0 +1,67 @@
+.drag-drop #drag-drop-area {
+	border: 4px dashed #b4b9be;
+	height: 200px;
+}
+
+.drag-drop .drag-drop-inside {
+	margin: 60px auto 0;
+	width: 250px;
+}
+
+.drag-drop-inside p {
+	font-size: 14px;
+	margin: 5px 0;
+	display: none;
+}
+
+.drag-drop .drag-drop-inside p {
+	text-align: center;
+}
+
+.drag-drop-inside p.drag-drop-info {
+	font-size: 20px;
+}
+
+.drag-drop .drag-drop-inside p,
+.drag-drop-inside p.drag-drop-buttons {
+	display: block;
+}
+
+.drag-drop.drag-over #drag-drop-area {
+	border-color: #83b4d8;
+}
+
+#plupload-upload-ui {
+	position: relative;
+}
+
+.dlp-uploader-form {
+
+	.media-item {
+		min-height: 36px;
+		margin-bottom: 1px;
+		position: relative;
+		width: 100%;
+		background: #fff;
+		box-shadow: 0 1px 0 #ddd;
+
+		.error {
+			width: auto;
+			padding: 10px 0 10px 14px;
+		}
+
+		.dlp-icon {
+			float: left;
+			margin: 4px 10px 0 3px;
+			width: 36px;
+		}
+
+		.edit-attachment {
+			float: right;
+		}
+	}
+
+	#media-file-errors {
+		display: flex;
+	}
+}

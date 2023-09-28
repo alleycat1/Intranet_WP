@@ -1,0 +1,195 @@
+.sc_testimonials_columns_wrap {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.sc_testimonials_slider .sc_testimonials_item,
+.sc_testimonials_columns_wrap .sc_testimonials_item {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.sc_testimonials_slider .sc_testimonials_item {
+  margin-bottom: 0 !important;
+}
+
+.sc_testimonials {
+  position: relative;
+}
+
+.sc_testimonials_item_content {
+  text-align: center;
+  font-size: 1.1333em;
+  line-height: 1.8824em;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.sc_testimonials [class*="column"] .sc_testimonials_item_content {
+  text-align: left;
+  font-size: 1em;
+  line-height: 1.4em;
+}
+
+.sc_testimonials_item_content:before {
+  content: '\e8b8';
+  font-family: "trx_addons_icons";
+  font-size: 1.5em;
+  line-height: 1.5em;
+  color: #efa758;
+  display: block;
+  margin-bottom: 0.6em;
+}
+
+.sc_testimonials_item_content p {
+  margin: 0;
+}
+
+.sc_testimonials_item_content p + p {
+  margin-top: 1em;
+}
+
+.sc_testimonials_item_author {
+  margin: 0.6em auto 0;
+  max-width: none;
+  padding: 1.5em 0.5em 1.5em 1.3em;
+  background-color: transparent;
+  color: #fff;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.sc_testimonials [class*="column"] .sc_testimonials_item_author {
+  text-align: left;
+  padding-left: 0;
+}
+
+.sc_testimonials_item_author_avatar,
+.sc_testimonials_item_author_data {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.sc_testimonials_item_author_avatar {
+  overflow: hidden;
+  margin: 0 1.3em 0 0.6em;
+  width: 5em;
+  height: 5em;
+  -webkit-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.sc_testimonials_avatar_with_initials {
+  position: relative;
+  background-color: #e7eaed;
+  color: #c3c3c3;
+}
+.sc_testimonials_avatar_with_initials .sc_testimonials_item_author_initials {
+  font-size: 2em;
+  line-height: 1em;
+  font-weight: bold;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.sc_testimonials_item_author_data {
+  max-width: 50%;
+}
+
+.sc_testimonials_item_author_title {
+  margin: 0;
+  color: #fff;
+  font-size: 1.0667em;
+  font-style: italic;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.sc_testimonials_item_author_title + .sc_testimonials_item_author_subtitle {
+  margin-top: 0.1em;
+  color: #ddd;
+  font-size: 0.9286em;
+  line-height: 1.3em;
+}
+
+.sc_testimonials_rating {
+  position: relative;
+  height: 1em;
+  font-size: 1.15em;
+  line-height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.sc_testimonials_rating_stars_default {
+  opacity: 0.3;
+}
+
+.sc_testimonials_rating_stars_default,
+.sc_testimonials_rating_stars_hover {
+  white-space: nowrap;
+  color: #ffe200;
+}
+
+.sc_testimonials_rating_stars_hover {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  -webkit-transition: width 0.3s ease;
+  -ms-transition: width 0.3s ease;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.sc_testimonials_rating_stars .sc_testimonials_rating_stars_hover {
+  -webkit-transition-duration: 1s;
+  -ms-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-delay: 0.5s;
+  -ms-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.sc_testimonials_rating_star {
+  display: inline-block;
+  width: 1em;
+}
+
+.sc_testimonials_simple .sc_testimonials_item_author_data:before {
+  content: ' ';
+  width: 1px;
+  height: 1.5em;
+  margin: 1.3em auto;
+  background-color: #ddd;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.sc_testimonials_simple [class*="column"] .sc_testimonials_item_author_data {
+  border-left: 1px solid #ddd;
+  padding-left: 1.5em;
+}
+
+.sc_testimonials_simple [class*="column"] .sc_testimonials_item_author_data:before {
+  display: none;
+}
+
+/*# sourceMappingURL=testimonials.css.map */

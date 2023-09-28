@@ -1,0 +1,19 @@
+@media (max-width: 767px) {
+  /* Form */
+  .sc_form_detailed .trx_addons_column-1_2 {
+    width: 100% !important;
+  }
+
+  .sc_form_detailed .sc_form_info {
+    margin-top: 3em;
+    padding: 0;
+  }
+}
+@media (max-width: 479px) {
+  /* Form */
+  .sc_form_title {
+    font-size: 1.5em;
+  }
+}
+
+/*# sourceMappingURL=form.responsive.css.map */

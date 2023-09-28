@@ -1,0 +1,30 @@
+/* Secondary image */
+body.single div[class*="_page_featured"] {
+  position: relative;
+  overflow: hidden;
+}
+
+.post_featured .trx_addons_secondary_image,
+body.single div[class*="_page_featured"] > .trx_addons_secondary_image {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease, transform 0.3s ease;
+  -ms-transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.post_featured:hover .trx_addons_secondary_image,
+body.single div[class*="_page_featured"]:hover > .trx_addons_secondary_image {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=secondary-image.css.map */

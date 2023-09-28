@@ -1,0 +1,92 @@
+[
+   {
+     "Name": "John Smith",
+     "Email": "johnsmith@gmail.com",
+     "Password": "johnsmith123",
+     "URL": "www.hirewebxperts.com",
+     "Category": "Personal",
+     "Category_color" : "#34568B",
+     "Note": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+   },
+   {
+     "Name": "Mary W. Duke",
+     "Email": "MaryWDuke@jourrapide.com",
+     "Password": "mary12345",
+     "URL": "www.plugins.hirewebxperts.com",
+     "Category": "Business",
+     "Category_color" : "#FF6F61",
+     "Note": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+   },
+   {
+     "Name": "Eric W. Canterbury",
+     "Email": "EricWCanterbury@rhyta.com",
+     "Password": "eric12345",
+     "URL": "www.woo.hirewebxperts.com",
+     "Category": "Social",
+     "Category_color" : "#6B5B95",
+     "Note": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+   },
+   {
+     "Name": "Margaret T. Feaster",
+     "Email": "MargaretTFeaster@rhyta.com",
+     "Password": "marget@12",
+     "URL": "www.worklab.hirewebxperts.com",
+     "Category": "WordPress",
+     "Category_color" : "#88B04B",
+     "Note": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+   },
+   {
+     "Name": "Kevin R. Shepherd",
+     "Email": "KevinRShepherd@rhyta.com",
+     "Password": "kevinsummer",
+     "URL": "www.magikwebservices.com",
+     "Category": "SEO",
+     "Category_color" : "#F7CAC9",
+     "Note": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+   },
+   {
+     "Name": "Daniel E. Burke",
+     "Email": "uDanielEBurke@teleworm.us",
+     "Password": "daniel@burke",
+     "URL": "www.websitedemoforyou.com",
+     "Category": "Designer",
+     "Category_color" : "#92A8D1",
+     "Note": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+   },
+   {
+     "Name": "Peter S. Chism33",
+     "Email": "PeterSChism@jourrapide.com",
+     "Password": "daniel@burke",
+     "URL": "www.peaceyard.com",
+     "Category": "FINANCE",
+     "Category_color" : "#955251",
+     "Note": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+   },
+   {
+    "Name": "Peter S. Chism23",
+    "Email": "PeterSChism123@jourrapide.com",
+    "Password": "daniel@burke",
+    "URL": "www.peaceyard.co.uk",
+    "Category": "WordPress",
+    "Category_color" : "#B565A7",
+    "Note": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  },
+  {
+    "Name": "Peter S. Chism22",
+    "Email": "PeterSChism321@jourrapide.com",
+    "Password": "daniel@burke",
+    "URL": "https://therapyworkstogether.com/",
+    "Category": "Gmail",
+    "Category_color" : "#9B2335",
+    "Note": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  },
+  {
+    "Name": "Peter S. Chism123",
+    "Email": "PeterSChism111@jourrapide.com",
+    "Password": "daniel@burke",
+    "URL":"https://donate.cuddlesfoundation.org/",
+    "Category": "Developer",
+    "Category_color" : "#55B4B0",
+    "Note": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  }
+]

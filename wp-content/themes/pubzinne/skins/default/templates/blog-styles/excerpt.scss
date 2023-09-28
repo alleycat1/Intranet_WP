@@ -1,0 +1,72 @@
+/* Blog layout: Excerpt 
+------------------------- */
+
+@import "../../../../css/_mixins.scss";
+@import "../../../../css/_theme-vars.scss";
+@import "../../css/_skin-vars.scss";
+
+.post_layout_excerpt {
+	position:relative;
+	margin-bottom:0;
+}
+.post_layout_excerpt + .post_layout_excerpt {
+	margin-top: 3.5rem;
+}
+.post_layout_excerpt:not(.sticky) + .post_layout_excerpt:not(.sticky) {
+	padding-top:0;
+	border-top: none;
+}
+.post_layout_excerpt.sticky {
+	padding: 0;
+}
+.post_layout_excerpt .post_featured {
+	display: inline-block;
+}
+.post_layout_excerpt.post_format_audio .post_featured.without_thumb,
+.post_layout_excerpt.post_format_gallery .post_featured.without_thumb {
+	display:block;
+}
+.post_layout_excerpt .post_header {
+	margin: 0;
+	position:relative;
+}
+.post_layout_excerpt .post_header .post_price {
+	width: auto;
+	@include abs-rt;
+	@include font(2.5em, 1.5em);
+	.search-results &{
+		position: relative;
+	}
+}
+.post_layout_excerpt .post_category {
+	margin-bottom: 0.5em;
+}
+.post_layout_excerpt .post_title {
+	margin: 0;
+}
+.post_layout_excerpt .post_header + .post_content {
+	margin-top: 1em;
+}
+.post_layout_excerpt .post_content_inner + .post_meta {
+	margin-top: 1em;
+}
+.post_layout_excerpt{
+	padding-top:62px!important;
+	&.has-post-thumbnail, &.post_format_audio, &.post_format_gallery, &.post_format_quote{
+		padding-top:0!important;
+	}
+	&.post_format_quote .quote_meta{
+		padding: 56px 67px 55px;
+	}
+}
+// First post large in the other blog styles
+body:not(.blog_style_excerpt) .post_layout_excerpt {
+	margin-bottom: 3em;
+}
+
+.post_layout_excerpt blockquote {
+	margin: 0;
+}
+.post_layout_excerpt + .excerpt_1{
+	margin-top: 3.5rem;
+}

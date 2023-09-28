@@ -1,0 +1,232 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/* HScroll */
+.sc_hscroll_content {
+	display: block;
+	position: relative;
+}
+.sc_hscroll_spacer,
+.sc_hscroll_background,
+.sc_hscroll_arrow_left,
+.sc_hscroll_arrow_right,
+.sc_hscroll_progress,
+.sc_hscroll_bullets,
+.sc_hscroll_numbers {
+	display: none;
+}
+.sc_hscroll_wrap {
+	overflow: hidden;
+}
+.sc_hscroll_section {
+	background-size: cover;
+}
+
+@mixin sc-hscroll {
+	.sc_hscroll_content {
+		min-height: calc( 100vh - var(--fixed-rows-height) );
+	}
+	.sc_hscroll_content:after {
+		content: ' ';
+		@include clear;
+	}
+	.sc_hscroll_spacer {
+		display: block;
+		width: 0;
+		float: left;
+	}
+	.sc_hscroll_wrap {
+		@include bg-cover;
+		@include sticky-top(var(--fixed-rows-height));
+		float: left;
+		width: 100%;
+	}
+	&.ua_mobile,
+	&.ua_touch {
+		.sc_hscroll_animated .sc_hscroll_wrap {
+			position: fixed;	// Fallback for old and mobile browsers that not support 'sticky'
+		}
+	}
+	.sc_hscroll_background {
+		display: block;
+		@include abs-cover(0);
+		@include bg-cover;
+		opacity: 0;
+		@include transition-property(opacity, 0.5s);
+
+		&:after {
+			content: ' ';
+			@include bg-mask( #000, 0.5 );
+		}
+	}
+	.sc_hscroll_background_active {
+		opacity: 1;
+	}
+	.sc_hscroll_scroller {
+		position: relative;
+		@include flex;
+		@include flex-direction(column);
+		height:  100%;
+	}
+	.sc_hscroll_sections {
+		overflow: hidden;
+	}
+	.sc_hscroll_section {
+		position: relative;
+		float: left;	
+		@include flex;
+		@include flex-direction(column);
+		@include flex-align-items(center);
+		@include flex-justify-content(center);
+		height: calc( 100vh - var(--fixed-rows-height) );
+		background-image: none;
+
+		& > * {
+			width: 100%;
+		}
+	}
+	.sc_hscroll_section_with_bg_image {
+		.elementor-section[class*="scheme_"] {
+			background-color: transparent;
+		}
+	}
+
+	// Bullets (dots)
+	.sc_hscroll_bullets {
+		@include flex;
+	}
+	.sc_hscroll_bullet {
+		opacity: 0.8;
+		border: 2px solid #fff;
+		background-color: transparent;
+		cursor: pointer;
+		@include box(10px, 10px);
+		@include border-round;
+		@include bg-cover;
+		@include transition-properties(opacity,transform);
+	}
+	.sc_hscroll_bullet_active {
+		opacity: 1;
+		@include scale(1.5);
+	}
+	.sc_hscroll_bullets_position_bottom {
+		@include flex-direction(row);
+		
+		.sc_hscroll_bullet {
+			margin: 0 0.5em;
+		}
+	}
+	.sc_hscroll_bullets_position_left,
+	.sc_hscroll_bullets_position_right {
+		@include flex-direction(column);
+
+		.sc_hscroll_bullet {
+			margin: 0.5em 0;
+		}
+	}
+	.sc_hscroll_bullets_position_left {
+		@include abs-lc(1em);
+	}
+	.sc_hscroll_bullets_position_right {
+		@include abs-rc(1em);
+	}
+	.sc_hscroll_bullets_position_bottom {
+		@include abs-cb(1em);
+	}
+
+	// Numbers
+	.sc_hscroll_numbers {
+		display: block;
+	}
+	.sc_hscroll_numbers_position_left {
+		@include abs-lb( 1em, 1em );
+	}
+	.sc_hscroll_numbers_position_right {
+		@include abs-rb( 1em, 1em );
+	}
+	.sc_hscroll_numbers_position_center {
+		@include abs-cb(1em);
+	}
+	.sc_hscroll_bullets_position_bottom + .sc_hscroll_numbers_position_center {
+		bottom: 2.5em;
+	}
+	.sc_hscroll_numbers > span {
+		display: inline-block;
+		vertical-align: middle;
+		color:  #fff;
+		font-size: 1.25em;
+	}
+	.sc_hscroll_number_delimiter {
+		margin:  0 0.25em;
+	}
+	.sc_hscroll_number_delimiter:before {
+		content: '/';
+	}
+
+	// Progress bar
+	.sc_hscroll_progress {
+		--trx-addons-hscroll-progress-width: 6px;
+		display: block;
+		@include box(100%, var(--trx-addons-hscroll-progress-width));
+		background-color: rgba(255,255,255,0.2);
+	}
+	.sc_hscroll_progress_value {
+		display: block;
+		@include box(0, 100%);
+		@include abs-lt;
+		background-color: #fff;
+		will-change: width;
+	}
+	.sc_hscroll_progress_position_top {
+		@include abs-lt;
+	}
+	.sc_hscroll_progress_position_bottom {
+		@include abs-lb;
+	}
+	.sc_hscroll_progress_position_left {
+		@include abs-lt;
+		@include box(var(--trx-addons-hscroll-progress-width), 100%);
+
+		.sc_hscroll_progress_value {
+			@include box(100%, 0);
+		}
+	}
+	.sc_hscroll_progress_position_right {
+		@include abs-rt;
+		@include box(var(--trx-addons-hscroll-progress-width), 100%);
+
+		.sc_hscroll_progress_value {
+			@include box(100%, 0);
+		}
+	}
+}
+
+body:not(.elementor-editor-active) {//:not(.ua_mobile):not(.ua_touch)
+	.sc_hscroll:not(.sc_hscroll_disable_on_mobile) {
+		@include sc-hscroll();
+	}
+
+	//@mixin image-effects--not_mobile() {
+	@media #{$media_not_mobile} {	// Use $media_not_small if you want to support hscroll down to 480px
+		.sc_hscroll.sc_hscroll_disable_on_mobile {
+			@include sc-hscroll();
+		}
+	}
+}
+
+//body.ua_mobile,
+//body.ua_touch,
+body.elementor-editor-active {
+	.sc_hscroll_slider {
+		width: 100% !important;
+	}
+	.sc_hscroll_section {
+		width: 100%;
+		float: none !important;
+	}
+	.sc_hscroll_section_with_bg_image {
+		.elementor-section[class*="scheme_"] {
+			background-color: transparent;
+		}
+	}
+}

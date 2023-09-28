@@ -1,0 +1,124 @@
+@import "../../../../../css/_mixins.scss";
+@import "../../../../../css/_trx_addons.vars.scss";
+
+/* woocommerce currency switcher */
+
+.sc_layouts_currency .select_container {
+	overflow: visible;
+	background-color: transparent !important;
+}
+.sc_layouts_currency .woocommerce-currency-switcher-form .woocommerce-currency-switcher {
+	display:none !important;
+}
+.sc_layouts_currency .woocommerce-currency-switcher-form .woocommerce-currency-switcher {
+	padding: 0 !important;
+}
+.sc_layouts_currency .select_container:after,
+.sc_layouts_currency .select_container:before {
+	display: none;
+}
+.sc_layouts_currency .chosen-container .chosen-results {
+	display: block;
+}
+.sc_layouts_currency .chosen-container {
+	@include font(inherit, '', inherit);
+	letter-spacing: 0px;
+	min-width: 100%;
+	position: relative;
+}
+.sc_layouts_currency .chosen-container-single .chosen-single span {
+	margin: 0;
+}
+.sc_layouts_currency .chosen-container-single .chosen-single > div {
+	display: none;
+}
+.sc_layouts_currency .woocommerce-currency-switcher-form .chosen-container-active.chosen-with-drop .chosen-single,
+.sc_layouts_currency .woocommerce-currency-switcher-form .chosen-container-single .chosen-single,
+.sc_layouts_currency .woocommerce-currency-switcher-form .dd-select,
+.sc_layouts_currency .woocommerce-currency-switcher-form .dd-selected,
+.sc_layouts_currency .woocommerce-currency-switcher-form .wSelect-selected,
+.sc_layouts_currency .woocommerce-currency-switcher-form .wSelect.wSelect-theme-classic {
+	display: inline;
+	font-weight:inherit;
+	position: relative;
+	height: auto;
+	background: transparent !important;
+	border: none;
+	line-height: inherit;
+	padding: 0;
+	margin: 0;
+	@include box-shadow(none);
+}
+.sc_layouts_currency .chosen-container-single .chosen-single:after {
+	content: '\e828';
+	font-family: $trx_addons_icons;
+	font-size: 95%;
+	@include abs-rc;
+	display: none;
+}
+.sc_layouts_currency .woocommerce-currency-switcher-form .wSelect-arrow,
+.sc_layouts_currency .woocommerce-currency-switcher-form .dd-pointer,
+.sc_layouts_currency .woocommerce-currency-switcher-form .dd-selected-description {
+	display:none;
+}
+.sc_layouts_currency .chosen-container .chosen-results,
+.sc_layouts_currency .woocommerce-currency-switcher-form .wSelect-options-holder,
+.sc_layouts_currency .woocommerce-currency-switcher-form .dd-options {
+	width: 11em !important;
+	border: none !important;
+	min-width: 0 !important;
+	margin: 0;
+	padding: 1.25em 2em;
+	background: #ffffff;
+	text-align: left;
+	@include abs-ct(1em);
+	@include border-box;
+	@include border-radius(0 !important);
+	@include box-shadow(1px 1px 2px 0px rgba(0,0,0,0.2));
+}
+.sc_layouts_currency.hide_drop .chosen-drop,
+.sc_layouts_currency.hide_drop .woocommerce-currency-switcher-form .wSelect-options-holder,
+.sc_layouts_currency.hide_drop .woocommerce-currency-switcher-form .dd-options {
+	display: none !important;
+}
+.sc_layouts_currency .chosen-container .chosen-drop,
+.sc_layouts_currency .woocommerce-currency-switcher-form .wSelect .wSelect-options {
+	height: auto !important;
+	border: none;
+	overflow:visible;
+	margin-top: 0;
+	@include border-sharp;
+	@include box-shadow(none);
+}
+.sc_layouts_currency .chosen-container .chosen-results li,
+.sc_layouts_currency .woocommerce-currency-switcher-form .wSelect-option,
+.sc_layouts_currency .woocommerce-currency-switcher-form .dd-option {
+	background: transparent !important;
+	border: none;
+	@include transition-all;
+	color: #141414;
+	font-weight: 400;
+	padding: 0.55em 0;
+	line-height: inherit;
+	cursor: pointer;
+}
+.sc_layouts_currency .woocommerce-currency-switcher-form .wSelect-option-value {
+	padding:0;
+	margin:0;
+}
+.sc_layouts_currency .chosen-container .active-result.highlighted,
+.sc_layouts_currency .chosen-container .active-result.result-selected,
+.sc_layouts_currency .woocommerce-currency-switcher-form .wSelect-option-selected {
+	color: #efa758;
+}
+
+.sc_layouts_currency a.woocs_flag_view_item {
+	@include box(auto, auto);
+	margin:0;
+	vertical-align:bottom;
+	display:inline;
+}
+.sc_layouts_currency a.woocs_flag_view_item img {
+	@include box(auto, 1.2em);
+	vertical-align:bottom;
+}

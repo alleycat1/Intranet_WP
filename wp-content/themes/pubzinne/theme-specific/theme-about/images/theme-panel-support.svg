@@ -1,0 +1,7 @@
+<svg id="round-help-button" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+  <g id="Group_271" data-name="Group 271" transform="translate(0 0)">
+    <path id="Path_170" data-name="Path 170" d="M14,0A14,14,0,1,0,28,14,14.016,14.016,0,0,0,14,0Zm0,26.164A12.164,12.164,0,1,1,26.164,14,12.178,12.178,0,0,1,14,26.164Z" transform="translate(0 0)" fill="#6c7781"/>
+    <path id="Path_171" data-name="Path 171" d="M140.38,91.382a4.178,4.178,0,0,0-4.173,4.173.858.858,0,1,0,1.716,0,2.457,2.457,0,1,1,2.457,2.457.858.858,0,0,0-.858.858v2.988a.858.858,0,1,0,1.716,0v-2.22a4.173,4.173,0,0,0-.858-8.257Z" transform="translate(-126.38 -84.665)" fill="#6c7781"/>
+    <path id="Path_172" data-name="Path 172" d="M184.616,273.738a1.077,1.077,0,1,0,1.077,1.077A1.077,1.077,0,0,0,184.616,273.738Z" transform="translate(-170.616 -254.464)" fill="#6c7781"/>
+  </g>
+</svg>

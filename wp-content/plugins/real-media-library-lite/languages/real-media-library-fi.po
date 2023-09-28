@@ -1,0 +1,1348 @@
+# Copyright (C) 2023 devowl.io
+# This file is distributed under the same license as the Real Media Library plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: n/a\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/src\n"
+"POT-Creation-Date: n/a\n"
+"PO-Revision-Date: 2023-06-21 12:37+0000\n"
+"Last-Translator: Matthias Günter <matthias.guenter@devowl.io>\n"
+"Language-Team: Finnish <https://translate.devowl.io/projects/wordpress-real-"
+"media-library-backend-php/develop/fi/>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.16.4\n"
+
+#. Plugin Name of the plugin
+msgid "Real Media Library"
+msgstr "Real Media Library"
+
+#. Plugin URI of the plugin
+msgid "https://devowl.io/wordpress-real-media-library/"
+msgstr "https://devowl.io/wordpress-real-media-library/"
+
+#. Description of the plugin
+msgid ""
+"Organize uploaded media in folders, collections and galleries: A file "
+"manager for WordPress. Media management made easy!"
+msgstr ""
+"Järjestele ladattuja mediatiedostoja kansioihin, kokoelmiksi ja "
+"gallerioiksi: tiedostolisäosa WordPressiin. Helppoa medianhallintaa!"
+
+#. Author of the plugin
+msgid "devowl.io"
+msgstr "devowl.io"
+
+#. Author URI of the plugin
+msgid "https://devowl.io"
+msgstr "https://devowl.io"
+
+#: inc/AdInitiator.php:58
+msgid "Complete file and folder manager"
+msgstr "Kattava tiedosto- ja kansiohallinta"
+
+#: inc/AdInitiator.php:59
+msgid ""
+"Real Media Library is a WordPress plugin that empowers you with advanced "
+"media management. You can use this plugin to organize the thousands of "
+"images, audio, video and PDF files in your media library into folders. "
+"Basically it is a file manager like Windows Explorer or Mac Finder, but for "
+"WordPress."
+msgstr ""
+"Real Media Library on WordPress-lisäosa, joka mahdollistaa monipuolisen "
+"mediahallinnan. Tämän lisäosan avulla voit järjestää mediakirjastosi "
+"tuhannet kuvat, ääni-, video- ja PDF-tiedostot kansioihin. Lisäosa "
+"muistuttaa Windows Explorer- tai Mac Finder -tiedostohallintaa, mutta sitä "
+"käytetään WordPress-ympäristössä."
+
+#: inc/AdInitiator.php:69
+msgid "Filter in insert media dialog"
+msgstr "Suodata \"Lataa media\" -valintaikkunassa"
+
+#: inc/AdInitiator.php:70
+msgid ""
+"No matter where you are, the folder structure of Real Media Library is "
+"always where you can select files. For example in the dialog for selecting a "
+"\"Featured Image\"."
+msgstr ""
+"Sijainnistasi riippumatta voit aina valita Real Media Libraryn "
+"kansiorakenteesta mediatiedostoja. Esimerkiksi valintaikkunassa \"Oletuskuva"
+"\"."
+
+#: inc/AdInitiator.php:80
+msgid ""
+"In the Lite version you can only select the folder by a simple dropdown."
+msgstr "Lite-versiossa voit valita kansion yksinkertaisesta pudotusvalikosta."
+
+#: inc/AdInitiator.php:85
+msgid "Custom image order"
+msgstr "Mukautettu kuvajärjestys"
+
+#: inc/AdInitiator.php:86
+msgid ""
+"Organizing your media files is really easy with the Real Media Library "
+"plugin. You can arrange the order of your files yourself by dragging and "
+"dropping. This allows you to move important files to the top for faster "
+"access."
+msgstr ""
+"Real Media Library -lisäosalla mediatiedostojen järjestäminen on todella "
+"helppoa. Mediatiedostojen järjestystä voit hallita yksinkertaisesti \"raahaa "
+"ja pudota\" -käyttöliittymällä. Näin voit esimerkiksi siirtää tärkeimmät "
+"tiedostot listauksen alkuun nopeampaa käyttöä varten."
+
+#: inc/AdInitiator.php:101
+msgid "Get your PRO license now!"
+msgstr "Hanki PRO-lisenssi nyt!"
+
+#: inc/api/attachment.php:108 inc/api/attachment.php:129
+#: inc/api/attachment.php:145
+msgid "The given folder was not found."
+msgstr "Annettua kansiota ei löytynyt."
+
+#: inc/Assets.php:247
+msgid "https://devowl.io/"
+msgstr "https://devowl.io/"
+
+#: inc/Assets.php:249
+msgid "Complementary Plugins"
+msgstr "Lisälaajennukset"
+
+#: inc/Assets.php:267
+msgid ""
+"\n"
+"\n"
+"Note: If you want to delete a shortcut file, the source file will NOT be "
+"deleted.\n"
+"If you want to delete a non-shortcut file, all associated shortcuts are "
+"deleted, too."
+msgstr ""
+"\n"
+"\n"
+"Huomio: Jos haluat poistaa medialiitoksen, lähdetiedostoa EI poisteta.\n"
+"Jos haluat poistaa lähdetiedoston, myös kaikki siihen liittyvät "
+"medialiitokset poistetaan."
+
+#: inc/attachment/CustomField.php:53
+msgid ""
+"If you move this shortcut, the location of the source/main file is not "
+"changed."
+msgstr "Jos siirrät tämän aliaksen, lähde-/päätiedoston sijainti ei muutu."
+
+#: inc/attachment/CustomField.php:54
+msgid ""
+"If you move this attachment, the folder location of the associated shortcuts "
+"are not changed."
+msgstr ""
+"Jos siirrät tämän mediatiedoston, siihen liitettyjen aliasten sijainnit "
+"kansioissa eivät muutu."
+
+#: inc/attachment/CustomField.php:78
+msgid "Move to another folder"
+msgstr "Siirrä toiseen kansioon"
+
+#: inc/attachment/CustomField.php:83 inc/folder/Creatable.php:336
+#: inc/view/FolderShortcode.php:114 inc/view/Lang.php:51
+msgid "Folder"
+msgstr "Kansio"
+
+#: inc/attachment/CustomField.php:124
+msgid "Shortcut infos"
+msgstr "Tietoa aliaksista"
+
+#: inc/attachment/CustomField.php:131
+msgid ""
+"This is a shortcut of a media library file. Shortcuts doesn't need any "
+"physical storage <strong>(0 kB)</strong>. If you want to change the file "
+"itself, you must do this in the original file (for example replace media "
+"file through a plugin).<br/>Note also that the fields in the shortcuts can "
+"be different to the original file, for example \"Title\", \"Description\" or "
+"\"Caption\"."
+msgstr ""
+"Tämä on mediatiedoston alias. Aliakset eivät vaadi levytilaa <strong>(0 kB)</"
+"strong>. Jos haluat muuttaa tiedostoa, sinun tulee tehdä muutos "
+"alkuperäiseen tiedostoon (esimerkiksi korvata tiedosto uudella lisäosan "
+"avulla). <br/>Huomaa myös, että aliasten syöttökentät voivat poiketa "
+"alkuperäisen tiedoston kentistä, kuten \"Otsikko\", \"Kuvaus\" tai "
+"\"Kuvateksti\"."
+
+#. translators:
+#: inc/attachment/CustomField.php:154
+msgid "For this file is %d shortcut available in the following folder:"
+msgid_plural ""
+"For this file are %d shortcuts available in the following folders:"
+msgstr[0] "Tälle tiedostolle on alias seuraavassa kansiossa:"
+msgstr[1] ""
+
+#: inc/attachment/CustomField.php:177
+msgid ""
+"This file has no associated shortcuts. You can create shortcuts by moving "
+"files per mouse and hold any key."
+msgstr ""
+"Tälle tiedostolle ei ole tehty aliasta. Voit luoda aliaksen rahaamalla "
+"tiedostoa hiirellä ja pitämällä painettuna mitä tahansa näppäintä."
+
+#: inc/attachment/Permissions.php:46
+msgid "You are not allowed to insert files here."
+msgstr "Et voi lisätä tiedostoja tähän sijaintiin."
+
+#: inc/attachment/Permissions.php:55
+msgid "You are not allowed to move the file."
+msgstr "Et voi siirtää tiedostoa."
+
+#: inc/attachment/Permissions.php:74
+msgid "You are not allowed to create a subfolder here."
+msgstr "Tähän sijaintiin et voi luoda alikansiota."
+
+#: inc/attachment/Permissions.php:89
+msgid "You are not allowed to delete this folder."
+msgstr "Et voi poistaa kansiota."
+
+#: inc/attachment/Permissions.php:104
+msgid "You are not allowed to rename this folder."
+msgstr "Et voi nimetä kansiota uudelleen."
+
+#: inc/attachment/Upload.php:97
+msgid "Select destination folder"
+msgstr "Valitse kohdekansio"
+
+#: inc/attachment/Upload.php:110
+msgid ""
+"You can simply upload files directly to a folder. Select a folder and upload "
+"files."
+msgstr ""
+"Voit ladata mediatiedostoja suoraan kansioon. Valitse kansio ja lataa "
+"tiedostot."
+
+#: inc/attachment/Upload.php:115
+msgid "upload to folder"
+msgstr "lataa kansioon"
+
+#: inc/comp/ExImport.php:71
+msgid "RealMediaLibrary:Import / Export"
+msgstr "RealMediaLibrary:Tuo / Vie"
+
+#: inc/comp/ExImport.php:78
+msgid "Import from other plugins"
+msgstr "Tuo muista laajennuksista"
+
+#: inc/comp/ExImport.php:86
+msgid "Export / Import Real Media Library folders"
+msgstr "Vie / Tuo Real Media Library kansioita"
+
+#: inc/comp/ExImport.php:100
+msgid "Export"
+msgstr "Vie"
+
+#: inc/comp/ExImport.php:105 inc/comp/ExImport.php:151
+#: inc/comp/ExImport.php:162 inc/comp/ExImport.php:171
+msgid "Import"
+msgstr "Tuo"
+
+#: inc/comp/ExImport.php:108
+msgid ""
+"All available folders will be exported. The current structure is not lost "
+"during import - but check that there are no duplicate names in the import "
+"data, as these are not checked."
+msgstr ""
+"Kaikki käytettävissä olevat kansiot viedään. Nykyinen rakenne ei katoa "
+"tuonnin aikana - mutta tarkista, ettei tuontitiedoissa ole päällekkäisiä "
+"nimiä, koska niitä ei tarkisteta."
+
+#: inc/comp/ExImport.php:114
+msgid "Exported data:"
+msgstr "Viedyt tiedot:"
+
+#: inc/comp/ExImport.php:117
+msgid "Import data:"
+msgstr "Tuo tiedot:"
+
+#: inc/comp/ExImport.php:124
+msgid "Importing data is only available in PRO version."
+msgstr "Tietojen tuonti on mahdollista vain PRO-versiossa."
+
+#: inc/comp/ExImport.php:128 inc/comp/ExImport.php:186
+#: inc/usersettings/DefaultFolder.php:79 inc/view/Lang.php:216
+msgid "Learn more about PRO"
+msgstr "Tutustu tarkemmin PRO-versioon"
+
+#: inc/comp/ExImport.php:175
+msgid "Imports categories and post relations."
+msgstr "Tuo kategoriat ja niihin liittyvät merkinnät."
+
+#: inc/comp/ExImport.php:177
+msgid "Nothing to import."
+msgstr "Ei mitään tuotavaa."
+
+#: inc/comp/ExImport.php:182
+msgid ""
+"Importing categories from another plugin is only available in PRO version."
+msgstr ""
+"Kategorioiden tuonti toisesta laajennuksesta on saatavilla vain PRO-"
+"versiossa."
+
+#: inc/comp/ExportMediaLibrary.php:156
+msgid "No valid folder."
+msgstr "Ei soveltuvaa kansiota."
+
+#: inc/comp/ExportMediaLibrary.php:220
+msgid "No valid type."
+msgstr "Ei soveltuvaa tyyppiä."
+
+#: inc/comp/PolyLang.php:59
+msgid "PolyLang: Automatically move translations"
+msgstr "PolyLang: Siirrä käännökset automaattisesti"
+
+#: inc/comp/PolyLang.php:76 inc/comp/WPML.php:334
+msgid ""
+"If you move a file, the corresponding translated file will also be moved."
+msgstr "Jos siirrät tiedoston, myös vastaava käännetty tiedosto siirretään."
+
+#: inc/comp/WPML.php:317
+msgid "WPML: Automatically move translations"
+msgstr "WPML: Siirrä käännökset automaattisesti"
+
+#: inc/Core.php:108
+msgid "https://devowl.io/go/real-media-library?source=rml-lite"
+msgstr "https://devowl.io/go/real-media-library?source=rml-lite"
+
+#. translators:
+#: inc/exception/FolderAlreadyExistsException.php:30
+msgid "'%s' already exists in this folder."
+msgstr "'%s' löytyy jo tästä kansiosta."
+
+#. translators:
+#: inc/exception/OnlyInProVersionException.php:22
+msgid "This functionality is not available in the free version (%s)."
+msgstr "Tämä toiminnallisuus ei ole käytössä ilmaisversiossa (%s)."
+
+#: inc/folder/Creatable.php:181
+msgid "You need to provide a set of files."
+msgstr "Sinun on annettava useampi tiedosto."
+
+#: inc/folder/Creatable.php:269
+msgid "The folder could not be created in the database."
+msgstr "Kansiota ei voitu luoda tietokantaan."
+
+#: inc/folder/Creatable.php:272
+msgid "The folder could not be created because it already exists."
+msgstr "Kansiota ei voitu luoda, koska se on jo olemassa."
+
+#: inc/folder/Creatable.php:356
+msgid ""
+"A folder can contain every type of file or a collection, but not gallery."
+msgstr ""
+"Kansio voi sisältää kaikentyyppisiä tiedostoja tai kokoelman, mutta ei "
+"galleriaa."
+
+#. translators:
+#: inc/folder/Creatable.php:375
+msgid "'%s' is not a valid folder name."
+msgstr "'%s' ei ole kelvollinen kansion nimi."
+
+#: inc/folder/Creatable.php:511
+msgid "Order by name ascending"
+msgstr "Järjestä nimen mukaan nousevassa järjestyksessä"
+
+#: inc/folder/Creatable.php:515
+msgid "Order by name descending"
+msgstr "Järjestä nimen mukaan laskevassa järjestyksessä"
+
+#: inc/folder/Creatable.php:519 inc/order/Sortable.php:100
+msgid "Order by ID ascending"
+msgstr "Järjestä ID:n mukaan nousevassa järjestyksessä"
+
+#: inc/folder/Creatable.php:523 inc/order/Sortable.php:104
+msgid "Order by ID descending"
+msgstr "Järjestä ID:n mukaan laskevassa järjestyksessä"
+
+#: inc/folder/CRUD.php:125
+msgid "The given folder does not exist or you cannot rename this folder."
+msgstr ""
+"Annettua kansiota ei ole olemassa tai et voi nimetä tätä kansiota uudelleen."
+
+#: inc/folder/CRUD.php:144 inc/view/Lang.php:95
+msgid "The folder you try to delete has subfolders."
+msgstr "Kansiolla, jota yrität poistaa, on alikansioita."
+
+#: inc/folder/CRUD.php:203
+msgid "The given folder does not exist."
+msgstr "Annettua kansiota ei ole olemassa."
+
+#: inc/folder/Root.php:21 inc/folder/Root.php:82 inc/view/Lang.php:128
+#: inc/view/View.php:119 inc/view/View.php:124
+msgid "Unorganized"
+msgstr "Järjestämätön"
+
+#: inc/folder/Root.php:89
+msgid ""
+"Unorganized is the same as a root folder. Here you can find all files which "
+"are not assigned to a folder."
+msgstr ""
+"Järjestämätön on sama kuin juurikansio. Täältä löydät kaikki mediatiedostot, "
+"joita ei ole määritetty kansioon."
+
+#: inc/metadata/CoverImage.php:74
+msgid ""
+"This option is disabled on this page. Please navigate to the media library."
+msgstr ""
+"Tämä vaihtoehto on poistettu käytöstä tällä sivulla. Siirry mediakirjastoon."
+
+#: inc/metadata/CoverImage.php:80
+msgid "Cover image"
+msgstr "Kansikuva"
+
+#: inc/metadata/Description.php:34
+msgid "Description"
+msgstr "Kuvaus"
+
+#: inc/metadata/Meta.php:42
+msgid "Path"
+msgstr "Polku"
+
+#: inc/metadata/Meta.php:47
+msgid "Folder type"
+msgstr "Kansion tyyppi"
+
+#: inc/metadata/Meta.php:96
+msgid "General"
+msgstr "Yleisesti"
+
+#: inc/order/Sortable.php:68
+msgid "Order by date ascending"
+msgstr "Järjestä päivämäärän mukaan nousevasti"
+
+#: inc/order/Sortable.php:72
+msgid "Order by date descending"
+msgstr "Järjestä päivämäärän mukaan laskevasti"
+
+#: inc/order/Sortable.php:76
+msgid "Order by title ascending"
+msgstr "Järjestä otsikon mukaan nousevassa järjestyksessä"
+
+#: inc/order/Sortable.php:80
+msgid "Order by title descending"
+msgstr "Järjestä otsikon mukaan laskevassa järjestyksessä"
+
+#: inc/order/Sortable.php:84
+msgid "Order by filename ascending"
+msgstr "Järjestä tiedostonimen mukaan nousevassa järjestyksessä"
+
+#: inc/order/Sortable.php:88
+msgid "Order by filename descending"
+msgstr "Järjestä tiedostonimen mukaan laskevassa järjestyksessä"
+
+#: inc/order/Sortable.php:92
+msgid "Natural order by filename ascending"
+msgstr "Luonnollinen järjestys tiedostonimen mukaan nousevassa järjestyksessä"
+
+#: inc/order/Sortable.php:96
+msgid "Natural order by filename descending"
+msgstr "Luonnollinen järjestys tiedostonimen mukaan laskevassa järjestyksessä"
+
+#: inc/overrides/lite/folder/Creatable.php:190
+#: inc/overrides/pro/folder/Creatable.php:303
+#: inc/overrides/pro/order/Sortable.php:147 inc/rest/Attachment.php:168
+msgid "Something went wrong."
+msgstr "Jotain meni pieleen."
+
+#: inc/overrides/lite/rest/Service.php:27 inc/overrides/pro/rest/Service.php:28
+msgid "Folder not found."
+msgstr "Kansiota ei löydy."
+
+#: inc/overrides/pro/folder/Collection.php:18
+msgid "A collection cannot contain files."
+msgstr "Kokoelma ei voi sisältää tiedostoja."
+
+#: inc/overrides/pro/folder/Collection.php:51
+msgid "Collection"
+msgstr "Kokoelma"
+
+#: inc/overrides/pro/folder/Collection.php:58
+msgid ""
+"A collection cannot contain files. But you can create other collections and "
+"<strong> galleries</strong> there."
+msgstr ""
+"Kokoelma ei voi sisältää tiedostoja. Mutta voit luoda siellä muita kokoelmia "
+"ja <strong>gallerioita</strong>."
+
+#. translators:
+#: inc/overrides/pro/folder/Creatable.php:107
+msgid "The parent %d does not exist."
+msgstr "Juuritason kansiota %d ei ole olemassa."
+
+#: inc/overrides/pro/folder/Creatable.php:161
+msgid "The given parent does not exist to set the parent for this folder."
+msgstr ""
+"Annettua juurikansiota ei ole olemassa tämän kansion ylätason asettamiseksi."
+
+#: inc/overrides/pro/folder/Creatable.php:166
+msgid "You are not allowed to change the parent for this folder."
+msgstr "Et voi vaihtaa tämän kansion ylätasoa."
+
+#: inc/overrides/pro/folder/Creatable.php:171
+msgid "The given parent does not allow the folder type."
+msgstr "Annettu juurikansio ei salli kansiotyyppiä."
+
+#: inc/overrides/pro/folder/Gallery.php:19
+msgid "You can only move images to a gallery."
+msgstr "Voit siirtää vain kuvia galleriaan."
+
+#: inc/overrides/pro/folder/Gallery.php:53
+msgid "Gallery"
+msgstr "Kuvagalleria"
+
+#: inc/overrides/pro/folder/Gallery.php:60
+msgid ""
+"A gallery can only contain images. To view a gallery, go to a post and look "
+"at the buttons of the visual editor..."
+msgstr ""
+"Kuvagalleria voi sisältää vain kuvia. Voit tarkastella galleriaa siirtymällä "
+"sisältötyyppiin ja katsomalla visuaalisen editorin painikkeita..."
+
+#: inc/overrides/pro/order/Sortable.php:44
+msgid "The given folder does not allow to reorder the files."
+msgstr "Annettu kansio ei salli tiedostojen uudelleenjärjestelyä."
+
+#: inc/overrides/pro/order/Sortable.php:52
+msgid "This folder has an automatic order. Please deactivate that first."
+msgstr ""
+"Tässä kansiossa on automaattinen järjestys. Ota määritys ensin pois päältä."
+
+#: inc/overrides/pro/usersettings/DefaultFolder.php:39 inc/view/Lang.php:178
+msgid "Please select a folder to show items."
+msgstr "Valitse kansio, jossa kohteet näytetään."
+
+#: inc/rest/Attachment.php:68
+msgid "Fetch only media in a folder by folder id."
+msgstr "Hae vain kansion mediatiedostoja kansiotunnuksen mukaan."
+
+#: inc/rest/Service.php:200
+msgid "Forbidden"
+msgstr "Kielletty"
+
+#: inc/rest/Service.php:205
+msgid "Real Media Library is not active for the current user."
+msgstr "Real Media Library ei ole aktivoitu nykyiselle käyttäjälle."
+
+#: inc/RpmInitiator.php:60
+msgid ""
+"https://devowl.io/knowledge-base/codecanyon-where-can-i-find-my-license-key/"
+msgstr ""
+"https://devowl.io/knowledge-base/codecanyon-where-can-i-find-my-license-key/"
+
+#: inc/usersettings/AllFilesShortcuts.php:58
+msgid "Hide shortcuts in \"All files\""
+msgstr "Piilota aliakset kohdassa \"Kaikki tiedostot\""
+
+#: inc/usersettings/AllFilesShortcuts.php:61
+msgid "The count always includes shortcuts"
+msgstr "Lukumäärä sisältää aina aliakset"
+
+#: inc/usersettings/DefaultFolder.php:48
+msgid "Default startup folder"
+msgstr "Käynnistyskansio (oletus)"
+
+#: inc/usersettings/DefaultFolder.php:58
+msgid "No folder at startup"
+msgstr "Ei kansiota avattaessa"
+
+#: inc/usersettings/DefaultFolder.php:64
+msgid "Last opened folder"
+msgstr "Viimeksi avattu kansio"
+
+#: inc/usersettings/DefaultFolder.php:72
+msgid ""
+"Your media library can always open in the last opened folder or a folder you "
+"choose. This saves you time every time you open the media library!"
+msgstr ""
+"Mediakirjastosi voi avautua viimeksi avatussa kansiossa tai valitsemassasi "
+"kansiossa. Tämä säästää aikaa, kun avaat mediakirjaston!"
+
+#: inc/usersettings/InfiniteScrolling.php:45
+msgid "Enable infinite scrolling in grid view"
+msgstr "Ota käyttöön jatkuva vieritys ruudukkonäkymässä"
+
+#: inc/usersettings/InfiniteScrolling.php:48
+msgid ""
+"Instead of displaying a \"Load More\" button, all files are loaded "
+"automatically as you scroll down. This is not supported in list view."
+msgstr ""
+"\"Lataa lisää\" -painikkeen näyttämisen sijaan kaikki tiedostot ladataan "
+"automaattisesti, kun vierität alaspäin. Toimintoa ei tueta listanäkymässä."
+
+#: inc/view/FolderShortcode.php:109
+msgid "Gallery from Media Folder"
+msgstr "Kuvagalleria mediakirjastosta"
+
+#: inc/view/FolderShortcode.php:110
+msgid ""
+"Note: You can only select galleries. Folders and collections are grayed."
+msgstr ""
+"Huomio: Voit valita vain kuvagallerioita. Kansiot ja kokoelmat eivät ole "
+"valittavissa."
+
+#: inc/view/FolderShortcode.php:115
+msgid "Link to"
+msgstr "Linkin kohde"
+
+#: inc/view/FolderShortcode.php:116
+msgid "Columns"
+msgstr "Sarakkeet"
+
+#: inc/view/FolderShortcode.php:117
+msgid "Random Order"
+msgstr "Satunnainen järjestys"
+
+#: inc/view/FolderShortcode.php:118
+msgid "Size"
+msgstr "Koko"
+
+#: inc/view/FolderShortcode.php:120
+msgid "Attachment File"
+msgstr "Liitetiedosto"
+
+#: inc/view/FolderShortcode.php:121
+msgid "Media File"
+msgstr "Mediatiedosto"
+
+#: inc/view/FolderShortcode.php:122
+msgid "None"
+msgstr "Tyhjä"
+
+#: inc/view/FolderShortcode.php:125
+msgid "Thumbnail"
+msgstr "Pikkukuva"
+
+#: inc/view/FolderShortcode.php:126
+msgid "Medium"
+msgstr "Keskikokoinen"
+
+#: inc/view/FolderShortcode.php:127
+msgid "Large"
+msgstr "Suuri"
+
+#: inc/view/FolderShortcode.php:128
+msgid "Full Size"
+msgstr "Täysikokoinen"
+
+#: inc/view/Lang.php:39
+msgid ""
+"Subfolders are only available in the PRO version. But you can now create an "
+"unlimited number of folders on the main level (instead of the previous max. "
+"10 folders)."
+msgstr ""
+"Alikansiot ovat saatavilla vain PRO-versiossa. Nykyään voit kuitenkin luoda "
+"rajoittamattoman määrän kansioita päätasolle (aikaisemman enintään 10 "
+"kansion sijaan)."
+
+#: inc/view/Lang.php:48
+msgid "No folder selected"
+msgstr "Ei kansiota valittu"
+
+#: inc/view/Lang.php:49
+msgid "Select folder"
+msgstr "Valitse kansio"
+
+#: inc/view/Lang.php:50
+msgid "Reload content"
+msgstr "Lataa sisältö uudelleen"
+
+#: inc/view/Lang.php:52
+msgid "Subfolders"
+msgstr "Alikansiot"
+
+#: inc/view/Lang.php:53
+msgid "Please select a folder (media library) in the block settings."
+msgstr "Valitse kansio (mediakirjastosta) lohkon asetuksista."
+
+#: inc/view/Lang.php:55
+msgid "New folders inherit this restriction"
+msgstr "Uudet kansiot perivät tämän rajoituksen"
+
+#: inc/view/Lang.php:56
+msgid "The current selected folder has some restrictions:"
+msgstr "Nykyisellä valitulla kansiolla on joitain rajoituksia:"
+
+#: inc/view/Lang.php:57
+msgid "You cannot change *parent* folder"
+msgstr "Et voi vaihtaa juurikansiota"
+
+#: inc/view/Lang.php:58
+msgid "You cannot *rearrange* subfolders"
+msgstr "Et voi *järjestää uudelleen* alikansioita"
+
+#: inc/view/Lang.php:59
+msgid "You cannot *create* subfolders"
+msgstr "Et voi *luoda* alikansioita"
+
+#: inc/view/Lang.php:60
+msgid ""
+"You cannot *insert* new files. New files will be moved to Unorganized..."
+msgstr ""
+"Et voi *lisätä* uusia tiedostoja. Uudet tiedostot siirretään "
+"järjestämättömiin..."
+
+#: inc/view/Lang.php:64
+msgid "You cannot *rename* the folder"
+msgstr "Et voi *nimetä uudelleen* kansiota"
+
+#: inc/view/Lang.php:65
+msgid "You cannot *delete* the folder"
+msgstr "Et voi *poistaa* kansiota"
+
+#: inc/view/Lang.php:66
+msgid "You cannot *move* files outside the folder"
+msgstr "Et voi *siirtää* tiedostoja kansion ulkopuolelle"
+
+#: inc/view/Lang.php:67
+msgid "Parent"
+msgstr "Ylätaso"
+
+#: inc/view/Lang.php:68
+msgid "Before this node"
+msgstr "Ennen tätä liitosta"
+
+#: inc/view/Lang.php:69
+msgid "If no next node is given, the element is placed at the end."
+msgstr "Jos seuraavaa liitosta ei ole annettu, elementti sijoitetaan loppuun."
+
+#: inc/view/Lang.php:70
+msgid "The file is uploaded to the folder where you are currently in."
+msgstr "Tiedosto ladataan kansioon, jossa olet tällä hetkellä."
+
+#: inc/view/Lang.php:71
+msgid "Are you sure?"
+msgstr "Oletko varma?"
+
+#: inc/view/Lang.php:72
+msgid "Success"
+msgstr "Onnistui"
+
+#: inc/view/Lang.php:73
+msgid "Failed"
+msgstr "Epäonnistui"
+
+#: inc/view/Lang.php:74
+msgid "No entries found"
+msgstr "Merkintöjä ei löytynyt"
+
+#: inc/view/Lang.php:75
+msgid "Are you sure to delete *{name}*? All files gets moved to Unorganized."
+msgstr ""
+"Haluatko varmasti poistaa *{name}*? Kaikki tiedostot siirretään "
+"järjestämättömiin."
+
+#: inc/view/Lang.php:76
+msgid ""
+"Are you sure to delete *{count} folders*? All files gets moved to "
+"Unorganized."
+msgstr ""
+"Haluatko varmasti poistaa *{count} kansiota*? Kaikki tiedostot siirretään "
+"järjestämättömiin."
+
+#: inc/view/Lang.php:80
+msgid "Ok"
+msgstr "Ok"
+
+#: inc/view/Lang.php:81
+msgid "Cancel"
+msgstr "Peruuta"
+
+#: inc/view/Lang.php:82
+msgid "Save"
+msgstr "Tallenna"
+
+#: inc/view/Lang.php:83
+msgid "Back"
+msgstr "Takaisin"
+
+#: inc/view/Lang.php:84
+msgid "No folders found"
+msgstr "Kansioita ei löytynyt"
+
+#: inc/view/Lang.php:85
+msgid ""
+"No folders have been created yet. Just click on the button above to create "
+"your first folder."
+msgstr ""
+"Kansioita ei ole vielä luotu. Luo ensimmäinen kansio napsauttamalla yllä "
+"olevaa painiketta."
+
+#: inc/view/Lang.php:89
+msgid "Folders"
+msgstr "Kansiot"
+
+#: inc/view/Lang.php:90
+msgid "No search results."
+msgstr "Ei hakutuloksia."
+
+#: inc/view/Lang.php:91
+msgid "Renaming to *{name}*..."
+msgstr "Vaihdetaan nimeksi *{name}*..."
+
+#: inc/view/Lang.php:92
+msgid "Successfully renamed folder to *{name}*"
+msgstr "Kansion uudelleennimeäminen onnistui muotoon *{name}*"
+
+#: inc/view/Lang.php:93
+msgid "Creating *{name}*..."
+msgstr "Luodaan *{name}*..."
+
+#: inc/view/Lang.php:94
+msgid "Successfully created *{name}*"
+msgstr "*{name}* luotu onnistuneesti"
+
+#: inc/view/Lang.php:96
+msgid "Deleting *{name}*..."
+msgstr "Poistetaan *{name}*..."
+
+#: inc/view/Lang.php:97
+msgid "Successfully deleted *{name}*"
+msgstr "*{name}* poistettiin onnistuneesti"
+
+#: inc/view/Lang.php:98
+msgid "Successfully deleted *{count} folders*"
+msgstr "*{count} kansiota* poistettu onnistuneesti"
+
+#: inc/view/Lang.php:99
+msgid "Rearrange *{name}* placement manually"
+msgstr "Järjestä *{name}* sijoittelu manuaalisesti"
+
+#: inc/view/Lang.php:100
+msgid "Reordering the tree hierarchy..."
+msgstr "Järjestetään hierarkiatasoja uudelleen..."
+
+#: inc/view/Lang.php:101
+msgid "Successfully sorted the tree hierarchy"
+msgstr "Hierarkiatasot järjestelty onnistuneesti"
+
+#: inc/view/Lang.php:102
+msgid "Reorder subfolders of *{name}*..."
+msgstr "Järjestä *{name}*:n alikansiot uudelleen..."
+
+#: inc/view/Lang.php:103
+msgid "{count} files remaining..."
+msgstr "{count} tiedostoa jäljellä..."
+
+#: inc/view/Lang.php:104
+msgid "Receiving data..."
+msgstr "Haetaan tietoja..."
+
+#: inc/view/Lang.php:105
+msgid "Shortcut"
+msgstr "Alias"
+
+#: inc/view/Lang.php:106
+msgid ""
+"This is a shortcut of a media library file. Shortcuts doesn't need any "
+"physical storage *(0 kB)*. If you want to change the file itself, you must "
+"do this in the original file (for example replace media file through a "
+"plugin).\n"
+"Note also that the fields in the shortcuts can be different to the original "
+"file, for example \"Title\", \"Description\" or \"Caption\"."
+msgstr ""
+"Tämä on mediakirjastotiedoston alias. Aliakset eivät vaadi fyysistä "
+"tallennustilaa *(0 kB)*. Jos haluat muuttaa itse tiedostoa, sinun on tehtävä "
+"tämä alkuperäisessä tiedostossa (esimerkiksi korvaa mediatiedosto uudella "
+"versiolla lisäosan avulla).\n"
+"Huomaa myös, että aliaksen kentät voivat poiketa alkuperäisestä tiedostosta, "
+"esimerkiksi \"Otsikko\", \"Kuvaus\" tai \"Teksti\"."
+
+#: inc/view/Lang.php:111
+msgid ""
+"In the current view of uploads, filters are active. Please reset them and "
+"refresh the view."
+msgstr ""
+"Nykyisessä näkymässä suodattimet ovat aktiivisia. Nollaa ne ja päivitä "
+"näkymä."
+
+#: inc/view/Lang.php:115
+msgid "A collection cannot contain files. Upload moved to Unorganized..."
+msgstr ""
+"Kokoelma ei voi sisältää tiedostoja. Tiedosto siirretty järjestämättömiin..."
+
+#: inc/view/Lang.php:116
+msgid "A gallery can only contain images. Upload moved to Unorganized..."
+msgstr ""
+"Kuvagalleria voi sisältää vain kuvia. Tiedosto siirretty järjestämättömiin..."
+
+#: inc/view/Lang.php:117
+msgid "Order content by *{name}*..."
+msgstr "Järjestele sisältö perusteena *{name}*..."
+
+#: inc/view/Lang.php:118
+msgid "Order content by drag & drop"
+msgstr "Järjestele sisältöä raahaamalla ja sijoittamalla"
+
+#: inc/view/Lang.php:119
+msgid "Reset order"
+msgstr "Nollaa järjestys"
+
+#: inc/view/Lang.php:120
+msgid "Apply order once..."
+msgstr "Käytä lajittelua kerran..."
+
+#: inc/view/Lang.php:121
+msgid "Last"
+msgstr "Viimeinen"
+
+#: inc/view/Lang.php:122
+msgid "Deactivate automatic ordering"
+msgstr "Poista automaattinen järjestely käytöstä"
+
+#: inc/view/Lang.php:123
+msgid "Apply automatic order..."
+msgstr "Käytä automaattista järjestelyä..."
+
+#: inc/view/Lang.php:124
+msgid "Latest"
+msgstr "Viimeisin"
+
+#: inc/view/Lang.php:125
+msgid "Reindex order"
+msgstr "Indeksoi järjestys uudelleen"
+
+#: inc/view/Lang.php:126
+msgid "Reset to last order"
+msgstr "Palauta viimeisin järjestys"
+
+#: inc/view/Lang.php:127
+msgid "All files"
+msgstr "Kaikki tiedostot"
+
+#: inc/view/Lang.php:129
+msgid "Move {count} files"
+msgstr "Siirrä {count} tiedostoa"
+
+#: inc/view/Lang.php:130
+msgid "Move one file"
+msgstr "Siirrä yksi tiedosto"
+
+#: inc/view/Lang.php:131
+msgid "Copy {count} files"
+msgstr "Kopioi {count} tiedostoa"
+
+#: inc/view/Lang.php:132
+msgid "Copy one file"
+msgstr "Kopioi yksi tiedosto"
+
+#: inc/view/Lang.php:133
+msgid "Moving {count} files..."
+msgstr "Siirretään {count} tiedostoa..."
+
+#: inc/view/Lang.php:134
+msgid "Moving one file..."
+msgstr "Siirretään tiedostoa..."
+
+#: inc/view/Lang.php:135
+msgid "Copying {count} files..."
+msgstr "Kopioidaan {count} tiedostoa..."
+
+#: inc/view/Lang.php:136
+msgid "Copying one file..."
+msgstr "Kopioidaan tiedostoa..."
+
+#: inc/view/Lang.php:137
+msgid "Successfully moved {count} files"
+msgstr "Siirretty {count} tiedostoa onnistuneesti"
+
+#: inc/view/Lang.php:138
+msgid "Successfully moved one file"
+msgstr "Tiedoston siirto onnistui"
+
+#: inc/view/Lang.php:139
+msgid "Successfully copied {count} files"
+msgstr "Kopioitu {count} tiedostoa onnistuneesti"
+
+#: inc/view/Lang.php:140
+msgid "Successfully copied one file"
+msgstr "Kopiointi onnistui"
+
+#: inc/view/Lang.php:141
+msgid "Hold any key to create a shortcut"
+msgstr "Luo alias pitämällä mitä tahansa näppäintä painettuna"
+
+#: inc/view/Lang.php:142
+msgid "Release key to move file"
+msgstr "Vapauta painike siirtääksesi tiedoston"
+
+#: inc/view/Lang.php:143
+msgid "Click this to create a new folder"
+msgstr "Paina tätä luodaksesi uuden kansion"
+
+#: inc/view/Lang.php:144
+msgid ""
+"A folder can contain any file type and collection, but not galleries. If you "
+"want to create a subfolder, select a folder and click this button."
+msgstr ""
+"Kansio voi sisältää minkä tahansa tiedostotyypin ja kokoelman, mutta ei "
+"gallerioita. Jos haluat luoda alikansion, valitse kansio ja paina tätä "
+"painiketta."
+
+#: inc/view/Lang.php:148
+msgid "Click this to create a new collection"
+msgstr "Paina tästä luodaksesi uuden kokoelman"
+
+#: inc/view/Lang.php:149
+msgid ""
+"A collection cannot contain files. However, you can create additional "
+"collections and *galleries* there. This gallery is only a *gallery data "
+"folder*, i.e. they are not automatically visible on the website.\n"
+"\n"
+"You can create a *visual gallery* by using a shortcode in the Visual Editor "
+"on your pages/postings."
+msgstr ""
+"Kokoelma ei voi sisältää tiedostoja. Voit kuitenkin luoda siellä lisää "
+"kokoelmia ja *gallerioita*. Tämä galleria on vain *gallerian datakansio*, "
+"eli ne eivät näy automaattisesti sivustolla.\n"
+"\n"
+"Voit luoda *visuaalisen kuvagallerian* käyttämällä visuaalisen editorin "
+"lyhytkoodia sivuillasi/julkaisuissasi."
+
+#: inc/view/Lang.php:155
+msgid "Click this to create a *new gallery data folder*"
+msgstr "Paina tätä luodaksesi *uuden galleriadatakansion*"
+
+#: inc/view/Lang.php:156
+msgid ""
+"A *gallery data folder* can only contain images. It is easier for you to "
+"distinguish where your visual galleries are located.\n"
+"\n"
+"You can also order the images into *a custom image order* per drag&drop."
+msgstr ""
+"*Gallerian datakansio* voi sisältää vain kuvia. Sinun on helpompi hahmottaa, "
+"missä visuaaliset galleriat sijaitsevat.\n"
+"\n"
+"Voit myös järjestää kuvat *muokattuun kuvajärjestykseen* raahamalla ja "
+"sijoittamalla."
+
+#: inc/view/Lang.php:162
+msgid "Settings"
+msgstr "Asetukset"
+
+#: inc/view/Lang.php:163
+msgid "General settings for the current logged in user."
+msgstr "Yleiset asetukset nykyiselle sisäänkirjautuneelle käyttäjälle."
+
+#: inc/view/Lang.php:164
+msgid "Permissions"
+msgstr "Käyttöoikeudet"
+
+#: inc/view/Lang.php:165
+msgid "Reorder files in this folder"
+msgstr "Järjestä tiedostot uudelleen tässä kansiossa"
+
+#: inc/view/Lang.php:166
+msgid "Start to reorder the files / images by *title, filename, ID, ...*"
+msgstr ""
+"Aloita tiedostojen/kuvien uudelleenjärjestäminen perusteena *otsikko, "
+"tiedostonimi, tunnus/ID, ...*"
+
+#: inc/view/Lang.php:167
+msgid "Refresh"
+msgstr "Päivitä"
+
+#: inc/view/Lang.php:168
+msgid "Refreshes the current folder view."
+msgstr "Päivittää nykyisen kansionäkymän."
+
+#: inc/view/Lang.php:169
+msgid "Rename"
+msgstr "Nimeä uudelleen"
+
+#: inc/view/Lang.php:170
+msgid "Rename the current selected folder."
+msgstr "Nimeä valittu kansio uudelleen."
+
+#: inc/view/Lang.php:171
+msgid "Delete"
+msgstr "Poista"
+
+#: inc/view/Lang.php:172
+msgid "Delete the current selected folder."
+msgstr "Poista valittu kansio."
+
+#: inc/view/Lang.php:173
+msgid "Delete the current selected folders."
+msgstr "Poista valitut kansiot."
+
+#: inc/view/Lang.php:174
+msgid "Rearrange"
+msgstr "Järjestä uudelleen"
+
+#: inc/view/Lang.php:175
+msgid "Change the hierarchical order of the folders."
+msgstr "Muuta kansioiden hierarkkista järjestystä."
+
+#: inc/view/Lang.php:176
+msgid "Folder details"
+msgstr "Kansion tiedot"
+
+#: inc/view/Lang.php:177
+msgid "Select a folder and view more details about it."
+msgstr "Valitse kansio saadaksesi lisätietoja siitä."
+
+#: inc/view/Lang.php:180
+msgid "Product license not yet activated."
+msgstr "Tuotelisenssiä ei ole vielä aktivoitu."
+
+#: inc/view/Lang.php:181
+msgid "Enter license"
+msgstr "Syötä lisenssi"
+
+#: inc/view/Lang.php:182
+msgid "Dismiss notice"
+msgstr "Piilota ilmoitus"
+
+#: inc/view/Lang.php:183
+msgid ""
+"It looks like you have already used another plugin for folders in the media "
+"library."
+msgstr ""
+"Näyttää siltä, että olet jo käyttänyt toista lisäosaa mediakirjaston "
+"kansioihin."
+
+#: inc/view/Lang.php:187
+msgid "Start importing"
+msgstr "Aloita tuonti"
+
+#: inc/view/Lang.php:188
+msgid "Dismiss"
+msgstr "Hylkää"
+
+#: inc/view/Lang.php:189
+msgid ""
+"Real Media Library creates a virtual folder structure. The URLs of uploads "
+"do not change when you move the file. Learn more about <a href=\"https://"
+"devowl.io/knowledge-base/how-can-i-physically-reflect-the-virtual-folder-"
+"structure-to-my-file-system/\" target=\"_blank\">how to automatically move "
+"files to physical folders.</a>"
+msgstr ""
+"Real Media Library luo virtuaalisen kansiorakenteen. Tiedostojen URL-"
+"osoitteet eivät muutu, kun siirrät tiedostoa. Lue lisää aiheesta <a href="
+"\"https://devowl.io/knowledge-base/how-can-i-physically-reflect-the-virtual-"
+"folder-structure-to-my-file-system/\" target=\"_blank\">how to automatically "
+"move files to physical folders.</a>"
+
+#: inc/view/Lang.php:193
+msgid "Product license not for production use!"
+msgstr "Tuotelisenssi ei tuotantokäyttöön!"
+
+#: inc/view/Lang.php:194
+msgid "Learn more"
+msgstr "Lue lisää"
+
+#: inc/view/Lang.php:195
+msgid "https://devowl.io/knowledge-base/license-installation-type/"
+msgstr "https://devowl.io/knowledge-base/license-installation-type/"
+
+#: inc/view/Lang.php:196
+msgid ""
+"Before we start organizing your media, you can *obtain your free license to "
+"enjoy all the benefits* of the free version of Real Media Library. Get "
+"started now!"
+msgstr ""
+"Ennen kuin mediatiedostojasi aloitetaan järjestelemään, voit *hankkia "
+"ilmaisen lisenssisi nauttiaksesi kaikista Real Media Libraryn ilmaisen "
+"version eduista*. Aloita nyt!"
+
+#: inc/view/Lang.php:200
+msgid "License activation"
+msgstr "Lisenssin aktivointi"
+
+#: inc/view/Lang.php:201
+msgid "Get your free license"
+msgstr "Hanki ilmainen lisenssi"
+
+#: inc/view/Lang.php:202
+msgid "Activate license & continue"
+msgstr "Aktivoi lisenssi ja jatka"
+
+#: inc/view/Lang.php:203
+msgid "Activate free license & Continue"
+msgstr "Aktivoi ilmainen lisenssi ja jatka"
+
+#: inc/view/Lang.php:204
+msgid "Continue without regular updates and without any support"
+msgstr "Jatka ilman säännöllisiä päivityksiä ja ilman tukipalveluja"
+
+#: inc/view/Lang.php:205
+msgid "Continue without any support and without e.g. discount announcements"
+msgstr "Jatka ilman tukipalveluja ja ilman esim. alennusilmoituksia"
+
+#: inc/view/Lang.php:209
+msgid ""
+"You will be redirected to the external website of PRO version. Please "
+"confirm to continue!"
+msgstr "Sinut ohjataan PRO-version verkkosivustolle. Vahvista jatkaaksesi!"
+
+#: inc/view/Lang.php:213
+msgid "PRO Feature"
+msgstr "PRO-ominaisuus"
+
+#: inc/view/Lang.php:214
+msgid "Hide for 30 days"
+msgstr "Piilota 30 päiväksi"
+
+#: inc/view/Lang.php:215
+msgid "Thanks for using the free version of Real Media Library."
+msgstr "Kiitos Real Media Libraryn ilmaisen version käyttämisestä."
+
+#: inc/view/Lang.php:217
+msgid "Get PRO!"
+msgstr "Hanki PRO!"
+
+#: inc/view/Lang.php:218
+msgid "I want to learn more!"
+msgstr "Haluan kuulla lisää!"
+
+#: inc/view/Lang.php:219
+msgid "No, not interested..."
+msgstr "Ei, en ole kiinnostunut..."
+
+#: inc/view/Lang.php:222
+msgid "You like collections?"
+msgstr "Pidätkö kokoelmista?"
+
+#: inc/view/Lang.php:224
+msgid ""
+"Get more organized with different types of folders: Collections and "
+"galleries help you to easily recognize where your image galleries are "
+"located."
+msgstr ""
+"Järjestä paremmin erilaisia kansioita: kokoelmat ja galleriat auttavat sinua "
+"tunnistamaan helposti, missä kuvagalleriat sijaitsevat."
+
+#: inc/view/Lang.php:230
+msgid "Custom content order?"
+msgstr "Sisällön mukautettu järjestys?"
+
+#: inc/view/Lang.php:232
+msgid ""
+"Get your folder contents in order and arrange your files according to a "
+"criterion (e.g. name descending) or by drag & drop."
+msgstr ""
+"Järjestä kansiosi sisältö ja järjestele tiedostot kriteerin mukaan (esim. "
+"nimen mukaan laskevassa järjestyksessä) tai helposti raahaamalla ja "
+"sijoittamalla."
+
+#: inc/view/Lang.php:238
+msgid "Full order control?"
+msgstr "Kokonaisvaltainen järjestyksen kontrollointi?"
+
+#: inc/view/Lang.php:240
+msgid ""
+"Organize the nodes within your folder tree according to a criterion (e.g. "
+"name descending) or by drag & drop."
+msgstr ""
+"Järjestä kansiorakenteen liitokset kriteerin mukaan (esim. nimen mukaan "
+"laskevassa järjestyksessä) tai helposti raahaamalla ja sijoittamalla."
+
+#: inc/view/Lang.php:246
+msgid "Want to create subfolders?"
+msgstr "Haluatko luoda alikansioita?"
+
+#: inc/view/Lang.php:249
+msgid ""
+"Subfolders offer you the possibility to bring more structure into your media "
+"library. They help you to keep the overview, even if you really have many "
+"files in your media library."
+msgstr ""
+"Alikansiot tarjoavat sinulle mahdollisuuden tuoda selkeämpää rakennetta "
+"mediakirjastoosi. Niiden avulla saat yleiskatsauksen kokonaisuudesta, vaikka "
+"mediakirjastossasi olisi todella paljon tiedostoja."
+
+#: inc/view/Lang.php:255
+msgid "Want to switch between folders more comfortably?"
+msgstr "Haluatko vaihtaa kansioiden välillä mukavammin?"
+
+#: inc/view/Lang.php:257
+msgid ""
+"Let the complete folder tree as in your media library also be displayed in "
+"this dialog instead of searching each time in the dropdown. It is simply "
+"more comfortable!"
+msgstr ""
+"Anna koko kansiorakenteen näkyä mediakirjastosi valintaikkunassa sen sijaan, "
+"että etsit joka kerta pudotusvalikosta. Mediakirjaston käyttö on "
+"yksinkertaisesti mukavampaa!"
+
+#: inc/view/Lang.php:263
+msgid "Want to upload entire folders?"
+msgstr "Haluatko ladata kokonaisia kansioita?"
+
+#: inc/view/Lang.php:264
+msgid ""
+"With Real Media Library you can upload entire folders using drag and drop. "
+"All folders, subfolders and files will be uploaded and displayed in your "
+"media library in the same structure. Get PRO to upload folders!"
+msgstr ""
+"Real Media Libraryn avulla voit ladata kokonaisia kansioita raahamalla ja "
+"pudottamalla. Kaikki kansiot, alikansiot ja tiedostot ladataan ja näytetään "
+"mediakirjastossasi samassa rakenteessa. Hanki PRO ladataksesi kansioita!"
+
+#: inc/view/Options.php:39
+msgid "RealMediaLibrary:General"
+msgstr "RealMediaLibrary:Yleistä"
+
+#: inc/view/Options.php:45
+msgid "Load RML functionality in frontend"
+msgstr "Lataa RML-toiminnallisuus käyttöliittymäkerrokseen"
+
+#: inc/view/Options.php:78
+msgid "RealMediaLibrary:Reset"
+msgstr "RealMediaLibrary:Palauta"
+
+#: inc/view/Options.php:83
+msgid "Reset the order of all galleries"
+msgstr "Palauta kaikkien gallerioiden järjestys"
+
+#: inc/view/Options.php:93
+msgid "Wipe all settings (folders, attachment relations)"
+msgstr "Nollaa kaikki asetukset (kansiot, liitokset, aliakset)"
+
+#: inc/view/Options.php:102
+msgid "Reset folder count cache"
+msgstr "Nollaa kansioiden määrän välimuisti"
+
+#: inc/view/Options.php:110
+msgid "Reset names, slugs and absolute pathes"
+msgstr "Nollaa nimet, slugit ja absoluuttiset polut"
+
+#: inc/view/Options.php:136
+msgid "Wipe attachment relations"
+msgstr "Nollaa tiedostojen liitokset"
+
+#: inc/view/Options.php:139
+msgid "Wipe all"
+msgstr "Nollaa kaikki"
+
+#: inc/view/Options.php:148
+msgid "Reset count"
+msgstr "Nollaa laskuri"
+
+#: inc/view/Options.php:157 inc/view/Options.php:183
+msgid "Reset"
+msgstr "Nollaa"
+
+#: inc/view/Options.php:171
+msgid ""
+"Activate this option if you are using a page builder like Divi Page Builder, "
+"WPBakery Page Builder or Elementor."
+msgstr ""
+"Ota tämä vaihtoehto käyttöön, jos käytät sivunrakennuslisäosaa, kuten Divi "
+"Page Builder, WPBakery Page Builder tai Elementor."
+
+#: inc/view/Options.php:186
+msgid "You can also reset an single folder in its folder details."
+msgstr "Voit myös nollata yksittäisen kansion kansion tiedoissa."
+
+#: inc/view/View.php:108
+msgid "All"
+msgstr "Kaikki"
+
+#: inc/view/View.php:221
+msgid "Unorganized pictures"
+msgstr "Järjestämättömät kuvat"

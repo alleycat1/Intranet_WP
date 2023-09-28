@@ -1,0 +1,78 @@
+/* Image scroll */
+:root {
+  --trx-addons-image-scroll-duration: 3s;
+  --trx-addons-image-scroll-start-pos: 0;
+  --trx-addons-image-scroll-width: 370px;
+  --trx-addons-image-scroll-height: 200px;
+}
+
+[class*="trx_addons_image_scroll_direction_"] .elementor-image {
+  overflow: hidden;
+  max-height: var(--trx-addons-image-scroll-height);
+}
+[class*="trx_addons_image_scroll_direction_"] .elementor-image img {
+  max-width: none;
+  -webkit-transition: -webkit-transform var(--trx-addons-image-scroll-duration) ease-in-out;
+  -ms-transition: -ms-transform var(--trx-addons-image-scroll-duration) ease-in-out;
+  transition: transform var(--trx-addons-image-scroll-duration) ease-in-out;
+}
+[class*="trx_addons_image_scroll_direction_"].trx_addons_image_scroll_event_wheel {
+  --trx-addons-image-scroll-start-pos: 0;
+}
+[class*="trx_addons_image_scroll_direction_"].trx_addons_image_scroll_event_wheel .elementor-widget-container {
+  overflow: hidden;
+  width: 100%;
+}
+[class*="trx_addons_image_scroll_direction_"].trx_addons_image_scroll_event_wheel .elementor-image {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin-right: -16px;
+}
+[class*="trx_addons_image_scroll_direction_"].trx_addons_image_scroll_direction_up .elementor-image img {
+  width: 100%;
+  -webkit-transform: translateY(var(--trx-addons-image-scroll-start-pos));
+  -ms-transform: translateY(var(--trx-addons-image-scroll-start-pos));
+  transform: translateY(var(--trx-addons-image-scroll-start-pos));
+}
+[class*="trx_addons_image_scroll_direction_"].trx_addons_image_scroll_direction_up.trx_addons_image_scroll_event_hover:hover .elementor-image img {
+  -webkit-transform: translateY(calc( -100% + var(--trx-addons-image-scroll-height) ));
+  -ms-transform: translateY(calc( -100% + var(--trx-addons-image-scroll-height) ));
+  transform: translateY(calc( -100% + var(--trx-addons-image-scroll-height) ));
+}
+[class*="trx_addons_image_scroll_direction_"].trx_addons_image_scroll_direction_down .elementor-image img {
+  width: 100%;
+  -webkit-transform: translateY(calc( -100% + var(--trx-addons-image-scroll-start-pos) + var(--trx-addons-image-scroll-height) ));
+  -ms-transform: translateY(calc( -100% + var(--trx-addons-image-scroll-start-pos) + var(--trx-addons-image-scroll-height) ));
+  transform: translateY(calc( -100% + var(--trx-addons-image-scroll-start-pos) + var(--trx-addons-image-scroll-height) ));
+}
+[class*="trx_addons_image_scroll_direction_"].trx_addons_image_scroll_direction_down.trx_addons_image_scroll_event_hover:hover .elementor-image img {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+[class*="trx_addons_image_scroll_direction_"].trx_addons_image_scroll_direction_left .elementor-image img {
+  width: auto;
+  max-height: var(--trx-addons-image-scroll-height);
+  -webkit-transform: translateX(var(--trx-addons-image-scroll-start-pos));
+  -ms-transform: translateX(var(--trx-addons-image-scroll-start-pos));
+  transform: translateX(var(--trx-addons-image-scroll-start-pos));
+}
+[class*="trx_addons_image_scroll_direction_"].trx_addons_image_scroll_direction_left:hover .elementor-image img {
+  -webkit-transform: translateX(calc( -100% + var(--trx-addons-image-scroll-width) ));
+  -ms-transform: translateX(calc( -100% + var(--trx-addons-image-scroll-width) ));
+  transform: translateX(calc( -100% + var(--trx-addons-image-scroll-width) ));
+}
+[class*="trx_addons_image_scroll_direction_"].trx_addons_image_scroll_direction_right .elementor-image img {
+  width: auto;
+  max-height: var(--trx-addons-image-scroll-height);
+  -webkit-transform: translateX(calc( -100% + var(--trx-addons-image-scroll-start-pos) + var(--trx-addons-image-scroll-width) ));
+  -ms-transform: translateX(calc( -100% + var(--trx-addons-image-scroll-start-pos) + var(--trx-addons-image-scroll-width) ));
+  transform: translateX(calc( -100% + var(--trx-addons-image-scroll-start-pos) + var(--trx-addons-image-scroll-width) ));
+}
+[class*="trx_addons_image_scroll_direction_"].trx_addons_image_scroll_direction_right:hover .elementor-image img {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+}
+
+/*# sourceMappingURL=image-scroll.css.map */

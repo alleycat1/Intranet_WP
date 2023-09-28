@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="34.623" height="31" viewBox="0 0 34.623 31">
+  <g id="diamond" transform="translate(0 -32.019)">
+    <g id="Group_274" data-name="Group 274" transform="translate(0 32.019)">
+      <g id="Group_273" data-name="Group 273" transform="translate(0 0)">
+        <path id="Path_174" data-name="Path 174" d="M33.876,42.936H.747a.747.747,0,0,1-.571-1.228l7.945-9.423a.746.746,0,0,1,.571-.266H25.931a.745.745,0,0,1,.571.266l7.945,9.423a.747.747,0,0,1-.571,1.228ZM2.353,41.442H32.27l-6.686-7.93H9.039Z" transform="translate(0 -32.019)" fill="#6c7781"/>
+        <path id="Path_175" data-name="Path 175" d="M20.24,224.6,3.1,204.247l1.142-.962L20.24,222.278l15.994-18.993,1.142.962Z" transform="translate(-2.928 -193.596)" fill="#6c7781"/>
+        <path id="Path_176" data-name="Path 176" d="M177.89,62.607a.746.746,0,0,1-.7-.5l-6.936-19.67a.747.747,0,0,1,.1-.691l6.936-9.423a.747.747,0,0,1,1.2,0l6.936,9.423a.747.747,0,0,1,.1.691l-6.936,19.67A.747.747,0,0,1,177.89,62.607Zm-6.1-20.293,6.1,17.3,6.1-17.3-6.1-8.288Z" transform="translate(-160.578 -32.019)" fill="#6c7781"/>
+      </g>
+    </g>
+  </g>
+</svg>

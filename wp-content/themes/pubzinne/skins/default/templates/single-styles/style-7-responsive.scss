@@ -1,0 +1,44 @@
+@import "../../../../css/_mixins.scss";
+@import "../../../../css/_theme-vars.scss";
+@import "../../css/_skin-vars.scss";
+
+//@mixin theme--sm() {
+@media #{$media_sm} {
+	/* Single post header */
+	.post_header_wrap_style_style-7.post_header_wrap_in_header {
+		@include flex-direction(column);
+	}
+	.post_header_wrap_style_style-7.post_header_wrap_in_header.with_featured_image {
+		min-height: 0;
+	}
+	.post_header_wrap_style_style-7.post_header_wrap_in_header.with_featured_image .post_header,
+	.post_header_wrap_style_style-7.post_header_wrap_in_header.with_featured_image .post_featured {
+		@include flex-basis(100%);
+	}
+	.post_header_wrap_style_style-7.post_header_wrap_in_header .post_featured {
+		min-height: 15em;
+	}
+	.post_header_wrap_style_style-7.post_header_wrap_in_header.with_featured_image .post_header {
+		order: 2;
+	}
+	.post_header_wrap_style_style-7.post_header_wrap_in_header .post_header {
+		padding: 2em;
+	}
+	.post_header_wrap_style_style-7 .post_header .post_meta_other .post_meta_item.post_author_name,
+	.post_header_wrap_style_style-7 .post_header .post_meta_other .post_meta_item.post_date {
+		white-space: normal;
+	}
+}
+
+//@mixin theme--xs() {
+@media #{$media_xs} {
+	/* Single post header */
+	.post_header_wrap_style_style-7 .post_header .post_meta_other {
+		margin-top: 1em;
+		@include flex-wrap(wrap);
+	}
+	.post_header_wrap_style_style-7 .post_header .post_meta_other_part2 {
+		margin-top: 0.5em;
+		@include flex-justify-content(flex-start);
+	}
+}

@@ -1,0 +1,149 @@
+@import '../../node_modules/tom-select/src/scss/tom-select.default.scss';
+
+#dlp-submit-form {
+	label {
+		font-weight: 700;
+		margin-bottom: 10px;
+		display: block;
+	}
+
+	input[type=text],
+	input[type=file],
+	textarea,
+	select {
+		width: 100%;
+	}
+
+	button[type="submit"] {
+		&.loading {
+			padding-left: 40px;
+			pointer-events: none;
+
+			&:after {
+				left: 20px;
+			}
+		}
+	}
+
+	.description {
+		display: block;
+		margin-top: 5px;
+	}
+
+	fieldset {
+		background: none;
+		border: none;
+		padding: 0;
+		margin: 0 0 1rem 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.ts-control {
+		box-shadow: none;
+		border-radius: inherit;
+	}
+
+	.ts-dropdown {
+		margin-top: 0;
+
+		.active {
+			background: #f0f0f0;
+			color: inherit;
+		}
+	}
+
+	.ts-dropdown,
+	.ts-control,
+	.ts-control input {
+		font-size: inherit;
+		line-height: inherit;
+	}
+
+	.ts-wrapper.multi .ts-control>div {
+		background-color: #f0f0f0;
+		color: inherit;
+	}
+
+	.ts-wrapper.multi .ts-control [data-value] {
+		text-shadow: none;
+		background: #f0f0f0;
+		box-shadow: none;
+		border-color: #d0d0d0;
+	}
+
+	.ts-wrapper.plugin-remove_button .item .remove {
+		text-decoration: none;
+	}
+
+	.ts-wrapper.plugin-remove_button:not(.rtl) .item .remove {
+		border-left-color:#d0d0d0;
+	}
+
+	&.dlp-theme-avada,
+	&.dlp-theme-flatsome,
+	&.dlp-theme-dt-the7 {
+		.ts-control input[type=text] {
+			height: auto;
+		}
+	}
+
+	&.dlp-theme-betheme {
+		.wp-editor-container {
+			.mce-top-part {
+				button {
+					margin: 0;
+				}
+			}
+		}
+
+		.ts-control a.remove {
+			color: inherit !important;
+		}
+
+		.ts-control>input:focus {
+			background-color: transparent !important;
+		}
+	}
+
+	&.dlp-theme-flatsome {
+		.ts-control a.remove {
+			border-top-color: transparent;
+			border-right-color: transparent;
+			border-bottom-color: transparent;
+		}
+	}
+
+	.hp {
+		display: none !important;
+	}
+
+}
+
+.dlp-notice {
+	width: 100%;
+	padding: 12px 16px;
+	border-radius: 4px;
+	border-style: solid;
+	border-width: 1px;
+	margin-bottom: 12px;
+	font-size: 16px;
+
+	&.dlp-success {
+		background-color: rgba(227, 253, 235, 1);
+		border-color: rgba(38, 179, 3, 1);
+		color: rgba(60, 118, 61, 1);
+	}
+
+	&.dlp-error {
+		background-color: rgba(248, 215, 218, 1);
+		border-color: rgba(220, 53, 69, 1);
+		color: rgba(114, 28, 36, 1);
+
+		p {
+			margin: 0;
+		}
+	}
+}

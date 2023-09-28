@@ -1,0 +1,69 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+//@mixin js_composer--lg() {
+@media #{$media_lg} {
+    /* WPBakery PageBuilder */
+	.wpb_row[class*="sc_extra_bg_"]:after,
+	.wpb_column[class*="sc_extra_bg_"] > .vc_column-inner:after,
+	.wpb_text_column[class*="sc_extra_bg_"]:after,
+	.sc_content[class*="sc_extra_bg_"]:after {
+		display:none;
+	}
+	.wpb_row[class*="sc_extra_bg_"][class*="sc_bg_mask_"]:before,
+	.wpb_column[class*="sc_extra_bg_"][class*="sc_bg_mask_"] > .vc_column-inner:before,
+	.wpb_text_column[class*="sc_extra_bg_"][class*="sc_bg_mask_"]:before,
+	.sc_content[class*="sc_extra_bg_"][class*="sc_bg_mask_"]:before {
+		left: 0; top: 0; right: 0; bottom: 0;
+	}
+	.wpb_row.sc_extra_bg_tiny,
+	.wpb_column.sc_extra_bg_tiny > .vc_column-inner,
+	.wpb_text_column.sc_extra_bg_tiny,
+	.sc_content.sc_extra_bg_tiny:not([class*="sc_padding_"]) {		padding: 1em; }
+	.wpb_row.sc_extra_bg_small,
+	.wpb_column.sc_extra_bg_small > .vc_column-inner,
+	.wpb_text_column.sc_extra_bg_small,
+	.sc_content.sc_extra_bg_small:not([class*="sc_padding_"]) {		padding: 1.5em; }
+	.wpb_row.sc_extra_bg_medium,
+	.wpb_column.sc_extra_bg_medium > .vc_column-inner,
+	.wpb_text_column.sc_extra_bg_medium,
+	.sc_content.sc_extra_bg_medium:not([class*="sc_padding_"]) {	padding: 2em; }
+	.wpb_row.sc_extra_bg_large,
+	.wpb_column.sc_extra_bg_large > .vc_column-inner,
+	.wpb_text_column.sc_extra_bg_large,
+	.sc_content.sc_extra_bg_large:not([class*="sc_padding_"]) {		padding: 2.5em; }
+}
+
+//@mixin js_composer--md_lg() {
+@media #{$media_md_lg} {
+    /* WPBakery PageBuilder */
+	.wpb_row.hide_bg_image_on_tablet,
+	.wpb_column.hide_bg_image_on_tablet .vc_column-inner {
+		background-image: none !important;
+	}
+	.wpb_row.hide_bg_image_on_tablet[class*="sc_bg_mask_"]:before,
+	.wpb_column.hide_bg_image_on_tablet[class*="sc_bg_mask_"] > .vc_column-inner:before {
+		display:none !important;
+	}
+}
+
+//@mixin js_composer--md() {
+@media #{$media_md} {
+    /* WPBakery PageBuilder */
+	.vc_row.vc_row-o-full-height {
+		min-height: 0 !important;
+	}
+}
+
+//@mixin js_composer--sm() {
+@media #{$media_sm} {
+    /* WPBakery PageBuilder */
+	.wpb_row.hide_bg_image_on_mobile,
+	.wpb_column.hide_bg_image_on_mobile .vc_column-inner {
+		background-image: none !important;
+	}
+	.wpb_row.hide_bg_image_on_mobile[class*="sc_bg_mask_"]:before,
+	.wpb_column.hide_bg_image_on_mobile[class*="sc_bg_mask_"] > .vc_column-inner:before {
+		display:none !important;
+	}
+}

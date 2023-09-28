@@ -1,0 +1,10 @@
+@import "../../css/_mixins.scss";
+@import "../../css/_trx_addons.vars.scss";
+@import "../../css/_trx_addons.colors.scss";
+
+/* Charts
+--------------------------------------------------------------- */
+.sc_charts_canvas {
+	width: 100%;
+	min-height: 100px;
+}

@@ -1,0 +1,24 @@
+
+/* Edit form */
+.trx-addons-extended-taxonomy h4 {
+	margin: .1em 0;
+}
+.trx-addons-extended-taxonomy .trx_addons_options_item_image input {
+	width: auto;
+}
+.trx_addons_extended_taxonomy_meta_label {
+	display: inline-block;
+	vertical-align: middle;
+}
+.trx_addons_extended_taxonomy_meta_value {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 1.25em;
+	width: 1em;
+	height: 1em;
+	line-height: 1em;
+	margin-right: 0.3em;
+}
+.trx_addons_extended_taxonomy_meta_value:before {
+	margin: 0 !important;
+}

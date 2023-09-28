@@ -1,0 +1,45 @@
+/* Blog layout: Portfolio
+------------------------- */
+
+@import "../../../../css/_mixins.scss";
+@import "../../../../css/_theme-vars.scss";
+@import "../../css/_skin-vars.scss";
+
+.post_layout_portfolio_4 .post_title {
+	font-size: 1.1em;
+}
+.post_layout_portfolio .post_featured {
+	margin-bottom:0;
+}
+.post_layout_portfolio .post_featured[class*="hover_"] {
+	display: block;
+}
+.post_layout_portfolio .post_featured img {
+	width: 100%;
+}
+.post_layout_portfolio .label_sticky {
+	top: -12px;
+	left: -12px;
+	right:auto;
+	@include rotate(135deg);
+}
+
+.post_layout_portfolio_3.format-audio .post_featured .post_audio:not(.with_iframe) .mejs-time{
+	display: none;
+}
+
+.post_layout_portfolio_3.format-audio .post_featured .post_audio:not(.with_iframe) .mejs-volume-button{
+	margin-left: 0;
+}
+
+.post_layout_portfolio_3.format-audio .post_featured.with_thumb .post_audio{
+	bottom: .3em;
+}
+
+.post_layout_portfolio_3.format-audio .post_featured.with_thumb .post_audio .audio_wrap{
+	margin-top: 10px;
+}
+
+.post_layout_portfolio_3.format-audio .post_featured.with_thumb .post_audio .audio_info .post_audio_title{
+	line-height: 26px;
+}

@@ -1,0 +1,10 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+//@mixin sc_hotspot--lg() {
+@media #{$media_lg} {
+	/* Hotspot */
+	.sc_hotspot_image_loaded ~ .sc_hotspot_item_visible_hover {
+		opacity: 1;
+	}
+}

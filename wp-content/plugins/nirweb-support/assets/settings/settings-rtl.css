@@ -1,0 +1,14 @@
+.uk-form-custom .uk-button-default .uk-icon {
+    float: left;
+}
+.uk-form-custom .uk-button-default {
+    text-align: right;
+}
+.n_s_ticket_item a {
+    border-left: 0;
+    border-right: 3px solid transparent;
+
+}
+.n_s_ticket_item a.active, .n_s_ticket_item a:hover {
+     border-right-color: #f87258;
+ }

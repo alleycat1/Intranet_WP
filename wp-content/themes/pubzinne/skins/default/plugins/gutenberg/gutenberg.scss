@@ -1,0 +1,245 @@
+/* Gutenberg
+----------------------------------------------------------------- */
+
+@import "../../../../css/_mixins.scss";
+@import "../../../../css/_theme-vars.scss";
+@import "../../css/_skin-vars.scss";
+
+
+/* TinyMCE Toolbar */
+.editor-block-list__layout .mce-toolbar .mce-btn i {
+	font-family: "dashicons", "tinymce";
+}
+.editor-block-list__layout .mce-toolbar .mce-btn button,
+.editor-block-list__layout input[type="text"][role="button"] {
+	background-color: transparent !important;
+}
+.editor-block-list__layout .mce-toolbar .mce-btn button {
+	color: #333 !important;
+	padding: 2px 3px !important;
+}
+
+
+/* Post title */
+.editor-post-title__block .editor-post-title__input {
+	min-height: 1em;
+	height: unset;
+	background-color: transparent !important;
+}
+
+
+/* Editor area  */
+div.edit-post-layout {
+	height: unset;
+}
+body.edit-post-visual-editor {
+	font-size: 14px !important;
+	padding: 3em 0;
+	min-height: 50vh;
+	@include flex-shrink(0);
+	@if $hide_scrollbars_in_gb {
+		width: calc(100% + 16px);	// Hide scrollbar
+	}
+}
+
+
+/* Editor area width for all post types */
+.editor-writing-flow {
+	margin: 0 auto;
+}
+.editor-writing-flow,
+.editor-block-list__block,
+.editor-post-title__block,
+.editor-default-block-appender {
+	max-width: $content !important;
+}
+
+/* Editor area width for pages without sidebar */
+body.sidebar_position_hide.expand_content .editor-writing-flow,
+body.sidebar_position_hide.expand_content .editor-block-list__block,
+body.sidebar_position_hide.expand_content .editor-post-title__block,
+body.sidebar_position_hide.expand_content .editor-default-block-appender {
+	max-width: $page !important;
+}
+body.sidebar_position_hide.narrow_content .editor-writing-flow,
+body.sidebar_position_hide.narrow_content .editor-block-list__block,
+body.sidebar_position_hide.narrow_content .editor-post-title__block,
+body.sidebar_position_hide.narrow_content .editor-default-block-appender {
+	max-width: $content / 3 * 4 !important;
+}
+
+/* Editor area width for custom layouts */
+body.post-type-cpt_layouts .editor-block-list__block,
+body.post-type-cpt_layouts.sidebar_position_hide.expand_content .editor-block-list__block,
+body.post-type-cpt_layouts .editor-post-title__block,
+body.post-type-cpt_layouts .editor-default-block-appender {
+	max-width: none !important;
+}
+body.single-cpt_layouts .trx-addons-layout--single-preview {
+	max-width: $page !important;
+	position: relative;
+	margin: 0 auto;	
+}
+
+/* Core columns in the editor */
+@media (min-width: 600px) {
+	body.edit-post-visual-editor .editor-block-list__block:not([data-align]) .editor-block-list__block-edit {
+		margin-left: - ( 43px - $grid_gap / 2 );
+		margin-right: - ( 43px - $grid_gap / 2 );
+	}
+}
+
+/* Sidebar holder for the editor */
+body.edit-post-visual-editor:not(.post-type-cpt_layouts):not(.sidebar_position_hide) {
+	@include flex;
+	@include flex-direction(row);
+	@include flex-justify-content(center);
+	@include flex-shrink(0);
+}
+.sidebar_position_hide .editor-post-sidebar-holder,
+body.post-type-cpt_layouts .editor-post-sidebar-holder {
+	display: none;
+}
+.editor-post-sidebar-holder {
+	width: $sidebar;
+	@include border-box;
+	background-color: #f0f0f0;
+	min-height: 75vh;
+	@include flex;
+	@include flex-align-items(center);
+	@include flex-justify-content(center);
+}
+.editor-post-sidebar-holder:before {
+	content: 'Sidebar';
+	display: inline-block;
+	@include rotate(90deg);
+	@include font(3em, 1em, bold);
+	color: #ccc;
+	text-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+/* Align left and right inside narrow content without sidebars */
+body.sidebar_position_hide.narrow_content .block-editor-block-list__block[data-align="left"] > .block-editor-block-list__block-edit,
+body.sidebar_position_hide.narrow_content .block-editor-block-list__block[data-align="right"] > .block-editor-block-list__block-edit {
+	max-width: ( $page - $content_narrow ) / 2 - 30px;
+}
+body.sidebar_position_hide.narrow_content .block-editor-block-list__block[data-align="left"] > .block-editor-block-list__block-edit {
+	float: left;
+	margin: 1em 1em 1em ( $page - $content_narrow ) / -2;
+}
+body.sidebar_position_hide.narrow_content .block-editor-block-list__block[data-align="right"] > .block-editor-block-list__block-edit {
+	float: right;
+	margin: 1em ( $page - $content_narrow ) / -2 1em 2em;
+}
+body.sidebar_position_hide.narrow_content .block-editor-block-list__block[data-align="left"][data-type="core/image"] > .block-editor-block-list__block-edit,
+body.sidebar_position_hide.narrow_content .block-editor-block-list__block[data-align="right"][data-type="core/image"] > .block-editor-block-list__block-edit {
+	max-width: none !important;
+}
+
+
+/* Align left and right inside normal content without sidebars */
+body.sidebar_position_hide.normal_content .block-editor-block-list__block[data-align="left"] > .block-editor-block-list__block-edit {
+	float: left;
+	margin: 1em 1em 1em ( $page - $content ) / -2;
+}
+body.sidebar_position_hide.normal_content .block-editor-block-list__block[data-align="right"] > .block-editor-block-list__block-edit {
+	float: right;
+	margin: 1em ( $page - $content ) / -2 1em 2em;
+}
+
+
+/* Wide and Full blocks */
+body:not(.sidebar_position_hide) .editor-block-list__layout .alignwide,
+body:not(.sidebar_position_hide) .editor-block-list__block[data-align="wide"],
+body:not(.sidebar_position_hide) .editor-block-list__layout .alignfull,
+body:not(.sidebar_position_hide) .editor-block-list__block[data-align="full"] {
+	max-width: 100% !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+body.sidebar_position_hide .editor-block-list__layout .alignwide,
+body.sidebar_position_hide.expand_content .editor-block-list__layout .alignwide,
+body.sidebar_position_hide.narrow_content .editor-block-list__layout .alignwide,
+body.sidebar_position_hide .editor-block-list__block[data-align="wide"],
+body.sidebar_position_hide.expand_content .editor-block-list__block[data-align="wide"],
+body.sidebar_position_hide.narrow_content .editor-block-list__block[data-align="wide"] {
+	max-width: none !important;
+	width: calc(100% + 8em);
+	margin-left: -4em;
+}
+body.sidebar_position_hide .editor-block-list__layout .alignfull,
+body.sidebar_position_hide.expand_content .editor-block-list__layout .alignfull,
+body.sidebar_position_hide.narrow_content .editor-block-list__layout .alignfull,
+body.sidebar_position_hide .editor-block-list__block[data-align="full"],
+body.sidebar_position_hide.expand_content .editor-block-list__block[data-align="full"],
+body.sidebar_position_hide.narrow_content .editor-block-list__block[data-align="full"] {
+	max-width: none !important;
+	width: calc(100% + 14em);
+	margin-left: -7em;
+}
+
+.block-editor-block-list__layout .block-editor-block-list__block[data-align="wide"] > .block-editor-block-list__block-edit:before,
+.block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit:before {
+	left: -14px;
+	right: -14px;
+	border-right-width: 1px;
+}
+
+
+/* Fix for some core blocks in the edit mode
+------------------------------------------------- */
+
+/* Page break */
+.wp-block-nextpage > span {
+	height: auto;
+}
+/* Rich text */
+.block-editor-rich-text {
+	z-index: 1;
+}
+figure .block-editor-rich-text__editable[data-is-placeholder-visible="true"] {
+	position: absolute !important;
+}
+figure .block-editor-rich-text {
+	width: 100%;
+}
+.blocks-gallery-item .block-editor-rich-text {
+	position: static;
+}
+
+/* Figure */
+[data-type="core/image"][data-align="center"] .block-editor-block-list__block-edit figure,
+[data-type="core/image"][data-align="left"] .block-editor-block-list__block-edit figure,
+[data-type="core/image"][data-align="right"] .block-editor-block-list__block-edit figure {
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Image */
+.wp-block-image .components-resizable-box__container {
+	vertical-align: top;
+}
+
+/* Cover image */
+.wp-block-cover-image .wp-block-cover__inner-container,
+.wp-block-cover .wp-block-cover__inner-container {
+	color: #fff;
+	width: 100%;
+	@include border-box;
+	padding: 2em;
+}
+
+
+/* Kadence blocks 
+---------------------------------------- */
+.editor-block-list__block .kt-tabs-title-list {
+	margin-bottom: 0;
+	padding-left: 0;
+}
+.editor-block-list__block .kt-tabs-layout-vtabs > .kt-tabs-wrap > .kt-tabs-title-list li {
+	margin-bottom: 1px;
+}
+.editor-block-list__block .kt-tabs-content-wrap {
+	border: 1px solid #ddd;
+}

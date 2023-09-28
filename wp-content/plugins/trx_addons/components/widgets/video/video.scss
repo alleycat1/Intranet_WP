@@ -1,0 +1,179 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/* Video player's styles */
+
+/* Layout: Default
+------------------------------ */
+
+// Tall video (over then a height of the window)
+.trx_addons_video_player video {
+	max-height: calc( 100vh - var(--fixed-rows-height) );
+}
+
+.trx_addons_video_player.with_cover {
+	position:relative;
+	overflow: hidden;
+}
+.trx_addons_video_player.with_cover .video_embed {
+	@include flex;
+	@include flex-align-items(center);
+	@include flex-justify-content(center);
+	@include abs-cover;
+	text-align:center;
+	opacity:0;
+	overflow:hidden;
+	@include transition-all;
+}
+.trx_addons_video_player.with_cover img {
+	position:relative;
+	z-index:2;
+	@include box(100% !important, auto);
+	max-width: none !important;
+}
+.trx_addons_video_player.with_cover .video_mask {
+	@include bg-mask(#000, 0.5, 3);
+	@include transition-all;
+	opacity:0;
+}
+.trx_addons_video_player.with_cover:hover .video_mask {
+	opacity:1;
+}
+.trx_addons_video_player.with_cover .video_hover {
+	@include abs-cc(4);
+	@include square(2em);
+	@include border-round;
+	@include transition-all;
+	font-size:3em;
+	cursor: pointer;
+	overflow:hidden;
+	margin-top: 2em;
+	background-color: rgba(0,0,0,0.5);
+	color: #fff;
+	opacity: 0;
+}
+.trx_addons_video_player.with_cover .video_hover:before {
+	content: '\e888';
+	font-family: $trx_addons_icons;
+	margin:0;
+}
+.trx_addons_video_player.with_cover .video_hover:hover {
+	background-color: rgba(0,0,0,0.5);
+}
+.trx_addons_video_player.with_cover:hover .video_hover {
+	opacity: 1;
+	margin-top: 0;
+}
+
+/* 'Play' state */
+.trx_addons_video_player.video_play .video_mask {
+	opacity: 1;
+	background-color:#000;
+}
+.trx_addons_video_player.video_play .video_embed {
+	opacity:1;
+	z-index:10;
+}
+.trx_addons_video_player.video_play .video_hover {
+	display:none;
+}
+
+
+/* Layout: Hover
+----------------------------------- */
+.trx_addons_video_hover {
+	
+	.trx_addons_video_media {
+		position: relative;
+		overflow: hidden;
+
+		&[data-ratio] {
+			display: block;
+
+			&:before {
+				content: ' ';
+				@include box(0, 0);
+				display:inline-block;
+				vertical-align: top;
+				margin-right:-0.3em;
+			}
+			&[data-ratio="2:1"]:before {	padding-top: 50%; }
+			&[data-ratio="17:9"]:before {	padding-top: 52.94%; }
+			&[data-ratio="16:9"]:before {	padding-top: 56.25%; }
+			&[data-ratio="4:3"]:before {	padding-top: 75%; }
+			&[data-ratio="1:1"]:before {	padding-top: 100%; }
+			&[data-ratio="3:4"]:before {	padding-top: 133.33%; }
+			&[data-ratio="9:16"]:before {	padding-top: 177.77%; }
+			&[data-ratio="9:17"]:before {	padding-top: 188.88%; }
+			&[data-ratio="1:2"]:before {	padding-top: 200%; }
+		}
+	}
+
+	.trx_addons_video_video {
+		object-fit: cover;
+	}
+	&.with_cover .trx_addons_video_video {
+		@include abs-pos(1px, 1px, 1px, 1px, 1);
+		@include box( calc( 100% - 2px ), calc( 100% - 2px ) );
+	}
+	&.without_cover .trx_addons_video_video {
+		@include abs-cover;
+		@include box(100%, 100%);
+	}
+
+	.trx_addons_video_cover {
+		@include abs-cover(2);
+
+		img {
+			display: block;
+			@include box( 100%, 100% );
+			object-fit: cover;
+		}
+	}
+
+	.trx_addons_video_subtitle {
+		white-space: nowrap;
+		overflow: hidden;
+		padding-top: 1em;
+
+		.trx_addons_video_subtitle_text {
+			display: block;
+			opacity: 0;
+			will-change: transform, opacity;
+			@include transform-origin(top left);
+			@include transform(rotate(10deg) translate(0, 100%));
+			@include transition-properties(transform, opacity);
+			@include transition-duration(0.8s);
+		}
+	}
+
+	&.trx_addons_video_hover_play {
+		&.with_cover .trx_addons_video_video {
+			@include abs-cover(2);
+			@include box(100%, 100%);
+		}
+		.trx_addons_video_cover {
+			@include abs-pos(1px, 1px, 1px, 1px, 1);
+
+			img {
+				@include box( calc( 100% - 2px ), calc( 100% - 2px ) );
+			}
+		}
+		.trx_addons_video_subtitle {
+			.trx_addons_video_subtitle_text {
+				opacity: 1;
+				@include transform(none);
+			}
+		}
+	}
+
+	&.trx_addons_video_hover_pause {
+		.trx_addons_video_subtitle {
+			.trx_addons_video_subtitle_text {
+				opacity: 0;
+				@include transform(rotate(-7deg) translate(0, -100%));
+				@include transition-duration(0.3s);
+			}
+		}
+	}
+}

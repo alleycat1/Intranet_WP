@@ -1,0 +1,85 @@
+/* Blog layout: Band
+------------------------- */
+
+@import "../../../../css/_mixins.scss";
+@import "../../../../css/_theme-vars.scss";
+@import "../../css/_skin-vars.scss";
+
+.post_layout_band {
+	position:relative;
+	margin-bottom:0;
+}
+.post_layout_band:not(.sticky) {
+	@include flex;
+	@include flex-direction(row);
+	@include flex-wrap(nowrap);
+	@include flex-align-items(stretch);
+}
+.post_layout_band + .post_layout_band {
+	margin-top: 3em;
+}
+.post_layout_band.sticky {
+	padding: 3em;
+}
+
+.post_layout_band .post_featured {
+	@include flex-basis(48%);
+	@include flex-shrink(0);
+	margin-bottom: 0;
+}
+
+.post_layout_band .post_content_wrap {
+	@include border-box;
+	padding: 0 0 0 2em;
+	@include flex;
+	@include flex-direction(column);
+	@include flex-justify-content(center);	
+}
+.post_layout_band .post_featured + .post_content_wrap {
+	@include flex-basis(52%);
+}
+
+.post_layout_band.post_format_audio,
+.post_layout_band.post_format_video,
+.post_layout_band.post_format_gallery {
+	@include flex-direction(column);
+}
+.post_layout_band.post_format_audio .post_featured,
+.post_layout_band.post_format_audio .post_featured + .post_content_wrap,
+.post_layout_band.post_format_video .post_featured,
+.post_layout_band.post_format_video .post_featured + .post_content_wrap,
+.post_layout_band.post_format_gallery .post_featured,
+.post_layout_band.post_format_gallery .post_featured + .post_content_wrap {
+	@include flex-basis(100%);
+}
+.post_layout_band.post_format_quote .post_content_wrap,
+.post_layout_band.post_format_aside .post_content_inner {
+	padding: 0;
+	background-color: transparent;
+	color: inherit;
+}
+.post_layout_band blockquote {
+	margin: 0;
+}
+
+.post_layout_band .post_header {
+	margin: 0;
+	position:relative;
+}
+.post_layout_band .post_header .post_price {
+	width: auto;
+	@include abs-rt;
+	@include font(2.5em, 1.5em);
+}
+.post_layout_band .post_category {
+	margin-bottom: 0.5em;
+}
+.post_layout_band .post_title {
+	margin: 0;
+}
+.post_layout_band .post_header + .post_content {
+	margin-top:1em;
+}
+.post_layout_band .post_content + .post_meta {
+	margin-top: 1em;
+}

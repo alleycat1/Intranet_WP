@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ruleset name="Barn2-PHP">
+	<rule ref="Barn2-PHP" />
+
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/dependencies/*</exclude-pattern>
+</ruleset>

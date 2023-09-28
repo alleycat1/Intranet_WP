@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA;;8CAE+C;EAC9C,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,WAAW;;;AAEpB,mCAAoC;EACnC,UAAU,EAAE,MAAM;EAClB,SAAS,EAAE,KAAK;;;AAEjB,qCAAsC;EACrC,WAAW,ECVE,UAAU;EDWvB,OAAO,EAAE,YAAY;EACrB,cAAc,EAAE,GAAG;;;AAEpB,8CAA+C;EAC9C,OAAO,EAAE,OAAO;EAChB,KAAK,EEagB,OAAa;ECkpBjC,iBAAgB,EAAE,uBAAO;EAAzB,aAAgB,EAAE,uBAAO;EAE1B,SAAS,EAAE,uBAAO;;;AH9pBnB,6CAA8C;EAC7C,OAAO,EAAE,OAAO;EAChB,KAAK,EElBa,OAAO;;;AFoB1B,2CAA4C;EAC3C,OAAO,EAAE,OAAO;EAChB,KAAK,EEnBW,OAAO",
+"sources": ["skins-admin.scss","../css/_theme-vars.scss","../css/_admin-colors.scss","../css/_mixins.scss"],
+"names": [],
+"file": "skins-admin.css"
+}

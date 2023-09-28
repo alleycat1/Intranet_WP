@@ -1,0 +1,883 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+@import "../../../css/_trx_addons.colors.scss";
+
+/*
+ * Custom layouts.
+ *
+ */
+.sc_layouts_row {
+	@include border-box;
+}
+.sc_layouts_row_on_top {
+	z-index: 99999;
+	
+	&.sc_layouts_row_fixed_on {
+		z-index: 999999;
+	}
+}
+
+body.post-type-cpt_layouts [data-type^="trx-addons/socials"],
+body.post-type-cpt_layouts [data-type^="trx-addons/button"],
+[data-type^="trx-addons/layouts-"]:not([data-type^="trx-addons/layouts-blog-item"]):not([data-type^="trx-addons/layouts-container"]):not([data-type^="trx-addons/layouts-featured"]):not([data-type^="trx-addons/layouts-title"]),
+.wp-block-column > .sc_layouts_item,
+.sc_layouts_row .sc_layouts_item,
+.sc_layouts_row .sc_layouts_item + div:not(.sc_layouts_item):not(.vc_row):not(.vc_separator):not(.vc_empty_space):not(.vc_wp_text) {
+	margin-top: 0.5em !important;
+	margin-bottom: 0.5em !important;
+}
+.sc_layouts_row .sc_layouts_item.elementor-widget-divider,
+.sc_layouts_row .sc_layouts_item.elementor-widget-spacer {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+body.post-type-cpt_layouts [data-type^="trx-addons/socials"],
+body.post-type-cpt_layouts [data-type^="trx-addons/button"],
+[data-type^="trx-addons/layouts-"]:not([data-type^="trx-addons/layouts-blog-item"]):not([data-type^="trx-addons/layouts-container"]):not([data-type^="trx-addons/layouts-featured"]):not([data-type^="trx-addons/layouts-title"]),
+.wp-block-column > .sc_layouts_item,
+.sc_layouts_item {
+	max-width:100%;
+}
+body.post-type-cpt_layouts [data-type^="trx-addons/socials"],
+body.post-type-cpt_layouts [data-type^="trx-addons/button"],
+[data-type^="trx-addons/layouts-"]:not([data-type^="trx-addons/layouts-blog-item"]):not([data-type^="trx-addons/layouts-container"]):not([data-type^="trx-addons/layouts-featured"]):not([data-type^="trx-addons/layouts-title"]),
+.wp-block-column > .sc_layouts_item,
+.sc_layouts_column .sc_layouts_item:not(.elementor-widget-divider):not(.elementor-widget-spacer),
+.sc_layouts_column .sc_layouts_item + div:not(.sc_layouts_item):not(.vc_row):not(.vc_separator):not(.vc_empty_space):not(.vc_wp_text) {
+	display: inline-block;
+	vertical-align:middle;
+	margin-right: 1.5em;
+	width: auto !important;
+}
+
+body.post-type-cpt_layouts .sc_layouts_column_align_left [data-type^="trx-addons/socials"]:last-child,
+body.post-type-cpt_layouts .sc_layouts_column_align_left [data-type^="trx-addons/button"]:last-child,
+.sc_layouts_column_align_left [data-type^="trx-addons/layouts-"]:not([data-type^="trx-addons/layouts-blog-item"]):not([data-type^="trx-addons/layouts-container"]):not([data-type^="trx-addons/layouts-featured"]):not([data-type^="trx-addons/layouts-title"]):last-child,
+.sc_layouts_column_align_left.wp-block-column > .sc_layouts_item:last-child,
+.sc_layouts_column_align_left .sc_layouts_item:last-child,
+.sc_layouts_column_align_left .sc_layouts_item + div:not(.sc_layouts_item):not(.vc_row):not(.vc_separator):not(.vc_empty_space):not(.vc_wp_text):last-child {
+	margin-right:0 !important;
+}
+
+body.post-type-cpt_layouts .sc_layouts_column_align_right [data-type^="trx-addons/socials"],
+body.post-type-cpt_layouts .sc_layouts_column_align_right [data-type^="trx-addons/button"],
+.sc_layouts_column_align_right [data-type^="trx-addons/layouts-"]:not([data-type^="trx-addons/layouts-blog-item"]):not([data-type^="trx-addons/layouts-container"]):not([data-type^="trx-addons/layouts-featured"]):not([data-type^="trx-addons/layouts-title"]),
+.sc_layouts_column_align_right.wp-block-column > .sc_layouts_item,
+.sc_layouts_column_align_right .sc_layouts_item:not(.elementor-widget-divider):not(.elementor-widget-spacer),
+.sc_layouts_column_align_right .sc_layouts_item + div:not(.sc_layouts_item):not(.vc_row):not(.vc_separator):not(.vc_empty_space):not(.vc_wp_text) {
+	margin-left: 1.5em;
+	margin-right:0;
+}
+body.post-type-cpt_layouts .sc_layouts_column_align_right [data-type^="trx-addons/socials"]:first-child,
+body.post-type-cpt_layouts .sc_layouts_column_align_right [data-type^="trx-addons/button"]:first-child,
+.sc_layouts_column_align_right [data-type^="trx-addons/layouts-"]:not([data-type^="trx-addons/layouts-blog-item"]):not([data-type^="trx-addons/layouts-container"]):not([data-type^="trx-addons/layouts-featured"]):not([data-type^="trx-addons/layouts-title"]):first-child,
+.sc_layouts_column_align_right.wp-block-column > .sc_layouts_item:first-child,
+.sc_layouts_column_align_right .sc_layouts_item:not(.elementor-widget-divider):not(.elementor-widget-spacer):first-child,
+.sc_layouts_column_align_right .sc_layouts_item + div:not(.sc_layouts_item):not(.vc_row):not(.vc_separator):not(.vc_empty_space):not(.vc_wp_text):first-child {
+	margin-left:0 !important;
+}
+
+body.post-type-cpt_layouts .sc_layouts_column_align_center [data-type^="trx-addons/socials"],
+body.post-type-cpt_layouts .sc_layouts_column_align_center [data-type^="trx-addons/button"],
+.sc_layouts_column_align_center [data-type^="trx-addons/layouts-"]:not([data-type^="trx-addons/layouts-blog-item"]):not([data-type^="trx-addons/layouts-container"]):not([data-type^="trx-addons/layouts-featured"]):not([data-type^="trx-addons/layouts-title"]),
+.sc_layouts_column_align_center.wp-block-column > .sc_layouts_item,
+.sc_layouts_column_align_center .sc_layouts_item:not(.elementor-widget-divider):not(.elementor-widget-spacer),
+.sc_layouts_column_align_center .sc_layouts_item + div:not(.sc_layouts_item):not(.vc_row):not(.vc_separator):not(.vc_empty_space):not(.vc_wp_text) {
+	margin-left: 0.75em;
+	margin-right:0.75em;
+}
+
+.sc_layouts_submenu .vc_separator,
+.sc_layouts_submenu .vc_empty_space,
+.sc_layouts_submenu .elementor-widget-divider,
+.sc_layouts_submenu .elementor-widget-spacer,
+.sc_layouts_row .vc_separator,
+.sc_layouts_row .vc_empty_space,
+.sc_layouts_row .elementor-widget-divider,
+.sc_layouts_row .elementor-widget-spacer {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;	
+}
+.sc_layouts_row .sc_layouts_item + div.vc_separator:not(.sc_layouts_item):not(.vc_row):not(.vc_separator):not(.vc_empty_space):not(.vc_wp_text),
+.sc_layouts_row .sc_layouts_item + div.vc_empty_space:not(.sc_layouts_item):not(.vc_row):not(.vc_separator):not(.vc_empty_space):not(.vc_wp_text),
+.sc_layouts_row .sc_layouts_item + div.elementor-widget-divider,
+.sc_layouts_row .sc_layouts_item + div.elementor-widget-spacer {
+	margin: 0 !important;
+}
+.sc_layouts_column .vc_separator,
+.sc_layouts_column .vc_empty_space,
+.sc_layouts_column .elementor-widget-divider,
+.sc_layouts_column .elementor-widget-spacer {
+	width: 100%;
+}
+
+.sc_layouts_column_align_left,
+.sc_layouts_column.sc_layouts_column_align_left .widget,
+.sc_layouts_column.sc_layouts_column_align_left .widget_title,
+.sc_layouts_column.sc_layouts_column_align_left .widgettitle {		text-align:left; }
+
+.sc_layouts_column_align_left .elementor-widget-wrap {
+	@include flex-justify-content(flex-start);
+}
+
+.sc_layouts_column_align_center,
+.sc_layouts_column.sc_layouts_column_align_center .widget,
+.sc_layouts_column.sc_layouts_column_align_center .widget_title,
+.sc_layouts_column.sc_layouts_column_align_center .widgettitle {	text-align:center; }
+
+.sc_layouts_column_align_center .elementor-widget-wrap {
+	@include flex-justify-content(center);
+}
+
+.sc_layouts_column_align_right,
+.sc_layouts_column.sc_layouts_column_align_right .widget,
+.sc_layouts_column.sc_layouts_column_align_right .widget_title,
+.sc_layouts_column.sc_layouts_column_align_right .widgettitle {		text-align:right; }
+
+.sc_layouts_column_align_left .elementor-widget-wrap {
+	@include flex-justify-content(flex-start);
+}
+.sc_layouts_column_align_center .elementor-widget-wrap {
+	@include flex-justify-content(center);
+}
+.sc_layouts_column_align_right .elementor-widget-wrap {
+	@include flex-justify-content(flex-end);
+}
+
+.sc_layouts_row_delimiter {
+	border-bottom: 1px solid #ddd;
+}
+
+
+/* Hide on XXX
+------------------------------------------------- */
+body.frontpage:not(.elementor-editor-active) .sc_layouts_hide_on_frontpage,
+body.home-page:not(.elementor-editor-active) .sc_layouts_hide_on_frontpage,
+body.error404:not(.elementor-editor-active) .sc_layouts_hide_on_frontpage,
+body.single:not(.elementor-editor-active) .sc_layouts_hide_on_singular,
+body.page:not(.elementor-editor-active) .sc_layouts_hide_on_singular,
+body:not(.single):not(.page):not(.elementor-editor-active) .sc_layouts_hide_on_other {	display: none !important; }
+
+@media #{$media_wide} {
+	.hide_on_wide, .sc_layouts_hide_on_wide {			display: none !important; }
+}
+@media #{$media_desktop} {
+	.hide_on_desktop, .sc_layouts_hide_on_desktop {		display: none !important; }
+}
+
+@media #{$media_notebook} {
+	.hide_on_notebook, .sc_layouts_hide_on_notebook {	display: none !important; }
+}
+
+@media #{$media_tablet} {
+	.hide_on_tablet, .sc_layouts_hide_on_tablet {		display: none !important; }
+}
+
+@media #{$media_mobile} {
+	.hide_on_mobile, .sc_layouts_hide_on_mobile {		display: none !important; }
+}
+
+
+
+/* Common rules
+------------------------------------------------- */
+
+/* Text with icons */
+.sc_layouts_iconed_text {
+	white-space: nowrap;
+}
+.sc_layouts_item_link {
+	display:block;
+}
+.sc_layouts_item_icon {
+	@include font(2.25em, 1.1em);
+	display: inline-block;
+	vertical-align:middle;
+	@include transition-color;
+}
+.sc_layouts_item_icon.sc_icon_type_svg svg,
+.sc_layouts_item_icon.sc_icon_type_svg object {
+	@include box(1em, 1em);
+}
+.sc_layouts_item_details {
+	display: inline-block;
+	vertical-align:middle;
+	white-space:normal;
+}
+.sc_layouts_item_icon + .sc_layouts_item_details {
+	margin-left: 0.5em;
+}
+.sc_layouts_column_icons_position_left .sc_layouts_item_details {
+	text-align: left;
+}
+.sc_layouts_column_icons_position_right .sc_layouts_item_details {
+	text-align: right;
+}
+.sc_align_center .sc_layouts_item_details {
+	text-align: center;
+}
+.sc_layouts_item_details_line1,
+.sc_layouts_item_details_line2 {
+	display: block;
+}
+.sc_layouts_item_details_line1 {
+	@include font(0.9333em, 1.1429em, 300);	//0.8667em, 1.2308em, 300
+}
+.sc_layouts_item_details_line2 {
+	@include font(1.0667em, 1.3125em, 600);
+}
+.sc_layouts_column_icons_position_right .sc_layouts_item:after {
+	content: ' ';
+	@include clear;
+}
+.sc_layouts_column_icons_position_right .sc_layouts_item_icon {
+	float:right;
+	margin-left: 0.4em;
+	margin-right: 0;
+}
+.sc_layouts_column_icons_position_right .sc_layouts_item_details {
+	float:right;
+}
+
+
+/* Login link */
+.sc_layouts_menu_nav.sc_layouts_login_menu,
+.sc_layouts_menu_nav.sc_layouts_login_menu > li > ul {
+	font-size: 1em;
+}
+.sc_layouts_login_menu .menu-item:not(.menu-item-has-children) .trx_addons_login_link {
+	padding: 0em;
+}
+
+/* Button */
+.sc_layouts_row .sc_button {
+	vertical-align:top;
+	text-align: center;
+}
+
+
+
+/* Row type: Narrow
+-------------------------------------------------- */
+.sc_layouts_row_type_narrow {
+	@include font(13px, 18px);
+	padding: 6px 0;
+}
+
+/* Text with icons */
+.sc_layouts_row_type_narrow .sc_layouts_item_icon,
+.sc_layouts_row_type_narrow .sc_layouts_item input[type="text"] {
+	@include font(inherit, inherit, inherit);
+}
+.sc_layouts_row_type_narrow .sc_layouts_item_details_line1,
+.sc_layouts_row_type_narrow .sc_layouts_item_details_line2 {
+	display:inline-block;
+	@include font(inherit, inherit, inherit);
+}
+.sc_layouts_row_type_narrow .sc_layouts_item_details_line1 + .sc_layouts_item_details_line2 {
+	margin-left: 0.5em;
+}
+
+
+/* Social icons */
+.sc_layouts_row_type_narrow .socials_wrap,
+.sc_layouts_row_type_narrow .socials_wrap:not([class*="socials_type_"]) {
+		margin: 0;	//0 -8px 0 0;	// because for '.socials_wrap .social_item:last-child' margin-right is 0 !important
+}
+.sc_layouts_row_type_narrow .socials_wrap .social_item,
+.sc_layouts_row_type_narrow .socials_wrap:not([class*="socials_type_"]) .social_item {
+	margin: 0 8px 0 0;
+}
+.sc_layouts_row_type_narrow .socials_wrap .social_item .social_icon,
+.sc_layouts_row_type_narrow .socials_wrap:not([class*="socials_type_"]) .social_item .social_icon {
+	font-size: 15px;
+	@include box(auto, auto, inherit);
+	@include border-sharp;
+	background-color: transparent !important;
+}
+.sc_layouts_row_type_narrow .socials_wrap .social_item_style_bg .social_icon,
+.sc_layouts_row_type_narrow .socials_wrap:not([class*="socials_type_"]) .social_item_style_bg .social_icon {
+	@include box(1.2em, 1.2em);
+}
+.sc_layouts_row_type_narrow .socials_wrap .social_icon svg,
+.sc_layouts_row_type_narrow .socials_wrap .social_icon object {
+	@include box(1em, 1em);
+}
+
+
+/* Button */
+.sc_layouts_row_type_narrow .sc_button {
+	background-color: transparent;
+	border: 1px solid #efa758;
+	color: #efa758;
+}
+
+
+
+/* Row type: Compact
+-------------------------------------------------- */
+.sc_layouts_row_type_compact {
+	padding: 0.75em 0;
+}
+
+.sc_layouts_row_type_compact .sc_layouts_item,
+.sc_layouts_row_type_normal .sc_layouts_item {
+	letter-spacing:0;
+}
+
+/* Text with icons */
+.sc_layouts_row_type_compact .sc_layouts_item_icon {
+	@include font(1.25em, '', 400);
+}
+.sc_layouts_row_type_compact .sc_layouts_item input[type="text"] {
+	@include font(inherit, inherit, inherit);
+}
+.sc_layouts_row_type_compact .sc_layouts_item_details_line1,
+.sc_layouts_row_type_compact .sc_layouts_item_details_line2 {
+	display:inline-block;
+	@include font(inherit, inherit, inherit);
+}
+.sc_layouts_row_type_compact .sc_layouts_item_details_line1 + .sc_layouts_item_details_line2 {
+	margin-left: 0.5em;
+}
+
+/* Social icons */
+.sc_layouts_row_type_compact .socials_wrap,
+.sc_layouts_row_type_compact .socials_wrap:not([class*="socials_type_"]) {
+	margin: 0;	//0 -10px 0 0; 	// because for '.socials_wrap .social_item:last-child' margin-right is 0 !important
+}
+.sc_layouts_row_type_compact .socials_wrap .social_item,
+.sc_layouts_row_type_compact .socials_wrap:not([class*="socials_type_"]) .social_item {
+	margin: 0 10px 0 0;
+}
+.sc_layouts_row_type_compact .socials_wrap .social_item .social_icon,
+.sc_layouts_row_type_compact .socials_wrap:not([class*="socials_type_"]) .social_item .social_icon {
+	font-size: 15px;
+	@include box(auto, auto, inherit);
+	@include border-sharp;
+}
+.sc_layouts_row_type_compact .socials_wrap .social_item_style_bg .social_icon,
+.sc_layouts_row_type_compact .socials_wrap:not([class*="socials_type_"]) .social_item_style_bg .social_icon {
+	@include box(1.2em, 1.2em);
+}
+
+
+
+
+/* Row type: Normal
+-------------------------------------------------- */
+.sc_layouts_row_type_normal {
+	padding: 2em 0;
+}
+
+
+
+
+/* Fixed rows
+--------------------------------------------- */
+.sc_layouts_row_fixed_placeholder {
+	display: none;
+	position: relative;
+}
+.sc_layouts_row_unfixed_placeholder {
+	position: relative;
+	width: 100%;
+	height: 0;
+}
+.sc_layouts_row_fixed_marker_on,
+.sc_layouts_row_fixed_marker_off {
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+	@include box(100%, 1px);		//0.75px
+}
+//body.header_position_over .top_panel {
+//	.sc_layouts_row_fixed_marker_on,
+//	.sc_layouts_row_fixed_marker_off {
+//		height: 1px;
+//	}
+//}
+.sc_layouts_row_fixed_marker_on {
+	@include abs-lt(0,-1.25px,-1);	//1px
+}
+.sc_layouts_row_fixed_marker_off {
+	@include abs-lt(0,-1.25px,-1);	//1px
+}
+.sc_layouts_row_fixed_on + .sc_layouts_row_fixed_placeholder {
+	display: block;
+	width: 100%;	// Need for Elementor 2.5.0
+}
+.sc_layouts_row_fixed_on {
+	@include fixed-pos(0, -$grid_gap / 2, auto, -$grid_gap / 2, 100002);
+	position: fixed !important;
+	background-color:#fff;
+	//@include box-shadow(0 2px 10px 0 rgba(0,0,0,0.2));
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	margin-top: 0;					// Don't use !important here
+	margin-bottom: 0;				// Don't use !important here
+}
+
+.sc_layouts_row_fixed_on.elementor-section:not(.elementor-section-justified) {
+	left: 0;
+	right: 0;
+}
+.sc_layouts_row_fixed_on ~ .sc_layouts_row_fixed_on {
+	z-index:100001;
+}
+.sc_layouts_row_fixed_on ~ .sc_layouts_row_fixed_on ~ .sc_layouts_row_fixed_on {
+	z-index:100000;
+}
+
+/* Delay for fixed rows */
+:root{
+	--trx-addons-fixed-rows-duration: 0.4s;	
+}
+.sc_layouts_row_fixed.sc_layouts_row_delay_fixed {
+	&:not(.sc_layouts_row_fixed_with_fullscreen) {
+		@include transition(none !important);
+	}
+	&.sc_layouts_row_fixed_with_fullscreen {
+		margin-top: 0;
+		will-change: margin-top;
+	}
+//	@include transition(transform var(--trx-addons-fixed-rows-duration) ease, height var(--trx-addons-fixed-rows-duration) ease, padding var(--trx-addons-fixed-rows-duration) ease);
+//	@include translateY(-200%);
+}
+.sc_layouts_row_fixed_on.sc_layouts_row_delay_fixed {
+	&:not(.sc_layouts_row_fixed_with_fullscreen) {
+		@include animation( trx-addons-layouts-fix-row var(--trx-addons-fixed-rows-duration) ease-out 0s 1 forwards );
+//		@include translateY(0);
+	}
+	&.sc_layouts_row_fixed_with_fullscreen.sc_layouts_row_fixed_with_fullscreen {
+		@include animation( trx-addons-layouts-fix-row2 var(--trx-addons-fixed-rows-duration) ease-out 0s 1 forwards );
+	}
+}
+.sc_layouts_row_fixed_on.sc_layouts_row_delay_fixed.sc_layouts_row_fixed_animation_off {
+	&:not(.sc_layouts_row_fixed_with_fullscreen) {
+		@include animation( trx-addons-layouts-unfix-row var(--trx-addons-fixed-rows-duration) ease-in 0s 1 forwards );
+//		@include translateY(-200%);
+	}
+	&.sc_layouts_row_fixed_with_fullscreen.sc_layouts_row_fixed_with_fullscreen {
+		@include animation( trx-addons-layouts-unfix-row2 var(--trx-addons-fixed-rows-duration) ease-in 0s 1 forwards );
+	}
+}
+
+@-webkit-keyframes trx-addons-layouts-fix-row {
+	from {
+		@include translateY(-200%);
+	}
+	to {
+		@include translateY(0);
+	}
+}
+@keyframes trx-addons-layouts-fix-row {
+	from {
+		@include translateY(-200%);
+	}
+	to {
+		@include translateY(0);
+	}
+}
+
+@-webkit-keyframes trx-addons-layouts-unfix-row {
+	from {
+		@include translateY(0);
+	}
+	to {
+		@include translateY(-200%);
+	}
+}
+@keyframes trx-addons-layouts-unfix-row {
+	from {
+		@include translateY(0);
+	}
+	to {
+		@include translateY(-200%);
+	}
+}
+
+@-webkit-keyframes trx-addons-layouts-fix-row2 {
+	from {
+		margin-top: -20em;
+	}
+	to {
+		margin-top: 0;
+	}
+}
+@keyframes trx-addons-layouts-fix-row2 {
+	from {
+		margin-top: -20em;
+	}
+	to {
+		margin-top: 0;
+	}
+}
+
+@-webkit-keyframes trx-addons-layouts-unfix-row2 {
+	from {
+		margin-top: 0;
+	}
+	to {
+		margin-top: -20em;
+	}
+}
+@keyframes trx-addons-layouts-unfix-row2 {
+	from {
+		margin-top: 0;
+	}
+	to {
+		margin-top: -20em;
+	}
+}
+
+
+/* Hide fixed rows */
+body.hide_fixed_rows {
+	.sc_layouts_row_fixed_on {
+		&:not(.sc_layouts_row_fixed_with_fullscreen) {
+			@include animation( trx-addons-layouts-unfix-row var(--trx-addons-fixed-rows-duration) ease-in 0s 1 forwards );
+			//		@include translateY(-200%);
+		}
+		&.sc_layouts_row_fixed_with_fullscreen.sc_layouts_row_fixed_with_fullscreen {
+			@include animation( trx-addons-layouts-unfix-row2 var(--trx-addons-fixed-rows-duration) ease-in 0s 1 forwards );
+		}
+	}
+	.sc_layouts_row_fixed_placeholder {
+		@include transition(height var(--trx-addons-fixed-rows-duration) ease !important);
+	}
+}
+body.hide_fixed_rows_enabled {
+//	.sc_layouts_row_fixed {
+//		@include transition(transform var(--trx-addons-fixed-rows-duration) ease !important);
+//	}
+//	.sc_layouts_row_fixed:not(.sc_layouts_row_delay_fixed) + 
+//	.sc_layouts_row_fixed_placeholder {
+//		@include transition(height var(--trx-addons-fixed-rows-duration) ease !important);
+//	}
+	.sc_layouts_row_fixed:not(.sc_layouts_row_fixed_on) + .sc_layouts_row_fixed_placeholder {
+		height:0 !important;
+	}
+}
+
+
+/* Hide unfixed row */
+//.sc_layouts_row_hide_unfixed {
+//	height: 0;
+//	padding: 0;
+//	overflow: hidden;
+//}
+//.sc_layouts_row_type_compact.sc_layouts_row_hide_unfixed {
+//	padding: 0;
+//}
+//body.elementor-editor-active .sc_layouts_row_hide_unfixed,
+//.sc_layouts_row_fixed_on.sc_layouts_row_hide_unfixed {
+//	height: unset;
+//	padding: unset;
+//	overflow: unset;
+//}
+body:not(.elementor-editor-active) .sc_layouts_row_hide_unfixed:not(.sc_layouts_row_fixed_on) {
+	height: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+
+/* Flex columns with equal height
+--------------------------------------------- */
+.sc_layouts_flex {
+	@include flex;
+	@include flex-wrap(wrap);
+	@include border-box;
+}
+.sc_layouts_flex > .sc_layouts_column {
+	@include flex;
+}
+.sc_layouts_flex > .sc_layouts_column > .sc_layouts_item {
+	@include flex;
+	@include flex-direction(column);
+	@include flex-grow(1);
+}
+.sc_layouts_flex.sc_layouts_columns_stretch {
+	@include flex-align-content(stretch);
+}
+.sc_layouts_flex.sc_layouts_columns_top {
+	@include flex-align-content(flex-start);
+}
+.sc_layouts_flex.sc_layouts_columns_bottom {
+	@include flex-align-content(flex-end);
+}
+.sc_layouts_flex.sc_layouts_columns_middle {
+	@include flex-align-content(center);
+}
+.sc_layouts_flex.sc_layouts_content_top > .sc_layouts_column > .sc_layouts_item {
+	@include flex-justify-content(flex-start);
+}
+.sc_layouts_flex.sc_layouts_content_top:not(.sc_layouts_columns_stretch) > .sc_layouts_column {
+	@include flex-align-items(flex-start);
+}
+.sc_layouts_flex.sc_layouts_content_bottom > .sc_layouts_column > .sc_layouts_item {
+	@include flex-justify-content(flex-end);
+}
+.sc_layouts_flex.sc_layouts_content_bottom:not(.sc_layouts_columns_stretch) > .sc_layouts_column {
+	@include flex-align-items(flex-end);
+}
+.sc_layouts_flex.sc_layouts_content_middle > .sc_layouts_column > .sc_layouts_item {
+	@include flex-justify-content(center);
+}
+.sc_layouts_flex.sc_layouts_content_middle:not(.sc_layouts_columns_stretch) > .sc_layouts_column {
+	@include flex-align-items(center);
+}
+.sc_layouts_flex.sc_layouts_columns_bottom:after,
+.sc_layouts_flex.sc_layouts_columns_middle:after,
+.sc_layouts_flex.sc_layouts_columns_top:after {
+    content: '';
+	@include box(100%, 0);
+    overflow: hidden;
+    visibility: hidden;
+    display: block;
+}
+
+
+/* Layouts in the popup & panel
+------------------------------------------ */
+.sc_layouts_popup {
+	display: none;
+	background-color:#fff;
+	@include box-shadow(0 0 20px 0 rgba(0, 0, 0, 0.2));
+
+	& > p {
+		margin: 0;
+	}
+	.wp-video {
+		width: 100% !important;
+	}
+}
+.mfp-content .sc_layouts_popup {
+	display:block;
+	overflow-x: hidden;
+	overflow-y: auto;
+	max-height: 75vh;
+}
+.mfp-inline-holder div.mfp-content,
+.mfp-ajax-holder div.mfp-content {
+	width: auto;
+	min-width: 60%;
+	max-width: 85%;
+	min-height: 40%;
+	max-height: 80%;
+}
+
+
+/* Panels */
+.sc_layouts_panel_hide_content {
+	@include fixed-mask(rgba(0,0,0,0), 1, 100000);
+	@include translateX(200%);
+	@include transition-property(background-color, 0.8s);
+}
+.sc_layouts_panel_hide_content.sc_layouts_panel_opened {
+	@include translateX(0);
+	background-color: rgba(0,0,0,0.5);
+}
+
+.sc_layouts_panel {
+	opacity: 0;
+}
+.sc_layouts_panel.sc_layouts_panel_opened {
+	@include transition(transform 0.8s ease,opacity 0.3s ease);
+	opacity: 1;
+}
+
+.sc_layouts_panel,
+.sc_layouts_panel_inner {
+	@include transition(transform 0.8s ease,opacity 6s ease);
+}
+.sc_layouts_panel_inner {
+	background-color:#fff;
+	@include border-box;
+	@include box(100%, 100%);
+	padding: 2em 3em;
+}
+.sc_layouts_panel_inner > p {
+	margin: 0;
+}
+
+.sc_layouts_panel_left {
+	@include fixed-lt(0, 0, 100001);
+	max-width: 100%;
+	height: 100%;
+}
+.sc_layouts_panel_right {
+	@include fixed-rt(0, 0, 100001);
+	max-width: 100%;
+	height: 100%;
+}
+.sc_layouts_panel_top {
+	@include fixed-lt(0, 0, 100001);
+	max-height: 100%;
+	width: 100%;
+}
+.sc_layouts_panel_bottom {
+	@include fixed-lb(0, 0, 100001);
+	max-height: 100%;
+	width: 100%;
+}
+
+/* Panels effect: Slide */
+.sc_layouts_panel_left.sc_layouts_effect_slide {
+	@include translateX(-100%);
+}
+.sc_layouts_panel_right.sc_layouts_effect_slide {
+	@include translateX(100%);
+}
+.sc_layouts_panel_top.sc_layouts_effect_slide {
+	@include translateY(-100%);
+}
+.sc_layouts_panel_bottom.sc_layouts_effect_slide {
+	@include translateY(100%);
+}
+.sc_layouts_panel.sc_layouts_effect_slide.sc_layouts_panel_opened {
+	@include transform-none;
+}
+
+/* Panels effect: Flip */
+.sc_layouts_panel.sc_layouts_effect_flip,
+.sc_layouts_panel.sc_layouts_effect_flipout {
+	@include perspective(600px);
+	pointer-events: none;
+}
+.sc_layouts_panel.sc_layouts_effect_flip.sc_layouts_panel_opened,
+.sc_layouts_panel.sc_layouts_effect_flipout.sc_layouts_panel_opened {
+	pointer-events: initial;
+}
+.sc_layouts_panel_left.sc_layouts_effect_flip .sc_layouts_panel_inner {
+	@include transform-origin(left center);
+	@include rotateY(120deg);
+}
+.sc_layouts_panel_left.sc_layouts_effect_flipout .sc_layouts_panel_inner {
+	@include transform-origin(left center);
+	@include rotateY(-120deg);
+}
+.sc_layouts_panel_left.sc_layouts_effect_flip.sc_layouts_panel_opened .sc_layouts_panel_inner,
+.sc_layouts_panel_left.sc_layouts_effect_flipout.sc_layouts_panel_opened .sc_layouts_panel_inner {
+	@include rotateY(0deg);
+}
+.sc_layouts_panel_right.sc_layouts_effect_flip .sc_layouts_panel_inner {
+	@include transform-origin(right center);
+	@include rotateY(-120deg);
+}
+.sc_layouts_panel_right.sc_layouts_effect_flipout .sc_layouts_panel_inner {
+	@include transform-origin(right center);
+	@include rotateY(120deg);
+}
+.sc_layouts_panel_right.sc_layouts_effect_flip.sc_layouts_panel_opened .sc_layouts_panel_inner,
+.sc_layouts_panel_right.sc_layouts_effect_flipout.sc_layouts_panel_opened .sc_layouts_panel_inner {
+	@include rotateY(0deg);
+}
+.sc_layouts_panel_top.sc_layouts_effect_flip .sc_layouts_panel_inner {
+	@include transform-origin(center top);
+	@include rotateX(-120deg);
+}
+.sc_layouts_panel_top.sc_layouts_effect_flipout .sc_layouts_panel_inner {
+	@include transform-origin(center top);
+	@include rotateX(120deg);
+}
+.sc_layouts_panel_top.sc_layouts_effect_flip.sc_layouts_panel_opened .sc_layouts_panel_inner,
+.sc_layouts_panel_top.sc_layouts_effect_flipout.sc_layouts_panel_opened .sc_layouts_panel_inner {
+	@include rotateX(0deg);
+}
+.sc_layouts_panel_bottom.sc_layouts_effect_flip .sc_layouts_panel_inner {
+	@include transform-origin(center bottom);
+	@include rotateX(120deg);
+}
+.sc_layouts_panel_bottom.sc_layouts_effect_flipout .sc_layouts_panel_inner {
+	@include transform-origin(center bottom);
+	@include rotateX(-120deg);
+}
+.sc_layouts_panel_bottom.sc_layouts_effect_flip.sc_layouts_panel_opened .sc_layouts_panel_inner,
+.sc_layouts_panel_bottom.sc_layouts_effect_flipout.sc_layouts_panel_opened .sc_layouts_panel_inner {
+	@include rotateX(0deg);
+}
+
+
+
+/* Elementor container settings
+----------------------------------------- */
+body.single-cpt_layouts .trx-addons-layout--single-preview {
+	position: relative;
+	margin: 0 auto;	
+}
+// Commented to stretch the layout container to the full width of the page in the preview mode
+body.single-cpt_layouts.body_style_wide .trx-addons-layout--single-preview,
+body.single-cpt_layouts.body_style_boxed .trx-addons-layout--single-preview {
+		max-width: var(--theme-var-page) !important;
+}
+body.single-cpt_layouts[class*="cpt_layouts-template"] {
+	background-image: url(images/transparent.png);
+	background-repeat: repeat;
+}
+body[class*="cpt_layouts-template"] .trx-addons-layout--edit-mode .trx-addons-layout__inner,
+body[class*="cpt_layouts-template"] .trx-addons-layout--single-preview .trx-addons-layout__inner {
+	margin-left: auto;
+	margin-right: auto;
+//	Commented to leave a background color transparent for the layout container
+//	to allow users to see which sections don't have a background
+//	background-color: var(--theme-color-bg_color);
+	@include content-box;
+}
+
+
+/* Device-specific responsive must be inside main CSS, not in responsive
+-------------------------------------------------------------------------- */
+
+@media #{$media_desktop} {
+    /* Layouts */
+//	.sc_layouts_row_type_compact.sc_layouts_row_fixed_on,
+//	.sc_layouts_row_type_normal.sc_layouts_row_fixed_on {
+//		padding-top:0;
+//		padding-bottom:0;
+//	}
+	.sc_layouts_row.sc_layouts_row_fixed_on .custom-logo-link img,
+	.sc_layouts_row.sc_layouts_row_fixed_on .sc_layouts_logo img {
+		max-height: 3em;
+	}
+}
+
+@media #{$media_notebook} {
+    /* Layouts */
+//	.sc_layouts_row_type_compact.sc_layouts_row_fixed_on,
+//	.sc_layouts_row_type_normal.sc_layouts_row_fixed_on {
+//		padding-top:0;
+//		padding-bottom:0;
+//	}
+	.sc_layouts_row.sc_layouts_row_fixed_on .custom-logo-link img,
+	.sc_layouts_row.sc_layouts_row_fixed_on .sc_layouts_logo img {
+		max-height: 3em;
+	}
+}
+
+@media #{$media_tablet} {
+    /* Layouts */
+//	.sc_layouts_row_type_compact.sc_layouts_row_fixed_on,
+//	.sc_layouts_row_type_normal.sc_layouts_row_fixed_on {
+//		padding-top:0;
+//		padding-bottom:0;
+//	}
+	.sc_layouts_row.sc_layouts_row_fixed_on .custom-logo-link img,
+	.sc_layouts_row.sc_layouts_row_fixed_on .sc_layouts_logo img {
+		max-height: 3em;
+	}
+}
+
+@media #{$media_mobile} {
+    /* Layouts */
+//	.sc_layouts_row_type_compact.sc_layouts_row_fixed_on.sc_layouts_row_fixed_always,
+//	.sc_layouts_row_type_normal.sc_layouts_row_fixed_on.sc_layouts_row_fixed_always {
+//		padding-top:0;
+//		padding-bottom:0;
+//	}
+	.sc_layouts_row.sc_layouts_row_fixed_on.sc_layouts_row_fixed_always .custom-logo-link img,
+	.sc_layouts_row.sc_layouts_row_fixed_on.sc_layouts_row_fixed_always .sc_layouts_logo img {
+		max-height: 3em;
+	}
+}

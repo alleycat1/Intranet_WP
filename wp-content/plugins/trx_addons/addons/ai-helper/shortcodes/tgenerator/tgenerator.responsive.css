@@ -1,0 +1,39 @@
+@media (max-width: 1279px) {
+  /* TGenerator */
+  .sc_tgenerator_form_align_left_tablet .sc_tgenerator_limits {
+    text-align: left;
+  }
+  .sc_tgenerator_form_align_right_tablet .sc_tgenerator_limits {
+    text-align: right;
+  }
+}
+@media (max-width: 767px) {
+  /* TGenerator */
+  .sc_tgenerator_form_field_process .sc_tgenerator_form_field_select_options,
+  .sc_tgenerator_form_field_tone .sc_tgenerator_form_field_select_options,
+  .sc_tgenerator_form_field_language .sc_tgenerator_form_field_select_options {
+    left: auto;
+    right: 0;
+  }
+
+  .sc_tgenerator_form_field_prompt .sc_tgenerator_form_field_prompt_button {
+    padding: 0 1em;
+  }
+
+  .sc_tgenerator_form_align_left_mobile .sc_tgenerator_limits {
+    text-align: left;
+  }
+  .sc_tgenerator_form_align_right_mobile .sc_tgenerator_limits {
+    text-align: right;
+  }
+  .sc_tgenerator_limits .sc_tgenerator_limits_used {
+    display: block;
+    white-space: normal;
+  }
+
+  .sc_tgenerator_message {
+    width: 75%;
+  }
+}
+
+/*# sourceMappingURL=tgenerator.responsive.css.map */

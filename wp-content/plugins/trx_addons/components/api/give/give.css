@@ -1,0 +1,36 @@
+/* Give Donation
+------------------------------------------------ */
+[id*="give-form"] fieldset legend {
+  position: static;
+}
+
+[id*="give-form"] #give-gateway-radio-list > li input[type="radio"] {
+  display: none !important;
+}
+
+.give-goal-progress span.income {
+  font-size: 2.5em;
+  line-height: 1em;
+  letter-spacing: 0;
+}
+
+table.give-table {
+  text-shadow: none !important;
+}
+
+/* Widget */
+.widget_give_forms_widget .give-form-title {
+  font-size: 1.5em;
+}
+.widget_give_forms_widget .give-goal-progress .income {
+  font-size: 1.5em;
+}
+.widget_give_forms_widget #give-donation-level-button-wrap > li:before {
+  display: none;
+}
+.widget_give_forms_widget #give-donation-level-button-wrap > li button {
+  padding: 1em 1.5em;
+  margin: 0 0.5em 0.5em 0;
+}
+
+/*# sourceMappingURL=give.css.map */

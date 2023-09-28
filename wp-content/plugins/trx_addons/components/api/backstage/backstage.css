@@ -1,0 +1,363 @@
+/* Backstage
+------------------------------------------ */
+.trx_addons_customizer_welcome_wrap {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.trx_addons_customizer_welcome_wrap .trx_addons_customizer_welcome_block {
+  position: relative;
+  margin: 0 2.5em;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-border-radius: 2.75em;
+  -ms-border-radius: 2.75em;
+  border-radius: 2.75em;
+  text-align: left;
+  padding: 50px 33px;
+  /* Background */
+  --trx-addons-customizer-welcome-block-start: #369ad6;
+  --trx-addons-customizer-welcome-block-end: #7572f7;
+  color: #fff;
+  background: var(--trx-addons-customizer-welcome-block-end);
+  /* Old browsers */
+  background: -moz-linear-gradient(-20deg, var(--trx-addons-customizer-welcome-block-start) 0%, var(--trx-addons-customizer-welcome-block-end) 90%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(-20deg, var(--trx-addons-customizer-welcome-block-start) 0%, var(--trx-addons-customizer-welcome-block-end) 90%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(160deg, var(--trx-addons-customizer-welcome-block-start) 0%, var(--trx-addons-customizer-welcome-block-end) 90%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  -webkit-animation: trx_addons_customizer_welcome_animation 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  -ms-animation: trx_addons_customizer_welcome_animation 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation: trx_addons_customizer_welcome_animation 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  -webkit-transform-origin: 0% 100%;
+  -ms-transform-origin: 0% 100%;
+  transform-origin: 0% 100%;
+}
+.trx_addons_customizer_welcome_wrap .trx_addons_customizer_welcome_block:after {
+  content: " ";
+  display: block;
+  width: 31px;
+  height: 31px;
+  line-height: 31px;
+  text-align: center;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAFoqSavAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAxJJREFUeNpiZACC/LIv/xmggIkBDaAITOziYWRA1wIQQIzIHLAWJiYWZWQtTP/+/u5A1s/EwMgY+u87Nz9MFUAAgUXzSj8fYGRktEd3wl8GRmkWsDZmloT///7ex+YksAJkSaDxHJMnM/6Eq8wr+5KI7lRkABBAjAVlPzX/M/y+hk0SqKuKEd3n6O5gwmU0wt9Yjf7fijP4QWBSF28NTgXwKIEpyCv98guXJFgBIyMDK9DOY9gkQQAggOCC+AILn08RbvzHEEusxv//GfagxCUI/GLh3sr27ytBzYy/uAUnTmD8AOPDDWD9892BgQmPrQwMjyZ18ciji8MNAKbddYRiFRsA25lb8tUXm+QfZm4RfJrhLmBi+r+JWBsxDMgt/W4LyjzAWNCf2MNzidSoBAggRnLTACKd/v8fRqrG//+YgshKgcAk/QWYU3iZyHEuSCPO/IcP/GNgiMGbefGA55O7eJaSpRmYDqRwFtJ4o+U3tzDeEh5PavDo72d8h1VzQcFXSTz5euLETp6dOBPJf9b//Tji89ikbp4CvBkE6KxwLDovTermtcYbDmnl//mxuPX4xG4efYKByPn/6x70EnxiN68VUdkSiE0Q5Raj1MQJPM+JztNQZ64F2hZCalIFCDCUkgOYs7YAKW8G2oMHwNSqiJLIPnJxhwDz9TcaW7wdZDFGCl/QwPgDGBRTaWXr//+MqUCLvXBnL0bmTdS39P+n3/8ZJCd1c8/BWo/ByyumPzeZ/jJS0WKGzcDM5oc7tSKB378ZGNmZqGQzI7P9pC7OQ/izChJgZ2BWBJfXlPn3EDBuHYC2/yecT1Fc+9+VfDsZvv79x2oypZf9BvGFBLJ+xv+pjGTZy5gJTFAzSNGDYnlB6ZdIYDjJkWjvVmAQ+5CVJGCMtLT/rJz8Xz8CRTiJ1Hv19xdui2nTGL+QG0twn3Pyf1kO7N8QY/FVYMPVZgJSw5Uiy/NLvqYDE1owgVbSGmBjJ5SahQ9jQcV3BfR+GZKF7xn/M8VN7ObeQoviluX/339RDIwYZfBUYMrNoXXVBgCuswx0W4bOJwAAAABJRU5ErkJggg==);
+  background-repeat: no-repeat;
+  background-position: left top;
+  position: absolute;
+  z-index: -1;
+  bottom: -30px;
+  left: 40px;
+}
+.trx_addons_customizer_welcome_wrap .trx_addons_customizer_welcome_block_title {
+  font-size: 43px;
+  line-height: 1.15em;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+}
+.trx_addons_customizer_welcome_wrap .trx_addons_customizer_welcome_block_title:after {
+  content: ' ';
+  display: inline-block;
+  vertical-align: top;
+  width: 37px;
+  height: 47px;
+  margin: 3px 0 0 6px;
+  background-image: url(data:image/png;base64,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);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.trx_addons_customizer_welcome_wrap .trx_addons_customizer_welcome_block_text {
+  font-size: 16px;
+  line-height: 1.6em;
+  letter-spacing: -0.3px;
+  margin: 1.15em 0 0;
+}
+.trx_addons_customizer_welcome_wrap .trx_addons_customizer_welcome_block_button_wrap {
+  margin-top: 1.75em;
+}
+.trx_addons_customizer_welcome_wrap .trx_addons_customizer_welcome_block_button_close {
+  font-size: 16px;
+  line-height: 1.5em;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0.75em 2em;
+  background-color: #fff;
+  color: #333;
+  -webkit-border-radius: 2em;
+  -ms-border-radius: 2em;
+  border-radius: 2em;
+  -webkit-box-shadow: 6px 6px 20px 0px rgba(0, 0, 0, 0.15);
+  -ms-box-shadow: 6px 6px 20px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 6px 6px 20px 0px rgba(0, 0, 0, 0.15);
+  -webkit-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.trx_addons_customizer_welcome_wrap .trx_addons_customizer_welcome_block_button_close:hover {
+  background-color: #f6f7f8;
+  -webkit-box-shadow: 6px 6px 20px 0px rgba(0, 0, 0, 0.3);
+  -ms-box-shadow: 6px 6px 20px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 6px 6px 20px 0px rgba(0, 0, 0, 0.3);
+}
+.trx_addons_customizer_welcome_wrap .trx_addons_customizer_welcome_block_close {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 6%;
+  right: 6%;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  -webkit-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #38bb7a;
+  color: #fff;
+  -webkit-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.trx_addons_customizer_welcome_wrap .trx_addons_customizer_welcome_block_close:active {
+  outline: 0;
+}
+.trx_addons_customizer_welcome_wrap .trx_addons_customizer_welcome_block_close:before, .trx_addons_customizer_welcome_wrap .trx_addons_customizer_welcome_block_close:after {
+  content: " ";
+  width: 24px;
+  height: 2px;
+  position: absolute;
+  z-index: 1;
+  top: 25px;
+  left: 14px;
+  background-color: #fff;
+}
+.trx_addons_customizer_welcome_wrap .trx_addons_customizer_welcome_block_close:before {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.trx_addons_customizer_welcome_wrap .trx_addons_customizer_welcome_block_close:after {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.trx_addons_customizer_welcome_wrap .trx_addons_customizer_welcome_block_close:hover {
+  -webkit-box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.2);
+  margin: -1px 0 0 -1px;
+}
+.trx_addons_customizer_welcome_wrap .trx_addons_customizer_welcome_block_style_round {
+  width: 280px;
+  height: 280px;
+  line-height: 280px;
+  text-align: center;
+  -webkit-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+.trx_addons_customizer_welcome_wrap .trx_addons_customizer_welcome_block_style_round:after {
+  left: 70px;
+  bottom: -18px;
+  -webkit-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  transform: rotate(20deg);
+}
+.trx_addons_customizer_welcome_wrap .trx_addons_customizer_welcome_block_style_round .trx_addons_customizer_welcome_block_button_wrap {
+  display: none;
+}
+.trx_addons_customizer_welcome_wrap .trx_addons_customizer_welcome_block_style_round .trx_addons_customizer_welcome_block_close {
+  display: block;
+}
+
+.trx_addons_customizer_welcome_wrap_closed {
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease;
+  -ms-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+  -webkit-transition-delay: 1.2s;
+  -ms-transition-delay: 1.2s;
+  transition-delay: 1.2s;
+}
+.trx_addons_customizer_welcome_wrap_closed .trx_addons_customizer_welcome_block_close {
+  outline: none !important;
+  -webkit-transform: rotate(180deg) scale(0) translate(-1px, -1px);
+  -ms-transform: rotate(180deg) scale(0) translate(-1px, -1px);
+  transform: rotate(180deg) scale(0) translate(-1px, -1px);
+  -webkit-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  transition-delay: 0s;
+  -webkit-box-shadow: none;
+  -ms-box-shadow: none;
+  box-shadow: none;
+}
+.trx_addons_customizer_welcome_wrap_closed .trx_addons_customizer_welcome_block_button_close {
+  outline: none !important;
+}
+.trx_addons_customizer_welcome_wrap_closed .trx_addons_customizer_welcome_block:after {
+  -webkit-transition: opacity 0.3s ease, transform 0.3s ease;
+  -ms-transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  -webkit-transform: rotate(60deg) translate(-40px, -30px);
+  -ms-transform: rotate(60deg) translate(-40px, -30px);
+  transform: rotate(60deg) translate(-40px, -30px);
+  -webkit-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.trx_addons_customizer_welcome_wrap_closed .trx_addons_customizer_welcome_block {
+  -webkit-animation: none;
+  -ms-animation: none;
+  animation: none;
+  -webkit-transition: -webkit-transform 0.5s ease;
+  -ms-transition: -ms-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transform: skewX(-25deg) translateX(-400px);
+  -ms-transform: skewX(-25deg) translateX(-400px);
+  transform: skewX(-25deg) translateX(-400px);
+  -webkit-transition-delay: 0.4s;
+  -ms-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+  -webkit-transition-timing-function: cubic-bezier(1, -0.53, 0.97, 0.64);
+  -ms-transition-timing-function: cubic-bezier(1, -0.53, 0.97, 0.64);
+  transition-timing-function: cubic-bezier(1, -0.53, 0.97, 0.64);
+}
+.trx_addons_customizer_welcome_wrap_closed .trx_addons_customizer_welcome_block_style_round {
+  -webkit-transition-delay: 0.7s;
+  -ms-transition-delay: 0.7s;
+  transition-delay: 0.7s;
+}
+.trx_addons_customizer_welcome_wrap_closed .trx_addons_customizer_welcome_block_style_round:after {
+  -webkit-transform: rotate(62deg) translate(-20px, -20px);
+  -ms-transform: rotate(62deg) translate(-20px, -20px);
+  transform: rotate(62deg) translate(-20px, -20px);
+  -webkit-transition-delay: 0.3s;
+  -ms-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+.trx_addons_customizer_welcome_wrap_closed .trx_addons_customizer_welcome_block_style_round .trx_addons_customizer_welcome_block_inner {
+  -webkit-transition: -webkit-transform 0.5s ease;
+  -ms-transition: -ms-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  -webkit-transition-delay: 0.7s;
+  -ms-transition-delay: 0.7s;
+  transition-delay: 0.7s;
+  -webkit-transition-timing-function: cubic-bezier(1, -0.53, 0.97, 0.64);
+  -ms-transition-timing-function: cubic-bezier(1, -0.53, 0.97, 0.64);
+  transition-timing-function: cubic-bezier(1, -0.53, 0.97, 0.64);
+}
+
+@-webkit-keyframes trx_addons_customizer_welcome_animation {
+  0% {
+    transform: rotate(-10deg);
+  }
+  16% {
+    transform: rotate(6deg);
+  }
+  33% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  67% {
+    transform: rotate(-1deg);
+  }
+  84% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes trx_addons_customizer_welcome_animation {
+  0% {
+    transform: rotate(-10deg);
+  }
+  16% {
+    transform: rotate(6deg);
+  }
+  33% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  67% {
+    transform: rotate(-1deg);
+  }
+  84% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.trx_addons_customizer_demo {
+  /* Hide core sections */
+  /* Refresh preview area */
+}
+.trx_addons_customizer_demo #accordion-section-title_tagline,
+.trx_addons_customizer_demo #accordion-section-static_front_page,
+.trx_addons_customizer_demo #accordion-section-background_image,
+.trx_addons_customizer_demo #accordion-section-custom_css {
+  display: none !important;
+}
+.trx_addons_customizer_demo #customize-header-actions .customize-action-refresh {
+  max-width: none;
+  left: 20px;
+}
+.trx_addons_customizer_demo #customize-header-actions .customize-action-refresh:before {
+  margin: 0 0.5em 0 0;
+}
+.trx_addons_customizer_demo .wp-full-overlay-sidebar-content {
+  margin-top: 0.1em;
+}
+
+/*# sourceMappingURL=backstage.css.map */

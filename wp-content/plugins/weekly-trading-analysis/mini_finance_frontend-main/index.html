@@ -1,0 +1,835 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title id='Description'></title>
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.android.css" type="text/css" />
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css" />
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.black.css" type="text/css" />
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.blackberry.css" type="text/css" />
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.blue.css" type="text/css" />
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.classic.css" type="text/css" />
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.dark.css" type="text/css" />
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.darkblue.css" type="text/css" />
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.energyblue.css" type="text/css" />
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.flat.css" type="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 minimum-scale=1" />
+    <script type="text/javascript" src="scripts/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdata.js"></script> 
+    <script type="text/javascript" src="jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxmenu.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxgrid.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxgrid.edit.js"></script>  
+    <script type="text/javascript" src="jqwidgets/jqxgrid.columnsresize.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxgrid.sort.js"></script>  
+    <script type="text/javascript" src="jqwidgets/jqxgrid.selection.js"></script> 
+    <script type="text/javascript" src="jqwidgets/jqxlistbox.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcalendar.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxnumberinput.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxsplitter.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdata.export.js"></script> 
+    <script type="text/javascript" src="jqwidgets/jqxgrid.export.js"></script> 
+    <style type="text/css">
+        .editedRow {
+          color: #b90f0f !important;
+          font-style: italic;
+        }
+        #jqxWidget{
+            width:100%;
+            height:100%;
+        }
+        #jqxWidget1{
+            width:100%;
+            height:100%;
+        }
+        html, body 
+        {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            overflow: hidden;
+        }
+    </style>
+    <script type="text/javascript">
+        var leftData = new Array();
+        var rightData = new Array();
+        var markedRows = new Array();
+
+        function calculateLeftPanel()
+        {
+            //const grid = $("#grid_left").jqxGrid("getRows");
+            const rowCount = leftData.length;
+            for(i=0; i<rowCount; i++)
+            {
+                if(leftData[i].type == 1)
+                    leftData[i].balance = (leftData[i - 1].balance - leftData[i].paid).toFixed(2);
+                else if(leftData[i].type != 2)
+                {
+                    leftData[i].valueSum = leftData[i].valueNumber - leftData[i].valueBase;
+                    leftData[i].commValue = (leftData[i].valueSum * leftData[i].commPercent / 100.0).toFixed(2);
+                    leftData[i].balance = leftData[i].commValue - leftData[i].paid;
+                }
+
+                if(leftData[i].paid!=0 && leftData[i].balance == 0)
+                {
+                    leftData[i].balance = "-";
+                    leftData[i].status = "Closed";
+                }
+                else if(leftData[i].type != 2)
+                    leftData[i].status = "Open";
+            }
+            checkMark();
+            calculateRightPanel();
+        }
+
+        function calculateRightPanel()
+        {
+            const rowCount = leftData.length;
+            rightData.length = 0;
+            //rightData = [];
+            var keys = new Array();
+            var dataList = new Array();
+            var sumList1 = new Array();
+            var sumList2 = new Array();
+            for(i=0; i<rowCount; i++)
+            {
+                if(leftData[i].type == 0 && leftData[i].book != "")
+                {
+                    if(keys.includes(leftData[i].book))
+                    {
+                        dataList[leftData[i].book].push(leftData[i]);
+                        sumList1[leftData[i].book] = sumList1[leftData[i].book] + leftData[i].details1;
+                        sumList2[leftData[i].book] = sumList2[leftData[i].book] + leftData[i].valueNumber;
+                    }
+                    else
+                    {
+                        keys.push(leftData[i].book);
+                        dataList[leftData[i].book] = new Array();
+                        dataList[leftData[i].book].push(leftData[i]);
+                        sumList1[leftData[i].book] = leftData[i].details1;
+                        sumList2[leftData[i].book] = leftData[i].valueNumber;
+                    }
+                }
+            }
+            var options = { style: 'currency', currency: 'USD' };
+            for(i=0; i<keys.length; i++)
+            {
+                if(i != 0)
+                {
+                    var data = {};
+                    data["date"] = "Date";
+                    data["book"] = "Book";
+                    data["companyName"] = "Company Name";
+                    data["agentName"] = "Agent Name";
+                    data["details1"] = "Details 1";
+                    data["details2"] = "Details 2";
+                    data["details3"] = "Details 3";
+                    data["valueNumber"] = "Value";
+                    data["type"] = 0;
+                    rightData.push(data);
+                }
+                for(j=0; j<dataList[keys[i]].length; j++)
+                {
+                    var data = {};
+                    d = dataList[keys[i]][j].date;
+                    data["date"] = d.getMonth() + "/" + d.getDate() + "/" + d.getFullYear();
+                    data["book"] = dataList[keys[i]][j].book;
+                    data["companyName"] = dataList[keys[i]][j].companyName;
+                    data["agentName"] = dataList[keys[i]][j].agentName;
+                    data["details1"] = dataList[keys[i]][j].details1.toLocaleString();;
+                    data["details2"] = dataList[keys[i]][j].details2;
+                    data["details3"] = dataList[keys[i]][j].details3;
+                    data["valueNumber"] = dataList[keys[i]][j].valueNumber.toLocaleString('en-US', options);;
+                    data["type"] = 1;
+                    rightData.push(data);
+                }
+                var data1 = {};
+                data1["date"] = "Total:";
+                data1["book"] = "";
+                data1["companyName"] = "";
+                data1["agentName"] = "";
+                data1["details1"] = sumList1[keys[i]].toLocaleString();;
+                data1["details2"] = "";
+                data1["details3"] = "";
+                data1["valueNumber"] = sumList2[keys[i]].toLocaleString('en-US', options);;
+                data1["type"] = 2;
+                rightData.push(data1);
+
+                if(i < keys.length - 1)
+                {
+                    var data2 = {};
+                    data2["date"] = "";
+                    data2["book"] = "";
+                    data2["companyName"] = "";
+                    data2["agentName"] = "";
+                    data2["details1"] = "";
+                    data2["details2"] = "";
+                    data2["details3"] = "";
+                    data2["valueNumber"] = "";
+                    data2["type"] = 3;
+                    rightData.push(data2);
+
+                    var data3 = {};
+                    data3["date"] = "";
+                    data3["book"] = "";
+                    data3["companyName"] = "";
+                    data3["agentName"] = "";
+                    data3["details1"] = "";
+                    data3["details2"] = "";
+                    data3["details3"] = "";
+                    data3["valueNumber"] = "";
+                    data3["type"] = 3;
+                    rightData.push(data3);
+                }
+            }
+            //$("#grid_right").jqxGrid('updatebounddata', 'rows');
+            $("#grid_right").jqxGrid('updatebounddata', 'cells');
+        }
+
+        function deleteRows()
+        {
+            const grid = $("#grid_left").jqxGrid("getRows");
+            const rowCount = grid.length;
+
+            var selectedIndexes = $('#grid_left').jqxGrid('getselectedrowindexes');
+            if(selectedIndexes.length == 0)
+                return;
+            selectedIndexes.sort();
+            childRowExists = false;
+            isDeleting = true;
+            for(i=0; i<rowCount; i++)
+            {
+                if(leftData[i].type == 0)
+                {
+                    if(isDeleting)
+                        isDeleting = selectedIndexes.includes(i);
+                }
+                else if(leftData[i].type == 1)
+                {
+                    childRowExists = true;
+                    break;
+                }
+            }
+            if(isDeleting == true && childRowExists == true)
+            {
+                alert("Can not delete the rows of child rows.");
+                return;
+            }
+            for(i=selectedIndexes.length-1; i>=0; i--)
+            {
+                leftData.splice(selectedIndexes[i], 1);
+            }
+            calculateLeftPanel();
+            $("#grid_left").jqxGrid('updatebounddata', 'cells');
+            $("#grid_left").jqxGrid('clearselection');
+        }
+
+        function insertDataRow(type){
+            var selectedIndex = $('#grid_left').jqxGrid('getselectedrowindex');
+            const grid = $("#grid_left").jqxGrid("getRows");
+            const rowCount = grid.length;
+
+            var row = {};
+
+            var date = new Date();
+            date.setFullYear(date.getFullYear(), date.getMonth(), date.getDate());
+            date.setHours(0, 0, 0, 0);
+
+            if(type == 0)
+                row["date"] = date;
+            else
+                row["date"] = "";
+            row["book"] = "";
+            row["companyName"] = "";
+            row["agentName"] = "";
+            row["details1"] = "";
+            row["details2"] = "";
+            row["details3"] = "";
+            row["valueNumber"] = "";
+            row["valueBase"] = "";
+            row["valueSum"] = "";
+            row["commPercent"] = "";
+            row["commValue"] = "";
+            row["paid"] = "";
+            if(type != 2)
+                row["datePaid"] = date;
+            else
+                row["datePaid"] = "";
+            row["balance"] = "";
+            if(type != 2)
+                row["status"] = "Open";
+            else
+                row["status"] = "";
+            row["type"] = type;
+
+            var rowIndex = selectedIndex + 1;
+            if(selectedIndex == -1 || selectedIndex == rowCount - 1)
+            {
+                if(type == 1 && (rowCount == 0 || leftData[selectedIndex].type == 2))
+                {
+                    alert("Can not add row under the black row.");
+                    return;                    
+                }
+                leftData.push(row);
+                selectedIndex++;
+                $("#grid_left").jqxGrid('clearselection');
+                $("#grid_left").jqxGrid('selectrow', rowCount);
+            }
+            else
+            {
+                if(type == 1 && (selectedIndex == 0 || leftData[selectedIndex-1].type == 2))
+                {
+                    alert("Can not add row under the blank row.");
+                    return;                    
+                }
+                if(type == 2 && leftData[selectedIndex].type == 1)
+                {
+                    alert("Can not add blank row upon the child row.");
+                    return;
+                }
+                leftData.splice(selectedIndex, 0, row);
+                rowIndex--;
+                $("#grid_left").jqxGrid('clearselection');
+                $("#grid_left").jqxGrid('selectrow', selectedIndex);                
+            }
+            $("#grid_left").jqxGrid('updatebounddata', 'cells');
+            calculateRightPanel();
+            if(leftData[rowIndex].type == 0)
+            {
+                const datafield = $('#grid_left').jqxGrid('getcolumnat', 1).datafield;
+                $('#grid_left').jqxGrid('begincelledit', rowIndex, datafield);
+            }
+            else if(leftData[rowIndex].type == 1)
+            {
+                const datafield = $('#grid_left').jqxGrid('getcolumnat', 12).datafield;
+                $('#grid_left').jqxGrid('begincelledit', rowIndex, datafield);
+            }
+        }
+
+        function checkMark()
+        {
+            markedRows.length = 0;
+            for(i=0; i<leftData.length; i++)
+            {
+                if(leftData[i].status == "Closed")
+                {
+                    if(leftData[i].type == 0)
+                        markedRows.push(i);
+                    else
+                    {
+                        var j=i;
+                        while(leftData[j].type == 1)
+                            markedRows.push(j--);
+                        markedRows.push(j);
+                    }
+                }
+            }
+        }
+
+        $(document).ready(function () {
+            var source =
+            {
+                localdata: leftData,
+                datatype: "array",
+                updaterow: function (rowid, rowdata, commit) {
+                    var rowindex = $("#grid_left").jqxGrid('getrowboundindexbyid', rowid);
+                    //markedRows.push({ index: rowindex, data: rowdata });
+
+                    if(rowdata.type == 1)
+                        rowdata.balance = (leftData[rowid - 1].balance - rowdata.paid).toFixed(2);
+                    else
+                    {
+                        rowdata.valueSum = rowdata.valueNumber - rowdata.valueBase;
+                        rowdata.commValue = (rowdata.valueSum * rowdata.commPercent / 100.0).toFixed(2);
+                        rowdata.balance = rowdata.commValue - rowdata.paid;
+                    }
+
+                    if(rowdata.balance < 0)
+                    {
+                        alert("Too much paid than balance.");
+                        return;
+                    }
+
+                    if(rowdata.paid!=0 && rowdata.balance == 0)
+                    {
+                        rowdata.balance = "-";
+                        rowdata.status = "Closed";
+                    }
+                    else
+                        rowdata.status = "Open";
+
+                    for(var i in rowdata)
+                        leftData[rowid][i] = rowdata[i];
+
+                    calculateLeftPanel();
+                    $("#grid_left").jqxGrid('updatebounddata', 'cells');
+                },
+                datafields:
+                [
+                    { name: 'date', type: 'date' },
+                    { name: 'book', type: 'string' },
+                    { name: 'companyName', type: 'string' },
+                    { name: 'agentName', type: 'string' },
+                    { name: 'details1', type: 'number' },
+                    { name: 'details2', type: 'string' },
+                    { name: 'details3', type: 'string' },
+                    { name: 'valueNumber', type: 'number' },
+                    { name: 'valueBase', type: 'number' },
+                    { name: 'valueSum', type: 'number' },
+                    { name: 'commPercent', type: 'number' },
+                    { name: 'commValue', type: 'number' },
+                    { name: 'paid', type: 'number' },
+                    { name: 'datePaid', type: 'date' },
+                    { name: 'balance', type: 'number' },
+                    { name: 'status', type: 'string' },
+                    { name: 'type', type: 'number' }
+                ]
+            };
+
+            var sourceRight =
+            {
+                localdata: rightData,
+                datatype: "array",
+                datafields:
+                [
+                    { name: 'date', type: 'string' },
+                    { name: 'book', type: 'string' },
+                    { name: 'companyName', type: 'string' },
+                    { name: 'agentName', type: 'string' },
+                    { name: 'details1', type: 'string' },
+                    { name: 'details2', type: 'string' },
+                    { name: 'details3', type: 'string' },
+                    { name: 'valueNumber', type: 'string' },
+                    { name: 'type', type: 'number' }
+                ]
+            };
+
+            var cellbeginedit = function (row, datafield, columntype, value) {
+                if (leftData[row].type != 0) return false;
+            }
+
+            var cellsrenderer = function (row, column, value, defaultHtml) {
+                var element = $(defaultHtml);
+                element.css('color', '#666');
+                return element[0].outerHTML;
+            }
+
+            var cellbeginedit1 = function (row, datafield, columntype, value) {
+                if (leftData[row].type == 2) return false;
+            }
+
+            var cellsrenderer1 = function (row, column, value, defaultHtml) {
+                if (leftData[row].type == 2) {
+                    var element = $(defaultHtml);
+                    element.css('color', '#999');
+                    return element[0].outerHTML;
+                }
+
+                return defaultHtml;
+            }
+
+            var cellbeginedit2 = function (row, datafield, columntype, value) {
+                if (leftData[row].type != 0) return false;
+            }
+
+            var cellsrenderer2 = function (row, column, value, defaultHtml) {
+                if (leftData[row].type != 0) {
+                    var element = $(defaultHtml);
+                    element.css('color', '#999');
+                    return element[0].outerHTML;
+                }
+                return defaultHtml;
+            }
+
+            var dataAdapter = new $.jqx.dataAdapter(source);
+            var dataAdapterRight = new $.jqx.dataAdapter(sourceRight);
+
+            var createGridEditor = function(row, cellValue, editor, cellText, width, height)
+            {
+                editor.jqxDropDownList({autoDropDownHeight: true,  width: width, height: height, source: ['Open', 'Closed']});
+            }
+            var initGridEditor = function (row, cellValue, editor, cellText, width, height) {
+                editor.jqxDropDownList('selectItem', cellValue);
+            }
+            var gridEditorValue = function (row, cellValue, editor) {
+                return editor.val();
+            }
+
+            var cellclass = function (row, datafield, value, rowdata) {
+                for (var i = 0; i < markedRows.length; i++) {
+                    if (markedRows[i] == row) {
+                        return "editedRow";
+                    }
+                }
+            }
+
+            $('#splitter').jqxSplitter({ width: '100%', height: '100%', panels: [{ size: '50%', min: 150 }, { size: '50%', min: 150}] });
+
+            // initialize jqxGrid
+            $("#grid_left").jqxGrid(
+            {
+                width: '100%',
+                height: '100%',
+                source: dataAdapter,
+                columnsresize: true,
+                editable: true,
+                rowsheight: 22,
+                columnsheight: 22,
+                selectionmode: 'multiplerowsadvanced',
+                columns: [
+/*              {
+                      text: '#', sortable: false, filterable: false, editable: false,
+                      groupable: false, draggable: false, resizable: false,
+                      datafield: '', columntype: 'number', width: 40,
+                      cellsrenderer: function (row, column, value) {
+                        if (leftData[row].type == 2) 
+                            return "<div style='margin:4px; color:#999'>" + (value + 1) + "</div>";
+                        else
+                            return "<div style='margin:4px;'>" + (value + 1) + "</div>";
+                      }
+                  },*/
+                  { text: 'Date', datafield: 'date', cellclassname: cellclass, columntype: 'datetimeinput', width: 100, align: 'right', cellsalign: 'right', cellsformat: 'd', cellbeginedit: cellbeginedit2, cellsrenderer: cellsrenderer2,pinned: true },
+                  { text: 'Book', datafield: 'book' , cellclassname: cellclass, columntype: 'textbox', width: 100, cellbeginedit: cellbeginedit2, cellsrenderer: cellsrenderer2, pinned: true },
+                  { text: 'Company Name', datafield: 'companyName', cellclassname: cellclass, columntype: 'textbox', width: 100, cellbeginedit: cellbeginedit2, cellsrenderer: cellsrenderer2 },
+                  { text: 'Agent Name', datafield: 'agentName', cellclassname: cellclass, columntype: 'textbox', width: 100, cellbeginedit: cellbeginedit2, cellsrenderer: cellsrenderer2 },
+                  { text: 'Details 1', datafield: 'details1', cellclassname: cellclass, columntype: 'numberinput', align: 'right', cellsalign: 'right', width: 70, cellbeginedit: cellbeginedit2, cellsrenderer: cellsrenderer2, cellsformat: 'd2' },
+                  { text: 'Details 2', datafield: 'details2', cellclassname: cellclass, columntype: 'textbox', width: 100, cellbeginedit: cellbeginedit2, cellsrenderer: cellsrenderer2 },
+                  { text: 'Details 3', datafield: 'details3', cellclassname: cellclass, columntype: 'textbox', width: 100, cellbeginedit: cellbeginedit2, cellsrenderer: cellsrenderer2 },
+                  { text: 'Value', datafield: 'valueNumber', cellclassname: cellclass, cellsformat: 'c2', columntype: 'numberinput', align: 'right', cellsalign: 'right', width: 70, cellbeginedit: cellbeginedit2, cellsrenderer: cellsrenderer2 },
+                  { text: 'Value(Base)', datafield: 'valueBase', cellclassname: cellclass, cellsformat: 'c2', columntype: 'numberinput', align: 'right', cellsalign: 'right', width: 70, cellbeginedit: cellbeginedit2, cellsrenderer: cellsrenderer2 },
+                  { text: 'Value(Sum)', datafield: 'valueSum', cellclassname: cellclass, cellsformat: 'c2', columntype: 'numberinput', align: 'right', cellsalign: 'right', width: 70, cellbeginedit: cellbeginedit, cellsrenderer: cellsrenderer },
+                  {
+                      text: 'Comm %', datafield: 'commPercent', cellclassname: cellclass, align: 'right', cellsalign: 'right', 
+                      cellsformat: 'p2', columntype: 'numberinput', width: 60, 
+                      validation: function (cell, value) {
+                          if (value < 0 || value > 100) {
+                              return { result: false, message: "Percent should be in the 0-100 interval" };
+                          }
+                          return true;
+                      },
+                      createeditor: function (row, cellvalue, editor) {
+                          editor.jqxNumberInput({
+                              decimalDigits: 2,
+                              symbol: '%',
+                              symbolPosition: 'right'
+                          });
+                      }, cellbeginedit: cellbeginedit2, cellsrenderer: cellsrenderer2
+                  },
+                  { text: 'Comm Value', datafield: 'commValue', cellclassname: cellclass, cellsformat: 'c2', columntype: 'numberinput', align: 'right', cellsalign: 'right', width: 60, cellbeginedit: cellbeginedit, cellsrenderer: cellsrenderer },
+                  { text: 'Paid', datafield: 'paid', cellclassname: cellclass, cellsformat: 'c2', columntype: 'numberinput', align: 'right', cellsalign: 'right', width: 60, cellbeginedit: cellbeginedit1, cellsrenderer: cellsrenderer1,
+                    validation: function (cell, value) {
+                          if (value <= 0) {
+                              return { result: false, message: "Paid value must be positive." };
+                          }
+                          else if(leftData[cell.row].type == 0 && (leftData[cell.row].commValue-value).toFixed(2) < 0)
+                            return { result: false, message: "Paid value must be less than comm value." };
+                          else if(leftData[cell.row].type == 1)
+                          {
+                              var val = leftData[cell.row - 1].balance;
+                              if(val == '-')
+                                val = 0;
+                              if((val-value).toFixed(2) < 0)
+                                return { result: false, message: "Paid value must be less than balance." };
+                          }
+                          return true;
+                      }},
+                  { text: 'Date Paid', datafield: 'datePaid', cellclassname: cellclass, columntype: 'datetimeinput', width: 80, align: 'right', cellsalign: 'right', cellsformat: 'd', cellbeginedit: cellbeginedit1, cellsrenderer: cellsrenderer1 },
+                  { text: 'Balance', datafield: 'balance', cellclassname: cellclass, cellsformat: 'c2', columntype: 'numberinput', align: 'right', cellsalign: 'right', width: 60, cellbeginedit: cellbeginedit, cellsrenderer: cellsrenderer },
+                  { text: 'Status', columntype: 'dropdownlist', cellclassname: cellclass, datafield: 'status', width: 70, createeditor: createGridEditor, initeditor: initGridEditor, geteditorvalue: gridEditorValue, cellbeginedit: cellbeginedit1, cellsrenderer: cellsrenderer1 }
+                ]
+            });
+
+            var contextLeftMenu = $("#jqxMenuLeft").jqxMenu({ width: '120px', autoOpenPopup: false, mode: 'popup', animationShowDuration:0, animationHideDuration:0});
+
+            $("#grid_left").on('mousedown', function (event) {
+                var rightClick = isRightClick(event) || $.jqx.mobile.isTouchDevice();
+                if (rightClick) {
+                    var scrollTop = $(window).scrollTop();
+                    var scrollLeft = $(window).scrollLeft();
+
+                    contextLeftMenu.jqxMenu('open', parseInt(event.clientX) + 5 + scrollLeft, parseInt(event.clientY) + 5 + scrollTop);
+                    contextRightMenu.hide();
+                    return false;
+                }
+            });
+
+            $('#grid_left').on('keydown', function(event) {
+              const key = event.keyCode || event.charCode; // get key code
+              if (key === 113) {
+                const row = $('#grid_left').jqxGrid('getselectedrowindex');
+                if(row != -1)
+                {
+                    if(leftData[row].type == 0)
+                    {
+                        const datafield = $('#grid_left').jqxGrid('getcolumnat', 1).datafield;
+                        $('#grid_left').jqxGrid('begincelledit', row, datafield);
+                    }
+                    else if(leftData[row].type == 1)
+                    {
+                        const datafield = $('#grid_left').jqxGrid('getcolumnat', 12).datafield;
+                        $('#grid_left').jqxGrid('begincelledit', row, datafield);
+                    }
+                }
+              }
+            });
+
+            // disable the default browser's context menu.
+            $(document).on('contextmenu', function (e) {
+                return false;
+            });
+
+            function isRightClick(event) {
+                var rightclick;
+                if (!event) var event = window.event;
+                if (event.which) rightclick = (event.which == 3);
+                else if (event.button) rightclick = (event.button == 2);
+                return rightclick;
+            }
+
+            $("#InsertDataRow").click(function(event) {
+                insertDataRow(0);
+                event.preventDefault(); // Prevent the default behavior of the link
+            });
+            $("#InsertChildRow").click(function(event) {
+                insertDataRow(1);
+                event.preventDefault(); // Prevent the default behavior of the link
+            });
+            $("#InsertBlankRow").click(function(event) {
+                insertDataRow(2);
+                event.preventDefault(); // Prevent the default behavior of the link
+            });
+            $("#DeleteRows").click(function(event) {
+                deleteRows();
+                event.preventDefault(); // Prevent the default behavior of the link
+            });
+            $("#ResetData").click(function(event) {
+                if(confirm("Data will be reset. Do you continue?") == 1)
+                    location.reload();
+                event.preventDefault(); // Prevent the default behavior of the link
+            });
+            $(".setGridStyle").click(function(event) {
+                $('#grid_left').jqxGrid('theme', event.target.innerText);
+                $("#grid_left").jqxGrid('updatebounddata', 'rows');
+                event.preventDefault(); // Prevent the default behavior of the link
+            })
+            $("#PrintLeft").click(function(event) {
+                var date = new Date();
+                var fileName = "working(" + date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate() + ")";
+                
+                var theme = $('#grid_left').jqxGrid('theme');
+                $('#grid_left').jqxGrid('theme', 'base');
+
+                $("#grid_left").jqxGrid('exportdata', 'xls', fileName);
+
+                $('#grid_left').jqxGrid('theme', theme);
+                event.preventDefault(); // Prevent the default behavior of the link
+            });
+
+            var cellsrenderer3 = function (row, column, value, defaultHtml) {
+                if (rightData[row].type == 0)
+                {
+                    var element = $(defaultHtml);
+                    element.css('background-color', '#999');
+                    element.css('margin', '0px');
+                    element.css('height', '100%');
+                    element.css('padding-top', '3px');
+                    element.css('padding-left', '4px');
+                    element.css('padding-right', '4px');
+                    return element[0].outerHTML;
+                }
+                else if (rightData[row].type == 2)
+                {
+                    var element = $(defaultHtml);
+                    element.css('background-color', '#BBB');
+                    element.css('margin', '0px');
+                    element.css('height', '100%');
+                    element.css('padding-top', '3px');
+                    element.css('padding-left', '4px');
+                    element.css('padding-right', '4px');
+                    return element[0].outerHTML;
+                }
+            }
+            // Right panel
+            $("#grid_right").jqxGrid(
+            {
+                width: '100%',
+                height: '100%',
+                source: dataAdapterRight,
+                columnsresize: true,
+                editable: false,
+                rowsheight: 22,
+                columnsheight: 22,
+                selectionmode: 'multiplerowsadvanced',
+                columns: [
+                  { text: 'Date', datafield: 'date', width: 100, align: 'right', cellsalign: 'right', columntype:'textbox', cellsformat :'d', cellsrenderer: cellsrenderer3
+                  },
+                  { text: 'Book', datafield: 'book' , columntype: 'textbox', width: 100,
+                      cellsrenderer: cellsrenderer3
+                  },
+                  { text: 'Company Name', datafield: 'companyName', columntype: 'textbox', width: 100,
+                      cellsrenderer: cellsrenderer3
+                  },
+                  { text: 'Agent Name', datafield: 'agentName', columntype: 'textbox', width: 100,
+                      cellsrenderer: cellsrenderer3
+                  },
+                  { text: 'Details 1', datafield: 'details1', align: 'right', cellsalign: 'right', width: 100, 
+                      columntype: 'textbox', //cellsformat: 'd2',
+                      cellsrenderer: cellsrenderer3
+                  },
+                  { text: 'Details 2', datafield: 'details2', columntype: 'textbox', width: 100, cellsrenderer: cellsrenderer3
+                  },
+                  { text: 'Details 3', datafield: 'details3', columntype: 'textbox', width: 100, cellsrenderer: cellsrenderer3
+                  },
+                  { text: 'Value', datafield: 'valueNumber', align: 'right', cellsalign: 'right', width: 100,
+                      columntype: function (row) {
+                        if (rightData[row].type == 0) {
+                          return 'textbox';
+                        }
+                        else if (rightData[row].type == 1) {
+                          return 'numberinput';
+                        }
+                        return '';
+                      },
+                      cellsrenderer: cellsrenderer3
+                  },
+                ]
+            });
+
+            var contextRightMenu = $("#jqxMenuRight").jqxMenu({ width: '120px', autoOpenPopup: false, mode: 'popup', animationShowDuration:0, animationHideDuration:0});
+
+            $("#grid_right").on('mousedown', function (event) {
+                var rightClick = isRightClick(event) || $.jqx.mobile.isTouchDevice();
+                if (rightClick) {
+                    var scrollTop = $(window).scrollTop();
+                    var scrollLeft = $(window).scrollLeft();
+                    contextRightMenu.jqxMenu('open', parseInt(event.clientX) + 5 + scrollLeft, parseInt(event.clientY) + 5 + scrollTop);
+                    contextLeftMenu.hide();
+                    return false;
+                }
+            });
+            $(".setGridStyle1").click(function(event) {
+                $('#grid_right').jqxGrid('theme', event.target.innerText);
+                $("#grid_right").jqxGrid('updatebounddata', 'rows');
+                event.preventDefault(); // Prevent the default behavior of the link
+            })
+
+            $("#PrintRight").click(function(event) {
+                var date = new Date();
+                var fileName = "result(" + date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate() + ")";
+                
+                var theme = $('#grid_right').jqxGrid('theme');
+                $('#grid_right').jqxGrid('theme', 'base');
+
+                $("#grid_right").jqxGrid('exportdata', 'xls', fileName);
+
+                $('#grid_right').jqxGrid('theme', theme);
+                event.preventDefault(); // Prevent the default behavior of the link
+            });
+        });
+    </script>
+</head>
+<body class='default'>
+    <table height="100%" width="100%">
+        <tr>
+            <td>
+                <div id='jqxButtonGroup1' style="height:30px">
+                    <table border=0 style="width:100%">
+                        <tr>
+                            <td style="text-align:left;">
+                                <button style="padding:4px 16px;" id="ResetData">Reset</button>
+                            </td>
+                            <td style="text-align:right;">
+                                
+                            </td>                            
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+        <tr height="100%">
+            <td>
+                <div id='splitter'>
+                    <div>
+                        <div style="border: none;" id='jqxWidget'>
+                            <div id="grid_left"></div>
+                            <div style="font-size: 12px; font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif; margin-top: 30px;">
+                                <div id="cellbegineditevent"></div>
+                                <div style="margin-top: 10px;" id="cellendeditevent"></div>
+                           </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="border: none;" id='jqxWidget1'>
+                            <div id="grid_right"></div>
+                            <div style="font-size: 12px; font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif; margin-top: 30px;">
+                                <div id="cellbegineditevent1"></div>
+                                <div style="margin-top: 10px;" id="cellendeditevent1"></div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+    
+    <div id='jqxMenuLeft' style="visibility: hidden">
+        <ul>
+            <li>Insert Row
+                <ul>
+                    <li id="InsertDataRow"><a href="#" id="InsertDataRow">Data Row</a></li>
+                    <li id="InsertChildRow"><a href="#" id="InsertChildRow">Child Row</a></li>
+                    <li id="InsertBlankRow"><a href="#" id="InsertBlankRow">Blank Row</a></li>
+                </ul>
+            </li>
+            <li id="DeleteRows"><a href="#" id="DeleteRows">Delete Rows</a></li>
+            <li id="PrintLeft"><a href="#" id="PrintLeft">Print to Excel</a></li>
+            <hr></hr>
+            <li>Theme
+                <ul>
+                    <li><div class="setGridStyle">android</div></li>
+                    <li><div class="setGridStyle">base</div></li>
+                    <li><div class="setGridStyle">black</div></li>
+                    <li><div class="setGridStyle">blackberry</div></li>
+                    <li><div class="setGridStyle">blue</div></li>
+                    <li><div class="setGridStyle">classic</div></li>
+                    <li><div class="setGridStyle">dark</div></li>
+                    <li><div class="setGridStyle">darkblue</div></li>
+                    <li><div class="setGridStyle">energyblue</div></li>
+                    <li><div class="setGridStyle">flat</div></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div id='jqxMenuRight' style="visibility: hidden">
+        <ul>
+            <li id="PrintRight"><a href="#" id="PrintRight">Print to Excel</a></li>
+            <hr></hr>
+            <li>Theme
+                <ul>
+                    <li><div class="setGridStyle1">android</div></li>
+                    <li><div class="setGridStyle1">base</div></li>
+                    <li><div class="setGridStyle1">black</div></li>
+                    <li><div class="setGridStyle1">blackberry</div></li>
+                    <li><div class="setGridStyle1">blue</div></li>
+                    <li><div class="setGridStyle1">classic</div></li>
+                    <li><div class="setGridStyle1">dark</div></li>
+                    <li><div class="setGridStyle1">darkblue</div></li>
+                    <li><div class="setGridStyle1">energyblue</div></li>
+                    <li><div class="setGridStyle1">flat</div></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA;uFACuF;AAMvF;0BAC2B;EAC1B,cAAc,EAAE,QAAQ;;;AAGzB,wCAAyC;EACxC,YAAY,EAAE,CAAC;;;AAEhB,+CAAgD;EAC/C,OAAO,EAAC,IAAI;;;AAEb,kDAAmD;ECiDjD,qBAAoB,EAAE,CAAG;EAAzB,iBAAoB,EAAE,CAAG;EAE1B,aAAa,EAAE,CAAG;;;AD/CnB,kCAAkC;AAClC,mCAAoC;EACnC,aAAa,EAAG,CAAC;;;AAElB,kDAAmD;EAClD,aAAa,EAAE,GAAG;EAClB,UAAU,EAAE,MAAM;;;AAEnB,sDAAuD;EACtD,aAAa,EAAE,CAAC",
+"sources": ["sitepress-multilingual-cms.scss","../../../../css/_mixins.scss"],
+"names": [],
+"file": "sitepress-multilingual-cms.css"
+}

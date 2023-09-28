@@ -1,0 +1,575 @@
+/* To move pagination bullets below the items
+.sc_matches .sc_item_slider.slider_outer_pagination_pos_bottom {
+	padding-bottom: 0;
+}
+*/
+.sc_sport,
+.sc_matches,
+.sc_points {
+  position: relative;
+}
+
+/* Style 'Default' */
+.sc_sport_default .sc_sport_item {
+  margin-bottom: 2em;
+  text-align: left;
+  padding-top: 0.0001px;
+}
+
+.sc_sport_default.slider_swiper .sc_sport_item,
+.sc_sport_default .columns_padding_bottom .sc_sport_item {
+  margin-bottom: 0;
+}
+
+.sc_sport_default .post_featured {
+  margin-bottom: 0;
+}
+
+.sc_sport_default .post_featured img {
+  width: auto;
+  height: 8em;
+  max-width: 100%;
+}
+
+.sc_sport_default .sc_sport_item_info {
+  padding-top: 1.5em;
+}
+
+.sc_sport_default .sc_sport_item_title {
+  margin: 0;
+}
+
+.sc_sport_default .sc_sport_item_title.with_score {
+  position: relative;
+  padding-right: 4em;
+}
+
+.sc_sport_default .sc_sport_item_title.with_score .sc_sport_item_score {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+}
+
+.sc_sport_default .sc_sport_item_subtitle {
+  font-size: 0.9286em;
+  line-height: 1.5em;
+  font-style: italic;
+  margin-top: 0.1em;
+}
+
+.sc_sport_default .sc_sport_item_content {
+  margin-top: 0.8em;
+}
+
+.sc_sport_default .sc_sport_item_content p {
+  margin: 0;
+}
+
+.sc_sport_default .sc_sport_item_button {
+  margin: 1em 0 0;
+}
+
+/* Single page */
+.sport_single .sport_page_featured {
+  max-width: 30%;
+  float: right;
+  margin-left: 2em;
+  margin-bottom: 1em;
+}
+
+.sport_single .sport_page_header {
+  padding-bottom: 0;
+}
+
+.sport_single .sport_page_title {
+  margin: 0;
+}
+
+.sport_single .sport_page_meta {
+  margin-top: 1em;
+}
+
+.sport_single .sport_page_meta_item_label {
+  min-width: 7em;
+  display: inline-block;
+  line-height: inherit;
+  vertical-align: top;
+}
+
+.sport_single .sport_page_meta_item_value {
+  font-style: italic;
+  vertical-align: top;
+}
+
+.sport_single .sport_page_content {
+  margin-top: 2em;
+}
+
+/* List in the single page */
+.sport_page_lists {
+  overflow: hidden;
+  clear: both;
+}
+
+.sport_page_list {
+  list-style: none;
+  padding: 0;
+  border: 1px solid #f0f0f0;
+}
+
+.sport_page_list li + li {
+  border-top: 1px solid #f0f0f0;
+}
+
+.sport_page_list li:nth-child(2n+1) {
+  background-color: #f7f7f7;
+}
+
+.sport_page_list li:before {
+  display: none;
+}
+
+.sport_page_list_wrap {
+  width: 48%;
+  float: left;
+}
+
+.sport_page_list_wrap + .sport_page_list_wrap {
+  float: right;
+}
+
+.sport_page_list_wrap .sport_page_player_name {
+  width: 58%;
+  text-align: left;
+}
+
+.sport_page_list_wrap li span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: inherit;
+  padding: 0.5em;
+  text-align: center;
+  width: 14%;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.sport_page_list_wrap span.sport_page_list_title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.sport_page_list_wrap span.sport_page_list_delimiter {
+  text-align: center;
+  font-style: italic;
+  width: 100%;
+}
+
+.sport_page_list_wrap .sport_page_round_time,
+.sport_page_list_wrap .sport_page_match_time {
+  width: 16%;
+}
+
+.sport_page_list_wrap .sport_page_round_name,
+.sport_page_list_wrap .sport_page_match_name {
+  width: 84%;
+  text-align: center;
+}
+
+.sport_page_list_wrap .sport_page_round_name {
+  font-style: italic;
+}
+
+.sport_page_list_wrap .sport_page_match_name1,
+.sport_page_list_wrap .sport_page_match_name2 {
+  width: 35%;
+  text-align: left;
+}
+
+.sport_page_list_wrap .sport_page_match_name1 {
+  text-align: right;
+}
+
+.sport_page_list_wrap .sport_page_player_logo img {
+  max-width: 2em;
+}
+
+/* Competition's page */
+.competition_page_lists .sport_page_list_wrap .sport_page_round_time:before {
+  content: '\e85a';
+  font-family: "trx_addons_icons";
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1.5em;
+  text-align: center;
+  -webkit-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.competition_page_lists .sport_page_list_wrap .sport_page_round_time.closed:before {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+/* Player's page */
+.player_single .sport_page_list_wrap {
+  width: 100%;
+  float: none;
+}
+
+.player_single .sport_page_list_wrap .sport_page_match_round {
+  width: 20%;
+}
+
+.player_single .sport_page_list_wrap .sport_page_match_date,
+.player_single .sport_page_list_wrap .sport_page_match_time,
+.player_single .sport_page_list_wrap .sport_page_match_score {
+  width: 14%;
+}
+
+.player_single .sport_page_list_wrap .sport_page_match_name {
+  width: 52%;
+}
+
+.player_single .sport_page_list_wrap .sport_page_match_name1,
+.player_single .sport_page_list_wrap .sport_page_match_name2 {
+  width: 19%;
+}
+
+/* Shortcode Matches
+---------------------------------- */
+.sc_matches_item_pair {
+  margin: 0 auto 3em;
+  max-width: 80%;
+  text-align: center;
+}
+
+.sc_matches_item_pair > div {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+
+.sc_matches_item_pair .sc_matches_item_player {
+  width: 32%;
+}
+
+.sc_matches_item_pair .sc_matches_item_score {
+  width: 36%;
+  margin-top: 3em;
+  padding: 0 1em;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.sc_matches_item_pair .sc_matches_item_score_value {
+  display: block;
+  font-size: 6em;
+  line-height: 1.2em;
+}
+.sc_matches_item_pair .sc_matches_item_score_value .sc_matches_item_score_delimiter:before {
+  content: ':';
+}
+
+.sc_matches_item_pair .sc_matches_item_match_place {
+  display: block;
+}
+
+.sc_matches_item_pair .sc_matches_item_review_link {
+  margin-top: 3em;
+}
+
+.sc_matches_item_pair .sc_matches_item_player_name {
+  margin: 0;
+}
+
+.sc_matches_item_pair .sc_matches_item_meta {
+  margin-top: 0.3em;
+  font-style: italic;
+}
+
+.sc_matches_item_pair .sc_matches_item_player .post_featured > img {
+  width: auto;
+  height: 15em;
+}
+
+.sc_matches_main {
+  padding-bottom: 1em;
+}
+
+.sc_matches_main .swiper-pagination {
+  bottom: 0;
+}
+
+.sc_matches_main .swiper-pagination .swiper-pagination-bullet {
+  border-color: #f0f0f0;
+}
+
+.sc_matches_main .sc_matches_item_score a {
+  color: #000;
+}
+
+.sc_matches_main + .sc_matches_other {
+  margin-top: 1em;
+}
+
+.sc_matches_other {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -0.5em;
+}
+
+.sc_matches_other .sc_matches_item {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+  padding: 0 0.5em 0.5em 0;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.sc_matches_other .sc_matches_item_link {
+  background-color: #f7f7f7;
+  color: #000;
+  overflow: hidden;
+  letter-spacing: 0;
+  position: relative;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  line-height: 1.5em;
+}
+
+.sc_matches_other .sc_matches_item_link span {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.sc_matches_other .sc_matches_item_date {
+  width: 15%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: auto;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  -ms-transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.sc_matches_other .sc_matches_item_date_wrap {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.sc_matches_other .sc_matches_item_info {
+  width: 85%;
+  margin-left: 15%;
+  padding: 1em 0;
+}
+
+.sc_matches_other .sc_matches_item_logo1,
+.sc_matches_other .sc_matches_item_logo2 {
+  width: 14%;
+  padding: 6px 8px;
+}
+
+.sc_matches_other .sc_matches_item_name1,
+.sc_matches_other .sc_matches_item_name2 {
+  width: 27%;
+  overflow: hidden;
+}
+
+.sc_matches_other .sc_matches_item_score {
+  width: 18%;
+  padding: 0 8px;
+}
+
+.sc_matches_other .sc_matches_item_day,
+.sc_matches_other .sc_matches_item_time {
+  display: block;
+  font-weight: 400;
+  text-align: center;
+  width: 100%;
+}
+
+.sc_matches_other .sc_matches_item_day {
+  font-size: 1.25em;
+}
+
+.sc_matches_other .sc_matches_item_name2 {
+  text-align: right;
+}
+
+.sc_matches_other .sc_matches_item_title,
+.sc_matches_other .sc_matches_item_club {
+  display: block;
+}
+
+.sc_matches_other .sc_matches_item_club {
+  font-size: 0.9333em;
+  font-style: italic;
+}
+
+.sc_matches_other .sc_matches_item_score {
+  font-size: 2em;
+  text-align: center;
+  -webkit-transition: color 0.3s ease;
+  -ms-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+/* Other matches left or right */
+.sc_matches_side {
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  width: 60%;
+  padding-right: 3em;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.sc_matches_side + .sc_matches_side {
+  width: 40%;
+  padding-right: 0;
+}
+
+.sc_matches_position_right {
+  overflow: hidden;
+}
+
+.sc_matches_position_right .sc_matches_side {
+  float: right;
+  padding-left: 3em;
+  padding-right: 0;
+}
+
+.sc_matches_position_right .sc_matches_side + .sc_matches_side {
+  padding-left: 0;
+}
+
+.sc_matches_side .sc_matches_item_pair {
+  max-width: none;
+}
+
+.sc_matches_side .sc_matches_other .sc_matches_item {
+  width: 100%;
+}
+
+.sc_matches_side .sc_matches_other .sc_matches_item_link {
+  display: block;
+}
+
+.sc_matches_side .sc_matches_other .sc_matches_item_date,
+.sc_matches_side .sc_matches_other .sc_matches_item_date_wrap {
+  display: block;
+  text-align: left;
+  position: static;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  width: 100%;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+
+.sc_matches_side .sc_matches_other .sc_matches_item_day,
+.sc_matches_side .sc_matches_other .sc_matches_item_time {
+  display: inline-block;
+  vertical-align: baseline;
+  text-align: left;
+  width: auto;
+  font-size: 1em;
+}
+
+.sc_matches_side .sc_matches_other .sc_matches_item_time {
+  margin-left: 0.3em;
+}
+
+.sc_matches_side .sc_matches_other .sc_matches_item_info {
+  width: 100%;
+  margin-left: 0;
+}
+
+.sc_matches_side .sc_matches_other .sc_matches_item_club {
+  display: none;
+}
+
+/* Shortcode Points
+---------------------------------- */
+.sc_points_table td {
+  padding: 0;
+}
+
+.sc_points_table td a {
+  display: block;
+  color: #333;
+  padding: 1em;
+  text-align: center;
+}
+
+.sc_points_table tr:hover a,
+.sc_points_table td a:hover {
+  color: #efa758;
+}
+
+.sc_points_table tr.sc_points_table_accented_top td {
+  background-color: #efa758;
+}
+
+.sc_points_table tr.sc_points_table_accented_bottom td {
+  background-color: #f0f0f0;
+}
+
+.sc_points_table td.sc_points_table_name a {
+  text-align: left;
+  position: relative;
+}
+
+.sc_points_table .sc_points_table_player {
+  display: block;
+  margin-left: 3em;
+}
+
+.sc_points_table .sc_points_table_logo {
+  display: block;
+  width: 2em;
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 0.75em;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/*# sourceMappingURL=sport.css.map */

@@ -1,0 +1,77 @@
+@import 'buttons';
+@import 'modal';
+
+.dlp-single-wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .dlp-single-left {
+        padding-right: 40px;
+        width: calc(65% - 40px);
+    }
+
+    .dlp-single-right {
+        padding-left: 40px;
+        width: calc(35% - 40px);
+        border-left: 1px solid #eee;
+    }
+}
+
+@media (max-width: 768px) {
+    .dlp-single-wrap {
+        flex-direction: column-reverse;
+
+        .dlp-single-left {
+            flex: 1;
+            width: 100%;
+            padding-right: 0;
+        }
+
+        .dlp-single-right {
+            flex: 1;
+            width: 100%;
+            padding-left: 0;
+            border-left: none;
+        }
+    }
+}
+
+#dlp-document-info-list {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.dlp-document-info-title {
+    font-weight: bold;
+}
+
+.dlp-document-info-buttons {
+    display: flex;
+    align-items: center;
+
+    .dlp-preview-button {
+        margin-left: 10px;
+    }
+}
+
+.dlp-document-info-categories,
+.dlp-document-info-tags {
+    a {
+        display: inline !important;
+    }
+}
+
+.dlp-document-info-image img.wp-post-image {
+    margin: 0;
+}
+
+body.single.theme-flatsome article.dlp_document .entry-image,
+body.single.theme-woodmart article.dlp_document .woodmart-post-date  {
+    display: none;
+}
+
+body.theme-flatsome .document-library-pro-button {
+    line-height: 1;
+    margin-bottom: 0 !important;
+}

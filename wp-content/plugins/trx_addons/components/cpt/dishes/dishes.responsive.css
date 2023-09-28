@@ -1,0 +1,154 @@
+@media (max-width: 1023px) {
+  /* Dishes */
+  .sc_dishes .sc_dishes_item_title.with_price {
+    padding-right: 0;
+  }
+
+  .sc_dishes .sc_dishes_item_title .sc_dishes_item_price {
+    position: static;
+    display: block;
+    margin: 0.3em 0;
+  }
+
+  .sc_dishes_default .sc_dishes_item_title .sc_dishes_item_price {
+    text-align: center;
+  }
+
+  .sc_dishes_default .sc_dishes_item_featured_left .sc_dishes_item_title .sc_dishes_item_price {
+    text-align: left;
+  }
+
+  .sc_dishes_default .sc_dishes_item_featured_right .sc_dishes_item_title .sc_dishes_item_price {
+    text-align: right;
+  }
+
+  .sc_dishes_compact .sc_dishes_item_price {
+    font-size: 1.5em;
+  }
+
+  .sc_dishes_compact .sc_dishes_item_header_info {
+    padding: 1em;
+  }
+
+  .sc_dishes_compact .sc_dishes_item_content {
+    padding: 1.5em;
+  }
+
+  .sc_dishes_default .dishes_page_spicy_label {
+    display: none;
+  }
+
+  #trx_addons_post_details_popup .dishes_page_details_nutritions,
+  #trx_addons_post_details_popup .dishes_page_details_ingredients {
+    width: 100%;
+    float: none;
+  }
+
+  #trx_addons_post_details_popup .dishes_page_details_ingredients_title {
+    margin-top: 2em;
+  }
+}
+@media (max-width: 767px) {
+  /* Dishes */
+  .sc_dishes_compact .sc_dishes_item_header_info {
+    padding: 1.5em;
+  }
+
+  .sc_dishes_default .sc_dishes_item_featured_left .sc_dishes_item_image,
+  .sc_dishes_default .sc_dishes_item_featured_right .sc_dishes_item_image {
+    width: 100%;
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+  }
+
+  .sc_dishes_default .sc_dishes_item_featured_left .dishes_page_spicy_label,
+  .sc_dishes_default .sc_dishes_item_featured_right .dishes_page_spicy_label {
+    display: inline-block;
+  }
+
+  .sc_dishes_default .sc_dishes_item_featured_left .sc_dishes_item_info,
+  .sc_dishes_default .sc_dishes_item_featured_right .sc_dishes_item_info,
+  .sc_dishes_default .sc_dishes_item_featured_left.with_image .sc_dishes_item_info,
+  .sc_dishes_default .sc_dishes_item_featured_right.with_image .sc_dishes_item_info,
+  .sc_dishes_default .sc_dishes_item_featured_left.without_content .sc_dishes_item_info,
+  .sc_dishes_default .sc_dishes_item_featured_right.without_content .sc_dishes_item_info {
+    text-align: center;
+    padding: 0;
+    margin-left: 0;
+    margin-top: 2em;
+  }
+
+  .sc_dishes_float .sc_dishes_item_image {
+    width: 100%;
+    position: relative;
+  }
+
+  .sc_dishes_float .sc_dishes_item_featured_left .sc_dishes_item_image,
+  .sc_dishes_float .sc_dishes_item_featured_right .sc_dishes_item_image {
+    float: none;
+    margin: 0 0 2em 0;
+  }
+
+  .sc_dishes_float .sc_dishes_item_title,
+  .sc_dishes_float .sc_dishes_item_featured_right .sc_dishes_item_title {
+    margin: 0;
+  }
+
+  .sc_dishes_compact .sc_dishes_item_header,
+  .sc_dishes_compact .sc_dishes_item_featured_right .sc_dishes_item_header {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    min-height: 15em;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+  }
+
+  .sc_dishes_compact .sc_dishes_item_header_info {
+    position: static;
+    left: auto;
+    top: auto;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+
+  .sc_dishes_compact .sc_dishes_item_content,
+  .sc_dishes_compact .sc_dishes_item_featured_right .sc_dishes_item_content {
+    margin: 0;
+    min-height: 0;
+  }
+
+  .dishes_page_featured > .dishes_page_price {
+    right: 0.5em;
+    bottom: 0.5em;
+  }
+
+  .dishes_page_details_spicy .dishes_page_spicy_label {
+    display: none;
+  }
+}
+@media (max-width: 479px) {
+  /* Dishes */
+  .dishes_page_details_nutritions,
+  .dishes_page_details_ingredients {
+    float: none;
+    max-width: none;
+  }
+
+  .dishes_page_details_nutritions {
+    margin: 0 0 2em;
+  }
+}
+
+/*# sourceMappingURL=dishes.responsive.css.map */

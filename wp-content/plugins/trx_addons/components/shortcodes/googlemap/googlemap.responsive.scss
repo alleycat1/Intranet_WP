@@ -1,0 +1,40 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+//@mixin sc_googlemap--md() {
+@media #{$media_md} {
+    /* Google Map */
+	.sc_googlemap {
+		max-height:60vh;
+	}
+
+	.sc_googlemap_content_default {
+		left: 7%;
+		right: 14%;
+		top: auto;
+		bottom: 7%;
+		width: auto;
+		max-height: 33%;
+		padding: 1em;
+	}
+	[data-vc-full-width="true"][data-vc-stretch-content="true"] .sc_googlemap_content_default {
+		left: auto;
+		right: 10%;
+		top: 10%;
+		bottom: 10%;
+		width: 30%;
+		max-height: none;
+	}
+}
+
+//@mixin sc_googlemap--sm_wp() {
+@media #{$media_sm_wp} {
+	[data-vc-full-width="true"][data-vc-stretch-content="true"] .sc_googlemap_content_default {
+		left: 7%;
+		right: 14%;
+		top: auto;
+		bottom: 7%;
+		width: auto;
+		max-height: 33%;
+	}
+}

@@ -1,0 +1,147 @@
+
+@import "variables";
+
+@mixin swap-margin( $left, $right ) {
+    margin-left: $left;
+    margin-right: $right;
+}
+
+@mixin swap-padding( $left, $right ) {
+    padding-left: $left;
+    padding-right: $right;
+}
+
+#{$controls-class} {
+
+    @media screen and (min-width:$small-breakpoint) {
+
+        > div {
+            @include swap-margin(0, 25px);
+        }
+
+        #{$filters-class}:first-child,
+            .dataTables_length:first-child,
+            .dataTables_filter:first-child,
+            > #{$reset-class}:first-child {
+            @include swap-margin(auto, 0);
+        }
+    }
+
+    .dataTables_filter {
+        text-align: left;
+    }
+
+    input[type="search"] {
+        @include swap-margin(0, 6px);
+    }
+
+    select {
+        @include swap-padding(1em, 0.5em);
+    }
+
+    #{$filters-class} {
+        select,
+        .select2-container {
+            margin-left: 5px !important;
+            margin-right: 0 !important;
+        }
+
+        label {
+            @include swap-margin(6px, 0);
+        }
+    }
+
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        @include swap-padding(20px, 8px); // TO
+    }
+
+}
+
+.select2-dropdown.#{$prefix}-dropdown {
+    .select2-results__option {
+        @include swap-padding(6px, 10px);
+    }
+}
+
+#{$reset-class} {
+    @include swap-margin(0, 20px);
+
+    #{$filters-class} & {
+        @include swap-margin(0, 10px);
+    }
+
+    @media screen and (min-width:$small-breakpoint) {
+        #{$controls-class} > &:first-child {
+            @include swap-margin(0, 4px);
+        }
+    }
+
+    a {
+        &::before {
+            content: '';
+            margin: 0;
+        }
+
+        &::after {
+            @include icon;
+            content: "\e965"; // undo
+            font-size: 0.85em;
+            margin-left: 6px;
+            text-decoration: none;
+        }
+    }
+}
+
+#{$table-class} {
+    th,
+    td {
+        text-align: right;
+    }
+
+    // Responsive rows
+    tr.child {
+        td {
+            text-align: right; // TO
+        }
+
+        .dtr-title {
+            @include swap-margin(15px, 0);
+        }
+    }
+}
+
+table#{$table-class} {
+
+    thead {
+        th {
+            @include swap-padding(18px, 10px);
+        }
+
+        .sorting,
+        .sorting_desc {
+            background-position: 0%;
+        }
+
+        .sorting_asc {
+            background-position: 0% 55%;
+        }
+    }
+
+    // Responsive rows
+    &.dtr-inline.collapsed > tbody > tr > td.dtr-control,
+    &.dtr-inline.collapsed > tbody > tr > th.dtr-control {
+        @include swap-padding(0, 30px);
+    }
+
+    &.dtr-inline.collapsed > tbody > tr > td.dtr-control::before,
+    &.dtr-inline.collapsed > tbody > tr > th.dtr-control::before {
+        left: auto;
+        right: 5px;
+    }
+
+    &.dtr-column > tbody > tr > td.control::before,
+    &.dtr-column > tbody > tr > th.control::before {
+        left: auto;
+        right: 12px;
+    }
+}

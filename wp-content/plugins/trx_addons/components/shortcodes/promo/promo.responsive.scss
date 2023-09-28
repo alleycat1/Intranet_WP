@@ -1,0 +1,104 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+//@mixin sc_promo--xl() {
+@media #{$media_xl} {
+    /* Promo */
+	.sc_promo.sc_promo_size_normal .sc_promo_text_inner {
+		padding:2.1429em;
+	}
+}
+
+//@mixin sc_promo--lg() {
+@media #{$media_lg} {
+    /* Promo */
+	.sc_promo.sc_promo_size_normal .sc_promo_icon,
+	.sc_promo.sc_promo_size_large .sc_promo_icon {
+		font-size: 4em;
+	}
+}
+
+//@mixin sc_promo--md() {
+@media #{$media_md} {
+    /* Promo */
+	.sc_promo h2.sc_item_title.sc_item_title_style_default:not(.sc_item_title_tag) {
+		font-size: 32px;
+	}
+	.sc_promo .sc_promo_text.trx_addons_stretch_height .sc_promo_text_inner {
+		position:relative;
+		top: auto;
+		left: auto;
+		padding: 3em 10%;
+		@include transform-none;
+	}
+	.sc_promo.sc_promo_size_normal .sc_promo_text_inner {
+		padding:2em;
+	}
+	.sc_promo_modern .sc_promo_descr, .sc_promo_modern .sc_promo_descr+.sc_promo_button {
+		padding-left: 4rem;
+	}
+}
+
+//@mixin sc_promo--sm() {
+@media #{$media_sm} {
+    /* Promo */
+	.sc_promo h2.sc_item_title.sc_item_title_style_default:not(.sc_item_title_tag) {
+		font-size: 28px;
+	}
+	.sc_promo_image,
+	.sc_promo_image_wrap {
+		position:relative;
+		right: auto;
+		bottom: auto;
+		width: 100% !important;
+		min-height:18em;
+		margin:0 !important;
+	}
+	.sc_promo_text {
+		width: 100% !important;
+		float:none !important;
+	}
+	.sc_promo_image + .sc_promo_text .sc_promo_text_inner,
+	.sc_promo_image_wrap + .sc_promo_text .sc_promo_text_inner {
+		padding-top: 2em !important;
+	}
+	.sc_promo.sc_promo_no_paddings.sc_promo_image_position_right .sc_promo_text_inner {
+		padding-right: 0;
+	}
+	.sc_promo.sc_promo_no_paddings.sc_promo_image_position_left .sc_promo_text_inner {
+		padding-left: 0;
+	}
+	.sc_promo_text_inner {
+		margin: 0 !important;
+	}
+	.sc_promo.sc_promo_size_tiny {
+		max-width: none;
+	}
+	.sc_promo.sc_promo_size_normal .sc_promo_text_inner {
+		padding:2em;
+	}
+	.sc_promo_modern .sc_promo_descr, .sc_promo_modern .sc_promo_descr+.sc_promo_button {
+		padding-left: 0;
+	}
+	.sc_promo_modern.sc_promo_image_position_right .sc_promo_image {
+		right: 0;
+	}
+	.sc_promo_modern .sc_promo_link2 {
+		padding:0.2em 1.2em;
+	}
+}
+
+//@mixin sc_promo--xs() {
+@media #{$media_xs} {
+    /* Promo */
+	.sc_promo h2.sc_item_title.sc_item_title_style_default:not(.sc_item_title_tag) {
+		font-size: 24px;
+	}
+
+	.sc_promo .sc_promo_text.trx_addons_stretch_height .sc_promo_text_inner {
+		padding: 3em 16%;
+	}
+	.sc_promo_modern .sc_promo_link2 span + span {
+		font-size:1.6em;
+	}
+}

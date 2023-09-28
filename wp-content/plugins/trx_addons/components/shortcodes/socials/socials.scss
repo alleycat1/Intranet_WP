@@ -1,0 +1,84 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/* Social Icons - styles moved into trx_addons.front to share them with theme */
+.sc_socials {
+	position: relative;	
+	padding-top: 0.0001px;
+}
+.socials_wrap {
+	display:block;
+	vertical-align:middle;
+	//white-space:nowrap;
+	margin: 0;
+}
+.socials_wrap.socials_dir_vertical {
+	white-space:normal;
+}
+.socials_wrap.socials_dir_vertical .social_item {
+	display: block;
+	margin-right: 0 !important;
+	margin-bottom: 8px;
+}
+.socials_wrap .social_item {
+	display: inline-block;
+	vertical-align: top;
+	line-height:inherit;
+	text-align: center;
+	margin-right: 8px;
+}
+.socials_wrap .social_item:last-child {
+	margin-right:  0 !important;
+}
+.socials_wrap .social_item_style_bg {
+	overflow:hidden;
+}
+.socials_wrap .social_item[data-copy-link-url] {
+	position: relative;
+}
+.socials_wrap:not(.socials_type_list) .social_item .social_icon {
+	position:relative;
+	display: block;
+	background-size:100%;
+	background-position:top center;
+	overflow: hidden;
+	@include square(3em);
+	@include border-round;
+}
+.socials_wrap .social_item .social_icon,
+.socials_wrap .social_item .social_name {
+	@include transition-colors;
+}
+.socials_wrap .social_item_type_icons_names .social_icon {
+	margin: 0 auto;
+}
+
+// Prevent damage font via other plugins (TourMaster, etc.)
+.socials_wrap .social_item .social_name {
+	font-family: inherit;
+}
+.socials_wrap .social_item .social_name:before {
+	display: none;
+}
+
+.socials_wrap .sc_icon_type_svg svg,
+.socials_wrap .sc_icon_type_svg object {
+	@include box(1.25em, 1.25em);
+	margin-bottom: -0.2em;
+}
+
+.socials_wrap .social_item .social_icon + .social_name {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 0.5em;
+}
+.socials_wrap .social_item .social_icon .social_hover {
+	@include abs-cover;
+	opacity: 0;
+	background-size:100%;
+	background-position:bottom center;
+	@include transition-property(opacity);
+}
+.socials_wrap .social_item .social_icon:hover .social_hover {
+	opacity: 1;
+}

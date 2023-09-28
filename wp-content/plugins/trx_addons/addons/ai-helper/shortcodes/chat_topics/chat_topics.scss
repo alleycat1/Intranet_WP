@@ -1,0 +1,32 @@
+@import "../../../../css/_mixins.scss";
+@import "../../../../css/_trx_addons.vars.scss";
+@import "../../../../css/_trx_addons.colors.scss";
+
+.sc_chat_topics {
+	.sc_chat_topics_item a {
+		display: block;
+		cursor: pointer;
+	}
+	.sc_layouts_panel_inner & {
+		.sc_chat_topics_list {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+		.sc_chat_topics_item {
+			margin: 0;
+			border-bottom: 1px solid #ccc;
+
+			&:last-child {
+				border-bottom: none;
+			}
+
+			a {
+				display: block;
+				cursor: pointer;
+				padding: 1em 0;
+				font-size: 1.2em;
+			}
+		}
+	}
+}

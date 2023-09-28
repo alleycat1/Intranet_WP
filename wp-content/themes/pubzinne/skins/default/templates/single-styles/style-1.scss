@@ -1,0 +1,111 @@
+@import "../../../../css/_mixins.scss";
+@import "../../../../css/_theme-vars.scss";
+@import "../../css/_skin-vars.scss";
+
+.single_style_style-1 .page_content_wrap {
+	padding-top: 0;
+}
+.single_style_style-1 .page_content_wrap > .content_wrap {
+	padding-top: 4em;
+}
+.post_header_wrap_style_style-1 {
+	position: relative;
+	margin-top: 4em;
+}
+.post_header_wrap_style_style-1.with_featured_image {
+	margin-top: 0;
+}
+.post_header_wrap_style_style-1 .post_featured {
+	margin: 0;
+}
+.post_header_wrap_style_style-1 .post_featured.post_featured_bg {
+	height: 35rem;
+}
+.post_header_wrap_style_style-1 .post_featured.post_featured_bg:before {
+	display: none;
+}
+.post_header_wrap_style_style-1 .post_featured img {
+	max-width: none;
+	width: 100%;
+}
+
+.post_header_wrap_style_style-1.with_featured_image:before {
+	content: ' ';
+	display: block;
+	@include abs-cover;
+	background: -moz-linear-gradient(top, rgba(0,0,0,0) 25%, rgba(0,0,0,0.13) 50%, rgba(0,0,0,0.25) 66%, rgba(0,0,0,0.75) 100%);
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0) 25%,rgba(0,0,0,0.13) 50%,rgba(0,0,0,0.25) 66%,rgba(0,0,0,0.75) 100%);
+	background: linear-gradient(to bottom, rgba(0,0,0,0) 25%,rgba(0,0,0,0.13) 50%,rgba(0,0,0,0.25) 66%,rgba(0,0,0,0.75) 100%);
+}
+.post_header_wrap_style_style-1.with_featured_image .post_header a,
+.post_header_wrap_style_style-1.with_featured_image .post_header .post_title,
+.post_header_wrap_style_style-1.with_featured_image .post_header .post_subtitle,
+.post_header_wrap_style_style-1.with_featured_image .post_header .post_meta_item {
+	color: #fff !important;
+}
+.post_header_wrap_style_style-1.with_featured_image .post_header a,
+.post_header_wrap_style_style-1.with_featured_image .post_header a.post_author .post_author_name {
+	@include transition-properties(color,opacity);
+}
+.post_header_wrap_style_style-1.with_featured_image .post_header .post_subtitle,
+.post_header_wrap_style_style-1.with_featured_image .post_header .post_date,
+.post_header_wrap_style_style-1.with_featured_image .post_header a:hover,
+.post_header_wrap_style_style-1.with_featured_image .post_header a:focus,
+.post_header_wrap_style_style-1.with_featured_image .post_header a.post_author:hover .post_author_name,
+.post_header_wrap_style_style-1.with_featured_image .post_header a.post_author:focus .post_author_name {
+	opacity: 0.65;
+}
+.post_header_wrap_style_style-1.with_featured_image .post_header a.post_author:hover,
+.post_header_wrap_style_style-1.with_featured_image .post_header a.post_author:focus {
+	opacity: 1;
+}
+.post_header_wrap_style_style-1.with_featured_image .post_header .social_item {
+	vertical-align: baseline;
+}
+
+.post_header_wrap_style_style-1 .post_header {
+	display: block;
+}
+.post_header_wrap_style_style-1 .post_featured + .post_header {
+	display: inline-block;
+	@include abs-cb;
+	box-sizing: border-box;
+	margin-bottom: 3em;
+}
+.post_header_wrap_style_style-1 .post_header .post_title {
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 1.1em;
+}
+.post_header_wrap_style_style-1 .post_header .post_subtitle {
+	@include font(1.2857em, 1.4em, normal);
+	margin-top: 1em;
+}
+.post_header_wrap_style_style-1 .post_header .post_meta_categories {
+    margin-top: 0;
+	margin-bottom: 1em;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	@include font( 12px, inherit, bold);
+}
+.post_header_wrap_style_style-1 .post_header .post_meta_other {
+	@include font(1em, 1.4em, normal);
+	margin-top: 1em;
+}
+.post_header_wrap_style_style-1 .post_header .post_meta_other .post_meta_item {
+	white-space: nowrap;
+}
+.post_header_wrap_style_style-1.with_featured_image .post_header .post_meta_other {
+	margin-top: 2em;
+}
+.post_header_wrap_style_style-1 .post_header .post_meta_other .post_meta_item:after,
+.post_header_wrap_style_style-1 .post_header .post_meta_other .vc_inline-link:after {
+	content: '';
+	margin: 0 2em 0 0;
+}
+.post_header_wrap_style_style-1 .post_header .post_meta_other .post_author_avatar {
+	margin-right: 0.75em;
+}
+.post_header_wrap_style_style-1 .post_header .post_meta_other .post_author_avatar > img {
+	@include square(4em);
+}

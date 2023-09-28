@@ -1,0 +1,6 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+.sc_anchor {
+	@include box(0, 0, 0);
+}

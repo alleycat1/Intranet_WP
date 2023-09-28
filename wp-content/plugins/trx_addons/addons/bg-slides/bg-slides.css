@@ -1,0 +1,316 @@
+:root {
+  --trx-addons-bg-slides-animation-duration: 6.5s;
+}
+
+.trx_addons_bg_slides {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+@media (min-width: 1025px) {
+  .trx_addons_has_bg_slides {
+    overflow: hidden;
+  }
+
+  .trx_addons_bg_slides_with_mask {
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: calc( 100vh - var(--fixed-rows-height) );
+  }
+  .trx_addons_bg_slides_with_mask.trx_addons_bg_slides_fixed {
+    position: fixed;
+  }
+
+  .trx_addons_bg_slides_mask {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 100%;
+    height: clamp(100%, calc( 100vh - var(--fixed-rows-height) ), 100vh);
+  }
+  .trx_addons_bg_slides_mask svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: auto;
+  }
+  .trx_addons_bg_slides_mask .trx_addons_mask_in_svg {
+    -webkit-transform-origin: center;
+    -ms-transform-origin: center;
+    transform-origin: center;
+  }
+}
+@media (max-width: 1024px) {
+  .trx_addons_bg_slides_mask {
+    display: none;
+  }
+}
+.trx_addons_bg_slides_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Opacity is specified in the colorpicker as part of overlay color
+  opacity: 0.15;
+  */
+}
+
+.elementor-element.trx_addons_has_bg_slides .trx_addons_bg_slides_img {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none !important;
+  max-height: none !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.trx_addons_bg_slides_img_fill {
+  -o-object-fit: fill;
+  object-fit: fill;
+}
+
+.trx_addons_bg_slides_img_cover {
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.trx_addons_bg_slides_img_contain {
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+
+.trx_addons_bg_slides_img {
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease;
+  -ms-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+  -webkit-animation-duration: var(--trx-addons-bg-slides-animation-duration);
+  -ms-animation-duration: var(--trx-addons-bg-slides-animation-duration);
+  animation-duration: var(--trx-addons-bg-slides-animation-duration);
+  -webkit-animation-fill-mode: forwards;
+  -ms-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.trx_addons_bg_slides_active {
+  opacity: 1;
+}
+
+.trx_addons_bg_slides_animation_zoom_in {
+  -webkit-animation-name: trx-addons-bg-images-animation-zoom-in;
+  -ms-animation-name: trx-addons-bg-images-animation-zoom-in;
+  animation-name: trx-addons-bg-images-animation-zoom-in;
+}
+
+.trx_addons_bg_slides_animation_zoom_out {
+  -webkit-animation-name: trx-addons-bg-images-animation-zoom-out;
+  -ms-animation-name: trx-addons-bg-images-animation-zoom-out;
+  animation-name: trx-addons-bg-images-animation-zoom-out;
+}
+
+.trx_addons_bg_slides_animation_infinite_in,
+.trx_addons_bg_slides_animation_infinite_out {
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.trx_addons_bg_slides_animation_infinite_in {
+  -webkit-animation-name: trx-addons-bg-images-animation-infinite-in;
+  -ms-animation-name: trx-addons-bg-images-animation-infinite-in;
+  animation-name: trx-addons-bg-images-animation-infinite-in;
+}
+
+.trx_addons_bg_slides_animation_infinite_out {
+  -webkit-animation-name: trx-addons-bg-images-animation-infinite-out;
+  -ms-animation-name: trx-addons-bg-images-animation-infinite-out;
+  animation-name: trx-addons-bg-images-animation-infinite-out;
+}
+
+.trx_addons_has_bg_slides .trx_addons_bg_slides_animation_origin_lt {
+  -webkit-transform-origin: left top;
+  -ms-transform-origin: left top;
+  transform-origin: left top;
+}
+
+.trx_addons_has_bg_slides .trx_addons_bg_slides_animation_origin_ct {
+  -webkit-transform-origin: center top;
+  -ms-transform-origin: center top;
+  transform-origin: center top;
+}
+
+.trx_addons_has_bg_slides .trx_addons_bg_slides_animation_origin_rt {
+  -webkit-transform-origin: right top;
+  -ms-transform-origin: right top;
+  transform-origin: right top;
+}
+
+.trx_addons_has_bg_slides .trx_addons_bg_slides_animation_origin_lc {
+  -webkit-transform-origin: left center;
+  -ms-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.trx_addons_has_bg_slides .trx_addons_bg_slides_animation_origin_cc {
+  -webkit-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+}
+
+.trx_addons_has_bg_slides .trx_addons_bg_slides_animation_origin_rc {
+  -webkit-transform-origin: right center;
+  -ms-transform-origin: right center;
+  transform-origin: right center;
+}
+
+.trx_addons_has_bg_slides .trx_addons_bg_slides_animation_origin_lb {
+  -webkit-transform-origin: left bottom;
+  -ms-transform-origin: left bottom;
+  transform-origin: left bottom;
+}
+
+.trx_addons_has_bg_slides .trx_addons_bg_slides_animation_origin_cb {
+  -webkit-transform-origin: center bottom;
+  -ms-transform-origin: center bottom;
+  transform-origin: center bottom;
+}
+
+.trx_addons_has_bg_slides .trx_addons_bg_slides_animation_origin_rb {
+  -webkit-transform-origin: right bottom;
+  -ms-transform-origin: right bottom;
+  transform-origin: right bottom;
+}
+
+@-webkit-keyframes trx-addons-bg-images-animation-zoom-in {
+  from {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  to {
+    -webkit-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+  }
+}
+@keyframes trx-addons-bg-images-animation-zoom-in {
+  from {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  to {
+    -webkit-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+  }
+}
+@-webkit-keyframes trx-addons-bg-images-animation-zoom-out {
+  from {
+    -webkit-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+  }
+  to {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
+@keyframes trx-addons-bg-images-animation-zoom-out {
+  from {
+    -webkit-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+  }
+  to {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
+@-webkit-keyframes trx-addons-bg-images-animation-infinite-in {
+  0% {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  50% {
+    -webkit-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
+@keyframes trx-addons-bg-images-animation-infinite-in {
+  0% {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  50% {
+    -webkit-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
+@-webkit-keyframes trx-addons-bg-images-animation-infinite-out {
+  0% {
+    -webkit-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+  }
+  50% {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  100% {
+    -webkit-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+  }
+}
+@keyframes trx-addons-bg-images-animation-infinite-out {
+  0% {
+    -webkit-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+  }
+  50% {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  100% {
+    -webkit-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+  }
+}
+
+/*# sourceMappingURL=bg-slides.css.map */

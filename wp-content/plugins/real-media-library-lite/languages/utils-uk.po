@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: n/a\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: n/a\n"
+"PO-Revision-Date: 2023-06-21 12:28+0000\n"
+"Last-Translator: Matthias Günter <matthias.guenter@devowl.io>\n"
+"Language-Team: Ukrainian <https://translate.devowl.io/projects/devowl-wp-"
+"utils-backend-php/develop/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.16.4\n"
+
+#. translators:
+#: Localization.php:424
+msgid ""
+"Some language packs could not be downloaded for the textdomain %1$s (Error: "
+"%2$s, Endpoint: %3$s)."
+msgstr ""
+
+#: Localization.php:474
+msgid "Retry"
+msgstr ""
+
+#. translators:
+#: Service.php:117
+msgid ""
+"<strong>An unexpected network error has occurred!</strong> One or more "
+"WordPress plugins tried to call the WordPress REST API, which failed. Most "
+"likely a <strong>security plugin%s</strong>, a web <strong>server "
+"configuration</strong> or active <strong>ad-blocker extension</strong> "
+"installed on your browser disabled the REST API. Please make sure that the "
+"following REST API namespaces are reachable to use your plugin without "
+"problems:"
+msgstr ""
+"<strong>Виникла несподівана мережева помилка!</strong> Один або декілька "
+"плагінів WordPress спробували викликати REST API WordPress, але не змогли. "
+"Швидше за все, <strong>плагін безпеки%s</strong>, <strong>конфігурація веб-"
+"сервера</strong> або активне <strong>розширення для блокування реклами</"
+"strong>, встановлене у вашому браузері, відключили REST API. Будь ласка, "
+"переконайтеся, що наступні простори імен REST API доступні, щоб без проблем "
+"використовувати ваш плагін:"
+
+#. translators:
+#: Service.php:125
+msgid ""
+"What is the WordPress REST API and how to enable it? %1$sLearn more%2$s."
+msgstr ""
+"Що таке WordPress REST API і як його ввімкнути? %1$sДізнайтеся більше%2$s."
+
+#: Service.php:128
+msgid "https://devowl.io/knowledge-base/wordpress-rest-api-does-not-respond/"
+msgstr "https://devowl.io/knowledge-base/wordpress-rest-api-does-not-respond/"
+
+#: Service.php:136
+msgid ""
+"In the text box below you will find a technical listing of the last 10 "
+"failed network requests:"
+msgstr ""
+"У текстовому полі нижче ви знайдете технічний список останніх 10 невдалих "
+"мережевих запитів:"

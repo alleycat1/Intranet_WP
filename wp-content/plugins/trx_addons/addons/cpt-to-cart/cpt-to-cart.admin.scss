@@ -1,0 +1,182 @@
+@import "../../css/_mixins.scss";
+@import "../../css/_trx_addons.vars.scss";
+@import "../../css/_trx_addons.colors.scss";
+
+/* CPT to Cart (options page)
+--------------------------------------------------------------- */
+.cpt_to_cart_options_screen_shadow {
+	display: none;
+	@include fixed-cover(9);
+	background-color: rgba(255,255,255,0.5);
+
+	.cpt_to_cart_options_popup_opened + & {
+		display: block;
+	}
+}
+
+.form-table .cpt_to_cart_options_wrapper {
+	padding: 0;
+}
+
+.form-table .cpt_to_cart_options {
+	th, td {
+		padding: 10px 15px;
+		position: relative;
+	}
+	.cpt_to_cart_options_button_popup {
+		padding: 0.25em 1em;
+	}
+	.cpt_to_cart_options_popup {
+		padding: 2em;
+		border: 1px solid #aaa;
+		background-color: #fff;
+		display: none;
+		min-width: 640px;
+		opacity: 0;
+		@include abs-rt(0, 3em, 10);
+		@include box-shadow(0 0 10px 0 rgba(0,0,0,0.25));
+		margin: 0.5em;
+		@include transition-property(opacity);
+
+		@media (max-width: 767px) {
+			min-width:480px;
+			padding: 1.5em;
+		}
+		@media (max-width: 560px) {
+			min-width:320px;
+			padding: 0.5em;
+		}
+
+		&.cpt_to_cart_options_popup_opened {
+			display: block;
+			opacity: 1;
+		}
+
+		.cpt_to_cart_options_popup_title {
+			margin: 0 0 1em;
+			font-size: 1.2em;
+			font-weight: bold;
+			text-decoration: underline;
+		}
+		.cpt_to_cart_options_popup_subtitle {
+			margin: 1em 0 0;
+			font-weight: bold;
+		}
+		.cpt_to_cart_options_popup_description {
+			margin: 0 0 0.5em;
+			font-style: italic;
+			font-size: 12px;
+		}
+		.cpt_to_cart_options_popup_close {
+			@include abs-rt;
+			@include square(2em);
+
+			&:before,
+			&:after {
+				content: '';
+				@include abs-lt(0.5em, 1em);
+				@include box(1em, 0);
+				border: 1px solid #aaa;
+				@include transition-property(border-color);
+			}
+			&:before {
+				@include rotate(45deg);
+			}
+			&:after {
+				@include rotate(135deg);
+			}
+			&:hover:before,
+			&:hover:after {
+				border-color: #000;
+			}
+		}
+		.cpt_to_cart_options_popup_field {
+			& + .cpt_to_cart_options_popup_field {
+				margin-top: 0.5em;
+			}
+			input[type="text"][name$="[price_name]"] {
+				width: 100%;
+				margin-top:0.3em;
+			}
+			&.cpt_to_cart_options_popup_field_type_radio {
+				label + label {
+					margin-left: 1em;
+				}
+			}
+		}
+		.cpt_to_cart_options_popup_field_type_group {
+			margin-bottom: 0.5em;
+
+			&:last-child {
+				margin-bottom: 1em;		
+			}
+
+			@include flex;
+			@include flex-wrap(no-wrap);
+			@include flex-justify-content(flex-start);
+			@include flex-align-items(flex-start);
+		}
+		.cpt_to_cart_options_popup_group_item {
+			@include flex;
+			@include flex-direction(column);
+			@include flex-justify-content(flex-start);
+			@include flex-align-items(flex-start);
+			@include border-box;
+		}
+		.cpt_to_cart_options_popup_group_type_text {
+			padding-right: 0.5em;
+			
+			input[type="text"] {
+				width: 100%;
+			}
+		}
+		.cpt_to_cart_options_popup_group_type_select {
+			padding-right: 0.5em;
+
+			select {
+				width: 100%;
+				line-height:2;
+				min-height: 30px;
+			}
+		}
+		.cpt_to_cart_options_popup_add_listener {
+			padding: 0.5em 1em;
+		}
+		.cpt_to_cart_options_popup_remove_listener {
+			line-height: 2;
+			padding: 0 0.25em;
+			color: #666;
+			background-color: #f0f0f0;
+			border: 1px solid #aaa;
+			@include border-radius(4px);
+			@include border-box;
+			@include square(30px);
+			@include transition-properties(color, background-color);
+			
+			&:before {
+				content: '\e927';
+				font-family: $trx_addons_icons;
+			}
+			&:hover {
+				color: #000;
+				background-color: #ddd;
+			}
+		}
+
+		@media (max-width: 782px) {
+			.cpt_to_cart_options_popup_group_type_select select {
+				line-height: 1.75;
+			}
+			.cpt_to_cart_options_popup_remove_listener {
+				@include square(40px);
+			}
+		}
+
+		.cpt_to_cart_options_popup_group_field_event_type      { @include flex-basis(14%); }
+		.cpt_to_cart_options_popup_group_field_event_name      { @include flex-basis(36%); }
+		.cpt_to_cart_options_popup_group_field_link_type       { @include flex-basis(14%); }
+		.cpt_to_cart_options_popup_group_field_area            { @include flex-basis(14%); }
+		.cpt_to_cart_options_popup_group_field_place           { @include flex-basis(16%); }
+		.cpt_to_cart_options_popup_group_field_remove_listener { @include flex-basis(6%); }
+	}
+}

@@ -1,0 +1,64 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: n/a\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: n/a\n"
+"PO-Revision-Date: 2023-05-19 07:55+0000\n"
+"Last-Translator: Matthias Günter <matthias.guenter@devowl.io>\n"
+"Language-Team: Slovak <https://translate.devowl.io/projects/devowl-wp-utils-"
+"backend-php/develop/sk/>\n"
+"Language: sk_SK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.16.4\n"
+
+#. translators:
+#: Localization.php:424
+msgid ""
+"Some language packs could not be downloaded for the textdomain %1$s (Error: "
+"%2$s, Endpoint: %3$s)."
+msgstr ""
+
+#: Localization.php:474
+msgid "Retry"
+msgstr ""
+
+#. translators:
+#: Service.php:117
+msgid ""
+"<strong>An unexpected network error has occurred!</strong> One or more "
+"WordPress plugins tried to call the WordPress REST API, which failed. Most "
+"likely a <strong>security plugin%s</strong>, a web <strong>server "
+"configuration</strong> or active <strong>ad-blocker extension</strong> "
+"installed on your browser disabled the REST API. Please make sure that the "
+"following REST API namespaces are reachable to use your plugin without "
+"problems:"
+msgstr ""
+"<strong>Vyskytla sa neočakávaná chyba siete!</strong> Jeden alebo viac "
+"pluginov WordPress-u sa pokúsilo zavolať rozhranie WordPress REST API, čo sa "
+"nepodarilo. S najväčšou pravdepodobnosťou <strong>bezpečnostný plugin%s</"
+"strong>, <strong>konfigurácia webového servera</strong> alebo aktívny "
+"<strong>ad-blocker</strong> nainštalovaný vo vašom prehliadači zakázali "
+"rozhranie REST API. Uistite sa, že nasledujúce menné rozhrania REST API sú "
+"dosiahnuteľné, aby ste mohli bez problémov používať svoj plugin:"
+
+#. translators:
+#: Service.php:125
+msgid ""
+"What is the WordPress REST API and how to enable it? %1$sLearn more%2$s."
+msgstr ""
+"Čo je rozhranie WordPress REST API a ako ho aktivovať? %1$sZistite viac%2$s."
+
+#: Service.php:128
+msgid "https://devowl.io/knowledge-base/wordpress-rest-api-does-not-respond/"
+msgstr "https://devowl.io/knowledge-base/wordpress-rest-api-does-not-respond/"
+
+#: Service.php:136
+msgid ""
+"In the text box below you will find a technical listing of the last 10 "
+"failed network requests:"
+msgstr ""
+"V textovom poli nižšie nájdete technický zoznam posledných 10 neúspešných "
+"sieťových požiadaviek:"

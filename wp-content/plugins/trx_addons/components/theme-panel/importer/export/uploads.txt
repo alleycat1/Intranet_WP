@@ -1,0 +1,8 @@
+uploads/uploads.135
+... one row with max part's number
+
+or for compatibility with previous versions
+
+uploads/uploads.001
+uploads/uploads.002
+... each part in the separate row

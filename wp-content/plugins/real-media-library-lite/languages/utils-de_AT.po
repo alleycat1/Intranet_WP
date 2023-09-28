@@ -1,0 +1,68 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: n/a\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: n/a\n"
+"PO-Revision-Date: 2023-08-02 09:34+0000\n"
+"Last-Translator: Matthias Günter <matthias.guenter@devowl.io>\n"
+"Language-Team: German (informal) <https://translate.devowl.io/projects/"
+"devowl-wp-utils-backend-php/develop/de@informal/>\n"
+"Language: de_AT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.16.4\n"
+
+#. translators:
+#: Localization.php:424
+msgid ""
+"Some language packs could not be downloaded for the textdomain %1$s (Error: "
+"%2$s, Endpoint: %3$s)."
+msgstr ""
+"Einige Sprachpakete konnten für die Textdomain %1$s nicht heruntergeladen "
+"werden (Fehler: %2$s, Endpunkt: %3$s)."
+
+#: Localization.php:474
+msgid "Retry"
+msgstr "Wiederholen"
+
+#. translators:
+#: Service.php:117
+msgid ""
+"<strong>An unexpected network error has occurred!</strong> One or more "
+"WordPress plugins tried to call the WordPress REST API, which failed. Most "
+"likely a <strong>security plugin%s</strong>, a web <strong>server "
+"configuration</strong> or active <strong>ad-blocker extension</strong> "
+"installed on your browser disabled the REST API. Please make sure that the "
+"following REST API namespaces are reachable to use your plugin without "
+"problems:"
+msgstr ""
+"<strong>Ein unerwarteter Netzwerkfehler ist aufgetreten!</strong> Ein oder "
+"mehrere WordPress-Plugins versuchten, die WordPress REST API aufzurufen, was "
+"fehlgeschlagen ist. Höchstwahrscheinlich hat ein <strong>Sicherheits-Plugin"
+"%s</strong>, eine <strong>Webserver-Konfiguration</strong> oder ein aktiver "
+"<strong>Ad-Blocker</strong> die REST-API deaktiviert. Bitte stelle sicher, "
+"dass die folgenden REST-API-Namensräume erreichbar sind, um das jeweilige "
+"Plugin ohne Probleme nutzen zu können:"
+
+#. translators:
+#: Service.php:125
+msgid ""
+"What is the WordPress REST API and how to enable it? %1$sLearn more%2$s."
+msgstr ""
+"Was ist die WordPress REST API und wie kann sie aktiviert werden? %1$sKlicke "
+"hier, um mehr darüber zu erfahren%2$s."
+
+#: Service.php:128
+msgid "https://devowl.io/knowledge-base/wordpress-rest-api-does-not-respond/"
+msgstr ""
+"https://devowl.io/de/wissensdatenbank/wordpress-rest-api-antwortet-nicht/"
+
+#: Service.php:136
+msgid ""
+"In the text box below you will find a technical listing of the last 10 "
+"failed network requests:"
+msgstr ""
+"In dem Textfeld unten findest du eine technische Auflistung der letzten 10 "
+"fehlgeschlagenen Netzwerkanfragen:"

@@ -1,0 +1,380 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/* To move pagination bullets below the items
+.sc_dishes_compact .sc_dishes_slider.slider_outer_pagination_pos_bottom {
+	padding-bottom: 3em;
+}
+*/
+
+.sc_dishes_item .sc_dishes_item_thumb {
+	margin-bottom: 0;
+}
+.sc_dishes_item .sc_dishes_item_thumb[class*="hover_"] {
+	display: block;
+}
+.sc_dishes_item .sc_dishes_item_thumb img {
+	min-width: 100%;
+	height: auto;
+}
+.sc_dishes_item_image > .sc_dishes_item_price {
+	@include abs-rb(8px, 6px, 4);
+	@include font(1.5em, '', normal);
+	color: #fff;
+	text-shadow: 0 0 10px #000;
+}
+.sc_dishes_item_image > .sc_dishes_item_price_with_link {
+	z-index: 10;
+	pointer-events: auto;
+
+	.cpt_to_cart_link {
+		color: inherit;
+	}
+}
+
+.sc_dishes_columns_wrap,
+.dishes_page_related .related_columns {
+	display:flex;
+	flex-wrap:wrap;
+}
+.sc_dishes_slider .sc_dishes_item,
+.sc_dishes_columns_wrap .sc_dishes_item,
+.dishes_page_related .related_columns .sc_dishes_item {
+	display:inline-block;
+	vertical-align:top;
+	@include box(100%, 100%);
+	@include border-box;
+}
+.sc_dishes_slider .sc_dishes_item {
+//	height: 95%;
+	margin-bottom: 0 !important;
+}
+
+.sc_dishes {
+	position: relative;	
+}
+
+/* Style 'Default' */
+.sc_dishes_default .sc_dishes_item {
+	background-color:#fafafa;
+	margin-bottom: 2em;
+	text-align:center;
+	padding-top:0.0001px;
+}
+.sc_dishes_default.slider_swiper .sc_dishes_item,
+.sc_dishes_default .columns_padding_bottom .sc_dishes_item {
+	margin-bottom:0;
+}
+
+.sc_dishes_default .sc_dishes_item_info {
+	padding: 2.6em 3em;
+	text-align:center;
+
+	.sc_dishes_item_price {
+		@include font(1.5em, '', normal);
+		text-align: center;
+		margin: 0.5em 0;
+	}
+}
+
+.sc_dishes_default .sc_dishes_item_title {
+	margin: 0;
+}
+.sc_dishes_default .sc_dishes_item_subtitle {
+	@include font(0.8667em, 1.5em, '', italic);
+	letter-spacing:0;
+	margin-top:0.4em;
+}
+
+.sc_dishes_default .sc_dishes_item_content {
+	margin-top:1.6em;
+}
+.sc_dishes_default .sc_dishes_item_content p {
+	margin:0;
+}
+
+.sc_dishes_default .sc_dishes_item_button {
+	margin:1.6em 0 0;
+}
+
+.sc_dishes_default .sc_dishes_item_image {
+	position: relative;
+}
+
+.sc_dishes_default .sc_dishes_item_featured_left,
+.sc_dishes_default .sc_dishes_item_featured_right {
+	position:relative;
+	overflow:hidden;
+	background-color: transparent;
+}
+.sc_dishes_default .sc_dishes_item_featured_left {
+	text-align:left;
+}
+.sc_dishes_default .sc_dishes_item_featured_right {
+	text-align:right;
+}
+
+.sc_dishes_default .sc_dishes_item_featured_left .sc_dishes_item_image,
+.sc_dishes_default .sc_dishes_item_featured_right .sc_dishes_item_image {
+	width:30%;
+	@include abs-lt;
+}
+.sc_dishes_default .sc_dishes_item_featured_left .dishes_page_spicy_label,
+.sc_dishes_default .sc_dishes_item_featured_right .dishes_page_spicy_label {
+	display:none;
+}
+.sc_dishes_default .sc_dishes_item_featured_left .sc_dishes_item_content,
+.sc_dishes_default .sc_dishes_item_featured_right .sc_dishes_item_content {
+	min-height:0;
+}
+
+.sc_dishes_default .sc_dishes_item_featured_left .sc_dishes_item_info {
+	text-align:left;
+	padding: 0 0 0 2em;
+	margin-left: 4em;
+}
+.sc_dishes_default .sc_dishes_item_featured_left.without_content .sc_dishes_item_info {
+	margin-left: 3em;
+}
+.sc_dishes_default .sc_dishes_item_featured_left.with_image .sc_dishes_item_info {
+	margin-left: 30%;
+}
+.sc_dishes_default .sc_dishes_item_featured_right .sc_dishes_item_image {
+	left: auto;
+	right: 0;
+}
+.sc_dishes_default .sc_dishes_item_featured_right .sc_dishes_item_info {
+	text-align:right;
+	padding: 0 2em 0 0;
+	margin-right: 4em;
+}
+.sc_dishes_default .sc_dishes_item_featured_right.without_content .sc_dishes_item_info {
+	margin-right: 3em;
+}
+.sc_dishes_default .sc_dishes_item_featured_right.with_image .sc_dishes_item_info {
+	margin-right: 30%;
+}
+
+
+
+/* Style 'Float' */
+.sc_dishes_float .sc_dishes_item {
+	margin-bottom: 2em;
+	text-align:left;
+	padding-top:0.0001px;
+	position: relative;
+}
+.sc_dishes_float.slider_swiper .sc_dishes_item,
+.sc_dishes_float .columns_padding_bottom .sc_dishes_item {
+	margin-bottom:0;
+}
+
+.sc_dishes_float {
+	overflow: hidden;
+}
+.sc_dishes_float .sc_dishes_item_image {
+	width: 40%;
+	position:relative;
+}
+.sc_dishes_float .sc_dishes_item_featured_left .sc_dishes_item_image {
+	float:left;
+	margin: 0 1.5em 0.75em 0;
+}
+.sc_dishes_float .sc_dishes_item_featured_right .sc_dishes_item_image {
+	float: right;
+	margin: 0 0 0.75em 1.5em;
+}
+
+.sc_dishes_float .dishes_page_spicy_label {
+	display:none;
+}
+
+.sc_dishes_float .sc_dishes_item_title {
+	margin: 0;
+	position:relative;
+}
+.sc_dishes_float .sc_dishes_item_title.with_price {
+	padding-right: 4em;
+}
+.sc_dishes_float .sc_dishes_item_title .sc_dishes_item_price {
+	@include abs-rt(0, 0, 1);
+}
+.sc_dishes_float .sc_dishes_item_featured_right .sc_dishes_item_title {
+	margin-right: 43%;
+}
+.sc_dishes_float .sc_dishes_item_subtitle {
+	@include font(0.9286em, 1.5em);
+	margin-top: 0.5em;
+}
+
+.sc_dishes_float .sc_dishes_item_content {
+	margin-top:0.5em;
+	min-height:0;
+}
+.sc_dishes_float .sc_dishes_item_content p {
+	margin:0;
+}
+
+.sc_dishes_float .sc_dishes_item_button {
+	margin:0.5em 0 0;
+}
+
+
+/* Style 'Compact' */
+.sc_dishes_compact .sc_dishes_item {
+	background-color:#fafafa;
+	position:relative;
+}
+.sc_dishes_compact .sc_dishes_item_header {
+	color:#fff;
+	@include bg-cover(center, #333);
+	@include box(30%, 100%);
+	@include abs-pos(0, auto, 0, 0);
+}
+.sc_dishes_compact .sc_dishes_item.with_image .sc_dishes_item_header:before {
+	content: ' ';
+	@include bg-mask(#000, 0.5, -1);
+}
+.sc_dishes_compact .sc_dishes_item.without_content .sc_dishes_item_header {
+	position:relative;
+	bottom: auto;
+	@include box(100%, auto);
+}
+.sc_dishes_compact .sc_dishes_item_header_info {
+	@include abs-lc;
+	@include border-box;
+	width: 100%;
+	padding: 1.5em;
+}
+
+.sc_dishes_compact .dishes_page_spicy_label {
+	display:none;
+}
+.sc_dishes_compact .sc_dishes_item_price {
+	display:block;
+	@include font(1.5em, 1em);
+	color:#fff;
+	margin-bottom: 0.4em;
+}
+.sc_dishes_compact .sc_dishes_item_title {
+	margin: 0;
+	line-height:1.25em;
+}
+.sc_dishes_compact .sc_dishes_item_subtitle {
+	@include font(13px, 16px);
+}
+.sc_dishes_compact .sc_dishes_item_title+.sc_dishes_item_subtitle {
+	margin-top:0.6em;
+}
+
+.sc_dishes_compact .sc_dishes_item_content {
+	margin-left: 30%;
+	padding: 2em 3em;
+	min-height: 10em;
+}
+.sc_dishes_compact .sc_dishes_item_featured_right .sc_dishes_item_header {
+	left: auto;
+	right:0;
+}
+.sc_dishes_compact .sc_dishes_item_featured_right .sc_dishes_item_content {
+	margin-left:0;
+	margin-right:30%;
+}
+
+.sc_dishes_compact .sc_dishes_item_content p {
+	margin:0;
+}
+.sc_dishes_compact .sc_dishes_item_content p + p {
+	margin-top:0.4em;
+}
+.sc_dishes_compact .sc_dishes_item_text + .sc_dishes_item_button {
+	margin-top: 0.5em;
+}
+
+
+/* Single post */
+.dishes_page_header {
+	margin-bottom: 2em;
+}
+.dishes_page_header .dishes_page_featured {
+	display:inline-block;
+	position:relative;
+}
+.dishes_page_spicy {
+	@include abs-rt(0, 0, 10);
+	@include font(11px, 23px, bold);
+	text-transform:uppercase;
+	padding-right: 6px;
+	display: inline-block;
+	vertical-align: top;
+	background-color:#f0f0f0;
+	color: #333;
+	pointer-events: none;
+}
+.dishes_page_spicy:before {
+	content: '\e8c0';
+	font-family: $trx_addons_icons;
+	@include font(13px, inherit, normal);
+	display:inline-block;
+	vertical-align: top;
+	margin:0 6px 0 0;
+	width: 2em;
+	text-align:center;
+	color: #fff;
+	background-color: #44b21e;
+}
+.dishes_page_spicy_value:after {
+	content: '/5';
+}
+.dishes_page_spicy_2:before { background-color: #97f216; }
+.dishes_page_spicy_3:before { background-color: #f7dd00; }
+.dishes_page_spicy_4:before { background-color: #f25e16; }
+.dishes_page_spicy_5:before { background-color: #e41111; }
+
+.dishes_page_header .dishes_page_title.with_price {
+	position:relative;
+	padding-right: 3em;
+}
+.dishes_page_title.with_price > .dishes_page_price {
+	@include abs-rt(0, 0, 1);
+}
+.dishes_page_featured > .dishes_page_price {
+	@include abs-rb(1em, 1em, 3);
+	@include font(2em, '', bold);
+	color: #fff;
+	text-shadow: 0 0 10px #000;
+}
+
+.dishes_page_details {
+	position: relative;
+	overflow:hidden;
+	margin-top: 4em;
+}
+.dishes_page_details_title {
+	display:none;
+}
+.dishes_page_details_nutritions,
+.dishes_page_details_ingredients {
+	float:left;
+	max-width: 48%;
+}
+.dishes_page_details_nutritions {
+	margin-right:4%;
+}
+.dishes_page_details_nutritions_title,
+.dishes_page_details_ingredients_title {
+	margin-top: 0;
+}
+
+.dishes_single .dishes_page_buttons {
+	margin-top: 2em;
+}
+
+/* Popup with details */
+#trx_addons_post_details_popup .dishes_page_details_title {
+	display:none;
+}
+#trx_addons_post_details_popup .dishes_page_details_nutritions_title,
+#trx_addons_post_details_popup .dishes_page_details_ingredients_title {
+	margin-top: 0;
+}

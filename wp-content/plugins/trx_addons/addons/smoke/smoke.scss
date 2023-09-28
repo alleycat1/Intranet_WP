@@ -1,0 +1,43 @@
+@import "../../css/_mixins.scss";
+@import "../../css/_trx_addons.vars.scss";
+@import "../../css/_trx_addons.colors.scss";
+
+/* Smoke
+--------------------------------------------------------------- */
+body.trx_addons_smoke_present {
+	.page_content_wrap,
+	&.body_style_boxed .page_wrap {
+		background-color: transparent;
+
+		.elementor-section[class*="scheme_"] {
+			background-color: transparent;
+		}
+	}
+
+	& > .trx_addons_smoke {
+		@include fixed-cover(-1);
+		pointer-events: none;
+	}
+}
+
+.elementor-section,
+.elementor-column {
+	& > .trx_addons_smoke {
+		@include abs-cover(0);
+		pointer-events: none;
+		display: none;
+	}
+	&.trx_addons_smoke_present > .trx_addons_smoke {
+		display: block;
+	}
+}
+.elementor-section[class*="scheme_"] {
+	&.trx_addons_smoke_present,
+	&.trx_addons_smoke_present_in_column {
+		background-color: transparent;
+	}
+}
+
+.elementor-element-edit-mode.elementor-widget-trx_sc_smoke {
+	@include abs-lb( 5px, 5px );
+}

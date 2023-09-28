@@ -1,0 +1,65 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+.sc_supertitle .sc_supertitle_columns_wrap {
+	@include flex;
+	@include flex-align-items(stretch);
+}
+
+.sc_supertitle .sc_icon_type_icons  {
+	display: inline-block;
+	vertical-align: top;
+	@include content-box;
+	@include square(1em);
+}
+.sc_supertitle_media_block {
+	height: 100%;
+}
+.sc_supertitle_icon + .sc_supertitle_media,
+.sc_supertitle_media + .sc_supertitle_icon {
+	margin-top: 1em;
+}
+
+.sc_supertitle_no_icon {
+	display: block;
+	width: 5px;
+	height: 100%;
+	background-color: #efa753;
+}
+
+
+.sc_supertitle .trx_addons_columns_wrap:after {
+	width: 0;
+}
+
+.sc_supertitle_right_column {
+	text-align: right;
+}
+
+.sc_supertitle_columns_wrap [class*="trx_addons_column-"] {
+	& > :first-child {
+		margin-top: 0;
+	}
+	& > :last-child {
+		margin-bottom: 0;
+	}
+}
+
+.sc_supertitle_position_left {
+	text-align: left;
+}
+.sc_supertitle_position_center {
+	text-align: center;
+}
+.sc_supertitle_position_right {
+	text-align: right;
+}
+
+.sc_supertitle_display_inline {
+	display: inline-block;
+	vertical-align: baseline;
+	margin-right: 0.3em;
+}
+.sc_supertitle_display_inline:last-child {
+	margin-right: 0;
+}

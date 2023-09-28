@@ -1,0 +1,62 @@
+// @required
+
+
+// General settings
+//------------------------------------------
+
+// Font with icons
+$trx_addons_icons: "trx_addons_icons";	// font-family for the font with plugin-specific icons
+
+$page: 	   1170px;		// Width of the whole page
+$grid_gap: 30px;		// Gap between columns in the grid
+
+
+// Responsive
+//------------------------------------------
+
+// By screen size
+$media_xxl:			                        "(max-width: 1679px)";
+$media_xl:			                        "(max-width: 1439px)";
+$media_lg:			                        "(max-width: 1279px)";
+$media_md_lg:		"(min-width:  768px) and (max-width: 1279px)";
+$media_md_over:		"(min-width: 1024px)";
+$media_md:			                        "(max-width: 1023px)";
+$media_sm:			                        "(max-width:  767px)";
+$media_wp_fix:		"(min-width:  601px) and (max-width: 782px)";
+$media_sm_wp:		                        "(max-width:  600px)";
+$media_xs:			                        "(max-width:  479px)";
+
+// By device
+$media_wide:		"(min-width: 2160px)";
+$media_desktop:		"(min-width: 1680px) and (max-width: 2159px)";
+$media_notebook:	"(min-width: 1280px) and (max-width: 1679px)";
+$media_not_tablet:	"(min-width: 1280px)";
+$media_tablet:		"(min-width:  768px) and (max-width: 1279px)";
+$media_not_mobile:	"(min-width:  768px)";
+$media_mobile:		                        "(max-width:  767px)";
+$media_not_small:	"(min-width:  480px)";
+$media_small:		                        "(max-width:  479px)";
+
+// --xxl
+$xxl_page: 1170px;		// Width of the whole page
+$xxl_grid_gap: 30px;	// Gap between columns in the grid
+
+// --xl
+$xl_page: 1100px;		// Width of the whole page
+$xl_grid_gap: 30px;		// Gap between columns in the grid
+
+// --lg
+$lg_page: 964px;		// Width of the whole page
+$lg_grid_gap: 30px;		// Gap between columns in the grid
+
+// --md
+$md_page: 708px;		// Width of the whole page
+$md_grid_gap: 30px;		// Gap between columns in the grid
+
+// --sm
+$sm_page: 440px;		// Width of the whole page
+$sm_grid_gap: 20px;		// Gap between columns in the grid
+
+// --xs
+$xs_page: 280px;		// Width of the whole page
+$xs_grid_gap: 20px;		// Gap between columns in the grid

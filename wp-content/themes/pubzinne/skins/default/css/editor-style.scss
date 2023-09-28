@@ -1,0 +1,444 @@
+/*
+Theme Name: PUBZINNE
+Description: Used to style the TinyMCE editor.
+*/
+
+@import "../../../css/_mixins.scss";
+@import "../../../css/_theme-vars.scss";
+@import "_skin-vars.scss";
+
+
+/**
+ * Table of Contents:
+ *
+ * 1.0 - Body
+ * 2.0 - Typography
+ * 3.0 - Elements
+ * 4.0 - Alignment
+ * 5.0 - Caption
+ * 6.0 - Galleries
+ * 7.0 - Audio / Video
+ * 8.0 - RTL
+ * 9.0 - Media Queries
+ */
+
+
+/**
+ * 1.0 Body
+ */
+
+.mce-content-body {
+	color: #333333;
+	font-family: "Roboto",sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.7857em;
+    text-transform: none;
+	vertical-align: baseline;
+	margin: 1.5em 2em;
+
+
+	/**
+	 * 2.0 Typography
+	 */
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family:"Montserrat",sans-serif;
+	}
+	h1 { font-size: 3.4286rem;	font-weight:700; font-style: normal; line-height:1.25em;	margin-top: 0.9583em;	margin-bottom: 0.5833em;letter-spacing: -1.5px; text-transform:none; }
+	h2 { font-size: 3.2143rem;	font-weight:300; font-style: normal; line-height:1.1111em;	margin-top: 1.0444em;	margin-bottom: 0.76em;	letter-spacing: -0.3px; text-transform:none; }
+	h3 { font-size: 2.3571em;	font-weight:300; font-style: mormal; line-height:1.1515em;  margin-top: 1.3333em;	margin-bottom: 0.7879em;	letter-spacing: -0.3px; text-transform:none; }
+	h4 { font-size: 1.6429em;	font-weight:600; font-style: normal; line-height:1.3043em;	margin-top: 1.9565em;	margin-bottom: 1.0435em;	letter-spacing: -0.3px; text-transform:none; }
+	h5 { font-size: 1.4286em;	font-weight:300; font-style: normal; line-height:1.35em;	margin-top: 1.5em; 		margin-bottom: 1.3em;		letter-spacing: 0px; text-transform:none; }
+	h6 { font-size: 1.2143em;	font-weight:600; font-style: normal; line-height:1.4706em;	margin-top: 2.1176em;	margin-bottom: 0.9412em;	letter-spacing: 0px; text-transform:none; }
+
+	p, ul, ol, dl, blockquote, address { margin: 0 0 1.5em; }
+	li > ol, li > ul, dl > dd { margin-bottom:0; }
+	li > p { margin-bottom:0; }
+	li > p+p { margin-top:0.5em; }
+	ol, ul {
+		padding-left:1.5em;
+	}
+
+	h1, h2, h3, h4, h5, h6,
+	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+		color: #1d1d1d;
+	}
+	a:hover,
+	h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+		color: #72cfd5;
+	}
+
+	b, strong {
+		color: #1d1d1d;
+		font-weight: 700;
+	}
+	i, em {
+		color: #1d1d1d;
+	}
+
+	blockquote {
+		font-family:"Montserrat",sans-serif;
+		background-color: #1d1d1d;
+		position:relative;
+		text-align:left;
+		text-transform:uppercase;
+		padding: 3em 3em 3em 6em;
+	}
+	blockquote:before {
+		content: '“';
+		font-family:inherit;
+		font-size:1.6em;
+		display:block;
+		position:absolute;
+		top: 2.1em;
+		left: 2.3em;
+	}
+	.blog_mode_post.sidebar_hide blockquote,
+	.blog_mode_page.sidebar_hide blockquote {
+		margin: 4.05em 6.7em;
+	}
+	blockquote:after,
+	q:before, q:after {	content: ""; }
+	blockquote, q {	quotes: "" ""; }
+
+	blockquote p {
+		margin: 0;
+		font-size: 1.4286em;
+		font-weight:200;
+		line-height:1.35em;
+	}
+	blockquote p+p {
+		margin-top: 0.4em;
+	}
+	blockquote > a, blockquote > p > a,
+	blockquote > cite, blockquote > p > cite {
+		display:block;
+		font-size:12px;
+		line-height: 1.35em;
+		font-weight:700;
+		font-style:normal;
+		text-transform:uppercase;
+		margin-top: 2.6em;
+		letter-spacing: 3px;
+	}
+
+	dfn,
+	cite,
+	em,
+	i {
+		font-style: italic;
+	}
+
+	address {
+		font-style: italic;
+		margin: 0 0 2em;
+	}
+
+	code,
+	kbd,
+	tt,
+	var,
+	samp,
+	pre {
+		font-family: "Courier New", monospace;
+		font-size: 1em;
+		letter-spacing:0;
+	}
+
+	pre {
+		background-color: #fcfcfc;
+		border: 1px solid #ebebeb;
+		margin-bottom: 2em;
+		max-width: 100%;
+		overflow: auto;
+		padding: 14px;
+		white-space: pre;
+		white-space: pre-wrap;
+		word-wrap: break-word;
+	}
+
+	abbr[title] {
+		border-bottom: 1px dotted #ebebeb;
+		cursor: help;
+	}
+
+	mark,
+	ins {
+		background-color: #fff9c0;
+		text-decoration: none;
+	}
+
+	sup,
+	sub {
+		font-size: 75%;
+		height: 0;
+		line-height: 0;
+		position: relative;
+		vertical-align: baseline;
+	}
+
+	sup {
+		bottom: 1ex;
+	}
+
+	sub {
+		top: .5ex;
+	}
+
+	small {
+		font-size: 75%;
+	}
+
+	big {
+		font-size: 125%;
+	}
+
+
+	/**
+	 * 3.0 Elements
+	 */
+
+	hr {
+		background-color: #ebebeb;
+		border: 0;
+		height: 1px;
+		margin: 4em 0;
+	}
+
+	ul,
+	ol {
+		margin: 0 0 1.5em 0;
+		padding: 0;
+	}
+
+	ul {
+		list-style: disc;
+	}
+
+	ol {
+		list-style: decimal;
+	}
+
+	li > ul,
+	li > ol {
+		margin: 0 0 0 1.5em;
+	}
+
+	dl {
+		margin: 0 0 1.5em;
+	}
+
+	dt {
+		font-weight: bold;
+	}
+
+	dd {
+		margin: 0 0 2em;
+	}
+
+	table,
+	th,
+	td,
+	.mce-item-table,
+	.mce-item-table th,
+	.mce-item-table td {
+		border: 1px solid #ebebeb;
+	}
+
+	table a {
+		color: #72cfd5;
+	}
+
+	table,
+	.mce-item-table {
+		border-collapse: separate;
+		border-spacing: 0;
+		border-width: 1px 0 0 1px;
+		margin: 0 0 2em;
+		width: 100%;
+	}
+
+	table th,
+	.mce-item-table th,
+	table caption {
+		border-width: 0 1px 1px 0;
+		font-size: 1em;
+		font-weight: 700;
+		padding: 0.5em;
+		text-align: left;
+		vertical-align: baseline;
+	}
+
+	table td,
+	.mce-item-table td {
+		border-width: 0 1px 1px 0;
+		font-family: inherit;
+		font-size: 1em;
+		padding: 0.5em;
+		vertical-align: baseline;
+	}
+
+	img {
+		border: 0;
+		height: auto;
+		max-width: 660px;
+		vertical-align: middle;
+	}
+
+	figure {
+		margin: 0;
+	}
+
+	del {
+		opacity: 0.8;
+	}
+
+	a {
+		border-bottom: 1px solid #85b7d5;
+		color: #85b7d5;
+		text-decoration: none;
+	}
+
+
+	/**
+	 * 4.0 Alignment
+	 */
+
+	.alignleft {
+		float: left;
+		margin: 0.5em 2em 2em 0;
+	}
+
+	.alignright {
+		float: right;
+		margin: 0.5em 0 2em 2em;
+	}
+
+	.aligncenter {
+		clear: both;
+		display: inline-block;
+		margin: 0.5em auto;
+	}
+
+
+	/**
+	 * 5.0 Caption
+	 */
+
+	.wp-caption {
+		background: transparent;
+		border: none;
+		color: #858585;
+		font-family: inherit;
+		margin: 0 0 2em 0;
+		max-width: 660px;
+		padding: 0;
+		text-align: inherit;
+	}
+
+	.wp-caption.alignleft {
+		margin: 0.5em 2em 1.5em 0;
+	}
+
+	.wp-caption.alignright {
+		margin: 0.5em 0 1.5em 2em;
+	}
+
+	.wp-caption.aligncenter {
+		margin: 0.5em auto;
+	}
+
+	.wp-caption .wp-caption-text,
+	.wp-caption-dd {
+		font-size: 0.9230em;
+		line-height: 1.5;
+		padding: 0.5em 0;
+	}
+
+
+	/**
+	 * 6.0 Galleries
+	 */
+
+	.gallery-item {
+		display: inline-block;
+		text-align: center;
+		vertical-align: top;
+		width: 100%;
+		padding: 1%;
+	}
+
+	.gallery-columns-2 .gallery-item {	width: 50%; }
+	.gallery-columns-3 .gallery-item {	width: 33.33%; }
+	.gallery-columns-4 .gallery-item {	width: 25%; }
+	.gallery-columns-5 .gallery-item {	width: 20%; }
+	.gallery-columns-6 .gallery-item {	width: 16.66%; }
+	.gallery-columns-7 .gallery-item {	width: 14.28%; }
+	.gallery-columns-8 .gallery-item {	width: 12.5%; }
+	.gallery-columns-9 .gallery-item {	width: 11.11%; }
+
+	.gallery .gallery-caption {
+		color: #858585;
+		display: block;
+		font-size: 0.9230em;
+		line-height: 1.5;
+		padding: 0.5em 0;
+	}
+
+	.gallery-columns-6 .gallery-caption,
+	.gallery-columns-7 .gallery-caption,
+	.gallery-columns-8 .gallery-caption,
+	.gallery-columns-9 .gallery-caption {
+		display: none;
+	}
+
+
+	/**
+	 * 7.0 Audio / Video
+	 */
+
+	.wpview-wrap {
+		margin-bottom: 2em;
+	}
+
+	.wp-audio-playlist {
+		margin: 0;
+	}
+
+
+	/**
+	 * 8.0 RTL
+	 */
+
+	&.rtl {
+		font-family: Arial, Tahoma, sans-serif;
+	}
+
+	&.rtl li > ul,
+	&.rtl li > ol {
+		margin: 0 2em 0 0;
+	}
+
+	&.rtl table th,
+	&.rtl table caption {
+		text-align: right;
+	}
+}
+
+
+/**
+ * 9.0 Media Queries
+ */
+
+@media screen and (max-width: 740px) {
+	.mce-content-body {
+		max-width: 100%;
+
+		img, .wp-caption {
+			max-width: 100%;
+			width: auto !important;
+		}
+	}
+}

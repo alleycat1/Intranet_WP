@@ -1,0 +1,559 @@
+.dp_pec_wrapper .dp_pec_nav span.next_month,
+.dp_pec_wrapper .dp_pec_nav span.next_day {
+	left: 0;	
+        right: auto;
+}
+
+.dp_pec_wrapper .dp_pec_nav span.prev_month,
+.dp_pec_wrapper .dp_pec_nav span.prev_day {
+	right: 0;	
+        left: auto;
+}
+
+.dp_pec_wrapper .dp_pec_content .dp_pec_date {
+float: right;
+margin-left: 0;
+margin-right: 1%;
+}
+
+.dp_pec_wrapper .dp_pec_content .dp_pec_date.first-child {
+margin-left: 0;
+margin-right: 0;
+}
+
+.dp_pec_wrapper .dp_pec_dayname {
+margin-left: 0;
+margin-right: 1%;
+float: right;
+}
+
+.dp_pec_wrapper .dp_pec_dayname:first-child {
+margin-left: 0;
+margin-right: 0;
+}
+
+.month_arrows {
+position: absolute;
+left: 0;
+top: 0;
+height: 59px;
+width: 84px;
+}
+
+.dp_pec_wrapper .dp_pec_content .dp_pec_date .dp_date_head {
+	left: auto;
+	right: 0;
+}
+
+.dp_pec_accordion_wrapper .dp_pec_accordion_event span.pec_time,
+.dp_pec_accordion_wrapper .dp_pec_accordion_event .dp_pec_event_location,
+.dp_pec_accordion_wrapper .dp_pec_accordion_event .dp_pec_event_phone,
+.dp_pec_accordion_wrapper .dp_pec_accordion_event .dp_pec_event_categories,
+.dp_pec_wrapper .dp_pec_content .dp_pec_date_event span.dp_pec_date_event_time {
+	background-position: 100% 50% !important;
+	padding-right:21px !important;
+	padding-left: 0 !important;
+	text-align: right;
+}
+
+.dp_pec_wrapper .dp_pec_content .dp_pec_date_event span.dp_pec_date_event_time {
+	clear: both;
+}
+
+.dp_pec_wrapper .dp_pec_content .dp_pec_date_event_head.dp_pec_date_event_daily {
+background-position: 99% 50% !important;
+padding-right: 21px !important;
+padding-left: 0 !important;
+}
+
+.dp_pec_wrapper .dp_pec_content .dp_pec_date_event_head a.dp_pec_date_event_back {
+float:left !important;
+margin-left: 10px;
+}
+
+.dp_pec_wrapper .dp_pec_content .dp_pec_date_event_head span {
+margin-left: 0;
+margin-right: 25px;	
+}
+
+.dp_pec_wrapper .dp_pec_content .dp_pec_date .dp_date_head {
+float: right !important;
+right: 0 !important;
+left: auto !important;
+}
+
+.dp_pec_wrapper.dp_pec_daily .dp_daily_event,
+.dp_pec_wrapper.dp_pec_weekly .dp_daily_event,
+.dp_pec_new_event_wrapper .dp_pec_submit_event, 
+.dp_pec_new_event_wrapper .dp_pec_remove_event {
+float: right !important;
+}
+
+.dp_pec_content .dp_pec_date_event .pec_author,
+.dp_pec_content .dp_pec_date_event h1.dp_pec_event_title,
+.dp_pec_content .add_new_event_form,
+.dp_pec_content .add_new_event_form input,
+.dp_pec_content .add_new_event_form textarea,
+.dp_pec_wrapper .add_new_event_form,
+.dp_pec_wrapper .add_new_event_form input,
+.dp_pec_wrapper .add_new_event_form textarea,
+.dpProEventCalendar_eventform .add_new_event_form,
+.dpProEventCalendar_eventform .add_new_event_form input,
+.dpProEventCalendar_eventform .add_new_event_form textarea,
+.dp_pec_new_event_wrapper .dp_pec_content_header,
+.dp_pec_content .dp_pec_date_event .dp_pec_event_description,
+.dp_pec_layout input.dp_pec_search,
+.dp_pec_content,
+.dp_pec_wrapper .selectricWrapper,
+.dp_pec_wrapper .selectric-wrapper,
+.eventsPreviewDiv,
+.dp_pec_accordion_wrapper .dp_pec_content_header h2,
+.dp_pec_accordion_wrapper .dp_pec_content_search .dp_pec_content_search_input,
+.dpProEventCalendarModal .dpProEventCalendar_input,
+.dpProEventCalendarModal h2, 
+.dpProEventCalendarModalEditEvent h2,
+.pec_book_select_date p,
+.pec_skin_dark .dp_pec_yearly_calendar_month h4  {
+	text-align: right;
+}
+
+.dp_pec_content .dp_pec_date_event h1.dp_pec_event_title .dp_pec_event_title_sp {
+	float: right;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+.dp_pec_content .dp_pec_date_event .pec_edit_event {
+	margin-left: 0;
+}
+
+.dp_pec_new_event_wrapper .icheckbox_flat,
+.dp_pec_wrapper .dp_pec_check_all_day,
+.dpProEventCalendar_eventform .checkbox {
+	float: right;
+	margin-right: 0 !important;
+	margin-left: 5px !important;
+}
+
+.dp_pec_wrapper .dp_pec_content .dp_pec_date .dp_count_events {
+	left: 5px;
+	right: auto !important;
+}
+
+.eventsPreviewDiv ul li span {
+	float: right;
+	margin-left: 10px;
+	margin-right: 0 !important;
+}
+
+.dp_pec_new_event_wrapper .dp_pec_end_date_form .ui-datepicker-trigger {
+	left: 25px;
+	right: auto;
+}
+
+.dp_pec_new_event_wrapper .dp_pec_clear_end_date,
+.dp_pec_new_event_wrapper .ui-datepicker-trigger {
+	left: 5px;
+	right: auto;
+}
+
+.dpProEventCalendarModalEditEvent h2 {
+	padding: 0 10px 0 0;
+}
+
+.dpProEventCalendarModal h2 a.dpProEventCalendarClose, 
+.dpProEventCalendarModalEditEvent h2 a.dpProEventCalendarClose {
+	float:left;	
+}
+
+.dp_pec_wrapper.dp_pec_daily .dp_pec_content .dp_pec_date,
+.dp_pec_wrapper.dp_pec_weekly .dp_pec_content .dp_pec_date {
+	padding-right: 50px;
+	padding-left: 0;
+}
+
+.dp_pec_wrapper.dp_pec_weekly.dp_pec_400 .dp_pec_content .dp_pec_monthly_row .dp_pec_date {
+	padding-right: 0;
+}
+
+.dp_pec_wrapper.dp_pec_400.dp_pec_daily .dp_pec_content .dp_pec_date,
+.dp_pec_wrapper.dp_pec_400.dp_pec_weekly .dp_pec_content .dp_pec_date {
+	padding-right: 40px;
+	padding-left: 0;
+}
+
+.dp_pec_wrapper.dp_pec_weekly .dp_pec_content .dp_pec_date {
+	padding-right: 0;
+}
+.dp_pec_accordion_wrapper .dp_pec_content_header span.events_loading {
+	left: 84px;
+	right: auto !important;
+}
+
+.dp_pec_wrapper.dp_pec_monthly .dp_daily_event, 
+.dp_pec_wrapper.dp_pec_monthly-all-events .dp_daily_event {
+    margin-left: 5px !important;
+    margin-right: 25px;
+}
+
+.dp_pec_wrapper .dp_pec_nav .selectricWrapper.pec_switch_year,
+.dp_pec_wrapper .dp_pec_nav .selectric-wrapper.selectric-pec_switch_year {
+	float: right;
+}
+
+.dp_pec_wrapper .dp_pec_nav .selectricWrapper.pec_switch_month,
+.dp_pec_wrapper .dp_pec_nav .selectric-wrapper.selectric-pec_switch_month {
+	float: right;
+}
+
+.dp_pec_wrapper .dp_pec_nav span.prev_month, .dp_pec_wrapper .dp_pec_nav span.prev_day,
+.dp_pec_wrapper .dp_pec_nav span.next_month, .dp_pec_wrapper .dp_pec_nav span.next_day {
+	float:left;
+}
+
+.dp_pec_wrapper .dp_pec_nav span.next_month, .dp_pec_wrapper .dp_pec_nav span.next_day {
+	margin: 0;
+}
+
+.pec_event_page_date,
+.pec_event_page_location,
+.pec_event_page_facebook_url,
+.pec_event_page_phone,
+.pec_event_page_link,
+.pec_event_page_age_range,
+.pec_event_page_organizer,
+.pec_event_page_custom_fields,
+.pec_event_page_attendees {
+    float: right;
+    margin-right: 0;
+    margin-left: 10px;
+    padding-left: 0;
+    padding-right: 36px;
+}
+
+.dpProEventCalendar_single_head_btn {
+	float: left;
+}
+
+.pec_event_page_book i, .dp_pec_wrapper .dp_pec_content .dp_pec_date_event span i {
+    margin-left: 10px;
+    margin-right: 0;
+    float: right;
+    line-height: 150%;
+}
+
+.pec_event_page_book i {
+	margin-top: 5px;
+}
+
+.dp_pec_wrapper .dp_pec_nav .selectric .label {
+	text-align: right;
+	margin-right: 0;
+	margin-left: 20px;
+}
+
+.dp_pec_wrapper .dp_pec_nav .selectric .button {
+	left: 0;
+    right: inherit;
+}
+
+.dp_pec_grid_wrapper li.dp_pec_grid_event {
+	float: right;
+}
+
+.dp_pec_grid_wrapper li.dp_pec_grid_event span {
+	text-align: right;
+}
+
+.dp_pec_grid_wrapper li.dp_pec_grid_event span.dp_pec_event_phone,
+.dp_pec_grid_wrapper li.dp_pec_grid_event span.dp_pec_event_location {
+    padding-right: 30px;
+    background-position: 97% 50%;
+}
+
+.pec-rtl-arrow {
+	display:block !important;
+}
+
+.pec-default-arrow {
+	display: none !important;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper .dp_pec_nav span.prev_month {
+	float: right;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper .dp_pec_content .dp_pec_date .dp_count_events {
+    right: 0 !important;
+    left: auto;
+}
+
+.dp_pec_wrapper.dp_pec_weekly .dp_pec_content .dp_pec_date .pec_no_events_found {
+	float: right;
+	text-align: right;
+}
+
+.dp_pec_wrapper .dp_pec_nav span.actual_week,
+.dp_pec_wrapper .dp_pec_nav span.actual_day {
+	float: right;
+}
+
+.dp_pec_wrapper .dp_pec_nav span.next_week, 
+.dp_pec_wrapper .dp_pec_nav span.prev_week {
+	float: left;
+}
+
+.dp_pec_wrapper .dp_pec_content .dp_pec_date_event .dp_pec_date_time {
+	float:right;
+}
+
+.dp_pec_wrapper .dp_pec_content .dp_pec_date_event a.dp_pec_date_event_link {
+	float: right;
+}
+
+.pec_event_page_date i,
+.pec_event_page_location i,
+.pec_event_page_facebook_url i,
+.pec_event_page_phone i,
+.pec_event_page_link i,
+.pec_event_page_age_range i,
+.pec_event_page_organizer i,
+.pec_event_page_custom_fields i,
+.pec_event_page_attendees i {
+    float: right;
+    left: auto;
+    right: 0;
+}
+
+.pec_event_page_action {
+	float: right;
+}
+
+.pec_event_page_organizer .pec_event_page_organizer_image {
+    float: right;
+    left: auto;
+    right: 0;
+}
+
+.dp_pec_wrapper .dp_pec_content .dp_pec_date_block_wrap span.fa, 
+.dp_pec_wrapper .dp_pec_content .dp_pec_date_block_wrap i.fa {
+    float: right;
+}
+
+.dp_pec_wrapper .dp_pec_content .dp_pec_date_block {
+    float: right;
+}
+
+.dp_pec_event_page_nav .pec_event_page_action {
+    float: left;
+}
+
+.pec_event_page_action_wrap .pec_event_page_action_menu {
+	left: 0;
+	right: auto;
+}
+
+.pec_event_page_date .pec_event_page_action_wrap .pec_event_page_action_menu {
+    left: auto;
+    right: 0;
+}
+
+..pec_event_page_action_wrap .pec_event_page_action_menu ul li {
+	text-align: right
+;}
+
+.dp_pec_wrapper .dp_pec_content a.dp_pec_date_event_back {
+	float: left !important;
+}
+
+.dp_pec_wrapper .dp_pec_content a.dp_pec_date_event_back span {
+	margin-left: 0;
+	margin-right: 10px;
+}
+
+.dp_pec_wrapper .dp_pec_content .dp_pec_date_event a.dp_pec_date_event_link span, 
+.dp_pec_accordion_wrapper .dp_pec_content a.dp_pec_date_event_link span {
+	padding-left: 0;
+	padding-right: 10px;
+}
+
+.dp_pec_wrapper .dp_pec_content .dp_pec_date_event a.dp_pec_date_event_link i.fa, 
+.dp_pec_accordion_wrapper .dp_pec_content a.dp_pec_date_event_link i.fa {
+    float: right;
+    line-height: 34px;
+}
+
+.dp_pec_wrapper .dp_daily_event {
+	float: right !important;
+}
+
+.dp_pec_col6 {
+    float: right;
+    padding-right: 10px;
+    padding-left: 0;
+}
+
+.dp_pec_col6:first-child {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.dp_pec_400 .dp_pec_col6 {
+	padding-right: 0;
+}
+
+.dp_pec_row .pec_checkbox_list {
+    float: right;
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+.dp_pec_wrapper .selectricWrapper, 
+.dpProEventCalendarModal .selectricWrapper,
+.dp_pec_wrapper .selectric-wrapper, 
+.dpProEventCalendarModal .selectric-wrapper {
+    float: right;
+}
+
+.dp_pec_wrapper .selectricWrapper.pec_categories_list,
+.dp_pec_wrapper .selectricWrapper.pec_location_list,
+.dp_pec_wrapper .selectric-wrapper.selectric-pec_categories_list,
+.dp_pec_wrapper .selectric-wrapper.selectric-pec_location_list {
+	float: right;
+}
+
+.dp_pec_new_event_wrapper .dp_pec_new_event_time, 
+.dp_pec_wrapper .dp_pec_new_event_time {
+    float: right;
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+.pec_booking_quantity {
+	text-align: right;
+}
+
+.pec_booking_quantity .selectricWrapper,
+.pec_booking_quantity .selectric-wrapper {
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+.pec_booking_date .selectricWrapper,
+.pec_booking_date .selectric-wrapper {
+    margin-right: 0;
+}
+
+.pec_event_page_date p,
+.pec_event_page_location p,
+.pec_event_page_facebook_url p,
+.pec_event_page_phone p,
+.pec_event_page_link p,
+.pec_event_page_age_range p,
+.pec_event_page_categories p,
+.pec_event_page_custom_fields p {
+	text-align: right;
+}
+
+.pec_event_page_date p.pec_event_page_date_day {
+    float: right;
+    padding: 5px 0 5px 10px;
+}
+
+.dp_pec_attendees_counter,
+.pec_event_page_book {
+	float: right;	
+}
+
+.pec_event_page_date p.pec_event_page_date_day span{
+	float:left;
+}
+
+.pec_event_page_date p.pec_event_page_date_day span i{
+	margin-left: 0;
+	margin-right: 5px;
+}
+
+.dp_pec_wrap_checkbox {
+	float: right;
+}
+
+.dp_pec_wrapper .dp_pec_layout .dp_pec_layout_right {
+    float: left;
+}
+
+.dp_pec_wrapper .dp_pec_layout a i {
+    margin-right: 0;
+    float: right;
+    margin-left: 5px;
+}
+
+.dp_pec_wrapper .dp_pec_layout a.dp_pec_search_btn i {
+    margin-left: 0;
+}
+
+.dp_pec_wrapper .dp_pec_btnright {
+    margin: 0 10px 0 0 !important;
+}
+
+.dp_pec_wrapper .dp_pec_layout .dp_pec_references_div {
+	left: 0;
+}
+
+.dp_pec_wrapper .dp_pec_layout .dp_pec_references_div .dp_pec_references_close i {
+	margin-right: 5px;
+	margin-left: 0;
+}
+
+.dp_pec_wrapper .selectricWrapper.pec_categories_list,
+.dp_pec_wrapper .selectric-wrapper.selectric-pec_categories_list {
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+.dp_pec_map_infowindow span i {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.dp_pec_wrapper .dp_pec_edit_remove_wrap {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    z-index: 999;
+}
+
+.dp_pec_wrapper .dpProEventCalendar_feed {
+	float:right;
+}
+
+.dp_pec_wrapper .pec_checkbox_list .checkbox {
+    margin-left: 10px;
+}
+
+.selectric-wrapper.selectric-dp_pec_new_event_time {
+	float: none;
+    display: inline-block;
+}
+
+.dp_pec_accordion_wrapper .dpProEventCalendar_feed i, 
+.dp_pec_wrapper .dpProEventCalendar_feed i {
+	margin-right: 0;
+	margin-left: 5px;
+}
+
+.dp_pec_notification_close, .dp_pec_notification_close:visited {
+    margin-left: 20px;
+}
+
+.pec_yearly_eventsPreview ul li a {
+    grid-column: 1 / 4;
+    grid-row: 1;
+    text-align: right;
+}
+
+.pec_yearly_eventsPreview ul li span {
+    grid-column: 4 / 5;
+    grid-row: 1;
+}

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA,2BAA2B;AAC3B,cAAe;EC8Sd,QAAQ,EAAE,KAAK;EAEd,OAAO,EAAE,EAAE;EAEZ,GAAG,EAAE,CAAC;EACN,IAAI,EAAE,CAAC;EACP,KAAK,EAAE,CAAC;EACR,MAAM,EAAE,CAAC;EACT,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EDrTZ,cAAc,EAAE,IAAI;;;AAGpB,uFAC8B;EAC7B,gBAAgB,EAAE,WAAW",
+"sources": ["bg-colors.scss","../../css/_mixins.scss"],
+"names": [],
+"file": "bg-colors.css"
+}

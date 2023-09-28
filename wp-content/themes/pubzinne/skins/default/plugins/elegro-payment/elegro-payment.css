@@ -1,0 +1,16 @@
+/* Elegro Crypto payment styles
+----------------------------------------------------------------- */
+#modal {
+  position: static !important;
+  background: none !important;
+  overflow: visible;
+  padding: 0 !important;
+}
+#modal #elegro-reset-wrapper {
+  margin: 2em 0 3em;
+}
+#modal #elegro-reset-wrapper .elegro-widget {
+  margin: 0 !important;
+}
+
+/*# sourceMappingURL=elegro-payment.css.map */

@@ -1,0 +1,8 @@
+@import "../../../../css/_mixins.scss";
+@import "../../../../css/_theme-vars.scss";
+@import "../../css/_skin-vars.scss";
+
+//@mixin blog_styles_portfolio--xl() {
+@media #{$media_xl} {
+	/* Blog layout: Portfolio */
+}

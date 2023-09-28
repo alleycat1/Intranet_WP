@@ -1,0 +1,435 @@
+.sc_tgenerator_form {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  position: relative;
+}
+.sc_tgenerator_form.sc_tgenerator_form_align_left {
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+.sc_tgenerator_form.sc_tgenerator_form_align_right {
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+.sc_tgenerator_form .trx_addons_loading {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 100;
+  display: none;
+}
+.sc_tgenerator_form.sc_tgenerator_form_loading .trx_addons_loading {
+  display: block;
+}
+
+.sc_tgenerator_form_inner {
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.sc_tgenerator_form_align_left .sc_tgenerator_form_inner {
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+.sc_tgenerator_form_align_right .sc_tgenerator_form_inner {
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.sc_tgenerator_form_field_prompt {
+  position: relative;
+  width: 100%;
+}
+.sc_tgenerator_form_field_prompt .sc_tgenerator_form_field_inner {
+  position: relative;
+  width: 100%;
+}
+.sc_tgenerator_form_field_prompt input[type="text"] {
+  width: 100%;
+  -webkit-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-right: 9em;
+  text-overflow: ellipsis;
+}
+.sc_tgenerator_form_field_prompt .sc_tgenerator_form_field_prompt_button {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  top: 4px;
+  right: 4px;
+  bottom: 4px;
+  left: auto;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+  -ms-transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  max-width: 50%;
+  overflow: hidden;
+  padding: 0 2em;
+  background-color: #38bb7a;
+  color: #fff;
+}
+.sc_tgenerator_form_field_prompt .sc_tgenerator_form_field_prompt_button:not(.sc_tgenerator_form_field_prompt_button_disabled):hover {
+  background-color: #32a86e;
+}
+.sc_tgenerator_form_field_prompt .sc_tgenerator_form_field_prompt_button_disabled {
+  background-color: #e4f7ed;
+  color: #aaa;
+  cursor: default;
+}
+
+.sc_tgenerator_form_field_tags {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  line-height: 1.7em;
+  margin-top: 1em;
+}
+.sc_tgenerator_form_field_tags > * {
+  margin-right: 0.3em;
+}
+.sc_tgenerator_form_field_tags > *:last-child {
+  margin-right: 0;
+}
+
+.sc_tgenerator_form_field_tags_label {
+  white-space: nowrap;
+}
+
+.sc_tgenerator_form_field_select {
+  position: relative;
+  -webkit-transition: opacity 0.3s ease;
+  -ms-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+.sc_tgenerator_form_field_select .sc_tgenerator_form_field_select_label {
+  white-space: nowrap;
+  cursor: pointer;
+  color: #11a0d2;
+  padding: 0 0 0.25em 0;
+  border-bottom: 1px solid #11a0d2;
+}
+.sc_tgenerator_form_field_select .sc_tgenerator_form_field_select_options {
+  display: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease;
+  -ms-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  z-index: 2;
+  top: 2em;
+  left: 0;
+  -webkit-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.sc_tgenerator_form_field_select.sc_tgenerator_form_field_select_opened .sc_tgenerator_form_field_select_options {
+  display: block;
+  opacity: 1;
+}
+.sc_tgenerator_form_field_select .sc_tgenerator_form_field_select_option {
+  display: block;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 0.25em 1em;
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+  -ms-transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.sc_tgenerator_form_field_select .sc_tgenerator_form_field_select_option:hover, .sc_tgenerator_form_field_select .sc_tgenerator_form_field_select_option:focus {
+  background-color: #f0f1f2;
+  color: #11a0d2;
+}
+
+.sc_tgenerator_form_field_hidden {
+  display: none;
+  opacity: 0;
+}
+
+.sc_tgenerator_form_field_visible {
+  display: inline-block;
+  opacity: 1;
+}
+
+.sc_tgenerator_limits {
+  width: 100%;
+  text-align: center;
+  margin-top: 1em;
+}
+.sc_tgenerator_form_align_left .sc_tgenerator_limits {
+  text-align: left;
+}
+.sc_tgenerator_form_align_right .sc_tgenerator_limits {
+  text-align: right;
+}
+.sc_tgenerator_limits .sc_tgenerator_limits_used {
+  white-space: nowrap;
+}
+
+.sc_tgenerator_message {
+  -webkit-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  padding: 2em 3em;
+  min-width: 40%;
+  background-color: #feeeee;
+  color: #f04c49;
+  margin: 1em 0;
+  text-align: center;
+  display: none;
+}
+.sc_tgenerator_message .trx_addons_button_close_icon {
+  color: #99302e;
+}
+.sc_tgenerator_message .trx_addons_button_close_icon:before, .sc_tgenerator_message .trx_addons_button_close_icon:after {
+  border-color: #99302e;
+}
+
+.sc_tgenerator_message_inner p, .sc_tgenerator_message_inner h1, .sc_tgenerator_message_inner h2, .sc_tgenerator_message_inner h3, .sc_tgenerator_message_inner h4, .sc_tgenerator_message_inner h5, .sc_tgenerator_message_inner h6 {
+  margin: 0;
+}
+.sc_tgenerator_message_inner p + p, .sc_tgenerator_message_inner h1 + p, .sc_tgenerator_message_inner h2 + p, .sc_tgenerator_message_inner h3 + p, .sc_tgenerator_message_inner h4 + p, .sc_tgenerator_message_inner h5 + p, .sc_tgenerator_message_inner h6 + p {
+  margin-top: 0.3em;
+}
+.sc_tgenerator_message_inner h1, .sc_tgenerator_message_inner h2, .sc_tgenerator_message_inner h3, .sc_tgenerator_message_inner h4, .sc_tgenerator_message_inner h5, .sc_tgenerator_message_inner h6 {
+  color: #99302e;
+}
+.sc_tgenerator_message_inner a {
+  font-weight: 500;
+  color: #99302e;
+  border-bottom: 1px dashed #99302e;
+}
+.sc_tgenerator_message_inner a:hover {
+  color: #99302e;
+  border-bottom-style: solid;
+}
+
+.sc_tgenerator_message_type_info {
+  background-color: #e5f5fa;
+  color: #00a0d2;
+}
+.sc_tgenerator_message_type_info h1, .sc_tgenerator_message_type_info h2, .sc_tgenerator_message_type_info h3, .sc_tgenerator_message_type_info h4, .sc_tgenerator_message_type_info h5, .sc_tgenerator_message_type_info h6 {
+  color: #007599;
+}
+.sc_tgenerator_message_type_info a {
+  color: #007599;
+  border-bottom-color: #007599;
+}
+.sc_tgenerator_message_type_info a:hover {
+  color: #007599;
+}
+.sc_tgenerator_message_type_info .trx_addons_button_close_icon {
+  color: #007599;
+}
+.sc_tgenerator_message_type_info .trx_addons_button_close_icon:before, .sc_tgenerator_message_type_info .trx_addons_button_close_icon:after {
+  border-color: #007599;
+}
+
+.sc_tgenerator_message_type_success {
+  background-color: #e4f7ed;
+  color: #38bb7a;
+}
+.sc_tgenerator_message_type_success h1, .sc_tgenerator_message_type_success h2, .sc_tgenerator_message_type_success h3, .sc_tgenerator_message_type_success h4, .sc_tgenerator_message_type_success h5, .sc_tgenerator_message_type_success h6 {
+  color: #2e9963;
+}
+.sc_tgenerator_message_type_success a {
+  color: #2e9963;
+  border-bottom-color: #2e9963;
+}
+.sc_tgenerator_message_type_success a:hover {
+  color: #2e9963;
+}
+.sc_tgenerator_message_type_success .trx_addons_button_close_icon {
+  color: #2e9963;
+}
+.sc_tgenerator_message_type_success .trx_addons_button_close_icon:before, .sc_tgenerator_message_type_success .trx_addons_button_close_icon:after {
+  border-color: #2e9963;
+}
+
+.sc_tgenerator_text {
+  width: 100%;
+  height: 20vh;
+  overflow-x: visible;
+  overflow-y: auto;
+  -webkit-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-top: 1em;
+}
+
+.sc_tgenerator_result {
+  display: none;
+  margin-top: 1.5em;
+}
+.sc_tgenerator_result .sc_tgenerator_result_label {
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+.sc_tgenerator_result .sc_tgenerator_result_copy {
+  margin-top: 1em;
+}
+.sc_tgenerator_result .sc_tgenerator_result_copy .sc_button .sc_button_icon {
+  font-size: 1em;
+}
+.sc_tgenerator_result .sc_tgenerator_result_copy .sc_button .sc_button_icon [class*="trx_addons_icon-"]:before {
+  width: 1em;
+}
+.sc_tgenerator_result .sc_tgenerator_result_copy .sc_button.sc_button_icon_left .sc_button_icon {
+  margin-right: 0.5em;
+}
+.sc_tgenerator_result .sc_tgenerator_result_copy .sc_button.sc_button_icon_right .sc_button_icon {
+  margin-left: 0.5em;
+}
+.sc_tgenerator_result .sc_tgenerator_result_copy .sc_button.sc_button_copied .sc_button_icon [class*="trx_addons_icon-"]:before {
+  content: "\e900";
+}
+.sc_tgenerator_result .sc_tgenerator_result_content {
+  margin-bottom: 0.5em;
+  width: 100%;
+  max-height: 40vh;
+  overflow-x: visible;
+  overflow-y: auto;
+  -webkit-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 1em;
+  background-color: #f0f1f2;
+  border: 1px solid #e0e2e5;
+}
+
+.sc_tgenerator_text h1, .sc_tgenerator_text h2, .sc_tgenerator_text h3, .sc_tgenerator_text h4, .sc_tgenerator_text h5, .sc_tgenerator_text h6,
+.sc_tgenerator_result h1,
+.sc_tgenerator_result h2,
+.sc_tgenerator_result h3,
+.sc_tgenerator_result h4,
+.sc_tgenerator_result h5,
+.sc_tgenerator_result h6 {
+  font-weight: 500;
+}
+.sc_tgenerator_text h1,
+.sc_tgenerator_result h1 {
+  font-size: 2em;
+}
+.sc_tgenerator_text h2,
+.sc_tgenerator_result h2 {
+  font-size: 1.8em;
+}
+.sc_tgenerator_text h3,
+.sc_tgenerator_result h3 {
+  font-size: 1.6em;
+}
+.sc_tgenerator_text h4,
+.sc_tgenerator_result h4 {
+  font-size: 1.4em;
+}
+.sc_tgenerator_text h5,
+.sc_tgenerator_result h5 {
+  font-size: 1.2em;
+}
+.sc_tgenerator_text h6,
+.sc_tgenerator_result h6 {
+  font-size: 1.1em;
+}
+.sc_tgenerator_text p, .sc_tgenerator_text ol, .sc_tgenerator_text ul, .sc_tgenerator_text dl, .sc_tgenerator_text h1, .sc_tgenerator_text h2, .sc_tgenerator_text h3, .sc_tgenerator_text h4, .sc_tgenerator_text h5, .sc_tgenerator_text h6,
+.sc_tgenerator_result p,
+.sc_tgenerator_result ol,
+.sc_tgenerator_result ul,
+.sc_tgenerator_result dl,
+.sc_tgenerator_result h1,
+.sc_tgenerator_result h2,
+.sc_tgenerator_result h3,
+.sc_tgenerator_result h4,
+.sc_tgenerator_result h5,
+.sc_tgenerator_result h6 {
+  margin: 0 0 0.3em 0;
+}
+.sc_tgenerator_text p:last-child, .sc_tgenerator_text ol:last-child, .sc_tgenerator_text ul:last-child, .sc_tgenerator_text dl:last-child, .sc_tgenerator_text h1:last-child, .sc_tgenerator_text h2:last-child, .sc_tgenerator_text h3:last-child, .sc_tgenerator_text h4:last-child, .sc_tgenerator_text h5:last-child, .sc_tgenerator_text h6:last-child,
+.sc_tgenerator_result p:last-child,
+.sc_tgenerator_result ol:last-child,
+.sc_tgenerator_result ul:last-child,
+.sc_tgenerator_result dl:last-child,
+.sc_tgenerator_result h1:last-child,
+.sc_tgenerator_result h2:last-child,
+.sc_tgenerator_result h3:last-child,
+.sc_tgenerator_result h4:last-child,
+.sc_tgenerator_result h5:last-child,
+.sc_tgenerator_result h6:last-child {
+  margin-bottom: 0;
+}
+
+/*# sourceMappingURL=tgenerator.css.map */

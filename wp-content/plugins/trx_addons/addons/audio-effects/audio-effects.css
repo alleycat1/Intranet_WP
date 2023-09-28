@@ -1,0 +1,140 @@
+/* Audio effects */
+.sc_audio_effects {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 1.5em;
+  height: 1em;
+  position: relative;
+}
+.sc_audio_effects.sc_audio_effects_off:before {
+  content: '\e875';
+  font-family: "trx_addons_icons";
+  font-size: 9px;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: -0.5em;
+  right: -0.25em;
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  text-align: center;
+  pointer-events: none;
+  color: #a00000;
+}
+.sc_audio_effects > span {
+  display: inline-flex;
+  margin: 0 1px;
+  width: 2px;
+  height: 0.7143em;
+  background-color: #333;
+}
+.sc_audio_effects.sc_audio_effects_on > span:nth-child(1) {
+  -webkit-animation: music-bar 2s 1s ease-out alternate infinite;
+  -ms-animation: music-bar 2s 1s ease-out alternate infinite;
+  animation: music-bar 2s 1s ease-out alternate infinite;
+}
+.sc_audio_effects > span:nth-child(2) {
+  height: 0.4286em;
+}
+.sc_audio_effects.sc_audio_effects_on > span:nth-child(2) {
+  -webkit-animation: music-bar 2s 0.5s ease-out alternate infinite;
+  -ms-animation: music-bar 2s 0.5s ease-out alternate infinite;
+  animation: music-bar 2s 0.5s ease-out alternate infinite;
+}
+.sc_audio_effects > span:nth-child(3) {
+  height: 1em;
+}
+.sc_audio_effects.sc_audio_effects_on > span:nth-child(3) {
+  -webkit-animation: music-bar 2s 1.5s ease-out alternate infinite;
+  -ms-animation: music-bar 2s 1.5s ease-out alternate infinite;
+  animation: music-bar 2s 1.5s ease-out alternate infinite;
+}
+.sc_audio_effects > span:nth-child(4) {
+  height: 0.5714em;
+}
+.sc_audio_effects.sc_audio_effects_on > span:nth-child(4) {
+  -webkit-animation: music-bar 2s 0.25s ease-out alternate infinite;
+  -ms-animation: music-bar 2s 0.25s ease-out alternate infinite;
+  animation: music-bar 2s 0.25s ease-out alternate infinite;
+}
+
+@-webkit-keyframes music-bar {
+  0% {
+    height: 0.4286em;
+  }
+  10% {
+    height: 0.7143em;
+  }
+  20% {
+    height: 0.4286em;
+  }
+  30% {
+    height: 1em;
+  }
+  40% {
+    height: 1.2857em;
+  }
+  50% {
+    height: 0.4286em;
+  }
+  60% {
+    height: 1.1429em;
+  }
+  70% {
+    height: 0.7143em;
+  }
+  80% {
+    height: 0.8571em;
+  }
+  90% {
+    height: 0.2857em;
+  }
+  100% {
+    height: 1.2857em;
+  }
+}
+@keyframes music-bar {
+  0% {
+    height: 0.4286em;
+  }
+  10% {
+    height: 0.7143em;
+  }
+  20% {
+    height: 0.4286em;
+  }
+  30% {
+    height: 1em;
+  }
+  40% {
+    height: 1.2857em;
+  }
+  50% {
+    height: 0.4286em;
+  }
+  60% {
+    height: 1.1429em;
+  }
+  70% {
+    height: 0.7143em;
+  }
+  80% {
+    height: 0.8571em;
+  }
+  90% {
+    height: 0.2857em;
+  }
+  100% {
+    height: 1.2857em;
+  }
+}
+
+/*# sourceMappingURL=audio-effects.css.map */

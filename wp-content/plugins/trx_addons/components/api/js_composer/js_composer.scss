@@ -1,0 +1,283 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/* Make VC row relative to enable using absolute position in columns */
+.vc_row {
+	position:relative;
+}
+.sc_column_fixed_placeholder {
+	min-height: 1px;
+}
+
+
+/* Height variants for the empty space */
+.vc_empty_space.sc_height_tiny { 	height: var(--sc-space-tiny) !important; }
+.vc_empty_space.sc_height_small { 	height: var(--sc-space-small) !important; }
+.vc_empty_space.sc_height_medium {	height: var(--sc-space-medium) !important; }
+.vc_empty_space.sc_height_large,
+.vc_empty_space.sc_height_big { 	height: var(--sc-space-large) !important; }
+.vc_empty_space.sc_height_huge { 	height: var(--sc-space-huge) !important; }
+
+
+/* Extra bg for VC columns and [trx_sc_content] */
+.wpb_row[class*="sc_extra_bg_"],
+.wpb_row[class*="sc_bg_mask_"],
+.wpb_column[class*="sc_extra_bg_"] > .vc_column-inner,
+.wpb_column[class*="sc_bg_mask_"] > .vc_column-inner,
+.wpb_text_column[class*="sc_extra_bg_"],
+.wpb_text_column[class*="sc_bg_mask_"],
+.sc_content[class*="sc_extra_bg_"],
+.sc_content[class*="sc_bg_mask_"] {
+	position:relative;
+	z-index: 0;
+}
+.wpb_text_column[class*="sc_bg_mask_"] > .wpb_wrapper {
+	position:relative;
+	z-index:2;
+}
+.wpb_row[class*="sc_extra_bg_"]:after,
+.wpb_column[class*="sc_extra_bg_"] > .vc_column-inner:after,
+.wpb_text_column[class*="sc_extra_bg_"]:after,
+.sc_content[class*="sc_extra_bg_"]:after {
+	content:' ';
+	display: block;
+	position: absolute;
+	z-index:-1;
+	background:inherit;
+}
+.wpb_row[class*="sc_bg_mask_"]:before,
+.wpb_column[class*="sc_bg_mask_"] > .vc_column-inner:before,
+.wpb_text_column[class*="sc_bg_mask_"]:before,
+.sc_content[class*="sc_bg_mask_"]:before {
+	content:' ';
+	display: block !important;
+	background-color:inherit;
+	@include abs-cover(0);
+}
+.wpb_row.vc_parallax[class*="sc_bg_mask_"]:before {
+	z-index:1;
+}
+.wpb_row.sc_extra_bg_tiny[class*="sc_bg_mask_"]:before,
+.wpb_row.sc_extra_bg_tiny:after,
+.wpb_column.sc_extra_bg_tiny[class*="sc_bg_mask_"] > .vc_column-inner:before,
+.wpb_column.sc_extra_bg_tiny > .vc_column-inner:after,
+.wpb_text_column.sc_extra_bg_tiny[class*="sc_bg_mask_"]:before,
+.wpb_text_column.sc_extra_bg_tiny:after,
+.sc_content.sc_extra_bg_tiny[class*="sc_bg_mask_"]:before,
+.sc_content.sc_extra_bg_tiny:after {
+	@include abs-pos(-2em, -2em, -2em, -2em, '');
+}
+.wpb_row.sc_extra_bg_small[class*="sc_bg_mask_"]:before,
+.wpb_row.sc_extra_bg_small:after,
+.wpb_column.sc_extra_bg_small[class*="sc_bg_mask_"] > .vc_column-inner:before,
+.wpb_column.sc_extra_bg_small > .vc_column-inner:after,
+.wpb_text_column.sc_extra_bg_small[class*="sc_bg_mask_"]:before,
+.wpb_text_column.sc_extra_bg_small:after,
+.sc_content.sc_extra_bg_small[class*="sc_bg_mask_"]:before,
+.sc_content.sc_extra_bg_small:after {
+	@include abs-pos(-4em, -4em, -4em, -4em, '');
+}
+.wpb_row.sc_extra_bg_medium[class*="sc_bg_mask_"]:before,
+.wpb_row.sc_extra_bg_medium:after,
+.wpb_column.sc_extra_bg_medium[class*="sc_bg_mask_"] > .vc_column-inner:before,
+.wpb_column.sc_extra_bg_medium > .vc_column-inner:after,
+.wpb_text_column.sc_extra_bg_medium[class*="sc_bg_mask_"]:before,
+.wpb_text_column.sc_extra_bg_medium:after,
+.sc_content.sc_extra_bg_medium[class*="sc_bg_mask_"]:before,
+.sc_content.sc_extra_bg_medium:after {
+	@include abs-pos(-6em, -6em, -6em, -6em, '');
+}
+.wpb_row.sc_extra_bg_large[class*="sc_bg_mask_"]:before,
+.wpb_row.sc_extra_bg_large:after,
+.wpb_column.sc_extra_bg_large[class*="sc_bg_mask_"] > .vc_column-inner:before,
+.wpb_column.sc_extra_bg_large > .vc_column-inner:after,
+.wpb_text_column.sc_extra_bg_large[class*="sc_bg_mask_"]:before,
+.wpb_text_column.sc_extra_bg_large:after,
+.sc_content.sc_extra_bg_large[class*="sc_bg_mask_"]:before,
+.sc_content.sc_extra_bg_large:after {
+	@include abs-pos(-8em, -8em, -8em, -8em, '');
+}
+
+.wpb_row.sc_bg_mask_bg_color:before,
+.wpb_column.sc_bg_mask_bg_color > .vc_column-inner:before,
+.wpb_text_column.sc_bg_mask_bg_color:before,
+.sc_content.sc_bg_mask_bg_color:before { background-color:inherit; }
+.wpb_row.sc_bg_mask_1:before,
+.wpb_column.sc_bg_mask_1 > .vc_column-inner:before,
+.wpb_text_column.sc_bg_mask_1:before,
+.sc_content.sc_bg_mask_1:before {	opacity: 0.1; }
+.wpb_row.sc_bg_mask_2:before,
+.wpb_column.sc_bg_mask_2 > .vc_column-inner:before,
+.wpb_text_column.sc_bg_mask_2:before,
+.sc_content.sc_bg_mask_2:before {	opacity: 0.2; }
+.wpb_row.sc_bg_mask_3:before,
+.wpb_column.sc_bg_mask_3 > .vc_column-inner:before,
+.wpb_text_column.sc_bg_mask_3:before,
+.sc_content.sc_bg_mask_3:before {	opacity: 0.3; }
+.wpb_row.sc_bg_mask_4:before,
+.wpb_column.sc_bg_mask_4 > .vc_column-inner:before,
+.wpb_text_column.sc_bg_mask_4:before,
+.sc_content.sc_bg_mask_4:before {	opacity: 0.4; }
+.wpb_row.sc_bg_mask_5:before,
+.wpb_column.sc_bg_mask_5 > .vc_column-inner:before,
+.wpb_text_column.sc_bg_mask_5:before,
+.sc_content.sc_bg_mask_5:before {	opacity: 0.5; }
+.wpb_row.sc_bg_mask_6:before,
+.wpb_column.sc_bg_mask_6 > .vc_column-inner:before,
+.wpb_text_column.sc_bg_mask_6:before,
+.sc_content.sc_bg_mask_6:before {	opacity: 0.6; }
+.wpb_row.sc_bg_mask_7:before,
+.wpb_column.sc_bg_mask_7 > .vc_column-inner:before,
+.wpb_text_column.sc_bg_mask_7:before,
+.sc_content.sc_bg_mask_7:before {	opacity: 0.7; }
+.wpb_row.sc_bg_mask_8:before,
+.wpb_column.sc_bg_mask_8 > .vc_column-inner:before,
+.wpb_text_column.sc_bg_mask_8:before,
+.sc_content.sc_bg_mask_8:before {	opacity: 0.8; }
+.wpb_row.sc_bg_mask_9:before,
+.wpb_column.sc_bg_mask_9 > .vc_column-inner:before,
+.wpb_text_column.sc_bg_mask_9:before,
+.sc_content.sc_bg_mask_9:before {	opacity: 0.9; }
+
+
+/* Move container controls to the right side */
+.compose-mode .vc_controls-container > div.vc_controls-out-tl {
+	left: auto;
+	right: 0;
+}
+
+
+/* Hide 'Add' button on the some shortcodes */
+.compose-mode .sc_widget_slider.vc_empty-element:after {
+	display: none !important;
+}
+
+/* Put layouts item in the same line */
+.compose-mode .vc_element.sc_layouts_item {
+	display: inline-block;
+}
+
+/* Fix controls height */
+.compose-mode .vc_element-name .vc_btn-content {
+	height:  unset;
+}
+
+
+/* Shape dividers */
+.vc_shape_divider {
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	line-height: 0;
+	direction: ltr;
+	pointer-events: none;
+}
+.vc_shape_divider svg {
+	display: block;
+	width: 100%;
+}
+.vc_shape_divider_top {
+	top: -0.3px;	// To prevent row content appear above the divider
+}
+.vc_shape_divider_bottom {
+	bottom: -0.3px;	// To prevent row content appear below the divider
+	@include rotate(180deg);
+}
+.shape_divider_top_front .vc_shape_divider,
+.shape_divider_top_bottom .vc_shape_divider {
+	z-index: 9;
+}
+
+/* Decorate Flexslider */
+.flex-direction-nav li {
+	position:static;
+}
+.flex-control-nav li:before {
+	display: none;
+}
+
+
+/* Progress bar - style 'Narrow' */
+.vc_progress_bar.vc_progress_bar_narrow .vc_single_bar {
+	@include box-shadow(none);
+	@include border-sharp;
+	height: 4px;
+	margin-top: 1.4em;
+}
+.vc_progress_bar.vc_progress_bar_narrow .vc_single_bar .vc_bar {
+	height: 4px;
+	@include border-sharp;
+}
+.vc_progress_bar.vc_progress_bar_narrow .vc_single_bar + .vc_single_bar {
+	margin-top: 3.3em;
+}
+.vc_progress_bar.vc_progress_bar_narrow .vc_single_bar .vc_label {
+	display:block;
+	width:100%;
+	@include abs-lt(0, -1.625em);
+	@include font(1.0667em, 1.5em, 400, normal);
+	padding:0;
+	text-shadow:none;
+}
+.vc_progress_bar.vc_progress_bar_narrow .vc_single_bar .vc_label .vc_label_units {
+	@include abs-rt(0, 1px);
+	font-size: 0.875em;
+	font-style:italic;
+}
+
+/* Message Box - add close button */
+.vc_message_box_closeable {
+	position:relative;
+}
+.vc_message_box_closeable:after {
+	content: '\e8be';
+	font-family: $trx_addons_icons;
+	@include font(1.5em, 1em, 400);
+	padding:1em;
+	color: inherit;
+	cursor:pointer;
+	@include abs-rt(0, 50%);
+	@include translateY(-50%);
+}
+
+
+/* Remove margins from first and last elements on the page */
+.vc_row:first-child {
+	h1:first-child,
+	h2:first-child,
+	h3:first-child,
+	h4:first-child,
+	h5:first-child,
+	h6:first-child {
+		margin-top: 0;
+	}
+}
+.vc_row:last-child {
+	h1:last-child,
+	h2:last-child,
+	h3:last-child,
+	h4:last-child,
+	h5:last-child,
+	h6:last-child {
+		margin-bottom: 0;
+	}
+}
+
+
+
+
+/* Device-specific responsive must be inside main CSS, not in responsive
+-------------------------------------------------------------------------- */
+
+@media #{$media_desktop} {
+    /* WPBakery PageBuilder */
+	.wpb_row.hide_bg_image_on_desktop,
+	.wpb_column.hide_bg_image_on_desktop .vc_column-inner {
+		background-image: none !important;
+	}
+	.wpb_row.hide_bg_image_on_desktop[class*="sc_bg_mask_"]:before,
+	.wpb_column.hide_bg_image_on_desktop[class*="sc_bg_mask_"] > .vc_column-inner:before {
+		display:none !important;
+	}
+}

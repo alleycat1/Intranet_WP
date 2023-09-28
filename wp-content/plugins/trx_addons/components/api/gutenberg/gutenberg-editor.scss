@@ -1,0 +1,111 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/* Gutenberg Editor panels ( editor sidebar, not edit area )
+----------------------------------------------------------------- */
+
+html {
+	font-size: 14px;
+}
+
+/* Components panel */
+.components-panel {
+	padding-right: 16px;
+}
+.components-panel__body > .components-panel__body-title {
+	background-color: #edeff0;
+}
+.components-panel__body.is-opened > .components-panel__body-title {
+	margin-bottom: 15px !important;
+}
+.components-panel__body .components-base-control__title {
+	margin: 1.25em 0 0.25em;
+}
+//.components-panel__body .components-base-control__label,
+.components-panel__body .components-base-control__description {
+	font-size: 11px;
+	font-style: italic;
+	line-height: 1.4em;
+	color: #888;
+}
+.components-panel__body .components-flex.components-select-control,
+.components-panel__body .components-flex.components-input-control,
+.components-panel__body .components-focal-point-picker[class*="MediaContainer"] {
+	height: auto;
+}
+
+.components-panel__body.is-opened .image-selector {
+	@include flex;
+	@include flex-direction(column);
+	@include flex-align-items(flex-start);
+	@include flex-justify-content(flex-start);
+
+	.image-selector-preview {
+		@include flex;
+		@include flex-align-items(flex-start);
+		@include flex-justify-content(flex-start);
+		@include flex-wrap(wrap);
+		margin-bottom: 0.5em;
+
+		img {
+			width: auto !important;
+			height: 8em !important;
+			margin: 0 2px 2px 0;
+		}
+	}
+	&.image-selector-gallery {
+		.image-selector-preview {
+			img {
+				height: 4.8em !important;
+			}
+		}
+	}
+}
+/*
+.components-color-palette-preview {
+	border: 1px solid #8d96a0;
+	border-radius: 5px;
+	height: 22px;
+	width: 50px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+*/
+.components-toolbar .components-icon-button {
+	overflow: hidden
+}
+.components-base-control input[type="text"],
+.components-base-control input[type="number"],
+.components-base-control input[type="search"] {
+	height: auto;
+	padding: 6px 8px;
+}
+
+.components-base-control select[multiple] {
+	height: auto !important;
+	max-height: 10em;
+	overflow-y: auto !important;	// Fix for Mac
+
+	& ~ .components-input-control__suffix {
+		display: none;
+	}
+}
+
+
+.components-datetime__time .components-datetime__time-wrapper .components-datetime__time-am-button,
+.components-datetime__time .components-datetime__time-wrapper .components-datetime__time-pm-button {
+	margin-top: 0;
+}
+
+
+/* Fix margin from Give plugin */
+.editor-block-list__layout .components-button {
+	margin-top: 0;	
+}
+.post-publish-panel__postpublish-buttons > .components-button {
+	margin: 5px;
+}
+.post-publish-panel__postpublish-buttons > span > .components-button {
+	margin: 0;
+}

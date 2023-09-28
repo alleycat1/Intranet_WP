@@ -1,0 +1,257 @@
+/* Hotspot */
+:root {
+  --sc-icompare-handler-size: 50px;
+  --sc-icompare-handler-size-half: calc( var(--sc-icompare-handler-size) / 2 );
+  --sc-icompare-handler-size-half-: calc( var(--sc-icompare-handler-size) / -2 );
+  --sc-icompare-handler-border: 2px;
+}
+
+.sc_icompare_content {
+  position: relative;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease;
+  -ms-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+.sc_icompare_images_loaded .sc_icompare_content {
+  opacity: 1;
+}
+
+.sc_icompare_image {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+.sc_icompare_image1,
+.sc_icompare_image2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.sc_icompare_overlay {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.sc_icompare_text_before,
+.sc_icompare_text_after {
+  position: absolute;
+  z-index: 1;
+  display: inline-block;
+  vertical-align: top;
+  padding: 1em 1.5em;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #fff;
+  font-weight: bold;
+  -webkit-transition: opacity 0.3s ease;
+  -ms-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  text-shadow: 1px 1px 1px #000;
+}
+
+.sc_icompare_text_hidden {
+  opacity: 0;
+}
+
+.sc_icompare_text_pos_tl {
+  top: 0;
+  left: 0;
+}
+
+.sc_icompare_text_pos_tc {
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.sc_icompare_text_pos_tr {
+  top: 0;
+  right: 0;
+}
+
+.sc_icompare_text_pos_ml {
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.sc_icompare_text_pos_mc {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.sc_icompare_text_pos_mr {
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.sc_icompare_text_pos_bl {
+  bottom: 0;
+  left: 0;
+}
+
+.sc_icompare_text_pos_bc {
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.sc_icompare_text_pos_br {
+  bottom: 0;
+  right: 0;
+}
+
+.sc_icompare_handler {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: var(--sc-icompare-handler-border) solid #f7f7f7;
+  width: var(--sc-icompare-handler-size);
+  height: var(--sc-icompare-handler-size);
+  line-height: var(--sc-icompare-handler-size);
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  margin: var(--sc-icompare-handler-size-half-) 0 0 var(--sc-icompare-handler-size-half-);
+  cursor: pointer;
+}
+
+.sc_icompare_handler_style_round {
+  -webkit-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.sc_icompare_direction_vertical .sc_icompare_handler_separator {
+  width: 2px;
+  height: 50vh;
+  background-color: #fff;
+}
+.sc_icompare_direction_vertical .sc_icompare_handler_separator1 {
+  position: absolute;
+  z-index: 1;
+  bottom: calc( var(--sc-icompare-handler-size) - var(--sc-icompare-handler-border) );
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.sc_icompare_direction_vertical .sc_icompare_handler_separator2 {
+  position: absolute;
+  z-index: 1;
+  top: calc( var(--sc-icompare-handler-size) - var(--sc-icompare-handler-border) );
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.sc_icompare_direction_horizontal .sc_icompare_handler_separator {
+  width: 50vw;
+  height: 2px;
+  background-color: #fff;
+}
+.sc_icompare_direction_horizontal .sc_icompare_handler_separator1 {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: calc( var(--sc-icompare-handler-size) - var(--sc-icompare-handler-border) );
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.sc_icompare_direction_horizontal .sc_icompare_handler_separator2 {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: calc( var(--sc-icompare-handler-size) - var(--sc-icompare-handler-border) );
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.sc_icompare_handler_icon {
+  font-size: 1.5em;
+}
+
+.sc_icompare_handler_style_round .sc_icompare_handler_image {
+  -webkit-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.sc_icompare_handler_arrows {
+  position: relative;
+}
+.sc_icompare_handler_arrows:before, .sc_icompare_handler_arrows:after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+}
+.sc_icompare_direction_vertical .sc_icompare_handler_arrows:before {
+  border-right-color: #fff;
+  margin-left: -9px;
+}
+.sc_icompare_direction_vertical .sc_icompare_handler_arrows:after {
+  border-left-color: #fff;
+  margin-left: 9px;
+}
+.sc_icompare_direction_horizontal .sc_icompare_handler_arrows:before {
+  border-bottom-color: #fff;
+  margin-top: -9px;
+}
+.sc_icompare_direction_horizontal .sc_icompare_handler_arrows:after {
+  border-top-color: #fff;
+  margin-top: 9px;
+}
+
+/*# sourceMappingURL=icompare.css.map */

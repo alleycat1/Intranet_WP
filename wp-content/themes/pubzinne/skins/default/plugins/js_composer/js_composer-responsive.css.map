@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAKA,0BAAoB;EAChB,0BAA0B;EAC7B,+DAAgE;IAC/D,OAAO,EAAE,KAAK",
+"sources": ["js_composer-responsive.scss"],
+"names": [],
+"file": "js_composer-responsive.css"
+}

@@ -1,0 +1,26 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/* Widget: About me */
+.widget_aboutme .aboutme_avatar {
+	overflow:hidden;
+	text-align:center;
+}
+.widget_aboutme .aboutme_avatar img {
+	@include box(100%, auto);
+}
+.widget_aboutme .aboutme_username {
+	margin: 0;
+}
+.widget_aboutme .aboutme_avatar + .aboutme_username {
+	margin-top: 1em;
+}
+.widget_aboutme .aboutme_description {
+	margin-top: 1em;
+	text-align:left;
+	line-height: 1.6em;
+}
+.widget_aboutme .aboutme_avatar + .aboutme_description,
+.widget_aboutme .aboutme_username + .aboutme_description {
+	margin-top:0.75em;
+}

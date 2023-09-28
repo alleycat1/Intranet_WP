@@ -1,0 +1,588 @@
+.sc_igenerator_form {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+}
+.sc_igenerator_form.sc_igenerator_form_align_left {
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+.sc_igenerator_form.sc_igenerator_form_align_right {
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+.sc_igenerator_form .trx_addons_loading {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 100;
+  display: none;
+}
+.sc_igenerator_form.sc_igenerator_form_loading .trx_addons_loading {
+  display: block;
+}
+
+.sc_igenerator_form_inner {
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.sc_igenerator_form_align_left .sc_igenerator_form_inner {
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+.sc_igenerator_form_align_right .sc_igenerator_form_inner {
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.sc_igenerator_form_field_prompt {
+  position: relative;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: space-between;
+  justify-content: space-between;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+.sc_igenerator_form_field_prompt .sc_igenerator_form_field_inner {
+  position: relative;
+  width: 100%;
+}
+.sc_igenerator_form_field_prompt input[type="text"] {
+  width: 100%;
+  -webkit-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-right: 9em;
+  text-overflow: ellipsis;
+}
+.sc_igenerator_form_field_prompt .sc_igenerator_form_field_prompt_button {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  top: 4px;
+  right: 4px;
+  bottom: 4px;
+  left: auto;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+  -ms-transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  max-width: 50%;
+  overflow: hidden;
+  padding: 0 2em;
+  background-color: #38bb7a;
+  color: #fff;
+}
+.sc_igenerator_form_field_prompt .sc_igenerator_form_field_prompt_button:not(.sc_igenerator_form_field_prompt_button_disabled):hover {
+  background-color: #32a86e;
+}
+.sc_igenerator_form_field_prompt .sc_igenerator_form_field_prompt_button_disabled {
+  background-color: #e4f7ed;
+  color: #aaa;
+  cursor: default;
+}
+
+.sc_igenerator_form_settings_button {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px;
+  font-size: 1.25em;
+  width: 4em;
+  margin-left: 2px;
+  background-color: #e7eaed;
+  color: #222;
+}
+
+.sc_igenerator_form_settings_button:hover,
+.sc_igenerator_form_settings_button:focus {
+  background-color: #e7eaed;
+  color: #222;
+}
+
+.sc_igenerator_form_settings {
+  position: absolute;
+  z-index: 100;
+  top: 4.3em;
+  right: 0;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px;
+  padding: 1em;
+  background-color: #f7f7f7;
+  color: #222;
+  -webkit-transition: opacity 0.3s ease, transform 0.3s ease;
+  -ms-transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  will-change: opacity, transform;
+  opacity: 0;
+  -webkit-transform: translateY(20%);
+  -ms-transform: translateY(20%);
+  transform: translateY(20%);
+  pointer-events: none;
+  max-width: 20em;
+}
+.sc_igenerator_form_settings.sc_igenerator_form_settings_light {
+  max-height: 18em;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+}
+.sc_igenerator_form_settings.sc_igenerator_form_settings_light::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px;
+}
+.sc_igenerator_form_settings.sc_igenerator_form_settings_full .sc_igenerator_form_settings_field + .sc_igenerator_form_settings_field {
+  margin-top: 0.5em;
+}
+.sc_igenerator_form_settings input[type="radio"] {
+  margin-right: 0.3em;
+}
+.sc_igenerator_form_settings .sc_igenerator_form_settings_field_numeric_wrap {
+  position: relative;
+  width: 100%;
+}
+.sc_igenerator_form_settings .sc_igenerator_form_settings_field_numeric_wrap input[type="number"] {
+  display: block;
+  width: 100%;
+  padding-right: 3.5em;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.sc_igenerator_form_settings .sc_igenerator_form_settings_field_numeric_wrap .sc_igenerator_form_settings_field_numeric_wrap_buttons {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: stretch;
+  -ms-flex-pack: stretch;
+  justify-content: stretch;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+}
+.sc_igenerator_form_settings .sc_igenerator_form_settings_field_numeric_wrap .sc_igenerator_form_settings_field_numeric_wrap_button {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-grow: 1;
+  -ms-flex-grow: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  -ms-flex-shrink: 0;
+  flex-shrink: 0;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+  -ms-transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 0.15em 1em;
+  color: #888;
+}
+.sc_igenerator_form_settings .sc_igenerator_form_settings_field_numeric_wrap .sc_igenerator_form_settings_field_numeric_wrap_button:hover {
+  color: #222;
+}
+.sc_igenerator_form_settings .sc_igenerator_form_settings_field_numeric_wrap .sc_igenerator_form_settings_field_numeric_wrap_button_inc {
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+.sc_igenerator_form_settings .sc_igenerator_form_settings_field_numeric_wrap .sc_igenerator_form_settings_field_numeric_wrap_button_inc:before {
+  content: "\e885";
+  font-family: "trx_addons_icons";
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  text-align: center;
+}
+.sc_igenerator_form_settings .sc_igenerator_form_settings_field_numeric_wrap .sc_igenerator_form_settings_field_numeric_wrap_button_dec {
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+.sc_igenerator_form_settings .sc_igenerator_form_settings_field_numeric_wrap .sc_igenerator_form_settings_field_numeric_wrap_button_dec:before {
+  content: "\e882";
+  font-family: "trx_addons_icons";
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  text-align: center;
+}
+
+.sc_igenerator_form_settings_show {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.sc_igenerator_form_field_tags {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  margin-top: 1em;
+}
+
+.sc_igenerator_form_field_tags_label {
+  white-space: nowrap;
+  padding: 0.5em 1em 0.5em 0;
+}
+
+.sc_igenerator_form_field_tags_list {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.sc_igenerator_form_field_tags_item {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 0.5em 0.5em 0;
+  padding: 0.5em 1.5em;
+  background-color: #f8f8f9;
+  color: #9099a2;
+  -webkit-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.sc_igenerator_form_field_tags_item:hover {
+  color: #23282d;
+  background-color: #f0f1f2;
+}
+
+.sc_igenerator_limits {
+  width: 100%;
+  text-align: center;
+}
+.sc_igenerator_form_align_left .sc_igenerator_limits {
+  text-align: left;
+}
+.sc_igenerator_form_align_right .sc_igenerator_limits {
+  text-align: right;
+}
+.sc_igenerator_limits .sc_igenerator_limits_used {
+  white-space: nowrap;
+}
+
+.sc_igenerator_message {
+  -webkit-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  padding: 2em 3em;
+  min-width: 40%;
+  background-color: #feeeee;
+  color: #f04c49;
+  margin: 1em 0;
+  text-align: center;
+  display: none;
+}
+.sc_igenerator_message .trx_addons_button_close_icon:before, .sc_igenerator_message .trx_addons_button_close_icon:after {
+  border-color: #99302e;
+}
+
+.sc_igenerator_message_inner p, .sc_igenerator_message_inner h1, .sc_igenerator_message_inner h2, .sc_igenerator_message_inner h3, .sc_igenerator_message_inner h4, .sc_igenerator_message_inner h5, .sc_igenerator_message_inner h6 {
+  margin: 0;
+}
+.sc_igenerator_message_inner p + p, .sc_igenerator_message_inner h1 + p, .sc_igenerator_message_inner h2 + p, .sc_igenerator_message_inner h3 + p, .sc_igenerator_message_inner h4 + p, .sc_igenerator_message_inner h5 + p, .sc_igenerator_message_inner h6 + p {
+  margin-top: 0.3em;
+}
+.sc_igenerator_message_inner h1, .sc_igenerator_message_inner h2, .sc_igenerator_message_inner h3, .sc_igenerator_message_inner h4, .sc_igenerator_message_inner h5, .sc_igenerator_message_inner h6 {
+  color: #99302e;
+}
+.sc_igenerator_message_inner a {
+  font-weight: 500;
+  color: #99302e;
+  border-bottom: 1px dashed #99302e;
+}
+.sc_igenerator_message_inner a:hover {
+  color: #99302e;
+  border-bottom-style: solid;
+}
+.sc_igenerator_message_inner .sc_igenerator_message_translation:before {
+  content: ' ';
+  display: block;
+  height: 0;
+  width: 0;
+}
+
+.sc_igenerator_message_type_info {
+  background-color: #e5f5fa;
+  color: #00a0d2;
+}
+.sc_igenerator_message_type_info h1, .sc_igenerator_message_type_info h2, .sc_igenerator_message_type_info h3, .sc_igenerator_message_type_info h4, .sc_igenerator_message_type_info h5, .sc_igenerator_message_type_info h6 {
+  color: #007599;
+}
+.sc_igenerator_message_type_info a {
+  color: #007599;
+  border-bottom-color: #007599;
+}
+.sc_igenerator_message_type_info a:hover {
+  color: #007599;
+}
+.sc_igenerator_message_type_info .trx_addons_button_close_icon:before, .sc_igenerator_message_type_info .trx_addons_button_close_icon:after {
+  border-color: #007599;
+}
+
+.sc_igenerator_message_type_success {
+  background-color: #e4f7ed;
+  color: #38bb7a;
+}
+.sc_igenerator_message_type_success h1, .sc_igenerator_message_type_success h2, .sc_igenerator_message_type_success h3, .sc_igenerator_message_type_success h4, .sc_igenerator_message_type_success h5, .sc_igenerator_message_type_success h6 {
+  color: #2e9963;
+}
+.sc_igenerator_message_type_success a {
+  color: #2e9963;
+  border-bottom-color: #2e9963;
+}
+.sc_igenerator_message_type_success a:hover {
+  color: #2e9963;
+}
+.sc_igenerator_message_type_success .trx_addons_button_close_icon:before, .sc_igenerator_message_type_success .trx_addons_button_close_icon:after {
+  border-color: #2e9963;
+}
+
+.sc_igenerator_images {
+  margin-top: 1.5em;
+  display: none;
+}
+
+.sc_igenerator_image_inner {
+  position: relative;
+  text-align: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.sc_igenerator_image_fetch {
+  min-height: 15em;
+}
+
+.sc_igenerator_image_fetch_info {
+  position: absolute;
+  z-index: 1;
+  top: auto;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 1em 1em;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.sc_igenerator_image_fetch_msg {
+  display: block;
+  text-decoration: none;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  font-weight: bold;
+}
+
+.sc_igenerator_image_fetch_progress {
+  display: block;
+  margin-top: 10px;
+  width: 50%;
+  height: 4px;
+  background-color: #9099a2;
+  overflow: hidden;
+}
+
+.sc_igenerator_image_fetch_progressbar {
+  display: block;
+  width: 50%;
+  height: 4px;
+  background-color: #f0b849;
+  -webkit-animation: sc_igenerator_image_fetch_progress_animation 1.5s linear infinite;
+  -ms-animation: sc_igenerator_image_fetch_progress_animation 1.5s linear infinite;
+  animation: sc_igenerator_image_fetch_progress_animation 1.5s linear infinite;
+  will-change: transform;
+}
+
+.sc_igenerator_image_fetch.trx_addons_column-1_1 .sc_igenerator_image_fetch_progress {
+  width: 40%;
+}
+
+@-webkit-keyframes sc_igenerator_image_fetch_progress_animation {
+  0% {
+    -webkit-transform: translateX(-110%);
+    -ms-transform: translateX(-110%);
+    transform: translateX(-110%);
+  }
+  100% {
+    -webkit-transform: translateX(210%);
+    -ms-transform: translateX(210%);
+    transform: translateX(210%);
+  }
+}
+@keyframes sc_igenerator_image_fetch_progress_animation {
+  0% {
+    -webkit-transform: translateX(-110%);
+    -ms-transform: translateX(-110%);
+    transform: translateX(-110%);
+  }
+  100% {
+    -webkit-transform: translateX(210%);
+    -ms-transform: translateX(210%);
+    transform: translateX(210%);
+  }
+}
+.sc_igenerator_image_link {
+  margin-top: 1.5em;
+}
+.sc_igenerator_image_fetch_info + .sc_igenerator_image_link {
+  display: none !important;
+}
+.sc_igenerator_image_link .sc_button_icon {
+  font-size: 1em;
+}
+
+/*# sourceMappingURL=igenerator.css.map */

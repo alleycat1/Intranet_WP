@@ -1,0 +1,16 @@
+/*shortcode button*/
+#pwdms_shrtcd_btn #pwdms_shrtcd_btn-button{background: #258ffc;
+    color: #fff;
+    font-weight: bold;
+    padding: 3px 6px;
+    border-radius: 3px;
+}
+
+.front_table{
+    width: 100% !important;
+}
+
+.pass_inp{
+    border: none;
+}
+/*shortcode button*/

@@ -1,0 +1,50 @@
+
+.document-library-pro-button {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    word-break: keep-all;
+    font-size: inherit;
+    height: 2em;
+    line-height: 1.9em;
+    padding: 0px 18px !important;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &::after {
+        display: none;
+    }
+}
+
+.dlp-button-icon {
+    min-width: 18px;
+    min-height: 18px;
+    width: 18px;
+    height: 18px;
+    line-height: 1 !important;
+}
+
+.dlp-button-icon-text {
+    margin-right: 10px;
+}
+
+.dlp-file-icon {
+    width: 48px;
+    height: 48px;
+}
+
+.dlp-preview-button.preview-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+
+    &:hover {
+        background-color: inherit;
+        color: inherit;
+        box-shadow: inherit;
+        padding: inherit;
+        margin: inherit;
+        font-size: inherit;
+    }
+}

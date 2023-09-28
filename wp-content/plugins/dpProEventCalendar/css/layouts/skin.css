@@ -1,0 +1,1094 @@
+/* Skin Colors */
+
+/* RED */
+.dp_pec_accordion_wrapper.pec_skin_red .dp_pec_content_header,
+.dp_pec_accordion_wrapper.pec_skin_red .dpProEventCalendar_feed,
+.dp_pec_new_event_wrapper.pec_skin_red .dp_pec_content_header,
+.dp_pec_wrapper.pec_skin_red .dp_pec_dayname_item,
+.dp_pec_wrapper.pec_skin_red .dp_pec_content .dp_pec_date .dp_count_events,
+.dp_pec_wrapper.pec_skin_red .dp_pec_options_nav .dpProEventCalendar_feed,
+.dp_pec_wrapper.pec_skin_red .dp_pec_dayname_item span,
+.dp_pec_wrapper.pec_skin_red .dp_pec_content .dp_pec_date_event_head span,
+.dp_pec_wrapper.pec_skin_red .dp_pec_content .dp_pec_date_event_head,
+.dp_pec_wrapper.pec_skin_red .dp_pec_content .dp_pec_date_event .pec_book_event,
+.dp_pec_accordion_wrapper.pec_skin_red .dp_pec_content a.dp_pec_date_event_close,
+.dp_pec_wrapper.pec_skin_red .dp_pec_content a.dp_pec_date_event_back{
+	background: #EF5350;
+	color: #fff;
+	text-shadow:none;
+	border: 0;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_red .dp_pec_nav span.next_month, 
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_red .dp_pec_nav span.prev_month {
+	color: #fff;
+
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_red .dp_pec_nav,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_red .dp_pec_nav .selectric .label {
+	border: 0;
+	background: #E57373;
+	color: #fff;
+	text-shadow:none;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_red .dp_pec_nav {
+	border-top: 3px solid #C62828;
+}
+
+.dp_pec_wrapper.pec_skin_red .dp_daily_event {
+	background: #FFEBEE;
+	border-color: #FFCDD2;
+}
+
+.dp_pec_wrapper.pec_skin_red .dp_daily_event:hover {
+	background: #FFCDD2;
+	border-color: #C62828;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_red .dp_pec_content a.dp_pec_date_event_twitter:hover,
+.dp_pec_accordion_wrapper.pec_skin_red .dp_pec_content a.dp_pec_date_event_close:hover,
+.dp_pec_wrapper.pec_skin_red .dp_pec_content a.dp_pec_date_event_back:hover,
+.dp_pec_wrapper.dp_pec_compact_wrapper.pec_skin_red .dp_pec_content .dp_pec_date_left {
+	background-color: #C62828;
+}
+
+/* PINK */
+.dp_pec_accordion_wrapper.pec_skin_pink .dp_pec_content_header,
+.dp_pec_accordion_wrapper.pec_skin_pink .dpProEventCalendar_feed,
+.dp_pec_new_event_wrapper.pec_skin_pink .dp_pec_content_header,
+.dp_pec_wrapper.pec_skin_pink .dp_pec_dayname_item,
+.dp_pec_wrapper.pec_skin_pink .dp_pec_content .dp_pec_date .dp_count_events,
+.dp_pec_wrapper.pec_skin_pink .dp_pec_options_nav .dpProEventCalendar_feed,
+.dp_pec_wrapper.pec_skin_pink .dp_pec_dayname_item span,
+.dp_pec_wrapper.pec_skin_pink .dp_pec_content .dp_pec_date_event_head span,
+.dp_pec_wrapper.pec_skin_pink .dp_pec_content .dp_pec_date_event_head,
+.dp_pec_wrapper.pec_skin_pink .dp_pec_content .dp_pec_date_event .pec_book_event,
+.dp_pec_accordion_wrapper.pec_skin_pink .dp_pec_content a.dp_pec_date_event_close,
+.dp_pec_wrapper.pec_skin_pink .dp_pec_content a.dp_pec_date_event_back{
+	background: #EC407A;
+	color: #fff;
+	text-shadow:none;
+	border: 0;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_pink .dp_pec_nav span.next_month, 
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_pink .dp_pec_nav span.prev_month {
+	color: #fff;
+
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_pink .dp_pec_nav,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_pink .dp_pec_nav .selectric .label {
+	border: 0;
+	background: #F06292;
+	color: #fff;
+	text-shadow:none;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_pink .dp_pec_nav {
+	border-top: 3px solid #AD1457;
+}
+
+.dp_pec_wrapper.pec_skin_pink .dp_daily_event {
+	background: #FCE4EC;
+	border-color: #F8BBD0;
+}
+
+.dp_pec_wrapper.pec_skin_pink .dp_daily_event:hover {
+	background: #F8BBD0;
+	border-color: #AD1457;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_pink .dp_pec_content a.dp_pec_date_event_twitter:hover,
+.dp_pec_accordion_wrapper.pec_skin_pink .dp_pec_content a.dp_pec_date_event_close:hover,
+.dp_pec_wrapper.pec_skin_pink .dp_pec_content a.dp_pec_date_event_back:hover,
+.dp_pec_wrapper.dp_pec_compact_wrapper.pec_skin_pink .dp_pec_content .dp_pec_date_left {
+	background-color: #AD1457;
+}
+
+/* PURPLE */
+.dp_pec_accordion_wrapper.pec_skin_purple .dp_pec_content_header,
+.dp_pec_accordion_wrapper.pec_skin_purple .dpProEventCalendar_feed,
+.dp_pec_new_event_wrapper.pec_skin_purple .dp_pec_content_header,
+.dp_pec_wrapper.pec_skin_purple .dp_pec_dayname_item,
+.dp_pec_wrapper.pec_skin_purple .dp_pec_content .dp_pec_date .dp_count_events,
+.dp_pec_wrapper.pec_skin_purple .dp_pec_options_nav .dpProEventCalendar_feed,
+.dp_pec_wrapper.pec_skin_purple .dp_pec_dayname_item span,
+.dp_pec_wrapper.pec_skin_purple .dp_pec_content .dp_pec_date_event_head span,
+.dp_pec_wrapper.pec_skin_purple .dp_pec_content .dp_pec_date_event_head,
+.dp_pec_wrapper.pec_skin_purple .dp_pec_content .dp_pec_date_event .pec_book_event,
+.dp_pec_accordion_wrapper.pec_skin_purple .dp_pec_content a.dp_pec_date_event_close,
+.dp_pec_wrapper.pec_skin_purple .dp_pec_content a.dp_pec_date_event_back {
+	background: #AB47BC;
+	color: #fff;
+	text-shadow:none;
+	border: 0;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_purple .dp_pec_nav span.next_month, 
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_purple .dp_pec_nav span.prev_month {
+	color: #fff;
+
+}
+
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_purple .dp_pec_nav,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_purple .dp_pec_nav .selectric .label {
+	border: 0;
+	background: #BA68C8;
+	color: #fff;
+	text-shadow:none;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_purple .dp_pec_nav {
+	border-top: 3px solid #6A1B9A;
+}
+
+.dp_pec_wrapper.pec_skin_purple .dp_daily_event {
+	background: #F3E5F5;
+	border-color: #E1BEE7;
+}
+
+.dp_pec_wrapper.pec_skin_purple .dp_daily_event:hover {
+	background: #E1BEE7;
+	border-color: #6A1B9A;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_purple .dp_pec_content a.dp_pec_date_event_twitter:hover,
+.dp_pec_accordion_wrapper.pec_skin_purple .dp_pec_content a.dp_pec_date_event_close:hover,
+.dp_pec_wrapper.pec_skin_purple .dp_pec_content a.dp_pec_date_event_back:hover,
+.dp_pec_wrapper.dp_pec_compact_wrapper.pec_skin_purple .dp_pec_content .dp_pec_date_left {
+	background-color: #6A1B9A;
+}
+
+/* DEEP PURPLE */
+.dp_pec_accordion_wrapper.pec_skin_deep_purple .dp_pec_content_header,
+.dp_pec_accordion_wrapper.pec_skin_deep_purple .dpProEventCalendar_feed,
+.dp_pec_new_event_wrapper.pec_skin_deep_purple .dp_pec_content_header,
+.dp_pec_wrapper.pec_skin_deep_purple .dp_pec_dayname_item,
+.dp_pec_wrapper.pec_skin_deep_purple .dp_pec_content .dp_pec_date .dp_count_events,
+.dp_pec_wrapper.pec_skin_deep_purple .dp_pec_options_nav .dpProEventCalendar_feed,
+.dp_pec_wrapper.pec_skin_deep_purple .dp_pec_dayname_item span,
+.dp_pec_wrapper.pec_skin_deep_purple .dp_pec_content .dp_pec_date_event_head span,
+.dp_pec_wrapper.pec_skin_deep_purple .dp_pec_content .dp_pec_date_event_head,
+.dp_pec_wrapper.pec_skin_deep_purple .dp_pec_content .dp_pec_date_event .pec_book_event,
+.dp_pec_accordion_wrapper.pec_skin_deep_purple .dp_pec_content a.dp_pec_date_event_close,
+.dp_pec_wrapper.pec_skin_deep_purple .dp_pec_content a.dp_pec_date_event_back {
+	background: #7E57C2;
+	color: #fff;
+	text-shadow:none;
+	border: 0;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_deep_purple .dp_pec_nav span.next_month, 
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_deep_purple .dp_pec_nav span.prev_month {
+	color: #fff;
+
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_deep_purple .dp_pec_nav,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_deep_purple .dp_pec_nav .selectric .label {
+	border: 0;
+	background: #9575CD;
+	color: #fff;
+	text-shadow:none;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_deep_purple .dp_pec_nav {
+	border-top: 3px solid #4527A0;
+}
+
+.dp_pec_wrapper.pec_skin_deep_purple .dp_daily_event {
+	background: #EDE7F6;
+	border-color: #D1C4E9;
+}
+
+.dp_pec_wrapper.pec_skin_deep_purple .dp_daily_event:hover {
+	background: #D1C4E9;
+	border-color: #4527A0;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_deep_purple .dp_pec_content a.dp_pec_date_event_twitter:hover,
+.dp_pec_accordion_wrapper.pec_skin_deep_purple .dp_pec_content a.dp_pec_date_event_close:hover,
+.dp_pec_wrapper.pec_skin_deep_purple .dp_pec_content a.dp_pec_date_event_back:hover,
+.dp_pec_wrapper.dp_pec_compact_wrapper.pec_skin_deep_purple .dp_pec_content .dp_pec_date_left {
+	background-color: #4527A0;
+}
+
+/* INDIGO */
+.dp_pec_accordion_wrapper.pec_skin_indigo .dp_pec_content_header,
+.dp_pec_accordion_wrapper.pec_skin_indigo .dpProEventCalendar_feed,
+.dp_pec_new_event_wrapper.pec_skin_indigo .dp_pec_content_header,
+.dp_pec_wrapper.pec_skin_indigo .dp_pec_dayname_item,
+.dp_pec_wrapper.pec_skin_indigo .dp_pec_content .dp_pec_date .dp_count_events,
+.dp_pec_wrapper.pec_skin_indigo .dp_pec_options_nav .dpProEventCalendar_feed,
+.dp_pec_wrapper.pec_skin_indigo .dp_pec_dayname_item span,
+.dp_pec_wrapper.pec_skin_indigo .dp_pec_content .dp_pec_date_event_head span,
+.dp_pec_wrapper.pec_skin_indigo .dp_pec_content .dp_pec_date_event_head,
+.dp_pec_wrapper.pec_skin_indigo .dp_pec_content .dp_pec_date_event .pec_book_event,
+.dp_pec_accordion_wrapper.pec_skin_indigo .dp_pec_content a.dp_pec_date_event_close,
+.dp_pec_wrapper.pec_skin_indigo .dp_pec_content a.dp_pec_date_event_back {
+	background: #5C6BC0;
+	color: #fff;
+	text-shadow:none;
+	border: 0;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_indigo .dp_pec_nav span.next_month, 
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_indigo .dp_pec_nav span.prev_month {
+	color: #fff;
+
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_indigo .dp_pec_nav,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_indigo .dp_pec_nav .selectric .label {
+	border: 0;
+	background: #7986CB;
+	color: #fff;
+	text-shadow:none;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_indigo .dp_pec_nav {
+	border-top: 3px solid #283593;
+}
+
+.dp_pec_wrapper.pec_skin_indigo .dp_daily_event {
+	background: #E8EAF6;
+	border-color: #C5CAE9;
+}
+
+.dp_pec_wrapper.pec_skin_indigo .dp_daily_event:hover {
+	background: #C5CAE9;
+	border-color: #283593;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_indigo .dp_pec_content a.dp_pec_date_event_twitter:hover,
+.dp_pec_accordion_wrapper.pec_skin_indigo .dp_pec_content a.dp_pec_date_event_close:hover,
+.dp_pec_wrapper.pec_skin_indigo .dp_pec_content a.dp_pec_date_event_back:hover,
+.dp_pec_wrapper.dp_pec_compact_wrapper.pec_skin_indigo .dp_pec_content .dp_pec_date_left {
+	background-color: #283593;
+}
+
+/* BLUE */
+.dp_pec_accordion_wrapper.pec_skin_blue .dp_pec_content_header,
+.dp_pec_accordion_wrapper.pec_skin_blue .dpProEventCalendar_feed,
+.dp_pec_new_event_wrapper.pec_skin_blue .dp_pec_content_header,
+.dp_pec_wrapper.pec_skin_blue .dp_pec_dayname_item,
+.dp_pec_wrapper.pec_skin_blue .dp_pec_content .dp_pec_date .dp_count_events,
+.dp_pec_wrapper.pec_skin_blue .dp_pec_options_nav .dpProEventCalendar_feed,
+.dp_pec_wrapper.pec_skin_blue .dp_pec_dayname_item span,
+.dp_pec_wrapper.pec_skin_blue .dp_pec_content .dp_pec_date_event_head span,
+.dp_pec_wrapper.pec_skin_blue .dp_pec_content .dp_pec_date_event_head,
+.dp_pec_wrapper.pec_skin_blue .dp_pec_content .dp_pec_date_event .pec_book_event,
+.dp_pec_accordion_wrapper.pec_skin_blue .dp_pec_content a.dp_pec_date_event_close,
+.dp_pec_wrapper.pec_skin_blue .dp_pec_content a.dp_pec_date_event_back {
+	background: #42A5F5;
+	color: #fff;
+	text-shadow:none;
+	border: 0;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_blue .dp_pec_nav span.next_month, 
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_blue .dp_pec_nav span.prev_month {
+	color: #fff;
+
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_blue .dp_pec_nav,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_blue .dp_pec_nav .selectric .label {
+	border: 0;
+	background: #64B5F6;
+	color: #fff;
+	text-shadow:none;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_blue .dp_pec_nav {
+	border-top: 3px solid #1565C0;
+}
+
+.dp_pec_wrapper.pec_skin_blue .dp_daily_event {
+	background: #E3F2FD;
+	border-color: #BBDEFB;
+}
+
+.dp_pec_wrapper.pec_skin_blue .dp_daily_event:hover {
+	background: #BBDEFB;
+	border-color: #1565C0;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_blue .dp_pec_content a.dp_pec_date_event_twitter:hover,
+.dp_pec_accordion_wrapper.pec_skin_blue .dp_pec_content a.dp_pec_date_event_close:hover,
+.dp_pec_wrapper.pec_skin_blue .dp_pec_content a.dp_pec_date_event_back:hover,
+.dp_pec_wrapper.dp_pec_compact_wrapper.pec_skin_blue .dp_pec_content .dp_pec_date_left {
+	background-color: #1565C0;
+}
+
+/* LIGHT BLUE */
+.dp_pec_accordion_wrapper.pec_skin_light_blue .dp_pec_content_header,
+.dp_pec_accordion_wrapper.pec_skin_light_blue .dpProEventCalendar_feed,
+.dp_pec_new_event_wrapper.pec_skin_light_blue .dp_pec_content_header,
+.dp_pec_wrapper.pec_skin_light_blue .dp_pec_dayname_item,
+.dp_pec_wrapper.pec_skin_light_blue .dp_pec_content .dp_pec_date .dp_count_events,
+.dp_pec_wrapper.pec_skin_light_blue .dp_pec_options_nav .dpProEventCalendar_feed,
+.dp_pec_wrapper.pec_skin_light_blue .dp_pec_dayname_item span,
+.dp_pec_wrapper.pec_skin_light_blue .dp_pec_content .dp_pec_date_event_head span,
+.dp_pec_wrapper.pec_skin_light_blue .dp_pec_content .dp_pec_date_event_head,
+.dp_pec_wrapper.pec_skin_light_blue .dp_pec_content .dp_pec_date_event .pec_book_event,
+.dp_pec_accordion_wrapper.pec_skin_light_blue .dp_pec_content a.dp_pec_date_event_close,
+.dp_pec_wrapper.pec_skin_light_blue .dp_pec_content a.dp_pec_date_event_back {
+	background: #29B6F6;
+	color: #fff;
+	text-shadow:none;
+	border: 0;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_light_blue .dp_pec_nav span.next_month, 
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_light_blue .dp_pec_nav span.prev_month {
+	color: #fff;
+
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_light_blue .dp_pec_nav,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_light_blue .dp_pec_nav .selectric .label {
+	border: 0;
+	background: #4FC3F7;
+	color: #fff;
+	text-shadow:none;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_light_blue .dp_pec_nav {
+	border-top: 3px solid #0277BD;
+}
+
+.dp_pec_wrapper.pec_skin_light_blue .dp_daily_event {
+	background: #E1F5FE;
+	border-color: #B3E5FC;
+}
+
+.dp_pec_wrapper.pec_skin_light_blue .dp_daily_event:hover {
+	background: #B3E5FC;
+	border-color: #0277BD;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_light_blue .dp_pec_content a.dp_pec_date_event_twitter:hover,
+.dp_pec_accordion_wrapper.pec_skin_light_blue .dp_pec_content a.dp_pec_date_event_close:hover,
+.dp_pec_wrapper.pec_skin_light_blue .dp_pec_content a.dp_pec_date_event_back:hover,
+.dp_pec_wrapper.dp_pec_compact_wrapper.pec_skin_light_blue .dp_pec_content .dp_pec_date_left {
+	background-color: #0277BD;
+}
+
+/* CYAN */
+.dp_pec_accordion_wrapper.pec_skin_cyan .dp_pec_content_header,
+.dp_pec_accordion_wrapper.pec_skin_cyan .dpProEventCalendar_feed,
+.dp_pec_new_event_wrapper.pec_skin_cyan .dp_pec_content_header,
+.dp_pec_wrapper.pec_skin_cyan .dp_pec_dayname_item,
+.dp_pec_wrapper.pec_skin_cyan .dp_pec_content .dp_pec_date .dp_count_events,
+.dp_pec_wrapper.pec_skin_cyan .dp_pec_options_nav .dpProEventCalendar_feed,
+.dp_pec_wrapper.pec_skin_cyan .dp_pec_dayname_item span,
+.dp_pec_wrapper.pec_skin_cyan .dp_pec_content .dp_pec_date_event_head span,
+.dp_pec_wrapper.pec_skin_cyan .dp_pec_content .dp_pec_date_event_head,
+.dp_pec_wrapper.pec_skin_cyan .dp_pec_content .dp_pec_date_event .pec_book_event,
+.dp_pec_accordion_wrapper.pec_skin_cyan .dp_pec_content a.dp_pec_date_event_close,
+.dp_pec_wrapper.pec_skin_cyan .dp_pec_content a.dp_pec_date_event_back {
+	background: #26C6DA;
+	color: #fff;
+	text-shadow:none;
+	border: 0;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_cyan .dp_pec_nav span.next_month, 
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_cyan .dp_pec_nav span.prev_month {
+	color: #fff;
+
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_cyan .dp_pec_nav,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_cyan .dp_pec_nav .selectric .label {
+	border: 0;
+	background: #4DD0E1;
+	color: #fff;
+	text-shadow:none;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_cyan .dp_pec_nav {
+	border-top: 3px solid #00838F;
+}
+
+.dp_pec_wrapper.pec_skin_cyan .dp_daily_event {
+	background: #E0F7FA;
+	border-color: #B2EBF2;
+}
+
+.dp_pec_wrapper.pec_skin_cyan .dp_daily_event:hover {
+	background: #B2EBF2;
+	border-color: #00838F;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_cyan .dp_pec_content a.dp_pec_date_event_twitter:hover,
+.dp_pec_accordion_wrapper.pec_skin_cyan .dp_pec_content a.dp_pec_date_event_close:hover,
+.dp_pec_wrapper.pec_skin_cyan .dp_pec_content a.dp_pec_date_event_back:hover,
+.dp_pec_wrapper.dp_pec_compact_wrapper.pec_skin_cyan .dp_pec_content .dp_pec_date_left {
+	background-color: #00838F;
+}
+
+/* TEAL */
+.dp_pec_accordion_wrapper.pec_skin_teal .dp_pec_content_header,
+.dp_pec_accordion_wrapper.pec_skin_teal .dpProEventCalendar_feed,
+.dp_pec_new_event_wrapper.pec_skin_teal .dp_pec_content_header,
+.dp_pec_wrapper.pec_skin_teal .dp_pec_dayname_item,
+.dp_pec_wrapper.pec_skin_teal .dp_pec_content .dp_pec_date .dp_count_events,
+.dp_pec_wrapper.pec_skin_teal .dp_pec_options_nav .dpProEventCalendar_feed,
+.dp_pec_wrapper.pec_skin_teal .dp_pec_dayname_item span,
+.dp_pec_wrapper.pec_skin_teal .dp_pec_content .dp_pec_date_event_head span,
+.dp_pec_wrapper.pec_skin_teal .dp_pec_content .dp_pec_date_event_head,
+.dp_pec_wrapper.pec_skin_teal .dp_pec_content .dp_pec_date_event .pec_book_event,
+.dp_pec_accordion_wrapper.pec_skin_teal .dp_pec_content a.dp_pec_date_event_close,
+.dp_pec_wrapper.pec_skin_teal .dp_pec_content a.dp_pec_date_event_back{
+	background: #26A69A;
+	color: #fff;
+	text-shadow:none;
+	border: 0;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_teal .dp_pec_nav span.next_month, 
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_teal .dp_pec_nav span.prev_month {
+	color: #fff;
+
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_teal .dp_pec_nav,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_teal .dp_pec_nav .selectric .label {
+	border: 0;
+	background: #4DB6AC;
+	color: #fff;
+	text-shadow:none;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_teal .dp_pec_nav {
+	border-top: 3px solid #00695C;
+}
+
+.dp_pec_wrapper.pec_skin_teal .dp_daily_event {
+	background: #E0F2F1;
+	border-color: #B2DFDB;
+}
+
+.dp_pec_wrapper.pec_skin_teal .dp_daily_event:hover {
+	background: #B2DFDB;
+	border-color: #00695C;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_teal .dp_pec_content a.dp_pec_date_event_twitter:hover,
+.dp_pec_accordion_wrapper.pec_skin_teal .dp_pec_content a.dp_pec_date_event_close:hover,
+.dp_pec_wrapper.pec_skin_teal .dp_pec_content a.dp_pec_date_event_back:hover,
+.dp_pec_wrapper.dp_pec_compact_wrapper.pec_skin_teal .dp_pec_content .dp_pec_date_left {
+	background-color: #00695C;
+}
+
+/* GREEN */
+.dp_pec_accordion_wrapper.pec_skin_green .dp_pec_content_header,
+.dp_pec_accordion_wrapper.pec_skin_green .dpProEventCalendar_feed,
+.dp_pec_new_event_wrapper.pec_skin_green .dp_pec_content_header,
+.dp_pec_wrapper.pec_skin_green .dp_pec_dayname_item,
+.dp_pec_wrapper.pec_skin_green .dp_pec_content .dp_pec_date .dp_count_events,
+.dp_pec_wrapper.pec_skin_green .dp_pec_options_nav .dpProEventCalendar_feed,
+.dp_pec_wrapper.pec_skin_green .dp_pec_dayname_item span,
+.dp_pec_wrapper.pec_skin_green .dp_pec_content .dp_pec_date_event_head span,
+.dp_pec_wrapper.pec_skin_green .dp_pec_content .dp_pec_date_event_head,
+.dp_pec_wrapper.pec_skin_green .dp_pec_content .dp_pec_date_event .pec_book_event,
+.dp_pec_accordion_wrapper.pec_skin_green .dp_pec_content a.dp_pec_date_event_close,
+.dp_pec_wrapper.pec_skin_green .dp_pec_content a.dp_pec_date_event_back{
+	background: #66BB6A;
+	color: #fff;
+	text-shadow:none;
+	border: 0;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_green .dp_pec_nav span.next_month, 
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_green .dp_pec_nav span.prev_month {
+	color: #fff;
+
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_green .dp_pec_nav,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_green .dp_pec_nav .selectric .label {
+	border: 0;
+	background: #81C784;
+	color: #fff;
+	text-shadow:none;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_green .dp_pec_nav {
+	border-top: 3px solid #2E7D32;
+}
+
+.dp_pec_wrapper.pec_skin_green .dp_daily_event {
+	background: #E8F5E9;
+	border-color: #C8E6C9;
+}
+
+.dp_pec_wrapper.pec_skin_green .dp_daily_event:hover {
+	background: #C8E6C9;
+	border-color: #2E7D32;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_green .dp_pec_content a.dp_pec_date_event_twitter:hover,
+.dp_pec_accordion_wrapper.pec_skin_green .dp_pec_content a.dp_pec_date_event_close:hover,
+.dp_pec_wrapper.pec_skin_green .dp_pec_content a.dp_pec_date_event_back:hover,
+.dp_pec_wrapper.dp_pec_compact_wrapper.pec_skin_green .dp_pec_content .dp_pec_date_left {
+	background-color: #2E7D32;
+}
+
+/* LIGHT GREEN */
+.dp_pec_accordion_wrapper.pec_skin_light_green .dp_pec_content_header,
+.dp_pec_accordion_wrapper.pec_skin_light_green .dpProEventCalendar_feed,
+.dp_pec_new_event_wrapper.pec_skin_light_green .dp_pec_content_header,
+.dp_pec_wrapper.pec_skin_light_green .dp_pec_dayname_item,
+.dp_pec_wrapper.pec_skin_light_green .dp_pec_content .dp_pec_date .dp_count_events,
+.dp_pec_wrapper.pec_skin_light_green .dp_pec_options_nav .dpProEventCalendar_feed,
+.dp_pec_wrapper.pec_skin_light_green .dp_pec_dayname_item span,
+.dp_pec_wrapper.pec_skin_light_green .dp_pec_content .dp_pec_date_event_head span,
+.dp_pec_wrapper.pec_skin_light_green .dp_pec_content .dp_pec_date_event_head,
+.dp_pec_wrapper.pec_skin_light_green .dp_pec_content .dp_pec_date_event .pec_book_event,
+.dp_pec_accordion_wrapper.pec_skin_light_green .dp_pec_content a.dp_pec_date_event_close,
+.dp_pec_wrapper.pec_skin_light_green .dp_pec_content a.dp_pec_date_event_back{
+	background: #9CCC65;
+	color: #fff;
+	text-shadow:none;
+	border: 0;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_light_green .dp_pec_nav span.next_month, 
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_light_green .dp_pec_nav span.prev_month {
+	color: #fff;
+
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_light_green .dp_pec_nav,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_light_green .dp_pec_nav .selectric .label {
+	border: 0;
+	background: #AED581;
+	color: #fff;
+	text-shadow:none;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_light_green .dp_pec_nav {
+	border-top: 3px solid #558B2F;
+}
+
+.dp_pec_wrapper.pec_skin_light_green .dp_daily_event {
+	background: #F1F8E9;
+	border-color: #DCEDC8;
+}
+
+.dp_pec_wrapper.pec_skin_light_green .dp_daily_event:hover {
+	background: #DCEDC8;
+	border-color: #558B2F;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_light_green .dp_pec_content a.dp_pec_date_event_twitter:hover,
+.dp_pec_accordion_wrapper.pec_skin_light_green .dp_pec_content a.dp_pec_date_event_close:hover,
+.dp_pec_wrapper.pec_skin_light_green .dp_pec_content a.dp_pec_date_event_back:hover,
+.dp_pec_wrapper.dp_pec_compact_wrapper.pec_skin_light_green .dp_pec_content .dp_pec_date_left {
+	background-color: #558B2F;
+}
+
+/* LIME */
+.dp_pec_accordion_wrapper.pec_skin_lime .dp_pec_content_header,
+.dp_pec_accordion_wrapper.pec_skin_lime .dpProEventCalendar_feed,
+.dp_pec_new_event_wrapper.pec_skin_lime .dp_pec_content_header,
+.dp_pec_wrapper.pec_skin_lime .dp_pec_dayname_item,
+.dp_pec_wrapper.pec_skin_lime .dp_pec_content .dp_pec_date .dp_count_events,
+.dp_pec_wrapper.pec_skin_lime .dp_pec_options_nav .dpProEventCalendar_feed,
+.dp_pec_wrapper.pec_skin_lime .dp_pec_dayname_item span,
+.dp_pec_wrapper.pec_skin_lime .dp_pec_content .dp_pec_date_event_head span,
+.dp_pec_wrapper.pec_skin_lime .dp_pec_content .dp_pec_date_event_head,
+.dp_pec_wrapper.pec_skin_lime .dp_pec_content .dp_pec_date_event .pec_book_event,
+.dp_pec_accordion_wrapper.pec_skin_lime .dp_pec_content a.dp_pec_date_event_close,
+.dp_pec_wrapper.pec_skin_lime .dp_pec_content a.dp_pec_date_event_back{
+	background: #D4E157;
+	color: #333;
+	text-shadow:none;
+	border: 0;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_lime .dp_pec_nav span.next_month, 
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_lime .dp_pec_nav span.prev_month {
+	color: #fff;
+
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_lime .dp_pec_nav,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_lime .dp_pec_nav .selectric .label {
+	border: 0;
+	background: #DCE775;
+	color: #333;
+	text-shadow:none;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_lime .dp_pec_nav {
+	border-top: 3px solid #9E9D24;
+}
+
+.dp_pec_wrapper.pec_skin_lime .dp_daily_event {
+	background: #F9FBE7;
+	border-color: #F0F4C3;
+}
+
+.dp_pec_wrapper.pec_skin_lime .dp_daily_event:hover {
+	background: #F0F4C3;
+	border-color: #9E9D24;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_lime .dp_pec_content a.dp_pec_date_event_twitter:hover,
+.dp_pec_accordion_wrapper.pec_skin_lime .dp_pec_content a.dp_pec_date_event_close:hover,
+.dp_pec_wrapper.pec_skin_lime .dp_pec_content a.dp_pec_date_event_back:hover,
+.dp_pec_wrapper.dp_pec_compact_wrapper.pec_skin_lime .dp_pec_content .dp_pec_date_left {
+	background-color: #9E9D24;
+}
+
+/* YELLOW */
+.dp_pec_accordion_wrapper.pec_skin_yellow .dp_pec_content_header,
+.dp_pec_accordion_wrapper.pec_skin_yellow .dpProEventCalendar_feed,
+.dp_pec_new_event_wrapper.pec_skin_yellow .dp_pec_content_header,
+.dp_pec_wrapper.pec_skin_yellow .dp_pec_dayname_item,
+.dp_pec_wrapper.pec_skin_yellow .dp_pec_content .dp_pec_date .dp_count_events,
+.dp_pec_wrapper.pec_skin_yellow .dp_pec_options_nav .dpProEventCalendar_feed,
+.dp_pec_wrapper.pec_skin_yellow .dp_pec_dayname_item span,
+.dp_pec_wrapper.pec_skin_yellow .dp_pec_content .dp_pec_date_event_head span,
+.dp_pec_wrapper.pec_skin_yellow .dp_pec_content .dp_pec_date_event_head,
+.dp_pec_wrapper.pec_skin_yellow .dp_pec_content .dp_pec_date_event .pec_book_event,
+.dp_pec_accordion_wrapper.pec_skin_yellow .dp_pec_content a.dp_pec_date_event_close,
+.dp_pec_wrapper.pec_skin_yellow .dp_pec_content a.dp_pec_date_event_back{
+	background: #FFEE58;
+	color: #333;
+	text-shadow:none;
+	border: 0;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_yellow .dp_pec_nav span.next_month, 
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_yellow .dp_pec_nav span.prev_month {
+	color: #333;
+
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_yellow .dp_pec_nav,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_yellow .dp_pec_nav .selectric .label {
+	border: 0;
+	background: #FFF176;
+	color: #333;
+	text-shadow:none;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_yellow .dp_pec_nav {
+	border-top: 3px solid #F9A825;
+}
+
+.dp_pec_wrapper.pec_skin_yellow .dp_daily_event {
+	background: #FFFDE7;
+	border-color: #FFF9C4;
+}
+
+.dp_pec_wrapper.pec_skin_yellow .dp_daily_event:hover {
+	background: #FFF9C4;
+	border-color: #F9A825;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_yellow .dp_pec_content a.dp_pec_date_event_twitter:hover,
+.dp_pec_accordion_wrapper.pec_skin_yellow .dp_pec_content a.dp_pec_date_event_close:hover,
+.dp_pec_wrapper.pec_skin_yellow .dp_pec_content a.dp_pec_date_event_back:hover,
+.dp_pec_wrapper.dp_pec_compact_wrapper.pec_skin_yellow .dp_pec_content .dp_pec_date_left {
+	background-color: #F9A825;
+}
+
+/* AMBER */
+.dp_pec_accordion_wrapper.pec_skin_amber .dp_pec_content_header,
+.dp_pec_accordion_wrapper.pec_skin_amber .dpProEventCalendar_feed,
+.dp_pec_new_event_wrapper.pec_skin_amber .dp_pec_content_header,
+.dp_pec_wrapper.pec_skin_amber .dp_pec_dayname_item,
+.dp_pec_wrapper.pec_skin_amber .dp_pec_content .dp_pec_date .dp_count_events,
+.dp_pec_wrapper.pec_skin_amber .dp_pec_options_nav .dpProEventCalendar_feed,
+.dp_pec_wrapper.pec_skin_amber .dp_pec_dayname_item span,
+.dp_pec_wrapper.pec_skin_amber .dp_pec_content .dp_pec_date_event_head span,
+.dp_pec_wrapper.pec_skin_amber .dp_pec_content .dp_pec_date_event_head,
+.dp_pec_wrapper.pec_skin_amber .dp_pec_content .dp_pec_date_event .pec_book_event,
+.dp_pec_accordion_wrapper.pec_skin_amber .dp_pec_content a.dp_pec_date_event_close,
+.dp_pec_wrapper.pec_skin_amber .dp_pec_content a.dp_pec_date_event_back{
+	background: #FFCA28;
+	color: #333;
+	text-shadow:none;
+	border: 0;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_amber .dp_pec_nav span.next_month, 
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_amber .dp_pec_nav span.prev_month {
+	color: #333;
+
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_amber .dp_pec_nav,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_amber .dp_pec_nav .selectric .label {
+	border: 0;
+	background: #FFD54F;
+	color: #333;
+	text-shadow:none;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_amber .dp_pec_nav {
+	border-top: 3px solid #FF8F00;
+}
+
+.dp_pec_wrapper.pec_skin_amber .dp_daily_event {
+	background: #FFF8E1;
+	border-color: #FFECB3;
+}
+
+.dp_pec_wrapper.pec_skin_amber .dp_daily_event:hover {
+	background: #FFECB3;
+	border-color: #FF8F00;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_amber .dp_pec_content a.dp_pec_date_event_twitter:hover,
+.dp_pec_accordion_wrapper.pec_skin_amber .dp_pec_content a.dp_pec_date_event_close:hover,
+.dp_pec_wrapper.pec_skin_amber .dp_pec_content a.dp_pec_date_event_back:hover,
+.dp_pec_wrapper.dp_pec_compact_wrapper.pec_skin_amber .dp_pec_content .dp_pec_date_left {
+	background-color: #FF8F00;
+}
+
+
+/* ORANGE */
+.dp_pec_accordion_wrapper.pec_skin_orange .dp_pec_content_header,
+.dp_pec_accordion_wrapper.pec_skin_orange .dpProEventCalendar_feed,
+.dp_pec_new_event_wrapper.pec_skin_orange .dp_pec_content_header,
+.dp_pec_wrapper.pec_skin_orange .dp_pec_dayname_item,
+.dp_pec_wrapper.pec_skin_orange .dp_pec_content .dp_pec_date .dp_count_events,
+.dp_pec_wrapper.pec_skin_orange .dp_pec_options_nav .dpProEventCalendar_feed,
+.dp_pec_wrapper.pec_skin_orange .dp_pec_dayname_item span,
+.dp_pec_wrapper.pec_skin_orange .dp_pec_content .dp_pec_date_event_head span,
+.dp_pec_wrapper.pec_skin_orange .dp_pec_content .dp_pec_date_event_head,
+.dp_pec_wrapper.pec_skin_orange .dp_pec_content .dp_pec_date_event .pec_book_event,
+.dp_pec_accordion_wrapper.pec_skin_orange .dp_pec_content a.dp_pec_date_event_close,
+.dp_pec_wrapper.pec_skin_orange .dp_pec_content a.dp_pec_date_event_back{
+	background: #FFA726;
+	color: #fff;
+	text-shadow:none;
+	border: 0;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_orange .dp_pec_nav span.next_month, 
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_orange .dp_pec_nav span.prev_month {
+	color: #fff;
+
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_orange .dp_pec_nav,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_orange .dp_pec_nav .selectric .label {
+	border: 0;
+	background: #FFB74D;
+	color: #fff;
+	text-shadow:none;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_orange .dp_pec_nav {
+	border-top: 3px solid #EF6C00;
+}
+
+.dp_pec_wrapper.pec_skin_orange .dp_daily_event {
+	background: #FFF3E0;
+	border-color: #FFE0B2;
+}
+
+.dp_pec_wrapper.pec_skin_orange .dp_daily_event:hover {
+	background: #FFE0B2;
+	border-color: #EF6C00;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_orange .dp_pec_content a.dp_pec_date_event_twitter:hover,
+.dp_pec_accordion_wrapper.pec_skin_orange .dp_pec_content a.dp_pec_date_event_close:hover,
+.dp_pec_wrapper.pec_skin_orange .dp_pec_content a.dp_pec_date_event_back:hover,
+.dp_pec_wrapper.dp_pec_compact_wrapper.pec_skin_orange .dp_pec_content .dp_pec_date_left {
+	background-color: #EF6C00;
+}
+
+/* DEEP ORANGE */
+.dp_pec_accordion_wrapper.pec_skin_deep_orange .dp_pec_content_header,
+.dp_pec_accordion_wrapper.pec_skin_deep_orange .dpProEventCalendar_feed,
+.dp_pec_new_event_wrapper.pec_skin_deep_orange .dp_pec_content_header,
+.dp_pec_wrapper.pec_skin_deep_orange .dp_pec_dayname_item,
+.dp_pec_wrapper.pec_skin_deep_orange .dp_pec_content .dp_pec_date .dp_count_events,
+.dp_pec_wrapper.pec_skin_deep_orange .dp_pec_options_nav .dpProEventCalendar_feed,
+.dp_pec_wrapper.pec_skin_deep_orange .dp_pec_dayname_item span,
+.dp_pec_wrapper.pec_skin_deep_orange .dp_pec_content .dp_pec_date_event_head span,
+.dp_pec_wrapper.pec_skin_deep_orange .dp_pec_content .dp_pec_date_event_head,
+.dp_pec_wrapper.pec_skin_deep_orange .dp_pec_content .dp_pec_date_event .pec_book_event,
+.dp_pec_accordion_wrapper.pec_skin_deep_orange .dp_pec_content a.dp_pec_date_event_close,
+.dp_pec_wrapper.pec_skin_deep_orange .dp_pec_content a.dp_pec_date_event_back{
+	background: #FF7043;
+	color: #fff;
+	text-shadow:none;
+	border: 0;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_deep_orange .dp_pec_nav span.next_month, 
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_deep_orange .dp_pec_nav span.prev_month {
+	color: #fff;
+
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_deep_orange .dp_pec_nav,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_deep_orange .dp_pec_nav .selectric .label {
+	border: 0;
+	background: #FF8A65;
+	color: #fff;
+	text-shadow:none;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_deep_orange .dp_pec_nav {
+	border-top: 3px solid #D84315;
+}
+
+.dp_pec_wrapper.pec_skin_deep_orange .dp_daily_event {
+	background: #FBE9E7;
+	border-color: #FFCCBC;
+}
+
+.dp_pec_wrapper.pec_skin_deep_orange .dp_daily_event:hover {
+	background: #FFCCBC;
+	border-color: #D84315;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_deep_orange .dp_pec_content a.dp_pec_date_event_twitter:hover,
+.dp_pec_accordion_wrapper.pec_skin_deep_orange .dp_pec_content a.dp_pec_date_event_close:hover,
+.dp_pec_wrapper.pec_skin_deep_orange .dp_pec_content a.dp_pec_date_event_back:hover,
+.dp_pec_wrapper.dp_pec_compact_wrapper.pec_skin_deep_orange .dp_pec_content .dp_pec_date_left {
+	background-color: #D84315;
+}
+
+/* BROWN */
+.dp_pec_accordion_wrapper.pec_skin_brown .dp_pec_content_header,
+.dp_pec_accordion_wrapper.pec_skin_brown .dpProEventCalendar_feed,
+.dp_pec_new_event_wrapper.pec_skin_brown .dp_pec_content_header,
+.dp_pec_wrapper.pec_skin_brown .dp_pec_dayname_item,
+.dp_pec_wrapper.pec_skin_brown .dp_pec_content .dp_pec_date .dp_count_events,
+.dp_pec_wrapper.pec_skin_brown .dp_pec_options_nav .dpProEventCalendar_feed,
+.dp_pec_wrapper.pec_skin_brown .dp_pec_dayname_item span,
+.dp_pec_wrapper.pec_skin_brown .dp_pec_content .dp_pec_date_event_head span,
+.dp_pec_wrapper.pec_skin_brown .dp_pec_content .dp_pec_date_event_head,
+.dp_pec_wrapper.pec_skin_brown .dp_pec_content .dp_pec_date_event .pec_book_event,
+.dp_pec_accordion_wrapper.pec_skin_brown .dp_pec_content a.dp_pec_date_event_close,
+.dp_pec_wrapper.pec_skin_brown .dp_pec_content a.dp_pec_date_event_back{
+	background: #8D6E63;
+	color: #fff;
+	text-shadow:none;
+	border: 0;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_brown .dp_pec_nav span.next_month, 
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_brown .dp_pec_nav span.prev_month {
+	color: #fff;
+
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_brown .dp_pec_nav,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_brown .dp_pec_nav .selectric .label {
+	border: 0;
+	background: #A1887F;
+	color: #fff;
+	text-shadow:none;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_brown .dp_pec_nav {
+	border-top: 3px solid #4E342E;
+}
+
+.dp_pec_wrapper.pec_skin_brown .dp_daily_event {
+	background: #EFEBE9;
+	border-color: #D7CCC8;
+}
+
+.dp_pec_wrapper.pec_skin_brown .dp_daily_event:hover {
+	background: #D7CCC8;
+	border-color: #4E342E;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_brown .dp_pec_content a.dp_pec_date_event_twitter:hover,
+.dp_pec_accordion_wrapper.pec_skin_brown .dp_pec_content a.dp_pec_date_event_close:hover,
+.dp_pec_wrapper.pec_skin_brown .dp_pec_content a.dp_pec_date_event_back:hover,
+.dp_pec_wrapper.dp_pec_compact_wrapper.pec_skin_brown .dp_pec_content .dp_pec_date_left {
+	background-color: #4E342E;
+}
+
+/* GREY */
+.dp_pec_accordion_wrapper.pec_skin_grey .dp_pec_content_header,
+.dp_pec_accordion_wrapper.pec_skin_grey .dpProEventCalendar_feed,
+.dp_pec_new_event_wrapper.pec_skin_grey .dp_pec_content_header,
+.dp_pec_wrapper.pec_skin_grey .dp_pec_dayname_item,
+.dp_pec_wrapper.pec_skin_grey .dp_pec_content .dp_pec_date .dp_count_events,
+.dp_pec_wrapper.pec_skin_grey .dp_pec_options_nav .dpProEventCalendar_feed,
+.dp_pec_wrapper.pec_skin_grey .dp_pec_dayname_item span,
+.dp_pec_wrapper.pec_skin_grey .dp_pec_content .dp_pec_date_event_head span,
+.dp_pec_wrapper.pec_skin_grey .dp_pec_content .dp_pec_date_event_head,
+.dp_pec_wrapper.pec_skin_grey .dp_pec_content .dp_pec_date_event .pec_book_event,
+.dp_pec_accordion_wrapper.pec_skin_grey .dp_pec_content a.dp_pec_date_event_close,
+.dp_pec_wrapper.pec_skin_grey .dp_pec_content a.dp_pec_date_event_back{
+	background: #BDBDBD;
+	color: #333;
+	text-shadow:none;
+	border: 0;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_grey .dp_pec_nav span.next_month, 
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_grey .dp_pec_nav span.prev_month {
+	color: #fff;
+
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_grey .dp_pec_nav,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_grey .dp_pec_nav .selectric .label {
+	border: 0;
+	background: #E0E0E0;
+	color: #333;
+	text-shadow:none;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_grey .dp_pec_nav {
+	border-top: 3px solid #424242;
+}
+
+.dp_pec_wrapper.pec_skin_grey .dp_daily_event {
+	background: #FAFAFA;
+	border-color: #F5F5F5;
+}
+
+.dp_pec_wrapper.pec_skin_grey .dp_daily_event:hover {
+	background: #F5F5F5;
+	border-color: #424242;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_grey .dp_pec_content a.dp_pec_date_event_twitter:hover,
+.dp_pec_accordion_wrapper.pec_skin_grey .dp_pec_content a.dp_pec_date_event_close:hover,
+.dp_pec_wrapper.pec_skin_grey .dp_pec_content a.dp_pec_date_event_back:hover,
+.dp_pec_wrapper.dp_pec_compact_wrapper.pec_skin_grey .dp_pec_content .dp_pec_date_left {
+	background-color: #424242;
+}
+
+/* BLUE GREY */
+.dp_pec_accordion_wrapper.pec_skin_blue_grey .dp_pec_content_header,
+.dp_pec_accordion_wrapper.pec_skin_blue_grey .dpProEventCalendar_feed,
+.dp_pec_new_event_wrapper.pec_skin_blue_grey .dp_pec_content_header,
+.dp_pec_wrapper.pec_skin_blue_grey .dp_pec_dayname_item,
+.dp_pec_wrapper.pec_skin_blue_grey .dp_pec_content .dp_pec_date .dp_count_events,
+.dp_pec_wrapper.pec_skin_blue_grey .dp_pec_options_nav .dpProEventCalendar_feed,
+.dp_pec_wrapper.pec_skin_blue_grey .dp_pec_dayname_item span,
+.dp_pec_wrapper.pec_skin_blue_grey .dp_pec_content .dp_pec_date_event_head span,
+.dp_pec_wrapper.pec_skin_blue_grey .dp_pec_content .dp_pec_date_event_head,
+.dp_pec_wrapper.pec_skin_blue_grey .dp_pec_content .dp_pec_date_event .pec_book_event,
+.dp_pec_accordion_wrapper.pec_skin_blue_grey .dp_pec_content a.dp_pec_date_event_close,
+.dp_pec_wrapper.pec_skin_blue_grey .dp_pec_content a.dp_pec_date_event_back{
+	background: #78909C;
+	color: #fff;
+	text-shadow:none;
+	border: 0;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_blue_grey .dp_pec_nav span.next_month, 
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_blue_grey .dp_pec_nav span.prev_month {
+	color: #fff;
+
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_blue_grey .dp_pec_nav,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_blue_grey .dp_pec_nav .selectric .label {
+	border: 0;
+	background: #90A4AE;
+	color: #fff;
+	text-shadow:none;
+}
+
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_blue_grey .dp_pec_nav {
+	border-top: 3px solid #37474F;
+}
+
+.dp_pec_wrapper.pec_skin_blue_grey .dp_daily_event {
+	background: #ECEFF1;
+	border-color: #CFD8DC;
+}
+
+.dp_pec_wrapper.pec_skin_blue_grey .dp_daily_event:hover {
+	background: #CFD8DC;
+	border-color: #999;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_blue_grey .dp_pec_content a.dp_pec_date_event_twitter:hover,
+.dp_pec_accordion_wrapper.pec_skin_blue_grey .dp_pec_content a.dp_pec_date_event_close:hover,
+.dp_pec_wrapper.pec_skin_blue_grey .dp_pec_content a.dp_pec_date_event_back:hover,
+.dp_pec_wrapper.dp_pec_compact_wrapper.pec_skin_blue_grey .dp_pec_content .dp_pec_date_left {
+	background-color: #37474F;
+}
+
+/* General color */
+
+.dp_pec_accordion_wrapper.pec_skin_red .dp_pec_content_header h2,
+.dp_pec_new_event_wrapper.pec_skin_red .dp_pec_content_header h2,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_red .dp_pec_nav .dp_pec_wrap_month_year .pec_switch_month,
+.dp_pec_accordion_wrapper.pec_skin_pink .dp_pec_content_header h2,
+.dp_pec_new_event_wrapper.pec_skin_pink .dp_pec_content_header h2,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_pink .dp_pec_nav .dp_pec_wrap_month_year .pec_switch_month,
+.dp_pec_accordion_wrapper.pec_skin_purple .dp_pec_content_header h2,
+.dp_pec_new_event_wrapper.pec_skin_purple .dp_pec_content_header h2,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_purple .dp_pec_nav .dp_pec_wrap_month_year .pec_switch_month,
+.dp_pec_accordion_wrapper.pec_skin_deep_purple .dp_pec_content_header h2,
+.dp_pec_new_event_wrapper.pec_skin_deep_purple .dp_pec_content_header h2,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_deep_purple .dp_pec_nav .dp_pec_wrap_month_year .pec_switch_month,
+.dp_pec_accordion_wrapper.pec_skin_indigo .dp_pec_content_header h2,
+.dp_pec_new_event_wrapper.pec_skin_indigo .dp_pec_content_header h2,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_indigo .dp_pec_nav .dp_pec_wrap_month_year .pec_switch_month,
+.dp_pec_accordion_wrapper.pec_skin_light_blue .dp_pec_content_header h2,
+.dp_pec_new_event_wrapper.pec_skin_light_blue .dp_pec_content_header h2,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_light_blue .dp_pec_nav .dp_pec_wrap_month_year .pec_switch_month,
+.dp_pec_accordion_wrapper.pec_skin_blue .dp_pec_content_header h2,
+.dp_pec_new_event_wrapper.pec_skin_blue .dp_pec_content_header h2,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_blue .dp_pec_nav .dp_pec_wrap_month_year .pec_switch_month,
+.dp_pec_accordion_wrapper.pec_skin_cyan .dp_pec_content_header h2,
+.dp_pec_new_event_wrapper.pec_skin_cyan .dp_pec_content_header h2,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_cyan .dp_pec_nav .dp_pec_wrap_month_year .pec_switch_month,
+.dp_pec_accordion_wrapper.pec_skin_teal .dp_pec_content_header h2,
+.dp_pec_new_event_wrapper.pec_skin_teal .dp_pec_content_header h2,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_teal .dp_pec_nav .dp_pec_wrap_month_year .pec_switch_month,
+.dp_pec_accordion_wrapper.pec_skin_green .dp_pec_content_header h2,
+.dp_pec_new_event_wrapper.pec_skin_green .dp_pec_content_header h2,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_green .dp_pec_nav .dp_pec_wrap_month_year .pec_switch_month,
+.dp_pec_accordion_wrapper.pec_skin_light_green .dp_pec_content_header h2,
+.dp_pec_new_event_wrapper.pec_skin_light_green .dp_pec_content_header h2,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_light_green .dp_pec_nav .dp_pec_wrap_month_year .pec_switch_month,
+.dp_pec_accordion_wrapper.pec_skin_orange .dp_pec_content_header h2,
+.dp_pec_new_event_wrapper.pec_skin_orange .dp_pec_content_header h2,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_orange .dp_pec_nav .dp_pec_wrap_month_year .pec_switch_month,
+.dp_pec_accordion_wrapper.pec_skin_deep_orange .dp_pec_content_header h2,
+.dp_pec_new_event_wrapper.pec_skin_deep_orange .dp_pec_content_header h2,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_deep_orange .dp_pec_nav .dp_pec_wrap_month_year .pec_switch_month,
+.dp_pec_accordion_wrapper.pec_skin_brown .dp_pec_content_header h2,
+.dp_pec_new_event_wrapper.pec_skin_brown .dp_pec_content_header h2,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_brown .dp_pec_nav .dp_pec_wrap_month_year .pec_switch_month,
+.dp_pec_accordion_wrapper.pec_skin_blue_grey .dp_pec_content_header h2,
+.dp_pec_new_event_wrapper.pec_skin_blue_grey .dp_pec_content_header h2,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_blue_grey .dp_pec_nav .dp_pec_wrap_month_year .pec_switch_month {
+	color: #fff;
+}
+
+.dp_pec_accordion_wrapper.pec_skin_lime .dp_pec_content_header h2,
+.dp_pec_new_event_wrapper.pec_skin_lime .dp_pec_content_header h2,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_lime .dp_pec_nav .dp_pec_wrap_month_year .pec_switch_month,
+.dp_pec_accordion_wrapper.pec_skin_yellow .dp_pec_content_header h2,
+.dp_pec_new_event_wrapper.pec_skin_yellow .dp_pec_content_header h2,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_yellow .dp_pec_nav .dp_pec_wrap_month_year .pec_switch_month,
+.dp_pec_accordion_wrapper.pec_skin_amber .dp_pec_content_header h2,
+.dp_pec_new_event_wrapper.pec_skin_amber .dp_pec_content_header h2,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_amber .dp_pec_nav .dp_pec_wrap_month_year .pec_switch_month,
+.dp_pec_accordion_wrapper.pec_skin_grey .dp_pec_content_header h2,
+.dp_pec_new_event_wrapper.pec_skin_grey .dp_pec_content_header h2,
+.dp_pec_compact_wrapper.dp_pec_wrapper.pec_skin_grey .dp_pec_nav .dp_pec_wrap_month_year .pec_switch_month {
+	color: #111;	
+}

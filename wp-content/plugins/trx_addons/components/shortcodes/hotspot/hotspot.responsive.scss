@@ -1,0 +1,35 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+//@mixin sc_hotspot--lg() {
+@media #{$media_lg} {
+	/* Hotspot */
+	.sc_hotspot_image_loaded ~ .sc_hotspot_item_visible_hover {
+		opacity: 1;
+	}
+
+	.sc_hotspot_item_popup_tl_tablet { @include abs-rb( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-size-double-), var(--sc-hotspot-content-item-popup-z-index) ); top: auto; left: auto; @include transform-none; }
+	.sc_hotspot_item_popup_tc_tablet { @include abs-cb( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-popup-z-index) ); top: auto; right: auto; }
+	.sc_hotspot_item_popup_tr_tablet { @include abs-lb( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-size-double-), var(--sc-hotspot-content-item-popup-z-index) ); top: auto; right: auto; @include transform-none; }
+	.sc_hotspot_item_popup_ml_tablet { @include abs-rc( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-popup-z-index) ); bottom: auto; left: auto; }
+	.sc_hotspot_item_popup_mc_tablet { @include abs-cc( var(--sc-hotspot-content-item-popup-z-index) ); bottom: auto; right: auto; }
+	.sc_hotspot_item_popup_mr_tablet { @include abs-lc( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-popup-z-index) ); bottom: auto; right: auto; }
+	.sc_hotspot_item_popup_bl_tablet { @include abs-rt( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-size-double-), var(--sc-hotspot-content-item-popup-z-index) ); bottom: auto; left: auto; @include transform-none; }
+	.sc_hotspot_item_popup_bc_tablet { @include abs-ct( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-popup-z-index) ); bottom: auto; right: auto; }
+	.sc_hotspot_item_popup_br_tablet { @include abs-lt( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-size-double-), var(--sc-hotspot-content-item-popup-z-index) ); bottom: auto; right: auto; @include transform-none; }
+}
+ 
+//@mixin sc_hotspot--sm() {
+@media #{$media_sm} {
+	/* Hotspot */
+	.sc_hotspot_item_popup_tl_mobile { @include abs-rb( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-size-double-), var(--sc-hotspot-content-item-popup-z-index) ); top: auto; left: auto; @include transform-none; }
+	.sc_hotspot_item_popup_tc_mobile { @include abs-cb( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-popup-z-index) ); top: auto; right: auto; }
+	.sc_hotspot_item_popup_tr_mobile { @include abs-lb( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-size-double-), var(--sc-hotspot-content-item-popup-z-index) ); top: auto; right: auto; @include transform-none; }
+	.sc_hotspot_item_popup_ml_mobile { @include abs-rc( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-popup-z-index) ); bottom: auto; left: auto; }
+	.sc_hotspot_item_popup_mc_mobile { @include abs-cc( var(--sc-hotspot-content-item-popup-z-index) ); bottom: auto; right: auto; }
+	.sc_hotspot_item_popup_mr_mobile { @include abs-lc( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-popup-z-index) ); bottom: auto; right: auto; }
+	.sc_hotspot_item_popup_bl_mobile { @include abs-rt( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-size-double-), var(--sc-hotspot-content-item-popup-z-index) ); bottom: auto; left: auto; @include transform-none; }
+	.sc_hotspot_item_popup_bc_mobile { @include abs-ct( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-popup-z-index) ); bottom: auto; right: auto; }
+	.sc_hotspot_item_popup_br_mobile { @include abs-lt( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-size-double-), var(--sc-hotspot-content-item-popup-z-index) ); bottom: auto; right: auto; @include transform-none; }
+}
+ 

@@ -1,0 +1,124 @@
+/* OpenStreetMap */
+.sc_osmap_wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.sc_osmap {
+  position: relative;
+  padding-top: 0.0001px;
+}
+
+.sc_osmap img {
+  max-width: none;
+}
+
+.sc_osmap > iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.sc_osmap_prevent_scroll {
+  pointer-events: none;
+}
+
+.sc_osmap h1, .sc_osmap h2, .sc_osmap h3, .sc_osmap h4, .sc_osmap h5, .sc_osmap h6, .sc_osmap p, .sc_osmap ul, .sc_osmap ol, .sc_osmap dl {
+  margin-top: 0;
+  margin-bottom: 0.3em;
+}
+
+.sc_osmap_title + .sc_osmap,
+.sc_osmap_title + .sc_osmap_content_wrap,
+.sc_osmap_subtitle + .sc_osmap,
+.sc_osmap_subtitle + .sc_osmap_content_wrap {
+  margin-top: 4.2em;
+}
+
+.sc_osmap_descr + .sc_osmap {
+  margin-top: 1em;
+}
+
+.sc_osmap_content_wrap {
+  position: relative;
+}
+
+.sc_osmap_content {
+  pointer-events: none;
+}
+
+.sc_osmap_content form {
+  pointer-events: initial;
+}
+
+.sc_osmap_content_default {
+  position: absolute;
+  z-index: 1000;
+  top: 10%;
+  right: 10%;
+  bottom: 10%;
+  left: auto;
+  width: 30%;
+  padding: 1.5em;
+  overflow: auto;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.sc_osmap_content_default p {
+  margin: 0 0 0.3em;
+}
+
+.sc_osmap_content_detailed {
+  position: relative;
+  padding: 2em 2em 2em 5em;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.sc_osmap_content_detailed:before {
+  content: '\e8bb';
+  font-family: "trx_addons_icons";
+  font-size: 2em;
+  line-height: 1.3em;
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+
+.sc_osmap_content_detailed p {
+  margin-bottom: 1em;
+}
+
+.sc_osmap_info_window h1,
+.sc_osmap_info_window h2,
+.sc_osmap_info_window h3,
+.sc_osmap_info_window h4,
+.sc_osmap_info_window h5,
+.sc_osmap_info_window h6 {
+  margin: 0 0 0.3em;
+}
+
+.sc_osmap_info_window p {
+  margin: 0;
+}
+
+.sc_osmap_info_window p + p {
+  margin-top: 0.3em;
+}
+
+.sc_osmap .sc_osmap_cluster div {
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  color: #fff;
+  -webkit-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  font-family: inherit;
+  font-size: 11px;
+}
+
+/*# sourceMappingURL=osmap.css.map */

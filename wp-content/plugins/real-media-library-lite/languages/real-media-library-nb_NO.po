@@ -1,0 +1,1341 @@
+# Copyright (C) 2023 devowl.io
+# This file is distributed under the same license as the Real Media Library plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: n/a\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/src\n"
+"POT-Creation-Date: n/a\n"
+"PO-Revision-Date: 2023-06-28 07:23+0000\n"
+"Last-Translator: Matthias Günter <matthias.guenter@devowl.io>\n"
+"Language-Team: Norwegian Bokmål <https://translate.devowl.io/projects/"
+"wordpress-real-media-library-backend-php/develop/nb_NO/>\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.16.4\n"
+
+#. Plugin Name of the plugin
+msgid "Real Media Library"
+msgstr "Real Media Library"
+
+#. Plugin URI of the plugin
+msgid "https://devowl.io/wordpress-real-media-library/"
+msgstr "https://devowl.io/wordpress-real-media-library/"
+
+#. Description of the plugin
+msgid ""
+"Organize uploaded media in folders, collections and galleries: A file "
+"manager for WordPress. Media management made easy!"
+msgstr ""
+"Organiser opplastede medier i mapper, samlinger og gallerier: En fil "
+"behandler for WordPress. Medie behandling gjort enkelt!"
+
+#. Author of the plugin
+msgid "devowl.io"
+msgstr "devowl.io"
+
+#. Author URI of the plugin
+msgid "https://devowl.io"
+msgstr "https://devowl.io"
+
+#: inc/AdInitiator.php:58
+msgid "Complete file and folder manager"
+msgstr "Komplett fil og mappe behandler"
+
+#: inc/AdInitiator.php:59
+msgid ""
+"Real Media Library is a WordPress plugin that empowers you with advanced "
+"media management. You can use this plugin to organize the thousands of "
+"images, audio, video and PDF files in your media library into folders. "
+"Basically it is a file manager like Windows Explorer or Mac Finder, but for "
+"WordPress."
+msgstr ""
+"Real Media Library er en utvidelse for WordPress som gjør det mulig med "
+"avansert medie behandling. Du kan bruke denne utvidelsen til å organisere "
+"tusenvis av bilder, audio, video og PDF filer fra ditt medie bibliotek i "
+"mapper. I bunn og grunn er dette en filbehandler som Windows utforsker eller "
+"Mac Finder for WordPress."
+
+#: inc/AdInitiator.php:69
+msgid "Filter in insert media dialog"
+msgstr "Filtrer i sett inn medie dialog"
+
+#: inc/AdInitiator.php:70
+msgid ""
+"No matter where you are, the folder structure of Real Media Library is "
+"always where you can select files. For example in the dialog for selecting a "
+"\"Featured Image\"."
+msgstr ""
+"Uansett hvor du er vil mappestrukturen til Real Media Library være der du "
+"velger filer. For eksempel i dialogen hvor du velger \"Fremhevet bilde\"."
+
+#: inc/AdInitiator.php:80
+msgid ""
+"In the Lite version you can only select the folder by a simple dropdown."
+msgstr "I Lite versjonen kan du bare velge mapper via en enkel nedtrekksmeny."
+
+#: inc/AdInitiator.php:85
+msgid "Custom image order"
+msgstr "Tilpasset bilderekkefølge"
+
+#: inc/AdInitiator.php:86
+msgid ""
+"Organizing your media files is really easy with the Real Media Library "
+"plugin. You can arrange the order of your files yourself by dragging and "
+"dropping. This allows you to move important files to the top for faster "
+"access."
+msgstr ""
+"Med Real Media Library utvidelsen er det lett å organisere medie filene "
+"dine. Du kan sortere filene i rekkefølgen selv med dra og slipp. Dette gjør "
+"det mulig å flytte viktige filer til toppen for rask tilgang."
+
+#: inc/AdInitiator.php:101
+msgid "Get your PRO license now!"
+msgstr "Skaff deg din PRO lisens nå!"
+
+#: inc/api/attachment.php:108 inc/api/attachment.php:129
+#: inc/api/attachment.php:145
+msgid "The given folder was not found."
+msgstr "Den valgte mappen ble ikke funnet."
+
+#: inc/Assets.php:247
+msgid "https://devowl.io/"
+msgstr "https://devowl.io/"
+
+#: inc/Assets.php:249
+msgid "Complementary Plugins"
+msgstr "Utvidelser som følger med"
+
+#: inc/Assets.php:267
+msgid ""
+"\n"
+"\n"
+"Note: If you want to delete a shortcut file, the source file will NOT be "
+"deleted.\n"
+"If you want to delete a non-shortcut file, all associated shortcuts are "
+"deleted, too."
+msgstr ""
+"\n"
+"\n"
+"PS: Om du ønsker å slette en snarveifil, vil IKKE kildefilen bli slettet.\n"
+"Om du ønsker å slette en ikke-snarveifil, vil alle assosierte snarveier også "
+"bli slettet."
+
+#: inc/attachment/CustomField.php:53
+msgid ""
+"If you move this shortcut, the location of the source/main file is not "
+"changed."
+msgstr ""
+"Dersom du flytter denne snarveien vil ikke plasseringen til kilde/hovedfilen "
+"bli endret."
+
+#: inc/attachment/CustomField.php:54
+msgid ""
+"If you move this attachment, the folder location of the associated shortcuts "
+"are not changed."
+msgstr ""
+"Dersom du flytter dette vedlegget, vil ikke plasseringen av mappen til de "
+"assosierte snarveiene bli endret."
+
+#: inc/attachment/CustomField.php:78
+msgid "Move to another folder"
+msgstr "Flytt til en annen mappe"
+
+#: inc/attachment/CustomField.php:83 inc/folder/Creatable.php:336
+#: inc/view/FolderShortcode.php:114 inc/view/Lang.php:51
+msgid "Folder"
+msgstr "Mappe"
+
+#: inc/attachment/CustomField.php:124
+msgid "Shortcut infos"
+msgstr "Snarvei informasjon"
+
+#: inc/attachment/CustomField.php:131
+msgid ""
+"This is a shortcut of a media library file. Shortcuts doesn't need any "
+"physical storage <strong>(0 kB)</strong>. If you want to change the file "
+"itself, you must do this in the original file (for example replace media "
+"file through a plugin).<br/>Note also that the fields in the shortcuts can "
+"be different to the original file, for example \"Title\", \"Description\" or "
+"\"Caption\"."
+msgstr ""
+"Dette er en snarvei til en medie bibliotek fil. Snarveier trenger ikke "
+"fysisk lagringsplass 1<strong>(0 kB)2</strong>. Dersom du ønsker å endre "
+"selve filen, må du gjøre dette i originalfilen (for eksempel ved å erstatte "
+"medie filen gjennom et tillegg).3<br/> Legg også merke til at feltene i "
+"snarveiene kan være annerledes enn den originale filen, for eksempel \"Tittel"
+"\", «Beskrivelse\", eller \"Bildetekst\"."
+
+#. translators:
+#: inc/attachment/CustomField.php:154
+msgid "For this file is %d shortcut available in the following folder:"
+msgid_plural ""
+"For this file are %d shortcuts available in the following folders:"
+msgstr[0] "For denne filen er %d snarvei tilgjengelig i følgende mappe:"
+msgstr[1] ""
+
+#: inc/attachment/CustomField.php:177
+msgid ""
+"This file has no associated shortcuts. You can create shortcuts by moving "
+"files per mouse and hold any key."
+msgstr ""
+"Denne filen har ingen assosierte snarveier. Du kan lage en snarvei ved å "
+"flytte filer med musen og holde inne en tast."
+
+#: inc/attachment/Permissions.php:46
+msgid "You are not allowed to insert files here."
+msgstr "Du har ikke tillatelse til å sette inn filer her."
+
+#: inc/attachment/Permissions.php:55
+msgid "You are not allowed to move the file."
+msgstr "Du har ikke tillatelse til å flytte filen."
+
+#: inc/attachment/Permissions.php:74
+msgid "You are not allowed to create a subfolder here."
+msgstr "Du har ikke tillatelse til å opprette en undermappe her."
+
+#: inc/attachment/Permissions.php:89
+msgid "You are not allowed to delete this folder."
+msgstr "Du har ikke tillatelse til å slette denne mappen."
+
+#: inc/attachment/Permissions.php:104
+msgid "You are not allowed to rename this folder."
+msgstr "Du har ikke tillatelse til å gi mappen nytt navn."
+
+#: inc/attachment/Upload.php:97
+msgid "Select destination folder"
+msgstr "Velg målmappe"
+
+#: inc/attachment/Upload.php:110
+msgid ""
+"You can simply upload files directly to a folder. Select a folder and upload "
+"files."
+msgstr ""
+"Du kan enkelt laste opp filer direkte til en mappe. Velg en mappe og last "
+"opp filer."
+
+#: inc/attachment/Upload.php:115
+msgid "upload to folder"
+msgstr "last opp til mappe"
+
+#: inc/comp/ExImport.php:71
+msgid "RealMediaLibrary:Import / Export"
+msgstr "RealMediaLibrary:Import / Eksport"
+
+#: inc/comp/ExImport.php:78
+msgid "Import from other plugins"
+msgstr "Importer fra andre utvidelser"
+
+#: inc/comp/ExImport.php:86
+msgid "Export / Import Real Media Library folders"
+msgstr "Eksporter / Importer Real Media Library mapper"
+
+#: inc/comp/ExImport.php:100
+msgid "Export"
+msgstr "Eksporter"
+
+#: inc/comp/ExImport.php:105 inc/comp/ExImport.php:151
+#: inc/comp/ExImport.php:162 inc/comp/ExImport.php:171
+msgid "Import"
+msgstr "Importer"
+
+#: inc/comp/ExImport.php:108
+msgid ""
+"All available folders will be exported. The current structure is not lost "
+"during import - but check that there are no duplicate names in the import "
+"data, as these are not checked."
+msgstr ""
+"Alle tilgjengelige mapper vil bli eksportert. Den nåværende strukturen går "
+"ikke tapt under import - men kontroller at det ikke er noen dupliserte navn "
+"i dataene som skal importeres da disse ikke blir kontrollert."
+
+#: inc/comp/ExImport.php:114
+msgid "Exported data:"
+msgstr "Eksportert data:"
+
+#: inc/comp/ExImport.php:117
+msgid "Import data:"
+msgstr "Importert data:"
+
+#: inc/comp/ExImport.php:124
+msgid "Importing data is only available in PRO version."
+msgstr "Importering av data er bare tilgjengelig i PRO versjonen."
+
+#: inc/comp/ExImport.php:128 inc/comp/ExImport.php:186
+#: inc/usersettings/DefaultFolder.php:79 inc/view/Lang.php:216
+msgid "Learn more about PRO"
+msgstr "Lær mer om PRO"
+
+#: inc/comp/ExImport.php:175
+msgid "Imports categories and post relations."
+msgstr "Importerer relasjoner mellom kategorier og innlegg."
+
+#: inc/comp/ExImport.php:177
+msgid "Nothing to import."
+msgstr "Ingenting å importere."
+
+#: inc/comp/ExImport.php:182
+msgid ""
+"Importing categories from another plugin is only available in PRO version."
+msgstr ""
+"Importering av kategorier fra andre utvidelser er bare mulig i PRO versjonen."
+
+#: inc/comp/ExportMediaLibrary.php:156
+msgid "No valid folder."
+msgstr "Ingen gyldig mappe."
+
+#: inc/comp/ExportMediaLibrary.php:220
+msgid "No valid type."
+msgstr "Ingen gyldig type."
+
+#: inc/comp/PolyLang.php:59
+msgid "PolyLang: Automatically move translations"
+msgstr "PolyLang: Flytt oversettelser automatisk"
+
+#: inc/comp/PolyLang.php:76 inc/comp/WPML.php:334
+msgid ""
+"If you move a file, the corresponding translated file will also be moved."
+msgstr ""
+"Dersom du flytter en fil, vil den tilhørende oversatte filen også bli "
+"flyttet."
+
+#: inc/comp/WPML.php:317
+msgid "WPML: Automatically move translations"
+msgstr "WPML: Flytt oversettelser automatisk"
+
+#: inc/Core.php:108
+msgid "https://devowl.io/go/real-media-library?source=rml-lite"
+msgstr "https://devowl.io/go/real-media-library?source=rml-lite"
+
+#. translators:
+#: inc/exception/FolderAlreadyExistsException.php:30
+msgid "'%s' already exists in this folder."
+msgstr "'%s' finnes allerede i denne mappen."
+
+#. translators:
+#: inc/exception/OnlyInProVersionException.php:22
+msgid "This functionality is not available in the free version (%s)."
+msgstr "Denne funksjonaliteten er ikke tilgjengelig i gratisversjonen (%s)."
+
+#: inc/folder/Creatable.php:181
+msgid "You need to provide a set of files."
+msgstr "Du må oppgi et sett med filer."
+
+#: inc/folder/Creatable.php:269
+msgid "The folder could not be created in the database."
+msgstr "Mappen kunne ikke opprettes i databasen."
+
+#: inc/folder/Creatable.php:272
+msgid "The folder could not be created because it already exists."
+msgstr "Mappen kunne ikke opprettes fordi den allerede eksisterer."
+
+#: inc/folder/Creatable.php:356
+msgid ""
+"A folder can contain every type of file or a collection, but not gallery."
+msgstr ""
+"En mappe kan inneholde alle typer filer eller en samling, men ikke et "
+"galleri."
+
+#. translators:
+#: inc/folder/Creatable.php:375
+msgid "'%s' is not a valid folder name."
+msgstr "'%s' er ikke et gyldig mappenavn."
+
+#: inc/folder/Creatable.php:511
+msgid "Order by name ascending"
+msgstr "Sorter etter navn stigende"
+
+#: inc/folder/Creatable.php:515
+msgid "Order by name descending"
+msgstr "Sorter etter navn synkende"
+
+#: inc/folder/Creatable.php:519 inc/order/Sortable.php:100
+msgid "Order by ID ascending"
+msgstr "Rekkefølge etter ID stigende"
+
+#: inc/folder/Creatable.php:523 inc/order/Sortable.php:104
+msgid "Order by ID descending"
+msgstr "Rekkefølge etter ID synkende"
+
+#: inc/folder/CRUD.php:125
+msgid "The given folder does not exist or you cannot rename this folder."
+msgstr ""
+"Den angitte mappen eksisterer ikke, eller du kan ikke gi nytt navn til denne "
+"mappen."
+
+#: inc/folder/CRUD.php:144 inc/view/Lang.php:95
+msgid "The folder you try to delete has subfolders."
+msgstr "Mappen du prøver å slette har undermapper."
+
+#: inc/folder/CRUD.php:203
+msgid "The given folder does not exist."
+msgstr "Den gitte mappen eksisterer ikke."
+
+#: inc/folder/Root.php:21 inc/folder/Root.php:82 inc/view/Lang.php:128
+#: inc/view/View.php:119 inc/view/View.php:124
+msgid "Unorganized"
+msgstr "Uorganisert"
+
+#: inc/folder/Root.php:89
+msgid ""
+"Unorganized is the same as a root folder. Here you can find all files which "
+"are not assigned to a folder."
+msgstr ""
+"Uorganisert er det samme som en rotmappe. Her kan du finne alle filer som "
+"ikke er tilordnet en mappe."
+
+#: inc/metadata/CoverImage.php:74
+msgid ""
+"This option is disabled on this page. Please navigate to the media library."
+msgstr ""
+"Dette alternativet er deaktivert på denne siden. Vennligst naviger til "
+"mediebiblioteket."
+
+#: inc/metadata/CoverImage.php:80
+msgid "Cover image"
+msgstr "Forsidebilde"
+
+#: inc/metadata/Description.php:34
+msgid "Description"
+msgstr "Beskrivelse"
+
+#: inc/metadata/Meta.php:42
+msgid "Path"
+msgstr "Sti"
+
+#: inc/metadata/Meta.php:47
+msgid "Folder type"
+msgstr "Mappetype"
+
+#: inc/metadata/Meta.php:96
+msgid "General"
+msgstr "Generell"
+
+#: inc/order/Sortable.php:68
+msgid "Order by date ascending"
+msgstr "Sorter etter dato stigende"
+
+#: inc/order/Sortable.php:72
+msgid "Order by date descending"
+msgstr "Sorter etter dato synkende"
+
+#: inc/order/Sortable.php:76
+msgid "Order by title ascending"
+msgstr "Sorter etter tittel stigende"
+
+#: inc/order/Sortable.php:80
+msgid "Order by title descending"
+msgstr "Sorter etter tittel synkende"
+
+#: inc/order/Sortable.php:84
+msgid "Order by filename ascending"
+msgstr "Sorter etter filnavn stigende"
+
+#: inc/order/Sortable.php:88
+msgid "Order by filename descending"
+msgstr "Sorter etter filnavn synkende"
+
+#: inc/order/Sortable.php:92
+msgid "Natural order by filename ascending"
+msgstr "Naturlig rekkefølge etter filnavn stigende"
+
+#: inc/order/Sortable.php:96
+msgid "Natural order by filename descending"
+msgstr "Naturlig rekkefølge etter filnavn synkende"
+
+#: inc/overrides/lite/folder/Creatable.php:190
+#: inc/overrides/pro/folder/Creatable.php:303
+#: inc/overrides/pro/order/Sortable.php:147 inc/rest/Attachment.php:168
+msgid "Something went wrong."
+msgstr "Noe gikk galt."
+
+#: inc/overrides/lite/rest/Service.php:27 inc/overrides/pro/rest/Service.php:28
+msgid "Folder not found."
+msgstr "Mappe ble ikke funnet."
+
+#: inc/overrides/pro/folder/Collection.php:18
+msgid "A collection cannot contain files."
+msgstr "En samling kan ikke inneholde filer."
+
+#: inc/overrides/pro/folder/Collection.php:51
+msgid "Collection"
+msgstr "Samling"
+
+#: inc/overrides/pro/folder/Collection.php:58
+msgid ""
+"A collection cannot contain files. But you can create other collections and "
+"<strong> galleries</strong> there."
+msgstr ""
+"En samling kan ikke inneholde filer. Men du kan lage andre samlinger og "
+"<strong> gallerier</strong> der."
+
+#. translators:
+#: inc/overrides/pro/folder/Creatable.php:107
+msgid "The parent %d does not exist."
+msgstr "Den overordnede %d eksisterer ikke."
+
+#: inc/overrides/pro/folder/Creatable.php:161
+msgid "The given parent does not exist to set the parent for this folder."
+msgstr ""
+"Den angitte overordnede eksisterer ikke for å velge overordnet for denne "
+"mappen."
+
+#: inc/overrides/pro/folder/Creatable.php:166
+msgid "You are not allowed to change the parent for this folder."
+msgstr "Du har ikke lov til å endre overordnet for denne mappen."
+
+#: inc/overrides/pro/folder/Creatable.php:171
+msgid "The given parent does not allow the folder type."
+msgstr "Den oppgitte overordnede tillater ikke mappetypen."
+
+#: inc/overrides/pro/folder/Gallery.php:19
+msgid "You can only move images to a gallery."
+msgstr "Du kan bare flytte bilder til et galleri."
+
+#: inc/overrides/pro/folder/Gallery.php:53
+msgid "Gallery"
+msgstr "Galleri"
+
+#: inc/overrides/pro/folder/Gallery.php:60
+msgid ""
+"A gallery can only contain images. To view a gallery, go to a post and look "
+"at the buttons of the visual editor..."
+msgstr ""
+
+#: inc/overrides/pro/order/Sortable.php:44
+msgid "The given folder does not allow to reorder the files."
+msgstr "Den gitte mappen tillater ikke å omorganisere filene."
+
+#: inc/overrides/pro/order/Sortable.php:52
+msgid "This folder has an automatic order. Please deactivate that first."
+msgstr ""
+"Denne mappen har en automatisk rekkefølge. Vennligst deaktiver dette først."
+
+#: inc/overrides/pro/usersettings/DefaultFolder.php:39 inc/view/Lang.php:178
+msgid "Please select a folder to show items."
+msgstr "Velg en mappe for å vise elementer."
+
+#: inc/rest/Attachment.php:68
+msgid "Fetch only media in a folder by folder id."
+msgstr "Hent bare media i en mappe etter mappe-ID."
+
+#: inc/rest/Service.php:200
+msgid "Forbidden"
+msgstr "Forbudt"
+
+#: inc/rest/Service.php:205
+msgid "Real Media Library is not active for the current user."
+msgstr "Real Media Library er ikke aktivert for gjeldende bruker."
+
+#: inc/RpmInitiator.php:60
+msgid ""
+"https://devowl.io/knowledge-base/codecanyon-where-can-i-find-my-license-key/"
+msgstr ""
+"https://devowl.io/knowledge-base/codecanyon-where-can-i-find-my-license-key/"
+
+#: inc/usersettings/AllFilesShortcuts.php:58
+msgid "Hide shortcuts in \"All files\""
+msgstr "Gjem snarveier for \"Alle filer\""
+
+#: inc/usersettings/AllFilesShortcuts.php:61
+msgid "The count always includes shortcuts"
+msgstr "Tellingen inneholder alltid snarveier"
+
+#: inc/usersettings/DefaultFolder.php:48
+msgid "Default startup folder"
+msgstr "Standard oppstartsmappe"
+
+#: inc/usersettings/DefaultFolder.php:58
+msgid "No folder at startup"
+msgstr "Ingen mappe ved oppstart"
+
+#: inc/usersettings/DefaultFolder.php:64
+msgid "Last opened folder"
+msgstr "Sist åpnede mappe"
+
+#: inc/usersettings/DefaultFolder.php:72
+msgid ""
+"Your media library can always open in the last opened folder or a folder you "
+"choose. This saves you time every time you open the media library!"
+msgstr ""
+"Mediebiblioteket ditt kan alltid åpnes i den sist åpnede mappen eller i en "
+"mappe du velger. Dette sparer deg, hver gang du åpner mediebiblioteket!"
+
+#: inc/usersettings/InfiniteScrolling.php:45
+msgid "Enable infinite scrolling in grid view"
+msgstr "Aktiver uendelig rulling i rutenettvisning"
+
+#: inc/usersettings/InfiniteScrolling.php:48
+msgid ""
+"Instead of displaying a \"Load More\" button, all files are loaded "
+"automatically as you scroll down. This is not supported in list view."
+msgstr ""
+"I stedet for å vise en \"Last Mer\" knapp, lastes alle filene automatisk når "
+"du ruller nedover. Dette støttes ikke i listevisning."
+
+#: inc/view/FolderShortcode.php:109
+msgid "Gallery from Media Folder"
+msgstr "Galleri fra Media Folder"
+
+#: inc/view/FolderShortcode.php:110
+msgid ""
+"Note: You can only select galleries. Folders and collections are grayed."
+msgstr "Merk: Du kan bare velge gallerier. Mapper og samlinger er grå."
+
+#: inc/view/FolderShortcode.php:115
+msgid "Link to"
+msgstr "Link til"
+
+#: inc/view/FolderShortcode.php:116
+msgid "Columns"
+msgstr "Kolonner"
+
+#: inc/view/FolderShortcode.php:117
+msgid "Random Order"
+msgstr "Tilfeldig rekkefølge"
+
+#: inc/view/FolderShortcode.php:118
+msgid "Size"
+msgstr "Størrelse"
+
+#: inc/view/FolderShortcode.php:120
+msgid "Attachment File"
+msgstr "Vedlegg"
+
+#: inc/view/FolderShortcode.php:121
+msgid "Media File"
+msgstr "Mediefil"
+
+#: inc/view/FolderShortcode.php:122
+msgid "None"
+msgstr "Ingen"
+
+#: inc/view/FolderShortcode.php:125
+msgid "Thumbnail"
+msgstr "Miniatyrbilde"
+
+#: inc/view/FolderShortcode.php:126
+msgid "Medium"
+msgstr "Middels"
+
+#: inc/view/FolderShortcode.php:127
+msgid "Large"
+msgstr "Stor"
+
+#: inc/view/FolderShortcode.php:128
+msgid "Full Size"
+msgstr "Full størrelse"
+
+#: inc/view/Lang.php:39
+msgid ""
+"Subfolders are only available in the PRO version. But you can now create an "
+"unlimited number of folders on the main level (instead of the previous max. "
+"10 folders)."
+msgstr ""
+"Undermapper er kun tilgjengelig i PRO-versjonen. Men du kan nå opprette et "
+"ubegrenset antall mapper på hovednivået (i stedet for de forrige maks. 10 "
+"mappene)."
+
+#: inc/view/Lang.php:48
+msgid "No folder selected"
+msgstr "Ingen mappe valgt"
+
+#: inc/view/Lang.php:49
+msgid "Select folder"
+msgstr "Velg mappe"
+
+#: inc/view/Lang.php:50
+msgid "Reload content"
+msgstr "Last inn innhold på nytt"
+
+#: inc/view/Lang.php:52
+msgid "Subfolders"
+msgstr "Undermapper"
+
+#: inc/view/Lang.php:53
+msgid "Please select a folder (media library) in the block settings."
+msgstr "Velg en mappe (mediebibliotek) i blokkinnstillingene."
+
+#: inc/view/Lang.php:55
+msgid "New folders inherit this restriction"
+msgstr "Nye mapper arver denne begrensningen"
+
+#: inc/view/Lang.php:56
+msgid "The current selected folder has some restrictions:"
+msgstr "Den valgte mappen har noen begrensninger:"
+
+#: inc/view/Lang.php:57
+msgid "You cannot change *parent* folder"
+msgstr "Du kan ikke endre *overordnet* mappe"
+
+#: inc/view/Lang.php:58
+msgid "You cannot *rearrange* subfolders"
+msgstr "Du kan ikke *omorganisere* undermapper"
+
+#: inc/view/Lang.php:59
+msgid "You cannot *create* subfolders"
+msgstr "Du kan ikke *opprette* undermapper"
+
+#: inc/view/Lang.php:60
+msgid ""
+"You cannot *insert* new files. New files will be moved to Unorganized..."
+msgstr ""
+
+#: inc/view/Lang.php:64
+msgid "You cannot *rename* the folder"
+msgstr "Du kan ikke *gi nytt navn til* mappen"
+
+#: inc/view/Lang.php:65
+msgid "You cannot *delete* the folder"
+msgstr "Du kan ikke *slette* mappen"
+
+#: inc/view/Lang.php:66
+msgid "You cannot *move* files outside the folder"
+msgstr "Du kan ikke *flytte* filer utenfor mappen"
+
+#: inc/view/Lang.php:67
+msgid "Parent"
+msgstr "Overordnet"
+
+#: inc/view/Lang.php:68
+msgid "Before this node"
+msgstr "Før denne noden"
+
+#: inc/view/Lang.php:69
+msgid "If no next node is given, the element is placed at the end."
+msgstr "Hvis ingen neste node er gitt, plasseres elementet på slutten."
+
+#: inc/view/Lang.php:70
+msgid "The file is uploaded to the folder where you are currently in."
+msgstr "Filen lastes opp til mappen du befinner deg i."
+
+#: inc/view/Lang.php:71
+msgid "Are you sure?"
+msgstr "Er du sikker?"
+
+#: inc/view/Lang.php:72
+msgid "Success"
+msgstr "Suksess"
+
+#: inc/view/Lang.php:73
+msgid "Failed"
+msgstr "Feilet"
+
+#: inc/view/Lang.php:74
+msgid "No entries found"
+msgstr "Ingen oppføringer funnet"
+
+#: inc/view/Lang.php:75
+msgid "Are you sure to delete *{name}*? All files gets moved to Unorganized."
+msgstr ""
+"Er du sikker på å slette *{name}*? Alle filer blir flyttet til uorganisert."
+
+#: inc/view/Lang.php:76
+msgid ""
+"Are you sure to delete *{count} folders*? All files gets moved to "
+"Unorganized."
+msgstr ""
+"Er du sikker på at du vil slette *{count} mapper*? Alle filer blir flyttet "
+"til uorganisert."
+
+#: inc/view/Lang.php:80
+msgid "Ok"
+msgstr "Ok"
+
+#: inc/view/Lang.php:81
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: inc/view/Lang.php:82
+msgid "Save"
+msgstr "Lagre"
+
+#: inc/view/Lang.php:83
+msgid "Back"
+msgstr "Tilbake"
+
+#: inc/view/Lang.php:84
+msgid "No folders found"
+msgstr "Ingen mapper funnet"
+
+#: inc/view/Lang.php:85
+msgid ""
+"No folders have been created yet. Just click on the button above to create "
+"your first folder."
+msgstr ""
+"Ingen mapper er opprettet ennå. Klikk på knappen ovenfor for å opprette din "
+"første mappe."
+
+#: inc/view/Lang.php:89
+msgid "Folders"
+msgstr "Mapper"
+
+#: inc/view/Lang.php:90
+msgid "No search results."
+msgstr "Ingen søkeresultater."
+
+#: inc/view/Lang.php:91
+msgid "Renaming to *{name}*..."
+msgstr ""
+
+#: inc/view/Lang.php:92
+msgid "Successfully renamed folder to *{name}*"
+msgstr "Vellykket omdøping av mappen til *{name}*"
+
+#: inc/view/Lang.php:93
+msgid "Creating *{name}*..."
+msgstr ""
+
+#: inc/view/Lang.php:94
+msgid "Successfully created *{name}*"
+msgstr "Vellykket opprettet *{name}*"
+
+#: inc/view/Lang.php:96
+msgid "Deleting *{name}*..."
+msgstr ""
+
+#: inc/view/Lang.php:97
+msgid "Successfully deleted *{name}*"
+msgstr "Vellykket sletting av *{name}*"
+
+#: inc/view/Lang.php:98
+msgid "Successfully deleted *{count} folders*"
+msgstr "Vellykket sletting av *{count} mapper*"
+
+#: inc/view/Lang.php:99
+msgid "Rearrange *{name}* placement manually"
+msgstr "Omorganiser *{name}* plassering manuelt"
+
+#: inc/view/Lang.php:100
+msgid "Reordering the tree hierarchy..."
+msgstr ""
+
+#: inc/view/Lang.php:101
+msgid "Successfully sorted the tree hierarchy"
+msgstr "Vellykket sortering av trehierarkiet"
+
+#: inc/view/Lang.php:102
+msgid "Reorder subfolders of *{name}*..."
+msgstr ""
+
+#: inc/view/Lang.php:103
+msgid "{count} files remaining..."
+msgstr ""
+
+#: inc/view/Lang.php:104
+msgid "Receiving data..."
+msgstr ""
+
+#: inc/view/Lang.php:105
+msgid "Shortcut"
+msgstr "Snarvei"
+
+#: inc/view/Lang.php:106
+msgid ""
+"This is a shortcut of a media library file. Shortcuts doesn't need any "
+"physical storage *(0 kB)*. If you want to change the file itself, you must "
+"do this in the original file (for example replace media file through a "
+"plugin).\n"
+"Note also that the fields in the shortcuts can be different to the original "
+"file, for example \"Title\", \"Description\" or \"Caption\"."
+msgstr ""
+"Dette er en snarvei til en mediebibliotekfil. Snarveier trenger ingen fysisk "
+"lagring *(0 kB)*. Hvis du vil endre selve filen, må du gjøre dette i "
+"originalfilen (for eksempel ved å erstatte mediefil gjennom en utvidelse).\n"
+"Merk også at feltene i snarveiene kan være forskjellige fra den opprinnelige "
+"filen, for eksempel \"Tittel\", \"Beskrivelse\" eller \"Bildetekst\"."
+
+#: inc/view/Lang.php:111
+msgid ""
+"In the current view of uploads, filters are active. Please reset them and "
+"refresh the view."
+msgstr ""
+"I gjeldende visning av opplastinger er filtre aktive. Tilbakestill dem og "
+"oppdater visningen."
+
+#: inc/view/Lang.php:115
+msgid "A collection cannot contain files. Upload moved to Unorganized..."
+msgstr ""
+
+#: inc/view/Lang.php:116
+msgid "A gallery can only contain images. Upload moved to Unorganized..."
+msgstr ""
+
+#: inc/view/Lang.php:117
+msgid "Order content by *{name}*..."
+msgstr ""
+
+#: inc/view/Lang.php:118
+msgid "Order content by drag & drop"
+msgstr "Bestill innhold ved å dra og slipp"
+
+#: inc/view/Lang.php:119
+msgid "Reset order"
+msgstr "Tilbakestill rekkefølge"
+
+#: inc/view/Lang.php:120
+msgid "Apply order once..."
+msgstr ""
+
+#: inc/view/Lang.php:121
+msgid "Last"
+msgstr "Siste"
+
+#: inc/view/Lang.php:122
+msgid "Deactivate automatic ordering"
+msgstr "Deaktiver automatisk rekkefølge"
+
+#: inc/view/Lang.php:123
+msgid "Apply automatic order..."
+msgstr ""
+
+#: inc/view/Lang.php:124
+msgid "Latest"
+msgstr "Siste"
+
+#: inc/view/Lang.php:125
+msgid "Reindex order"
+msgstr "Reindekser rekkefølge"
+
+#: inc/view/Lang.php:126
+msgid "Reset to last order"
+msgstr "Tilbakestill til siste rekkefølge"
+
+#: inc/view/Lang.php:127
+msgid "All files"
+msgstr "Alle filer"
+
+#: inc/view/Lang.php:129
+msgid "Move {count} files"
+msgstr "Flytt {count} filer"
+
+#: inc/view/Lang.php:130
+msgid "Move one file"
+msgstr "Flytt én fil"
+
+#: inc/view/Lang.php:131
+msgid "Copy {count} files"
+msgstr "Kopier {count} filer"
+
+#: inc/view/Lang.php:132
+msgid "Copy one file"
+msgstr "Kopier én fil"
+
+#: inc/view/Lang.php:133
+msgid "Moving {count} files..."
+msgstr ""
+
+#: inc/view/Lang.php:134
+msgid "Moving one file..."
+msgstr ""
+
+#: inc/view/Lang.php:135
+msgid "Copying {count} files..."
+msgstr ""
+
+#: inc/view/Lang.php:136
+msgid "Copying one file..."
+msgstr ""
+
+#: inc/view/Lang.php:137
+msgid "Successfully moved {count} files"
+msgstr "Vellykket flytting av {count} filer"
+
+#: inc/view/Lang.php:138
+msgid "Successfully moved one file"
+msgstr "Vellykket flytting av en fil"
+
+#: inc/view/Lang.php:139
+msgid "Successfully copied {count} files"
+msgstr "Vellykket kopiering {count} filer"
+
+#: inc/view/Lang.php:140
+msgid "Successfully copied one file"
+msgstr "Vellykket kopiering av en fil"
+
+#: inc/view/Lang.php:141
+msgid "Hold any key to create a shortcut"
+msgstr "Hold en tast for å lage en snarvei"
+
+#: inc/view/Lang.php:142
+msgid "Release key to move file"
+msgstr "Slipp tasten for å flytte filen"
+
+#: inc/view/Lang.php:143
+msgid "Click this to create a new folder"
+msgstr "Klikk på denne for å opprette en ny mappe"
+
+#: inc/view/Lang.php:144
+msgid ""
+"A folder can contain any file type and collection, but not galleries. If you "
+"want to create a subfolder, select a folder and click this button."
+msgstr ""
+"En mappe kan inneholde hvilken som helst filtype og samling, men ikke "
+"gallerier. Hvis du vil opprette en undermappe, velg en mappe og klikk på "
+"denne knappen."
+
+#: inc/view/Lang.php:148
+msgid "Click this to create a new collection"
+msgstr "Klikk på denne for å opprette en ny samling"
+
+#: inc/view/Lang.php:149
+msgid ""
+"A collection cannot contain files. However, you can create additional "
+"collections and *galleries* there. This gallery is only a *gallery data "
+"folder*, i.e. they are not automatically visible on the website.\n"
+"\n"
+"You can create a *visual gallery* by using a shortcode in the Visual Editor "
+"on your pages/postings."
+msgstr ""
+"En samling kan ikke inneholde filer. Du kan imidlertid opprette flere "
+"samlinger og *gallerier* der. Dette galleriet er kun en *galleridatamappe*, "
+"dvs. de er ikke automatisk synlige på nettsiden.\n"
+"\n"
+"Du kan lage et *visuelt galleri* ved å bruke en kortkode i Visual Editor på "
+"sidene/innleggene dine."
+
+#: inc/view/Lang.php:155
+msgid "Click this to create a *new gallery data folder*"
+msgstr "Klikk denne for å opprette en *ny galleridatamappe*"
+
+#: inc/view/Lang.php:156
+msgid ""
+"A *gallery data folder* can only contain images. It is easier for you to "
+"distinguish where your visual galleries are located.\n"
+"\n"
+"You can also order the images into *a custom image order* per drag&drop."
+msgstr ""
+"En *galleridatamappe* kan bare inneholde bilder. Det er lettere for deg å "
+"skille hvor dine visuelle gallerier er plassert.\n"
+"\n"
+"Du kan også sortere bildene i *en egendefinert bilderekkefølge* per dra og "
+"slipp."
+
+#: inc/view/Lang.php:162
+msgid "Settings"
+msgstr "Innstillinger"
+
+#: inc/view/Lang.php:163
+msgid "General settings for the current logged in user."
+msgstr "Generelle innstillinger for gjeldende pålogget bruker."
+
+#: inc/view/Lang.php:164
+msgid "Permissions"
+msgstr "Tillatelser"
+
+#: inc/view/Lang.php:165
+msgid "Reorder files in this folder"
+msgstr "Omorganiser filene i denne mappen"
+
+#: inc/view/Lang.php:166
+msgid "Start to reorder the files / images by *title, filename, ID, ...*"
+msgstr ""
+
+#: inc/view/Lang.php:167
+msgid "Refresh"
+msgstr "Oppfrisk"
+
+#: inc/view/Lang.php:168
+msgid "Refreshes the current folder view."
+msgstr "Oppfrisk nåværende visning."
+
+#: inc/view/Lang.php:169
+msgid "Rename"
+msgstr "Gi nytt navn"
+
+#: inc/view/Lang.php:170
+msgid "Rename the current selected folder."
+msgstr "Gi nytt navn til nåværende mappe."
+
+#: inc/view/Lang.php:171
+msgid "Delete"
+msgstr "Slett"
+
+#: inc/view/Lang.php:172
+msgid "Delete the current selected folder."
+msgstr "Slett nåværende valgte mappe."
+
+#: inc/view/Lang.php:173
+msgid "Delete the current selected folders."
+msgstr "Slett nåværende valgte mapper."
+
+#: inc/view/Lang.php:174
+msgid "Rearrange"
+msgstr "Omorganiser"
+
+#: inc/view/Lang.php:175
+msgid "Change the hierarchical order of the folders."
+msgstr "Endre den hierarkiske rekkefølgen av mappene."
+
+#: inc/view/Lang.php:176
+msgid "Folder details"
+msgstr "Mappedetaljer"
+
+#: inc/view/Lang.php:177
+msgid "Select a folder and view more details about it."
+msgstr "Velg en mappe og se flere detaljer om den."
+
+#: inc/view/Lang.php:180
+msgid "Product license not yet activated."
+msgstr "Produktlisensen er ikke aktiv enda."
+
+#: inc/view/Lang.php:181
+msgid "Enter license"
+msgstr "Skriv inn lisens"
+
+#: inc/view/Lang.php:182
+msgid "Dismiss notice"
+msgstr "Avvis varsel"
+
+#: inc/view/Lang.php:183
+msgid ""
+"It looks like you have already used another plugin for folders in the media "
+"library."
+msgstr ""
+"Det ser ut til at du allerede har brukt en annen utvidelse for mapper i "
+"mediebiblioteket."
+
+#: inc/view/Lang.php:187
+msgid "Start importing"
+msgstr "Start importering"
+
+#: inc/view/Lang.php:188
+msgid "Dismiss"
+msgstr "Avvis"
+
+#: inc/view/Lang.php:189
+msgid ""
+"Real Media Library creates a virtual folder structure. The URLs of uploads "
+"do not change when you move the file. Learn more about <a href=\"https://"
+"devowl.io/knowledge-base/how-can-i-physically-reflect-the-virtual-folder-"
+"structure-to-my-file-system/\" target=\"_blank\">how to automatically move "
+"files to physical folders.</a>"
+msgstr ""
+"Real Media Library oppretter en virtuell mappestruktur. URL-ene til "
+"opplastinger endres ikke når du flytter filen. Finn ut mer om <a href="
+"\"https://devowl.io/knowledge-base/how-can-i-physical-reflect-the-virtual-"
+"folder-structure-to-my-file-system/\" target=\" _blank\">hvordan du "
+"automatisk flytter filer til fysiske mapper.</a>"
+
+#: inc/view/Lang.php:193
+msgid "Product license not for production use!"
+msgstr "Produktlisens ikke for produksjonsbruk!"
+
+#: inc/view/Lang.php:194
+msgid "Learn more"
+msgstr "Lær mer"
+
+#: inc/view/Lang.php:195
+msgid "https://devowl.io/knowledge-base/license-installation-type/"
+msgstr "https://devowl.io/knowledge-base/license-installation-type/"
+
+#: inc/view/Lang.php:196
+msgid ""
+"Before we start organizing your media, you can *obtain your free license to "
+"enjoy all the benefits* of the free version of Real Media Library. Get "
+"started now!"
+msgstr ""
+"Før vi begynner å organisere mediene dine, kan du *skaffe din gratis lisens "
+"for å nyte alle fordelene* med gratisversjonen av Real Media Library. Kom i "
+"gang nå!"
+
+#: inc/view/Lang.php:200
+msgid "License activation"
+msgstr "Lisens aktivering"
+
+#: inc/view/Lang.php:201
+msgid "Get your free license"
+msgstr "Få din gratis lisens"
+
+#: inc/view/Lang.php:202
+msgid "Activate license & continue"
+msgstr "Aktiver lisens og fortsett"
+
+#: inc/view/Lang.php:203
+msgid "Activate free license & Continue"
+msgstr "Aktiver gratis lisens & fortsett"
+
+#: inc/view/Lang.php:204
+msgid "Continue without regular updates and without any support"
+msgstr "Fortsett uten regelmessige oppdateringer og uten support"
+
+#: inc/view/Lang.php:205
+msgid "Continue without any support and without e.g. discount announcements"
+msgstr "Fortsett uten support og uten f.eks. rabattkunngjøringer"
+
+#: inc/view/Lang.php:209
+msgid ""
+"You will be redirected to the external website of PRO version. Please "
+"confirm to continue!"
+msgstr ""
+"Du vil bli omdirigert til den eksterne nettsiden til PRO-versjonen. "
+"Vennligst bekreft for å fortsette!"
+
+#: inc/view/Lang.php:213
+msgid "PRO Feature"
+msgstr "PRO-funksjon"
+
+#: inc/view/Lang.php:214
+msgid "Hide for 30 days"
+msgstr "Skjul i 30 dager"
+
+#: inc/view/Lang.php:215
+msgid "Thanks for using the free version of Real Media Library."
+msgstr "Takk for at du bruker gratisversjonen av Real Media Library."
+
+#: inc/view/Lang.php:217
+msgid "Get PRO!"
+msgstr "Skaff deg PRO!"
+
+#: inc/view/Lang.php:218
+msgid "I want to learn more!"
+msgstr "Jeg vil lære mer!"
+
+#: inc/view/Lang.php:219
+msgid "No, not interested..."
+msgstr "Nei, ikke interessert..."
+
+#: inc/view/Lang.php:222
+msgid "You like collections?"
+msgstr "Liker du samlinger?"
+
+#: inc/view/Lang.php:224
+msgid ""
+"Get more organized with different types of folders: Collections and "
+"galleries help you to easily recognize where your image galleries are "
+"located."
+msgstr ""
+"Bli mer organisert med forskjellige typer mapper: Samlinger og gallerier "
+"hjelper deg med å enkelt gjenkjenne hvor bildegalleriene dine er plassert."
+
+#: inc/view/Lang.php:230
+msgid "Custom content order?"
+msgstr "Egendefinert innholdsrekkefølge?"
+
+#: inc/view/Lang.php:232
+msgid ""
+"Get your folder contents in order and arrange your files according to a "
+"criterion (e.g. name descending) or by drag & drop."
+msgstr ""
+"Få mappeinnholdet i rekkefølge og ordne filene dine i henhold til et "
+"kriterier (f.eks. synkende navn) eller ved å dra og slipp."
+
+#: inc/view/Lang.php:238
+msgid "Full order control?"
+msgstr "Full kontroll på rekkefølge?"
+
+#: inc/view/Lang.php:240
+msgid ""
+"Organize the nodes within your folder tree according to a criterion (e.g. "
+"name descending) or by drag & drop."
+msgstr ""
+"Organiser nodene i mappetreet ditt i henhold til et kriterier (f.eks. "
+"synkende navn) eller ved å dra og slipp."
+
+#: inc/view/Lang.php:246
+msgid "Want to create subfolders?"
+msgstr "Vil du opprette undermapper?"
+
+#: inc/view/Lang.php:249
+msgid ""
+"Subfolders offer you the possibility to bring more structure into your media "
+"library. They help you to keep the overview, even if you really have many "
+"files in your media library."
+msgstr ""
+"Undermapper gir deg muligheten til å bringe mer struktur inn i "
+"mediebiblioteket ditt. De hjelper deg med å holde oversikten, selv om du "
+"egentlig har mange filer i mediebiblioteket."
+
+#: inc/view/Lang.php:255
+msgid "Want to switch between folders more comfortably?"
+msgstr "Vil du bytte mellom mapper på en enklere måte?"
+
+#: inc/view/Lang.php:257
+msgid ""
+"Let the complete folder tree as in your media library also be displayed in "
+"this dialog instead of searching each time in the dropdown. It is simply "
+"more comfortable!"
+msgstr ""
+"La hele mappetreet som i mediebiblioteket ditt også vises i denne dialogen i "
+"stedet for å søke hver gang i rullegardinmenyen. Det er rett og slett mer "
+"behagelig!"
+
+#: inc/view/Lang.php:263
+msgid "Want to upload entire folders?"
+msgstr "Vil du laste opp hele mapper?"
+
+#: inc/view/Lang.php:264
+msgid ""
+"With Real Media Library you can upload entire folders using drag and drop. "
+"All folders, subfolders and files will be uploaded and displayed in your "
+"media library in the same structure. Get PRO to upload folders!"
+msgstr ""
+"Med Real Media Library kan du laste opp hele mapper ved å dra og slipp. Alle "
+"mapper, undermapper og filer vil bli lastet opp og vist i mediebiblioteket "
+"ditt i samme struktur. Skaff deg PRO for å laste opp mapper!"
+
+#: inc/view/Options.php:39
+msgid "RealMediaLibrary:General"
+msgstr "RealMediaLibrary:General"
+
+#: inc/view/Options.php:45
+msgid "Load RML functionality in frontend"
+msgstr "Last RML funksjonalitet i frontend"
+
+#: inc/view/Options.php:78
+msgid "RealMediaLibrary:Reset"
+msgstr "RealMediaLibrary:Reset"
+
+#: inc/view/Options.php:83
+msgid "Reset the order of all galleries"
+msgstr "Tilbakestill rekkefølgen på alle gallerier"
+
+#: inc/view/Options.php:93
+msgid "Wipe all settings (folders, attachment relations)"
+msgstr "Slett alle innstillinger (mapper, vedleggsrelasjoner)"
+
+#: inc/view/Options.php:102
+msgid "Reset folder count cache"
+msgstr "Tilbakestill mappeteller-cache"
+
+#: inc/view/Options.php:110
+msgid "Reset names, slugs and absolute pathes"
+msgstr "Tilbakestill navn, slugs og absolutte baner"
+
+#: inc/view/Options.php:136
+msgid "Wipe attachment relations"
+msgstr "Slett vedleggsrelasjoner"
+
+#: inc/view/Options.php:139
+msgid "Wipe all"
+msgstr "Slett alt"
+
+#: inc/view/Options.php:148
+msgid "Reset count"
+msgstr "Tilbakestill teller"
+
+#: inc/view/Options.php:157 inc/view/Options.php:183
+msgid "Reset"
+msgstr "Nullstill"
+
+#: inc/view/Options.php:171
+msgid ""
+"Activate this option if you are using a page builder like Divi Page Builder, "
+"WPBakery Page Builder or Elementor."
+msgstr ""
+"Aktiver dette alternativet hvis du bruker en sidebygger som Divi Page "
+"Builder, WPBakery Page Builder eller Elementor."
+
+#: inc/view/Options.php:186
+msgid "You can also reset an single folder in its folder details."
+msgstr "Du kan også tilbakestille en enkelt mappe i mappedetaljene."
+
+#: inc/view/View.php:108
+msgid "All"
+msgstr "Alt"
+
+#: inc/view/View.php:221
+msgid "Unorganized pictures"
+msgstr "Uorganiserte bilder"

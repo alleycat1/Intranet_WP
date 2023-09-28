@@ -1,0 +1,31 @@
+.barn2-settings-inner {
+	flex-grow: 1;
+}
+
+.color-field, .color-size-field {
+
+    .wp-picker-container {
+        vertical-align: top;
+    }
+
+}
+
+.color-size-field {
+
+    input[type="number"] {
+        vertical-align: top;
+        width: 6em;
+    }
+
+    .description {
+        display: inline-block;
+        margin-left: 10px;
+        margin-top: 1px;
+
+        img {
+            vertical-align: middle;
+            margin: 3px 6px 3px 3px;
+        }
+    }
+
+}

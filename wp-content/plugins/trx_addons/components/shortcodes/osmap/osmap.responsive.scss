@@ -1,0 +1,41 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+//@mixin sc_osmap--md() {
+@media #{$media_md} {
+	/* OpenStreetMap */
+	.sc_osmap {
+		max-height:60vh;
+	}
+
+	.sc_osmap_content_default {
+		left: 7%;
+		right: 14%;
+		top: auto;
+		bottom: 7%;
+		width: auto;
+		max-height: 33%;
+		padding: 1em;
+	}
+	[data-vc-full-width="true"][data-vc-stretch-content="true"] .sc_osmap_content_default {
+		left: auto;
+		right: 10%;
+		top: 10%;
+		bottom: 10%;
+		width: 30%;
+		max-height: none;
+	}
+}
+
+//@mixin sc_osmap--sm_wp() {
+@media #{$media_sm_wp} {
+	/* OpenStreetMap */
+	[data-vc-full-width="true"][data-vc-stretch-content="true"] .sc_osmap_content_default {
+		left: 7%;
+		right: 14%;
+		top: auto;
+		bottom: 7%;
+		width: auto;
+		max-height: 33%;
+	}
+}

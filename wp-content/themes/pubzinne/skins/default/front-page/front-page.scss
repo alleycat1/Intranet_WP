@@ -1,0 +1,173 @@
+/* Front Page sections
+-------------------------------------------------------- */
+
+@import "../../../css/_mixins.scss";
+
+.home-page.with_bg_image,
+.frontpage.with_bg_image {
+	@include bg-cover;
+	background-attachment:fixed;
+}
+.home-page.with_bg_image .page_content_wrap,
+.frontpage.with_bg_image .page_content_wrap {
+	background-color: transparent;
+}
+
+/* Common settings */
+.front_page_section {
+	position: relative;
+	@include bg-cover;
+}
+.front_page_section_layout_fullwidth.sc_layouts_flex .front_page_section_content_wrap {
+	@include flex-basis(100%);
+}
+.front_page_section > .customize-partial-edit-shortcut button {
+	left: 2px !important;
+}
+
+.front_page_section_paddings_none .front_page_section_content_wrap {
+	padding: 0;
+}
+.front_page_section_paddings_small .front_page_section_content_wrap {
+	padding: 4% 0;
+}
+.front_page_section_paddings_medium .front_page_section_content_wrap {
+	padding: 8% 0;
+}
+.front_page_section_paddings_large .front_page_section_content_wrap {
+	padding: 12% 0;
+}
+.front_page_section_paddings_huge .front_page_section_content_wrap {
+	padding: 16% 0;
+}
+
+.front_page_block_empty {
+	height: 0 !important;
+	overflow:hidden !important;
+	clip:rect(0 0 0 0) !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.front_page_section_description,
+.front_page_section_content,
+.front_page_section_output,
+.front_page_section_buttons {
+	font-size: 1.1429em;
+}
+.front_page_section .front_page_section_caption {
+	margin:0;
+	text-align: center;
+}
+.front_page_section_description {
+	line-height:1.5em;
+	text-align: center;
+}
+.front_page_section_description p:last-child,
+.front_page_section_content p:last-child,
+.front_page_section_output p:last-child {
+	margin-bottom: 0;
+}
+.front_page_section_buttons {
+	text-align: center;
+}
+.front_page_section_caption:not(.front_page_block_empty) + .front_page_section_description {
+	margin-top: 1em;
+}
+.front_page_section_caption:not(.front_page_block_empty) + .front_page_section_content,
+.front_page_section_description:not(.front_page_block_empty) + .front_page_section_content {
+	margin-top: 3em;
+}
+.front_page_section_caption:not(.front_page_block_empty) + .front_page_section_output,
+.front_page_section_description:not(.front_page_block_empty) + .front_page_section_output,
+.front_page_section_content:not(.front_page_block_empty) + .front_page_section_output {
+	margin-top: 3em;
+}
+.front_page_section_caption:not(.front_page_block_empty) + .front_page_section_columns,
+.front_page_section_description:not(.front_page_block_empty) + .front_page_section_columns,
+.front_page_section_content:not(.front_page_block_empty) + .front_page_section_columns {
+	margin-top: 3em;
+}
+.front_page_section_caption:not(.front_page_block_empty) + .front_page_section_buttons,
+.front_page_section_description:not(.front_page_block_empty) + .front_page_section_buttons,
+.front_page_section_content:not(.front_page_block_empty) + .front_page_section_buttons,
+.front_page_section_output:not(.front_page_block_empty) + .front_page_section_buttons,
+.front_page_section_columns:not(.front_page_block_empty) + .front_page_section_buttons {
+	margin-top: 2em;
+}
+.front_page_section_buttons > .front_page_section_button {
+	margin-top: 1em;
+	margin-right: 1em;
+	font-size: 0.8em;
+}
+.front_page_section_buttons > .front_page_section_button + .front_page_section_button {
+	margin-right: 0;
+}
+
+
+.front_page_section_columns .front_page_section_caption {
+	font-size: 2.5em;
+	line-height:1.2em;
+	text-align: left;
+}
+.front_page_section_columns .front_page_section_output,
+.front_page_section_columns .front_page_section_content,
+.front_page_section_columns .front_page_section_description {
+	font-size: 1em;
+	line-height:1.5em;
+	text-align: left;
+}
+.front_page_section_columns h1,
+.front_page_section_columns h2,
+.front_page_section_columns h3,
+.front_page_section_columns h4,
+.front_page_section_columns h5,
+.front_page_section_columns h6 {
+	margin-top:1em;
+	margin-bottom:0.3em;
+}
+.front_page_section_columns h1:first-child,
+.front_page_section_columns h2:first-child,
+.front_page_section_columns h3:first-child,
+.front_page_section_columns h4:first-child,
+.front_page_section_columns h5:first-child,
+.front_page_section_columns h6:first-child {
+	margin-top:0;
+}
+.front_page_section_columns p {
+	margin:0;
+}
+.front_page_section_columns p+p {
+	margin-top:0.5em;
+}
+
+/* Section 'Title' */
+.front_page_section_title_description {
+	line-height: 1.75em;
+}
+.front_page_section_title_caption:not(.front_page_block_empty) + .front_page_section_title_description {
+	margin-top: 2em;
+}
+
+/* Section 'Features' */
+.front_page_section_features .sc_item_descr {
+	padding: 1em 0;
+}
+.front_page_section_features .sc_services_light .sc_services_item_icon {
+	font-size: 4em;
+}
+
+/* Section 'Subscribe' */
+.front_page_section_subscribe .front_page_section_output {
+	max-width:50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.front_page_section_subscribe .mc4wp-form .mc4wp-form-fields input[type="email"] {
+	padding: 1em;
+}
+
+/* Section 'Googlemap' */
+.front_page_section_googlemap .front_page_section_output {
+	@include box-shadow(0 0 40px 10px rgba(255,255,255,0.4));
+}

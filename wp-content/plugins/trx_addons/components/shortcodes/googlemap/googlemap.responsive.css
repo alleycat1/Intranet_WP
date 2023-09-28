@@ -1,0 +1,37 @@
+@media (max-width: 1023px) {
+  /* Google Map */
+  .sc_googlemap {
+    max-height: 60vh;
+  }
+
+  .sc_googlemap_content_default {
+    left: 7%;
+    right: 14%;
+    top: auto;
+    bottom: 7%;
+    width: auto;
+    max-height: 33%;
+    padding: 1em;
+  }
+
+  [data-vc-full-width="true"][data-vc-stretch-content="true"] .sc_googlemap_content_default {
+    left: auto;
+    right: 10%;
+    top: 10%;
+    bottom: 10%;
+    width: 30%;
+    max-height: none;
+  }
+}
+@media (max-width: 600px) {
+  [data-vc-full-width="true"][data-vc-stretch-content="true"] .sc_googlemap_content_default {
+    left: 7%;
+    right: 14%;
+    top: auto;
+    bottom: 7%;
+    width: auto;
+    max-height: 33%;
+  }
+}
+
+/*# sourceMappingURL=googlemap.responsive.css.map */

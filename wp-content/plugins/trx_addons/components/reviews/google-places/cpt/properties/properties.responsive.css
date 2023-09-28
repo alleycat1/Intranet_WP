@@ -1,0 +1,26 @@
+@media (max-width: 767px) {
+  .properties_page_google_reviews_details {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .properties_page_google_reviews_rating,
+  .properties_page_google_reviews_list,
+  .properties_page_google_reviews_info {
+    width: 100%;
+  }
+
+  .properties_page_google_reviews_rating {
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+  }
+
+  .properties_page_google_reviews_list,
+  .properties_page_google_reviews_info {
+    margin-top: 2em;
+  }
+}
+
+/*# sourceMappingURL=properties.responsive.css.map */

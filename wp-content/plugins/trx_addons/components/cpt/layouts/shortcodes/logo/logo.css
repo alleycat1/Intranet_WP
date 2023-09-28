@@ -1,0 +1,35 @@
+.custom-logo-link img,
+.sc_layouts_logo img {
+  max-height: 6em;
+  width: auto;
+  vertical-align: middle;
+}
+
+.sc_layouts_row_type_compact .custom-logo-link img,
+.sc_layouts_row_type_compact .sc_layouts_logo img {
+  max-height: 4.5em;
+}
+
+.sc_layouts_row_type_narrow .custom-logo-link img,
+.sc_layouts_row_type_narrow .sc_layouts_logo img {
+  max-height: 3em;
+}
+
+.sc_layouts_logo .logo_text {
+  display: block;
+  -webkit-transition: color 0.3s ease;
+  -ms-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.sc_layouts_logo .logo_slogan {
+  display: block;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0px;
+  -webkit-transition: color 0.3s ease;
+  -ms-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+/*# sourceMappingURL=logo.css.map */

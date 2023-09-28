@@ -1,0 +1,83 @@
+/* MP Timetable
+------------------------------------------------ */
+/* Single event */
+.post_type_mp-event .timeslot {
+  display: block;
+  float: left;
+  padding: 1em;
+  width: 24%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px dotted #ddd;
+  background-color: #f7f7f7;
+  margin: 0 1% 1% 0;
+}
+
+.post_type_mp-event .timeslot .timeslot-link {
+  font-size: 1.2em;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 0.5em;
+}
+
+.post_type_mp-event .timeslot .timeslot-start,
+.post_type_mp-event .timeslot .timeslot-end {
+  font-weight: 700;
+}
+
+.post_type_mp-event .timeslot .timeslot-description {
+  font-style: italic;
+  display: inline-block;
+  margin-top: 0.5em;
+}
+
+.post_type_mp-event .timeslot .timeslot-user {
+  display: inline-block;
+  margin-top: 0.5em;
+}
+
+.post_type_mp-event .timeslot .timeslot-user .avatar {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.3em;
+  -webkit-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+}
+
+/* Single column */
+.post_type_mp-column .event-link {
+  font-size: 1.25em;
+  font-weight: 700;
+}
+
+.post_type_mp-column .event-description {
+  display: inline-block;
+  font-style: italic;
+  padding: 0.75em 0;
+}
+
+.post_type_mp-column .event-user .avatar {
+  display: inline-block;
+  margin-right: 0.3em;
+  vertical-align: middle;
+  -webkit-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+}
+
+/* Preview mode in Elementor */
+body.elementor-editor-active .mptt-shortcode-wrapper > .mptt-navigation-tabs + table {
+  display: table !important;
+  width: 100%;
+}
+body.elementor-editor-active .mptt-shortcode-wrapper table td {
+  height: 1.75em !important;
+  padding-top: 1em !important;
+  padding-bottom: 1em !important;
+}
+
+/*# sourceMappingURL=mp-timetable.css.map */

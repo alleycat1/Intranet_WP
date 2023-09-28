@@ -1,0 +1,37 @@
+.pubzinne_upgrade_skins_button[disabled],
+.pubzinne_upgrade_skins_button[disabled]:hover,
+.pubzinne_upgrade_skins_button[disabled]:focus {
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.pubzinne_upgrade_skins_status_wrap {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.pubzinne_upgrade_skins_status:before {
+  font-family: "fontello";
+  display: inline-block;
+  vertical-align: top;
+}
+
+.pubzinne_upgrade_skins_status_progress:before {
+  content: '\e969';
+  color: #11a0d2;
+  -webkit-animation: spin 2s infinite linear;
+  -ms-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+
+.pubzinne_upgrade_skins_status_success:before {
+  content: '\e986';
+  color: #38bb7a;
+}
+
+.pubzinne_upgrade_skins_status_error:before {
+  content: '\e987';
+  color: #f04c49;
+}
+
+/*# sourceMappingURL=skins-admin.css.map */

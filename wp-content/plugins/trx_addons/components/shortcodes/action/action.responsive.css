@@ -1,0 +1,13 @@
+@media (max-width: 479px) {
+  /* Action */
+  .sc_action_item_description,
+  .sc_action_item_info {
+    display: none;
+  }
+
+  .sc_action_item_event.with_image {
+    max-height: 33em;
+  }
+}
+
+/*# sourceMappingURL=action.responsive.css.map */

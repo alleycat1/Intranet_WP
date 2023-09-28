@@ -1,0 +1,1562 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* CONTENT */
+.clear { clear:both; }
+#dp_ui_content {
+  width:100%;
+  font-size: 16px;
+  color: #545454;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 120%;
+  position: relative;
+  background: #fff;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0;
+  border-radius: 6px;
+  box-shadow: 0 10px 20px rgba(0,0,0,.15);
+}
+
+#dpProEventCalendar_events_side_meta.postbox {z-index:inherit !important;}
+
+body.wp-admin .dpProEventCalendar_Overlay {
+    z-index: 9999 !important;
+}
+
+#dp_ui_content #dp_logo {
+    font-size: 16px;
+    color: #EDEDED;
+    padding: 0 30px;
+    position: relative;
+    margin-bottom: 10px;
+    text-align: center;
+    }
+
+#dp_ui_content #dp_logo .dashicons {
+    line-height: 60px;
+    font-size: 36px;
+    /* vertical-align: middle; */
+    /* display: block; */
+    /* float: left; */
+    margin-right: 25px;
+    }
+
+#dp_ui_content #dp_logo h1{font-size: 18px;color: #EDEDED;margin: 0;padding: 0;line-height: 60px;/* margin-left: 46px; */text-align: center;}
+
+#dp_ui_content .titleArea {/* background: #fafafa; */margin-bottom: 20px;}
+
+#dp_ui_content .pec_pageTitle {/* float: left; *//* padding: 20px 0; */}
+
+#dp_ui_content .pec_pageSubtitle {
+    position: relative;
+width: 100%;
+}
+
+#dp_ui_content #leftSide {background: #34394A;margin: 0;float: left;min-width: 250px;padding: 20px 0;grid-column: 1 / 2;border-radius: 6px 0 0 6px;} 
+#dp_ui_content #rightSide {padding: 20px 30px;overflow: hidden;min-height: 600px;grid-column: 2/5;/* border-radius: 0 6px 6px 0; */}
+#dp_ui_content .wrapper {position: relative;/* margin: 0 3%; */}
+
+#dp_ui_content .wrapper .pec_event_count {
+  text-align: center;
+}
+
+#dp_ui_content .wrapper .pec_event_count a{
+    background: #34394A;
+        border-radius: 5px;
+    padding: 0;
+    display: block;
+    color: #EDEDED;
+}
+
+#dp_ui_content .wrapper .pec_event_count a:hover{
+    background: #3E4458;
+    color:#fff;
+}
+
+#dp_ui_content .wrapper .pec_event_count a:active{
+    background: #282C3B;
+    outline:0;
+    box-shadow:none;
+    color:#fff;
+}
+#dp_ui_content .wrapper .pec_event_count a:focus{
+    outline:0;
+    box-shadow:none;
+}
+
+#dp_ui_content #rightSide .wrapper #tabs { margin-top: 20px; }
+.wp-core-ui #dp_ui_content .button-primary {
+    background: #34394A;
+    color: #EDEDED;
+    text-decoration: none;
+    text-shadow: 0 2px 0 rgba(0,0,0,.3);
+    padding: 5px 20px;
+    font-size: 16px;
+        line-height: 32px;
+    border: 0;
+    height: inherit;
+}
+.wp-core-ui #dp_ui_content .button-primary:hover {
+  background:#3E4458;
+}
+.wp-core-ui #dp_ui_content .button-primary:active {
+  background:#282C3B;
+  /* border:0; */
+  outline:0;
+}
+.wp-core-ui #dp_ui_content .button-primary:focus {
+  outline:0;
+  box-shadow: none;
+}
+
+.wp-core-ui #dp_ui_content .button-secondary:hover,
+#dpProEventCalendar_booking_meta .misc-pub-section button.ui-datepicker-trigger:hover {
+    background: #3E4458;
+}
+
+.wp-core-ui #dp_ui_content .button-secondary:active,
+#dpProEventCalendar_booking_meta .misc-pub-section button.ui-datepicker-trigger:active {
+    background: #282C3B;
+}
+
+.wp-core-ui #dp_ui_content .button-secondary:focus,
+#dpProEventCalendar_booking_meta .misc-pub-section button.ui-datepicker-trigger:focus {
+    outline:0;
+  box-shadow: none;
+}
+
+#dp_ui_content .pec_float_left {
+  float: left;
+}
+
+#dp_ui_content .pec_float_right {
+  float: right;
+}
+
+/* MENU */
+#dp_ui_content .nav {/* border-top: 1px solid #1c252b; */width: auto;top:0;margin: 0;margin-top: 10px;margin-bottom: 20px;transition: top 1s ease 0s;}
+
+#dp_ui_content .nav_cloned {
+  display: none;
+}
+#dp_ui_content .nav_cloned.pec_fixedmenu {
+    position: fixed;
+    top: 0;
+    display: block;
+    z-index: 99;
+
+  }
+#dp_ui_content .nav li { position: relative; margin:0; float:none; }
+#dp_ui_content .nav li a {display: block;background: #282C3B;/* border-bottom: 1px solid #1c252b; *//* border-top: 1px solid #545454; */text-decoration:none;box-shadow: none;}
+#dp_ui_content .nav li a:hover {/* background-position: 0 -43px; *//* border-top: 1px solid #666; */background: #3E4458;}
+#dp_ui_content .nav li a.active, #dp_ui_content .nav li a:active {/* background-position: 0 -86px; *//* border-top: 1px solid #777; */background: #3E4458;}
+#dp_ui_content .nav li a span {padding: 15px;display: block;font-size: 16px;/* text-transform: uppercase; */font-weight: 300;color: #E3E3E3;text-align: center;text-shadow: 0 2px 0 rgba(0,0,0,.3);}
+
+
+#dp_ui_content .nav .last { border-bottom: none; }
+
+#dp_ui_content .widefat thead tr th,
+#dp_ui_content .widefat tfoot tr th {
+    color: #32373c;
+    padding: 20px 15px;
+    font-size: 16px;
+    color: #414141;
+    border-bottom: 2px solid #DDDDDD;
+}
+
+.wp-core-ui #dp_ui_content .button-primary.button-third {
+    background: #ddd;
+    color: #414141;
+    text-shadow: 0 2px 0 rgba(255,255,255,.3);
+}
+
+.wp-core-ui #dp_ui_content .button-primary.button-third:hover {
+  background: #E2E4E8;
+  }
+
+.wp-core-ui #dp_ui_content .button-primary.button-third:active {
+  background: #D4D6D9;
+  }
+
+.wp-core-ui #dp_ui_content .button-secondary,
+#dpProEventCalendar_events_meta .pec-button-secondary,
+#dpProEventCalendar_booking_meta .misc-pub-section button.ui-datepicker-trigger {
+        color: #EDEDED;
+    border: 0;
+    background: #34394A;
+    line-height: 30px;
+    margin: 0;
+    text-shadow: none;
+    box-shadow: none;
+    padding: 0 10px;
+        opacity: 1;
+
+}
+
+.wp-core-ui #dp_ui_content .button-secondary .dashicons,
+#dpProEventCalendar_events_meta .pec-button-secondary .dashicons,
+#dpProEventCalendar_booking_meta .misc-pub-section .ui-datepicker-trigger .dashicons {
+  line-height: 30px;
+}
+.wp-core-ui #dp_ui_content .button-secondary span {
+  line-height: 30px;
+}
+
+#dp_ui_content .widefat td {
+    padding: 20px 15px;
+    font-size: 14px;
+    color: #414141;
+    line-height: 30px;
+    position: relative;
+}
+#dp_ui_content .widefat td.pec_actions {
+  text-align: right;
+  }
+
+  #dp_ui_content .widefat tbody tr:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+/* Text */
+
+#dp_ui_content h1 { font-size: 24px; }
+#dp_ui_content h2 {font-size: 24px;color: #414141;margin: 0;line-height: 60px;margin-bottom: 10px;}
+#dp_ui_content .pec_pageTitle span {line-height:30px;/* display: block; */}
+#dp_ui_content h2.dp_subsection {
+  padding: 5px;
+} 
+#dp_ui_content h2.subtitle { font-size: 18px; }
+#dp_ui_content h2.accordion_title {
+  position: relative;
+  background: #34394A;
+  padding: 12px 15px;
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  color: #EDEDED;
+  line-height: 32px;
+  text-align: left;
+  font-style: normal;
+}
+
+#dp_ui_content .pec_calendar_actions {
+
+display: inline-block;
+
+position: relative;
+}
+
+#dp_ui_content .pec_calendar_actions_list {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: #34394A;
+  top: 35px;
+  z-index: 99;
+  width: 250px;
+  color: #EDEDED;
+  padding: 10px;
+  border-radius: 5px;
+  /* line-height: 30px; */
+}
+
+#dp_ui_content .pec_calendar_actions_list input {
+  display:block;
+  background: none;
+  border: 0;
+  line-height: 30px;
+  color: #EDEDED;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+#dp_ui_content .pec_calendar_actions_list input:hover {
+  background:#3E4458;
+}
+
+#dp_ui_content .pec_calendar_actions_list input:active {
+  background:#282C3B;
+  box-shadow:none;
+  outline:0;
+}
+
+#dp_ui_content .pec_calendar_actions_list input:focus {
+
+  box-shadow:none;
+  outline:0;
+}
+#dp_ui_content h2.accordion_title::before {
+    content: '+';
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 30px;
+    position: relative;
+    left: 0;
+    top: 4px;
+    margin-right: 10px;
+    color: #bbb;
+}
+
+#dp_ui_content h2.accordion_title.dp_ui_on::before {
+  content: '-';
+  top: 2px;
+}
+
+#dp_ui_content h2.accordion_title:hover{
+  background: #3E4458;
+  color: #fff;
+}
+
+#dp_ui_content h2.accordion_title:hover::before{
+  color: #fff;
+}
+
+#dp_ui_content h3 { font-size: 20px; }
+#dp_ui_content h4 { font-size: 18px; }
+#dp_ui_content h5 { font-size: 16px; }
+#dp_ui_content h6 { font-size: 14px; }
+
+#dp_ui_content #leftSide p {
+  text-align:center;
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #E3E3E3;
+  clear: both;
+  line-height: 30px;
+  margin: 0;
+}
+
+#dp_ui_content .option {
+    display: block;
+    float: left;clear: left;
+  border-bottom:1px solid #dfdfdf;
+  width:100%
+}
+
+
+#dp_ui_content .option-inner {
+    float: left;
+    padding:5px;
+    margin: 20px 0;
+    width: 100%;
+}
+
+#dp_ui_content .titledesc {
+        font-size: 16px;
+    display: block;
+    line-height: 32px;
+    float: left;
+    width: 250px;
+    margin-right: 10px;
+  cursor: default;
+      width: 250px;
+}
+
+#dp_ui_content .titledesc span.pec_info {
+
+  line-height: 32px;
+}
+
+#dp_ui_content .formcontainer {
+    float: left;
+    width: 100%;
+    max-width: 550px;
+}
+
+#dp_ui_content .forminp {
+    vertical-align: middle !important;
+        font-size: 14px;
+    line-height: 32px;
+    margin-bottom: 10px;
+}
+
+#dp_ui_content .forminp button {
+  text-shadow: 0 1px 0 white;
+  border-color: #CCC #CCC #AAA;
+  background-color: #E0E0E0;
+  -moz-box-shadow: inset 0 0 1px #fff;
+  -ms-box-shadow: inset 0 0 1px #fff;
+  -webkit-box-shadow: inset 0 0 1px #fff;
+  box-shadow: inset 0 0 1px #fff;
+  filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#fffafafa,EndColorStr=#ffdcdcdc);
+  background-image: -moz-linear-gradient(top,#FAFAFA 0,gainsboro 100%);
+  background-image: -ms-linear-gradient(top,#FAFAFA 0,gainsboro 100%);
+  background-image: -o-linear-gradient(top,#FAFAFA 0,gainsboro 100%);
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#FAFAFA),color-stop(100%,gainsboro));
+  background-image: -webkit-linear-gradient(top,#FAFAFA 0,gainsboro 100%);
+  background-image: linear-gradient(to bottom,#FAFAFA 0,gainsboro 100%);
+  color: #555;
+  padding: 3px 8px;
+  border: 1px solid;
+  outline: 0;
+  font-weight: bold;
+  font-size: 11px;
+  white-space: nowrap;
+  word-wrap: normal;
+  vertical-align: middle;
+  cursor: pointer;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  text-transform:capitalize;
+  margin-top: 5px;
+  opacity: .7;  
+}
+
+#dp_ui_content .forminp button:active {
+  border-color: #888 #AAA #CCC;
+  -moz-box-shadow: inset 0 1px 5px rgba(0,0,0,0.25),0 1px 0 #fff;
+  -ms-box-shadow: inset 0 1px 5px rgba(0,0,0,0.25),0 1px 0 #fff;
+  -webkit-box-shadow: inset 0 1px 5px rgba(0,0,0,0.25),0 1px 0 #fff;
+  box-shadow: inset 0 1px 5px rgba(0,0,0,0.25),0 1px 0 #fff;
+  filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffc8c8c8,EndColorStr=#ffe6e6e6);
+  background-image: -moz-linear-gradient(top,#C8C8C8 0,#E6E6E6 100%);
+  background-image: -ms-linear-gradient(top,#C8C8C8 0,#E6E6E6 100%);
+  background-image: -o-linear-gradient(top,#C8C8C8 0,#E6E6E6 100%);
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#C8C8C8),color-stop(100%,#E6E6E6));
+  background-image: -webkit-linear-gradient(top,#C8C8C8 0,#E6E6E6 100%);
+  background-image: linear-gradient(to bottom,#C8C8C8 0,#E6E6E6 100%);
+  
+}
+
+#dp_ui_content .forminp input,#dp_ui_content .forminp select,#dp_ui_content .formcontainer textarea {
+    margin-bottom: 9px !important;
+    background-color: #f1f1f1;
+    border: 1px solid;
+    border-color: #ccc #e6e6e6 #e6e6e6 #ccc;
+    width: 275px;
+    padding: 8px;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana,sans-serif;
+    font-size: 12px;
+}
+
+.forminp select,#dp_ui_content .formcontainer textarea {
+width: 100%;
+    padding: 20px;
+    min-height:250px;
+        margin: 0 !important;
+}
+
+#dp_ui_content .forminp select {
+  padding: 0 0 0 4px; width: 280px;
+} 
+
+#dp_ui_content .forminp select.multiple {
+  height: 100px;
+} 
+
+#dp_ui_content .desc,
+.dp_ui_pec_content_desc {
+    font-size: 13px;
+    color: #999;
+    display: block;
+    line-height: 24px;
+  font-style:italic;
+  clear: both;
+}
+
+#dp_ui_content .selectricItems, .selectric-items {
+    min-width: 120px;
+}
+
+#dp_ui_content .forminp select.multiple option {
+    padding: 5px;
+    font-size: 14px;
+}
+
+.event-calendar_page_dpProEventCalendar-special .ui-state-default .ui-icon {
+  display: none;
+}
+
+.dp_ui_pec_content_desc {
+  color: #555;
+  width: 100%;
+  font-weight: normal !important;
+  cursor: default;
+}
+
+#dp_ui_content .pec_admin_nav {
+  margin: 0 0 10px;
+  float: right;
+}
+
+#dpProEventCalendar_events_meta label,
+#dpProEventCalendar_booking_meta label{
+  /* max-width: 30%; */
+  /* width: 100%; */
+  display: block;
+  /* float: left; */
+  line-height: 35px;
+  color: #545454;
+}
+
+#dpProEventCalendar_events_meta input[type=text],
+#dpProEventCalendar_booking_meta input[type=text],
+#dpProEventCalendar_events_side_meta input[type=text],
+#dpProEventCalendar_events_meta input[type=number],
+#dpProEventCalendar_booking_meta input[type=number],
+#dpProEventCalendar_events_side_meta input[type=number]{
+  box-shadow: none;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    width: 50%;
+    line-height: 32px;
+    height: 32px;
+    padding: 0;
+    font-size: 13px;
+    background: none;
+        border-radius: 0;
+}
+
+.pec-input-section {
+position: relative;
+}
+
+.pec-input-section .pec-input-text {
+width: 100% !important;
+margin-top: 25px !important;
+    font-size: 18px !important;
+}
+
+.pec-input-section .pec-input-label {
+  color: #707070;
+    position: absolute;
+    top: 30px;
+    pointer-events: none;
+    transition: all .6s ease;
+    -moz-transition: .6s ease all;
+    -webkit-transition: all .6s ease;
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.pec-input-section .pec-input-text::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  opacity: 0; /* Firefox */
+  
+}
+
+.pec-input-section .pec-input-text:focus::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  opacity: 1; /* Firefox */
+  color: #B7B7B7;
+  transition: all .2s ease;
+    -moz-transition: .2s ease all;
+    -webkit-transition: all .2s ease;
+}
+
+.pec-input-section .pec-input-text:valid~.pec-input-label {
+    top: 5px;
+    font-size: 14px;
+    color: #909090;
+}
+.pec-input-section .pec-input-text:focus~.pec-input-label {
+    top: 5px;
+    font-size: 14px;
+    color: #2196F3;
+}
+
+.pec-input-section #mapCanvas {
+    border-radius: 12px;
+}
+
+.pec-input-section #pec_map_lnlat {
+  margin-bottom: 10px;
+}
+
+#dpProEventCalendar_booking_meta .pec_booking_cancel_reason_wrap {
+  display:none;
+  margin-top: 10px;
+}
+
+#dpProEventCalendar_booking_meta .pec_booking_cancel_reason {
+  resize: none;
+  width: 100%;
+  font-size: 13px;
+  margin: 0;
+  margin-bottom: 10px;
+  height: 60px;
+  border-color: #dfdfdf;
+  background: #fff;
+  color: #333;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  outline: none;
+  padding: 10px;
+  line-height: normal;
+  overflow: hidden;
+}
+
+.pec_info {
+  cursor: pointer;
+  position: relative;
+}
+
+.pec_info span {
+  display: none;
+    min-width: 130px;
+    font-size: 12px;
+    text-align: left;
+    font-family: arial;
+    line-height: 20px;
+    z-index: 999999;
+    position: absolute;
+    padding: 5px 10px;
+    top: -10px;
+    left: 25px;
+    background: #fff;
+    border: 1px solid #ccc;
+    -moz-box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+    -webkit-box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+    box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.pec_info:hover span {
+  display:block !important;
+}
+
+#dpProEventCalendar_events_meta label .pec_info, 
+#dpProEventCalendar_booking_meta label .pec_info {
+
+  line-height: 35px;
+}
+
+#dpProEventCalendar_booking_meta #pec_booking_price {
+  width: 70px; 
+  text-align: center;
+}
+
+#dpProEventCalendar_events_meta input[type=number],
+#dpProEventCalendar_booking_meta input[type=number],
+#dpProEventCalendar_events_side_meta input[type=number]{
+  max-width: 100px;
+  text-align: center;
+}
+
+#dpProEventCalendar_events_meta input[type=text]:focus,
+#dpProEventCalendar_booking_meta input[type=text]:focus,
+#dpProEventCalendar_events_side_meta input[type=text]:focus,
+#dpProEventCalendar_events_meta input[type=number]:focus,
+#dpProEventCalendar_booking_meta input[type=number]:focus,
+#dpProEventCalendar_events_side_meta input[type=number]:focus{
+  border-bottom-color: #2196f2; 
+}
+
+#dpProEventCalendar_events_meta .misc-pub-section,
+#dpProEventCalendar_booking_meta .misc-pub-section {
+  color: #444;
+  position: relative;
+}
+
+#dpProEventCalendar_events_meta .misc-pub-section .pec_data_desc {
+    padding: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#dp_ui_content .forminp .checkbox {
+        width: 32px;
+    background: transparent none;
+    margin: 0 !important;
+    height: 32px;
+    padding: 8px !important;
+    vertical-align: middle;
+}
+
+#dp_ui_content .option-checkbox .desc {
+  /*width: 280px;*/
+}
+
+#dp_ui_content .option.no_border {
+  border:0;
+}
+
+.color-picker-wrap {
+  position: absolute;
+  display: none; 
+  background: #fff;
+  border: 3px solid #ccc;
+  padding: 3px;
+  z-index: 1000;
+}
+
+body.wp-admin .colorpicker {
+  z-index: 99999999 !important;
+  margin-top: 10px;
+}
+
+body.wp-admin .colorpicker input {
+    min-height: 16px;
+}
+
+.dpProEventCalendar_ModalManager {
+    padding: 60px;
+    display: none;
+    position: fixed !important;
+    width: 90%;
+    width: calc(100% - 300px);
+    max-width: 700px;
+    min-width: 350px;
+    margin: 0 auto !important;
+    z-index: 99999999;
+    background: #fff !important;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    height: auto;
+    max-height: 500px;
+    max-height: calc(100% - 60px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dpProEventCalendar_ModalManager .dpProEventCalendar_Modal_close {
+position: absolute;
+    top: -25px;
+    right: 20px;
+    color: #ededed;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.dpProEventCalendar_ModalManager .dpProEventCalendar_Modal_close:hover,
+.dpProEventCalendar_ModalManager .dpProEventCalendar_Modal_close:focus,
+.dpProEventCalendar_ModalManager .dpProEventCalendar_Modal_close:active {
+  text-decoration: underline;
+  outline: 0;
+}
+
+.dpProEventCalendar_ModalManager span {
+    margin: 0;
+    font-size: 16px;
+    font-weight: normal;
+    color: #707070;
+}
+
+.dpProEventCalendar_ModalManager .colorSelector {
+
+  width: 36px;
+    height: 24px;
+    background: none;
+        float: left;
+            margin-left: 20px;
+}
+
+.dpProEventCalendar_ModalManager .colorSelector div {
+    position: relative;
+    width: 36px;
+    height: 24px;
+    border-radius: 3px;
+    background: none;
+    cursor: pointer;
+}
+
+.dpProEventCalendar_ModalManager .pec_modal_block {
+
+margin-bottom: 30px;
+}
+
+.dpProEventCalendar_ModalManager .pec_modal_row {
+
+}
+
+.dpProEventCalendar_ModalManager .pec_modal_input {
+
+width: 100%;
+
+height: 32px;
+
+color: #313131;
+
+outline: none;
+
+max-width: none;
+
+-webkit-box-shadow: none !important;
+
+-moz-box-shadow: none !important;
+
+box-shadow: none !important;
+
+border: 0;
+
+border-bottom: 1px solid #ddd;
+
+line-height: 32px;
+
+padding: 0;
+
+background: none;
+
+font-size: 14px;
+
+border-radius: 0;
+}
+
+.dpProEventCalendar_ModalManager .pec_modal_input:focus {
+  outline: 0;
+}
+
+.dpProEventCalendar_ModalManager .pec_modal_input#dpProEventCalendar_color,
+.dpProEventCalendar_ModalManager #dpPEC_special_color {
+    width: 80px;
+    float: left;
+}
+
+.dpProEventCalendar_ModalManager .pec_modal_input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #B7B7B7;
+  opacity: 1; /* Firefox */
+}
+
+.dpProEventCalendar_ModalManager h3 {
+      margin: 0;
+    font-weight: normal;
+    font-size: 24px !important;
+    color: #707070;
+    margin-bottom: 40px;
+}
+
+.dpProEventCalendar_ModalManager .regular-text {
+  width:200px;
+}
+
+.dpProEventCalendar_ModalManager input.button {
+background: #56A1DD;
+    color: #fff;
+    width: 100%;
+    height: 60px;
+    text-transform: uppercase;
+    font-size: 16px;
+    border: 0;
+        border-radius: 5px;
+}
+
+.dpProEventCalendar_ModalManager input.button:hover {
+  background: #3b3b3b;
+  color: #fff;
+
+}
+
+.dp_pec_wrapper .dp_pec_content .dp_pec_date {
+  overflow: visible !important;
+}
+
+.dp_manage_special_dates {
+  width: calc(100% - 10px);
+  position: absolute;
+  margin: 0 5px;
+  right: 0;
+  top: 35px;
+  background: white;
+  /* border: 1px solid #E6E6E6; */
+}
+
+.dp_manage_special_dates select {
+    width: 100%;
+    margin: 0;
+    display: block;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.dp_manage_special_dates select:focus {
+border-color: #ddd;
+    color: #707070;
+    box-shadow: none;
+}
+
+.dpProEventCalendar_ModalCalendar {
+    z-index: 99999;
+}
+
+
+.dpProEventCalendar_ModalCalendar .dp_pec_wrapper .dp_pec_content .dp_pec_date .dp_pec_date_item {
+  min-height: 70px;
+
+}
+
+.dpProEventCalendar_ModalCalendar .dp_pec_wrapper .dp_pec_content {
+  padding-top: 0;
+}
+
+.dp_manage_special_dates .dp_manage_sd_head {
+  background: #F9F9F9;
+  padding: 5px 10px;
+  font-size: 10px;
+  border-bottom: 1px dashed #E6E6E6; 
+  display: none; 
+}
+
+#editorcontainer #description {
+  width: 600px; 
+}
+
+#dpProEventCalendar_events_side_meta .inside {
+  margin: 0;
+  padding: 0; 
+}
+
+.dp_pec_custom_field_add_option {
+  position: absolute;
+    right: 0;
+    color: #34394A;
+    display: none;
+}
+
+.dp_pec_custom_field_add_option i{
+      line-height: 32px;
+}
+
+#dp_ui_content .pec_custom_shortcode {
+  display: block;
+  margin: 10px 0;
+  background: #eee;
+  font-size: 18px;
+  padding: 10px;
+  float: left;
+}
+
+#dp_ui_content .pec_custom_shortcode.pec_small {
+  padding: 5px 10px;
+  font-size:14px;
+}
+
+#dp_ui_content .errorCustom,
+.pec_admin_errorCustom {
+  background-color: #FFEBE8;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #C00;
+  margin: 5px 0 15px;
+  padding: 10px 20px;
+}
+
+#dp_ui_content .errorCustom p,
+.pec_admin_errorCustom p{
+  margin: .5em 0;
+  padding: 2px;
+      line-height: 30px;
+      font-size: 14px;
+}
+.pec_admin_errorCustom span.pec_error_featured {
+    background: #414141;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+
+.pec_daily_frequency,
+.pec_weekly_frequency,
+.pec_monthly_frequency {
+  background: #eee;
+}
+
+#pec_daily_every_div {
+  margin-bottom: 10px;
+}
+
+.selectricWrapper,
+.selectric-wrapper {
+  position: relative;
+  margin: 0 0 10px;
+  width: 100%;
+  cursor: pointer;
+  margin-top:5px;
+}
+
+.selectricResponsive,
+.selectric-responsive {
+  width: 100%;
+}
+
+.selectric {
+  border: 1px solid #DDD;
+  background: #F8F8F8;
+  position: relative;
+  border-radius: 2px;
+}
+
+.selectric .label {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0 30px 0 0;
+  padding: 6px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #444;
+  min-height: 18px;
+  background: inherit;
+  text-shadow: none;
+  font-weight: normal;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.selectric .button {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  color: #BBB;
+  text-align: center;
+  font: 0/0 a;
+  /* IE Fix */
+  *font: 20px/30px Lucida Sans Unicode, Arial Unicode MS, Arial;
+  background: none;
+  text-shadow: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+.selectric .button:after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-top-color: #BBB;
+  border-bottom: none;
+}
+
+.selectricHover .selectric,
+.selectric-hover .selectric {
+  border-color: #CCC;
+}
+
+.selectricHover .selectric .button,
+.selectric-hover .selectric .button {
+  color: #888;
+}
+
+.selectricHover .selectric .button:after,
+.selectric-hover .selectric .button:after {
+  border-top-color: #888;
+}
+
+.selectricOpen,
+.selectric-open {
+  z-index: 9999;
+}
+
+.selectricOpen .selectric,
+.selectric-open .selectric {
+  border-color: #CCC;
+  background: #F0F0F0;
+  z-index: 9999;
+}
+
+.selectricOpen .selectricItems,
+.selectric-open .selectric-items {
+  display: block;
+}
+
+.selectricDisabled,
+.selectric-disabled {
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+  cursor: default;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.selectricHideSelect,
+.selectric-hide-select {
+  position: relative;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+}
+
+.selectricHideSelect select,
+.selectric-hide-select select {
+  position: absolute;
+  left: -100%;
+  display: none;
+}
+
+.selectricInput,
+.selectric-input {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  outline: none !important;
+  border: none !important;
+  *font: 0/0 a !important;
+  background: none !important;
+}
+
+.selectricTempShow,
+.selectric-temp-show {
+  position: absolute !important;
+  visibility: hidden !important;
+  display: block !important;
+}
+
+.selectric-items .selectric-group .selectric-group-label {
+  font-weight: bold;
+  padding-left: 10px;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background: none;
+  color: #444;
+}
+.selectric-items .selectric-group.disabled li {
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+.selectric-items .selectric-group li {
+  padding-left: 25px;
+}
+
+.selectricWrapper,
+.selectric-wrapper {
+  max-width: 200px;
+  float: left;
+  margin: 0;
+}
+
+#pec-sort-table tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+.wp-core-ui .button.pec-load-more {
+  margin: 10px 0;
+  width: 100%;
+  font-size: 16px;
+  line-height: 100%;
+  padding: 10px;
+  height: auto;
+  font-weight: bold;
+  text-align: center;
+}
+
+#div_import_events .selectric,
+#div_year_range .selectric {
+  margin-right: 10px;
+}
+
+#dpProEventCalendar_events_meta {
+  /*margin-top: 40px;*/
+}
+
+#dpProEventCalendar_events_meta.dpProEventCalendar_calendar_form {
+  margin-top: 0;
+}
+
+#dpProEventCalendar_events_meta table.widefat{
+  margin-bottom: 20px;
+      box-shadow: none;
+    border: 2px solid #DDDDDD;
+}
+
+.post-type-pec-venues #edit-slug-box,
+.post-type-pec-venues .submitbox #minor-publishing { 
+  display:none;
+}
+
+#dp_ui_content div#leftSide a.rate_plugin{
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    font-family: arial;
+    font-size: 11px;
+    font-weight: bold;
+    color: #E3E3E3;
+    opacity: .7;
+}
+
+#dp_ui_content div#leftSide a.rate_plugin:hover{
+  opacity: 1;
+}
+
+#dp_ui_content div#leftSide a.rate_plugin span {
+    line-height: 18px;
+    width: 11px;
+    height: 11px;
+    margin: 3px;
+    font-size: 16px;
+    color: #fff;
+}
+
+#dpProEventCalendar_events_side_meta #misc-publishing-actions label.pec_label_head {
+        padding: 10px;
+    font-size: .9em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 200%;
+    display: inline-block;
+    background: #f5f5f5;
+    width: 100%;
+    margin-left: -10px;
+    cursor: default;
+}
+
+#dpProEventCalendar_events_side_meta #misc-publishing-actions .pec_date_under {
+
+}
+
+#dpProEventCalendar_events_side_meta #misc-publishing-actions .pec_date_under span{
+    min-width: 50px;
+    display: inline-block;
+    text-align: center;
+    background: #f5f5f5;
+    font-size: 11px;
+    text-transform: capitalize;
+    margin-right: 3px;
+    padding: 0;
+    margin-bottom: 8px;
+}
+
+#dpProEventCalendar_events_side_meta #misc-publishing-actions .pec_date_format{
+    font-weight: normal;
+    margin-left: 10px;
+    background: #ddd;
+    padding: 3px;
+    border-radius: 6px;
+}
+
+#dpProEventCalendar_events_side_meta #misc-publishing-actions .pec_date_under span:first-child{
+  min-width: 70px;
+}
+
+#dpProEventCalendar_booking_meta .misc-pub-section label,
+#dpProEventCalendar_events_meta .misc-pub-section label {
+    padding: 0em .1em .4em;
+    font-size: .9em;
+    font-weight: 700;
+}
+
+#dpProEventCalendar_booking_meta .misc-pub-section label.dp_ui_pec_content_desc,
+#dpProEventCalendar_events_meta .misc-pub-section label.dp_ui_pec_content_desc {
+  line-height: 150%;
+}
+
+#dpProEventCalendar_events_side_meta button.button,
+#pec_new_booking .dpProEventCalendar_btn_getBookingEventDate {
+    padding: 0 8px;
+}
+
+#dpProEventCalendar_events_side_meta button.button img,
+#pec_new_booking .dpProEventCalendar_btn_getBookingEventDate img {
+    padding: 5px 0;
+}
+
+#pec_new_booking {
+    padding: 10px 0;
+}
+
+.misc-pub-section.misc-pub-start-time .selectricWrapper,
+.misc-pub-section.misc-pub-end-time .selectricWrapper,
+.misc-pub-section.misc-pub-start-time .selectric-wrapper,
+.misc-pub-section.misc-pub-end-time .selectric-wrapper {
+  width: 75px;
+    margin-right: 5px;
+}
+
+.misc-pub-section.pec_monthly_frequency .selectricWrapper,
+.misc-pub-section.pec_monthly_frequency .selectric-wrapper {
+  width: 100px;
+    margin-right: 5px;
+}
+
+#dpProEventCalendar_events_meta .misc-pub-section, 
+#dpProEventCalendar_booking_meta .misc-pub-section {
+    padding: 0;
+    line-height: 35px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+}
+
+#dpProEventCalendar_events_meta .inside h2, 
+#dpProEventCalendar_booking_meta .inside h2 {
+    padding: 8px 0;
+    border-bottom: 1px solid #e6e6e6;
+    line-height: 32px;
+    font-weight: bold;
+}
+
+.pec_booking_table .dashicons.dashicons-email-alt,
+.pec_booking_table .dashicons.dashicons-phone{
+  margin-top: 8px;
+}
+
+.pec_booking_table input.pec_booking_text{
+  width: 175px !important;
+    margin-left: 4px;
+}
+
+.dpProEventCalendar_ModalCalendar .dp_pec_compact_wrapper.dp_pec_wrapper {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none; 
+    box-shadow: none; 
+}
+
+.pec_ticket_list_wrap { 
+  display: inline;
+}
+.pec_ticket_list {
+      display: inline-block;
+    background: #ccc;
+    border-radius: 30px;
+    padding: 5px 10px;
+    color: #fff;
+    margin-top: 10px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.pec_ticket_list .dashicons-dismiss {
+  cursor: pointer;
+}
+
+.dpProEventCalendar_btn_getDate,
+.dpProEventCalendar_btn_clear_date,
+.dpProEventCalendar_btn_getDateRangeStart,
+.dpProEventCalendar_btn_getDateRangeEnd {
+      padding: 0 5px !important;
+          border-radius: 5px !important;
+              color: #545454 !important;
+    background: none !important;
+}
+
+.dpProEventCalendar_btn_getDate:hover,
+.dpProEventCalendar_btn_clear_date:hover,
+.dpProEventCalendar_btn_getDateRangeStart:hover,
+.dpProEventCalendar_btn_getDateRangeEnd:hover {
+  color: #313131 !important;
+}
+
+.dp_pec_wrapper .dp_pec_content .dp_pec_date .dp_pec_date_item {
+  overflow: inherit !important;
+      min-height: 50px;
+}
+
+.pec_admin_accordion {
+  display: none;
+      animation-duration: 1s;
+    padding: 0 20px;
+
+}
+
+.pec-component-tag {
+      margin: 2px 4px 2px 0;
+    color: #32373c;
+    overflow: hidden;
+    line-height: 24px;
+    background: #e2e4e7;
+    font-size: 14px;
+    border-radius: 12px;
+    display: inline-flex;
+}
+
+.pec-component-tag .pec-component-tag-text {
+  
+  padding: 0 4px 0 8px;
+}
+
+.pec-component-tag button {
+border: 0;
+    outline: 0;
+    background: transparent;
+    color: #32373c;
+    padding: 0 8px 0 4px;
+    cursor: pointer;
+    font-size: 12px;
+
+}
+
+.pec-component-tag button:hover,
+.pec-component-tag button:active {
+  color:#545454;
+  }
+
+.pec_admin_accordion_show {
+    -webkit-animation-name: fadeInDown;
+    -moz-animation-name: fadeInDown;
+    -o-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    display: block;
+
+}
+
+#div_custom_fields .submit,
+#div_booking_fields .submit{
+    margin: 0;
+    padding: 0;
+}
+
+.pec-tour-msg {
+
+padding: 20px 30px !important;
+
+border: 0;
+
+border-radius: 6px;
+
+box-shadow: 0 10px 20px rgba(0,0,0,.15);
+}
+
+.pec-tour-msg hr {height: 1px;margin: 10px 0 15px;padding: 0;border: 0;background: none;background-color: #ddd !important;}
+.pec-tour-msg h3 {
+    font-size: 24px;
+    color: #414141;
+    font-family: arial;
+    font-weight: normal;
+    margin: 0;
+    line-height: 32px;
+}
+
+.pec-tour-msg p {
+font-size: 16px;
+    line-height: 24px;
+    color: #707070;
+    font-family: arial;
+    font-weight: normal;
+    margin: 0;
+}
+
+.pec-tour-msg h3  a{
+  float: right;
+}
+
+.pec-tour-msg a {
+
+color: #2196F3;
+
+font-size: 16px;
+
+line-height: 32px;
+
+padding: 0 10px;
+
+display: inline-block;
+
+border-radius: 3px;
+
+outline: 0;
+
+box-shadow: none;
+}
+
+.pec-tour-msg a:hover {background: #ddd;color: #707070;text-decoration: none;}
+
+  .pec-tour-msg a:active {
+color: #575757;
+  }
+
+  .pec-tour-pointer {
+        width: 16px;
+    height: 16px;
+    background: #2196F3;
+    display: inline-block;
+    border-radius: 50%;
+    
+  }
+
+  .pec-tour-pointer.pec-tour-pointer-new-calendar {
+    position: absolute;
+    right: 0;
+    z-index: 9;
+    top: 50%;
+  }
+
+.pec-breathing {
+  -webkit-animation: breathing 2s ease-out infinite normal;
+    animation: breathing 2s ease-out infinite normal;
+}
+  @-webkit-keyframes breathing {
+  0% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  25% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  60% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+@keyframes breathing {
+  0% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  25% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  60% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}

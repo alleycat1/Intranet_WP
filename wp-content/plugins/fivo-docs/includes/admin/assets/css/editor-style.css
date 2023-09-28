@@ -1,0 +1,9 @@
+body#tinymce.wp-editor.post-type-viba_portfolio {
+    background: #fff;
+    max-width: 100%;
+}
+
+body#tinymce.wp-editor.post-type-viba_portfolio:before {
+	display: none;
+	content: "";
+}

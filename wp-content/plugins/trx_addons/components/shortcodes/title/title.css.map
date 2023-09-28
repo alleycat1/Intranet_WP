@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAGA,SAAU;EACT,QAAQ,EAAE,QAAQ",
+"sources": ["title.scss"],
+"names": [],
+"file": "title.css"
+}

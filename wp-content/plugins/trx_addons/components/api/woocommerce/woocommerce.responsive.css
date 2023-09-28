@@ -1,0 +1,162 @@
+@media (max-width: 767px) {
+  /* WooCommerce */
+  /* WooCommerce Search: Style Inline */
+  .trx_addons_woocommerce_search_type_inline .trx_addons_woocommerce_search_form_options,
+  .trx_addons_woocommerce_search_type_inline .trx_addons_woocommerce_search_form_button {
+    display: block;
+    width: 100%;
+  }
+
+  .trx_addons_woocommerce_search_type_inline .trx_addons_woocommerce_search_form_button {
+    text-align: left;
+    margin-top: 1.5em;
+  }
+
+  /* WooCommerce Search: Style Filter */
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap {
+    display: block;
+    width: 280px;
+    height: 100%;
+    position: fixed;
+    z-index: 100000;
+    top: 0;
+    right: -300px;
+    background-color: #fff;
+    -webkit-transition: -webkit-transform 0.3s ease;
+    -ms-transition: -ms-transform 0.3s ease;
+    transition: transform 0.3s ease;
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    -ms-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  }
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap.trx_addons_woocommerce_search_form_fields_wrap_opened {
+    -webkit-transform: translateX(-300px);
+    -ms-transform: translateX(-300px);
+    transform: translateX(-300px);
+  }
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap.trx_addons_woocommerce_search_form_fields_wrap_opened .trx_addons_loading {
+    display: block;
+  }
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap.trx_addons_woocommerce_search_form_fields_wrap_opened .trx_addons_woocommerce_search_header {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+    -ms-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+    padding: 1em 1.5em;
+  }
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap.trx_addons_woocommerce_search_form_fields_wrap_opened .trx_addons_woocommerce_search_header .trx_addons_woocommerce_search_clear_all {
+    display: block;
+    visibility: hidden;
+    color: #333;
+    text-decoration: underline;
+  }
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap.trx_addons_woocommerce_search_form_fields_wrap_opened .trx_addons_woocommerce_search_header .trx_addons_woocommerce_search_close {
+    display: block;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    top: 0.75em;
+    right: 0.75em;
+  }
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap.trx_addons_woocommerce_search_form_fields_filled .trx_addons_woocommerce_search_header .trx_addons_woocommerce_search_clear_all {
+    visibility: visible;
+  }
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap.trx_addons_woocommerce_search_form_fields_wrap_show {
+    -webkit-transition: none;
+    -ms-transition: none;
+    transition: none;
+  }
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap .trx_addons_woocommerce_search_button_show {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap.trx_addons_woocommerce_search_form_fields_changed .trx_addons_woocommerce_search_button_show {
+    display: block;
+  }
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap .trx_addons_woocommerce_search_form_fields_wrap_inner {
+    position: absolute;
+    z-index: 1;
+    top: 4em;
+    left: 0;
+    right: 0;
+    bottom: 5em;
+    padding: 0 1.5em;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap .sc_form_field {
+    display: block;
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+    /* &:not(.sc_form_field_text):not(.sc_form_field_range) .trx_addons_search_buttons, */
+  }
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap .sc_form_field:last-child {
+    border-bottom: none;
+  }
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap .sc_form_field .sc_form_field_title {
+    position: relative;
+    padding: 0.75em 0;
+  }
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap .sc_form_field .sc_form_field_title .sc_form_field_arrow {
+    position: absolute;
+    z-index: 1;
+    top: 0.75em;
+    right: 0;
+    margin-left: 0;
+  }
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap .sc_form_field .sc_form_field_selected_items {
+    display: block;
+  }
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap .sc_form_field .sc_form_field_wrap {
+    position: static;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+  }
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap .sc_form_field .trx_addons_search_buttons {
+    display: none;
+  }
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_button_filters {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+@media (max-width: 479px) {
+  /* WooCommerce */
+  /* WooCommerce Search: Style 'Filter' */
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap {
+    width: 100%;
+    right: -100%;
+    -webkit-box-shadow: none;
+    -ms-box-shadow: none;
+    box-shadow: none;
+  }
+  .trx_addons_woocommerce_tools .trx_addons_woocommerce_search_type_filter .trx_addons_woocommerce_search_form_fields_wrap.trx_addons_woocommerce_search_form_fields_wrap_opened {
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+/*# sourceMappingURL=woocommerce.responsive.css.map */

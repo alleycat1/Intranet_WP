@@ -1,0 +1,22 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+//@mixin sc_icons--lg() {
+@media #{$media_lg} {
+    /* Icons */
+	.sc_icons .sc_icons_icon + .sc_icons_item_title,
+	.sc_icons .sc_icons_icon + .sc_icons_item_description {
+		margin-top:1em;
+	}
+	.sc_icons .sc_icons_item_description {
+		font-size: 14px;
+	}
+}
+
+//@mixin sc_icons--xs() {
+@media #{$media_xs} {
+	/* Icons */
+	.sc_icons_columns_wrap .sc_icons_column {
+		width: 100% !important;
+	}
+}

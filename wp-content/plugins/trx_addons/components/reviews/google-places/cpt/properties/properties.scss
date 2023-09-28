@@ -1,0 +1,112 @@
+@import "../../../../../css/_mixins.scss";
+@import "../../../../../css/_trx_addons.vars.scss";
+
+/* Google Reviews */
+.properties_page_google_reviews_details {
+	@include flex;
+	@include flex-direction(row);
+	@include flex-justify-content(space-between);
+	@include flex-align-items(flex-start);
+}
+.properties_page_google_reviews_title {
+	margin: 0 0 0.5em;
+}
+
+.properties_page_google_reviews_button_add_review {
+	margin-top: 1em;
+}
+.properties_page_google_reviews_button_view_all {
+	margin-top: 2em;
+}
+
+.properties_page_google_reviews_info {
+	width: 31%;
+
+	.properties_page_google_reviews_icon {
+		@include square(1.5em);
+		margin-right: 0.5em;
+		display: inline-block;
+		vertical-align: middle;
+
+		img {
+			max-height: 100%;
+			width: auto;
+		}
+	}
+	.properties_page_google_reviews_info_list_caption {
+		font-weight: 500;
+		display: inline-block;
+		vertical-align: top;
+		margin-right: 0.5em;
+	}
+}
+.properties_page_google_reviews_rating {
+	width: 31%;
+	@include flex;
+	@include flex-direction(column);
+	@include flex-justify-content(flex-start);
+	@include flex-align-items(center);
+}
+.properties_page_google_reviews_list {
+	width: 31%;
+}
+.properties_page_google_reviews_authors {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		@include flex;
+		@include flex-direction(column);
+		@include flex-justify-content(flex-start);
+		@include flex-align-items(flex-start);
+		position: relative;
+		padding-left: 4em;
+		margin-bottom: 1.5em;
+		padding-bottom: 1.5em;
+		border-bottom: 1px dotted #888;
+
+		&:before {
+			display: none;
+		}
+	}
+	li:last-child {
+		margin-bottom: 0;
+		padding-bottom: 0;
+		border-bottom: none;
+	}
+}
+.properties_page_google_reviews .sc_item_slider.slider_outer_controls_top > .slider_controls_wrap {
+	top: -4em;
+}
+.properties_page_google_reviews_author_data {
+	width: 100%;
+	@include border-box;
+	@include flex;
+	@include flex-direction(column);
+	@include flex-justify-content(flex-start);
+	@include flex-align-items(flex-start);
+	position: relative;
+	padding-left: 4em;
+
+	p {
+		margin: 0;
+	}
+	.properties_page_google_reviews_author_photo {
+		@include square(3em);
+		//@include border-round;
+		@include abs-lt(2px,6px);
+	}
+	.properties_page_google_reviews_author_name {
+		margin: 0 0 0.25em;
+		text-transform: capitalize;
+	}
+	.properties_page_google_reviews_time {
+		font-style: italic;
+		font-size: 0.8em;
+		color: #888;
+	}
+	.properties_page_google_reviews_text {
+		margin: 0.5em 0 0;
+	}
+}

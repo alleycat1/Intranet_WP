@@ -1,0 +1,19 @@
+@import 'modal';
+@import 'buttons';
+@import 'themes';
+
+.dlp-multiple-download-error p {
+    margin: 5px 0;
+    padding: 0;
+    color: #e2401c;
+}
+
+.dlp-table-document-link-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > *:not(:first-child) {
+        margin-left: 10px;
+    }
+}

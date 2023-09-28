@@ -1,0 +1,82 @@
+{% macro create(optionName, isProfile, inputId, permissionSelectionId, network, i18n) %}
+
+    {% set inline = getMetadata(optionName, 'INLINE')|join(' ') %}
+    {% set description = getMetadata(optionName, 'DESCRIPTION') %}
+    {% set elements = getMetadata(optionName, 'ELEMENTS') %}
+    {% set optionDisabled = getMetadata(optionName, 'DISABLED') %}
+    {% set type = getMetadata(optionName, 'TYPE') %}
+
+
+    {% if network %}
+        {% set permission = 5 %}
+    {% else %}
+        {% set permission = getPermissionForOptionAndBlog(optionName) %}
+    {% endif %}
+
+    {% if type == constant('\\Dreitier\\WordPress\\Multisite\\Option\\Type::CHECKBOX') %}
+
+        {% import "option/element/checkbox.twig" as checkbox %}
+        {{ checkbox.create(optionName, permission, inputId) }}
+
+    {% elseif type == constant('\\Dreitier\\WordPress\\Multisite\\Option\\Type::RADIO') %}
+
+        {% import "option/element/radio.twig" as radio %}
+        {{ radio.create(optionName, permission, inputId) }}
+
+    {% elseif type == constant('\\Dreitier\\WordPress\\Multisite\\Option\\Type::SELECT') %}
+
+        {% import "option/element/select.twig" as select %}
+        {{ select.create(optionName, permission, inputId) }}
+
+    {% elseif type == constant('\\Dreitier\\WordPress\\Multisite\\Option\\Type::AUTHCODE') %}
+
+        {% import "option/element/authcode.twig" as authcode %}
+        {{ authcode.create(optionName, permission, inputId, i18n) }}
+
+    {% elseif type == constant('\\Dreitier\\WordPress\\Multisite\\Option\\Type::EDITABLE_LIST') %}
+
+        {% import "option/element/editable_list.twig" as editable_list %}
+        {{ editable_list.create(optionName, permission, inputId) }}
+
+    {% elseif type == constant('\\Dreitier\\WordPress\\Multisite\\Option\\Type::TABLE') %}
+
+        {% import "option/element/table.twig" as table %}
+        {{ table.create(optionName, permission, inputId, false, false, i18n) }}
+
+    {% elseif type == constant('\\Dreitier\\WordPress\\Multisite\\Option\\Type::VERIFICATION_PASSWORD') %}
+
+        {% import "option/element/verification_password.twig" as verification_password %}
+        {{ verification_password.create(optionName, permission, inputId, i18n) }}
+
+    {% elseif type == constant('\\Dreitier\\WordPress\\Multisite\\Option\\Type::DOMAIN_SID') %}
+
+        {% import "option/element/domainsid.twig" as domainSid %}
+        {{ domainSid.create(optionName, permission, inputId) }}
+
+    {% elseif type == constant('\\Dreitier\\WordPress\\Multisite\\Option\\Type::LABEL') %}
+
+        {% import "option/element/label.twig" as text %}
+        {{ text.create(optionName, permission, inputId) }}
+
+    {% elseif type == constant('\\Dreitier\\WordPress\\Multisite\\Option\\Type::TEXTAREA') %}
+
+        {% import "option/element/textarea.twig" as textarea %}
+        {{ textarea.create(optionName, permission, inputId) }}
+
+    {% else %}
+
+        {% import "option/element/default.twig" as default %}
+        {{ default.create(optionName, permission, inputId, network) }}
+
+    {% endif %}
+
+    {% if network %}
+
+        <td  style="width: 300px; vertical-align: top">
+            {% import "option/permissionSelection.twig" as permissionSelection %}
+            {{ permissionSelection.create(optionName, isProfile, permissionSelectionId) }}
+        </td>
+
+    {% endif %}
+
+{% endmacro %}

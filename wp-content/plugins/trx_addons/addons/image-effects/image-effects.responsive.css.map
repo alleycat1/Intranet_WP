@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA,0BAAoB;EACnB,mBAAmB;EAElB,6CAAyC;IACxC,OAAO,EAAE,eAAe;;EAGxB;;;0FAG4C;IAC3C,OAAO,EAAE,eAAe",
+"sources": ["image-effects.responsive.scss"],
+"names": [],
+"file": "image-effects.responsive.css"
+}

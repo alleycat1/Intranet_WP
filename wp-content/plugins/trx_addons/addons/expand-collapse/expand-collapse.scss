@@ -1,0 +1,84 @@
+@import "../../css/_mixins.scss";
+@import "../../css/_trx_addons.vars.scss";
+
+
+/* Expand / Collapse */
+.trx_expcol_on {
+	position: relative;
+
+	&.trx_expcol_gradient_on:after {
+		content: ' ';
+		display: block;
+		@include box(100%, 50%);
+		@include abs-lb(0, 0, 20);
+		background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(255,255,255,0)),to(#fff));
+		background: -webkit-linear-gradient(top,rgba(255,255,255,0) 0,#fff 100%);
+		background: linear-gradient(to bottom,rgba(255,255,255,0) 0,#fff 100%);
+		@include transition-property(opacity);
+		pointer-events: none;
+	}
+
+	.trx_expcol_button {
+		@include flex;
+		@include flex-direction(row);
+		@include flex-justify-content(center);
+		@include flex-align-items(center);
+		@include abs-lb(50%, 0, 21);
+		@include translate(-50%, 125%);
+		@include transition-properties(transform,background-color,border-color);
+		line-height: 1em;
+		padding: 0 3px;
+		background-color: rgba(255,255,255,0.9);
+		border: 2px solid transparent;
+	}
+	.trx_expcol_button_with_bg {
+		padding: 0.75em 1.5em;
+		@include translate(-50%, 50%);
+	}
+	.trx_expcol_button_icon,
+	.trx_expcol_button_title {
+		display: inline-block;
+		vertical-align: middle;
+		@include transition-property(color);
+	}
+	.trx_expcol_button_icon {
+		display: none;
+	}
+	.trx_expcol_button_icon + .trx_expcol_button_title {
+		margin-left: 0.5em;
+	}
+	
+	&.trx_expcol_state_collapsed {
+		overflow: hidden !important;
+
+		&:after {
+			opacity: 1;
+		}
+		.trx_expcol_button {
+			@include translate(-50%, 0);
+		}
+		.trx_expcol_button_icon_collapsed {
+			display: inline-block;
+		}
+	}
+	
+	&.trx_expcol_state_expanded {
+		&:after {
+			opacity: 0;
+		}
+		.trx_expcol_button_icon_expanded {
+			display: inline-block;
+		}
+	}
+
+	&.trx_expcol_state_animated {
+		max-height: none !important;
+
+		&.trx_expcol_gradient_on:after {
+			opacity: 1;
+		}
+		.trx_expcol_button {
+			@include translate(-50%, 0);
+		}
+	}
+}

@@ -1,0 +1,22 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+//@mixin sc_form--sm() {
+@media #{$media_sm} {
+    /* Form */
+	.sc_form_detailed .trx_addons_column-1_2 {
+		width:100% !important;
+	}
+	.sc_form_detailed .sc_form_info {
+		margin-top:3em;
+		padding:0;
+	}
+}
+
+//@mixin sc_form--xs() {
+@media #{$media_xs} {
+    /* Form */
+	.sc_form_title {
+		font-size:1.5em;
+	}
+}

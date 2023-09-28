@@ -1,0 +1,11 @@
+@import "../../../../css/_mixins.scss";
+@import "../../../../css/_theme-vars.scss";
+@import "../../css/_skin-vars.scss";
+
+//@mixin js_composer--md() {
+@media #{$media_md} {
+    /* WPBakery PageBuilder */
+	.wpb_text_column[class*="scheme_"]:not([class*="sc_extra_bg_"]) {
+		padding: 1.5em;
+	}
+}

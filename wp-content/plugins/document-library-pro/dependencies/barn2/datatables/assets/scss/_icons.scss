@@ -1,0 +1,65 @@
+@use "sass:math";
+
+$icon-font-path: '../../../barn2-lib/assets/fonts' !default;
+
+// Icons
+@font-face {
+	font-family: 'icomoon';
+	src: url('#{$icon-font-path}/icomoon.woff2') format('woff2'), url('#{$icon-font-path}/icomoon.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@-webkit-keyframes icon-spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes icon-spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@mixin icon {
+	font-family: 'icomoon';
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	background: none;
+	vertical-align: baseline;
+
+	// Better Font Rendering
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin spinner-icon( $size ) {
+	@include icon;
+	content: "\e980"; // spinner
+	-webkit-animation: icon-spin .75s infinite linear;
+	animation: icon-spin .75s infinite linear;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: $size;
+	width: $size;
+	font-size: $size;
+	line-height: 1;
+	margin-left: math.div($size, -2);
+	margin-top: math.div($size, -2);
+}

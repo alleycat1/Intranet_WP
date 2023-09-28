@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAGA,sBAAsB;AACtB,+BAAgC;EAC/B,QAAQ,EAAC,MAAM;EACf,UAAU,EAAC,MAAM;;;AAElB,mCAAoC;ECiBnC,KAAK,EDhBQ,IAAI;ECiBjB,MAAM,EDjBa,IAAI;;;AAExB,iCAAkC;EACjC,MAAM,EAAE,CAAC;;;AAEV,mDAAoD;EACnD,UAAU,EAAE,GAAG;;;AAEhB,oCAAqC;EACpC,UAAU,EAAE,GAAG;EACf,UAAU,EAAC,IAAI;EACf,WAAW,EAAE,KAAK;;;AAEnB;wDACyD;EACxD,UAAU,EAAC,MAAM",
+"sources": ["aboutme.scss","../../../css/_mixins.scss"],
+"names": [],
+"file": "aboutme.css"
+}

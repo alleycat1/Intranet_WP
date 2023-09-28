@@ -1,0 +1,215 @@
+#dlp_document_link_type {
+    margin-top: 5px;
+}
+
+#dlp_file_attachment_details,
+#dlp_link_url_details,
+#dlp_file_attached {
+
+    display: none;
+
+    &.active {
+        display: flex;
+    }
+}
+
+.dlp-version-history-toggle {
+    outline: none;
+    box-shadow: none;
+    align-self: end;
+}
+
+#dlp_link_url_details.active,
+#dlp_file_attachment_details.active {
+    display: grid;
+    grid-template-columns: repeat( 2, 1fr );
+    gap: 10px;
+}
+
+#dlp_file_attachment_details.active {
+    #dlp_file_attached {
+        grid-column: 1 / span 2;
+    }
+
+    #dlp_add_file_button {
+        grid-column: 2;
+        margin-left: auto;
+    }
+}
+
+.dlp-version-history-list {
+    grid-column: 1 / span 2;
+
+    > ul {
+        margin: 0;
+
+        > li {
+            display: grid;
+            grid-template-columns: 1fr repeat( 2, 20px );
+            margin: 0;
+            padding: 6px 3px;
+            gap: .5em 0;
+
+            > label {
+                margin-right: auto;
+                display: flex;
+
+                input[type="radio"] {
+                    margin: .25em .5em 0;
+
+                    @at-root .version-control-delete & {
+                        display: none;
+                    }
+                }
+
+                @at-root .version-control-delete & a.filename {
+                    margin-left: .5em;
+                }
+            }
+
+            > dl {
+                grid-column: 1/span 3;
+                display: grid;
+                grid-template-columns: min-content auto;
+                column-gap: 1em;
+                font-size: 0.9em;
+                margin: 0;
+                margin-left: 2.5em;
+                flex-flow: wrap;
+
+                @at-root .version-control-delete & {
+                    margin-left: .5em;
+                }
+
+                dt, dd {
+                    margin: 0;
+                }
+
+                dt {
+                    // font-style: italic;
+                }
+
+                dd {
+                    font-weight: 600;
+                }
+            }
+
+            > a.version-action {
+                opacity: 1;
+                transition: 150ms ease-in-out;
+                text-decoration: none;
+
+                @at-root .version-control-delete &.edit-version {
+                    grid-area: auto / 3;
+                }
+
+                @at-root .version-control-delete &.remove-version {
+                    display: none;
+                }
+            }
+            
+            &:hover {
+                background-color: #f6f7f7;
+
+                // a.version-action {
+                //     opacity: 1;
+                // }
+            }
+
+            &.editing {
+                background-color: #f6f7f7;
+
+                > label, > a, > dl {
+                    display: none;
+                }
+            }
+
+            // &.selected {
+            //     > a.remove-version {
+            //         pointer-events: none;
+            //         color: #ddd;
+            //     }
+            // }
+        }
+    }
+}
+
+.dlp_version_label_inline_editor {
+    display: none;
+    flex-wrap: wrap;
+    padding: 0 6px 3px;
+
+    @at-root .dlp-version-history-list li.editing & {
+        display: flex;
+    }
+
+    label {
+        flex: 1 0 100%;
+        margin-bottom: 5px;
+
+        input {
+            width: 100%;
+        }
+    }
+
+}
+
+#dlp_link_url_details.active {
+    align-items: center;
+    flex-flow: wrap row;
+}
+
+.dlp_file_name_text {
+    max-width: 90%;
+    word-wrap: break-word;
+    line-height: 22px;
+}
+
+#dlp_remove_file_button {
+    width: 16px;
+    height: 24px;
+    border: none;
+    padding: 0;
+    background: 0 0;
+    cursor: pointer;
+    text-indent: 0;
+    margin-right: 6px;
+
+    .remove-file-icon::before {
+        margin: 0;
+        border-radius: 50%;
+        color: #0073aa;
+        line-height: 1.28;
+        background: 0 0;
+        content: "\f153";
+        display: block;
+        font: normal 16px/20px dashicons;
+        speak: none;
+        height: 20px;
+        text-align: center;
+        width: 16px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    &:hover .remove-file-icon::before {
+        color: #c00;
+    }
+}
+
+
+.dlp-icon.link {
+    height: 24px;
+    width: 24px;
+    margin-right: 2px;
+    color: #007cba;
+}
+
+#dlp_direct_link_input {
+    flex: 1 0 auto;
+}
+
+fieldset.dlp-link-url {
+    display: flex;
+    grid-area: auto / span 2;
+}

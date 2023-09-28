@@ -1,0 +1,208 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/* Video list's styles */
+.trx_addons_video_list {
+	position: relative;
+	text-align: left;
+}
+
+.trx_addons_video_list_video_wrap {
+	position: relative;
+	@include transition-property(height);
+
+	.trx_addons_video_player {
+		background-color: #000;
+	
+		.video_frame {
+			.video_frame_overlay,
+			.video_frame_controls {
+				display: none !important;
+			}
+			.wp-video {
+				width: unset !important;
+			}
+		}
+	}
+	.trx_addons_video_player.with_cover .video_mask {
+		background: -moz-linear-gradient(top, rgba(0,0,0,0) 25%, rgba(0,0,0,0.13) 50%, rgba(0,0,0,0.25) 66%, rgba(0,0,0,0.75) 100%);
+		background: -webkit-linear-gradient(top, rgba(0,0,0,0) 25%,rgba(0,0,0,0.13) 50%,rgba(0,0,0,0.25) 66%,rgba(0,0,0,0.75) 100%);
+		background: linear-gradient(to bottom, rgba(0,0,0,0) 25%,rgba(0,0,0,0.13) 50%,rgba(0,0,0,0.25) 66%,rgba(0,0,0,0.75) 100%);
+		opacity: 1;
+	}
+	.trx_addons_video_player.with_cover .video_hover {
+		margin: 0 !important;
+		opacity: 1;
+		@include translate(-50%, -50%);
+	}
+
+	.trx_addons_video_list_title_wrap {
+		@include abs-lb(2em, 2em, 100);
+		max-width: calc(66.6666% - 4em);
+		display: none;
+
+		.trx_addons_video_list_subtitle {
+			color: #fff;
+		}
+		.trx_addons_video_list_title {
+			margin: 0;
+			color: #fff;
+		}
+		a, a:hover,
+		.trx_addons_video_list_meta {
+			color: #fff;
+		}
+	}
+	.trx_addons_video_player.with_cover:not(.video_play) + .trx_addons_video_list_title_wrap {
+		display: block;
+	}
+	.trx_addons_video_player.with_cover > img {
+		@include transition-property(opacity);
+	}
+	.trx_addons_video_player.with_cover.video_play > img {
+		opacity: 0;
+	}
+}
+
+
+:root {
+	--sc-video-list-controller-height: 10em;
+}
+
+.trx_addons_video_list_controller_wrap {
+
+	.trx_addons_video_list_controller_item {
+		position: relative;
+		overflow: hidden;
+		background-color: #fff;
+		@include transition-property(background-color);
+		@include flex;
+		@include flex-direction(row);
+		@include flex-wrap(nowrap);
+		@include flex-align-items(center);
+		@include flex-justify-content(flex-start);
+		@include flex-shrink(0);
+		@include flex-grow(1);
+		padding: 1.5em;
+
+		.trx_addons_video_list_controller_item_link {
+			@include abs-cover;
+			display: block;
+		}
+	}
+	.trx_addons_video_list_controller_item_active {
+		background-color: #f0f0f0;
+	}
+	.trx_addons_video_list_controller_item:hover {
+		background-color: #f7f7f7;
+	}
+	.trx_addons_video_list_image {
+		display: inline-block;
+		vertical-align: middle;
+		width: 25%;
+		max-width: 90px;
+		position: relative;
+	
+		.trx_addons_video_list_image_label {
+			@include flex;
+			@include flex-direction(row);
+			@include flex-align-items(center);
+			@include flex-justify-content(center);
+			@include bg-mask(#000, 0.2);
+			padding: 0.5em;
+			color: #fff;
+			opacity: 0;
+			text-align: center;
+			text-transform: uppercase;
+			@include font(11px, 16px, bold);
+			@include transition-property(opacity);
+		}
+	}
+	.trx_addons_video_list_controller_item_active {
+		.trx_addons_video_list_image_label {
+			opacity: 1;
+		}
+	}
+	.trx_addons_video_list_image + .trx_addons_video_list_info {
+		padding-left: 1em;
+		display: inline-block;
+		vertical-align: middle;
+		width: 75%;
+		@include border-box;
+	}
+	.trx_addons_video_list_title {
+		margin: 0;
+		@include font(1.15em, 1.4em);
+	}
+	.trx_addons_video_list_meta {
+		@include font(0.9286em, 1.5em);
+		color: #888;
+	}
+}
+
+
+.trx_addons_video_list_controller_right {
+	.trx_addons_video_list_video_wrap {
+		padding-right: 33.3333%;
+	}
+	.trx_addons_video_list_controller_wrap {
+		@include abs-rt;
+		@include box(33.3333%, 100%);
+		overflow-x: hidden;
+		overflow-y: auto;
+
+		.trx_addons_video_list_controller_item {
+			padding: 1em 1em 1em 2em;
+		}
+	}
+}
+
+.trx_addons_video_list_controller_left {
+	.trx_addons_video_list_video_wrap {
+		padding-left: 33.3333%;
+	}
+	.trx_addons_video_list_title_wrap {
+		left: calc(33.3333% + 2em);
+	}
+	.trx_addons_video_list_controller_wrap {
+		@include abs-lt;
+		@include box(33.3333%, 100%);
+		overflow-x: hidden;
+		overflow-y: auto;
+
+		.trx_addons_video_list_controller_item {
+			padding: 1em 2em 1em 1em;
+		}
+	}
+}
+
+.trx_addons_video_list_controller_bottom {
+	.trx_addons_video_list_controller_wrap {
+		overflow-x: auto;
+		overflow-y: hidden;
+		@include flex;
+		@include flex-wrap(nowrap);
+		@include flex-direction(row);
+		@include flex-align-items(flex-start);
+		@include flex-justify-content(flex-start);
+
+		.trx_addons_video_list_controller_item {
+			@include flex-basis(33.3333%);
+			height: var(--sc-video-list-controller-height);
+			@include border-box;
+			white-space: normal;
+		}
+
+		.trx_addons_video_list_image {
+			vertical-align: top;
+		}
+		.trx_addons_video_list_image + .trx_addons_video_list_info {
+			vertical-align: top;
+
+			.trx_addons_video_list_subtitle,
+			.trx_addons_video_list_title:first-child {
+				margin-top: -0.5em;
+			}
+		}
+	}
+}

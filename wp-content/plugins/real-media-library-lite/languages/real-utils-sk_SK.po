@@ -1,0 +1,220 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: n/a\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: n/a\n"
+"PO-Revision-Date: 2023-06-01 11:32+0000\n"
+"Last-Translator: Jan Karres <jan.karres@devowl.io>\n"
+"Language-Team: Slovak <https://translate.devowl.io/projects/devowl-wp-real-"
+"utils-backend-php/develop/sk/>\n"
+"Language: sk_SK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.16.4\n"
+
+#: cross/CrossRealCategoryLibrary.php:50
+msgid "Do you manage many categories?"
+msgstr "Spravujete veľa kategórií?"
+
+#: cross/CrossRealCategoryLibrary.php:52
+msgid ""
+"Do you still create your categories this way? Get an explorer-like tree view "
+"directly in your posts/page tables!"
+msgstr ""
+"Stále vytvárate kategórie týmto spôsobom? Získajte stromové zobrazenie "
+"podobné prieskumníkovi priamo v tabuľkách článkov/stránok!"
+
+#: cross/CrossRealCategoryLibrary.php:59
+msgid "Manage product categories/attributes?"
+msgstr "Spravovať produktové kategórie/atribúty?"
+
+#: cross/CrossRealCategoryLibrary.php:61
+msgid ""
+"Do you still create your product categories and attributes this way? Get an "
+"explorer-like tree view directly into your WooCommerce products table!"
+msgstr ""
+"Stále vytvárate kategórie a atribúty produktov týmto spôsobom? Získajte "
+"stromové zobrazenie podobné prieskumníkovi priamo v tabuľke produktov "
+"WooCommerce!"
+
+#: cross/CrossRealCategoryLibrary.php:68
+msgid "Paginate without reload?"
+msgstr "Stránkovať bez opätovného načítania?"
+
+#: cross/CrossRealCategoryLibrary.php:70
+msgid ""
+"Do you want to paginate through your posts and pages without having to "
+"reload the complete page?"
+msgstr ""
+"Chcete stránkovať čláky a stránky bez toho, aby ste museli načítať celú "
+"stránku?"
+
+#: cross/CrossRealCategoryLibrary.php:77
+msgid "Assigning much faster?"
+msgstr "Priraďovanie oveľa rýchlejšie?"
+
+#: cross/CrossRealCategoryLibrary.php:79
+msgid ""
+"You can move or insert a post or page directly into a category without "
+"having to deal with checkboxes."
+msgstr ""
+"Článok alebo stránku môžete presunúť alebo vložiť priamo do kategórie bez "
+"toho, aby ste sa museli zaoberať zaškrtávacími políčkami."
+
+#: cross/CrossRealCookieBanner.php:88
+msgid "Is your website GDPR compliant?"
+msgstr "Je vaša webová lokalita v súlade s GDPR?"
+
+#: cross/CrossRealCookieBanner.php:89
+msgid "cookie-banner-frontend.png"
+msgstr "cookie-banner-frontend.png"
+
+#: cross/CrossRealCookieBanner.php:90
+msgid ""
+"Websites targeting EU users and setting non-essential cookies need an opt-in "
+"cookie banner. We recommend Real Cookie Banner as an ePrivacy Policy and "
+"GDPR compliant solution for WordPress."
+msgstr ""
+"Webové stránky zamerané na používateľov z EÚ a nastavenia neesenciálnych "
+"cookie súborov, potrebujú banner s možnosťou súhlasu. Odporúčame Real Cookie "
+"Banner ako riešenie pre WordPress, ktoré je v súlade so zásadami ePrivacy a "
+"GDPR."
+
+#: cross/CrossRealCookieBanner.php:94
+msgid "https://devowl.io/go/real-cookie-banner?source=cross-rcb"
+msgstr "https://devowl.io/go/real-cookie-banner?source=cross-rcb"
+
+#: cross/CrossRealMediaLibrary.php:49
+msgid "File finally found?"
+msgstr "Súbor konečne nájdený?"
+
+#: cross/CrossRealMediaLibrary.php:51
+msgid ""
+"Your WordPress site will certainly continue to grow. Organize your media "
+"library with folders!"
+msgstr ""
+"Vaša stránka WordPress bude určite rásť. Usporiadajte svoju knižnicu médií "
+"pomocou priečinkov!"
+
+#: cross/CrossRealMediaLibrary.php:58
+msgid "Does it take long to find a file?"
+msgstr "Trvá dlho nájsť súbor?"
+
+#: cross/CrossRealMediaLibrary.php:60
+msgid ""
+"Inserting media into a post or page can be stressful. Use folders to "
+"organize your media library!"
+msgstr ""
+"Vkladanie médií do príspevku alebo stránky môže byť nepohodlné. Na "
+"usporiadanie knižnice médií použite priečinky!"
+
+#: cross/CrossRealPhysicalMedia.php:47 cross/CrossRealPhysicalMedia.php:56
+msgid "Did you know that?"
+msgstr "Vedeli ste to?"
+
+#: cross/CrossRealPhysicalMedia.php:49 cross/CrossRealPhysicalMedia.php:58
+msgid ""
+"Your uploads can say more than a thousand words. Unfortunately, search "
+"engines do not understand the content of images, for example. Organize your "
+"uploads directly in meaningful folder names and achieve a better ranking in "
+"search engines!"
+msgstr ""
+"Vaše nahraté súbory môžu povedať viac ako tisíc slov. Bohužiaľ, vyhľadávače "
+"nerozumejú napríklad obsahu obrázkov. Usporiadajte svoje nahrané súbory "
+"priamo do zmysluplných názvov priečinkov a dosiahnite lepšie umiestnenie vo "
+"vyhľadávačoch!"
+
+#: Service.php:162 Service.php:281
+msgid "No such plugin slug available."
+msgstr "Takýto slug zásuvného modulu nie je k dispozícii."
+
+#: Service.php:217
+msgid "The abstract implementation for your slug could not be found."
+msgstr "Implementáciu abstraktu pre váš slug sa nepodarilo nájsť."
+
+#: Service.php:274
+msgid "You must agree to our privacy policy to continue."
+msgstr ""
+"Ak chcete pokračovať, musíte súhlasiť s našimi zásadami ochrany osobných "
+"údajov."
+
+#. translators:
+#: view/Options.php:50
+msgid "Products of %s"
+msgstr "Produkty z %s"
+
+#. translators:
+#: view/Options.php:72
+msgid ""
+"Show advertising for not yet installed %s products in the WordPress backend"
+msgstr ""
+"Zobrazenie reklám pre ešte nenainštalované produkty %s v backende WordPress"
+
+#: WelcomePage.php:59
+msgid "Learn more about this plugin"
+msgstr "Ďalšie informácie o tomto plugine"
+
+#: WelcomePage.php:66 WelcomePage.php:164
+msgid "Support"
+msgstr "Podpora"
+
+#: WelcomePage.php:71 WelcomePage.php:167
+msgid "Rate plugin"
+msgstr "Hodnotenie pluginu"
+
+#: WelcomePage.php:156
+msgid "Version"
+msgstr "Verzia"
+
+#: WelcomePage.php:161
+msgid "Info"
+msgstr "Info"
+
+#: WelcomePage.php:175
+msgid "Key feature"
+msgid_plural "Key features"
+msgstr[0] "Kľúčová funkcia"
+msgstr[1] "Kľúčová funkcia"
+msgstr[2] "Kľúčová funkcia"
+
+#: WelcomePage.php:183
+msgid "Newsletter"
+msgstr "Newsletter"
+
+#: WelcomePage.php:186
+msgid ""
+"Receive the latest news about devowl.io WordPress plugins directly in your "
+"inbox"
+msgstr ""
+"Dostávajte novinky o WordPress pluginoch devowl.io priamo do svojej schránky"
+
+#: WelcomePage.php:190
+msgid "Enter your email..."
+msgstr "Zadajte svoj e-mail..."
+
+#. translators:
+#: WelcomePage.php:198
+msgid ""
+"I want to receive WordPress news from devowl.io via email and agree to the "
+"<a %s>privacy policy</a>."
+msgstr ""
+"Chcem dostávať novinky o WordPress z devowl.io prostredníctvom e-mailu a "
+"súhlasím so <a %s>zásadami ochrany osobných údajov</a>."
+
+#: WelcomePage.php:202
+msgid "https://devowl.io/privacy-policy/"
+msgstr "https://devowl.io/privacy-policy/"
+
+#: WelcomePage.php:209
+msgid "Subscribe"
+msgstr "Prihlásiť sa"
+
+#: WelcomePage.php:283
+msgid "Additional plugins by devowl.io"
+msgstr "Ďalšie pluginy od devowl.io"
+
+#: WelcomePage.php:353
+msgid "Available in"
+msgstr "Dostupné v"

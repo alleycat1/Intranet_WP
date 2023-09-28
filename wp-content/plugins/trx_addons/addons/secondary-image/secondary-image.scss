@@ -1,0 +1,24 @@
+@import "../../css/_mixins.scss";
+@import "../../css/_trx_addons.vars.scss";
+
+/* Secondary image */
+body.single div[class*="_page_featured"] {
+	position: relative;
+	overflow: hidden;
+}
+
+.post_featured .trx_addons_secondary_image,
+body.single div[class*="_page_featured"] > .trx_addons_secondary_image {
+	@include abs-cover(3);
+	pointer-events: none;
+	opacity: 0;
+	//@include transition(opacity 0.3s ease,transform 1s ease);
+	@include transition-properties(opacity,transform);
+	@include bg-cover;
+}
+
+.post_featured:hover .trx_addons_secondary_image,
+body.single div[class*="_page_featured"]:hover > .trx_addons_secondary_image {
+	opacity: 1;
+	//@include scale(1.1, 1.1);
+}

@@ -1,0 +1,115 @@
+@import "../../../../../css/_mixins.scss";
+@import "../../../../../css/_trx_addons.vars.scss";
+
+.sc_layouts_title_caption {
+	margin: 0 auto;
+}
+.sc_layouts_row_type_compact .sc_layouts_title_caption {
+	font-size: 2em;
+	line-height: 1.25em;
+}
+.sc_layouts_title_title > .sc_layouts_title_caption {
+	float: none;
+}
+.sc_layouts_title_caption img {
+	display:inline-block;
+	max-height:1.25em;
+	vertical-align:middle;
+	width:auto;
+	margin: -0.1em 0.2em 0 0;
+}
+.sc_layouts_title_link {
+	display:inline-block;
+	margin:0.5em 0 2em;
+}
+.sc_layouts_row_fixed_on .sc_layouts_title_link {
+	display: none;
+}
+.sc_layouts_title_meta .post_edit:before {
+	margin-right: 0.5em;
+}
+.sc_layouts_title_description {
+	margin: 4px auto 0;
+	max-width:90%;
+}
+.sc_layouts_title_description p {
+	margin:0;
+}
+
+.sc_layouts_title_breadcrumbs {
+	margin-top: 1.5em;
+}
+
+.sc_layouts_title.with_content {
+	position:relative;
+	min-height: 0em;
+	@include flex;
+	@include flex-direction(column);
+	@include flex-align-items(center);
+	@include flex-justify-content(center);
+}
+.sc_layouts_title.with_image {
+	@include bg-cover;
+}
+.sc_layouts_title.fixed_height {
+	min-height: 20rem;
+}
+
+.sc_layouts_title.with_tint.with_content:before {
+	content:' ';
+	@include bg-mask(#000, 0.5, 0);	// Important! z-index: 1+ place this block over cart and over popups!
+}
+
+.sc_layouts_title.fixed_height .sc_layouts_title_content {
+	position: relative;
+	z-index: 1;
+	padding: 3em 0;
+	max-width: 90%;
+}
+
+.sc_layouts_title.sc_align_left .sc_layouts_title_content,
+.sc_layouts_title.sc_align_right .sc_layouts_title_content {
+	width: 100%;
+}
+.sc_layouts_title.sc_align_left .sc_layouts_title_description,
+.sc_layouts_title.sc_align_right .sc_layouts_title_description {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.sc_layouts_title {
+	.trx_addons_video_player.with_video_autoplay,
+	.trx_addons_video_player.with_video_autoplay:not(.post_featured_bg):not(.with_thumb) {
+		@include abs-cover(0);
+		@include flex;
+		@include flex-align-items(center);
+		@include flex-justify-content(center);
+		overflow: hidden;
+		pointer-events: none;
+
+		.video_frame, .wp-video, .mejs-container {
+			max-width: none;
+			width: auto !important; // To override inline width from script
+			height: auto !important; // To override inline width from script
+			@include abs-cover(0);
+
+			&.mejs-container {
+				min-height: 100%;
+			}
+
+			video, iframe {
+				object-fit: cover;
+				object-position: center;
+				max-width: none;
+				max-height: none;
+				min-height: 100%;
+				width: 100% !important;
+				height: 100% !important;
+			}
+		}
+	}
+	.trx_addons_video_player + .sc_layouts_title_content {
+		position: relative;
+		z-index: 1;
+	}
+}

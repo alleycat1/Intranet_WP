@@ -1,0 +1,113 @@
+@media (max-width: 1023px) {
+  /* Sport */
+  .sport_page_list_wrap {
+    width: 100%;
+    float: none;
+  }
+
+  .sport_page_list_wrap + .sport_page_list_wrap {
+    float: none;
+  }
+
+  .sc_matches_other .sc_matches_item {
+    width: 100%;
+  }
+
+  .sc_matches_side,
+  .sc_matches_side + .sc_matches_side {
+    width: 100%;
+    float: none;
+    padding: 0;
+  }
+}
+@media (max-width: 767px) {
+  /* Sport */
+  .sc_matches_item_pair {
+    max-width: none;
+  }
+
+  .sc_matches_item_pair .sc_matches_item_score {
+    margin-top: 1em;
+  }
+
+  .sc_matches_item_pair .sc_matches_item_score,
+  .sc_matches_item_pair .sc_matches_item_player_meta {
+    line-height: 1.5em;
+  }
+
+  .sc_matches_item_pair .sc_matches_item_score_value {
+    font-size: 4em;
+    line-height: 1.2em;
+  }
+
+  .sc_matches_item_pair .sc_matches_item_player .post_featured > img {
+    height: 7em;
+  }
+}
+@media (max-width: 479px) {
+  /* Sport */
+  .sport_single .sport_page_featured {
+    max-width: none;
+    float: none;
+    margin-left: 0;
+    margin-bottom: 2em;
+  }
+
+  .sc_matches_item_pair .sc_matches_item_player {
+    width: 33%;
+  }
+
+  .sc_matches_item_pair .sc_matches_item_score {
+    width: 34%;
+  }
+
+  .sc_matches_item_pair .sc_matches_item_score_value {
+    font-size: 3em;
+    line-height: 1.2em;
+  }
+
+  .sport_page_list {
+    font-size: 10px;
+    line-height: 15px;
+  }
+
+  .sc_matches_other .sc_matches_item_date {
+    width: 25%;
+  }
+
+  .sc_matches_other .sc_matches_item_info {
+    width: 75%;
+    margin-left: 25%;
+  }
+
+  .sc_matches_other .sc_matches_item_logo1,
+  .sc_matches_other .sc_matches_item_logo2 {
+    display: none !important;
+  }
+
+  .sc_matches_other .sc_matches_item_name1,
+  .sc_matches_other .sc_matches_item_name2 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .sc_matches_other .sc_matches_item_club {
+    display: block !important;
+  }
+
+  .sc_matches_other .sc_matches_item_score {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .sc_points_table {
+    font-size: 10px;
+    line-height: 15px;
+  }
+
+  .sc_points_table td a {
+    padding: 0.5em;
+  }
+}
+
+/*# sourceMappingURL=sport.responsive.css.map */

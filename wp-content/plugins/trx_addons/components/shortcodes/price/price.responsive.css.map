@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA,0BAAoB;EAChB,WAAW;EACd,oBAAqB;IACpB,cAAc,EAAC,CAAC;IAChB,SAAS,EAAC,GAAG;;;EAEd,mBAAoB;IACnB,OAAO,EAAE,OAAO;;;EAEjB,oBAAqB;IACpB,SAAS,EAAE,KAAK;;;AAKlB,yBAAoB;EAChB,WAAW;EACd,mBAAoB;IACnB,UAAU,EAAC,GAAG",
+"sources": ["price.responsive.scss"],
+"names": [],
+"file": "price.responsive.css"
+}

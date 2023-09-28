@@ -1,0 +1,23 @@
+@media (max-width: 1023px) {
+  /* Price */
+  .sc_price_item_title {
+    letter-spacing: 0;
+    font-size: 2em;
+  }
+
+  .sc_price_item_info {
+    padding: 2em 1em;
+  }
+
+  .sc_price_item_price {
+    font-size: 1.5em;
+  }
+}
+@media (max-width: 479px) {
+  /* Price */
+  .sc_price_item_link {
+    margin-top: 2em;
+  }
+}
+
+/*# sourceMappingURL=price.responsive.css.map */

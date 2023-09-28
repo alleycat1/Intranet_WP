@@ -1,0 +1,109 @@
+/* Social Icons - styles moved into trx_addons.front to share them with theme */
+.sc_socials {
+  position: relative;
+  padding-top: 0.0001px;
+}
+
+.socials_wrap {
+  display: block;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.socials_wrap.socials_dir_vertical {
+  white-space: normal;
+}
+
+.socials_wrap.socials_dir_vertical .social_item {
+  display: block;
+  margin-right: 0 !important;
+  margin-bottom: 8px;
+}
+
+.socials_wrap .social_item {
+  display: inline-block;
+  vertical-align: top;
+  line-height: inherit;
+  text-align: center;
+  margin-right: 8px;
+}
+
+.socials_wrap .social_item:last-child {
+  margin-right: 0 !important;
+}
+
+.socials_wrap .social_item_style_bg {
+  overflow: hidden;
+}
+
+.socials_wrap .social_item[data-copy-link-url] {
+  position: relative;
+}
+
+.socials_wrap:not(.socials_type_list) .social_item .social_icon {
+  position: relative;
+  display: block;
+  background-size: 100%;
+  background-position: top center;
+  overflow: hidden;
+  width: 3em;
+  height: 3em;
+  line-height: 3em;
+  text-align: center;
+  -webkit-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.socials_wrap .social_item .social_icon,
+.socials_wrap .social_item .social_name {
+  -webkit-transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  -ms-transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.socials_wrap .social_item_type_icons_names .social_icon {
+  margin: 0 auto;
+}
+
+.socials_wrap .social_item .social_name {
+  font-family: inherit;
+}
+
+.socials_wrap .social_item .social_name:before {
+  display: none;
+}
+
+.socials_wrap .sc_icon_type_svg svg,
+.socials_wrap .sc_icon_type_svg object {
+  width: 1.25em;
+  height: 1.25em;
+  margin-bottom: -0.2em;
+}
+
+.socials_wrap .social_item .social_icon + .social_name {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 0.5em;
+}
+
+.socials_wrap .social_item .social_icon .social_hover {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  background-size: 100%;
+  background-position: bottom center;
+  -webkit-transition: opacity 0.3s ease;
+  -ms-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+.socials_wrap .social_item .social_icon:hover .social_hover {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=socials.css.map */

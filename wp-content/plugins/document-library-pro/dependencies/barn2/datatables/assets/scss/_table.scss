@@ -1,0 +1,536 @@
+@import "variables";
+@import "icons";
+
+@mixin reset-form-input {
+	display: inline-block;
+	height: auto;
+	min-height: 0;
+	margin: 0;
+	line-height: normal;
+	font-size: inherit;
+	font-family: inherit;
+	vertical-align: baseline;
+	float: none;
+	box-sizing: border-box;
+}
+
+@mixin text-field {
+	padding: 0 0.5em;
+	margin: 0;
+	height: $control-input-height;
+	background-color: #f2f2f2;
+	color: #43454b;
+	font-weight: normal;
+	border: 0;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.125);
+	-webkit-appearance: none;
+}
+
+@mixin select {
+	width: auto;
+	font-weight: normal;
+	min-width: 55px;
+	padding: 0.2em 1em 0.2em 0.5em;
+}
+
+// The table wrapper
+#{$wrapper-class} {
+	margin-top: 1.6em;
+	margin-bottom: 2.6em;
+	max-width: 100%;
+
+	.blockUI.blockOverlay::before {
+		@include spinner-icon(30px);
+	}
+}
+
+// Table controls
+#{$controls-class} {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+	margin-left: -$control-side-margin;
+	margin-right: -$control-side-margin;
+
+	&.#{$prefix}-above {
+		margin-bottom: 4px;
+	}
+
+	&.#{$prefix}-below {
+		margin-top: 10px;
+	}
+
+	> div {
+		margin: 0 $control-side-margin $control-bottom-margin;
+
+		// Extra class needed to override DataTables
+		#{$wrapper-class} & {
+			float: none;
+			color: inherit;
+			padding: 0;
+
+			@media screen and (max-width: 640px) {
+				margin-top: 0;
+			}
+		}
+	}
+
+	.dataTables_length {
+		margin-top: 1px;
+	}
+
+	@media screen and (min-width: $small-breakpoint) {
+		justify-content: flex-end;
+		margin-left: 0;
+		margin-right: 0;
+
+		> div {
+			margin-left: 25px;
+			margin-right: 0;
+		}
+
+		#{$filters-class}:first-child,
+		.dataTables_length:first-child,
+		.dataTables_filter:first-child,
+		> #{$reset-class}:first-child {
+			margin-left: 0;
+			margin-right: auto;
+		}
+	}
+
+	@media screen and (max-width: $medium-breakpoint - 1) {
+		.dataTables_paginate {
+			margin-top: 0;
+		}
+	}
+
+	label {
+		font-weight: normal;
+		vertical-align: baseline;
+		display: inline-block;
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+
+	input[type="search"] {
+		@include reset-form-input;
+		@include text-field;
+		min-width: auto;
+		width: auto; // TO
+		margin-left: 6px;
+		margin-bottom: 0; // TO
+	}
+
+	select {
+		@include reset-form-input;
+		@include select;
+	}
+
+	#{$wrapper-class} & select {
+		width: auto; // TO
+	}
+
+	.dataTables_length select,
+	.dataTables_length .select2-container {
+		margin-left: 2px;
+		margin-right: 2px;
+	}
+
+	#{$filters-class} {
+		margin-bottom: $control-bottom-margin - 2px;
+		max-width: 100%; // TO
+
+		label {
+			margin-right: 6px;
+		}
+
+		select,
+		.select2-container {
+			margin: 3px 6px 3px 0;
+		}
+	}
+
+	// Select2
+	.select2-container {
+		height: $control-input-height;
+		min-height: 0; // TO
+		display: inline-block !important; // TO
+		font-size: inherit; // TO
+		max-width: 100%; // TO
+
+		.select2-selection:focus {
+			outline: none; // Remove Safari blue outline
+		}
+
+		.select2-selection--single {
+			position: relative;
+			height: $control-input-height;
+			padding: 0; // TO
+
+			.select2-selection__rendered {
+				line-height: $control-input-height - 2;
+				padding-left: 8px; // TO
+				padding-right: 20px; // TO
+			}
+
+			.select2-selection__arrow {
+				height: $control-input-height - 2;
+				top: 0;
+				width: 20px; // TO
+				transform: none; // TO
+				border: none; // TO
+
+				&::before, &::after {
+					border: none; // TO
+					content: ''; // TO
+				}
+			}
+
+			.select2-selection__placeholder {
+				color: inherit;
+			}
+		}
+	}
+
+	.dataTables_paginate .paginate_button {
+		padding: 0.2em 0.7em;
+	}
+
+}
+
+// Select2 dropdown
+.select2-dropdown.#{$prefix}-dropdown {
+
+	.select2-search--dropdown {
+		padding: 5px; // TO
+
+		.select2-search__field {
+			@include reset-form-input;
+			@include text-field;
+			width: 100%; // TO
+			margin-bottom: 0; // TO
+		}
+
+		// For themes which add an icon to the search field.
+		&::after {
+			top: 14px;
+			right: 14px;
+		}
+	}
+
+	.select2-results {
+		padding: 0;
+
+		> .select2-results__options {
+			max-height: 260px;
+			margin: 0; // TO
+			padding: 0; // TO
+			list-style: none; // TO
+		}
+	}
+
+	.select2-results__option {
+		margin: 0; // TO
+		padding: 6px 6px 6px 10px;
+		line-height: normal;
+		display: list-item; // TO
+
+		&:focus {
+			outline: none; // Remove Safari blue outline
+		}
+	}
+}
+
+// Reset button
+#{$reset-class} {
+	display: inline-block;
+	margin-left: 20px;
+	position: relative;
+	top: 1px;
+
+	#{$filters-class} & {
+		margin-left: 10px;
+	}
+
+	@media screen and (min-width: $small-breakpoint) {
+		#{$controls-class} > &:first-child {
+			margin-left: 4px;
+		}
+	}
+
+	a {
+		font-weight: normal;
+		font-size: inherit;
+		text-decoration: none !important;
+		border: none;
+		box-shadow: none;
+
+		&::before {
+			@include icon;
+			content: "\e965"; // undo
+			font-size: 0.85em;
+			margin-right: 6px;
+			text-decoration: none;
+		}
+	}
+
+}
+
+// Table content
+#{$table-class} {
+	max-width: 100%;
+	word-break: normal;
+	margin-bottom: 0;
+	line-height: inherit; // TO
+
+	tr {
+		display: table-row;
+		float: none;
+		margin: 0;
+	}
+
+	th,
+	td {
+		text-align: left;
+		display: table-cell;
+		vertical-align: top;
+		float: none;
+		word-break: normal;
+	}
+
+	th {
+		line-height: 1.45;
+
+		&.control {
+			width: 8px;
+		}
+	}
+
+	td {
+		> *:first-child {
+			margin-top: 0;
+		}
+
+		> *:last-child {
+			margin-bottom: 0;
+		}
+
+		p:last-child {
+			margin-bottom: 0;
+		}
+
+		&.nowrap {
+			white-space: nowrap;
+		}
+	}
+
+	.no-data td {
+		// Rows containing no data (i.e. all cells are empty). We set the height manually to approximate the size of rows that contain data.
+		height: 1.6em;
+		box-sizing: content-box;
+	}
+
+	&.nowrap td.child {
+		white-space: normal;
+	}
+
+	// Media
+	audio {
+		min-width: 250px;
+
+		@media screen and (min-width: $small-breakpoint) {
+			min-width: 300px;
+		}
+	}
+
+	.wp-video {
+		// Videos should be sized according to the column width. This means in responsive rows they will take up the full width
+		// of the child row, but this is a tradeoff to prevent the video from overflowing the table width for large videos.
+		width: auto !important;
+		min-width: 150px;
+	}
+
+	.wp-audio-shortcode {
+		width: auto !important;
+		min-width: 240px;
+	}
+
+	.wp-playlist {
+		min-width: 240px;
+
+		.mejs-container {
+			width: 100% !important;
+		}
+	}
+
+	// Responsive rows
+	tr.child {
+		td {
+			text-align: left; // TO
+		}
+	}
+
+	ul.dtr-details {
+		width: 100%; // TO
+		list-style-type: none;
+		margin: 0;
+		padding: 0; // TO
+
+		& > li {
+			border-bottom: 1px solid #efefef;
+			padding: 14px 0 8px;
+			display: flex;
+			align-content: stretch;
+			flex-wrap: wrap;
+
+			@media screen and (min-width: $medium-breakpoint) {
+				flex-wrap: nowrap;
+			}
+
+			&:first-child {
+				padding-top: 0;
+			}
+
+			&:last-child {
+				border-bottom: none;
+			}
+
+			.dtr-title,
+			.dtr-data {
+				vertical-align: top;
+			}
+
+			.dtr-title {
+				flex: 0 1 80px;
+				font-weight: bold;
+				margin: 0 15px 4px 0;
+			}
+
+			.dtr-data {
+				flex: 1 1 auto;
+
+				figure {
+					width: auto;
+					float: none;
+				}
+			}
+		}
+	}
+
+}
+
+table#{$table-class} {
+	display: table;
+	table-layout: auto;
+	visibility: hidden; // displayed by JS
+
+	thead {
+
+		th {
+			padding-left: 10px; // to match header cells
+		}
+
+	}
+
+	tbody tr {
+		background-color: transparent;
+	}
+
+	// Responsive row
+	&.dtr-inline.collapsed > tbody > tr > td.dtr-control,
+	&.dtr-inline.collapsed > tbody > tr > th.dtr-control {
+		padding-left: 32px;
+	}
+
+	&.dtr-inline.collapsed > tbody > tr > td.dtr-control::before,
+	&.dtr-inline.collapsed > tbody > tr > th.dtr-control::before,
+	&.dtr-column > tbody > tr > td.control::before,
+	&.dtr-column > tbody > tr > th.control::before {
+		@include icon;
+		content: "\ea0a"; // plus
+		color: #377837;
+		top: 1.3em;
+		font-size: 0.75em;
+		border-radius: 0;
+		border: none;
+		box-shadow: none;
+		margin: 0;
+	}
+
+	// Responsive row - opened
+	&.dtr-inline.collapsed > tbody > tr.parent > td.dtr-control::before,
+	&.dtr-inline.collapsed > tbody > tr.parent > th.dtr-control::before,
+	&.dtr-column > tbody > tr.parent > td.control::before,
+	&.dtr-column > tbody > tr.parent > th.control::before {
+		content: "\ea0b"; // minus
+		color: #bd3737;
+		background: none;
+	}
+
+	// Separate control column
+	&.dtr-column > tbody > tr > td.control::before,
+	&.dtr-column > tbody > tr > th.control::before {
+		left: 12px;
+	}
+}
+
+// Responsive modal
+div.dtr-modal {
+	z-index: 2000;
+
+	div.dtr-modal-background {
+		background-color: rgba(0, 0, 0, 0.7);
+	}
+
+	div.dtr-modal-display {
+		background-color: #ffffff;
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+		max-width: 800px;
+		width: 90%;
+
+		@media screen and (max-width: $medium-breakpoint - 1) {
+			top: 10%;
+			bottom: auto;
+			height: auto;
+			max-height: 80%;
+		}
+
+		@media screen and (min-width: $medium-breakpoint) {
+			width: 65%;
+		}
+	}
+
+	div.dtr-modal-close {
+		border-radius: 50%;
+		background-color: #333333;
+		color: #ffffff;
+		font-size: 30px;
+		height: 38px;
+		width: 38px;
+		line-height: 38px;
+		border: none;
+		top: 10px;
+		right: 10px;
+
+		&:hover {
+			background-color: #555555;
+		}
+	}
+
+	div.dtr-modal-content {
+		padding: 55px 25px 25px;
+
+		@media screen and (min-width: $medium-breakpoint) {
+			padding-left: 35px;
+			padding-right: 35px;
+		}
+
+		#{$table-class} {
+			visibility: visible;
+		}
+	}
+
+}

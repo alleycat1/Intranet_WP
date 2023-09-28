@@ -1,0 +1,146 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/* Widget: Categories list*/
+
+.widget_categories_list .categories_list_columns {
+	@include flex;
+	@include flex-wrap(wrap);
+}
+.widget_categories_list .categories_list_columns .categories_list_item {
+	display:inline-block;
+	vertical-align:top;
+	@include box(100%, 100%);
+	@include border-box;
+}
+
+
+.widget_categories_list .categories_list_item {
+	text-align:center;
+	position:relative;
+}
+.widget_categories_list .categories_list_count {
+	display:inline-block;
+	margin-left:0.5em;
+}
+.widget_categories_list .categories_list_link {
+	@include abs-cover;
+}
+
+.widget_categories_list .sc_button_size_small .sc_button_icon {
+	font-size: 1.4em;
+}
+
+
+.widget_categories_list .categories_list_style_1 .categories_list_title {
+	margin: 0.5em 0 0;
+	@include transition-color;
+}
+.widget_categories_list .categories_list_style_1 .categories_list_item:hover .categories_list_title {
+	color: #efa758;
+}
+.widget_categories_list .categories_list_style_1 .categories_list_image {
+	vertical-align:top;
+	height: 3em;
+	line-height: 3em;
+}
+.widget_categories_list .categories_list_style_1 .categories_list_image img {
+	display: inline-block;
+	vertical-align: middle;
+	width: auto;
+	max-height: 3em;
+}
+.widget_categories_list .categories_list_style_1 .categories_list_icon {
+	display: inline-block;
+	vertical-align: middle;
+	@include font(3em, 1em);
+	color: #efa758;
+	@include transition-property(color);
+}
+
+
+.widget_categories_list .categories_list_style_2 .categories_list_image img {
+	width:100%;
+}
+.widget_categories_list .categories_list_style_2 .categories_list_count {
+	display:block;
+	margin-left: 0;
+}
+.widget_categories_list .categories_list_style_2 .categories_list_image:after {
+	content:' ';
+	display:block;
+	@include bg-mask(#000, 0.5, 1);
+	@include transition-property(background-color);
+	pointer-events: none;
+}
+.widget_categories_list .categories_list_style_2 .categories_list_item:hover .categories_list_image:after {
+	background-color:rgba(0,0,0,0.1);
+}
+.widget_categories_list .categories_list_style_2 .categories_list_title {
+	@include abs-cc;
+	@include transition-colors;
+	@include border-box;
+	width:40%;
+	font-weight: 300;
+	margin:0;
+	padding: 1.5em 1em;
+	background-color:rgba(255,255,255,0.8);
+	@include box-shadow(0px 0px 10px 0px rgba(0, 0, 0, 0.6));
+}
+.widget_categories_list .categories_list_style_2 .categories_list_item:hover .categories_list_title {
+	color: #000000;
+	background-color:#fff;;
+}
+.widget_categories_list .categories_list_style_2 .categories_list_icon {
+	display: inline-block;
+	vertical-align: middle;
+	@include square(1.2em);
+	margin-right: 0.3em;
+}
+
+.widget_categories_list .categories_list_style_3 .categories_list_item {
+    overflow: hidden;
+	background-color: #fafafa;
+	position:relative;
+}
+.widget_categories_list .categories_list_style_3 .categories_list_info,
+.widget_categories_list .categories_list_style_3 .categories_list_image {
+    float: left;
+	@include box(50%, 14em);
+	@include bg-cover;
+}
+.widget_categories_list .categories_list_style_3 .categories_list_info {
+	position: relative;
+}
+.widget_categories_list .categories_list_style_3 .categories_list_info .wrap_in {
+	@include abs-cc;
+    width:94%;
+	@include border-box;
+    margin:0;
+    padding:0;
+}
+.widget_categories_list .categories_list_style_3 .categories_list_count {
+    display:block;
+    margin-left: 0;
+}
+.widget_categories_list .categories_list_style_3 .categories_list_title {
+    font-weight: 300;
+    margin: 0.3em 0;
+    text-transform: none;
+	@include transition-color;
+}
+.widget_categories_list .categories_list_style_3 .categories_list_item:hover .categories_list_title,
+.widget_categories_list .categories_list_style_3 .categories_list_item:hover .categories_list_icon {
+	color: #efa758;
+}
+.widget_categories_list .categories_list_style_3 .categories_list_icon {
+	display: inline-block;
+	vertical-align: middle;
+	@include font(2em, 1em);
+	@include square(1em);
+	@include transition-property(color);
+}
+.widget_categories_list .categories_list_style_3 img.categories_list_icon {
+	max-height: 1em;
+	width: auto;
+}

@@ -1,0 +1,60 @@
+@media (max-width: 1023px) {
+  /* Events */
+  .sc_events_classic .trx_addons_hover_content .trx_addons_hover_text,
+  .sc_events_classic .trx_addons_hover_content .trx_addons_hover_links a {
+    margin-top: 1.5em !important;
+  }
+
+  .sc_events_classic .trx_addons_hover_content .trx_addons_hover_text {
+    max-height: 9em;
+    overflow: hidden;
+  }
+
+  .sc_events_classic .trx_addons_hover_content .trx_addons_hover_links a {
+    padding: 1em;
+    font-size: 10px;
+  }
+}
+@media (max-width: 767px) {
+  /* Events */
+  .sc_events_default .sc_events_item {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-bottom: 3em;
+  }
+
+  .sc_events_default .sc_events_item_thumb {
+    margin-bottom: 1.5em;
+    width: 100%;
+  }
+
+  .sc_events_default .sc_events_item_info {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 1.5em;
+  }
+
+  .sc_events_default .sc_events_item_price {
+    right: 0;
+  }
+
+  .sc_events_default .sc_events_item_button {
+    text-align: left;
+    width: 100%;
+  }
+
+  .sc_events_classic .trx_addons_hover_content {
+    padding: 10px;
+  }
+
+  .sc_events_classic .trx_addons_hover_content .trx_addons_hover_links a + a {
+    margin-left: 0.3em;
+  }
+
+  .sc_events_classic .sc_events_item_price {
+    font-size: 1.5em;
+  }
+}
+
+/*# sourceMappingURL=the-events-calendar.responsive.css.map */

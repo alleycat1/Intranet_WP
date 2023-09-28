@@ -1,0 +1,479 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/* Single download */
+.single-download .trx_addons_edd_purchase_buttons {
+	margin: 3em 0 0.1em;
+}
+.single-download .trx_addons_edd_purchase_buttons .edd-cart-added-alert {
+	bottom: -1.6em;
+	left: 1em;
+}
+.single-download .edd_download_purchase_form {
+	margin:0;
+}
+.single-download .edd_download_purchase_form .edd_purchase_submit_wrapper {
+	display: inline-block;
+	vertical-align:top;
+}
+.single-download .edd_download_purchase_form .edd_price_options label {
+	overflow: hidden;
+}
+.single-download .edd_download_purchase_form .edd_price_options input.edd-item-quantity {
+    width: 80px;
+}
+.single-download .edd_download_purchase_form .edd_price_options .edd_download_quantity_wrapper * {
+    font-size: 100%;
+}
+.single-download .edd_download_purchase_form .edd_price_options .edd_price_option_sep {
+	display:none;
+}
+.single-download .edd_download_purchase_form .edd_price_options .edd_price_option_wrap {
+	display: block;
+}
+.single-download .edd_download_purchase_form .edd_price_options .edd_price_option_price,
+.trx_addons_edd_purchase_price .trx_addons_edd_purchase_price_label .edd_price_option_price {
+	float:right;
+}
+.single-download .edd_download_purchase_form .trx_addons_edd_purchase_subtotal {
+	margin-top: 1em;
+	border-top: 1px dashed #ddd;
+	padding-top: 1em;
+	text-align:right;
+}
+.single-download .edd_download_purchase_form .trx_addons_edd_purchase_subtotal .trx_addons_edd_purchase_subtotal_label {
+	margin-right: 0.3em;
+}
+.single-download .edd_download_purchase_form .trx_addons_edd_purchase_subtotal .trx_addons_edd_purchase_subtotal_value {
+	font-weight: bold;
+}
+.single-download .edd_download_purchase_form > a {
+	margin-right: 0.3em;
+}
+.single-download .edd_download_purchase_form > a:last-child {
+	margin-right: 0;
+}
+.single-download .edd_download_purchase_form > a + a {
+	margin-left: 0;
+}
+.single-download .edd_download_purchase_form a > del {
+	display:none;
+}
+
+/* Page content */
+.downloads_page_section {
+	margin-top: 3em;
+}
+.downloads_page_section_title {
+	margin: 0 0 1.25em;
+	padding-bottom: 1em;
+	border-bottom: 1px dashed #ddd;
+}
+.downloads_page_features_list > span,
+.downloads_page_features_list > a {
+	display: inline-block;
+	vertical-align:top;
+	width: 33%;
+}
+.downloads_page_label,
+.downloads_page_data {
+	display:inline-block;
+	vertical-align:top;
+}
+.downloads_page_label {
+	margin-right: 0.3em;
+}
+.downloads_page_data {
+	font-weight:bold;
+}
+div.downloads_page_data > a,
+div.downloads_page_features_list > a {
+	font-weight: 400;
+}
+.downloads_page_features_list > a:before {
+	content: '\e874';
+	font-family: $trx_addons_icons;
+	display: inline-block;
+	line-height:inherit;
+	margin: 0 0.5em 0 0;
+	color: #00a02b;
+}
+
+/* Payment details */
+th+th.edd_receipt_payment_key {
+	text-transform: none;
+}
+
+/* Widget 'Search' */
+.edd_search_form .edd_search_form_keywords {
+	padding-right: 3em;
+	position:relative;
+}
+.edd_search_form .edd_search_form_keywords .edd_search_button {
+	@include abs-pos(0, 0, 0, auto, '');
+	@include font(inherit, inherit);
+	width: 3em;
+	display:block;
+	text-align:center;
+	padding: 0;
+	@include transition-all;
+}
+
+
+/* Widget 'Cart' */
+.widget_edd_cart_widget {
+	text-align: left !important;
+}
+.sc_layouts_item .widget_edd_cart_widget {
+	font-size:0.9333em;
+}
+.widget_edd_cart_widget .edd-cart-number-of-items,
+.widget_edd_cart_widget .edd-cart-item-separator {
+	display:none;
+}
+.widget_edd_cart_widget ul.edd-cart {
+	padding-left: 0;
+}
+.widget_edd_cart_widget li.edd-cart-item {
+	position:relative;
+	padding: 0 0.5em 0 5.5em;
+	line-height: 1.5em;
+}
+.widget_edd_cart_widget li:before {
+	display:none !important;
+}
+.widget_edd_cart_widget li+li {
+	margin-top: 0.5em;
+}
+.widget_edd_cart_widget .edd-cart-item-image {
+	display:block;
+	@include abs-lt(1.5em, 0);
+	@include box(3em, 3em);;
+}
+.widget_edd_cart_widget .edd-cart-item-title {
+	display:block;
+}
+.widget_edd_cart_widget .edd-cart-item-quantity {
+	margin-right: 0.3em;
+}
+.widget_edd_cart_widget .edd-remove-from-cart {
+	display:block;
+	text-indent:-1000px;
+	overflow:hidden;
+	@include abs-lt;
+	@include box(2em, 2em);;
+}
+.widget_edd_cart_widget .edd-remove-from-cart:before {
+	content: 'x';
+	color: #aa0000;
+	display:block;
+	@include abs-lt(0, 0, 2);
+	padding: 0.5em 0;
+	text-indent:0;
+}
+.widget_edd_cart_widget .edd_total,
+.widget_edd_cart_widget .edd_checkout {
+	margin-top: 1em;
+}
+.widget_edd_cart_widget .edd-cart-meta.edd_total {
+	font-weight:inherit;
+	padding: 0.5em 1em;
+}
+.widget_edd_cart_widget .edd-cart-meta.edd_total .cart-total {
+	@include font(1.2em, '', 500);
+}
+
+/* Shortcode 'EDD Details' */
+.sc_edd_details {
+	padding: 1em;
+	border: 1px solid #ddd;
+	background-color:#f7f7f7;
+	margin-bottom: 1em;
+}
+.sc_edd_details .downloads_page_section {
+	margin: 0;
+}
+.sc_edd_details .downloads_page_section+.downloads_page_section {
+	margin-top: 1em;
+}
+.sc_edd_details .downloads_page_section_title,
+.sc_edd_details .downloads_page_features_list,
+.sc_edd_details .downloads_page_label,
+.sc_edd_details .downloads_page_data {
+	display: inline-block;
+	vertical-align:top;
+	@include border-box;
+}
+.sc_edd_details .downloads_page_section_title,
+.sc_edd_details .downloads_page_label {
+	margin: 0;
+	padding: 0 1em 0 0;
+	border-bottom: none;
+	@include font(1em, inherit, inherit);
+	width: 40%;
+}
+.sc_edd_details .downloads_page_features_list,
+.sc_edd_details .downloads_page_data {
+	width: 60%;
+	font-weight:inherit;
+}
+.sc_edd_details .downloads_page_features_list > span,
+.sc_edd_details .downloads_page_features_list > a {
+	display: block;
+	width: auto;
+}
+.sc_edd_details .downloads_page_features_list > a:before {
+	display:none;
+}
+.sc_edd_details .downloads_page_details .downloads_page_section_title {
+	display:none;
+}
+.sc_edd_details .downloads_page_details .downloads_page_features_list {
+	width: 100%;
+}
+.sc_edd_details .downloads_page_price > .edd_price {
+	@include font(1.25em, '', bold);
+}
+.sc_edd_details .downloads_page_price > span {
+	display:inline-block;
+	vertical-align:baseline;
+	margin-right: 0.3em;
+}
+
+.sc_edd_details .downloads_page_tags .downloads_page_data_separator:before {
+	content: ', ';
+}
+
+
+/* Shortcode 'EDD Add to Cart'
+--------------------------------------------- */
+
+/* Common rules */
+.sc_edd_add_to_cart .sc_item_title + .trx_addons_edd_purchase_buttons {
+	margin-top: 1em;
+}
+.sc_edd_add_to_cart .trx_addons_edd_purchase_buttons > .trx_addons_edd_purchase_price {
+	margin: 1.5em 0 1em;
+}
+.sc_edd_add_to_cart .trx_addons_edd_purchase_price .trx_addons_edd_purchase_price_label > span {
+	@include font(1.2em, '', bold);
+}
+.sc_edd_add_to_cart .trx_addons_edd_purchase_price .trx_addons_edd_purchase_price_label .edd_price_option_price {
+	float: right;
+	font-size:1.5em;
+}
+.sc_edd_add_to_cart .trx_addons_edd_purchase_price .trx_addons_edd_purchase_price_label .edd_price_option_price del {
+	@include font(0.8em, '', 400);
+}
+.sc_edd_add_to_cart .trx_addons_edd_purchase_price .trx_addons_edd_purchase_price_label .edd_price_option_price + .edd_price_option_price {
+	margin-right: 0.3em;
+}
+
+.sc_edd_add_to_cart .trx_addons_edd_purchase_price_selector {
+	position:relative;
+}
+.sc_edd_add_to_cart .trx_addons_edd_purchase_price_selector .trx_addons_edd_purchase_price_label {
+	cursor: pointer;
+}
+.sc_edd_add_to_cart .trx_addons_edd_purchase_price_selector .trx_addons_edd_purchase_price_label .edd_price_option_name:after {
+	content: '\e882';
+	font-family: $trx_addons_icons;
+	display:inline-block;
+	vertical-align:middle;
+	margin-left: 0.3em;
+}
+.sc_edd_add_to_cart .trx_addons_edd_purchase_price_selector .trx_addons_edd_purchase_price_label .edd_price_option_sep {
+	display: none;
+}
+.sc_edd_add_to_cart .trx_addons_edd_purchase_price_selector .trx_addons_edd_purchase_price_list {
+	display: none;
+	position:absolute;
+	z-index:1;
+	width: 100%;
+	border: 1px solid #aaa;
+	background-color: #f0f0f0;
+	@include border-box;
+}
+.sc_edd_add_to_cart .trx_addons_edd_purchase_price_selector .trx_addons_edd_purchase_price_list_item {
+	cursor:pointer;
+	padding: 1.5em;
+	@include border-box;
+}
+.sc_edd_add_to_cart .trx_addons_edd_purchase_price_selector .trx_addons_edd_purchase_price_list_item + .trx_addons_edd_purchase_price_list_item {
+	border-top: 1px dashed #aaa;
+}
+.sc_edd_add_to_cart .trx_addons_edd_purchase_price_selector .trx_addons_edd_purchase_price_list_item:hover {
+	background-color: #f7f7f7;
+}
+.sc_edd_add_to_cart .trx_addons_edd_purchase_price_selector .trx_addons_edd_purchase_price_list_item_label {
+	font-weight:bold;
+}
+.sc_edd_add_to_cart .trx_addons_edd_purchase_price_selector .trx_addons_edd_purchase_price_list_item_label > span {
+	font-size: 1.2em;
+}
+.sc_edd_add_to_cart .trx_addons_edd_purchase_price_selector .trx_addons_edd_purchase_price_list .edd_price_option_sep {
+	display:none;
+}
+.sc_edd_add_to_cart .trx_addons_edd_purchase_price_selector .trx_addons_edd_purchase_price_list .edd_price_option_price {
+	float:right;
+}
+.sc_edd_add_to_cart .trx_addons_edd_purchase_price_selector .trx_addons_edd_purchase_price_list .edd_price_option_price + .edd_price_option_price {
+	margin-right: 0.3em;
+}
+.sc_edd_add_to_cart .trx_addons_edd_purchase_price_selector .trx_addons_edd_purchase_price_list_item_description {
+	@include font(0.9333em, 1.5em);
+	margin-top: 0.5em;
+}
+
+
+.sc_edd_add_to_cart .trx_addons_edd_purchase_info {
+	margin: 1em 0;
+}
+.sc_edd_add_to_cart .trx_addons_edd_purchase_info ul,
+.sc_edd_add_to_cart .trx_addons_edd_purchase_info ol,
+.sc_edd_add_to_cart .trx_addons_edd_purchase_info li,
+.sc_edd_add_to_cart .trx_addons_edd_purchase_info p {
+	margin:0;
+}
+
+.sc_edd_add_to_cart .trx_addons_edd_purchase_info + .edd_download_purchase_form {
+	margin-top: 1.5em;
+}
+
+
+/* Style 'Default' */
+.sc_edd_add_to_cart_default {
+	padding: 1em;
+	border: 1px solid #ddd;
+	background-color:#f7f7f7;
+	margin-bottom: 1em;
+}
+.sc_edd_add_to_cart_default .edd_download_purchase_form_title {
+	margin: 0 0 0.3em;
+}
+.sc_edd_add_to_cart_default .trx_addons_edd_purchase_buttons {
+	margin: 0;
+}
+.sc_edd_add_to_cart_default .trx_addons_edd_purchase_subtotal_value_old {
+	display:none;
+}
+
+.sc_edd_add_to_cart_default .trx_addons_edd_purchase_price_selector + .edd_price_options li:nth-child(1),
+.sc_edd_add_to_cart_default .trx_addons_edd_purchase_price_selector + .edd_price_options li:nth-child(2),
+.sc_edd_add_to_cart_default .trx_addons_edd_purchase_price_selector + .trx_addons_edd_purchase_info + .edd_price_options li:nth-child(1),
+.sc_edd_add_to_cart_default .trx_addons_edd_purchase_price_selector + .trx_addons_edd_purchase_info + .edd_price_options li:nth-child(2) {
+	display:none;
+}
+
+/* Style 'Promo' */
+.sc_edd_add_to_cart_promo {
+	position:relative;
+	z-index:1;
+}
+.sc_edd_add_to_cart_promo .sc_item_title + .trx_addons_edd_purchase_buttons {
+	margin-top: 2em;
+}
+.sc_edd_add_to_cart_promo .edd_download_purchase_form {
+	text-align:center;
+}
+.sc_edd_add_to_cart_promo .trx_addons_edd_purchase_price_selector {
+	display: none;
+}
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options {
+	margin-bottom: 3em;
+}
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options li,
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .trx_addons_edd_purchase_subtotal {
+	display:inline-block;
+	vertical-align: top;
+	width: 20%;
+	position:relative;
+}
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options li + li:before,
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .trx_addons_edd_purchase_subtotal:before {
+	content: '+';
+	display:block;
+	@include abs-pos(auto, auto, 2.5em, 0, '');
+	color: #000;
+	font-weight:bold;
+}
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options.edd_single_mode li + li:before {
+	content: ' ';
+}
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .trx_addons_edd_purchase_subtotal:before {
+	content: '=';
+}
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options li label {
+	display:block;
+	text-align:center;
+	padding-bottom:7em;
+}
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options li span:before,
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .edd_price_option_sep {
+	display:none;
+}
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .edd_price_option_name {
+	display:block;
+	font-weight:bold;
+	padding:0;
+	height: 3.5em;
+	position:relative;
+}
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .edd_price_option_price {
+	color:#fff;
+	height: 2em;
+}
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .edd_price_option_name:after {
+	content: '\e8bd';
+	font-family: $trx_addons_icons;
+	display:block;
+	font-size:1.2em;
+	@include square(5em);
+	background-color:transparent;
+	border: 3px dashed #fff;
+	@include abs-lt(50%, 5em);
+	margin-left:-2.5em;
+	@include border-round;
+	@include transition-all;
+}
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options input[type="checkbox"]:checked + .edd_price_option_wrap > .edd_price_option_name:after,
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options input[type="checkbox"]:checked + .edd_price_option_name:after {
+	color: #000;
+	background-color:#fff;
+	border: 3px solid #000;
+}
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options.edd_single_mode .edd_price_option_name:after {
+	content: '\e89d';
+}
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options.edd_single_mode input[type="radio"]:checked + .edd_price_option_wrap > .edd_price_option_name:after,
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options.edd_single_mode input[type="radio"]:checked + .edd_price_option_name:after {
+	content: '\e8b7';
+	color: #000;
+	background-color:#fff;
+	border: 3px solid #000;
+}
+
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .trx_addons_edd_purchase_subtotal {
+	vertical-align:bottom;
+	padding-bottom:2em;
+}
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .trx_addons_edd_purchase_subtotal_bundle {
+	padding-bottom:0.3em;
+}
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .trx_addons_edd_purchase_subtotal_label {
+	display:none;
+}
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .trx_addons_edd_purchase_subtotal_value {
+	@include font(2em, '', bold);
+}
+.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .trx_addons_edd_purchase_subtotal_value_old {
+	display:block;
+	text-decoration:line-through;
+	color: #fff;
+}
+
+.sc_edd_add_to_cart_promo .edd_download_purchase_form > .sc_button,
+.sc_edd_add_to_cart_promo .edd_download_purchase_form > .edd_purchase_submit_wrapper {
+	display:inline-block;
+	vertical-align:top;
+}

@@ -1,0 +1,268 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/* Hotspot */
+:root {
+	--sc-hotspot-content-item-size: 20px;
+	--sc-hotspot-content-item-size-half: calc( var(--sc-hotspot-content-item-size) / 2 );
+	--sc-hotspot-content-item-size-half-: calc( var(--sc-hotspot-content-item-size) / -2 );
+	--sc-hotspot-content-item-size-double: calc( var(--sc-hotspot-content-item-size) * 2 );
+	--sc-hotspot-content-item-size-double-: calc( var(--sc-hotspot-content-item-size) * -2 );
+	--sc-hotspot-content-item-popup-z-index: 10;
+}
+.sc_hotspot_content {
+	position: relative;
+}
+
+.sc_hotspot_image_link {
+	display: block;
+	@include abs-cover(0);
+}
+
+.sc_hotspot_item {
+	position: absolute;
+	min-width: var(--sc-hotspot-content-item-size);
+	min-height: var(--sc-hotspot-content-item-size);
+	margin: var(--sc-hotspot-content-item-size-half-) 0 0 var(--sc-hotspot-content-item-size-half-);
+	@include border-box;
+	@include border-radius(var(--sc-hotspot-content-item-size));
+	@include box-shadow(0 0 3px rgba(0,0,0,.15));
+	opacity: 0;
+	@include transition-property(opacity);
+}
+
+.sc_hotspot_image_loaded ~ .sc_hotspot_item_visible_always,
+.sc_hotspot_image_loaded:hover ~ .sc_hotspot_item_visible_hover,
+.sc_hotspot_image_loaded ~ .sc_hotspot_image_link:hover ~ .sc_hotspot_item_visible_hover,
+.sc_hotspot_image_loaded ~ .sc_hotspot_item_visible_hover.sc_hotspot_item_hovered {
+	opacity: 1;
+}
+
+.sc_hotspot_item_sonar {
+	display: block;
+	background-color: #fff;
+	@include abs-pos(-8px, -8px, -8px, -8px);
+	@include border-radius(var(--sc-hotspot-content-item-size));
+	@include backface-hidden;
+	@include perspective(800px);
+	@include animation(sc-hotspot-sonar 2s ease infinite);
+}
+
+.sc_hotspot_item_icon:not(.sc_hotspot_item_icon_type_custom) {
+	@include abs-cover(2);
+	@include flex;
+	@include flex-align-items(center);
+	@include flex-justify-content(center);
+	line-height: var(--sc-hotspot-content-item-size);
+}
+.sc_hotspot_item_icon_type_custom {
+	position: relative;
+	z-index: 2;
+	display: block;
+	text-align: center;
+	line-height: 1;
+	min-width: var(--sc-hotspot-content-item-size);
+	min-height: var(--sc-hotspot-content-item-size);
+	padding: 4px 6px;
+}
+.sc_hotspot_item_icon {
+	background-color: #f0f0f0;
+	@include border-radius(var(--sc-hotspot-content-item-size));
+	@include border-box;
+	@include flex;
+	@include flex-justify-content(center);
+	@include flex-align-items(center);
+
+	&:before {
+		display:none !important;
+	}
+	&.sc_hotspot_item_icon_type_svg svg,
+	&.sc_hotspot_item_icon_type_svg object  {
+		@include square(var(--sc-hotspot-content-item-size));
+		overflow: hidden;
+		@include border-round;
+	}
+	&.sc_hotspot_item_icon_type_images img  {
+		max-width: var(--sc-hotspot-content-item-size);
+		height: auto;
+		overflow: hidden;
+		@include border-radius(var(--sc-hotspot-content-item-size));
+	}
+	span {
+		color: #000;
+	}
+	span.sc_icon_type_custom,
+	span.sc_icon_type_number {
+		font-size: 10px;
+	}
+}
+.sc_hotspot_item_open_hover span.sc_hotspot_item_icon {
+	cursor: default;
+}
+.sc_hotspot_item_open_click .sc_hotspot_item_icon {
+	cursor: pointer;
+}
+
+/* Popup position */
+.sc_hotspot_item_popup {
+	z-index: -1;
+	padding: 1.5em;
+	width: 250px;
+	background: #fff;
+	text-align: center;
+	opacity: 0;
+	@include transition(opacity 0.8s ease,transform 0.8s ease);
+	@include box-shadow(0 0 3px rgba(0,0,0,0.15));
+}
+.sc_hotspot_item_popup_tl { @include abs-rb( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-size-double-), var(--sc-hotspot-content-item-popup-z-index) ); }
+.sc_hotspot_item_popup_tc { @include abs-cb( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-popup-z-index) ); }
+.sc_hotspot_item_popup_tr { @include abs-lb( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-size-double-), var(--sc-hotspot-content-item-popup-z-index) ); }
+.sc_hotspot_item_popup_ml { @include abs-rc( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-popup-z-index) ); }
+.sc_hotspot_item_popup_mc { @include abs-cc( var(--sc-hotspot-content-item-popup-z-index) ); }
+.sc_hotspot_item_popup_mr { @include abs-lc( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-popup-z-index) ); }
+.sc_hotspot_item_popup_bl { @include abs-rt( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-size-double-), var(--sc-hotspot-content-item-popup-z-index) ); }
+.sc_hotspot_item_popup_bc { @include abs-ct( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-popup-z-index) ); }
+.sc_hotspot_item_popup_br { @include abs-lt( var(--sc-hotspot-content-item-size-double), var(--sc-hotspot-content-item-size-double-), var(--sc-hotspot-content-item-popup-z-index) ); }
+
+.sc_hotspot_item_popup_align_left {   text-align: left; }
+.sc_hotspot_item_popup_align_center { text-align: center; }
+.sc_hotspot_item_popup_align_right {  text-align: right; }
+
+
+/* Add transparent block to prevent hide the popup
+   when moving a pointer from the hotspot to the popup
+*/
+.sc_hotspot_item_open_hover {
+	.sc_hotspot_item_popup {
+		&:before {
+			content: ' ';
+			display: block;
+			position: absolute;
+		}
+	}
+	.sc_hotspot_item_popup_tc,
+	.sc_hotspot_item_popup_bc {
+		&:before {
+			left: 0;
+			width: 100%;
+			height: var(--sc-hotspot-content-item-size);
+		}
+	}
+	.sc_hotspot_item_popup_tc:before { top: 100%; }
+	.sc_hotspot_item_popup_bc:before { bottom: 100%; }
+
+	.sc_hotspot_item_popup_tl, .sc_hotspot_item_popup_tr,
+	.sc_hotspot_item_popup_ml, .sc_hotspot_item_popup_mr,
+	.sc_hotspot_item_popup_bl, .sc_hotspot_item_popup_br {
+		&:before {
+			top: 0;
+			height: 100%;
+			width: var(--sc-hotspot-content-item-size);
+		}
+	}
+	.sc_hotspot_item_popup_tl,
+	.sc_hotspot_item_popup_ml,
+	.sc_hotspot_item_popup_bl {
+		&:before {
+			left: 100%;
+		}
+	}
+	.sc_hotspot_item_popup_tr,
+	.sc_hotspot_item_popup_mr,
+	.sc_hotspot_item_popup_br {
+		&:before {
+			right: 100%;
+		}
+	}
+}
+
+/* Open popup */
+.sc_hotspot_item_popup {
+	pointer-events: none;
+}
+.sc_hotspot_item_opened,
+.sc_hotspot_item_open_hover:hover,
+.sc_hotspot_item_open_hover:focus {
+	.sc_hotspot_item_popup {
+		pointer-events: visible;
+		z-index: var(--sc-hotspot-content-item-popup-z-index);
+		opacity: 1;
+	}
+}
+
+/* Close popup */
+.sc_hotspot_item_popup_close {
+	&.trx_addons_button_close {
+		@include square(1.75em);
+		z-index: 10;
+
+		.trx_addons_button_close_icon:before,
+		.trx_addons_button_close_icon:after {
+			border-color: #000;
+		}
+	}
+}
+
+/* Popup layout */
+.sc_hotspot_item_subtitle {
+	font-size: 1.15em;
+	margin: 1em 0 0;
+
+	.post_meta {
+		margin: 0;
+	}
+}
+.sc_hotspot_item_title {
+	margin: 0.2em 0 0;
+}
+.sc_hotspot_item_price {
+	font-size: 1.25em;
+	margin: 0.5em 0 0;
+}
+.sc_hotspot_item_description {
+	margin: 1em 0 0;
+
+	span {
+		display: block;
+		margin-top: 0.25em;
+	}
+}
+.sc_hotspot_item_link {
+	margin: 1.5em 0 0;
+}
+.sc_hotspot_item_popup > [class*="sc_hotspot_item_"]:first-child {
+	margin-top: 0;
+}
+
+.sc_hotspot_item_link_cover {
+	display: block;
+	@include abs-cover;
+}
+
+/* Hotspot animation */
+@-webkit-keyframes sc-hotspot-sonar {
+	0% {
+		opacity: 0;
+		@include scale(.2);
+	}
+	50% {
+		opacity: .8;
+	}
+	100% {
+		opacity: 0;
+		@include scale(1);
+	}
+}
+@keyframes sc-hotspot-sonar {
+	0% {
+		opacity: 0;
+		@include scale(.2);
+	}
+	50% {
+		opacity: .8;
+	}
+	100% {
+		opacity: 0;
+		@include scale(1);
+	}
+}

@@ -1,0 +1,22 @@
+@import "../../../../../css/_mixins.scss";
+@import "../../../../../css/_trx_addons.vars.scss";
+
+.sc_layouts_featured.with_content {
+	position:relative;
+	min-height: 0em;
+}
+.sc_layouts_featured .sc_layouts_featured_content {
+	position:static;
+}
+// Next rule set the fixed height of the featured block without content
+.sc_layouts_featured.with_image.without_content {
+	min-height: 40rem;
+	@include bg-cover;
+}
+.sc_layouts_featured.with_image {
+	@include bg-cover;
+}
+.sc_layouts_featured.with_image.with_content:before {
+	content:' ';
+	@include bg-mask(#000, 0.5, 0);		/* Important! z-index: 1+ place this block over cart and over popups! */
+}

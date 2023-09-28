@@ -1,0 +1,1138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nirweb support\n"
+"POT-Creation-Date: 2023-06-13 15:33+0330\n"
+"PO-Revision-Date: 2023-06-13 15:34+0330\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: nirweb-support.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: core/core.php:11 core/core.php:136 core/core.php:137
+msgid "Settings"
+msgstr "پیکربندی"
+
+#: core/core.php:14 core/core.php:16
+msgid "Go Premium"
+msgstr "نسخه تجاری"
+
+#: core/core.php:44
+msgid "Are you sure you want to reset this from?"
+msgstr "آیا مطمئن هستید که می خواهید تنظیمات پیش فرض را دوباره تنظیم کنید؟"
+
+#: core/core.php:45
+msgid "This will cause data loss."
+msgstr "اطلاعات از دست خواهند رفت."
+
+#: core/core.php:46
+msgid "Form is successfully reset."
+msgstr "فرم با موفقیت بازنشانی شد."
+
+#: core/core.php:47 core/core.php:48
+msgid "attachment file"
+msgstr "فایل ضمیمه"
+
+#: core/core.php:49
+msgid "receiving information ..."
+msgstr "درحال دریافت اطلاعات..."
+
+#: core/core.php:50
+msgid "complete all stared sections Please"
+msgstr "لطفا تمام بخش های ستاره دار را تکمیل نماید"
+
+#: core/core.php:52
+msgid "file is not valid."
+msgstr "فایل غیر مجاز می باشد."
+
+#: core/core.php:53 core/create_db.php:141 inc/user/themes/new_ticket.php:79
+msgid "necessary"
+msgstr "ضروری"
+
+#: core/core.php:54 core/create_db.php:140 inc/user/themes/new_ticket.php:78
+msgid "normal"
+msgstr "معمولی"
+
+#: core/core.php:55 core/create_db.php:139 inc/user/themes/new_ticket.php:77
+msgid "low"
+msgstr "کم"
+
+#: core/core.php:56 core/create_db.php:162
+#: inc/user/functions/ajax_user_send_answer.php:80
+msgid "new"
+msgstr "جدید"
+
+#: core/core.php:57 core/create_db.php:163
+msgid "in progress"
+msgstr "درحال بررسی"
+
+#: core/core.php:58
+msgid "answerede"
+msgstr "پاسخ داده شده"
+
+#: core/core.php:59 core/create_db.php:165
+msgid "closed"
+msgstr "بسته"
+
+#: core/core.php:60 inc/admin/functions/scripts.php:29
+#: inc/admin/functions/scripts.php:44
+msgid "Ok"
+msgstr "تایید"
+
+#: core/core.php:61
+msgid "cancel"
+msgstr "لغو"
+
+#: core/core.php:79 core/core.php:80 inc/admin/themes/manage_tickets.php:29
+msgid "Tickets"
+msgstr "تیکت ها"
+
+#: core/core.php:89 core/core.php:90
+msgid "All tickets"
+msgstr "همه تیکت‌ها"
+
+#: core/core.php:97 core/core.php:98
+msgid "Create ticket"
+msgstr "ایجاد تیکت"
+
+#: core/core.php:105 core/core.php:106 inc/admin/themes/department.php:6
+msgid "Departments"
+msgstr "دپارتمان ها"
+
+#: core/core.php:113 core/core.php:114 core/core.php:234 core/core.php:235
+#: core/core.php:240 core/core.php:242 inc/admin/themes/answer-ticket.php:156
+msgid "Canned replies"
+msgstr "پاسخ های آماده"
+
+#: core/core.php:120 core/core.php:121 inc/admin/themes/FAQ.php:9
+msgid "FAQ"
+msgstr "سوالات متداول"
+
+#: core/core.php:128 core/core.php:129 inc/admin/themes/file_uploads.php:8
+msgid "List of uploaded files"
+msgstr "لیست فایل های آپلود شده"
+
+#: core/core.php:193 inc/admin/themes/send_ticket.php:13
+msgid "Support"
+msgstr "پشتیبانی"
+
+#: core/core.php:236 core/core.php:237 core/core.php:239
+msgid "Add a canned reply"
+msgstr "افزودن یک پاسخ آماده"
+
+#: core/core.php:238
+msgid "Edit a canned reply"
+msgstr "ویرایش پاسخ آماده"
+
+#: core/core.php:241
+msgid "View canned replies"
+msgstr "مشاهده پاسخ های آماده"
+
+#: core/core.php:295 core/core.php:305
+msgid "Support Ticket"
+msgstr "تیکت پشتیبانی"
+
+#: core/core.php:414
+msgid "Count New Ticket"
+msgstr "تعداد تیکت جدید"
+
+#: core/core.php:418 inc/user/themes/home.php:87 inc/user/themes/home.php:89
+#: inc/user/themes/new_ticket.php:10
+msgid "New Ticket"
+msgstr "تیکت جدید"
+
+#: core/core.php:442
+msgid " ago"
+msgstr " قبل"
+
+#: core/create_db.php:164
+msgid "answered"
+msgstr "پاسخ داده شده"
+
+#: core/settings.php:17 core/settings.php:29
+msgid "Email template placeholders"
+msgstr "متن های نگه دارنده برای ایمیل"
+
+#: core/settings.php:18 core/settings.php:30
+msgid "ticket ID"
+msgstr "شناسه تیکت"
+
+#: core/settings.php:19
+msgid "ticket title"
+msgstr "عنوان تیکت"
+
+#: core/settings.php:20
+msgid "support agent name"
+msgstr "نام عامل پشتیبانی"
+
+#: core/settings.php:21
+msgid "department name"
+msgstr "نام دپارتمان"
+
+#: core/settings.php:22
+msgid "priority"
+msgstr "اولویت"
+
+#: core/settings.php:23
+msgid "status"
+msgstr "وضعیت"
+
+#: core/settings.php:33
+msgid "title"
+msgstr "عنوان"
+
+#: core/settings.php:36
+msgid "support agent Name"
+msgstr "نام عامل پشتیبانی"
+
+#: core/settings.php:39
+msgid "sender Name"
+msgstr "نام فرستنده"
+
+#: core/settings.php:42
+msgid "department"
+msgstr "دپارتمان"
+
+#. Plugin Name of the plugin/theme
+#: core/settings.php:67
+msgid "nirweb support"
+msgstr "تیکت پشتیبانی نیر وب"
+
+#: core/settings.php:68
+msgid "Version"
+msgstr "ورژن"
+
+#: core/settings.php:73
+msgid "GO PREMIUM"
+msgstr "نسخه تجاری"
+
+#: core/settings.php:83 core/settings/general.php:4
+msgid "General settings"
+msgstr "تنظیمات عمومی"
+
+#: core/settings.php:84
+msgid "Configure General Settings"
+msgstr "پیکربندی تنظیمات عمومی"
+
+#: core/settings.php:93 core/settings/ticket.php:5
+msgid "Ticket"
+msgstr "تیکت"
+
+#: core/settings.php:94
+msgid "Configure ticket Settings"
+msgstr "پیکربندی تنظیمات تیکت"
+
+#: core/settings.php:104 core/settings/file.php:4
+#: inc/admin/themes/file_uploads.php:18
+msgid "File"
+msgstr "فایل"
+
+#: core/settings.php:105
+msgid "Configure file Settings"
+msgstr "پیکربندی تنظیمات فایل"
+
+#: core/settings.php:116 core/settings/support.php:4
+msgid "Support staff notifications"
+msgstr "اطلاع رسانی به پشتیبان"
+
+#: core/settings.php:117
+msgid "Configure notifications the for support agent"
+msgstr "پیکربندی اطلاعیه ها برای عامل پشتیبانی"
+
+#: core/settings.php:127 core/settings/user.php:5
+msgid "User notifications"
+msgstr "اطلاع رسانی به کاربر"
+
+#: core/settings.php:128
+msgid "Configure notifications for the user"
+msgstr "پیکربندی اعلانها برای کاربر"
+
+#: core/settings.php:138
+msgid "Payment Links (Pro)"
+msgstr "لینک های پرداخت (نسخه Pro )"
+
+#: core/settings.php:139
+msgid "Configure Payment Links"
+msgstr "پیکربندی لینک های پرداخت"
+
+#: core/settings.php:149
+msgid "Basic Fields (Pro)"
+msgstr " فیلدهای پایه (نسخه Pro )"
+
+#: core/settings.php:150
+msgid "Configure Basic Fields"
+msgstr "پیکربندی فیلدهای پایه"
+
+#: core/settings.php:160
+msgid "Extra Fields (Pro)"
+msgstr "زمینه های اضافی (نسخه Pro )"
+
+#: core/settings.php:161
+msgid "Configure Extra Fields"
+msgstr "پیکربندی زمینه های اضافی"
+
+#: core/settings.php:170
+msgid "Priority fields (Pro)"
+msgstr "فیلدهای اولویتی (نسخه Pro )"
+
+#: core/settings.php:171
+msgid "Add infinite Fields"
+msgstr "افزودن فیلدهای اولیت بندی"
+
+#: core/settings.php:181
+msgid "Telegram (Pro)"
+msgstr "تلگرام  (نسخه Pro )"
+
+#: core/settings.php:182
+msgid "Configure Telegram settings"
+msgstr "پیکربندی تنظیمات تلگرام"
+
+#: core/settings.php:192
+msgid "SMS Notification (Pro)"
+msgstr "اطلاع رسانی SMS (نسخه Pro )"
+
+#: core/settings.php:193
+msgid "Configure SMS Notifications"
+msgstr "پیکربندی اعلانهای پیامکی"
+
+#: core/settings.php:203
+msgid "CUSTOM STYLE (Pro)"
+msgstr "استایل سفارشی(نسخه Pro )"
+
+#: core/settings.php:204
+msgid "CSS editor"
+msgstr "ویرایشگر CSS"
+
+#: core/settings.php:242
+msgid "Save Setting"
+msgstr "ذخیره تنظیمات"
+
+#: core/settings/box_1_p.php:4
+msgid "Payment Links"
+msgstr "لینک های پرداخت"
+
+#: core/settings/box_1_p.php:14
+msgid "Show a list of paid links"
+msgstr "نمایش لیست پرداخت ها"
+
+#: core/settings/box_1_p.php:20 core/settings/box_2_p.php:20
+#: core/settings/box_2_p.php:45 core/settings/box_e.php:17
+#: core/settings/general.php:11 core/settings/general.php:96
+#: core/settings/general.php:118 core/settings/sms_notification.php:18
+#: core/settings/sms_notification.php:38 core/settings/sms_notification.php:59
+#: core/settings/sms_notification.php:80 core/settings/sms_notification.php:100
+#: core/settings/sms_notification.php:121
+#: core/settings/sms_notification.php:141 core/settings/support.php:13
+#: core/settings/telegram.php:20 core/settings/user.php:13
+msgid "off"
+msgstr "خاموش"
+
+#: core/settings/box_1_p.php:36
+msgid "Merchant ID"
+msgstr "شناسه فروشنده"
+
+#: core/settings/box_1_p.php:50
+msgid "Description of payment gateway"
+msgstr "اطلاعات درگاه پرداخت"
+
+#: core/settings/box_1_p.php:63
+msgid "Select thank you page"
+msgstr "صفحه تشکر را انتخاب کنید"
+
+#: core/settings/box_1_p.php:66 core/settings/general.php:54
+#: core/settings/general.php:77
+msgid "Please Select A Page"
+msgstr "لطفاً یک برگه انتخاب نمایید."
+
+#: core/settings/box_1_p.php:75
+msgid "short code : [tankyou_paylink]"
+msgstr "کد کوتاه : [tankyou_paylink]"
+
+#: core/settings/box_2_p.php:4
+msgid "Basic Fields"
+msgstr "زمینه‌های پایه"
+
+#: core/settings/box_2_p.php:14
+msgid "Disable product field"
+msgstr "غیرفعال کردن فیلد محصول"
+
+#: core/settings/box_2_p.php:39
+msgid "Disable priority field"
+msgstr "غیرفعال سازی فیلد اولویت"
+
+#: core/settings/box_3_p.php:4
+msgid "PRIORITY FIELD"
+msgstr "فیلد اولویت"
+
+#: core/settings/box_3_p.php:12
+msgid "Priority fields"
+msgstr "فیلدهای اولویت "
+
+#: core/settings/box_3_p.php:18 core/settings/box_3_p.php:29
+#: core/settings/box_3_p.php:40
+msgid "Title"
+msgstr "عنوان"
+
+#: core/settings/box_3_p.php:19
+msgid "Low"
+msgstr "کم"
+
+#: core/settings/box_3_p.php:30
+msgid "High"
+msgstr "زیاد"
+
+#: core/settings/box_3_p.php:41
+msgid "Normal"
+msgstr "عادی"
+
+#: core/settings/box_e.php:4
+msgid "Extra fields"
+msgstr "فیلدهای اضافه"
+
+#: core/settings/box_e.php:11
+msgid "Enable extra fields"
+msgstr "فعالسازی فیلدهای اضافه"
+
+#: core/settings/box_e.php:33
+msgid "Field name"
+msgstr "نام فیلد"
+
+#: core/settings/box_e.php:45
+msgid "Field type"
+msgstr "نوع فیلد"
+
+#: core/settings/box_e.php:48
+msgid "Text"
+msgstr "متن"
+
+#: core/settings/css.php:4
+msgid "CUSTOM STYLE"
+msgstr "استایل سفارشی"
+
+#: core/settings/file.php:9
+msgid "Maximum upload volume in MB"
+msgstr "حداکثر حجم بارگذاری در MB"
+
+#: core/settings/file.php:18
+msgid "Allowed file extensions"
+msgstr "فرمت فایل های مجاز"
+
+#: core/settings/file.php:26
+msgid "Example : .png,.jpg,.jpeg"
+msgstr "مثال : .png،.jpg،.jpeg"
+
+#: core/settings/general.php:8
+msgid "Display floating action button"
+msgstr "نمایش دکمه شناور"
+
+#: core/settings/general.php:12 core/settings/general.php:99
+#: core/settings/general.php:121 core/settings/general.php:167
+#: core/settings/general.php:189 core/settings/support.php:16
+#: core/settings/user.php:14
+msgid "on"
+msgstr "فعال"
+
+#: core/settings/general.php:24
+msgid "Input the URL for the floating action button icon"
+msgstr "لینک دکمه شناور را وارد کنید"
+
+#: core/settings/general.php:35
+msgid "Floating action button x-axis position"
+msgstr "موقعیت محور X دکمه شناور"
+
+#: core/settings/general.php:38
+msgid "Left"
+msgstr "راست"
+
+#: core/settings/general.php:40
+msgid "Right"
+msgstr "راست"
+
+#: core/settings/general.php:51
+msgid "If you do not have the WooCommerce plugin installed, select a Page"
+msgstr "اگر افزونه ووکامرس نصب نیست لطفا برگه تیکت را انتخاب نمایید"
+
+#: core/settings/general.php:66
+msgid "short code : [nirweb_ticket]"
+msgstr "کد کوتاه : [nirweb_ticket]"
+
+#: core/settings/general.php:72
+msgid "Login Page"
+msgstr "صفحه ورود"
+
+#: core/settings/general.php:90
+msgid "Enable automatic ticket closure"
+msgstr "فعالسازی بستن خودکار تیکت ها"
+
+#: core/settings/general.php:112
+msgid "Show support agent's information"
+msgstr "نمایش اطلاعات پشتیبان"
+
+#: core/settings/general.php:137
+msgid "Default Department"
+msgstr "دپارتمان پیش فرض"
+
+#: core/settings/general.php:143
+msgid "Select Default Department"
+msgstr "انتخاب دپارتمان پیشفرض"
+
+#: core/settings/general.php:161
+msgid "Assign the vendor as the product's support agent (Dokan plugin) "
+msgstr "تعیین فروشندگان محصولات به عنوان پشتیبان محصولات خود ( افزونه دکان)"
+
+#: core/settings/general.php:183
+msgid "Auto-reply to the sent ticket"
+msgstr "پاسخ خودکار به تیکت  ارسال شده"
+
+#: core/settings/general.php:202
+msgid "Email template for tickets sent by the administrator"
+msgstr "قالب ایمیل در زمان ارسال تیکت توسط مدیر سایت"
+
+#: core/settings/general.php:208
+msgid "Receiver : {username}"
+msgstr "گیرنده  : {username}"
+
+#: core/settings/sms_notification.php:4
+msgid "SMS Notification"
+msgstr "پیامک آگاه سازی"
+
+#: core/settings/sms_notification.php:12
+msgid "Enable sending SMS to the user"
+msgstr "فعال کردن ارسال پیامک به کاربر"
+
+#: core/settings/sms_notification.php:32
+msgid "Enable sending SMS to Support agent"
+msgstr "فعال کردن ارسال پیامک به پشتیبان"
+
+#: core/settings/sms_notification.php:53
+msgid "Enable sending SMS to Admin"
+msgstr "فعال کردن ارسال پیامک به مدیر "
+
+#: core/settings/sms_notification.php:74
+msgid "Enable sms notification to user when the ticket is replied."
+msgstr "فعال کردن ارسال پیامک به کاربر زمانی که پاسخی ارسال می شود"
+
+#: core/settings/sms_notification.php:94
+msgid "Enable sms notification to admin when the ticket is replied."
+msgstr "فعال کردن ارسال پیامک به مدیر سایت زمانی که پاسخی ارسال می شود"
+
+#: core/settings/sms_notification.php:115
+msgid "Enable sms notification to support agent when the ticket is replied."
+msgstr "فعال کردن ارسال پیامک به پشتیبان زمانی که پاسخی ارسال می شود"
+
+#: core/settings/sms_notification.php:135
+msgid "Enable sms notification when the ticked status is changed."
+msgstr "فعال کردن ارسال پیامک در زمان تغییر وضعیت تیکت "
+
+#: core/settings/sms_notification.php:155
+msgid "Admin Phone Number"
+msgstr "شماره تلفن مدیر سایت"
+
+#: core/settings/sms_notification.php:169
+msgid "Phone number meta key"
+msgstr "متا کلید شماره تلفن"
+
+#: core/settings/sms_notification.php:175
+msgid "nickname"
+msgstr "لقب"
+
+#: core/settings/sms_notification.php:189
+msgid "Variable used in text message"
+msgstr "متغیر مورد استفاده در پیام متنی"
+
+#: core/settings/sms_notification.php:195
+msgid "Ticket Title"
+msgstr "عنوان تیکت"
+
+#: core/settings/support.php:9
+msgid "Enable Sending Email To support agent"
+msgstr "فعال کردن ارسال ایمیل به پشتیبان"
+
+#: core/settings/support.php:26
+msgid "Email template ( used when a ticket is sent )"
+msgstr "پیکربندی ایمیل ( زمان ارسال تیکت )"
+
+#: core/settings/support.php:29 core/settings/support.php:51
+#: core/settings/user.php:27 core/settings/user.php:49
+#: inc/admin/themes/all_ticket.php:17 inc/admin/themes/all_ticket.php:60
+#: inc/admin/themes/answered_ticket.php:16
+#: inc/admin/themes/answered_ticket.php:29
+#: inc/admin/themes/closed_ticket.php:16 inc/admin/themes/closed_ticket.php:29
+#: inc/admin/themes/new_ticket.php:16 inc/admin/themes/new_ticket.php:46
+#: inc/admin/themes/process_ticket.php:16
+#: inc/admin/themes/process_ticket.php:29 inc/admin/themes/send_ticket.php:38
+#: inc/user/themes/replay_ticket.php:38
+msgid "Subject"
+msgstr "عنوان"
+
+#: core/settings/support.php:38 core/settings/support.php:60
+#: core/settings/user.php:36 core/settings/user.php:58
+#: inc/admin/themes/send_ticket.php:104
+msgid "Message"
+msgstr "پيام"
+
+#: core/settings/support.php:48
+msgid "Email template ( used when a ticket is replied. )"
+msgstr "قالب ایمیل (زمانی که تیکت پاسخ داده می شود)"
+
+#: core/settings/telegram.php:4
+msgid "Telegram"
+msgstr "تلگرام"
+
+#: core/settings/telegram.php:14
+msgid "Enable sending a notification via Telegram"
+msgstr "فعال کردن ارسال یک اعلان از طریق تلگرام"
+
+#: core/settings/telegram.php:36
+msgid "Chat ID"
+msgstr "شناسه چت"
+
+#: core/settings/telegram.php:48
+msgid "Token"
+msgstr "توکن"
+
+#: core/settings/telegram.php:62
+msgid "Message template ( used when a ticket is sent.)"
+msgstr "قالب پیام (هنگام ارسال تیکت استفاده می شود)"
+
+#: core/settings/telegram.php:76
+msgid "Message template ( used when a ticket is replied.)"
+msgstr "قالب ایمیل (زمانی که یک تیکت پاسخ داده می شود)"
+
+#: core/settings/ticket.php:10
+msgid "Make product selection mandatory"
+msgstr "اجباری کردن انتخاب محصول"
+
+#: core/settings/ticket.php:13
+msgid "deactivate"
+msgstr "غیرفعال"
+
+#: core/settings/ticket.php:14
+msgid "active"
+msgstr "فعال"
+
+#: core/settings/ticket.php:25
+msgid "Guidance for customers prior to ticket submission "
+msgstr "راهنمایی برای مشتریان قبل از ارسال تیکت "
+
+#: core/settings/user.php:10
+msgid "Enable Sending Email To user"
+msgstr "فعال کردن ارسال ایمیل به کاربر"
+
+#: core/settings/user.php:24
+msgid "Email template (used after the ticket is sent.)"
+msgstr "قالب ایمیل (پس از ارسال تیکت استفاده می شود.)"
+
+#: core/settings/user.php:46
+msgid "Email template (used when the ticket is replied.)"
+msgstr "قالب ایمیل (زمانی که تیکت پاسخ داده می شود)"
+
+#: inc/admin/functions/ajax_search_in_ticketes_wpyar.php:14
+#: inc/admin/themes/FAQ.php:47
+#: inc/user/functions/ajax_wpyar_ticket_user_search.php:16
+#: inc/user/functions/filter_ajax_ticket.php:85
+msgid "not found"
+msgstr "پیدا نشد"
+
+#: inc/admin/functions/func_answerd_ticket.php:62
+#: inc/admin/themes/answer-ticket.php:101
+#: inc/admin/themes/answer-ticket.php:106
+#: inc/admin/themes/answer-ticket.php:202
+#: inc/admin/themes/answer-ticket.php:249 inc/admin/themes/send_ticket.php:109
+#: inc/user/functions/ajax_user_send_tiket.php:80
+#: inc/user/themes/new_ticket.php:254 inc/user/themes/replay_ticket.php:81
+#: inc/user/themes/replay_ticket.php:125 inc/user/themes/replay_ticket.php:180
+#: inc/user/themes/replay_ticket.php:273 inc/user/themes/replay_ticket.php:280
+msgid "Attachment File"
+msgstr "فایل ضمیمه"
+
+#: inc/admin/functions/func_list_tickets.php:92
+#: inc/admin/functions/func_list_tickets.php:142
+#: inc/admin/functions/func_list_tickets.php:186
+#: inc/admin/functions/func_list_tickets.php:231
+#: inc/admin/functions/func_list_tickets.php:279
+#: inc/admin/functions/func_list_tickets.php:323
+#: inc/admin/functions/func_list_tickets.php:371
+#: inc/admin/functions/func_list_tickets.php:416
+#: inc/admin/functions/func_list_tickets.php:458
+#: inc/admin/functions/func_list_tickets.php:502
+#: inc/admin/functions/func_upload_file.php:29
+#: inc/user/functions/func_u_list_ticket.php:37
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: inc/admin/functions/func_list_tickets.php:93
+#: inc/admin/functions/func_list_tickets.php:143
+#: inc/admin/functions/func_list_tickets.php:187
+#: inc/admin/functions/func_list_tickets.php:232
+#: inc/admin/functions/func_list_tickets.php:280
+#: inc/admin/functions/func_list_tickets.php:324
+#: inc/admin/functions/func_list_tickets.php:372
+#: inc/admin/functions/func_list_tickets.php:417
+#: inc/admin/functions/func_list_tickets.php:459
+#: inc/admin/functions/func_list_tickets.php:503
+#: inc/admin/functions/func_upload_file.php:30
+#: inc/user/functions/func_u_list_ticket.php:38
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: inc/admin/functions/scripts.php:20
+msgid "Please complete all starred sections"
+msgstr "لطفا تمام بخش های ستاره دار را تکمیل نماید"
+
+#: inc/admin/functions/scripts.php:21
+msgid "Sending information..."
+msgstr "ارسال اطلاعات..."
+
+#: inc/admin/functions/scripts.php:22
+msgid "Add File"
+msgstr "افزودن فایل"
+
+#: inc/admin/functions/scripts.php:23
+msgid "Use the file"
+msgstr "استفاده از فایل"
+
+#: inc/admin/functions/scripts.php:24
+msgid "Your ticket was sent successfully"
+msgstr "تیکت با موفقیت انجام شد"
+
+#: inc/admin/functions/scripts.php:25
+msgid "Your answer was sent successfully"
+msgstr "پاسخ با موفیت ارسال شد"
+
+#: inc/admin/functions/scripts.php:26
+msgid "There was a problem sending the reply"
+msgstr "خطایی در ارسال رخ داده است"
+
+#: inc/admin/functions/scripts.php:27
+msgid "Are you sure?"
+msgstr "آیا مطمئن هستید؟"
+
+#: inc/admin/functions/scripts.php:28
+msgid "The delete action causes the information to be lost."
+msgstr "پس از حذف دیگر اطلاعات در دسترس نمی باشد."
+
+#: inc/admin/functions/scripts.php:30 inc/admin/functions/scripts.php:45
+msgid "Cancel"
+msgstr "انصراف"
+
+#: inc/admin/functions/scripts.php:31 inc/admin/themes/department.php:31
+msgid "Add Department"
+msgstr "افزودن دپارتمان"
+
+#: inc/admin/functions/scripts.php:32
+msgid "Please enter the name of the department"
+msgstr "لطفا نام دپارتمان را وارد نمایید"
+
+#: inc/admin/functions/scripts.php:33
+msgid "Please enter the support of the department"
+msgstr "لطفا پشتیبان را انتخاب نمایید"
+
+#: inc/admin/functions/scripts.php:34
+msgid "The department changed successfully"
+msgstr "دپارتمان با موفقیت تغییر یافت"
+
+#: inc/admin/functions/scripts.php:35
+msgid "Please enter a question"
+msgstr "لفطا سوال را وارد نمایید"
+
+#: inc/admin/functions/scripts.php:36
+msgid "Please enter the answer text"
+msgstr "لطفا متن سوال را وارد نمایید"
+
+#: inc/admin/functions/scripts.php:37
+msgid "Question added"
+msgstr "سوال اضافه شد"
+
+#: inc/admin/themes/FAQ.php:14
+msgid "Question"
+msgstr "سوال"
+
+#: inc/admin/themes/FAQ.php:16
+msgid "Enter Question"
+msgstr "سوال را وارد کنید"
+
+#: inc/admin/themes/FAQ.php:21 inc/admin/themes/all_ticket.php:22
+#: inc/admin/themes/all_ticket.php:65 inc/admin/themes/answer-ticket.php:147
+#: inc/admin/themes/answered_ticket.php:21
+#: inc/admin/themes/answered_ticket.php:34
+#: inc/admin/themes/closed_ticket.php:21 inc/admin/themes/closed_ticket.php:34
+#: inc/admin/themes/new_ticket.php:21 inc/admin/themes/new_ticket.php:51
+#: inc/admin/themes/process_ticket.php:21
+#: inc/admin/themes/process_ticket.php:34
+msgid "Answer"
+msgstr "پاسخ"
+
+#: inc/admin/themes/FAQ.php:27
+msgid "Add Question"
+msgstr "اضافه کردن سوال"
+
+#: inc/admin/themes/all_ticket.php:16 inc/admin/themes/all_ticket.php:59
+#: inc/admin/themes/answer-ticket.php:129
+#: inc/admin/themes/answered_ticket.php:15
+#: inc/admin/themes/answered_ticket.php:28
+#: inc/admin/themes/closed_ticket.php:15 inc/admin/themes/closed_ticket.php:28
+#: inc/admin/themes/new_ticket.php:15 inc/admin/themes/new_ticket.php:45
+#: inc/admin/themes/process_ticket.php:15
+#: inc/admin/themes/process_ticket.php:28 inc/admin/themes/send_ticket.php:126
+#: inc/user/themes/replay_ticket.php:52
+msgid "Status"
+msgstr "وضیعت"
+
+#: inc/admin/themes/all_ticket.php:18 inc/admin/themes/all_ticket.php:61
+#: inc/admin/themes/answer-ticket.php:50
+#: inc/admin/themes/answered_ticket.php:17
+#: inc/admin/themes/answered_ticket.php:30
+#: inc/admin/themes/closed_ticket.php:17 inc/admin/themes/closed_ticket.php:30
+#: inc/admin/themes/new_ticket.php:17 inc/admin/themes/new_ticket.php:47
+#: inc/admin/themes/process_ticket.php:17
+#: inc/admin/themes/process_ticket.php:30
+msgid "Sender"
+msgstr "فرستنده"
+
+#: inc/admin/themes/all_ticket.php:19 inc/admin/themes/all_ticket.php:62
+#: inc/admin/themes/answer-ticket.php:114
+#: inc/admin/themes/answered_ticket.php:18
+#: inc/admin/themes/answered_ticket.php:31
+#: inc/admin/themes/closed_ticket.php:18 inc/admin/themes/closed_ticket.php:31
+#: inc/admin/themes/new_ticket.php:18 inc/admin/themes/new_ticket.php:48
+#: inc/admin/themes/process_ticket.php:18
+#: inc/admin/themes/process_ticket.php:31 inc/admin/themes/send_ticket.php:44
+#: inc/user/themes/replay_ticket.php:47
+msgid "Department"
+msgstr "دپارتمان"
+
+#: inc/admin/themes/all_ticket.php:20 inc/admin/themes/all_ticket.php:63
+#: inc/admin/themes/answer-ticket.php:72
+#: inc/admin/themes/answered_ticket.php:19
+#: inc/admin/themes/answered_ticket.php:32
+#: inc/admin/themes/closed_ticket.php:19 inc/admin/themes/closed_ticket.php:32
+#: inc/admin/themes/new_ticket.php:19 inc/admin/themes/new_ticket.php:49
+#: inc/admin/themes/process_ticket.php:19
+#: inc/admin/themes/process_ticket.php:32 inc/admin/themes/send_ticket.php:54
+#: inc/user/themes/replay_ticket.php:56
+msgid "Priority"
+msgstr "الویت"
+
+#: inc/admin/themes/all_ticket.php:21 inc/admin/themes/all_ticket.php:64
+#: inc/admin/themes/answer-ticket.php:92
+#: inc/admin/themes/answered_ticket.php:20
+#: inc/admin/themes/answered_ticket.php:33
+#: inc/admin/themes/closed_ticket.php:20 inc/admin/themes/closed_ticket.php:33
+#: inc/admin/themes/new_ticket.php:20 inc/admin/themes/new_ticket.php:50
+#: inc/admin/themes/process_ticket.php:20
+#: inc/admin/themes/process_ticket.php:33 inc/admin/themes/send_ticket.php:73
+#: inc/admin/themes/send_ticket.php:89 inc/user/themes/new_ticket.php:86
+#: inc/user/themes/new_ticket.php:125 inc/user/themes/replay_ticket.php:61
+msgid "Product"
+msgstr "محصول"
+
+#: inc/admin/themes/answer-ticket.php:24
+msgid "Ticket Number "
+msgstr "شماره تیکت "
+
+#: inc/admin/themes/answer-ticket.php:45
+msgid "Ticket Information "
+msgstr "اطلاعات تیکت "
+
+#: inc/admin/themes/answer-ticket.php:60 inc/admin/themes/send_ticket.php:18
+msgid "Receiver"
+msgstr "گیرنده"
+
+#: inc/admin/themes/answer-ticket.php:82 inc/admin/themes/send_ticket.php:67
+msgid "WebSite"
+msgstr "وب سایت"
+
+#: inc/admin/themes/answer-ticket.php:176
+msgid "Insert"
+msgstr "افزودن"
+
+#: inc/admin/themes/answer-ticket.php:207 inc/admin/themes/send_ticket.php:113
+msgid "Attach"
+msgstr "انتخاب فایل"
+
+#: inc/admin/themes/answer-ticket.php:218 inc/user/themes/new_ticket.php:163
+#: inc/user/themes/replay_ticket.php:193
+msgid "Sending ..."
+msgstr "در حال ارسال ..."
+
+#: inc/admin/themes/answer-ticket.php:220 inc/user/themes/replay_ticket.php:202
+msgid "Send Answer"
+msgstr "ارسال پاسخ"
+
+#: inc/admin/themes/answer-ticket.php:226
+msgid "List Answer"
+msgstr "پاسخ لیست"
+
+#: inc/admin/themes/answer-ticket.php:262 inc/user/themes/replay_ticket.php:290
+msgid "You do not have permission to access this ticket"
+msgstr "شما مجوز دسترسی به این تیکت را ندارید"
+
+#: inc/admin/themes/department.php:12 inc/admin/themes/department.php:14
+#: inc/admin/themes/department.php:39
+msgid "Department Name"
+msgstr "نام دپارتمان"
+
+#: inc/admin/themes/department.php:17 inc/admin/themes/department.php:40
+msgid "Support Agent"
+msgstr "عامل پشتیبانی"
+
+#: inc/admin/themes/department.php:20
+msgid "Select Support agent"
+msgstr "انتخاب نماینده پشتیبانی"
+
+#: inc/admin/themes/department.php:41
+msgid "Edit"
+msgstr "ویرایش کنید"
+
+#: inc/admin/themes/department.php:60 inc/admin/themes/file_uploads.php:52
+msgid "Delete"
+msgstr "پاک کردن"
+
+#: inc/admin/themes/file_uploads.php:19
+msgid "Link"
+msgstr "لینک"
+
+#: inc/admin/themes/file_uploads.php:35
+msgid "view File"
+msgstr "مشاهده فایل"
+
+#: inc/admin/themes/file_uploads.php:43
+msgid "File "
+msgstr "فایل "
+
+#: inc/admin/themes/file_uploads.php:44
+msgid "Link "
+msgstr "لینک"
+
+#: inc/admin/themes/manage_tickets.php:13 inc/user/themes/home.php:80
+msgid "All"
+msgstr "همه"
+
+#: inc/admin/themes/manage_tickets.php:14
+msgid "New"
+msgstr "جدید"
+
+#: inc/admin/themes/manage_tickets.php:15 inc/user/themes/home.php:38
+msgid "In progress"
+msgstr "در حال بررسی"
+
+#: inc/admin/themes/manage_tickets.php:16 inc/user/themes/home.php:68
+msgid "Answered"
+msgstr "پاسخ داده شده"
+
+#: inc/admin/themes/manage_tickets.php:17 inc/user/themes/home.php:53
+msgid "Closed"
+msgstr "بسته"
+
+#: inc/admin/themes/manage_tickets.php:154
+msgid "Enter ticket ID or subject"
+msgstr "شناسه یا موضوع تیکت را وارد کنید"
+
+#: inc/admin/themes/send_ticket.php:1
+msgid "Send ticket"
+msgstr "ارسال تیکت"
+
+#: inc/admin/themes/send_ticket.php:8
+msgid "Receiver type"
+msgstr "نوع گیرنده"
+
+#: inc/admin/themes/send_ticket.php:11
+msgid "Select Receiver type"
+msgstr "نوع گیرنده را انتخاب نمایید"
+
+#: inc/admin/themes/send_ticket.php:12
+msgid "User"
+msgstr "نام کاربری"
+
+#: inc/admin/themes/send_ticket.php:41
+msgid "Enter Subject"
+msgstr "موضوع را وارد کنید"
+
+#: inc/admin/themes/send_ticket.php:47
+msgid "Select Department"
+msgstr "بخش را انتخاب کنید"
+
+#: inc/admin/themes/send_ticket.php:57
+msgid "Select Priority"
+msgstr "اولویت را انتخاب کنید"
+
+#: inc/admin/themes/send_ticket.php:76 inc/admin/themes/send_ticket.php:92
+#: inc/user/themes/new_ticket.php:91 inc/user/themes/new_ticket.php:128
+msgid "Select Product"
+msgstr "انتخاب محصول"
+
+#: inc/admin/themes/send_ticket.php:119
+msgid "Send Ticket"
+msgstr "ارسال تیکت"
+
+#: inc/admin/themes/send_ticket.php:130
+msgid "Select Status"
+msgstr "انتخاب وضعیت"
+
+#: inc/admin/themes/send_ticket.php:142
+msgid "Notification"
+msgstr "اعلان"
+
+#: inc/admin/themes/send_ticket.php:146
+msgid "Select Notification Type"
+msgstr "انتخاب نوع اطلاع رسانی ها"
+
+#: inc/admin/themes/send_ticket.php:149
+msgid "Send Email To User"
+msgstr "ارسال ایمیل به کاربر"
+
+#: inc/user/functions/ajax_user_send_answer.php:120
+msgid "show attachment file"
+msgstr "نمایش فایل پیوست"
+
+#: inc/user/functions/ajax_user_send_answer.php:131
+#: inc/user/functions/ajax_user_send_answer.php:144
+#: inc/user/functions/filter_ajax_ticket.php:66
+#: inc/user/functions/filter_ajax_ticket.php:128
+#: inc/user/themes/replay_ticket.php:138 inc/user/themes/replay_ticket.php:151
+msgid "Hour"
+msgstr "ساعت"
+
+#: inc/user/functions/ajax_user_send_answer.php:135
+#: inc/user/functions/ajax_user_send_answer.php:140
+#: inc/user/themes/replay_ticket.php:142 inc/user/themes/replay_ticket.php:147
+msgid "Date :"
+msgstr "تاریخ:"
+
+#: inc/user/functions/ajax_user_send_tiket.php:52
+msgid "open"
+msgstr "باز"
+
+#: inc/user/themes/home.php:9
+msgid "Ticket statuses"
+msgstr "وضعیت تیکت"
+
+#: inc/user/themes/home.php:23
+msgid "Open"
+msgstr "باز"
+
+#: inc/user/themes/home.php:85
+msgid "tickets"
+msgstr "تیکت ها"
+
+#: inc/user/themes/new_ticket.php:21
+msgid "Back To Tickets"
+msgstr "بازگشت به تیکت ها"
+
+#: inc/user/themes/new_ticket.php:40
+msgid "I didn't find the answer to my question"
+msgstr "جواب سوال خود را پیدا نکردم"
+
+#: inc/user/themes/new_ticket.php:47
+msgid "Subject *"
+msgstr "موضوع *"
+
+#: inc/user/themes/new_ticket.php:52
+msgid "Department *"
+msgstr "دپارتمان"
+
+#: inc/user/themes/new_ticket.php:55
+msgid "Select department"
+msgstr "انتخاب دپارتمان"
+
+#: inc/user/themes/new_ticket.php:70
+msgid "Priority *"
+msgstr "اولویت*"
+
+#: inc/user/themes/new_ticket.php:73
+msgid "Select priority"
+msgstr "انتخاب اولویت"
+
+#: inc/user/themes/new_ticket.php:141 inc/user/themes/replay_ticket.php:170
+msgid "Message *"
+msgstr "پیام *"
+
+#: inc/user/themes/new_ticket.php:143
+msgid "Enter Message please"
+msgstr "لطفا متن پیام را وارد نمایید"
+
+#: inc/user/themes/new_ticket.php:151
+msgid "Attachment"
+msgstr "فایل ضمیمه"
+
+#: inc/user/themes/new_ticket.php:168
+msgid "Send"
+msgstr "ارسال"
+
+#: inc/user/themes/new_ticket.php:258
+msgid "Ticket is submitted successfully."
+msgstr "تیکت با موفقیت ارسال شد."
+
+#: inc/user/themes/replay_ticket.php:32
+msgid "Back To List Tickets"
+msgstr "بازگشت به لیست تیکت ها"
+
+#: inc/user/themes/replay_ticket.php:42
+msgid "Ticket Number"
+msgstr "شماره تکیت"
+
+#: inc/user/themes/replay_ticket.php:92
+msgid "Date "
+msgstr "تاریخ"
+
+#: inc/user/themes/replay_ticket.php:96
+msgid " Hour "
+msgstr " ساعت "
+
+#: inc/user/themes/replay_ticket.php:171
+msgid "Enter the text of the message Plase"
+msgstr "لطفا متن پیام را وارد نمایید"
+
+#: inc/user/themes/replay_ticket.php:198
+msgid "Close Ticket"
+msgstr "بستن تیکت"
+
+#: nirweb-support.php:38
+msgid "To activate the free version, please disable the premium version first"
+msgstr "برای فعال سازی نسخه رایگان ، لطفا نسخه تجاری را غیر فعال نمایید"
+
+#. Description of the plugin/theme
+msgid ""
+"NirWeb support is a great help desk and support plugin for WordPress with "
+"full support of WooCommerce"
+msgstr ""
+"نسخه رایگان افزونه تیکت پشتیبانی نیر وب با پشتیبانی کامل از ووکامرس و EDD"
+
+#. Author of the plugin/theme
+msgid "NirWp Team"
+msgstr "تیم نیر وب"
+
+#. Author URI of the plugin/theme
+msgid "https://www.nirwp.com"
+msgstr "https://www.nirweb.ir"
+
+#~ msgid "Show Image"
+#~ msgstr "نمایش تصویر"
+
+#~ msgid "Image "
+#~ msgstr "تصویر"
+
+#~ msgid "Total"
+#~ msgstr "جمعا"
+
+#~ msgid "Image Select"
+#~ msgstr "انتخاب تصویر"
+
+#~ msgid "Image"
+#~ msgstr "تصویر"
+
+#~ msgid "Select Image"
+#~ msgstr "انتخاب تصویر"

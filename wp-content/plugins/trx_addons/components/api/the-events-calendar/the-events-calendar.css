@@ -1,0 +1,223 @@
+.sc_events {
+  position: relative;
+}
+
+.sc_events_button {
+  text-align: center;
+}
+
+/* Style 'Default'
+--------------------------------------- */
+.sc_events_default .sc_events_item {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: space-between;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+
+.sc_events_default .sc_events_item:last-child {
+  margin-bottom: 0;
+}
+
+.sc_events_default .sc_events_item_thumb {
+  position: relative;
+  margin-bottom: 0;
+  overflow: visible !important;
+  width: 30%;
+}
+
+.sc_events_default .sc_events_item_info {
+  padding: 0 2em;
+  width: 60%;
+  position: relative;
+}
+
+.sc_events_default .sc_events_item_thumb .sc_events_item_date {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 10;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 1em;
+  background-color: #f0f0f0;
+  -webkit-transition: color 0.3s ease, background-color 0.3s ease;
+  -ms-transition: color 0.3s ease, background-color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.sc_events_default .sc_events_item_thumb .sc_events_item_date_day,
+.sc_events_default .sc_events_item_thumb .sc_events_item_date_month {
+  display: block;
+  text-align: center;
+}
+
+.sc_events_default .sc_events_item_thumb .sc_events_item_date_day {
+  font-size: 1.75em;
+  line-height: 1.4em;
+  color: #efa758;
+  -webkit-transition: color 0.3s ease;
+  -ms-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.sc_events_default .sc_events_item_title {
+  margin: 0.2em 0 0.4em;
+}
+
+.sc_events_default .sc_events_item_meta {
+  color: #888;
+  font-size: 12px;
+}
+
+.sc_events_default .sc_events_item_meta .sc_events_item_meta_date_separator {
+  margin: 0 0.5em;
+}
+
+.sc_events_default .sc_events_item_price {
+  color: #efa758;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 1.4em;
+  font-size: 1.5em;
+  line-height: 1.4em;
+}
+
+.sc_events_default .sc_events_item_button {
+  text-align: right;
+}
+
+/* Style 'Classic'
+--------------------------------------- */
+.sc_events_classic .sc_events_item {
+  background-color: #fafafa;
+}
+
+.sc_events_classic .sc_events_item_thumb {
+  position: relative;
+  margin-bottom: 0;
+}
+
+.sc_events_classic .sc_events_item_thumb[class*="hover_"] {
+  display: block;
+}
+
+.sc_events_classic .sc_events_item_thumb img {
+  width: 100%;
+}
+
+.sc_events_classic .sc_events_item_categories {
+  position: absolute;
+  z-index: 1;
+  top: 2em;
+  left: 2em;
+  display: inline-block;
+  background-color: #292929;
+  font-size: 0.9286em;
+  line-height: 2em;
+  padding: 0 0.7em;
+  text-transform: uppercase;
+}
+
+.sc_events_classic .sc_events_item_categories a {
+  color: #fff;
+}
+
+.sc_events_classic .sc_events_item_categories a:hover {
+  color: #efa758;
+}
+
+.sc_events_classic .sc_events_item_info {
+  padding: 2em;
+}
+
+.sc_events_classic .sc_events_item_title {
+  margin: 0;
+}
+
+.sc_events_classic .sc_events_item_title {
+  margin: 0;
+}
+
+.sc_events_classic .sc_events_item_meta {
+  font-size: 0.9286em;
+  line-height: 1.5em;
+  margin-top: 0.5em;
+}
+
+.sc_events_classic .sc_events_item_meta_item + .sc_events_item_meta_item:before {
+  content: '*';
+  margin: 0 0.3em;
+}
+
+.sc_events_classic .sc_events_item_date {
+  letter-spacing: 0;
+  font-style: italic;
+}
+
+.sc_events_classic .sc_events_item_price {
+  font-size: 2em;
+  line-height: 1em;
+  margin-top: 0.5em;
+  color: #efa758;
+  min-height: 1.2em;
+}
+
+.sc_events_classic .sc_events_item_period {
+  font-size: 0.4em;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.sc_events_classic .sc_events_item_period:before {
+  content: '/';
+  margin: 0 0.5em;
+}
+
+/* Hover */
+.sc_events_classic .sc_events_item .trx_addons_hover_mask {
+  background-color: #000;
+}
+
+.sc_events_classic .trx_addons_hover_content .trx_addons_hover_title {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  text-transform: none;
+  font-size: 1.6667em;
+}
+
+.sc_events_classic .trx_addons_hover_content .trx_addons_hover_text {
+  padding: 0;
+  margin-top: 2em;
+  font-style: normal;
+}
+
+.sc_events_classic .trx_addons_hover_content .trx_addons_hover_links a {
+  margin-top: 3em;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 1.3em 1.9em;
+}
+
+/*# sourceMappingURL=the-events-calendar.css.map */

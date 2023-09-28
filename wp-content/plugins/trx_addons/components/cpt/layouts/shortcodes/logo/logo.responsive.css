@@ -1,0 +1,27 @@
+@media (max-width: 1439px) {
+  /* Layouts: Logo */
+  a.custom-logo-link img,
+  .wp-block-columns .sc_layouts_logo img,
+  .sc_layouts_row .sc_layouts_logo img {
+    max-height: 4.5em;
+  }
+
+  .sc_layouts_row_type_compact .custom-logo-link img,
+  .sc_layouts_row_type_compact .sc_layouts_logo img {
+    max-height: 3.5em;
+  }
+
+  .sc_layouts_row_type_narrow .custom-logo-link img,
+  .sc_layouts_row_type_narrow .sc_layouts_logo img {
+    max-height: 2.5em;
+  }
+}
+@media (max-width: 479px) {
+  /* Layouts: Logo */
+  .sc_layouts_logo .logo_text {
+    letter-spacing: 0;
+    font-size: 1.5em;
+  }
+}
+
+/*# sourceMappingURL=logo.responsive.css.map */

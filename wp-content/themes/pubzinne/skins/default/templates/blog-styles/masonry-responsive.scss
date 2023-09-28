@@ -1,0 +1,42 @@
+@import "../../../../css/_mixins.scss";
+@import "../../../../css/_theme-vars.scss";
+@import "../../css/_skin-vars.scss";
+
+//@mixin blog_styles_masonry--xl() {
+@media #{$media_xl} {
+	/* Blog layout: Masonry */
+	.masonry_wrap .masonry_item-1_4 {
+		width: 33.3333%;
+	}
+}
+
+//@mixin blog_styles_masonry--md() {
+@media #{$media_md} {
+	/* Blog layout: Masonry */
+	.masonry_wrap {
+		margin-right:-$md_grid_gap;
+	}
+	.masonry_wrap .masonry_item {
+		padding:0 $md_grid_gap $md_grid_gap 0;
+	}
+	.masonry_wrap .masonry_item-1_3,
+	.masonry_wrap .masonry_item-1_4 {
+		width: 50%;
+	}
+}
+
+//@mixin blog_styles_masonry--sm() {
+@media #{$media_sm} {
+	/* Blog layout: Masonry */
+	.masonry_wrap {
+		margin-right:0;
+	}
+	.masonry_wrap .masonry_item {
+		padding:0 0 $sm_grid_gap 0;
+	}
+	.masonry_wrap .masonry_item-1_2,
+	.masonry_wrap .masonry_item-1_3,
+	.masonry_wrap .masonry_item-1_4 {
+		width: 100%;
+	}
+}

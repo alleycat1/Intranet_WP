@@ -1,0 +1,23 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/* Widget: Flickr */
+.widget_flickr {
+	overflow:hidden;
+}
+.widget_flickr .flickr_images {
+	margin-right: 0;
+}
+.widget_flickr .flickr_badge_image,
+.widget_flickr .flickr_images > a {
+	float:left;
+	padding:0;
+	margin:0;
+	overflow:hidden;
+	@include box(25%, auto);
+	@include border-box;
+}
+.widget_flickr .flickr_badge_image img,
+.widget_flickr .flickr_images > a img {
+	@include box(100%, auto);
+}

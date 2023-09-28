@@ -1,0 +1,114 @@
+@media (max-width: 1023px) {
+  /* EDD */
+  .downloads_page_features_list > span,
+  .downloads_page_features_list > a {
+    width: 50%;
+  }
+}
+@media (max-width: 767px) {
+  /* EDD Themes Market */
+  .sc_edd_add_to_cart_promo .edd_download_purchase_form {
+    text-align: left;
+  }
+
+  .sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options li,
+  .sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .trx_addons_edd_purchase_subtotal {
+    display: block;
+    width: 100%;
+  }
+
+  .sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options li + li:before,
+  .sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .trx_addons_edd_purchase_subtotal:before {
+    display: none;
+  }
+
+  .sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .edd_price_option_name {
+    display: inline-block;
+    padding-left: 2em;
+    max-width: 75%;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .edd_price_option_price {
+    display: inline-block;
+    height: auto;
+    float: right;
+    max-width: 20%;
+  }
+
+  .sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options li label {
+    text-align: left;
+    padding: 0.5em 0;
+    overflow: hidden;
+  }
+
+  .sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options li label .edd_price_option_wrap {
+    display: block;
+  }
+
+  .sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .edd_price_option_name:after {
+    content: '\e8bd';
+    font-family: "trx_addons_icons";
+    display: block;
+    font-size: 1em;
+    border-width: 1px;
+    margin-left: 0;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.4em;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+
+  .sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options input[type="checkbox"]:checked + .edd_price_option_wrap > .edd_price_option_name:after,
+  .sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options input[type="checkbox"]:checked + .edd_price_option_name:after {
+    border-width: 1px;
+  }
+
+  .sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options.edd_single_mode input[type="radio"]:checked + .edd_price_option_wrap > .edd_price_option_name:after,
+  .sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options.edd_single_mode input[type="radio"]:checked + .edd_price_option_name:after {
+    border-width: 1px;
+  }
+
+  .sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .trx_addons_edd_purchase_subtotal {
+    vertical-align: top;
+    padding: 0.5em 0 0;
+    overflow: hidden;
+  }
+
+  .sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .trx_addons_edd_purchase_subtotal_label {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 2em;
+  }
+
+  .sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .trx_addons_edd_purchase_subtotal_value {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1.2em;
+    font-weight: bold;
+    float: right;
+  }
+
+  .sc_edd_add_to_cart_promo .edd_download_purchase_form > .sc_button,
+  .sc_edd_add_to_cart_promo .edd_download_purchase_form > .edd_purchase_submit_wrapper {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+@media (max-width: 479px) {
+  /* EDD Themes Market */
+  .downloads_page_features_list > span,
+  .downloads_page_features_list > a {
+    width: 100%;
+    display: block;
+  }
+}
+
+/*# sourceMappingURL=easy-digital-downloads.responsive.css.map */

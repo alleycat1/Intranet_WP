@@ -1,0 +1,197 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/* Squeeze */
+.sc_squeeze_content {
+	position: relative;
+}
+
+.sc_squeeze_viewport {
+	width: 100%;
+	height: calc( 100vh - var(--fixed-rows-height) );
+	position: sticky;
+	top: var(--fixed-rows-height);
+	z-index: 100;
+	overflow: hidden;
+	background-color: rgba(255,255,255,0.2);
+	@include flex;
+	@include flex-direction(column);
+	@include flex-justify-content(center);
+	@include flex-align-items(center);
+}
+
+.sc_squeeze_titles {
+	position: relative;
+	z-index: 2;
+	width: 100%;
+	// min-width: 50%;
+	// padding: 3em;
+	// background-color: rgba( 0, 0, 0, 0.25 );
+
+	.sc_squeeze_title {
+		position: absolute;
+		top: 50%;
+		@include translateY(-50%);
+		width: 100%;
+		text-align: center;
+		opacity: 0;
+		@include transition(opacity 0.5s ease);
+		will-change: opacity;
+		@include flex;
+		@include flex-direction(column);
+		@include flex-justify-content(center);
+		@include flex-align-items(center);
+
+		&, &:hover, &:focus, &:active {
+			color: #fff;
+		}
+
+		&.sc_squeeze_title_active {
+			opacity: 1;
+			z-index: 2;
+		}
+
+		.sc_squeeze_title_link {
+			display: block;
+			@include abs-pos(0, 0, -20%, 0);
+		}
+		.sc_squeeze_subtitle_text {
+			display: block;
+			@include font(1.5em, 1.5em, 400);
+			color: inherit;
+		}
+		.sc_squeeze_title_text {
+			display: block;
+			@include font(4.5em, 1.5em, 700);
+			margin: 0;
+			color: inherit;
+		}
+	}
+}
+
+.sc_squeeze_wrap {
+	@include abs-cover(1);
+	will-change: transform;
+}
+.sc_squeeze_item {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-position: 50% 0%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	backface-visibility: visible;
+	will-change: transform;
+	@include perspective-origin(50% 0%);
+	@include transform-origin(50% 0%);
+	@include transition-none;
+}
+
+// Bullets (dots)
+.sc_squeeze_bullets {
+	@include flex;
+}
+.sc_squeeze_bullet {
+	opacity: 0.8;
+	border: 2px solid #fff;
+	background-color: transparent;
+	cursor: pointer;
+	@include box(10px, 10px);
+	@include border-round;
+	@include bg-cover;
+	@include transition-properties(opacity,transform);
+}
+.sc_squeeze_bullet_active {
+	opacity: 1;
+	@include scale(1.5);
+}
+.sc_squeeze_bullets_position_bottom {
+	@include flex-direction(row);
+	
+	.sc_squeeze_bullet {
+		margin: 0 0.5em;
+	}
+}
+.sc_squeeze_bullets_position_left,
+.sc_squeeze_bullets_position_right {
+	@include flex-direction(column);
+
+	.sc_squeeze_bullet {
+		margin: 0.5em 0;
+	}
+}
+.sc_squeeze_bullets_position_left {
+	@include abs-lc(1em, 10);
+}
+.sc_squeeze_bullets_position_right {
+	@include abs-rc(1em, 10);
+}
+.sc_squeeze_bullets_position_bottom {
+	@include abs-cb(1em, 10);
+}
+
+// Numbers
+.sc_squeeze_numbers {
+	display: block;
+}
+.sc_squeeze_numbers_position_left {
+	@include abs-lb( 1em, 1em );
+}
+.sc_squeeze_numbers_position_right {
+	@include abs-rb( 1em, 1em );
+}
+.sc_squeeze_numbers_position_center {
+	@include abs-cb(1em);
+}
+.sc_squeeze_bullets_position_bottom + .sc_squeeze_numbers_position_center {
+	bottom: 2.5em;
+}
+.sc_squeeze_numbers > span {
+	display: inline-block;
+	vertical-align: middle;
+	color:  #fff;
+	font-size: 1.25em;
+}
+.sc_squeeze_number_delimiter {
+	margin:  0 0.25em;
+}
+.sc_squeeze_number_delimiter:before {
+	content: '/';
+}
+
+// Progress bar
+.sc_squeeze_progress {
+	--trx-addons-squeeze-progress-width: 6px;
+	display: block;
+	@include box(100%, var(--trx-addons-squeeze-progress-width));
+	background-color: rgba(255,255,255,0.2);
+}
+.sc_squeeze_progress_value {
+	display: block;
+	@include box(0, 100%);
+	@include abs-lt;
+	background-color: #fff;
+	will-change: width;
+}
+.sc_squeeze_progress_position_top {
+	@include abs-lt;
+}
+.sc_squeeze_progress_position_bottom {
+	@include abs-lb;
+}
+.sc_squeeze_progress_position_left {
+	@include abs-lt;
+	@include box(var(--trx-addons-squeeze-progress-width), 100%);
+
+	.sc_squeeze_progress_value {
+		@include box(100%, 0);
+	}
+}
+.sc_squeeze_progress_position_right {
+	@include abs-rt;
+	@include box(var(--trx-addons-squeeze-progress-width), 100%);
+
+	.sc_squeeze_progress_value {
+		@include box(100%, 0);
+	}
+}

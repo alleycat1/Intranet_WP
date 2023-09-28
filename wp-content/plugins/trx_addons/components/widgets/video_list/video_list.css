@@ -1,0 +1,254 @@
+/* Video list's styles */
+.trx_addons_video_list {
+  position: relative;
+  text-align: left;
+}
+
+.trx_addons_video_list_video_wrap {
+  position: relative;
+  -webkit-transition: height 0.3s ease;
+  -ms-transition: height 0.3s ease;
+  transition: height 0.3s ease;
+}
+.trx_addons_video_list_video_wrap .trx_addons_video_player {
+  background-color: #000;
+}
+.trx_addons_video_list_video_wrap .trx_addons_video_player .video_frame .video_frame_overlay,
+.trx_addons_video_list_video_wrap .trx_addons_video_player .video_frame .video_frame_controls {
+  display: none !important;
+}
+.trx_addons_video_list_video_wrap .trx_addons_video_player .video_frame .wp-video {
+  width: unset !important;
+}
+.trx_addons_video_list_video_wrap .trx_addons_video_player.with_cover .video_mask {
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.13) 50%, rgba(0, 0, 0, 0.25) 66%, rgba(0, 0, 0, 0.75) 100%);
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.13) 50%, rgba(0, 0, 0, 0.25) 66%, rgba(0, 0, 0, 0.75) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.13) 50%, rgba(0, 0, 0, 0.25) 66%, rgba(0, 0, 0, 0.75) 100%);
+  opacity: 1;
+}
+.trx_addons_video_list_video_wrap .trx_addons_video_player.with_cover .video_hover {
+  margin: 0 !important;
+  opacity: 1;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.trx_addons_video_list_video_wrap .trx_addons_video_list_title_wrap {
+  position: absolute;
+  z-index: 100;
+  bottom: 2em;
+  left: 2em;
+  max-width: calc(66.6666% - 4em);
+  display: none;
+}
+.trx_addons_video_list_video_wrap .trx_addons_video_list_title_wrap .trx_addons_video_list_subtitle {
+  color: #fff;
+}
+.trx_addons_video_list_video_wrap .trx_addons_video_list_title_wrap .trx_addons_video_list_title {
+  margin: 0;
+  color: #fff;
+}
+.trx_addons_video_list_video_wrap .trx_addons_video_list_title_wrap a, .trx_addons_video_list_video_wrap .trx_addons_video_list_title_wrap a:hover,
+.trx_addons_video_list_video_wrap .trx_addons_video_list_title_wrap .trx_addons_video_list_meta {
+  color: #fff;
+}
+.trx_addons_video_list_video_wrap .trx_addons_video_player.with_cover:not(.video_play) + .trx_addons_video_list_title_wrap {
+  display: block;
+}
+.trx_addons_video_list_video_wrap .trx_addons_video_player.with_cover > img {
+  -webkit-transition: opacity 0.3s ease;
+  -ms-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+.trx_addons_video_list_video_wrap .trx_addons_video_player.with_cover.video_play > img {
+  opacity: 0;
+}
+
+:root {
+  --sc-video-list-controller-height: 10em;
+}
+
+.trx_addons_video_list_controller_wrap .trx_addons_video_list_controller_item {
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  -webkit-transition: background-color 0.3s ease;
+  -ms-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-flex-shrink: 0;
+  -ms-flex-shrink: 0;
+  flex-shrink: 0;
+  -webkit-flex-grow: 1;
+  -ms-flex-grow: 1;
+  flex-grow: 1;
+  padding: 1.5em;
+}
+.trx_addons_video_list_controller_wrap .trx_addons_video_list_controller_item .trx_addons_video_list_controller_item_link {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+}
+.trx_addons_video_list_controller_wrap .trx_addons_video_list_controller_item_active {
+  background-color: #f0f0f0;
+}
+.trx_addons_video_list_controller_wrap .trx_addons_video_list_controller_item:hover {
+  background-color: #f7f7f7;
+}
+.trx_addons_video_list_controller_wrap .trx_addons_video_list_image {
+  display: inline-block;
+  vertical-align: middle;
+  width: 25%;
+  max-width: 90px;
+  position: relative;
+}
+.trx_addons_video_list_controller_wrap .trx_addons_video_list_image .trx_addons_video_list_image_label {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.5em;
+  color: #fff;
+  opacity: 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: bold;
+  -webkit-transition: opacity 0.3s ease;
+  -ms-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+.trx_addons_video_list_controller_wrap .trx_addons_video_list_controller_item_active .trx_addons_video_list_image_label {
+  opacity: 1;
+}
+.trx_addons_video_list_controller_wrap .trx_addons_video_list_image + .trx_addons_video_list_info {
+  padding-left: 1em;
+  display: inline-block;
+  vertical-align: middle;
+  width: 75%;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.trx_addons_video_list_controller_wrap .trx_addons_video_list_title {
+  margin: 0;
+  font-size: 1.15em;
+  line-height: 1.4em;
+}
+.trx_addons_video_list_controller_wrap .trx_addons_video_list_meta {
+  font-size: 0.9286em;
+  line-height: 1.5em;
+  color: #888;
+}
+
+.trx_addons_video_list_controller_right .trx_addons_video_list_video_wrap {
+  padding-right: 33.3333%;
+}
+.trx_addons_video_list_controller_right .trx_addons_video_list_controller_wrap {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  width: 33.3333%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.trx_addons_video_list_controller_right .trx_addons_video_list_controller_wrap .trx_addons_video_list_controller_item {
+  padding: 1em 1em 1em 2em;
+}
+
+.trx_addons_video_list_controller_left .trx_addons_video_list_video_wrap {
+  padding-left: 33.3333%;
+}
+.trx_addons_video_list_controller_left .trx_addons_video_list_title_wrap {
+  left: calc(33.3333% + 2em);
+}
+.trx_addons_video_list_controller_left .trx_addons_video_list_controller_wrap {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 33.3333%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.trx_addons_video_list_controller_left .trx_addons_video_list_controller_wrap .trx_addons_video_list_controller_item {
+  padding: 1em 2em 1em 1em;
+}
+
+.trx_addons_video_list_controller_bottom .trx_addons_video_list_controller_wrap {
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+.trx_addons_video_list_controller_bottom .trx_addons_video_list_controller_wrap .trx_addons_video_list_controller_item {
+  -webkit-flex-basis: 33.3333%;
+  -ms-flex-basis: 33.3333%;
+  flex-basis: 33.3333%;
+  height: var(--sc-video-list-controller-height);
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  white-space: normal;
+}
+.trx_addons_video_list_controller_bottom .trx_addons_video_list_controller_wrap .trx_addons_video_list_image {
+  vertical-align: top;
+}
+.trx_addons_video_list_controller_bottom .trx_addons_video_list_controller_wrap .trx_addons_video_list_image + .trx_addons_video_list_info {
+  vertical-align: top;
+}
+.trx_addons_video_list_controller_bottom .trx_addons_video_list_controller_wrap .trx_addons_video_list_image + .trx_addons_video_list_info .trx_addons_video_list_subtitle,
+.trx_addons_video_list_controller_bottom .trx_addons_video_list_controller_wrap .trx_addons_video_list_image + .trx_addons_video_list_info .trx_addons_video_list_title:first-child {
+  margin-top: -0.5em;
+}
+
+/*# sourceMappingURL=video_list.css.map */

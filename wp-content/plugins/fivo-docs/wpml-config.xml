@@ -1,0 +1,5 @@
+<wpml-config>
+    <taxonomies>
+        <taxonomy translate="1">fivo_docs_category</taxonomy>
+    </taxonomies>
+</wpml-config>

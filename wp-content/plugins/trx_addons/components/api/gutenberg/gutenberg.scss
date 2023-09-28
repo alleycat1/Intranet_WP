@@ -1,0 +1,347 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/* Gutenberg */
+
+/* Fixes for the block editor
+---------------------------------------- */
+body.edit-post-visual-editor {
+	position: relative;
+	flex: 1 0 auto;
+	height: auto !important;
+	overflow-x: hidden !important;
+	overflow-y: visible !important;
+
+	.block-editor-block-list__layout.is-root-container {
+		& > .wp-block.alignfull,
+		& > .wp-block[data-align="full"] {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+}
+
+/* Dashicons */
+body.edit-post-visual-editor .components-button {
+	.dashicons, .dashicons-before::before {
+		font-family: dashicons;
+		line-height: 1;
+		font-weight: 400;
+		font-style: normal;
+		text-transform: none;
+		text-rendering: auto;
+		font-size: 20px;
+		text-align: center;
+	}
+}
+
+/* Widgets block editor */
+body.editor-styles-wrapper[data-widget-area-id] {
+	font-size: 14px;
+}
+
+/* Post title
+---------------------------------------- */
+.editor-post-title__block .editor-post-title__input {
+	min-height: 1em;
+	height: unset;
+	background-color: transparent !important;
+}
+.editor-post-title .editor-post-title__input::placeholder {
+	color: rgba(128, 128, 128, 0.5) !important;
+}
+
+
+
+/* Core blocks
+------------------------------------------------- */
+
+/* Spacer */
+.block-editor-block-list__block[data-type="core/spacer"] {
+	& > .components-resizable-box__container {
+		background-color: rgba(255,255,0,0.1);
+	}
+}
+.wp-block-spacer.sc_height_tiny,
+[data-type="core/spacer"].sc_height_tiny > .components-resizable-box__container {
+	height: var(--sc-space-tiny) !important;
+}
+.wp-block-spacer.sc_height_small,
+[data-type="core/spacer"].sc_height_small > .components-resizable-box__container {
+	height: var(--sc-space-small) !important;
+}
+.wp-block-spacer.sc_height_medium,
+[data-type="core/spacer"].sc_height_medium > .components-resizable-box__container {
+	height: var(--sc-space-medium) !important;
+}
+.wp-block-spacer.sc_height_large,
+.wp-block-spacer.sc_height_big,
+[data-type="core/spacer"].sc_height_large > .components-resizable-box__container,
+[data-type="core/spacer"].sc_height_large > .editor-block-list__block-edit .components-resizable-box__container {
+	height: var(--sc-space-large) !important;
+}
+.wp-block-spacer.sc_height_huge,
+[data-type="core/spacer"].sc_height_huge > .components-resizable-box__container {
+	height: var(--sc-space-huge) !important;
+}
+
+/* Separator */
+.wp-block-separator.sc_height_tiny,
+[data-type="core/separator"].sc_height_tiny > .wp-block-separator {
+	margin-top: var(--sc-space-tiny) !important;
+	margin-bottom: var(--sc-space-tiny) !important;
+}
+.wp-block-separator.sc_height_small,
+[data-type="core/separator"].sc_height_small > .wp-block-separator {
+	margin-top: var(--sc-space-small) !important;
+	margin-bottom: var(--sc-space-small) !important;
+}
+.wp-block-separator.sc_height_medium,
+[data-type="core/separator"].sc_height_medium > .wp-block-separator {
+	margin-top: var(--sc-space-medium) !important;
+	margin-bottom: var(--sc-space-medium) !important;
+}
+.wp-block-separator.sc_height_large,
+.wp-block-separator.sc_height_big,
+[data-type="core/separator"].sc_height_large > .editor-block-list__block-edit .wp-block-separator,
+[data-type="core/separator"].sc_height_large > .wp-block-separator {
+	margin-top: var(--sc-space-large) !important;
+	margin-bottom: var(--sc-space-large) !important;
+}
+.wp-block-separator.sc_height_huge,
+[data-type="core/separator"].sc_height_huge > .wp-block-separator {
+	margin-top: var(--sc-space-huge) !important;
+	margin-bottom: var(--sc-space-huge) !important;
+}
+
+/* Gallery */
+/*.wp-block-gallery.has-nested-images,*/
+figure.wp-block-gallery {
+	@include flex;
+	@include flex-direction(row);
+	@include flex-wrap(wrap);
+	@include flex-justify-content(flex-start);
+	@include flex-align-items(stretch);
+}
+
+/* Columns */
+// Use twice to override an inline style
+.wp-block-columns.wp-block-columns {
+	gap: 0;
+}
+
+
+
+/* Our blocks
+------------------------------------------------- */
+
+/* Anchor */
+[data-type="trx-addons/anchor"] .is-block-container,
+[data-type="trx-addons/anchor"] .editor-block-list__block-edit {
+	height: 25px;
+	position:  relative;
+	background-color: #e7eaed;
+}
+[data-type="trx-addons/anchor"] .is-block-container:after,
+[data-type="trx-addons/anchor"] .editor-block-list__block-edit:after {
+	content: '\e868';
+	font-family: trx_addons_icons;
+	color: #9aa1a9;
+	position: absolute;
+	left: 50%;
+	@include translateX(-50%);
+}
+
+/* Blogger */
+[data-type="trx-addons/blogger"] a {
+	pointer-events: none;
+}
+
+/* Slider in shortcodes */
+[data-type^="trx-addons/"] .slider_container {
+	display: block;
+}
+
+/* Layouts in slides */
+[data-type^="trx-addons/"] .slider_source_posts_cpt_layouts .slider-slide {
+	&:before {
+		content: 'Slides based on custom layouts may not display correctly in the editor! Check out the slides on Frontend.';
+		@include abs-cover(1000);
+		@include flex;
+		@include flex-justify-content(center);
+		@include flex-align-items(center);
+		color: #fff;
+		background-color: rgba(0,0,0,0.6);
+		padding: 10%;
+		font-size: 2em;
+		line-height: 1.5em;
+	}
+}
+
+/* Layouts */
+[data-type="trx-addons/layouts-login"] .sc_layouts_menu,
+[data-type="trx-addons/layouts-menu"] .sc_layouts_menu {
+	visibility: visible;
+	max-height: 4em;
+}
+
+
+/* Our blocks reloader
+------------------------------------------------ */
+.trx_addons_gb_reload {
+	.block-editor-block-list__block & {
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 100;
+		height: 32px;
+		line-height: 30px;
+		@include border-box;
+		padding: 0 8px;
+		color: #333;
+		background-color: #f7f7f7;
+		display: none;
+
+		&:before {
+			content:  '\e800';
+			font-family: trx_addons_icons;
+		}
+		&:focus,
+		&:hover {
+			color: #fff !important;
+			background-color: #007cba !important;
+		}
+	}
+	.block-editor-block-list__block.is-hovered &,
+	.block-editor-block-list__block.is-selected &,
+	.block-editor-block-list__block.is-selected-parent & {
+		display: block;
+	}
+}
+
+/* Inner blocks
+------------------------------------------------- */
+.trx_addons_gb_inner_blocks.components-panel__body {
+	padding: 0;
+	border-width: 0;
+
+	& > .components-panel__body-title {
+		margin: 0 0 1em !important;
+
+		.components-panel__body-toggle {
+			padding: 1em;
+		}
+	}
+}
+
+
+/* Inner blocks without container behaviour (slider, actions, etc.)
+-------------------------------------------------------------------------- */
+
+/* Hide to the button, display on hover, select or typing */
+.block-editor-block-list__block:not([data-type="trx-addons/content"]):not([data-type="trx-addons/layouts-container"]):not([data-type="trx-addons/layouts-featured"]):not([data-type="trx-addons/layouts-title"]) .trx_addons_gb_inner_blocks {
+	display: none;
+}
+.block-editor-block-list__block:not([data-type="trx-addons/content"]):not([data-type="trx-addons/layouts-container"]):not([data-type="trx-addons/layouts-featured"]):not([data-type="trx-addons/layouts-title"]) .trx_addons_gb_inner_blocks.is-opened,
+.block-editor-block-list__block.is-hovered:not([data-type="trx-addons/content"]):not([data-type="trx-addons/layouts-container"]):not([data-type="trx-addons/layouts-featured"]):not([data-type="trx-addons/layouts-title"]) .trx_addons_gb_inner_blocks,
+.block-editor-block-list__block.is-typing:not([data-type="trx-addons/content"]):not([data-type="trx-addons/layouts-container"]):not([data-type="trx-addons/layouts-featured"]):not([data-type="trx-addons/layouts-title"]) .trx_addons_gb_inner_blocks,
+.block-editor-block-list__block.is-selected:not([data-type="trx-addons/content"]):not([data-type="trx-addons/layouts-container"]):not([data-type="trx-addons/layouts-featured"]):not([data-type="trx-addons/layouts-title"]) .trx_addons_gb_inner_blocks,
+.block-editor-block-list__block.is-selected-parent:not([data-type="trx-addons/content"]):not([data-type="trx-addons/layouts-container"]):not([data-type="trx-addons/layouts-featured"]):not([data-type="trx-addons/layouts-title"]) .trx_addons_gb_inner_blocks {
+	display: block;
+}
+
+/* Put to the top right corner (near the "Reload" button) */
+.block-editor-block-list__block:not([data-type="trx-addons/content"]):not([data-type="trx-addons/layouts-container"]):not([data-type="trx-addons/layouts-featured"]):not([data-type="trx-addons/layouts-title"]) .trx_addons_gb_inner_blocks {
+	$trx_addons_gb_inner_blocks_padding: 8px;
+
+	position: absolute;
+	right: 40px;
+	top: 0;
+	z-index: 30;	// Not greater then 30 because 31 has GB toolbar
+	min-width: 33%;
+	border: none !important;
+
+	&.is-opened {
+		padding: 0;
+	}
+	.components-panel__body-title {
+		margin: 0 0 0.5em !important;
+		background: none !important;
+		text-align: right;
+	}
+	.components-panel__body-toggle {
+		width: auto;
+		height: 32px;
+		line-height: 30px;
+		@include border-box;
+		white-space:nowrap;
+		padding: 0 8px !important;
+		border: 1px solid #ccc;
+		@include border-radius(3px);
+		box-shadow: 0 1px 0 #cccccc;
+		color: #333;
+		background-color: #f7f7f7;
+		overflow: hidden;
+		
+		.components-panel__arrow {
+			display: none;
+		}
+	}
+	.block-editor-block-list__layout {
+		background-color: #fff;
+		color: #333;
+		border: 1px solid #ccc;
+
+		& > .block-editor-block-list__block {
+			margin: 0;
+			padding: $trx_addons_gb_inner_blocks_padding;
+		}
+
+		.block-list-appender {
+			margin: 0;
+		
+			.block-editor-default-block-appender textarea.block-editor-default-block-appender__content {
+				height: 1em;
+				min-height: 0;
+				margin: 0;
+				padding: $trx_addons_gb_inner_blocks_padding;
+				padding-right: 48px;
+			}
+		}
+	}
+}
+
+
+/* Inner blocks with container behaviour (content, layouts-container, layouts-title, layouts-featured)
+-------------------------------------------------------------------------- */
+
+/* Hide placeholders on the empty containers */
+.block-editor-block-list__block[data-type="trx-addons/content"] > .components-placeholder,
+.block-editor-block-list__block[data-type="trx-addons/layouts-container"] > .components-placeholder,
+.block-editor-block-list__block[data-type="trx-addons/layouts-featured"] > .components-placeholder {
+	display: none;
+}
+
+
+
+/* Editor area for custom layouts
+-------------------------------------------------------- */
+body.post-type-cpt_layouts .wp-block {
+	max-width: 96% !important;
+}
+
+
+/* Kadence blocks 
+---------------------------------------- */
+.block-editor-block-list__block {
+	.kt-tabs-title-list {
+		margin-bottom: 0;
+		padding-left: 0;
+	}
+	.kt-tabs-layout-vtabs > .kt-tabs-wrap > .kt-tabs-title-list li {
+		margin-bottom: 1px;
+	}
+	.kt-tabs-content-wrap {
+		border: 1px solid #ddd;
+	}
+}

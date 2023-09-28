@@ -1,0 +1,208 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: n/a\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: n/a\n"
+"PO-Revision-Date: 2023-08-10 15:40+0000\n"
+"Last-Translator: Matthias Günter <matthias.guenter@devowl.io>\n"
+"Language-Team: Russian (formal) <https://translate.devowl.io/projects/devowl-"
+"wp-real-product-manager-wp-client-backend-php/develop/ru@formal/>\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.16.4\n"
+
+#: AbstractInitiator.php:182
+msgid "https://devowl.io/account"
+msgstr "https://devowl.io/account"
+
+#: AbstractInitiator.php:187
+msgid ""
+"https://devowl.io/knowledge-base/devowl-where-can-i-find-my-license-key/"
+msgstr ""
+"https://devowl.io/knowledge-base/devowl-where-can-i-find-my-license-key/"
+
+#: client/ClientUtils.php:64
+msgid ""
+"Something went wrong while parsing an error message from the remote server."
+msgstr ""
+"Что-то пошло не так при запросе сообщения об ошибке с удаленного сервера."
+
+#. translators:
+#: license/License.php:197
+msgid ""
+"The plugin has a new update server. Therefore, you need to reactivate your "
+"license (%s) to continue receiving updates."
+msgstr ""
+"Плагин имеет новый сервер обновлений. Поэтому вам необходимо повторно "
+"активировать свою лицензию (%s), чтобы продолжать получать обновления."
+
+#: license/License.php:205
+msgid ""
+"You are using a WordPress multisite. According to the plugin's licence "
+"agreement, you need one license per website. If you have only used one "
+"licence for all websites in your WordPress multisite, this was only possible "
+"because it was not technically prevented. We ask for your understanding if "
+"this causes you any inconvenience!"
+msgstr ""
+"Вы используете мультисайт WordPress. Согласно лицензионному соглашению "
+"плагина, вам нужна одна лицензия на каждый веб-сайт. Если вы использовали "
+"только одну лицензию для всех веб-сайтов на вашем мультисайте WordPress, то "
+"это возможно только потому, что это не было технически предотвращено. Мы "
+"просим вас понять, если это причиняет какие-либо неудобства!"
+
+#: license/License.php:223 license/License.php:255
+msgid "You have not yet activated a license for this plugin on your website."
+msgstr "Вы еще не активировали лицензию этого плагина на своем веб-сайте."
+
+#: license/License.php:312
+msgid ""
+"The license has been automatically deactivated because your website is "
+"running on a new domain. Please activate the license again!"
+msgstr ""
+"Лицензия была автоматически деактивирована, поскольку ваш веб-сайт работает "
+"на новом домене. Пожалуйста, активируйте лицензию повторно!"
+
+#: license/License.php:318
+msgid "License key"
+msgstr "Лицензионный ключ"
+
+#: license/License.php:383
+msgid "No programmatic activation found for this plugin."
+msgstr "Программная активация для этого плагина не найдена."
+
+#: license/LicenseActivation.php:85
+msgid ""
+"You have already activated a license for this plugin. Please deactivate it "
+"first!"
+msgstr ""
+"Вы уже активировали лицензию для этого плагина. Пожалуйста, сначала "
+"деактивируйте его!"
+
+#: license/PluginUpdateLicensePool.php:62
+msgid "You need to provide at least one license!"
+msgstr "Вам необходимо предоставить хотя бы одну лицензию!"
+
+#: license/PluginUpdateLicensePool.php:85
+msgid ""
+"You must provide an email address and a name if you want to subscribe to the "
+"newsletter!"
+msgstr ""
+"Вам необходимо указать адрес email и имя, если вы хотите подписаться на "
+"новостную рассылку!"
+
+#: license/PluginUpdateLicensePool.php:127
+msgid ""
+"You must have at least one license of a site in use within your multisite."
+msgstr ""
+"Вы должны иметь хотя бы одну лицензию сайта, используемую в рамках Вашего "
+"мультисайта."
+
+#. translators:
+#: license/PluginUpdateLicensePool.php:163
+msgid ""
+"The license server for checking the license cannot be reached. Please check "
+"if you are blocking access to %s e.g. by a firewall."
+msgstr ""
+"Невозможно связаться с сервером лицензий для проверки лицензии. Пожалуйста, "
+"проверьте, не блокируете ли вы доступ к %s, например, с помощью брандмауэра."
+
+#: rest/PluginUpdate.php:169
+msgid "Something went wrong. Please try again later!"
+msgstr "Что-то пошло не так. Пожалуйста, попробуйте позже!"
+
+#: view/AnnouncementView.php:67
+msgid "Dismiss"
+msgstr "Скрыть"
+
+#: view/PluginUpdateView.php:126
+msgid "You have not yet entered the license key."
+msgstr "Вы еще не ввели лицензионный ключ."
+
+#: view/PluginUpdateView.php:127
+msgid "Activate the license to receive automatic updates."
+msgstr "Активируйте лицензию для получения автоматических обновлений."
+
+#: view/PluginUpdateView.php:155
+msgid "License"
+msgstr "Лицензия"
+
+#. translators:
+#: view/PluginUpdateView.php:189
+msgid ""
+"You have not yet activated a license for the %s plugin. Activate the licence "
+"to receive automatic updates."
+msgstr ""
+"Вы еще не активировали лицензию на плагин %s. Активируйте лицензию, чтобы "
+"получать автоматические обновления."
+
+#. translators:
+#: view/PluginUpdateView.php:210
+msgid ""
+"Updates of %s are waiting for you when you activate your license. Activate "
+"your license in the settings now!"
+msgstr ""
+"Обновления %s ждут вас, когда вы активируете свою лицензию. Активируйте свою "
+"лицензию в настройках прямо сейчас!"
+
+#. translators:
+#: view/PluginUpdateView.php:217
+msgid "Activate your %s to use all features with great support. Activate now!"
+msgstr ""
+"Активируйте свои %s, чтобы использовать все функции с отличной "
+"техподдержкой. Активируйте сейчас!"
+
+#. translators:
+#: view/PluginUpdateView.php:221
+msgid ""
+"You have not yet activated your %s license. Activate your license now in the "
+"settings!"
+msgstr ""
+"Вы все еще не активировали свою лицензию %s. Активируйте свою лицензию в "
+"настройках сейчас!"
+
+#. translators:
+#: view/PluginUpdateView.php:228
+msgid ""
+"You are not allowed to use %s according to our license terms unless you have "
+"purchased a license. Activate it in the settings or buy one now!"
+msgstr ""
+"Вам не разрешается использовать %s в соответствии с нашими условиями "
+"лицензии, если вы не приобрели лицензию. Активируйте в настройках или купите "
+"сейчас!"
+
+#. translators:
+#: view/PluginUpdateView.php:236
+msgid ""
+"Attention! Pirates distribute %s for free without a license. Activate your "
+"license in the settings to show that you are not a pirate!"
+msgstr ""
+"Внимание! Пираты распространяют %s бесплатно без лицензии. Активируйте свою "
+"лицензию в настройках, чтобы показать, что вы не пират!"
+
+#. translators:
+#: view/PluginUpdateView.php:244
+msgid ""
+"You are probably using an illegally purchased copy of %s without a license. "
+"Check your license now!"
+msgstr ""
+"Вероятно, вы используете незаконно приобретенную копию %s без лицензии. "
+"Проверьте свою лицензию прямо сейчас!"
+
+#. translators:
+#: view/PluginUpdateView.php:252
+msgid ""
+"You are probably using an illegal copy of %s. Purchase a license now or "
+"activate your license in the settings and continue using this software with "
+"a clear conscience!"
+msgstr ""
+"Вероятно, вы используете незаконную копию %s. Купите лицензию сейчас или "
+"активируйте свою лицензию в настройках и продолжайте использовать это "
+"программное обеспечение с чистой совестью!"
+
+#: view/PluginUpdateView.php:288
+msgid "Activate now"
+msgstr "Активировать сейчас"

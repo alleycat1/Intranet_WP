@@ -1,0 +1,21 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+//@mixin sc_accordionposts--xs() {
+@media #{$media_xs} {
+	/* Accordion */
+	.sc_accordionposts .sc_accordionposts_item_top .sc_accordionposts_item_icon {
+		display: none;
+	}
+	.sc_accordionposts {
+		padding-left: 0;
+	}
+	.sc_accordionposts .sc_accordionposts_item_top .sc_accordionposts_item_title {
+		margin-left: 2px;
+		@include font(1.3rem, 100%, bold);
+	}
+
+	.sc_accordionposts .sc_accordionposts_item_inner {
+		padding: 2rem;
+	}
+}

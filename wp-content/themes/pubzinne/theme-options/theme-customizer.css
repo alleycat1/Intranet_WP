@@ -1,0 +1,225 @@
+/* Theme Customizer styles */
+
+#customize-header-actions .button {
+	margin: 0;
+	padding: 0 5px;
+	font-size: 12px;
+}
+#customize-header-actions .customize-action-reset {
+	float: right;
+	margin-left: 6px;
+	max-width: 50px;
+}
+
+#customize-header-actions .customize-action-refresh {
+	position: absolute;
+	z-index:1000;
+	left: 60px;
+	top: 10px;
+	max-width: 30px;
+}
+#customize-header-actions .customize-action-refresh:before {
+	margin: 0;
+}
+
+
+#customize-controls .customize-info div.customize-panel-description,
+#customize-controls .customize-info div.customize-section-description,
+#customize-controls div.no-widget-areas-rendered-notice {
+	display:block;
+}
+#customize-controls #customize-info div.customize-panel-description {
+	display:none;
+}
+#customize-controls .customize-section-description-container {
+	margin-bottom:0;
+}
+#customize-controls div.customize-section-description {
+	color: #555d66;
+	background: #fff;
+	padding: 12px 15px;
+	border-top: 1px solid #ddd;
+}
+#customize-controls .customize-section-title + .customize-section-description {
+	margin: -1px -12px 0;
+}
+#customize-controls div.customize-panel-description,
+#customize-controls div.customize-panel-description p,
+#customize-controls div.customize-section-description,
+#customize-controls div.customize-section-description p,
+.customize-control-description {
+	font-size: 12px;
+	line-height: 18px;
+}
+.customize-control-info > div {
+	margin-top:2em !important;
+	padding: 0.8em 10px;
+	background-color: #fcfcfc;
+	color: #626467;
+	border-top: 1px solid #ddd !important;
+	border-bottom: 1px solid #ddd !important;
+	border-left: 4px solid #1e8cbe;
+	margin: 6px -12px;
+}
+.customize-control-info > div > .customize-control-title {
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 1px #fff;
+	font-weight: 400;
+	margin-bottom:0;
+}
+.customize-control-info > div > .customize-control-description {
+	margin-top:4px;
+}
+.customize-control-field-wrap {
+	display: block;
+	position:relative;
+}
+
+#customize-theme-controls li > label,
+#customize-theme-controls li > div {
+	display:block;
+	margin-top: 0.5em;
+}
+
+#customize-theme-controls li:not(.customize-section-description-container):not(.customize-control-info) + li > label,
+#customize-theme-controls li:not(.customize-section-description-container):not(.customize-control-info) + li > div {
+	padding-top:0.8em;
+	border-top: 1px dotted #ddd;
+}
+
+.customize-control > label > label,
+.customize-control > div > label {
+	display:inline-block;
+	margin:0 1em 0 0;
+	padding:0;
+	border:none;
+}
+.customize-control > label > label > input[type="radio"],
+.customize-control > div > label > input[type="radio"] {
+	margin-right:0;
+}
+
+.customize-control-background img,
+.customize-control-cropped_image img,
+.customize-control-header img,
+.customize-control-image img,
+.customize-control-media img,
+.customize-control-upload img {
+	width: auto;
+}
+
+#customize-control-header_image .customize-control-description {
+	display:none;
+}
+
+
+/* Range slider */
+.customize-control-range .customize-control-field-wrap {
+	margin-top: 1em;
+}
+
+
+/* Media selector */
+.customize-control .widget_field_type_image > input[type="text"],
+.customize-control .widget_field_type_media > input[type="text"],
+.customize-control .widget_field_type_audio > input[type="text"],
+.customize-control .widget_field_type_video > input[type="text"] {
+	width: 60%;
+}
+.customize-control .widget_field_type_image > a.trx_addons_media_selector,
+.customize-control .widget_field_type_media > a.trx_addons_media_selector,
+.customize-control .widget_field_type_audio > a.trx_addons_media_selector,
+.customize-control .widget_field_type_video > a.trx_addons_media_selector {
+	width: 39%;
+}
+
+
+/* Color scheme editor */
+.customize-control-scheme_editor .pubzinne_scheme_editor_type .pubzinne_scheme_editor_row_cell {
+	padding:0;
+}
+.customize-control-scheme_editor .pubzinne_scheme_editor_type .pubzinne_scheme_editor_row_cell:first-child {
+	width: 32%;
+}
+.customize-control-scheme_editor .pubzinne_scheme_editor_type .pubzinne_scheme_editor_row_cell_span {
+	width: 68%;
+}
+
+.customize-control-scheme_editor .pubzinne_scheme_editor_colors .pubzinne_scheme_editor_header_cell {
+	font-size: 12px;
+}
+.customize-control-scheme_editor .pubzinne_scheme_editor_colors .pubzinne_scheme_editor_row_cell,
+.customize-control-scheme_editor .pubzinne_scheme_editor_colors .pubzinne_scheme_editor_row_cell input {
+	font-size: 11px;
+	line-height:13px;
+}
+.customize-control-scheme_editor .pubzinne_scheme_editor_colors .pubzinne_scheme_editor_row_cell input {
+	padding: 3px 2px;
+}
+.customize-control-scheme_editor .pubzinne_scheme_editor_colors .pubzinne_scheme_editor_header_cell,
+.customize-control-scheme_editor .pubzinne_scheme_editor_colors .pubzinne_scheme_editor_row_cell {
+	width: 17%;
+	padding: 0;
+}
+.customize-control-scheme_editor .pubzinne_scheme_editor_colors .pubzinne_scheme_editor_header_cell:first-child,
+.customize-control-scheme_editor .pubzinne_scheme_editor_colors .pubzinne_scheme_editor_row_cell:first-child {
+	width: 15%;
+	font-size: 11px;
+}
+.cp-color-picker {
+	z-index: 1000000;
+}
+
+
+/* Text editor */
+.mce-floatpanel, .mce-tooltip {
+	z-index: 9999999 !important;
+}
+
+
+/* Widgets parameters
+ *
+ * Uncomment first row in each selector if you want display ThemeREX Widgets as SOW - fixed to the right side of panel
+ * If you remove '[id^="customize-control-widget_trx_addons_"]' part from first line - standard WP Widgets will be moved also
+ *
+ */
+.customize-control-widget_form .widget-control-actions {
+	margin: 1.5em 0;
+}
+.customize-control-widget_form.wide-widget-control .widget-inside {
+   	position: fixed;
+    left: 18%;
+   	top: 0 !important;
+    max-height: 100vh !important;
+   	border: 1px solid #e5e5e5;
+    overflow-y: scroll;
+	-webkit-box-sizing: border-box;
+    	-ms-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+.customize-control-widget_form.wide-widget-control .widget-inside .widget-content {
+	max-width: 360px !important;
+	min-width: 270px !important;
+}
+@media (max-width: 1667px) {
+	.customize-control-widget_form.wide-widget-control .widget-inside {
+    	left: 300px;
+    }
+	.customize-control-widget_form.wide-widget-control .widget-inside .widget-content {
+		max-width: 300px !important;
+	}
+}
+@media (max-width: 1279px) {
+	.customize-control-widget_form.wide-widget-control .widget-inside {
+	   	position: static !important;
+    	left: 0 !important;
+	   	top: 0 !important;
+    	max-height: none !important;
+	   	border: none;
+    	overflow: visible;
+	}
+	.customize-control-widget_form.wide-widget-control .widget-inside .widget-content {
+		max-width: none !important;
+	}
+}

@@ -1,0 +1,281 @@
+/* WP Editor styles (for both: backend and frontend)
+-----------------------------------------------------------------*/
+/* Accent */
+.trx_addons_accent {
+  color: #efa758;
+}
+
+.trx_addons_accent_bg {
+  color: #fff;
+  background-color: #efa758;
+  padding: 0 0.4em;
+  display: inline-block;
+}
+
+.trx_addons_hover {
+  color: #b88144;
+}
+
+/* Inverse */
+.trx_addons_inverse {
+  color: #fff;
+  background-color: #000;
+  padding: 0 0.4em;
+  display: inline-block;
+}
+
+/* Dark text */
+.trx_addons_dark {
+  color: #000;
+}
+
+/* Tiny text */
+.trx_addons_tiny_text {
+  font-size: 11px;
+  line-height: 1.3em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Dropcap */
+.trx_addons_dropcap {
+  float: left;
+  display: block;
+  font-size: 2.21437em;
+  padding: 0;
+  margin: 0.25em 0.5em 0 0;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  text-align: center;
+  overflow: hidden;
+  color: #fff;
+  background-color: #000;
+  -webkit-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.trx_addons_dropcap_style_2 {
+  background-color: #efa758;
+}
+
+/* Tooltip */
+.trx_addons_tooltip {
+  color: #efa758;
+  border-bottom: 1px solid #efa758;
+  position: relative;
+  cursor: default;
+}
+
+[data-tooltip-text]:after {
+  display: inline-block;
+  vertical-align: top;
+  pointer-events: none;
+  padding: 6px 10px;
+  font-size: 12px;
+  line-height: 16px;
+  position: absolute;
+  z-index: 1;
+  top: -36px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  white-space: nowrap;
+  -webkit-transform: translate(-50%, 20px);
+  -ms-transform: translate(-50%, 20px);
+  transform: translate(-50%, 20px);
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease;
+  -ms-transition: -ms-transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  border-width: 0;
+  background-color: #191e23;
+  border-color: #191e23;
+  color: #fff;
+}
+
+[data-tooltip-text]:after {
+  content: attr(data-tooltip-text);
+}
+
+[data-tooltip-text]:before {
+  content: ' ';
+  position: absolute;
+  z-index: 1;
+  top: -8px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  display: block;
+  border-style: solid;
+  border-width: 5px;
+  border-top-color: #191e23;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-bottom-color: transparent !important;
+  -webkit-transform: translate(-50%, 20px);
+  -ms-transform: translate(-50%, 20px);
+  transform: translate(-50%, 20px);
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease;
+  -ms-transition: -ms-transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+[data-tooltip-text]:hover:after,
+[data-tooltip-text]:hover:before {
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+
+/* Strike */
+del {
+  color: #ddd;
+  text-decoration: line-through;
+}
+
+/* No margin */
+.trx_addons_no_margin {
+  margin: 0;
+}
+
+/* List styles */
+ul[class*="trx_addons_list"] {
+  list-style-type: none;
+  padding-left: 1.2em;
+}
+
+ul[class*="trx_addons_list"] > li {
+  position: relative;
+}
+
+ul[class*="trx_addons_list"] > li:before {
+  font-family: "trx_addons_icons";
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: -1em;
+  line-height: inherit;
+}
+
+ul.trx_addons_list_success,
+ul.trx_addons_list_error,
+ul.trx_addons_list_plus,
+ul.trx_addons_list_minus {
+  padding-left: 1.5em;
+}
+
+ul.trx_addons_list_success > li:before,
+ul.trx_addons_list_error > li:before,
+ul.trx_addons_list_plus > li:before,
+ul.trx_addons_list_minus > li:before {
+  left: -1.3em;
+}
+
+ul[class*="trx_addons_list_dot"] > li:before {
+  content: '\e8b6';
+}
+
+ul[class*="trx_addons_list_custom"] > li:before {
+  content: '\e884';
+}
+
+ul[class*="trx_addons_list_success"] > li:before {
+  content: '\e874';
+}
+
+ul[class*="trx_addons_list_error"] > li:before {
+  content: '\e875';
+}
+
+ul[class*="trx_addons_list_info"] > li:before {
+  content: '\e87f';
+}
+
+ul[class*="trx_addons_list_plus"] > li:before {
+  content: '\e876';
+}
+
+ul[class*="trx_addons_list_minus"] > li:before {
+  content: '\e877';
+}
+
+ul[class*="trx_addons_list_help"] > li:before {
+  content: '\e87c';
+}
+
+ul[class*="trx_addons_list_attention"] > li:before {
+  content: '\e880';
+}
+
+ul[class*="trx_addons_list"][class*="_circled"] {
+  padding-left: 1.8em;
+}
+
+ul[class*="trx_addons_list"][class*="_circled"] > li:before {
+  display: inline-block;
+  color: #fff;
+  background-color: #efa758;
+  font-size: 10px;
+  left: -2.4em;
+  top: 0.4em;
+  width: 1.7em;
+  height: 1.7em;
+  line-height: 1.7em;
+  text-align: center;
+  -webkit-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+}
+
+ul.trx_addons_list_parameters {
+  padding-left: 0 !important;
+}
+
+ul.trx_addons_list_parameters > li:before {
+  display: none;
+}
+
+ul.trx_addons_list_parameters > li + li {
+  padding-top: 0.2em;
+  margin-top: 0.2em;
+  border-top: 1px solid #ddd;
+}
+
+.trx_addons_list_parameters > li {
+  white-space: nowrap;
+}
+
+.trx_addons_list_parameters > li > strong {
+  display: inline-block;
+  width: 75%;
+  text-align: left;
+  font-family: inherit;
+  font-weight: inherit;
+  white-space: normal;
+  vertical-align: top;
+  color: inherit;
+}
+
+.trx_addons_list_parameters > li > em {
+  display: inline-block;
+  width: 25%;
+  text-align: left;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  white-space: normal;
+  vertical-align: top;
+  color: inherit;
+}
+
+/*# sourceMappingURL=trx_addons.editor.css.map */

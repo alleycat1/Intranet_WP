@@ -1,0 +1,28 @@
+@media (max-width: 767px) {
+  .sc_supertitle .sc_supertitle_icon_empty_column,
+  .sc_supertitle .sc_supertitle_no_icon {
+    position: absolute;
+    left: 0;
+  }
+
+  .sc_supertitle .sc_supertitle_media_block {
+    background-color: transparent !important;
+  }
+
+  .sc_supertitle .sc_supertitle_icon_empty_column {
+    padding-left: 0;
+    padding-bottom: inherit;
+    top: 0;
+    bottom: 20px;
+  }
+
+  .sc_supertitle_columns_wrap > [class*="trx_addons_column-"] {
+    padding-left: 2rem;
+  }
+
+  .sc_supertitle_columns_wrap.trx_addons_columns_wrap {
+    display: block;
+  }
+}
+
+/*# sourceMappingURL=supertitle.responsive.css.map */

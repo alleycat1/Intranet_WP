@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA,0BAAoB;EAChB,WAAW;EACd;uDACsD;IACrD,UAAU,EAAC,GAAG;;;EAEf,oCAAqC;IACpC,SAAS,EAAE,IAAI;;;AAKjB,yBAAoB;EACnB,WAAW;EACX,uCAAwC;IACvC,KAAK,EAAE,eAAe",
+"sources": ["icons.responsive.scss"],
+"names": [],
+"file": "icons.responsive.css"
+}

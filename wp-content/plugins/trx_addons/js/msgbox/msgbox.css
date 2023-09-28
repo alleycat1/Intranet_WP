@@ -1,0 +1,229 @@
+/* Message box
+-----------------------------------------------------------------*/
+#trx_addons_modal_bg {
+  position: fixed;
+  z-index: 100000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: none;
+}
+
+.trx_addons_msgbox {
+  position: fixed;
+  z-index: 100001;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -500%);
+  -ms-transform: translate(-50%, -500%);
+  transform: translate(-50%, -500%);
+  max-width: 40vw;
+  min-width: 280px;
+  overflow: hidden;
+  background-color: #fff;
+  color: #333;
+  opacity: 0;
+  line-height: 1.4em;
+  -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease;
+  -ms-transition: -ms-transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.trx_addons_msgbox.show {
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.trx_addons_msgbox .trx_addons_msgbox_close {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  font-size: 16px;
+  padding: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+}
+
+.trx_addons_msgbox_simple .trx_addons_msgbox_close {
+  color: #0788be;
+}
+
+.trx_addons_msgbox .trx_addons_msgbox_icon {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 13px;
+  left: 18px;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  border: 2px solid #0788be;
+  font-size: 14px;
+  color: #0788be;
+}
+
+.trx_addons_msgbox .trx_addons_msgbox_header + .trx_addons_msgbox_icon {
+  color: #fff;
+  border-color: #fff;
+}
+
+.trx_addons_msgbox .trx_addons_msgbox_icon:before {
+  padding: 0;
+  margin: 0;
+}
+
+.trx_addons_msgbox .trx_addons_msgbox_header {
+  background-color: #0788be;
+  color: #fff;
+  padding: 1em 2em 1em 3.75em;
+  font-size: 1.25em;
+  line-height: 1.25em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.trx_addons_msgbox_body {
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  max-height: 60vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  line-height: 1.7857em;
+}
+
+.trx_addons_msgbox_body,
+.trx_addons_msgbox_buttons {
+  padding: 0 2em;
+  margin: 2em 0;
+}
+
+.trx_addons_msgbox_simple .trx_addons_msgbox_icon {
+  top: 1.75em;
+}
+
+.trx_addons_msgbox_simple .trx_addons_msgbox_body,
+.trx_addons_msgbox_simple .trx_addons_msgbox_buttons {
+  padding-left: 5em;
+}
+
+.trx_addons_msgbox_body p {
+  margin: 0;
+}
+
+.trx_addons_msgbox_body p + p {
+  margin-top: 0.3em;
+}
+
+.trx_addons_msgbox_buttons {
+  text-align: right;
+}
+
+/* Dialog popup */
+.trx_addons_msgbox_dialog .trx_addons_msgbox_buttons {
+  margin-top: 20px;
+}
+
+.trx_addons_msgbox_dialog .trx_addons_msgbox_button {
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin-right: 6px;
+  min-width: 6em;
+  background-color: #4b4b4b;
+  color: #ffffff;
+  -webkit-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+  -ms-transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.trx_addons_msgbox_dialog .trx_addons_msgbox_button:hover {
+  background-color: #0788be;
+}
+
+.trx_addons_msgbox_dialog input[type="text"],
+.trx_addons_msgbox_dialog input[type="email"],
+.trx_addons_msgbox_dialog textarea {
+  width: 100%;
+  margin: 0.5em 0;
+}
+
+/* Warning popup */
+.trx_addons_msgbox_warning .trx_addons_msgbox_header {
+  background-color: #a63a4b;
+}
+
+.trx_addons_msgbox_warning.trx_addons_msgbox_simple .trx_addons_msgbox_icon {
+  color: #a63a4b;
+  border-color: #a63a4b;
+}
+
+.trx_addons_msgbox_warning.trx_addons_msgbox_simple .trx_addons_msgbox_close {
+  color: #a63a4b;
+}
+
+.trx_addons_msgbox_warning .trx_addons_msgbox_button:hover {
+  background-color: #a63a4b;
+}
+
+/* Success popup */
+.trx_addons_msgbox_success .trx_addons_msgbox_header {
+  background-color: #517d48;
+}
+
+.trx_addons_msgbox_success.trx_addons_msgbox_simple .trx_addons_msgbox_icon {
+  color: #517d48;
+  border-color: #517d48;
+}
+
+.trx_addons_msgbox_success.trx_addons_msgbox_simple .trx_addons_msgbox_close {
+  color: #517d48;
+}
+
+.trx_addons_msgbox_success .trx_addons_msgbox_button:hover {
+  background-color: #517d48;
+}
+
+/* Info popup */
+.trx_addons_msgbox_info .trx_addons_msgbox_header {
+  background-color: #4cb2e1;
+}
+
+.trx_addons_msgbox_info.trx_addons_msgbox_simple .trx_addons_msgbox_icon {
+  color: #4cb2e1;
+  border-color: #4cb2e1;
+}
+
+.trx_addons_msgbox_info.trx_addons_msgbox_simple .trx_addons_msgbox_close {
+  color: #4cb2e1;
+}
+
+.trx_addons_msgbox_info .trx_addons_msgbox_button:hover {
+  background-color: #4cb2e1;
+}
+
+/*# sourceMappingURL=msgbox.css.map */

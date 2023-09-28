@@ -1,0 +1,226 @@
+/* Audio player's styles */
+.trx_addons_audio_wrap {
+  position: relative;
+}
+
+.trx_addons_audio_list {
+  position: relative;
+}
+
+.trx_addons_audio_wrap.list .trx_addons_audio_player:not(:first-child) {
+  position: absolute;
+  z-index: 1;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.trx_addons_audio_wrap.resized.list .trx_addons_audio_player {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.trx_addons_audio_wrap.resized.list .trx_addons_audio_player.current {
+  opacity: 1;
+  z-index: 2;
+}
+
+.trx_addons_audio_wrap.resized.list .trx_addons_audio_player_wrap {
+  position: relative;
+  height: 100%;
+}
+
+.trx_addons_audio_wrap.resized.list .audio_frame {
+  bottom: 0;
+  position: absolute;
+}
+
+.trx_addons_audio_player {
+  padding: 1em;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.trx_addons_audio_player.with_cover {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.trx_addons_audio_player.with_cover:after {
+  content: ' ';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.trx_addons_audio_player.with_cover .mejs-controls {
+  background: none !important;
+}
+
+.trx_addons_audio_player.without_cover {
+  border: 1px solid #f0f0f0;
+  background-color: #f7f7f7;
+}
+
+.trx_addons_audio_player .audio_info {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.trx_addons_audio_player.with_cover .audio_caption,
+.trx_addons_audio_player.with_cover .audio_description {
+  color: #fff;
+}
+
+.trx_addons_audio_player .audio_author,
+.trx_addons_audio_player .audio_caption {
+  margin: 0.5em 0 1em;
+}
+
+.trx_addons_audio_player .audio_author + .audio_caption {
+  margin-top: -0.5em;
+}
+
+.trx_addons_audio_player .audio_frame {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.trx_addons_audio_player .audio_info + .audio_embed,
+.trx_addons_audio_player .audio_info + .audio_frame {
+  margin-top: 1em;
+}
+
+.widget_subtitle + .trx_addons_audio_wrap {
+  margin-top: 2em;
+}
+
+.trx_addons_audio_player .audio_now_playing {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.trx_addons_audio_wrap .trx_addons_audio_navigation,
+.trx_addons_audio_player .audio_now_playing {
+  font-size: 0.9em;
+  line-height: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  z-index: 2;
+  position: relative;
+  color: #fff;
+}
+
+.trx_addons_audio_wrap .trx_addons_audio_navigation {
+  position: absolute;
+  z-index: 2;
+  top: 2.55em;
+  right: 2.5em;
+  bottom: auto;
+  left: auto;
+}
+
+.trx_addons_audio_wrap .trx_addons_audio_navigation > span {
+  padding: 0 5px;
+  cursor: pointer;
+  display: inline-block;
+  -webkit-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+  vertical-align: top;
+}
+
+.trx_addons_audio_wrap .trx_addons_audio_navigation > span:hover {
+  opacity: 1;
+}
+
+.trx_addons_audio_wrap .trx_addons_audio_navigation > span span {
+  font-size: 1.4rem;
+  line-height: 1em;
+  font-weight: 400;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: -1px;
+}
+
+.trx_addons_audio_wrap.hide_time .mejs-time {
+  display: none !important;
+}
+
+.trx_addons_audio_wrap.hide_scroll .mejs-time-rail {
+  display: none !important;
+}
+
+.trx_addons_audio_wrap.hide_volume .mejs-horizontal-volume-slider {
+  display: none !important;
+}
+
+.hide_scroll .mejs-controls .mejs-duration-container {
+  margin-left: 10px;
+}
+
+.trx_addons_audio_player .mejs-container {
+  min-height: 40px;
+}
+
+@media (max-width: 1439px) {
+  .audio_now_playing {
+    margin-top: 0;
+  }
+
+  .trx_addons_audio_navigation {
+    position: absolute;
+    z-index: 2;
+    top: 2em;
+    right: 2em;
+    bottom: auto;
+    left: auto;
+  }
+}
+@media (max-width: 1279px) {
+  .trx_addons_audio_navigation {
+    position: absolute;
+    z-index: 2;
+    top: 2em;
+    right: 1.6em;
+    bottom: auto;
+    left: auto;
+  }
+}
+@media (max-width: 767px) {
+  .trx_addons_audio_wrap.list .trx_addons_audio_player {
+    padding-top: 5em;
+  }
+
+  .trx_addons_audio_wrap .mejs-horizontal-volume-slider {
+    display: none !important;
+  }
+
+  .trx_addons_audio_navigation {
+    position: absolute;
+    z-index: 2;
+    top: 2.55em;
+    right: auto;
+    bottom: auto;
+    left: 1.2em;
+  }
+}
+
+/*# sourceMappingURL=audio.css.map */

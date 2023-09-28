@@ -1,0 +1,8 @@
+@media (max-width: 1279px) {
+  /* Hotspot */
+  .sc_hotspot_image_loaded ~ .sc_hotspot_item_visible_hover {
+    opacity: 1;
+  }
+}
+
+/*# sourceMappingURL=icompare.responsive.css.map */

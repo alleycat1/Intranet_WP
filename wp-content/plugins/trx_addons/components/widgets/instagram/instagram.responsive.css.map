@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA,0BAAoB;EAChB,uBAAuB;EAC1B;;;;;;;wEAOuE;IACtE,KAAK,EAAE,GAAG;;;AAKZ,yBAAoB;EAChB,uBAAuB;EAC1B;;;;;;;;;wEASuE;IACtE,KAAK,EAAE,GAAG",
+"sources": ["instagram.responsive.scss"],
+"names": [],
+"file": "instagram.responsive.css"
+}

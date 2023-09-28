@@ -1,0 +1,127 @@
+
+@mixin swap-margin( $left, $right ) {
+    margin-left: $left;
+    margin-right: $right;
+}
+
+.posts-table-controls {
+
+    @media screen and (min-width:$small-breakpoint) {
+
+        > div {
+            @include swap-margin(0, 25px);
+        }
+
+        .posts-table-select-filters:first-child,
+            .dataTables_length:first-child,
+            .dataTables_filter:first-child,
+            > .posts-table-reset:first-child {
+            @include swap-margin(auto, 0);
+        }
+    }
+
+    .posts-table-select-filters label {
+        @include swap-margin(6px, 0);
+    }
+
+    .dataTables_filter input[type="search"] {
+        @include swap-margin(0, 6px);
+    }
+
+    select {
+        padding-left: 1em;
+        padding-right: 0.5em;
+    }
+
+    .posts-table-select-filters select,
+    .posts-table-select-filters .select2-container {
+        @include swap-margin(5px, 0);
+    }
+
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        padding-left: 20px; // TO
+        padding-right: 8px; // TO
+    }
+
+}
+
+.posts-table-dropdown {
+    .select2-results__option {
+        padding-left: 0;
+        padding-right: 10px;
+    }
+}
+
+.posts-table-reset {
+    @include swap-margin(0, 20px);
+
+    .posts-table-select-filters & {
+        @include swap-margin(0, 10px);
+    }
+
+    @media screen and (min-width:$small-breakpoint) {
+        .posts-table-controls > &:first-child {
+            @include swap-margin(0, 4px);
+        }
+    }
+
+    a {
+        &::before {
+            content: '';
+            margin: 0;
+        }
+
+        &::after {
+            @include icon;
+            content: "\e965"; // undo
+            font-size: 0.85em;
+            margin-left: 6px;
+            text-decoration: none;
+        }
+    }
+}
+
+#{$table-class} {
+    th,
+    td {
+        text-align: right;
+    }
+
+    // Responsive rows
+    tr.child {
+        .dtr-title {
+            @include swap-margin(15px, 0);
+        }
+    }
+}
+
+table#{$table-class} {
+
+    thead .sorting,
+    thead .sorting_desc {
+        background-position: 0%;
+    }
+
+    thead .sorting_asc {
+        background-position: 0% 55%;
+    }
+
+    // Responsive rows
+    &.dtr-inline.collapsed > tbody > tr[role="row"] > td.dtr-control,
+    &.dtr-inline.collapsed > tbody > tr[role="row"] > th.dtr-control {
+        padding-left: 0;
+        padding-right: 30px;
+    }
+
+    &.dtr-inline.collapsed > tbody > tr[role="row"] > td.dtr-control::before,
+    &.dtr-inline.collapsed > tbody > tr[role="row"] > th.dtr-control::before {
+        left: auto;
+        right: 5px;
+    }
+
+    &.dtr-column > tbody > tr > td.control::before,
+    &.dtr-column > tbody > tr > th.control::before {
+        left: auto;
+        right: 12px;
+    }
+}

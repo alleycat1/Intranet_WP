@@ -1,0 +1,18 @@
+$prefix: '' !default;
+
+@if '' == $prefix {
+	@error '$prefix variable not defined';
+}
+
+$table-class: '.#{$prefix}' !default;
+$wrapper-class: '.#{$prefix}-wrapper' !default;
+$controls-class: '.#{$prefix}-controls' !default;
+$filters-class: '.#{$prefix}-select-filters' !default;
+$reset-class: '.#{$prefix}-reset' !default;
+
+$control-bottom-margin: 8px;
+$control-side-margin: 10px;
+$control-input-height: 32px;
+$small-breakpoint: 600px;
+$medium-breakpoint: 768px;
+$large-breakpoint: 1024px;

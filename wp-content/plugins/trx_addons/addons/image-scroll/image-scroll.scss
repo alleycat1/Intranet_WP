@@ -1,0 +1,79 @@
+@import "../../css/_mixins.scss";
+@import "../../css/_trx_addons.vars.scss";
+
+
+/* Image scroll */
+:root {
+	--trx-addons-image-scroll-duration: 3s;
+	--trx-addons-image-scroll-start-pos: 0;
+	--trx-addons-image-scroll-width: 370px;
+	--trx-addons-image-scroll-height: 200px;
+}
+[class*="trx_addons_image_scroll_direction_"] {
+	.elementor-image {
+		overflow: hidden;
+		max-height: var(--trx-addons-image-scroll-height);
+
+		img {
+			max-width: none;
+			@include transition(transform var(--trx-addons-image-scroll-duration) ease-in-out);
+		}
+	}
+
+	&.trx_addons_image_scroll_event_wheel {
+		--trx-addons-image-scroll-start-pos: 0;
+
+		.elementor-widget-container {
+			overflow: hidden;
+			width: 100%;
+		}
+		.elementor-image {
+			overflow-x: hidden;
+			overflow-y: scroll;
+			margin-right: -16px;
+		}
+	}
+
+	&.trx_addons_image_scroll_direction_up {
+		.elementor-image img {
+			width: 100%;
+			@include translateY(var(--trx-addons-image-scroll-start-pos));
+		}
+		&.trx_addons_image_scroll_event_hover:hover .elementor-image img {
+			@include translateY(calc( -100% + var(--trx-addons-image-scroll-height) ));
+		}
+	}
+
+	&.trx_addons_image_scroll_direction_down {
+		.elementor-image img {
+			width: 100%;
+			@include translateY(calc( -100% + var(--trx-addons-image-scroll-start-pos) + var(--trx-addons-image-scroll-height) ));
+		}
+		&.trx_addons_image_scroll_event_hover:hover .elementor-image img {
+			@include translateY(0);
+		}
+	}
+
+	&.trx_addons_image_scroll_direction_left {
+		.elementor-image img {
+			width: auto;
+			max-height: var(--trx-addons-image-scroll-height);
+			@include translateX(var(--trx-addons-image-scroll-start-pos));
+		}
+		&:hover .elementor-image img {
+			@include translateX(calc( -100% + var(--trx-addons-image-scroll-width) ));
+		}
+	}
+
+	&.trx_addons_image_scroll_direction_right {
+		.elementor-image img {
+			width: auto;
+			max-height: var(--trx-addons-image-scroll-height);
+			@include translateX(calc( -100% + var(--trx-addons-image-scroll-start-pos) + var(--trx-addons-image-scroll-width) ));
+		}
+		&:hover .elementor-image img {
+			@include translateX(0);
+		}
+	}
+
+}

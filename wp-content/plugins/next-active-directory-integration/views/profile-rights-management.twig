@@ -1,0 +1,86 @@
+<!-- get nonce -->
+<script type="application/javascript">
+    document['next_ad_int'] = document['next_ad_int'] || {};
+    document['next_ad_int']['security'] = '{{ nonce }}';
+    document['next_ad_int']['blog-rel-security'] = '{{ blog_rel_nonce }}';
+    document['next_ad_int']['new-profile'] = new next_ad_int.model.Profile(null, '{{ i18n.newProfile }}');
+    document['next_ad_int']['none-profile'] = new next_ad_int.model.Profile(-1, '{{ i18n.none }}');
+
+    // I18N
+    document['next_ad_int']['i18n'] = document['next_ad_int']['i18n'] || {};
+    document['next_ad_int']['i18n']['discard-changes'] = '{{ i18n.warningDiscardChanges }}';
+    document['next_ad_int']['i18n']['delete-profile'] = {
+        associatedSites: '{{ i18n.deleteProfileAssociatedSites }}',
+        associated: '{{ i18n.deleteProfileAssociated }}'
+    };
+</script>
+<div ng-app="next_ad_int-module">
+    <div ng-controller="ProfileController">
+        <h1>Profile Options</h1>
+        <span>{{ i18n.configureSettingsForProfile }}</span>
+        <span>
+             <select ng-model="activeProfile"
+                     ng-change="changeProfile(activeProfile, true)"
+                     ng-options="profile.profileName for profile in profiles"></select>
+                    <button class="button adi-button button-primary" ng-click="create()" ng-disabled="runningRequests >
+                     0">
+                        {{ i18n.createNewProfile }}
+                    </button>
+                    <button class="button adi-button" ng-click="remove(activeProfile)"
+                            ng-disabled="runningRequests > 0 || activeProfile['profileId'] == -1">
+                        {{ i18n.deleteProfile }}
+                    </button>
+        </span>
+        <form class="form adi-form ng-hide" name="form" ng-hide="-1 === activeProfile.profileId">
+            <div class="block-ui" ng-hide="runningRequests == 0"></div>
+
+            {% import "option/page.twig" as optionPage %}
+            {{ optionPage.create("next_ad_int_profile_configuration", 1, i18n) }}
+        </form>
+    </div>
+
+    <div id="delete-confirm" ng-controller="DeleteController">
+        <div class="alertify ng-hide" ng-hide="!show">
+            <div class="dialog">
+                <div>
+                    <div id="next_ad_int-modal-content">
+                        {# show this template only if there a more than 5 or less than 1 associated profiles #}
+                        <div ng-hide="showProfileList">
+                            <p>{{ i18n.deleteProfileAssociated }}</p>
+
+                            <p ng-hide="associations.length == 0">
+                                <a target="_blank"
+                                   ng-href="{{ blog_profile_relationship_url }}&id={{ '{{ associationIds }}' }}">
+                                    {{ i18n.viewAssociatedProfiles }}
+                                </a>
+                            </p>
+                        </div>
+
+                        {# show this template only if there a less than 6 and more than 0 associated profiles #}
+                        <div ng-hide="!showProfileList">
+                            <p>{{ i18n.deleteProfileAssociatedSites }}</p>
+                            <ul>
+                                <li ng-repeat="association in associations" ng-bind="association.path">test</li>
+                            </ul>
+                            <hr/>
+                            <div>
+                                {{ i18n.assignNewProfile }}
+
+                                <select ng-model="newProfile">
+                                    <option value="{{ '{{ profile.profileId }}' }}"
+                                            ng-repeat="profile in profiles | filter:newProfileFilter">{{ '{{ profile.profileName }}' }}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    <p></p>
+                    <nav>
+                        <button class="cancel" tabindex="-1" ng-click="cancel()">Cancel</button>
+                        <button class="ok" tabindex="-1" ng-click="confirm()">Ok</button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

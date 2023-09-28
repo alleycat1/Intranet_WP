@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA,yBAAoB;EAChB,UAAU;EACb,wCAAyC;IACxC,KAAK,EAAC,eAAe;;;EAEtB,+BAAgC;IAC/B,UAAU,EAAC,GAAG;IACd,OAAO,EAAC,CAAC;;;AAKX,yBAAoB;EAChB,UAAU;EACb,cAAe;IACd,SAAS,EAAC,KAAK",
+"sources": ["form.responsive.scss"],
+"names": [],
+"file": "form.responsive.css"
+}

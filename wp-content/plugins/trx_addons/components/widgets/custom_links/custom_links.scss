@@ -1,0 +1,98 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/* Widget: Custom links */
+.widget_custom_links .custom_links_list {
+	padding-left: 0;
+	display: block !important;
+	position: static;
+	top: auto;
+	left: auto;
+	bottom: auto;
+	right: auto;
+	width: auto;
+}
+.widget_custom_links .custom_links_list_item {
+	@include flex;
+	@include flex-direction(column);
+	@include flex-justify-content(flex-start);
+	@include flex-align-items(flex-start);
+	position: static;
+	top: auto;
+	left: auto;
+	bottom: auto;
+	right: auto;	
+	margin: 0 !important;
+	padding: 0;
+}
+.widget_custom_links .custom_links_list_item + .custom_links_list_item {
+	margin-top: 0.3em;
+}
+.widget_custom_links .custom_links_list_item:before {
+	display:none;
+}
+.widget_custom_links .custom_links_list_item_link {
+	position: relative !important;
+	display: inline-block;
+	vertical-align: top;
+	padding: 0.3em;
+}
+.widget_custom_links span.custom_links_list_item_link {
+	font-weight: bold;
+}
+.widget_custom_links .custom_links_list_item.with_icon .custom_links_list_item_link {
+	padding-left: 1.5em;
+}
+.widget_custom_links .custom_links_list_item_image {
+	@include abs-lc;
+	@include box(1.25em, auto);
+	max-width: 100%;
+}
+.widget_custom_links .custom_links_list_item_icon {
+	@include abs-lc;
+	@include box(1.5em, 1.5em, 1.5em);
+}
+.widget_custom_links .custom_links_list_item_icon.sc_icon_type_svg svg,
+.widget_custom_links .custom_links_list_item_icon.sc_icon_type_svg object {
+	@include box(1em, 1em, 1em);
+}
+.widget_custom_links .custom_links_list_item_description {
+	display: block;
+	font-size: 0.75em;
+	font-style: italic;
+	line-height: 1.7em;
+}
+.widget_custom_links .custom_links_list_item_description + .custom_links_list_item_button {
+	margin-top: 0.5em;
+}
+.widget_custom_links .custom_links_list_item_label {
+	@include abs-rt(-5em, -2em);
+	@include font(10px, 15px, normal);
+	background-color: #666;
+	border-color: #666;
+	color: #fff;
+	display: inline-block;
+	vertical-align: top;
+	padding: 0.3em 1em;
+	pointer-events: none;
+}
+.widget_custom_links .custom_links_list_item_label:before {
+	content: " ";
+	@include abs-lt(1em, 100%);
+	@include box(0,0);
+	border-style: solid;
+	border-width: 4px 7px 0 0;
+	border-top-color: inherit;
+	border-left-color: transparent !important;
+	border-right-color: transparent !important;
+	border-bottom-color: transparent !important;
+}
+.widget_custom_links .custom_links_list_item_label_hover .custom_links_list_item_label {
+	opacity: 0;
+	@include transition-properties(opacity,transform);
+	@include translateY(3em);
+}
+.widget_custom_links .custom_links_list_item_label_hover:hover .custom_links_list_item_label {
+	opacity: 1;
+	@include translateY(0);
+}

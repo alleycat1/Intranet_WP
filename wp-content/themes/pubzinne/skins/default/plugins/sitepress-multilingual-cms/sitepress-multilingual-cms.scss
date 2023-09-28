@@ -1,0 +1,33 @@
+/* WPML styles
+------------------------------------------------------------------------------------ */
+
+@import "../../../../css/_mixins.scss";
+@import "../../../../css/_theme-vars.scss";
+@import "../../css/_skin-vars.scss";
+
+.menu-item-language img.iclflag,
+#lang_sel_footer ul li img {
+	vertical-align: baseline;
+}
+
+.widget_icl_lang_sel_widget #lang_sel ul {
+	padding-left: 0;
+}
+.widget_icl_lang_sel_widget #lang_sel li:before {
+	display:none;
+}
+.widget_icl_lang_sel_widget #lang_sel li > a > img {
+	@include border-sharp;
+}
+
+/* Panel with flags in a footer */
+p.wpml-ls-statics-post_translations {
+	margin-bottom:  0;
+}
+body.is_single p.wpml-ls-statics-post_translations {
+	margin-bottom: 2em;
+	text-align: center; 
+}
+.wpml-ls-legacy-list-horizontal.wpml-ls-statics-footer {
+	margin-bottom: 0;
+}

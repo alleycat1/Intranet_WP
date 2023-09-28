@@ -1,0 +1,76 @@
+@import "../../../../css/_mixins.scss";
+@import "../../../../css/_theme-vars.scss";
+@import "../../css/_skin-vars.scss";
+
+.single_style_style-4 .page_content_wrap {
+	padding-top: 4em;
+}
+.post_header_wrap_style_style-4 {
+	position: relative;
+	margin-bottom: 4em;
+}
+
+.post_header_wrap_style_style-4 .post_featured {
+	margin: 0;
+	text-align: center;
+}
+.post_header_wrap_style_style-4 .post_featured.post_featured_bg {
+	height: 35rem;
+}
+.post_header_wrap_style_style-4 .post_featured.post_featured_bg:before {
+	display: none;
+}
+.post_header_wrap_style_style-4 .post_featured img {
+	max-width: 100%;
+	width: auto;
+	height: auto;
+}
+
+.post_header_wrap_style_style-4 .post_header {
+	display: block;
+	text-align: center;
+	margin-bottom: 4em;
+}
+.post_header_wrap_style_style-4 .post_header .post_title,
+.post_header_wrap_style_style-4 .post_header .post_subtitle {
+	margin: 0 auto;
+	max-width: 75%;
+}
+.post_header_wrap_style_style-4 .post_header .post_title {
+	line-height: 1.1em;
+}
+.post_header_wrap_style_style-4 .post_header .post_subtitle {
+	@include font(1.2857em, 1.4em, normal);
+	margin-top: 1em;
+}
+.post_header_wrap_style_style-4 .post_header .post_meta_categories {
+    margin-top: 0;
+	margin-bottom: 1em;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	@include font( 12px, inherit, bold);
+}
+.post_header_wrap_style_style-4 .post_header .post_meta_other {
+	@include font(1em, 1.4em, normal);
+	margin-top: 2em;
+}
+.post_header_wrap_style_style-4 .post_header .post_meta_other .post_meta_item {
+	white-space: nowrap;
+	line-height: 1.75em;
+}
+.post_header_wrap_style_style-4 .post_header .post_meta_other .post_share {
+	display: inline-block;
+	vertical-align: top;
+}
+.post_header_wrap_style_style-4 .post_header .post_meta_other .post_share .social_item {
+	margin: 0 10px 0 0;
+	font-size: 1.15em;
+}
+.post_header_wrap_style_style-4 .post_header .post_meta_other .post_meta_item:after,
+.post_header_wrap_style_style-4 .post_header .post_meta_other .vc_inline-link:after {
+	content: '';
+	margin: 0 2em 0 0;
+}
+.post_header_wrap_style_style-4 .post_author_name {
+	@include transition-property(color);
+}

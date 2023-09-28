@@ -1,0 +1,16 @@
+@import "../../css/_mixins.scss";
+@import "../../css/_trx_addons.vars.scss";
+
+
+/* Background canvas */
+.bg_canvas {
+	@include fixed-cover(-1);
+
+	canvas {
+		@include abs-cover;
+	}
+}
+
+.elementor-section.bg_canvas_covered:not(.elementor-element-edit-mode) {
+	background: transparent !important;
+}

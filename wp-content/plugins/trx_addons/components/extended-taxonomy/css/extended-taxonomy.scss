@@ -1,0 +1,36 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/* Extended Taxonomy component */
+.trx_addons_extended_taxonomy {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.trx_addons_extended_taxonomy_bg {
+	padding: 3px 6px;
+	@include border-radius(0.5em);
+	overflow: hidden;
+}
+
+.trx_addons_extended_taxonomy .trx_addons_extended_taxonomy_icon {
+	display: inline-block;
+	vertical-align: baseline;
+	line-height: inherit;
+	font-style: normal;
+	margin-right: 0.3em;
+	color: inherit !important;
+}
+
+.trx_addons_extended_taxonomy .trx_addons_extended_taxonomy_img {
+	max-height: 1.15em;
+	width: auto !important;
+	min-width: 0 !important;
+	margin-right: 0.3em;
+	display: inline-block !important;
+	vertical-align: middle;
+}
+
+.trx_addons_extended_taxonomy_bg .trx_addons_extended_taxonomy_img {
+	max-height: 1em;
+}

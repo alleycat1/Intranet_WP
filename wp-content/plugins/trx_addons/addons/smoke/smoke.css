@@ -1,0 +1,48 @@
+/* Smoke
+--------------------------------------------------------------- */
+body.trx_addons_smoke_present .page_content_wrap, body.trx_addons_smoke_present.body_style_boxed .page_wrap {
+  background-color: transparent;
+}
+body.trx_addons_smoke_present .page_content_wrap .elementor-section[class*="scheme_"], body.trx_addons_smoke_present.body_style_boxed .page_wrap .elementor-section[class*="scheme_"] {
+  background-color: transparent;
+}
+body.trx_addons_smoke_present > .trx_addons_smoke {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.elementor-section > .trx_addons_smoke,
+.elementor-column > .trx_addons_smoke {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  display: none;
+}
+.elementor-section.trx_addons_smoke_present > .trx_addons_smoke,
+.elementor-column.trx_addons_smoke_present > .trx_addons_smoke {
+  display: block;
+}
+
+.elementor-section[class*="scheme_"].trx_addons_smoke_present, .elementor-section[class*="scheme_"].trx_addons_smoke_present_in_column {
+  background-color: transparent;
+}
+
+.elementor-element-edit-mode.elementor-widget-trx_sc_smoke {
+  position: absolute;
+  z-index: 1;
+  bottom: 5px;
+  left: 5px;
+}
+
+/*# sourceMappingURL=smoke.css.map */

@@ -1,0 +1,29 @@
+/* Widget: Flickr */
+.widget_flickr {
+  overflow: hidden;
+}
+
+.widget_flickr .flickr_images {
+  margin-right: 0;
+}
+
+.widget_flickr .flickr_badge_image,
+.widget_flickr .flickr_images > a {
+  float: left;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  width: 25%;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.widget_flickr .flickr_badge_image img,
+.widget_flickr .flickr_images > a img {
+  width: 100%;
+  height: auto;
+}
+
+/*# sourceMappingURL=flickr.css.map */

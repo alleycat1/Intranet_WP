@@ -1,0 +1,321 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+@import "../../../css/_trx_addons.colors.scss";
+
+/* Importer
+-----------------------------------------------------------------*/
+.trx_importer {
+	overflow:hidden;
+}
+.trx_importer_section,
+.trx_exporter_section,
+.trx_banners_section {
+	@include border-box;
+}
+.trx_importer_section {
+	width: 48%;
+	float:left;
+	border: 1px solid $border_color;
+	margin: 2em 0 0 0;
+	padding: 1em 2em 2em;
+}
+.trx_importer_section:after {
+	content: ' ';
+	display: block;
+	@include box(100%, 0);
+	clear: both;
+}
+.trx_exporter_section {
+	width: 48%;
+	float:right;
+	border: 1px solid $border_color;
+	margin: 2em 2em 0 0;
+	padding: 1em 2em 2em;
+}
+.trx_banners_section {
+	width: 48%;
+	float:right;
+	margin: 2em 2em 0 0;
+}
+.trx_importer + .trx_banners_section .trx_banners_item {
+	font-size: 1.25em;
+	line-height: 1.5em;
+}
+.trx_addons_tabs_section .trx_importer_section,
+.trx_addons_tabs_section .trx_exporter_section {
+	margin: 0;
+	width: 100%;
+	float: none;
+	border: none;
+	padding: 0;
+	overflow: hidden;
+}
+.trx_addons_tabs_section .trx_exporter_section {
+	border-bottom: 1px solid $border_color;
+	margin-bottom: 2em;
+	padding-bottom: 2em;
+}
+.trx_addons_tabs_section .trx_banners_section {
+	width: 48%;
+	float: right;
+	margin: 0 0 2em;
+}
+.trx_addons_tabs_section #trx_importer_progress {
+	width: 48%;
+	float:left;
+}
+.trx_addons_tabs_section #trx_importer_form > p:first-child {
+	margin-top: 0;
+}
+@media (max-width: 1023px) {
+	.trx_importer_section,
+	.trx_exporter_section,
+	.trx_banners_section {
+		width: 98% !important;
+		float:none;
+		margin-left:0 !important;
+		margin-right:0 !important;
+	}
+	.trx_banners_section {
+		margin-bottom: 2em !important;
+	}
+	.trx_exporter_section {
+		margin-bottom: 2em;
+	}
+	.trx_addons_tabs_section #trx_importer_progress,
+	.trx_addons_tabs_section .trx_banners_section {
+		width: 100%;
+		float:none;
+	}
+}
+.trx_exporter_error {
+	padding-top: 1em;
+	padding-bottom: 1em;
+	margin: 1em 0;
+}
+
+#trx_importer_form .import_posts_params {
+	display:block;
+	margin-top:0.5em;
+}
+
+.trx_importer_hidden {
+	display:none;
+}
+
+#trx_importer_form {
+	width: 48%;
+}
+.trx_importer_demo_set .trx_importer_demo_set_controls {
+	border-bottom: 1px solid $border_color;
+}
+.trx_importer_demo_set .trx_importer_demo_set_controls label {
+	display: inline-block;
+	vertical-align: top;
+	border:1px solid $tab_border_color;
+	border-bottom:none;
+	color: $tab_text_color;
+	background-color: $tab_background_color;
+	padding: 15px;
+	text-align: center;
+	position: relative;
+	top: 1px;
+	@include border-box;
+	@include transition-property(background-color,color);
+}
+.trx_importer_demo_set .trx_importer_demo_set_controls label:not(:last-child) {
+	border-right: 0;
+}
+.trx_importer_demo_set .trx_importer_demo_set_controls label:hover {
+	background-color: $tab_background_hover;
+}
+.trx_importer_demo_set .trx_importer_demo_set_controls label.trx_importer_demo_set_active {
+	background-color: #fff;
+	border-top: 3px solid $accent_color;
+	padding-top: 13px;
+}
+.trx_importer_demo_set .trx_importer_demo_set_controls label input[type="radio"] {
+	display: none;
+}
+.trx_importer_description {
+	margin-top: 2em;
+}
+
+.trx_importer_separator {
+	margin-bottom: 1em;
+}
+.trx_importer_separator_before {
+	margin-top: 1em;
+}
+
+.trx_importer .trx_buttons {
+	margin-top: 1em;
+}
+.trx_importer li {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.trx_importer label {
+	display: block;
+}
+
+.trx_importer_part_pages {
+	max-height: 15em;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	margin:0 0 1em 2em;
+	display: inline-block;
+	vertical-align: top;
+	padding-left: 2px;
+}
+
+.trx_importer_item_description {
+	padding: 2px 0 10px 25px;
+}
+
+.trx_importer_subtitle {
+	font-weight: 600;
+	margin: 0 0 1em;
+}
+
+.trx_importer_advanced_settings {
+	margin: 0 0 2em;
+}
+.trx_importer_advanced_settings_block {
+	display: inline-block;
+	vertical-align: top;
+	width: 50%;
+	box-sizing: border-box;
+	padding-right: 3em;
+}
+.trx_importer_advanced_settings_block:last-child {
+	padding-right: 0;
+}
+@media (max-width: 1439px) {
+	.trx_importer_advanced_settings_block {
+		display: block;
+		width: 100%;
+		padding-right: 0;
+	}
+	.trx_importer_advanced_settings_block + .trx_importer_advanced_settings_block {
+		margin-top: 2em;
+	}
+}
+
+#trx_importer_progress {
+	display: none;
+	margin: 0 0 2em;
+	background-color: $background_light;
+	border: 1px solid $border_light;
+	border-left: 4px solid $accent_color;
+
+	table {
+		margin:1em;
+	}
+	.import_progress_status {
+		background-position: 20px center;
+		background-repeat: no-repeat;
+	}
+	.import_progress_status {
+		text-align: left;
+		background-size: 15px 15px;
+		padding-left: 20px;
+		padding-bottom: 6px;
+		min-width: 5em;
+	}
+	.import_progress_status.step_in_progress {
+		background-image: url(images/ajax-loader.gif);
+		padding-left: 40px;
+	}
+	.import_progress_status:before {
+		font-family: 'trx_addons_icons';
+		display: inline-block;
+		vertical-align: top;
+		margin-right: 0.5em;
+	}
+	.import_progress_status.step_complete:before {
+		content: '\e878';
+		color: $success_color;
+	}
+	.import_progress_status.step_complete_with_error:before {
+		content: '\e924';
+		color: $error_color;
+	}
+
+	.trx_importer_progress_result {
+		display: none;
+		@include font(1em, 1.5em, normal);
+		margin: 1.25em;
+	}
+	.trx_importer_progress_result_msg,
+	.trx_importer_progress_result_msg .error_message {
+		display: block;
+	}
+	.trx_importer_progress_result_msg .error_message:before {
+		content: '- ';
+	}
+	.trx_importer_progress_complete {
+		color: #129611;
+	}
+	.trx_importer_progress_error {
+		color: #961211;
+	}
+	.trx_importer_view_site {
+		display: block;
+		margin-top: 1em;
+	}
+}
+
+/* System Info */
+.trx_importer_sys_info {
+	width: 48%;
+	max-width: 500px;
+	float: right;
+	color: $text_light;
+
+	.trx_banners_section:not(.trx_addons_hidden) + & {
+		display: none;
+	}
+	code {
+		color: $text_color;
+	}
+	a {
+		color: $accent_color;
+		@include transition-property(color);
+	}
+	a:hover {
+		color: $accent_hover;
+	}
+	.dashicons {
+		font-size: 1.25em;
+		@include abs-lt(-1.3em, 3px);
+		color: $accent_color;
+	}
+
+	.trx_importer_sys_info_manual_title {
+		text-align: left;
+		font-size: 1.1em;
+		font-weight: 600;
+		color: $text_color;
+		margin: 0 0 0.75em;
+		position: relative;
+	}
+	.trx_importer_sys_info_manual li {
+		margin-top: 0.5em;
+	}
+}
+
+@media (max-width: 767px) {
+	#trx_importer_form,
+	.trx_importer_sys_info {
+		display: block;
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		max-width: none;
+		float: none;
+	}
+	.trx_importer_sys_info {
+		margin: 2em 0;
+	}
+}

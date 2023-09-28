@@ -1,0 +1,52 @@
+/*!***********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./assets/scss/admin/wc-settings.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************/
+.woocommerce .barn2-settings .form-table .with-suffix {
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.image-size-field .separator {
+  display: inline-block;
+  font-size: 1.2em;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.image-size-field .suffix {
+  padding-left: 8px;
+}
+.image-size-field .separator, .image-size-field .suffix {
+  padding-top: 9px;
+}
+@media screen and (min-width: 783px) {
+  .image-size-field .separator, .image-size-field .suffix {
+    padding-top: 4px;
+  }
+}
+
+.color-picker-field .wp-picker-container, .color-size-field .wp-picker-container {
+  vertical-align: top;
+}
+.color-picker-field .wp-picker-container input[type=text].wp-color-picker, .color-size-field .wp-picker-container input[type=text].wp-color-picker {
+  width: 5rem;
+}
+
+.woocommerce .form-table .color-size-field input[type=number] {
+  vertical-align: top;
+  width: 6em;
+}
+.color-size-field .wp-picker-active {
+  margin-right: 3px;
+}
+.color-size-field .description {
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 1px;
+}
+.color-size-field .description img {
+  vertical-align: middle;
+  margin: 3px 6px 3px 0;
+  display: inline-block;
+}
+
+/*# sourceMappingURL=wc-settings-styles.css.map*/

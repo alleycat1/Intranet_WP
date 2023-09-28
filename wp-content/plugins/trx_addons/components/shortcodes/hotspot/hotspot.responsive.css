@@ -1,0 +1,226 @@
+@media (max-width: 1279px) {
+  /* Hotspot */
+  .sc_hotspot_image_loaded ~ .sc_hotspot_item_visible_hover {
+    opacity: 1;
+  }
+
+  .sc_hotspot_item_popup_tl_tablet {
+    position: absolute;
+    z-index: var(--sc-hotspot-content-item-popup-z-index);
+    bottom: var(--sc-hotspot-content-item-size-double-);
+    right: var(--sc-hotspot-content-item-size-double);
+    top: auto;
+    left: auto;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+
+  .sc_hotspot_item_popup_tc_tablet {
+    position: absolute;
+    z-index: var(--sc-hotspot-content-item-popup-z-index);
+    bottom: var(--sc-hotspot-content-item-size-double);
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: auto;
+    right: auto;
+  }
+
+  .sc_hotspot_item_popup_tr_tablet {
+    position: absolute;
+    z-index: var(--sc-hotspot-content-item-popup-z-index);
+    bottom: var(--sc-hotspot-content-item-size-double-);
+    left: var(--sc-hotspot-content-item-size-double);
+    top: auto;
+    right: auto;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+
+  .sc_hotspot_item_popup_ml_tablet {
+    position: absolute;
+    z-index: var(--sc-hotspot-content-item-popup-z-index);
+    top: 50%;
+    right: var(--sc-hotspot-content-item-size-double);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    bottom: auto;
+    left: auto;
+  }
+
+  .sc_hotspot_item_popup_mc_tablet {
+    position: absolute;
+    z-index: var(--sc-hotspot-content-item-popup-z-index);
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    bottom: auto;
+    right: auto;
+  }
+
+  .sc_hotspot_item_popup_mr_tablet {
+    position: absolute;
+    z-index: var(--sc-hotspot-content-item-popup-z-index);
+    top: 50%;
+    left: var(--sc-hotspot-content-item-size-double);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    bottom: auto;
+    right: auto;
+  }
+
+  .sc_hotspot_item_popup_bl_tablet {
+    position: absolute;
+    z-index: var(--sc-hotspot-content-item-popup-z-index);
+    top: var(--sc-hotspot-content-item-size-double-);
+    right: var(--sc-hotspot-content-item-size-double);
+    bottom: auto;
+    left: auto;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+
+  .sc_hotspot_item_popup_bc_tablet {
+    position: absolute;
+    z-index: var(--sc-hotspot-content-item-popup-z-index);
+    top: var(--sc-hotspot-content-item-size-double);
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    bottom: auto;
+    right: auto;
+  }
+
+  .sc_hotspot_item_popup_br_tablet {
+    position: absolute;
+    z-index: var(--sc-hotspot-content-item-popup-z-index);
+    top: var(--sc-hotspot-content-item-size-double-);
+    left: var(--sc-hotspot-content-item-size-double);
+    bottom: auto;
+    right: auto;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+@media (max-width: 767px) {
+  /* Hotspot */
+  .sc_hotspot_item_popup_tl_mobile {
+    position: absolute;
+    z-index: var(--sc-hotspot-content-item-popup-z-index);
+    bottom: var(--sc-hotspot-content-item-size-double-);
+    right: var(--sc-hotspot-content-item-size-double);
+    top: auto;
+    left: auto;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+
+  .sc_hotspot_item_popup_tc_mobile {
+    position: absolute;
+    z-index: var(--sc-hotspot-content-item-popup-z-index);
+    bottom: var(--sc-hotspot-content-item-size-double);
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: auto;
+    right: auto;
+  }
+
+  .sc_hotspot_item_popup_tr_mobile {
+    position: absolute;
+    z-index: var(--sc-hotspot-content-item-popup-z-index);
+    bottom: var(--sc-hotspot-content-item-size-double-);
+    left: var(--sc-hotspot-content-item-size-double);
+    top: auto;
+    right: auto;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+
+  .sc_hotspot_item_popup_ml_mobile {
+    position: absolute;
+    z-index: var(--sc-hotspot-content-item-popup-z-index);
+    top: 50%;
+    right: var(--sc-hotspot-content-item-size-double);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    bottom: auto;
+    left: auto;
+  }
+
+  .sc_hotspot_item_popup_mc_mobile {
+    position: absolute;
+    z-index: var(--sc-hotspot-content-item-popup-z-index);
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    bottom: auto;
+    right: auto;
+  }
+
+  .sc_hotspot_item_popup_mr_mobile {
+    position: absolute;
+    z-index: var(--sc-hotspot-content-item-popup-z-index);
+    top: 50%;
+    left: var(--sc-hotspot-content-item-size-double);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    bottom: auto;
+    right: auto;
+  }
+
+  .sc_hotspot_item_popup_bl_mobile {
+    position: absolute;
+    z-index: var(--sc-hotspot-content-item-popup-z-index);
+    top: var(--sc-hotspot-content-item-size-double-);
+    right: var(--sc-hotspot-content-item-size-double);
+    bottom: auto;
+    left: auto;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+
+  .sc_hotspot_item_popup_bc_mobile {
+    position: absolute;
+    z-index: var(--sc-hotspot-content-item-popup-z-index);
+    top: var(--sc-hotspot-content-item-size-double);
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    bottom: auto;
+    right: auto;
+  }
+
+  .sc_hotspot_item_popup_br_mobile {
+    position: absolute;
+    z-index: var(--sc-hotspot-content-item-popup-z-index);
+    top: var(--sc-hotspot-content-item-size-double-);
+    left: var(--sc-hotspot-content-item-size-double);
+    bottom: auto;
+    right: auto;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+
+/*# sourceMappingURL=hotspot.responsive.css.map */

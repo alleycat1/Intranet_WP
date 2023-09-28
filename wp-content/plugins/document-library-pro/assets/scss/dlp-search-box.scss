@@ -1,0 +1,46 @@
+form.dlp-document-search {
+    display: flex;
+    flex-wrap: nowrap;
+    max-width: 100%;
+    margin-bottom: 1.618em;
+
+    input[type="search"].dlp-document-search-field {
+        flex-grow: 1;
+        min-width: 3em;
+        font-size: inherit;
+        font-family: inherit;
+        line-height: inherit;
+        margin-bottom: 0;
+    }
+
+    &.dlp-shortcode,
+    &.dlp-single-content {
+        input[type="search"].dlp-document-search-field {
+            max-width: 300px;
+        }
+    }
+
+    button.button {
+        padding: 0.375em 0.625em;
+        margin: 0 0 0 0.625em;
+        word-break: normal;
+        font-size: inherit;
+        font-family: inherit;
+        line-height: inherit;
+    }
+}
+
+/**
+ * Theme specific styles
+ */
+ body.theme-enfold form.dlp-document-search input.dlp-document-search-field {
+    margin-bottom: 0 !important;
+ }
+
+ body.theme-shoptimizer form.dlp-document-search input.dlp-document-search-field {
+    padding: .5180469716em;
+ }
+
+ body.theme-kadence form.dlp-document-search {
+    margin-bottom: 1.618em !important;
+ }

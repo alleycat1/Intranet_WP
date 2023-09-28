@@ -1,0 +1,25 @@
+@media (max-width: 1439px) {
+  /* users */
+  .sc_users_default .sc_users_item_info {
+    padding: 2.1429em;
+  }
+}
+@media (max-width: 1023px) {
+  /* users */
+  .sc_users_default .sc_users_item_info {
+    padding: 1.6154em;
+  }
+}
+@media (max-width: 479px) {
+  /* users */
+  .sc_users_default .sc_users_item_info {
+    padding: 1.6154em;
+  }
+
+  .sc_users_default .sc_users_item_content {
+    min-height: 0;
+    margin-top: 1em;
+  }
+}
+
+/*# sourceMappingURL=users.responsive.css.map */

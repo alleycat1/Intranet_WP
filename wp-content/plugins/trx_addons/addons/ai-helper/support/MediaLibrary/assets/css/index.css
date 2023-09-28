@@ -1,0 +1,336 @@
+.trx-addons-ai-helper-image-generator {
+  padding: 1em 1.5em;
+}
+.trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-header-title h2 {
+  margin: 0.5em 0 1em 0;
+}
+.trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-body {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: space-between;
+  justify-content: space-between;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+.trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-settings-busy {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+}
+.trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-settings-busy.is-busy {
+  display: block;
+}
+.trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-settings {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 30%;
+  margin-right: 1.5em;
+  position: relative;
+}
+@media screen and (max-width: 1679px) {
+  .trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-settings label, .trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-settings select, .trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-settings input, .trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-settings textarea, .trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-settings button {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1279px) {
+  .trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-settings label, .trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-settings select, .trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-settings input, .trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-settings textarea, .trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-settings button {
+    font-size: 11px;
+  }
+}
+.trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-settings-new,
+.trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-settings-selected {
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  border-radius: 0.5em;
+  padding: 1.6em;
+  background-color: #f8f8f9;
+  min-width: 256px;
+}
+.trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-settings-subtitle {
+  min-width: 256px;
+  margin: 1em 0;
+}
+.trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-settings-subtitle h2, .trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-settings-subtitle h3 {
+  margin: 0;
+}
+.trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-settings-item {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-settings-item:last-child {
+  margin-bottom: 0;
+}
+.trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-settings-item .trx-addons-ai-helper-image-generator-settings-item-title {
+  -webkit-flex-basis: 30%;
+  -ms-flex-basis: 30%;
+  flex-basis: 30%;
+}
+.trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-settings-item .trx-addons-ai-helper-image-generator-settings-item-field {
+  -webkit-flex-basis: 68%;
+  -ms-flex-basis: 68%;
+  flex-basis: 68%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-settings-item .trx-addons-ai-helper-image-generator-settings-item-field input[type="number"] {
+  padding: 0 2px 0 8px;
+}
+.trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-settings-item .trx-addons-ai-helper-image-generator-settings-item-field input[type="text"], .trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-settings-item .trx-addons-ai-helper-image-generator-settings-item-field textarea, .trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-settings-item .trx-addons-ai-helper-image-generator-settings-item-field select {
+  width: 100%;
+}
+.trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-settings-item .trx-addons-ai-helper-image-generator-settings-item-field #trx-addons-ai-helper-image-generator-number,
+.trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-settings-item .trx-addons-ai-helper-image-generator-settings-item-field #trx-addons-ai-helper-image-generator-variations {
+  width: 4em;
+}
+.trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-settings-item .trx-addons-ai-helper-image-generator-settings-item-field .trx-addons-ai-helper-image-generator-settings-item-field-delimiter {
+  margin: 0 0.5em;
+}
+.trx-addons-ai-helper-image-generator hr {
+  margin: 1em 0;
+}
+.trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-append {
+  margin-left: 1em;
+}
+.trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-button {
+  width: 100%;
+  height: 3em;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-button.is-secondary {
+  width: auto;
+  height: 2.3em;
+  margin-top: 0;
+  margin-left: 1em;
+  padding: 0 0.5em;
+}
+.trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-button-icon {
+  font-size: 15px;
+  line-height: 20px;
+}
+.trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-button-icon:before {
+  margin-right: 6px;
+  font-size: 15px;
+}
+.trx-addons-ai-helper-image-generator .trx-addons-ai-helper-image-generator-button.is-busy .trx-addons-ai-helper-image-generator-button-icon:before {
+  content: '\f463';
+  display: inline-block;
+  -webkit-animation: trx-addons-animation-spin 2s infinite linear;
+  animation: trx-addons-animation-spin 2s infinite linear;
+}
+@keyframes trx-addons-animation-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-preview {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  border-radius: 0.5em;
+  -webkit-flex-grow: 1;
+  -ms-flex-grow: 1;
+  flex-grow: 1;
+  width: 68%;
+  padding: 2em;
+  background-color: #f8f8f9;
+  max-height: 71vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+@media screen and (max-width: 1167px) {
+  .trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-preview {
+    width: 50%;
+  }
+}
+.trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-preview .trx-addons-ai-helper-image-generator-preview-image {
+  width: 33.3333%;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+}
+@media screen and (max-width: 1167px) {
+  .trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-preview .trx-addons-ai-helper-image-generator-preview-image {
+    width: 50%;
+  }
+}
+.trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-preview .trx-addons-ai-helper-image-generator-preview-image:focus:before, .trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-preview .trx-addons-ai-helper-image-generator-preview-image:active:before, .trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-preview .trx-addons-ai-helper-image-generator-preview-image.trx-addons-ai-helper-image-generator-preview-image-selected:before {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid #11a0d2;
+  pointer-events: none;
+}
+.trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-preview .trx-addons-ai-helper-image-generator-preview-image:focus, .trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-preview .trx-addons-ai-helper-image-generator-preview-image:active {
+  outline: 0;
+}
+.trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-preview .trx-addons-ai-helper-image-generator-preview-image:focus:not(.trx-addons-ai-helper-image-generator-preview-image-selected):before, .trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-preview .trx-addons-ai-helper-image-generator-preview-image:active:not(.trx-addons-ai-helper-image-generator-preview-image-selected):before {
+  border-color: #def6ff;
+}
+.trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-preview .trx-addons-ai-helper-image-generator-preview-image.trx-addons-ai-helper-image-generator-preview-image-selected:after {
+  content: '\e900';
+  font-family: "trx_addons_icons";
+  font-size: 10px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  color: #fff;
+  background-color: #11a0d2;
+}
+.trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-preview .trx-addons-ai-helper-image-generator-preview-image img {
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+.trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-preview .trx-addons-ai-helper-image-generator-preview-image-fetch-info {
+  position: absolute;
+  z-index: 1;
+  top: auto;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 1em 1em;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-preview .trx-addons-ai-helper-image-generator-preview-image-fetch-msg {
+  display: block;
+  text-decoration: none;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  font-weight: bold;
+  color: #23282d;
+}
+.trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-preview .trx-addons-ai-helper-image-generator-preview-image-fetch-progress {
+  display: block;
+  margin-top: 10px;
+  width: 50%;
+  height: 3px;
+  border: 1px solid #9099a2;
+  background-color: #9099a2;
+  overflow: hidden;
+}
+.trx-addons-ai-helper-image-generator #trx-addons-ai-helper-image-generator-preview .trx-addons-ai-helper-image-generator-preview-image-fetch-progressbar {
+  display: block;
+  width: 50%;
+  height: 3px;
+  background-color: #f0b849;
+  -webkit-animation: trx-animation-loading-bar 1.5s linear infinite;
+  -ms-animation: trx-animation-loading-bar 1.5s linear infinite;
+  animation: trx-animation-loading-bar 1.5s linear infinite;
+  will-change: transform;
+}
+
+@-webkit-keyframes trx-animation-loading-bar {
+  0% {
+    -webkit-transform: translateX(-110%);
+    -ms-transform: translateX(-110%);
+    transform: translateX(-110%);
+  }
+  100% {
+    -webkit-transform: translateX(210%);
+    -ms-transform: translateX(210%);
+    transform: translateX(210%);
+  }
+}
+@keyframes trx-animation-loading-bar {
+  0% {
+    -webkit-transform: translateX(-110%);
+    -ms-transform: translateX(-110%);
+    transform: translateX(-110%);
+  }
+  100% {
+    -webkit-transform: translateX(210%);
+    -ms-transform: translateX(210%);
+    transform: translateX(210%);
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

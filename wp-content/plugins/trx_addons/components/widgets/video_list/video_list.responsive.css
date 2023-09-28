@@ -1,0 +1,100 @@
+@media (max-width: 1279px) {
+  /* Video list */
+  .trx_addons_video_list_controller_bottom .trx_addons_video_list_controller_wrap .trx_addons_video_list_controller_item {
+    height: 10em;
+  }
+
+  .trx_addons_video_list .trx_addons_video_list_title_wrap .trx_addons_video_list_meta {
+    display: none;
+  }
+  .trx_addons_video_list .trx_addons_video_list_controller_wrap .trx_addons_video_list_controller_item .trx_addons_video_list_meta {
+    display: none;
+  }
+}
+@media (max-width: 1023px) {
+  /* Video list */
+  .trx_addons_video_list_controller_bottom .trx_addons_video_list_controller_wrap {
+    font-size: 11px;
+  }
+  .trx_addons_video_list_controller_bottom .trx_addons_video_list_controller_wrap .trx_addons_video_list_controller_item {
+    height: 9em;
+  }
+
+  .trx_addons_video_list .trx_addons_video_list_controller_wrap .trx_addons_video_list_controller_item_active .trx_addons_video_list_image_label {
+    font-size: 8px;
+  }
+}
+@media (max-width: 767px) {
+  /* Video list */
+  .trx_addons_video_list_controller_right .trx_addons_video_list_video_wrap,
+  .trx_addons_video_list_controller_left .trx_addons_video_list_video_wrap {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .trx_addons_video_list_controller_right .trx_addons_video_list_controller_wrap,
+  .trx_addons_video_list_controller_left .trx_addons_video_list_controller_wrap {
+    position: static;
+    left: auto;
+    right: auto;
+    top: auto;
+    width: 100%;
+    min-height: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+  .trx_addons_video_list_controller_right .trx_addons_video_list_controller_wrap .trx_addons_video_list_controller_item,
+  .trx_addons_video_list_controller_left .trx_addons_video_list_controller_wrap .trx_addons_video_list_controller_item {
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    white-space: normal;
+  }
+  .trx_addons_video_list_controller_right .trx_addons_video_list_controller_wrap .trx_addons_video_list_controller_item .trx_addons_video_list_title,
+  .trx_addons_video_list_controller_left .trx_addons_video_list_controller_wrap .trx_addons_video_list_controller_item .trx_addons_video_list_title {
+    max-height: 5.5em;
+    overflow: hidden;
+  }
+
+  .trx_addons_video_list .trx_addons_video_list_title_wrap {
+    left: 1em;
+    bottom: 1em;
+    max-width: calc(100% - 2em);
+  }
+  .trx_addons_video_list .trx_addons_video_list_controller_wrap .trx_addons_video_list_controller_item {
+    height: 8em;
+    -webkit-flex-basis: 50%;
+    -ms-flex-basis: 50%;
+    flex-basis: 50%;
+    padding: 1em;
+  }
+}
+@media (max-width: 479px) {
+  /* Video list */
+  .trx_addons_video_list .trx_addons_video_list_title_wrap .trx_addons_video_list_subtitle,
+  .trx_addons_video_list .trx_addons_video_list_title_wrap .trx_addons_video_list_meta {
+    display: none;
+  }
+  .trx_addons_video_list .trx_addons_video_list_controller_wrap .trx_addons_video_list_controller_item {
+    -webkit-flex-basis: 100%;
+    -ms-flex-basis: 100%;
+    flex-basis: 100%;
+  }
+}
+
+/*# sourceMappingURL=video_list.responsive.css.map */

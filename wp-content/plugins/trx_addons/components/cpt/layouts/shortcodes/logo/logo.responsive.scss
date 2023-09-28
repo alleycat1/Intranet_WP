@@ -1,0 +1,23 @@
+@import "../../../../../css/_mixins.scss";
+@import "../../../../../css/_trx_addons.vars.scss";
+
+//@mixin layouts_logo--xl() {
+@media #{$media_xl} {
+    /* Layouts: Logo */
+	a.custom-logo-link img,
+	.wp-block-columns .sc_layouts_logo img,
+	.sc_layouts_row .sc_layouts_logo img {	max-height: 4.5em; }
+	.sc_layouts_row_type_compact .custom-logo-link img,
+	.sc_layouts_row_type_compact .sc_layouts_logo img { max-height: 3.5em; }
+	.sc_layouts_row_type_narrow .custom-logo-link img,
+	.sc_layouts_row_type_narrow .sc_layouts_logo img { max-height: 2.5em; }
+}
+
+//@mixin layouts_logo--xs() {
+@media #{$media_xs} {
+    /* Layouts: Logo */
+	.sc_layouts_logo .logo_text {
+		letter-spacing: 0;
+		font-size: 1.5em;
+	}
+}

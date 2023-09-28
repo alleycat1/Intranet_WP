@@ -1,0 +1,435 @@
+@import "../../../../css/_mixins.scss";
+@import "../../../../css/_trx_addons.vars.scss";
+@import "../../../../css/_trx_addons.colors.scss";
+
+.sc_igenerator_form {
+	@include flex;
+	@include flex-direction(column);
+	@include flex-justify-content(flex-start);
+	@include flex-align-items(center);
+	position: relative;
+
+	&.sc_igenerator_form_align_left {
+		@include flex-align-items(flex-start);
+	}
+	&.sc_igenerator_form_align_right {
+		@include flex-align-items(flex-end);
+	}
+	.trx_addons_loading {
+		@include abs-cover;
+		background-color: rgba(255, 255, 255, 0.5);
+		z-index: 100;
+		display: none;
+	}
+	&.sc_igenerator_form_loading {
+		.trx_addons_loading {
+			display: block;
+		}
+	}
+}
+.sc_igenerator_form_inner {
+	width: 100%;
+	@include flex;
+	@include flex-direction(column);
+	@include flex-justify-content(flex-start);
+	@include flex-align-items(center);
+
+	.sc_igenerator_form_align_left & {
+		@include flex-align-items(flex-start);
+	}
+	.sc_igenerator_form_align_right & {
+		@include flex-align-items(flex-end);
+	}
+}
+
+.sc_igenerator_form_field_prompt {
+	position: relative;
+	width: 100%;
+	@include border-box;
+	@include flex;
+	@include flex-direction(row);
+	@include flex-justify-content(space-between);
+	@include flex-align-items(stretch);
+
+	.sc_igenerator_form_field_inner {
+		position: relative;
+		width: 100%;
+	}
+	input[type="text"] {
+		width: 100%;
+		@include border-radius(6px);
+		@include border-box;
+		padding-right: 9em;
+		text-overflow: ellipsis;
+	}
+	.sc_igenerator_form_field_prompt_button {
+		@include flex;
+		@include flex-direction(row);
+		@include flex-justify-content(center);
+		@include flex-align-items(center);
+		@include abs-pos( 4px, 4px, 4px, auto );
+		@include border-box;
+		@include border-radius(6px);
+		@include transition-properties(background-color, color);
+		max-width: 50%;
+		overflow: hidden;
+		padding: 0 2em;
+		background-color: $success_color;
+		color: #fff;
+
+		&:not(.sc_igenerator_form_field_prompt_button_disabled):hover {
+			background-color: $success_hover;
+		}
+	}
+	.sc_igenerator_form_field_prompt_button_disabled {
+		background-color: $success_bg_color;
+		color: #aaa;
+		cursor: default;
+	}
+}
+
+.sc_igenerator_form_settings_button {
+	@include flex;
+	@include flex-direction(column);
+	@include flex-justify-content(center);
+	@include flex-align-items(center);
+	@include border-box;
+	@include border-radius(6px);
+	font-size: 1.25em;
+	width: 4em;
+	margin-left: 2px;
+	background-color: #e7eaed;
+	color: #222;
+}
+.sc_igenerator_form_settings_button:hover,
+.sc_igenerator_form_settings_button:focus {
+	background-color: #e7eaed;
+	color: #222;
+}
+.sc_igenerator_form_settings {
+	@include abs-rt( 0, 4.3em, 100 );
+	@include border-box;
+	@include border-radius(6px);
+	padding: 1em;
+	background-color: #f7f7f7;
+	color: #222;
+	@include transition-properties( opacity, transform );
+	will-change: opacity, transform;
+	opacity: 0;
+	@include translateY( 20% );
+	pointer-events: none;
+	max-width: 20em;
+
+	&.sc_igenerator_form_settings_light {
+		max-height: 18em;
+		overflow-y: auto;
+		overflow-x: hidden;
+		scrollbar-width: thin;
+		&::-webkit-scrollbar-thumb {
+			@include border-radius(6px);
+		}
+	}
+
+	&.sc_igenerator_form_settings_full {
+		.sc_igenerator_form_settings_field + .sc_igenerator_form_settings_field {
+			margin-top: 0.5em;
+		}
+	}
+
+	input[type="radio"] {
+		margin-right: 0.3em;
+	}
+
+	.sc_igenerator_form_settings_field_numeric_wrap {
+		position: relative;
+		width: 100%;
+
+		input[type="number"] {
+			display: block;
+			width: 100%;
+			padding-right: 3.5em;
+			@include border-box;
+			-webkit-appearance: textfield;
+			-moz-appearance: textfield;
+			appearance: textfield;
+		}
+		.sc_igenerator_form_settings_field_numeric_wrap_buttons {
+			@include abs-rt;
+			@include flex;
+			@include flex-direction(column);
+			@include flex-justify-content(stretch);
+			@include flex-align-items(center);
+			@include border-box;
+			height: 100%;
+		}
+		.sc_igenerator_form_settings_field_numeric_wrap_button {
+			@include flex;
+			@include flex-direction(row);
+			@include flex-justify-content(center);
+			@include flex-grow(1);
+			@include flex-shrink(0);
+			@include border-box;
+			@include transition-properties(background-color, color);
+			padding: 0.15em 1em;
+			color: #888;
+
+			&:hover {
+				color: #222;
+			}
+		}
+		.sc_igenerator_form_settings_field_numeric_wrap_button_inc {
+			@include flex-align-items(flex-end);
+
+			&:before {
+				content: "\e885";
+				font-family: $trx_addons_icons;
+				@include square(1em);
+			}
+		}
+		.sc_igenerator_form_settings_field_numeric_wrap_button_dec {
+			@include flex-align-items(flex-start);
+
+			&:before {
+				content: "\e882";
+				font-family: $trx_addons_icons;
+				@include square(1em);
+			}
+		}
+	}
+}
+.sc_igenerator_form_settings_show {
+	opacity: 1;
+	@include translateY(0);
+	pointer-events: auto;
+}
+
+.sc_igenerator_form_field_tags {
+	@include flex;
+	@include flex-direction(row);
+	@include flex-justify-content(center);
+	@include flex-align-items(flex-start);
+	margin-top: 1em;
+}
+.sc_igenerator_form_field_tags_label {
+	white-space: nowrap;
+	padding: 0.5em 1em 0.5em 0;
+}
+.sc_igenerator_form_field_tags_list {
+	@include flex;
+	@include flex-direction(row);
+	@include flex-wrap(wrap);
+	@include flex-justify-content(flex-start);
+	@include flex-align-items(flex-start);
+}
+.sc_igenerator_form_field_tags_item {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 0.5em 0.5em 0;
+	padding: 0.5em 1.5em;
+	background-color: $background_light;
+	color: $text_light;
+	@include border-radius(3px);
+	@include border-box;
+
+	&:hover {
+		color: $text_dark;
+		background-color: $background_color;
+	}
+}
+
+.sc_igenerator_limits {
+	width: 100%;
+	text-align: center;
+
+	.sc_igenerator_form_align_left & {
+		text-align: left;
+	}
+	.sc_igenerator_form_align_right & {
+		text-align: right;
+	}
+	.sc_igenerator_limits_used {
+		white-space: nowrap;
+	}
+}
+
+.sc_igenerator_message {
+	@include border-radius(6px);
+	@include border-box;
+	position: relative;
+	padding: 2em 3em;
+	min-width: 40%;
+	background-color: $error_bg_color;
+	color: $error_color;
+	margin: 1em 0;
+	text-align: center;
+	display: none;
+
+	.trx_addons_button_close_icon {
+		&:before,
+		&:after {
+			border-color: $error_dark;
+		}
+	}
+}
+.sc_igenerator_message_inner {
+	p,h1,h2,h3,h4,h5,h6 {
+		margin: 0;
+
+		& + p {
+			margin-top: 0.3em;
+		}
+	}
+	h1,h2,h3,h4,h5,h6 {
+		color: $error_dark;
+	}
+	a {
+		font-weight: 500;
+		color: $error_dark;
+		border-bottom: 1px dashed $error_dark;
+
+		&:hover {
+			color: $error_dark;
+			border-bottom-style: solid;
+		}
+	}
+	.sc_igenerator_message_translation {
+
+		&:before {
+			content: ' ';
+			display: block;
+			height: 0;
+			width: 0;
+		}
+	}
+}
+.sc_igenerator_message_type_info {
+	background-color: $info_bg_color;
+	color: $info_color;
+
+	h1,h2,h3,h4,h5,h6 {
+		color: $info_dark;
+	}
+	a {
+		color: $info_dark;
+		border-bottom-color: $info_dark;
+
+		&:hover {
+			color: $info_dark;
+		}
+	}
+	.trx_addons_button_close_icon {
+		&:before,
+		&:after {
+			border-color: $info_dark;
+		}
+	}
+}
+.sc_igenerator_message_type_success {
+	background-color: $success_bg_color;
+	color: $success_color;
+
+	h1,h2,h3,h4,h5,h6 {
+		color: $success_dark;
+	}
+	a {
+		color: $success_dark;
+		border-bottom-color: $success_dark;
+
+		&:hover {
+			color: $success_dark;
+		}
+	}
+	.trx_addons_button_close_icon {
+		&:before,
+		&:after {
+			border-color: $success_dark;
+		}
+	}
+}
+
+.sc_igenerator_images {
+	margin-top: 1.5em;
+	display: none;
+}
+
+.sc_igenerator_image_inner {
+	position: relative;
+	text-align: center;
+	@include flex;
+	@include flex-direction(column);
+	@include flex-justify-content(flex-start);
+	@include flex-align-items(center);
+}
+
+
+.sc_igenerator_image_fetch {
+	min-height: 15em;
+}
+.sc_igenerator_image_fetch_info {
+	@include abs-pos(auto, 10px, 10px, 10px);
+	@include border-box;
+	padding: 0 1em 1em;
+	@include flex;
+	@include flex-direction(column);
+	@include flex-justify-content(flex-start);
+	@include flex-align-items(center);
+}
+.sc_igenerator_image_fetch_msg {
+	display: block;
+	text-decoration: none;
+	font-size: 1.2em;
+	line-height: 1.5em;
+	font-weight: bold;
+	// Commented to preserve the original color from the theme
+	//color: $text_dark;
+}
+.sc_igenerator_image_fetch_progress {
+	display: block;
+	margin-top: 10px;
+	@include box(50%, 4px);
+	//border: 1px solid $text_light;
+	background-color: $text_light;
+	overflow: hidden;
+}
+.sc_igenerator_image_fetch_progressbar {
+	display: block;
+	@include box(50%, 4px);
+	background-color: $warning_color;
+	@include animation(sc_igenerator_image_fetch_progress_animation 1.5s linear infinite);
+	will-change: transform;
+}
+.sc_igenerator_image_fetch.trx_addons_column-1_1 {
+	.sc_igenerator_image_fetch_progress {
+		width: 40%;
+	}
+}
+
+@-webkit-keyframes sc_igenerator_image_fetch_progress_animation { 
+	0% {
+		@include translateX(-110%);
+	}
+	100% {
+		@include translateX(210%);
+	}
+}
+
+@keyframes sc_igenerator_image_fetch_progress_animation { 
+	0% {
+		@include translateX(-110%);
+	}
+	100% {
+		@include translateX(210%);
+	}
+}
+
+.sc_igenerator_image_link {
+	margin-top: 1.5em;
+
+	.sc_igenerator_image_fetch_info + & {
+		display: none !important;
+	}
+
+	.sc_button_icon {
+		font-size: 1em;
+	}
+}

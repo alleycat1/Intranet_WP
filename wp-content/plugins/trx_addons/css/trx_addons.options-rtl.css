@@ -1,0 +1,91 @@
+.trx_addons_theme_panel .trx_addons_theme_panel_section_form_field_checkbox input[type="checkbox"],
+.trx_importer_checkbox_label input[type="checkbox"],
+.trx_addons_options_item_checklist input[type="checkbox"],
+.trx_addons_options_item_checkbox input[type="checkbox"] {
+	margin-left: 0.5em;
+	margin-right: 0;
+}
+.trx_addons_options_header {
+	margin: 1em 0 0 20px;
+}
+.trx_addons_options_title {
+	float: right;
+}
+.trx_addons_options_buttons {
+	float: left;
+	text-align: left;
+}
+.trx_addons_options_item_field .trx_addons_options_item_label + .trx_addons_options_item_label {
+	margin-right: 0 !important;
+}
+.trx_addons_options_item_checkbox .trx_addons_options_item_label,
+.trx_addons_options_item_switch .trx_addons_options_item_label,
+.trx_addons_options_item_radio .trx_addons_options_item_label {
+	padding-left: 1em;
+}
+.trx_addons_options_item_title {
+	margin: 0.3em 0 0.5em 0.5em;
+	float: right;
+	text-align: right;
+	padding-left: 20px;
+	padding-right: 0;
+}
+.trx_addons_options_item_info .trx_addons_options_item_title {
+	text-align: right;
+}
+.trx_addons_options_item_radio .trx_addons_options_item_holder {
+	margin-left: 0.5em;
+	margin-right: 0;
+}
+.trx_addons_options_clone {
+	padding-right: 4em;
+	padding-left: 10em;
+}
+.trx_addons_options_clone_control {
+	right: 0;
+	left: auto;
+}
+.trx_addons_options_item[class*="column-"] {
+	padding: 1.25em 0 1.25em 2em;
+}
+[class*="trx_addons_column-"] .trx_addons_options_item_title,
+[class*="trx_addons_column-"] .trx_addons_options_item_data {
+	text-align: right;
+}
+.trx_addons_options_item_data {
+	float: right;
+}
+.trx_addons_options_clone_control_add {
+	right: auto;
+	left: 54px;
+}
+.trx_addons_options_clone_control_delete {
+	right: auto;
+	left: 0;
+}
+.trx_addons_options_item_checklist .trx_addons_options_item_field_horizontal .trx_addons_options_item_label {
+	padding-left: 1em;
+	padding-right: 2px;
+}
+.trx_addons_theme_panel .trx_addons_theme_panel_section_form_field_checkbox input[type="checkbox"]:before,
+.trx_importer_checkbox_label input[type="checkbox"]:before,
+.trx_addons_options_item_checklist input[type="checkbox"]:before,
+.trx_addons_options_item_checkbox input[type="checkbox"]:before {
+	right: 50%;
+	left: auto;
+	-webkit-transform: translate(50%, -50%);
+	-ms-transform: translate(50%, -50%);
+	transform: translate(50%, -50%);
+	margin: 0 -3px 0 0;
+}
+.trx_addons_range_slider_value {
+	margin-left: 10px !important;
+	margin-right: 0 !important;
+	text-align: left;
+}
+
+@media (min-width: 601px) {
+	.trx_addons_options_header.sticky {
+		margin: 0 -20px 0 0;
+	}
+}

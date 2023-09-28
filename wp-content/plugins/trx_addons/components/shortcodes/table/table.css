@@ -1,0 +1,22 @@
+.sc_table {
+  position: relative;
+  padding-top: 0.0001px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.sc_table table {
+  width: 100%;
+}
+
+.sc_table table th,
+.sc_table table td {
+  padding: 1.8em 1em;
+}
+
+.sc_table table tr:first-child th,
+.sc_table table tr:first-child td {
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=table.css.map */

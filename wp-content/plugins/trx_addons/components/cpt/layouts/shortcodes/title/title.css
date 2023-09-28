@@ -1,0 +1,164 @@
+.sc_layouts_title_caption {
+  margin: 0 auto;
+}
+
+.sc_layouts_row_type_compact .sc_layouts_title_caption {
+  font-size: 2em;
+  line-height: 1.25em;
+}
+
+.sc_layouts_title_title > .sc_layouts_title_caption {
+  float: none;
+}
+
+.sc_layouts_title_caption img {
+  display: inline-block;
+  max-height: 1.25em;
+  vertical-align: middle;
+  width: auto;
+  margin: -0.1em 0.2em 0 0;
+}
+
+.sc_layouts_title_link {
+  display: inline-block;
+  margin: 0.5em 0 2em;
+}
+
+.sc_layouts_row_fixed_on .sc_layouts_title_link {
+  display: none;
+}
+
+.sc_layouts_title_meta .post_edit:before {
+  margin-right: 0.5em;
+}
+
+.sc_layouts_title_description {
+  margin: 4px auto 0;
+  max-width: 90%;
+}
+
+.sc_layouts_title_description p {
+  margin: 0;
+}
+
+.sc_layouts_title_breadcrumbs {
+  margin-top: 1.5em;
+}
+
+.sc_layouts_title.with_content {
+  position: relative;
+  min-height: 0em;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.sc_layouts_title.with_image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sc_layouts_title.fixed_height {
+  min-height: 20rem;
+}
+
+.sc_layouts_title.with_tint.with_content:before {
+  content: ' ';
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.sc_layouts_title.fixed_height .sc_layouts_title_content {
+  position: relative;
+  z-index: 1;
+  padding: 3em 0;
+  max-width: 90%;
+}
+
+.sc_layouts_title.sc_align_left .sc_layouts_title_content,
+.sc_layouts_title.sc_align_right .sc_layouts_title_content {
+  width: 100%;
+}
+
+.sc_layouts_title.sc_align_left .sc_layouts_title_description,
+.sc_layouts_title.sc_align_right .sc_layouts_title_description {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.sc_layouts_title .trx_addons_video_player.with_video_autoplay,
+.sc_layouts_title .trx_addons_video_player.with_video_autoplay:not(.post_featured_bg):not(.with_thumb) {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+}
+.sc_layouts_title .trx_addons_video_player.with_video_autoplay .video_frame, .sc_layouts_title .trx_addons_video_player.with_video_autoplay .wp-video, .sc_layouts_title .trx_addons_video_player.with_video_autoplay .mejs-container,
+.sc_layouts_title .trx_addons_video_player.with_video_autoplay:not(.post_featured_bg):not(.with_thumb) .video_frame,
+.sc_layouts_title .trx_addons_video_player.with_video_autoplay:not(.post_featured_bg):not(.with_thumb) .wp-video,
+.sc_layouts_title .trx_addons_video_player.with_video_autoplay:not(.post_featured_bg):not(.with_thumb) .mejs-container {
+  max-width: none;
+  width: auto !important;
+  height: auto !important;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.sc_layouts_title .trx_addons_video_player.with_video_autoplay .video_frame.mejs-container, .sc_layouts_title .trx_addons_video_player.with_video_autoplay .wp-video.mejs-container, .sc_layouts_title .trx_addons_video_player.with_video_autoplay .mejs-container.mejs-container,
+.sc_layouts_title .trx_addons_video_player.with_video_autoplay:not(.post_featured_bg):not(.with_thumb) .video_frame.mejs-container,
+.sc_layouts_title .trx_addons_video_player.with_video_autoplay:not(.post_featured_bg):not(.with_thumb) .wp-video.mejs-container,
+.sc_layouts_title .trx_addons_video_player.with_video_autoplay:not(.post_featured_bg):not(.with_thumb) .mejs-container.mejs-container {
+  min-height: 100%;
+}
+.sc_layouts_title .trx_addons_video_player.with_video_autoplay .video_frame video, .sc_layouts_title .trx_addons_video_player.with_video_autoplay .video_frame iframe, .sc_layouts_title .trx_addons_video_player.with_video_autoplay .wp-video video, .sc_layouts_title .trx_addons_video_player.with_video_autoplay .wp-video iframe, .sc_layouts_title .trx_addons_video_player.with_video_autoplay .mejs-container video, .sc_layouts_title .trx_addons_video_player.with_video_autoplay .mejs-container iframe,
+.sc_layouts_title .trx_addons_video_player.with_video_autoplay:not(.post_featured_bg):not(.with_thumb) .video_frame video,
+.sc_layouts_title .trx_addons_video_player.with_video_autoplay:not(.post_featured_bg):not(.with_thumb) .video_frame iframe,
+.sc_layouts_title .trx_addons_video_player.with_video_autoplay:not(.post_featured_bg):not(.with_thumb) .wp-video video,
+.sc_layouts_title .trx_addons_video_player.with_video_autoplay:not(.post_featured_bg):not(.with_thumb) .wp-video iframe,
+.sc_layouts_title .trx_addons_video_player.with_video_autoplay:not(.post_featured_bg):not(.with_thumb) .mejs-container video,
+.sc_layouts_title .trx_addons_video_player.with_video_autoplay:not(.post_featured_bg):not(.with_thumb) .mejs-container iframe {
+  object-fit: cover;
+  object-position: center;
+  max-width: none;
+  max-height: none;
+  min-height: 100%;
+  width: 100% !important;
+  height: 100% !important;
+}
+.sc_layouts_title .trx_addons_video_player + .sc_layouts_title_content {
+  position: relative;
+  z-index: 1;
+}
+
+/*# sourceMappingURL=title.css.map */

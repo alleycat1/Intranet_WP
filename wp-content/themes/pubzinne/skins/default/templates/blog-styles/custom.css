@@ -1,0 +1,19 @@
+/* Blog layout: Custom
+------------------------- */
+.post_layout_custom {
+  position: relative;
+}
+
+.post_layout_custom .post_featured[class*="hover_"] {
+  display: block;
+}
+
+.post_layout_custom .post_featured img {
+  width: 100%;
+}
+
+.post_layout_custom .post_header {
+  padding-top: 0.02px;
+}
+
+/*# sourceMappingURL=custom.css.map */

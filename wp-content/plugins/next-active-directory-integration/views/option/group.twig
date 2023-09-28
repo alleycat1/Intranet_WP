@@ -1,0 +1,51 @@
+{# macro for generating option groups for a single tab body#}
+{% macro create(optionGroups, isProfile, i18n) %}
+
+    <script type="application/javascript">
+        document['next_ad_int'] = document['next_ad_int'] || {};
+        document['next_ad_int']['auth-code-confirmation'] = '{{ i18n.wantToRegenerateAuthCode }}';
+        document['next_ad_int']['verification-status'] = '{{ i18n.wordPressIsConnectedToDomain }}';
+        document['next_ad_int']['verification-successful'] = '{{ i18n.domainConnectionVerificationSuccessful }}';
+        document['next_ad_int']['verification-successful-notification'] = '{{ i18n.verificationSuccessful }}';
+        document['next_ad_int']['verification-failed-notification'] = '{{ i18n.domainConnectionVerificationFailed }}';
+        document['next_ad_int']['saving-error'] = '{{ i18n.errorWhileSaving }}';
+        document['next_ad_int']['saving-success'] = '{{ i18n.savingSuccessful }}';
+    </script>
+
+    {% import "option/lines.twig" as lines %}
+    {% set newNetwork = isOnNetworkDashboard() %}
+
+    {# Add all option groups of the current tab #}
+    {% for optionGroupName, optionGroup in optionGroups %}
+
+        {# Display the optionGroupName if it is not empty#}
+        {% if optionGroupName and (optionGroupName != 'angular_controller' and optionGroupName != 'multisite_only') %}
+
+                <h2>{{ optionGroupName }}</h2>
+
+        {% endif %}
+
+        {# Add the description or the array of descriptions to this option group #}
+        {% if optionGroup.description is defined %}
+            {{ optionGroup.description|join('<br>')|raw }}
+            {% if optionGroupName is defined and newNetwork%}
+                <table class="adi-permission-selection">
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>{{ i18n.managePermissions }}</td>
+                    </tr>
+                </table>
+            {% endif %}
+        {% endif %}
+
+        {# Do not add zero options#}
+        {% if optionGroup.options is defined %}
+            {# Add all option of this option group#}
+            <table class="form-table" style="width: 100%">
+                {{ lines.create(optionGroup.options, isProfile, i18n) }}
+            </table>
+        {% endif %}
+
+    {% endfor %}
+
+{% endmacro %}

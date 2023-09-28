@@ -1,0 +1,14 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+//@mixin sc_action--xs() {
+@media #{$media_xs} {
+    /* Action */
+	.sc_action_item_description,
+	.sc_action_item_info {
+		display: none;
+	}
+	.sc_action_item_event.with_image {
+		max-height: 33em;
+	}
+}

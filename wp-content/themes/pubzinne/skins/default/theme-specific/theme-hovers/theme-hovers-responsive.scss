@@ -1,0 +1,48 @@
+@import "../../../../css/_mixins.scss";
+@import "../../../../css/_theme-vars.scss";
+@import "../../css/_skin-vars.scss";
+
+//@mixin theme-hovers--md() {
+@media #{$media_md} {
+	.tribe-events .tribe-events-c-ical{
+		text-align: center;
+	}
+	.tribe-events .tribe-events-l-container{
+		padding:0;
+	}
+	.tribe-events-c-search__input-group:before{
+		display: none;
+	}
+	.tribe-events .tribe-events-calendar-month__header-column {
+		padding-bottom: 10px;
+	}
+	.tribe-common .tribe-common-b2,
+	.tribe-events .tribe-events-calendar-list__event-date-tag-weekday{
+		@include font(12px);
+	}
+	.tribe-events .tribe-events-c-view-selector__list-item-text{
+		text-align: center;
+	}
+	.tribe-events .tribe-events-l-container{
+		min-height: auto;
+	}
+}
+@media #{$media_sm} {
+	.tribe-common .tribe-common-h6 {
+		font-size: 18px;
+	}
+}
+//@mixin theme-hovers--xs() {
+@media #{$media_xs} {
+	/* Theme Hovers */
+	.post_featured.hover_border .post_info .post_info_back	{
+		padding: 2.5em;
+	}
+	.post_featured.hover_border .post_info:before,
+	.post_featured.hover_border .post_info:after {
+		@include abs-pos(20px, 20px, 20px, 20px);
+	}
+	.post_featured.hover_border .post_info .post_title {
+		padding-bottom: 4px;
+	}
+}

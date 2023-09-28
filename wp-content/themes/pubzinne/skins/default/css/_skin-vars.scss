@@ -1,0 +1,211 @@
+// @required
+
+// General settings
+//------------------------------------------
+
+// Attention! If you change values below - don't forget to change default values
+// in the appropriate parameters in the Theme Options: 'page_width', 'page_boxed_extra', 'sidebar_width', 'sidebar_gap'
+$page: 	           1170px;				// Width of the whole page
+$page_boxed_extra:   60px;				// Width of the extra side space on boxed pages
+$sidebar:           300px;				// Sidebar width
+$gap:	             70px;				// Gap between content and sidebar
+
+$content: $page - $sidebar - $gap;		// Normal content width
+
+$koef_narrow: 3 / 4;								// Koef to calculate narrow content width
+													// Attention! Don't forget to change this koef
+													// in 'theme-customizer.php' and 'theme-customizer.js' also
+$content_narrow: $content * $koef_narrow;			// Narrow content width
+$padding_narrow: $content * ( 1 - $koef_narrow );	// Narrow content left padding
+
+$sidebar_prc: $sidebar / $page;			// Relative width of the sidebar
+$gap_prc: $gap / $page;					// Relative width of the gap
+
+$page_boxed: $page + $page_boxed_extra * 2;	// Width of the whole page (boxed)
+
+$page_fullwide:     1920px;				// Max-width of the whole page (fullwidth)
+$paddings_fullwide:  130px;				// Horizontal paddings of the fullwidth page
+
+$grid_gap:            30px;				// Gap between columns in the grid
+
+$elm_gap_narrow:      10px;
+$elm_gap_default:     20px;
+$elm_gap_extended:    $grid_gap;
+$elm_gap_wide:        40px;
+$elm_gap_wider:       60px;
+
+$elm_add_page_margins: $elm_gap_extended;
+
+
+// Responsive
+//------------------------------------------
+
+// By screen size
+$media_xxl:			                        "(max-width: 1679px)";
+$media_xl:			                        "(max-width: 1439px)";
+$media_lg:			                        "(max-width: 1279px)";
+$media_md_over:		"(min-width: 1024px)";
+$media_md:			                        "(max-width: 1023px)";
+$media_wp_fix:		"(min-width:  601px) and (max-width:  782px)";
+$media_sm:			                        "(max-width:  767px)";
+$media_sm_wp:		                        "(max-width:  600px)";
+$media_xs:			                        "(max-width:  479px)";
+
+// By device
+$media_wide:		"(min-width: 2160px)";
+$media_desktop:		"(min-width: 1680px) and (max-width: 2159px)";
+$media_notebook:	"(min-width: 1280px) and (max-width: 1679px)";
+$media_tablet:		"(min-width:  768px) and (max-width: 1279px)";
+$media_not_mobile:	"(min-width:  768px)";
+$media_mobile:		                        "(max-width:  767px)";
+
+
+// --xxl
+$xxl_page: 1170px;									// Width of the whole page
+$xxl_sidebar: $xxl_page * $sidebar_prc;				// Sidebar width
+$xxl_gap: $xxl_page * $gap_prc;						// Gap between content and sidebar
+
+$xxl_content: $xxl_page - $xxl_sidebar - $xxl_gap;			// Content width
+$xxl_content_narrow: $xxl_content * $koef_narrow;			// Narrow content width
+$xxl_padding_narrow: $xxl_content * ( 1 - $koef_narrow );	// Narrow content left padding
+
+$xxl_page_boxed: $xxl_page - 80px;					// Width of the whole page (boxed)
+$xxl_sidebar_boxed: $xxl_page_boxed * $sidebar_prc;	// Sidebar width on the boxed pages
+$xxl_gap_boxed: $xxl_page_boxed * $gap_prc;			// Gap between content and sidebar
+$xxl_content_boxed: $xxl_page_boxed - $xxl_gap_boxed - $xxl_sidebar_boxed;	// Content width on the boxed pages
+
+$xxl_paddings_fullwide: 130px;						// Horizontal paddings of the fullwidth page
+
+$xxl_menu_side: 70px;								// Sidemenu width
+$xxl_page_menu_side: $xxl_page - $xxl_menu_side;	// Width of page with side menu
+
+$xxl_grid_gap: 30px;									// Gap between columns in the grid
+
+$xxl_elm_gap_narrow: 10px;
+$xxl_elm_gap_default: 20px;
+$xxl_elm_gap_extended: $xxl_grid_gap;
+$xxl_elm_gap_wide: 40px;
+$xxl_elm_gap_wider: 60px;
+
+$xxl_elm_add_page_margins: $xxl_elm_gap_extended;
+
+
+// --xl
+$xl_page: 1100px;									// Width of the whole page
+$xl_sidebar: $xl_page * $sidebar_prc;				// Sidebar width
+$xl_gap: $xl_page * $gap_prc;						// Gap between content and sidebar
+
+$xl_content: $xl_page - $xl_sidebar - $xl_gap;		// Content width
+$xl_content_narrow: $xl_content * $koef_narrow;			// Narrow content width
+$xl_padding_narrow: $xl_content * ( 1 - $koef_narrow );	// Narrow content left padding
+
+$xl_page_boxed: $xl_page - 80px;					// Width of the whole page (boxed)
+$xl_sidebar_boxed: $xl_page_boxed * $sidebar_prc;	// Sidebar width on the boxed pages
+$xl_gap_boxed: $xl_page_boxed * $gap_prc;			// Gap between content and sidebar
+$xl_content_boxed: $xl_page_boxed - $xl_gap_boxed - $xl_sidebar_boxed;	// Content width on the boxed pages
+
+$xl_paddings_fullwide: 90px;						// Horizontal paddings of the fullwidth page
+
+$xl_menu_side: 70px;								// Sidemenu width
+$xl_page_menu_side: $xl_page - $xl_menu_side;		// Width of page with side menu
+
+$xl_grid_gap: 30px;									// Gap between columns in the grid
+
+$xl_elm_gap_narrow: 10px;
+$xl_elm_gap_default: 20px;
+$xl_elm_gap_extended: $xl_grid_gap;
+$xl_elm_gap_wide: 40px;
+$xl_elm_gap_wider: 60px;
+
+$xl_elm_add_page_margins: $xl_elm_gap_extended;
+
+
+// --lg
+$lg_page: 924px;									// Width of the whole page
+$lg_sidebar: $lg_page * $sidebar_prc;				// Sidebar width
+$lg_gap: $lg_page * $gap_prc;						// Gap between content and sidebar
+
+$lg_content: $lg_page - $lg_sidebar - $lg_gap;		// Content width
+$lg_content_narrow: $lg_content * $koef_narrow;			// Narrow content width
+$lg_padding_narrow: $lg_content * ( 1 - $koef_narrow );	// Narrow content left padding
+
+$lg_paddings_fullwide: 50px;						// Horizontal paddings of the fullwidth page
+
+$lg_menu_side: 60px;								// Sidemenu width
+$lg_page_menu_side: $lg_page - $lg_menu_side;		// Width of page with side menu
+
+$lg_grid_gap: 30px;									// Gap between columns in the grid
+
+$lg_elm_gap_narrow: 10px;
+$lg_elm_gap_default: 20px;
+$lg_elm_gap_extended: $lg_grid_gap;
+$lg_elm_gap_wide: 40px;
+$lg_elm_gap_wider: 60px;
+
+$lg_elm_add_page_margins: $lg_elm_gap_extended;
+
+
+// --md
+$md_page: 708px;			// Width of the whole page
+$md_content: $md_page;		// Content width
+$md_content_narrow: $md_content * $koef_narrow;			// Narrow content width
+$md_padding_narrow: $md_content * ( 1 - $koef_narrow );	// Narrow content left padding
+
+$md_paddings_fullwide: 30px;		// Horizontal paddings of the fullwidth page
+
+$md_menu_side: 60px;		// Sidemenu width
+$md_page_menu_side: $md_content - $md_menu_side;	// Width of page with side menu
+
+$md_grid_gap: 30px;			// Gap between columns in the grid
+
+$md_elm_gap_narrow: 10px;
+$md_elm_gap_default: 20px;
+$md_elm_gap_extended: $md_grid_gap;
+$md_elm_gap_wide: 40px;
+$md_elm_gap_wider: 60px;
+
+$md_elm_add_page_margins: $md_elm_gap_extended;
+
+
+// --sm
+$sm_page: 440px;			// Content width
+$sm_content: $sm_page;		// Width of the whole page
+$sm_content_narrow: $sm_content;	// Narrow content width
+$sm_padding_narrow: 0;				// Narrow content left padding
+
+$sm_paddings_fullwide: 20px;		// Horizontal paddings of the fullwidth page
+
+$sm_menu_side: 60px;		// Sidemenu width
+
+$sm_grid_gap: 20px;			// Gap between columns in the grid
+$sm_grid_max_columns: 1;	// Max columns in the row of the grid
+
+$sm_elm_gap_narrow: 8px;
+$sm_elm_gap_default: 10px;
+$sm_elm_gap_extended: $sm_grid_gap;
+$sm_elm_gap_wide: 30px;
+$sm_elm_gap_wider: 40px;
+
+$sm_elm_add_page_margins: $sm_elm_gap_extended;
+
+
+// --xs
+$xs_page: 280px;			// Content width
+$xs_content: $xs_page;		// Width of the whole page
+$xs_content_narrow: $xs_content;	// Narrow content width
+$xs_padding_narrow: 0;				// Narrow content left padding
+
+$xs_paddings_fullwide: 20px;		// Horizontal paddings of the fullwidth page
+
+$xs_menu_side: 60px;		// Sidemenu width
+
+$xs_grid_gap: 20px;			// Gap between columns in the grid
+$xs_grid_max_columns: 1;	// Max columns in the row of the grid
+
+$xs_elm_gap_narrow: 8px;
+$xs_elm_gap_default: 10px;
+$xs_elm_gap_extended: $xs_grid_gap;
+$xs_elm_gap_wide: 30px;
+$xs_elm_gap_wider: 40px;
+
+$xs_elm_add_page_margins: $xs_elm_gap_extended;

@@ -1,0 +1,29 @@
+/* Widget: Banner */
+.widget_banner {
+  -webkit-transition: opacity 2s ease;
+  -ms-transition: opacity 2s ease;
+  transition: opacity 2s ease;
+}
+
+.widget_banner.trx_addons_show_on_scroll {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.editor-block-list__block .widget_banner.trx_addons_show_on_scroll {
+  opacity: 1;
+  height: auto;
+}
+
+.widget_banner .image_wrap {
+  overflow: hidden;
+  display: block;
+}
+
+.widget_banner.widget_fullwidth .image_wrap {
+  width: 100%;
+  height: auto;
+}
+
+/*# sourceMappingURL=banner.css.map */

@@ -1,0 +1,15 @@
+@import "../../css/_mixins.scss";
+@import "../../css/_trx_addons.vars.scss";
+
+
+/* Background key colors */
+.trx_bg_colors {
+	@include fixed-cover(-1);
+	pointer-events: none;
+}
+body.with_bg_colors {
+	.page_content_wrap,
+	&.body_style_boxed .page_wrap {
+		background-color: transparent;
+	}
+}

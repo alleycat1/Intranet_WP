@@ -1,0 +1,579 @@
+@import "../../../../css/_mixins.scss";
+@import "../../../../css/_theme-vars.scss";
+@import "../../css/_skin-vars.scss";
+
+
+//@mixin elementor--xxl() {
+@media #{$media_xxl} {
+	/* Elementor */
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-container {
+		max-width: calc( 100vw - #{$xxl_paddings_fullwide} * 2 );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-narrow {
+		max-width: calc( 100vw - #{$xxl_paddings_fullwide} * 2 + #{$xxl_elm_gap_narrow} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-default {
+		max-width: calc( 100vw - #{$xxl_paddings_fullwide} * 2 + #{$xxl_elm_gap_default} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-extended {
+		max-width: calc( 100vw - #{$xxl_paddings_fullwide} * 2 + #{$xxl_elm_gap_extended} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wide {
+		max-width: calc( 100vw - #{$xxl_paddings_fullwide} * 2 + #{$xxl_elm_gap_wide} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wider {
+		max-width: calc( 100vw - #{$xxl_paddings_fullwide} * 2 + #{$xxl_elm_gap_wider} );
+	}
+}
+
+//@mixin elementor--xl() {
+@media #{$media_xl} {
+	/* Elementor */
+	
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-container {
+		//max-width: $xl_page - $xl_paddings_fullwide * 2;
+		max-width: calc( 100vw - #{$xl_paddings_fullwide} * 2 );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-narrow {
+		max-width: calc( 100vw - #{$xl_paddings_fullwide} * 2 + #{$xl_elm_gap_narrow} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-default {
+		max-width: calc( 100vw - #{$xl_paddings_fullwide} * 2 + #{$xl_elm_gap_default} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-extended {
+		max-width: calc( 100vw - #{$xl_paddings_fullwide} * 2 + #{$xl_elm_gap_extended} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wide {
+		max-width: calc( 100vw - #{$xl_paddings_fullwide} * 2 + #{$xl_elm_gap_wide} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wider {
+		max-width: calc( 100vw - #{$xl_paddings_fullwide} * 2 + #{$xl_elm_gap_wider} );
+	}
+
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-no,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-no {
+		max-width: $xl_page;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-narrow,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-narrow {
+		max-width: $xl_page + $xl_elm_gap_narrow;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-default,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-default {
+		max-width: $xl_page + $xl_elm_gap_default;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-extended,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-extended {
+		max-width: $xl_page + $xl_elm_gap_extended;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wide,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wide {
+		max-width: $xl_page + $xl_elm_gap_wide;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wider,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wider {
+		max-width: $xl_page + $xl_elm_gap_wider;
+	}
+	/* Default Elementor's grid */
+	.elementor-column-gap-narrow > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $xl_elm_gap_narrow / 2;
+		padding-right: $xl_elm_gap_narrow / 2;
+	}
+	.elementor-column-gap-default > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $xl_elm_gap_default / 2;
+		padding-right: $xl_elm_gap_default / 2;
+	}
+	.elementor-column-gap-extended > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $xl_elm_gap_extended / 2;
+		padding-right: $xl_elm_gap_extended / 2;
+	}
+	.elementor-column-gap-wide > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $xl_elm_gap_wide / 2;
+		padding-right: $xl_elm_gap_wide / 2;
+	}
+	.elementor-column-gap-wider > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $xl_elm_gap_wider / 2;
+		padding-right: $xl_elm_gap_wider / 2;
+	}
+	/* Stretch rows (like VC) on pages without sidebar */
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow {
+		width: $xl_page + $xl_elm_gap_narrow;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default {
+		width: $xl_page + $xl_elm_gap_default;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended {
+		width: $xl_page + $xl_elm_gap_extended;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide {
+		width: $xl_page + $xl_elm_gap_wide;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider {
+		width: $xl_page + $xl_elm_gap_wider;
+	}
+	/* Pages with sidebar */
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow {
+		width: $xl_content + $xl_elm_gap_narrow;
+	}
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default {
+		width: $xl_content + $xl_elm_gap_default;
+	}
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended {
+		width: $xl_content + $xl_elm_gap_extended;
+	}
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide {
+		width: $xl_content + $xl_elm_gap_wide;
+	}
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider {
+		width: $xl_content + $xl_elm_gap_wider;
+	}
+}
+
+//@mixin elementor--lg() {
+@media #{$media_lg} {
+	/* Elementor */
+	
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-container {
+		//max-width: $lg_page - $lg_paddings_fullwide * 2;
+		max-width: calc( 100vw - #{$lg_paddings_fullwide} * 2 );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-narrow {
+		max-width: calc( 100vw - #{$lg_paddings_fullwide} * 2 + #{$lg_elm_gap_narrow} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-default {
+		max-width: calc( 100vw - #{$lg_paddings_fullwide} * 2 + #{$lg_elm_gap_default} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-extended {
+		max-width: calc( 100vw - #{$lg_paddings_fullwide} * 2 + #{$lg_elm_gap_extended} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wide {
+		max-width: calc( 100vw - #{$lg_paddings_fullwide} * 2 + #{$lg_elm_gap_wide} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wider {
+		max-width: calc( 100vw - #{$lg_paddings_fullwide} * 2 + #{$lg_elm_gap_wider} );
+	}
+
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-no,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-no {
+		max-width: $lg_page;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-narrow,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-narrow {
+		max-width: $lg_page + $lg_elm_gap_narrow;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-default,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-default {
+		max-width: $lg_page + $lg_elm_gap_default;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-extended,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-extended {
+		max-width: $lg_page + $lg_elm_gap_extended;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wide,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wide {
+		max-width: $lg_page + $lg_elm_gap_wide;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wider,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wider {
+		max-width: $lg_page + $lg_elm_gap_wider;
+	}
+	/* Default Elementor's grid */
+	.elementor-column-gap-narrow > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $lg_elm_gap_narrow / 2;
+		padding-right: $lg_elm_gap_narrow / 2;
+	}
+	.elementor-column-gap-default > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $lg_elm_gap_default / 2;
+		padding-right: $lg_elm_gap_default / 2;
+	}
+	.elementor-column-gap-extended > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $lg_elm_gap_extended / 2;
+		padding-right: $lg_elm_gap_extended / 2;
+	}
+	.elementor-column-gap-wide > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $lg_elm_gap_wide / 2;
+		padding-right: $lg_elm_gap_wide / 2;
+	}
+	.elementor-column-gap-wider > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $lg_elm_gap_wider / 2;
+		padding-right: $lg_elm_gap_wider / 2;
+	}
+	/* Stretch rows (like VC) on pages without sidebar */
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow {
+		width: $lg_page + $lg_elm_gap_narrow;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default {
+		width: $lg_page + $lg_elm_gap_default;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended {
+		width: $lg_page + $lg_elm_gap_extended;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide {
+		width: $lg_page + $lg_elm_gap_wide;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider {
+		width: $lg_page + $lg_elm_gap_wider;
+	}
+	/* Pages with sidebar */
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow {
+		width: $lg_content + $lg_elm_gap_narrow;
+	}
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default {
+		width: $lg_content + $lg_elm_gap_default;
+	}
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended {
+		width: $lg_content + $lg_elm_gap_extended;
+	}
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide {
+		width: $lg_content + $lg_elm_gap_wide;
+	}
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider {
+		width: $lg_content + $lg_elm_gap_wider;
+	}
+	.elementor-widget-spacer.sc_height_large .elementor-spacer-inner, .elementor-widget-spacer.sc_height_big .elementor-spacer-inner {
+		height: 5em !important;
+	}
+}
+
+//@mixin elementor--md() {
+@media #{$media_md} {
+	/* Elementor */
+	
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-container {
+		//max-width: $md_page - $md_paddings_fullwide * 2;
+		max-width: calc( 100vw - #{$md_paddings_fullwide} * 2 );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-narrow {
+		max-width: calc( 100vw - #{$md_paddings_fullwide} * 2 + #{$md_elm_gap_narrow} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-default {
+		max-width: calc( 100vw - #{$md_paddings_fullwide} * 2 + #{$md_elm_gap_default} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-extended {
+		max-width: calc( 100vw - #{$md_paddings_fullwide} * 2 + #{$md_elm_gap_extended} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wide {
+		max-width: calc( 100vw - #{$md_paddings_fullwide} * 2 + #{$md_elm_gap_wide} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wider {
+		max-width: calc( 100vw - #{$md_paddings_fullwide} * 2 + #{$md_elm_gap_wider} );
+	}
+
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-no,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-no {
+		max-width: $md_page;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-narrow,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-narrow {
+		max-width: $md_page + $md_elm_gap_narrow;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-default,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-default {
+		max-width: $md_page + $md_elm_gap_default;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-extended,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-extended {
+		max-width: $md_page + $md_elm_gap_extended;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wide,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wide {
+		max-width: $md_page + $md_elm_gap_wide;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wider,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wider {
+		max-width: $md_page + $md_elm_gap_wider;
+	}
+	/* Default Elementor's grid */
+	.elementor-column-gap-narrow > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $md_elm_gap_narrow / 2;
+		padding-right: $md_elm_gap_narrow / 2;
+	}
+	.elementor-column-gap-default > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $md_elm_gap_default / 2;
+		padding-right: $md_elm_gap_default / 2;
+	}
+	.elementor-column-gap-extended > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $md_elm_gap_extended / 2;
+		padding-right: $md_elm_gap_extended / 2;
+	}
+	.elementor-column-gap-wide > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $md_elm_gap_wide / 2;
+		padding-right: $md_elm_gap_wide / 2;
+	}
+	.elementor-column-gap-wider > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $md_elm_gap_wider / 2;
+		padding-right: $md_elm_gap_wider / 2;
+	}
+	/* Stretch rows (like VC) on pages without sidebar */
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow {
+		width: $md_page + $md_elm_gap_narrow;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default {
+		width: $md_page + $md_elm_gap_default;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended {
+		width: $md_page + $md_elm_gap_extended;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide {
+		width: $md_page + $md_elm_gap_wide;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider {
+		width: $md_page + $md_elm_gap_wider;
+	}
+	/* Pages with sidebar */
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow {
+		width: $md_content + $md_elm_gap_narrow;
+	}
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default {
+		width: $md_content + $md_elm_gap_default;
+	}
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended {
+		width: $md_content + $md_elm_gap_extended;
+	}
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide {
+		width: $md_content + $md_elm_gap_wide;
+	}
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider {
+		width: $md_content + $md_elm_gap_wider;
+	}
+	.elementor-widget-spacer.sc_height_large .elementor-spacer-inner, .elementor-widget-spacer.sc_height_big .elementor-spacer-inner{
+		height: 5em!important;
+	}
+}
+
+//@mixin elementor--sm() {
+@media #{$media_sm} {
+	/* Elementor */
+	
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-container {
+		//max-width: $sm_page - $sm_paddings_fullwide * 2;
+		max-width: calc( 100vw - #{$sm_paddings_fullwide} * 2 );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-narrow {
+		max-width: calc( 100vw - #{$sm_paddings_fullwide} * 2 + #{$sm_elm_gap_narrow} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-default {
+		max-width: calc( 100vw - #{$sm_paddings_fullwide} * 2 + #{$sm_elm_gap_default} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-extended {
+		max-width: calc( 100vw - #{$sm_paddings_fullwide} * 2 + #{$sm_elm_gap_extended} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wide {
+		max-width: calc( 100vw - #{$sm_paddings_fullwide} * 2 + #{$sm_elm_gap_wide} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wider {
+		max-width: calc( 100vw - #{$sm_paddings_fullwide} * 2 + #{$sm_elm_gap_wider} );
+	}
+
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-no,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-no {
+		max-width: $sm_page;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-narrow,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-narrow {
+		max-width: $sm_page + $sm_elm_gap_narrow;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-default,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-default {
+		max-width: $sm_page + $sm_elm_gap_default;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-extended,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-extended {
+		max-width: $sm_page + $sm_elm_gap_extended;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wide,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wide {
+		max-width: $sm_page + $sm_elm_gap_wide;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wider,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wider {
+		max-width: $sm_page + $sm_elm_gap_wider;
+	}
+	/* Default Elementor's grid */
+	.elementor-column-gap-narrow > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $sm_elm_gap_narrow / 2;
+		padding-right: $sm_elm_gap_narrow / 2;
+	}
+	.elementor-column-gap-default > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $sm_elm_gap_default / 2;
+		padding-right: $sm_elm_gap_default / 2;
+	}
+	.elementor-column-gap-extended > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $sm_elm_gap_extended / 2;
+		padding-right: $sm_elm_gap_extended / 2;
+	}
+	.elementor-column-gap-wide > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $sm_elm_gap_wide / 2;
+		padding-right: $sm_elm_gap_wide / 2;
+	}
+	.elementor-column-gap-wider > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $sm_elm_gap_wider / 2;
+		padding-right: $sm_elm_gap_wider / 2;
+	}
+	/* Stretch rows (like VC) on pages without sidebar */
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow {
+		width: $sm_page + $sm_elm_gap_narrow;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default {
+		width: $sm_page + $sm_elm_gap_default;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended {
+		width: $sm_page + $sm_elm_gap_extended;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide {
+		width: $sm_page + $sm_elm_gap_wide;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider {
+		width: $sm_page + $sm_elm_gap_wider;
+	}
+	.elementor-widget-spacer.sc_height_large .elementor-spacer-inner, .elementor-widget-spacer.sc_height_big .elementor-spacer-inner{
+		height: 4em!important;
+	}
+}
+
+//@mixin elementor--xs() {
+@media #{$media_xs} {
+	/* Elementor */
+	
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-container {
+		//max-width: $xs_page - $xs_paddings_fullwide * 2;
+		max-width: calc( 100vw - #{$xs_paddings_fullwide} * 2 );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-narrow {
+		max-width: calc( 100vw - #{$xs_paddings_fullwide} * 2 + #{$xs_elm_gap_narrow} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-default {
+		max-width: calc( 100vw - #{$xs_paddings_fullwide} * 2 + #{$xs_elm_gap_default} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-extended {
+		max-width: calc( 100vw - #{$xs_paddings_fullwide} * 2 + #{$xs_elm_gap_extended} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wide {
+		max-width: calc( 100vw - #{$xs_paddings_fullwide} * 2 + #{$xs_elm_gap_wide} );
+	}
+	.body_style_fullwide .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wider {
+		max-width: calc( 100vw - #{$xs_paddings_fullwide} * 2 + #{$xs_elm_gap_wider} );
+	}
+
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-no,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-no {
+		max-width: $xs_page;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-narrow,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-narrow {
+		max-width: $xs_page + $xs_elm_gap_narrow;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-default,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-default {
+		max-width: $xs_page + $xs_elm_gap_default;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-extended,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-extended {
+		max-width: $xs_page + $xs_elm_gap_extended;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wide,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wide {
+		max-width: $xs_page + $xs_elm_gap_wide;
+	}
+	.elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wider,
+	.body_style_boxed .elementor-section.elementor-section-boxed > .elementor-container.elementor-column-gap-wider {
+		max-width: $xs_page + $xs_elm_gap_wider;
+	}
+	/* Default Elementor's grid */
+	.elementor-column-gap-narrow > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $xs_elm_gap_narrow / 2;
+		padding-right: $xs_elm_gap_narrow / 2;
+	}
+	.elementor-column-gap-default > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $xs_elm_gap_default / 2;
+		padding-right: $xs_elm_gap_default / 2;
+	}
+	.elementor-column-gap-extended > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $xs_elm_gap_extended / 2;
+		padding-right: $xs_elm_gap_extended / 2;
+	}
+	.elementor-column-gap-wide > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $xs_elm_gap_wide / 2;
+		padding-right: $xs_elm_gap_wide / 2;
+	}
+	.elementor-column-gap-wider > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding-left:  $xs_elm_gap_wider / 2;
+		padding-right: $xs_elm_gap_wider / 2;
+	}
+	/* Stretch rows (like VC) on pages without sidebar */
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-narrow {
+		width: $xs_page + $xs_elm_gap_narrow;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-default {
+		width: $xs_page + $xs_elm_gap_default;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-extended {
+		width: $xs_page + $xs_elm_gap_extended;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wide {
+		width: $xs_page + $xs_elm_gap_wide;
+	}
+	.elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider,
+	.elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-boxed:not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider,
+	.sidebar_show .content_wrap .elementor-section.elementor-section-justified.elementor-section-full_width:not(.elementor-section-stretched):not(.elementor-inner-section) > .elementor-container.elementor-column-gap-wider {
+		width: $xs_page + $xs_elm_gap_wider;
+	}
+}

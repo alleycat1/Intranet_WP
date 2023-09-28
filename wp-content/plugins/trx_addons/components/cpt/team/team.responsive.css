@@ -1,0 +1,37 @@
+@media (max-width: 1439px) {
+  /* Team */
+  .sc_team_default .sc_team_item_info {
+    padding: 2.1429em;
+  }
+}
+@media (max-width: 1023px) {
+  /* Team */
+  .sc_team_item_thumb .sc_team_item_content {
+    display: none;
+  }
+
+  .sc_team_default .sc_team_item_info {
+    padding: 1.6154em;
+  }
+}
+@media (max-width: 767px) {
+  /* Team */
+  .team_member_page .team_member_featured {
+    padding: 0 0 2em;
+    width: 100%;
+    float: none;
+  }
+}
+@media (max-width: 479px) {
+  /* Team */
+  .sc_team_default .sc_team_item_info {
+    padding: 1.6154em;
+  }
+
+  .sc_team_default .sc_team_item_content {
+    min-height: 0;
+    margin-top: 1em;
+  }
+}
+
+/*# sourceMappingURL=team.responsive.css.map */

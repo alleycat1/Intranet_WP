@@ -1,0 +1,14 @@
+@media (max-width: 1279px) {
+  /* Image effects */
+  body [id^="trx_addons_image_effects_canvas_"] {
+    display: none !important;
+  }
+  body [class*="trx_addons_image_effects_on_"] img ~ img,
+  body [class*="trx_addons_image_effects_on_"] .trx_addons_image_effects_ripple_displacement,
+  body [class*="trx_addons_image_effects_on_"] .trx_addons_image_effects_swap_image,
+  body [class*="trx_addons_image_effects_on_"] .trx_addons_image_effects_swap_displacement {
+    display: none !important;
+  }
+}
+
+/*# sourceMappingURL=image-effects.responsive.css.map */

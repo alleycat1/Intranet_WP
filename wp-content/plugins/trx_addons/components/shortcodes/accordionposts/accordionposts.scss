@@ -1,0 +1,111 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+.sc_accordionposts {
+	position: relative;
+	display: block;
+	padding-left: 5rem;
+
+	.sc_accordionposts_item_top {
+		display: block;
+		position: relative;
+		min-height: 5rem;
+
+		.section_icon {
+			@include transition-all(0.3s);
+			@include abs-rt(2.143rem, 1.7rem, 10);
+
+			&:hover {
+				opacity: .8;
+				cursor: pointer;
+			}
+		}
+		.section_icon:after {
+			font-family: $trx_addons_icons;
+			content: '\e857';
+			@include font(1rem, '', bold);
+		}
+
+		.sc_accordionposts_item_header {
+			padding-bottom: .1px;
+		}
+
+		.sc_accordionposts_item_title,
+		.sc_accordionposts_item_subtitle {
+			margin-top: 0;
+			margin-bottom: 0;
+
+			&:hover {
+				opacity: .8;
+				cursor: pointer;
+			}
+		}
+
+		.sc_accordionposts_item_title {
+			min-height: 5rem;
+			margin: 0 3.3rem;
+			@include font(2rem, '', bold);
+			@include flex;
+			@include flex-align-items(center);
+		}
+
+		.sc_accordionposts_item_icon {
+			width: 5rem;
+			height: 5rem;
+			max-width: 5rem;
+			overflow: hidden;
+
+			@include font(28px);
+			@include abs-lt(-5rem, 0, '');
+			@include flex;
+			@include flex-align-items(center);
+			@include flex-justify-content(center);
+
+			&:hover {
+				opacity: .8;
+				cursor: pointer;
+			}
+		}
+
+		.sc_accordionposts_item_subtitle {
+			line-height: 5rem;
+			max-height: 5rem;
+			margin-left: 2px;
+			margin-bottom: 0;
+
+			span {
+				display: inline-block;
+				padding: 0 3.3rem;
+				vertical-align: top;
+				@include font(.6em, inherit, bold);
+
+			}
+		}
+
+	}
+
+	.sc_accordionposts_item {
+		position: relative;
+		display: block;
+		margin-bottom: 4px;
+
+		&.active{
+			.section_icon:after {
+				content: '\e85a';
+			}
+		}
+
+	}
+
+	.sc_accordionposts_item_inner,
+	.sc_accordionposts_item_subtitle {
+		position: relative;
+		display: none;
+	}
+
+	.sc_accordionposts_item_inner {
+		padding: 2rem 4.4rem;
+	}
+
+}
+

@@ -1,0 +1,13 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+//@mixin sc_socials--sm() {
+@media #{$media_sm} {
+    /* Socials */
+	.socials_wrap:not(.socials_type_list) .social_item .social_icon {
+		@include square(2em);
+	}
+	.socials_wrap .social_item {
+		margin-right: 6px;
+	}
+}

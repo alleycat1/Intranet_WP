@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA,yBAAoB;EAEnB;uCACsC;IACrC,QAAQ,EAAE,QAAQ;IAClB,IAAI,EAAE,CAAC;;;EAGR,yCAA0C;IACzC,gBAAgB,EAAE,sBAAqB;;;EAGxC,+CAAgD;IAC/C,YAAY,EAAE,CAAC;IACf,cAAc,EAAE,OAAO;IACvB,GAAG,EAAE,CAAC;IACN,MAAM,EAAE,IAAI;;;EAEb,2DAA4D;IAC3D,YAAY,EAAE,IAAI;;;EAGnB,mDAAoD;IACnD,OAAO,EAAE,KAAK",
+"sources": ["supertitle.responsive.scss"],
+"names": [],
+"file": "supertitle.responsive.css"
+}

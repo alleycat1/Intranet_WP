@@ -1,0 +1,166 @@
+/**========================================
+    Dashboard
+========================================**/
+/* We have added a new filter drodown so we need to make it 3 columns */
+.media-modal-content .media-frame:not(.fivo-docs-media-frame) select.attachment-filters {
+    width: 33.3334%; width: -webkit-calc(33.33334% - 12px); width: calc(33.33334% - 12px);
+}
+
+/* Add Documents Button Icon */
+.wp-media-buttons .add_media span.wp-media-buttons-icon.fivo-docs-buttons-icon:before {
+    content: "\f491";
+}
+
+/**========================================
+    Modal Window
+ ========================================**/
+body.fivo-docs-modal-open { overflow: hidden; }
+
+.fivo-docs-modal, .fivo-docs-modal *,
+.fivo-docs-modal *::after, .fivo-docs-modal *::before {
+    -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
+}
+
+.fivo-docs-modal { display: none; position: fixed; width: 100%; top: 0; left: 0; right: 0; bottom: 0; z-index: 160000; }
+body.fivo-docs-modal-open .fivo-docs-modal { display: block; }
+.fivo-docs-modal-backdrop {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0; min-height: 360px; background: #000; opacity: .7; z-index: 159900;
+}
+
+.fivo-docs-modal-content {
+    position: absolute; top: 50%; left: 0; right: 0; margin: auto; z-index: 160001; overflow: auto;
+    height: auto; max-height: 100%; max-width: 580px; box-shadow: 0 5px 15px rgba(0,0,0,.7);
+    -webkit-font-smoothing: subpixel-antialiased; padding-top: 50px;
+    -webkit-transform: -webkit-translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%);
+}
+
+.fivo-docs-modal-header {
+    position: absolute; top: 0; left: 0; height: 50px; width: 100%; padding: 0 20px; line-height: 50px;
+    border: 1px solid #ddd; background-color: #f3f3f3;
+}
+.fivo-docs-modal-title { font-size: 18px; margin: 0; padding: 0; }
+.fivo-docs-modal-close,
+.fivo-docs-modal-back {
+    position: absolute; top: 0; right: 0; width: 50px; height: 100%;
+    text-align: center; border-left: 1px solid #ddd; cursor: pointer;
+}
+.fivo-docs-modal-close::before,
+.fivo-docs-modal-back::before {
+    content: "\f158"; font: 400 20px/1 dashicons; speak: none; vertical-align: middle; color: #666;
+    -webkit-font-smoothing: antialiased; moz-osx-font-smoothing: grayscale;
+}
+
+.fivo-docs-modal-back { right: 50px; opacity: 0; transition: opacity .3s }
+.fivo-docs-modal-content.is-open .fivo-docs-modal-back { opacity: 1 }
+.fivo-docs-modal-back::before { content: "\f341"; }
+
+.fivo-docs-modal-select {  }
+.fivo-docs-modal-select::after { content: ""; display: block; clear: both; }
+.fivo-docs-modal-options {
+    width: 50%; height: 100px; padding: 0 15px; display: block; float: left; cursor: pointer;
+    line-height: 100px; text-align: center; font-weight: bold; text-transform: uppercase;
+    -webkit-transition: all .3s; transition: all .3s; background-color: #fff
+}
+.fivo-docs-modal-options:hover { background-color: #f3f3f3 }
+.fivo-docs-modal-category { border-right: 1px solid #ddd }
+
+.fivo-docs-modal-inner { display: none; position: relative; padding: 20px 20px 70px 20px; background-color: #fff }
+
+.fivo-docs-modal-footer {
+    position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px 15px;
+    display: table; border: 1px solid #ddd; background-color: #f3f3f3
+}
+.fivo-docs-modal-footer-left,
+.fivo-docs-modal-footer-right { display: table-cell; vertical-align: middle; }
+.fivo-docs-modal-footer-left { padding-right: 15px; }
+.fivo-docs-modal-footer-right { width: 2% }
+
+.fivo-docs-usage-shortcode {
+    padding: 6px 10px; background-color: #f8f8f8 !important; color: #555!important; border-color: #ddd!important;
+}
+.fivo-docs-usage-shortcode:focus { outline: 0; box-shadow: none !important }
+
+@media only screen and ( min-width : 420px ) {
+    .fivo-docs-modal { padding: 30px; }
+    .fivo-docs-modal-content {  }
+}
+
+/**========================================
+    Modal Options
+ ========================================**/
+.fivo-docs-option { margin-top: 25px }
+.fivo-docs-option::after { content: ""; display: block; clear: both; }
+.fivo-docs-option:first-of-type { margin-top: 0 }
+
+.fivo-docs-option p { margin: 0 }
+
+.fivo-docs-option label.checkboxes { float: left; clear: both; margin-top: 5px }
+.fivo-docs-option label.checkboxe:first-child { margin-top: 0 }
+
+.fivo-docs-text-item { padding: 7px 10px; box-shadow: none }
+
+.fivo-docs-modal-categories { width: 100% }
+.fivo-docs-info {
+    display: inline-block; padding: 5px 10px; vertical-align: middle; opacity: 0; visibility: hidden;
+    border-radius: 3px; border-top-left-radius: 15px; border-bottom-left-radius: 15px;
+    -webkit-transition: all .3s; transition: all .3s;
+}
+.fivo-docs-info.is-visible { opacity: 1; visibility: visible; }
+
+.fivo-docs-label {
+    display: block; margin-bottom: 7px; color: #666; letter-spacing: 1px;
+    font-size: 10px; line-height: 18px; font-weight: bold; text-transform: uppercase;
+}
+.fivo-docs-inline { display: inline-block; vertical-align: middle; margin-right: 7px; }
+.fivo-docs-inline .fivo-docs-radio-item { margin-right: 1px }
+
+.fivo-docs-columns { width: 100%; max-width: 100px; margin-right: 10px }
+.fivo-docs-columns span { vertical-align: middle; }
+.fivo-docs-tablet-rotate { -webkit-transform: rotate(90deg); -ms-transform: rotate(90deg); transform: rotate(90deg); }
+
+.fivo-docs-small-input { width: 30px; text-align: center; }
+
+.search-choice span::before { content: " "; display: inline-block; width: 0; }
+
+.fivo-docs-thumbs { margin: 5px -2px; margin-top: 20px; }
+.fivo-docs-thumbs:empty { margin-top: 0 }
+.fivo-docs-thumbs:empty + span { display: none; }
+.fivo-docs-thumbs::after { content: ""; display: block; clear: both; }
+.fivo-docs-thumbs .attachment { width: 50%; padding: 2px }
+.fivo-docs-thumbs .attachment-preview { cursor: -webkit-grab; cursor: grab; -webkit-transform: translateZ(0); transform: translateZ(0); }
+.fivo-docs-actions-delete {
+    position: absolute; top: 0; right: 0; cursor: pointer; width: 25px; height: 25px; line-height: 25px;
+    -webkit-transition: all .3s; transition: all .3s;
+}
+.fivo-docs-thumbs .attachment:hover .fivo-docs-actions-delete { opacity: 1 }
+
+.fivo-docs-sortable-placeholder { background-color: #eee; box-shadow: inset 0 0 0 2px #fff }
+.fivo-docs-sortable-placeholder::before { content: ""; display: block; padding-bottom: 100% }
+
+@media only screen and ( min-width : 360px ) {
+    .fivo-docs-thumbs .attachment { width: 33.33334%; }
+}
+
+@media only screen and ( min-width : 490px ) {
+    .fivo-docs-thumbs .attachment { width: 25%; }
+}
+
+@media only screen and ( min-width : 961px ) {
+    .fivo-docs-thumbs .attachment { width: 20%; }
+}
+
+@media only screen and ( min-width : 1025px ) {
+    .fivo-docs-modal-categories { max-height: 30px;  }
+    .fivo-docs-thumbs { max-height: 350px; overflow: auto; }
+    .fivo-docs-actions-delete { opacity: 0 }
+}
+
+/* Admin Colors */
+.admin-color-fresh .fivo-docs-ui-color { background: #1e8cbe; color: #fff }
+.admin-color-light .fivo-docs-ui-color{ background: #04a4cc; color: #fff }
+.admin-color-blue .fivo-docs-ui-color { background: #e1a948; color: #fff }
+.admin-color-coffee .fivo-docs-ui-color { background: #c7a589; color: #fff }
+.admin-color-ectoplasm .fivo-docs-ui-color { background: #a3b745; color: #fff }
+.admin-color-midnight .fivo-docs-ui-color { background: #dd362d; color: #fff }
+.admin-color-ocean .fivo-docs-ui-color{ background: #9ebaa0; color: #fff }
+.admin-color-sunrise .fivo-docs-ui-color { background: #dd823b; color: #fff }

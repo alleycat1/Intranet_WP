@@ -1,0 +1,24 @@
+@media (max-width: 1279px) {
+  /* Mouse helper */
+  .trx_addons_mouse_helper {
+    display: none;
+  }
+
+  /* Restore system cursor */
+  .trx_addons_hide_cursor,
+  .trx_addons_hide_cursor *,
+  [data-mouse-helper-hide-cursor="1"],
+  [data-mouse-helper-hide-cursor="1"] * {
+    cursor: unset !important;
+  }
+
+  [data-mouse-helper="highlight"] {
+    background-size: 130vw 130vh !important;
+    background-position: center !important;
+    -webkit-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
+  }
+}
+
+/*# sourceMappingURL=mouse-helper.responsive.css.map */

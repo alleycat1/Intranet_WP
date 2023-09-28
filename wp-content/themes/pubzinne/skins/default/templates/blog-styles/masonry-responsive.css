@@ -1,0 +1,39 @@
+@media (max-width: 1439px) {
+  /* Blog layout: Masonry */
+  .masonry_wrap .masonry_item-1_4 {
+    width: 33.3333%;
+  }
+}
+@media (max-width: 1023px) {
+  /* Blog layout: Masonry */
+  .masonry_wrap {
+    margin-right: -30px;
+  }
+
+  .masonry_wrap .masonry_item {
+    padding: 0 30px 30px 0;
+  }
+
+  .masonry_wrap .masonry_item-1_3,
+  .masonry_wrap .masonry_item-1_4 {
+    width: 50%;
+  }
+}
+@media (max-width: 767px) {
+  /* Blog layout: Masonry */
+  .masonry_wrap {
+    margin-right: 0;
+  }
+
+  .masonry_wrap .masonry_item {
+    padding: 0 0 20px 0;
+  }
+
+  .masonry_wrap .masonry_item-1_2,
+  .masonry_wrap .masonry_item-1_3,
+  .masonry_wrap .masonry_item-1_4 {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=masonry-responsive.css.map */

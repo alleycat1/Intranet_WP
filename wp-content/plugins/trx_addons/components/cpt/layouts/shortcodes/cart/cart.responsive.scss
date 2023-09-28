@@ -1,0 +1,49 @@
+@import "../../../../../css/_mixins.scss";
+@import "../../../../../css/_trx_addons.vars.scss";
+
+//@mixin layouts_cart--md() {
+@media #{$media_md} {
+    /* Layouts: Cart */
+	.sc_layouts_cart_button_wrap {
+		bottom: 1em;
+		right: 1em;
+	}
+}
+
+//@mixin layouts_cart--sm() {
+@media #{$media_sm} {
+    /* Layouts: Cart */
+	.sc_layouts_cart_widget {
+		@include fixed-pos(46px, 0, 0, 0, '');
+		@include box(auto, auto);
+	}
+	.sc_layouts_cart_widget:after {
+		display: none;
+	}
+	.sc_layouts_cart_widget .sc_layouts_cart_widget_close {
+		font-size: 1.5em;
+		padding: 1em;
+		top: 32px;
+	}
+	.sc_layouts_cart_widget .widget_shopping_cart {
+		@include abs-cc(2);
+		padding: 1em;
+		width: 90%;
+		max-height:80%;
+		font-size: 14px;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+	.sc_layouts_cart_widget .cart_list {
+		max-height: none;
+		overflow:visible;
+	}
+}
+
+//@mixin layouts_cart--sm_wp() {
+@media #{$media_sm_wp} {
+    /* Layouts: Cart */
+	.sc_layouts_cart_widget {
+		top: 0;
+	}
+}

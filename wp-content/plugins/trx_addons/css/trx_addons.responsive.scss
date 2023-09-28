@@ -1,0 +1,438 @@
+@import "_mixins.scss";
+@import "_trx_addons.vars.scss";
+
+//@mixin trx_addons--xl() {
+@media #{$media_xl} {
+    /* ThemeREX Addons - Common styles */
+	.trx_addons_audio_player {
+		padding: 2em;
+	}
+}
+
+//@mixin trx_addons--lg() {
+@media #{$media_lg} {
+    /* ThemeREX Addons - Common styles */
+	.trx_addons_audio_player {
+		padding: 2em 1.6em;
+	}
+
+	/* Columns, push, pull and offset sizes */
+	@for $i from 1 through 12 {
+		@for $j from $i through 12 {
+			$s: 100% / $j * $i;
+			@if $j == 1 {
+				.trx_addons_column-#{$i}-tablet,
+				.trx_addons_column-#{$i}_#{$j}-tablet { width: $s; }
+			} @else {
+				.trx_addons_column-#{$i}_#{$j}-tablet { width: $s; }
+			}
+		}
+	}
+	.trx_addons_columns_wrap.columns_padding_bottom.columns_in_single_row > [class*="trx_addons_column-"][class*="-tablet"] {
+		padding-bottom: $lg_grid_gap;
+	}
+
+	/* Magnific Popup */
+	.mfp-wrap .mfp-close {
+		//margin: 0;	// Uncomment to return button inside the popup
+		font-size: 20px;
+	}
+}
+
+//@mixin trx_addons--md() {
+@media #{$media_md} {
+    /* ThemeREX Addons - Common styles */
+	.trx_addons_scroll_to_top {
+		right: 1em;
+	}
+	.trx_addons_scroll_to_top.show {
+		bottom: 1em;
+	}
+	.trx_addons_stretch_height {
+		min-height: 0 !important;
+	}
+	.scroll_progress_bottom {
+		height: 6px;
+	}
+	.trx_addons_video_sticky_on {
+		.trx_addons_video_sticky_inner,
+		.trx_addons_video_sticky_inner iframe {
+			@include box(320px !important, 180px !important);
+		}
+		.trx_addons_video_sticky_close {
+			bottom: 180px;
+		}
+		.trx_addons_video_sticky_inner {
+			.trx_addons_video_list_title_wrap {
+				.trx_addons_video_list_title {
+					@include font(1.25em, 1.25em);
+				}
+			}
+		}
+	}
+}
+
+//@mixin trx_addons--wp_fix() {
+@media #{$media_wp_fix} {
+	/* ThemeREX Addons - Common styles */
+	.admin-bar .scroll_progress_top {
+		top: 46px;
+	}
+/*
+	.admin-bar.fixed_blocks_sticky .sc_column_fixed:not(.elementor-column),
+	.admin-bar.fixed_blocks_sticky .sc_column_fixed.elementor-column > .elementor-column-wrap,		// Elm 2.9-
+	.admin-bar.fixed_blocks_sticky .sc_column_fixed.elementor-column > .elementor-widget-wrap  {	// Elm 3.0+
+		top: 46px;
+	}
+*/
+}
+
+@media screen and (max-width:800px) and (orientation:landscape),screen and (max-height:300px) {
+	/* Magnific popup */
+	.mfp-img-mobile .mfp-figure {
+		.mfp-bottom-bar {
+			background: transparent;
+			margin:0;
+			padding:0;
+			position:absolute;
+		}
+		figcaption {
+			margin-bottom: 0 !important;
+		}
+		.mfp-close {
+			position: absolute;
+			right: -10px;
+			top: -30px;
+		}
+	}
+}
+
+//@mixin trx_addons--sm() {
+@media #{$media_sm} {
+	/* ThemeREX Addons - Common styles */
+
+	/* Grid */
+	.trx_addons_container, .trx_addons_container-fluid {
+		padding-left:  $sm_grid_gap / 2;
+		padding-right: $sm_grid_gap / 2;
+	}
+	.trx_addons_columns_wrap {
+		margin-right: -$sm_grid_gap;
+	}
+	.trx_addons_columns_wrap > [class*="trx_addons_column-"] {
+		padding-right: $sm_grid_gap;
+	}
+	.trx_addons_columns_wrap.columns_padding_left {
+		margin-left: -$sm_grid_gap;
+	}
+	.trx_addons_columns_wrap.columns_padding_left > [class*="trx_addons_column-"],
+	.trx_addons_columns_wrap > [class*="trx_addons_column-"].columns_padding_left {
+		padding-left:$sm_grid_gap;
+	}
+	.trx_addons_columns_wrap.columns_padding_right {
+		margin-right: -$sm_grid_gap;
+	}
+	.trx_addons_columns_wrap.columns_padding_right > [class*="trx_addons_column-"],
+	.trx_addons_columns_wrap > [class*="trx_addons_column-"].columns_padding_right {
+		padding-right: $sm_grid_gap;
+	}
+	.trx_addons_columns_wrap.columns_padding_center {
+		margin-left: -$sm_grid_gap / 2;
+		margin-right: -$sm_grid_gap / 2;
+	}
+	.trx_addons_columns_wrap.columns_padding_center > [class*="trx_addons_column-"],
+	.trx_addons_columns_wrap > [class*="trx_addons_column-"].columns_padding_center {
+		padding-left: $sm_grid_gap / 2;
+		padding-right: $sm_grid_gap / 2;
+	}
+	.trx_addons_columns_wrap.columns_padding_bottom > [class*="trx_addons_column-"],
+	.trx_addons_columns_wrap > [class*="trx_addons_column-"].columns_padding_bottom {
+		padding-bottom: $sm_grid_gap;
+	}
+	.trx_addons_columns_wrap.columns_padding_bottom.columns_in_single_row > [class*="trx_addons_column-"] {
+		padding-bottom: $sm_grid_gap;
+	}
+	// Remove padding from last column (if odd columns number)
+	.trx_addons_columns_wrap.columns_padding_bottom.columns_in_single_row > .trx_addons_column-1_1:last-child,
+	.trx_addons_columns_wrap.columns_padding_bottom.columns_in_single_row > .trx_addons_column-1_3:last-child,
+	.trx_addons_columns_wrap.columns_padding_bottom.columns_in_single_row > .trx_addons_column-1_5:last-child,
+	.trx_addons_columns_wrap.columns_padding_bottom.columns_in_single_row > .trx_addons_column-1_7:last-child,
+	.trx_addons_columns_wrap.columns_padding_bottom.columns_in_single_row > .trx_addons_column-1_9:last-child,
+	.trx_addons_columns_wrap.columns_padding_bottom.columns_in_single_row > .trx_addons_column-1_11:last-child {
+		padding-bottom: 0;
+	}
+
+	/* Columns relayout (max 2 columns in the row) */
+	.trx_addons_columns_wrap:not(.columns_fluid) > [class*="trx_addons_column-"] {
+		width:50%;
+	}
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-1_1,
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-2_2, 
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-3_3,
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-4_4, 
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-5_5, 
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-6_6,
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-7_7, 
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-8_8, 
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-9_9,
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-10_10, 
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-11_11, 
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-12_12,
+/*	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-1_3:nth-child(3n),*/
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-2_3,
+/*	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-1_3.after_span_2,*/
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-3_4,
+/*	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-1_4.after_span_3,*/
+/*	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-1_5:nth-child(5n),*/
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-2_5,
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-3_5,
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-4_5,
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-2_6,
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-3_6,
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-4_6,
+	.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-5_6	{
+		width:100%;
+	}
+
+	/* Columns, push, pull and offset sizes */
+	@for $i from 1 through 12 {
+		@for $j from $i through 12 {
+			$s: 100% / $j * $i;
+			@if $j == 1 {
+				.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-#{$i}-tablet,
+				.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-#{$i}_#{$j}-tablet { width: $s; }
+			} @else {
+				.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-#{$i}_#{$j}-tablet { width: $s; }
+			}
+		}
+	}
+	.trx_addons_columns_wrap.columns_padding_bottom.columns_in_single_row > [class*="trx_addons_column-"][class*="-tablet"] {
+		padding-bottom: $sm_grid_gap;
+	}
+
+	/* Columns, push, pull and offset sizes */
+	@for $i from 1 through 12 {
+		@for $j from $i through 12 {
+			$s: 100% / $j * $i;
+			@if $j == 1 {
+				.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-#{$i}-mobile,
+				.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-#{$i}_#{$j}-mobile { width: $s; }
+			} @else {
+				.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-#{$i}_#{$j}-mobile { width: $s; }
+			}
+		}
+	}
+	.trx_addons_columns_wrap.columns_padding_bottom.columns_in_single_row > [class*="trx_addons_column-"][class*="-mobile"] {
+		padding-bottom: $sm_grid_gap;
+	}
+
+	.fixed_blocks_sticky {
+		.sc_column_fixed.elementor-column {
+			@include flex;
+		}
+		.sc_column_fixed:not(.elementor-column),
+		.sc_column_fixed.elementor-column > .elementor-column-wrap, 	// Elm 2.9-
+		.sc_column_fixed.elementor-column > .elementor-widget-wrap {	// Elm 3.0+
+			position: static;
+			top: auto !important;
+		}
+	}
+
+	.sc_stack_section_effect_fade:not(.elementor-element-edit-mode) {
+		opacity: 1;
+	}
+
+	/* Video sticky */
+	.trx_addons_video_sticky_on {
+		.trx_addons_video_sticky_inner,
+		.trx_addons_video_sticky_inner iframe {
+			@include box(160px !important, 90px !important);
+		}
+		.trx_addons_video_sticky_inner {
+			right: auto;
+			left: 0;
+
+			.trx_addons_video_list_title_wrap {
+				@include abs-lt(160px, 0);
+				@include box( calc( 100vw - 160px ), 90px);
+				bottom: auto;
+				right: auto;
+				background-color: rgba(255,255,255,0.75);
+			}
+		}
+		.trx_addons_video_sticky_close {
+			bottom: calc( 90px - 3rem );
+		}
+	}
+
+	/* Magnific Popup */
+	.mfp-wrap .mfp-close {
+		font-size: 20px;
+		right: -10px;
+	}
+
+	.trx_addons_popup {
+		@include box(400px, auto);
+	
+		.mfp-close {
+			right: 0;
+		}
+		.trx_addons_tabs_titles li.trx_addons_tabs_title > a {
+			font-size: 15px;
+		}
+	}
+
+}
+
+//@mixin trx_addons--sm_wp() {
+@media #{$media_sm_wp} {
+	/* ThemeREX Addons - Common styles */
+
+	/* Columns relayout (max 1 columns in the row) */
+	.trx_addons_columns_wrap:not(.columns_fluid) > [class*="trx_addons_column-"] {
+		width:100%;
+	}
+	.trx_addons_columns_wrap.columns_padding_bottom.columns_in_single_row > [class*="trx_addons_column-"]:last-child {
+		padding-bottom: 0;
+	}
+
+	.admin-bar .scroll_progress_top {
+		top: 0px;
+	}
+	.scroll_progress_bottom {
+		height: 3px;
+	}
+/*
+	.admin-bar.fixed_blocks_sticky .sc_column_fixed:not(.elementor-column),
+	.admin-bar.fixed_blocks_sticky .sc_column_fixed.elementor-column > .elementor-column-wrap,	// Elm 2.9-
+	.admin-bar.fixed_blocks_sticky .sc_column_fixed.elementor-column > .elementor-widget-wrap {	// Elm 3.0+
+		top: 0px;
+	}
+*/
+}
+
+//@mixin trx_addons--xs() {
+@media #{$media_xs} {
+	/* ThemeREX Addons - Common styles */
+
+	/* Grid */
+	.trx_addons_container, .trx_addons_container-fluid {
+		padding-left:  $xs_grid_gap / 2;
+		padding-right: $xs_grid_gap / 2;
+	}
+	.trx_addons_columns_wrap {
+		margin-right: -$xs_grid_gap;
+	}
+	.trx_addons_columns_wrap > [class*="trx_addons_column-"] {
+		padding-right: $xs_grid_gap;
+	}
+	.trx_addons_columns_wrap.columns_padding_left {
+		margin-left: -$xs_grid_gap;
+	}
+	.trx_addons_columns_wrap.columns_padding_left > [class*="trx_addons_column-"],
+	.trx_addons_columns_wrap > [class*="trx_addons_column-"].columns_padding_left {
+		padding-left: $xs_grid_gap;
+	}
+	.trx_addons_columns_wrap.columns_padding_right {
+		margin-right: -$xs_grid_gap;
+	}
+	.trx_addons_columns_wrap.columns_padding_right > [class*="trx_addons_column-"],
+	.trx_addons_columns_wrap > [class*="trx_addons_column-"].columns_padding_right {
+		padding-right: $xs_grid_gap;
+	}
+	.trx_addons_columns_wrap.columns_padding_center {
+		margin-left: -$xs_grid_gap / 2;
+		margin-right: -$xs_grid_gap / 2;
+	}
+	.trx_addons_columns_wrap.columns_padding_center > [class*="trx_addons_column-"],
+	.trx_addons_columns_wrap > [class*="trx_addons_column-"].columns_padding_center {
+		padding-left: $xs_grid_gap / 2;
+		padding-right: $xs_grid_gap / 2;
+	}
+	.trx_addons_columns_wrap.columns_padding_bottom > [class*="trx_addons_column-"],
+	.trx_addons_columns_wrap > [class*="trx_addons_column-"].columns_padding_bottom {
+		padding-bottom: $xs_grid_gap;
+	}
+	.trx_addons_columns_wrap.columns_padding_bottom.columns_in_single_row > [class*="trx_addons_column-"] {
+		padding-bottom: $xs_grid_gap;
+	}
+	.trx_addons_columns_wrap.columns_padding_bottom.columns_in_single_row > [class*="trx_addons_column-"]:last-child {
+		padding-bottom: 0;
+	}
+
+	/* trx_addons_columns relayout (no trx_addons_columns) */
+	.trx_addons_columns_wrap:not(.columns_fluid) > [class*="trx_addons_column-"] {
+		width:100%;
+	}
+	.trx_addons_columns_wrap.columns_fluid > [class*="trx_addons_column-"] {
+		width:50%;
+	}
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-1_1, 
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-2_2, 
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-3_3,
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-4_4, 
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-5_5, 
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-6_6,
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-7_7, 
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-8_8, 
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-9_9,
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-10_10, 
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-11_11, 
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-12_12,
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-1_3:nth-child(3n),
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-2_3,
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-1_3.after_span_2,
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-3_4,
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-1_4.after_span_3,
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-1_5:nth-child(5n),
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-2_5,
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-3_5,
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-4_5,
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-2_6,
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-3_6,
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-4_6,
+	.trx_addons_columns_wrap.columns_fluid > .trx_addons_column-5_6	{
+		width:100%;
+	}
+
+	/* Columns, push, pull and offset sizes */
+	@for $i from 1 through 12 {
+		@for $j from $i through 12 {
+			$s: 100% / $j * $i;
+			@if $j == 1 {
+				.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-#{$i}-mobile,
+				.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-#{$i}_#{$j}-mobile { width: $s; }
+			} @else {
+				.trx_addons_columns_wrap:not(.columns_fluid) > .trx_addons_column-#{$i}_#{$j}-mobile { width: $s; }
+			}
+		}
+	}
+	.trx_addons_columns_wrap.columns_padding_bottom.columns_in_single_row > [class*="trx_addons_column-"][class*="-mobile"] {
+		padding-bottom: $xs_grid_gap;
+	}
+
+	.trx_addons_popup {
+		@include box(280px, auto);
+	}
+	.trx_addons_left_side,
+	.trx_addons_right_side {
+		display: block;
+		float:none;
+		width: 100%;
+		padding:0;
+	}
+	.trx_addons_right_side {
+		padding-top: 2em;
+	}
+
+	/* Video sticky */
+	.trx_addons_video_sticky_on {
+		.trx_addons_video_sticky_inner {
+			.trx_addons_video_list_title_wrap {
+				.trx_addons_video_list_title {
+					@include font(1.25em, 1.25em);
+				}
+			}
+		}
+	}
+}

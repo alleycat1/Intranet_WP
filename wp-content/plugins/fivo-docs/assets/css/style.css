@@ -1,0 +1,253 @@
+/*=======================================
+=========================================
+
+    1.  General
+        1.1.  Scrollbar
+        1.2.  File Icons
+        1.3.  Columns
+    2.  Categories
+    3.  Custom Selection
+        3.1.  Boxed
+        3.2.  List
+
+===========================================
+=========================================*/
+
+/* 1. General
+================================================== */
+.fivo-docs {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif
+}
+
+.fivo-docs, .fivo-docs *,
+.fivo-docs *::before, .fivo-docs *::after { box-sizing: border-box; }
+
+.fivo-docs-list { background-color: #fff }
+
+.fivo-docs .fivo-docs-item {
+    position: relative; display: block; margin: 0; padding: 12px 15px 12px 50px; border: none; border-bottom: 1px solid #eee;
+    font-size: 12px; line-height: 14px; font-weight: 600; text-decoration: none; word-wrap: break-word; color: #777; box-shadow: none;
+    -webkit-transition: color .3s; transition: color .3s;
+}
+.fivo-docs .fivo-docs-item:last-of-type { border-bottom: 0 }
+.fivo-docs .fivo-docs-item:hover { color: #2e6cba; box-shadow: none }
+
+.fivo-docs-item .fivo-docs-info { display: block; font-size: 10px; margin-top: 3px; color: #999 }
+.fivo-docs-item .fivo-docs-info span::after { content: "-"; margin: 0 4px }
+.fivo-docs-item .fivo-docs-info span:last-of-type::after { display: none; }
+
+@media only screen and ( min-width: 768px ) {
+    .fivo-docs.fivo-docs-align-left,
+    .fivo-docs.fivo-docs-align-right { width: 100%; max-width: 250px }
+    .fivo-docs.fivo-docs-align-left { float: left; margin: 0 15px 15px 0; }
+    .fivo-docs.fivo-docs-align-right { float: right; margin: 0 0 15px 15px; }
+}
+
+
+/* 1.1. Scrollbar
+-----------------------------*/
+/* Add scrollbar for long lists */
+.fivo-docs-has-scrollbar { max-height: 300px; overflow-x: hidden; -webkit-overflow-scrolling: touch; }
+/* Scrollbar for webkit browsers */
+.fivo-docs-has-scrollbar::-webkit-scrollbar { width: 3px; }
+.fivo-docs-has-scrollbar::-webkit-scrollbar-track-piece { }
+.fivo-docs-has-scrollbar::-webkit-scrollbar-thumb { background: rgba(0,0,0,.15); }
+
+
+/* 1.2. File Icons
+-----------------------------*/
+.fivo-docs-file-icon {
+    position: absolute; top: 50%; left: 15px; width: 21px; height: 18px; margin-top: -5px;
+    font-family: Arial, Helvetica, sans-serif; font-weight: bold; text-align: left;
+    font-size: 10px; line-height: 1; color: #fff; white-space: nowrap;
+    background: #9ba4ae; border-color: #9ba4ae; -webkit-font-smoothing: antialiased;
+    border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;
+}
+.fivo-docs-file-icon span {
+    display: block; position: absolute; top: -8px; left: 0; width: 21px;
+    border-bottom-width: 9px; border-bottom-style: solid; border-bottom-color: inherit;
+    border-right: 9px solid transparent;
+}
+
+.fivo-docs-file-icon::before {
+    display: block; content: ""; position: absolute; top: -8px; right: 0; z-index: 1;
+    border-bottom: 9px solid rgba(255, 255, 255, 0.25); border-right: 9px solid transparent;
+}
+.fivo-docs-file-icon::after {
+    display: block; content: attr(data-fivo-docs-file-type); position: absolute; bottom: 1px; left: 1px; width: 20px; overflow: hidden;
+}
+
+.fivo-docs-file-icon[data-fivo-docs-file-type=zip],
+.fivo-docs-file-icon[data-fivo-docs-file-type=rar] { background: #ACACAC; border-color: #ACACAC; }
+.fivo-docs-file-icon[data-fivo-docs-file-type=doc] { background: #307CF1; border-color: #307CF1; }
+.fivo-docs-file-icon[data-fivo-docs-file-type=xls] { background: #0F9D58; border-color: #0F9D58; }
+.fivo-docs-file-icon[data-fivo-docs-file-type=ppt] { background: #D24726; border-color: #D24726; }
+.fivo-docs-file-icon[data-fivo-docs-file-type=pdf] { background: #ff6e4a; border-color: #ff6e4a; }
+.fivo-docs-file-icon[data-fivo-docs-file-type=psd] { background: #30c3ee; border-color: #30c3ee; }
+.fivo-docs-file-icon[data-fivo-docs-file-type=ai] { background: #ff7f25; border-color: #ff7f25; }
+.fivo-docs-file-icon[data-fivo-docs-file-type=aep] { background: #f2bdff; border-color: #f2bdff; }
+.fivo-docs-file-icon[data-fivo-docs-file-type=prproj] { background: #ff9aff; border-color: #ff9aff; }
+
+
+/* 1.3. Columns
+-----------------------------*/
+.fivo-docs-col-xs-1 .fivo-docs-column,
+.fivo-docs-col-xs-1 .fivo-docs-category { width: 100%; }
+.fivo-docs-col-xs-2 .fivo-docs-column,
+.fivo-docs-col-xs-2 .fivo-docs-category { width: 50%; }
+.fivo-docs-col-xs-3 .fivo-docs-column,
+.fivo-docs-col-xs-3 .fivo-docs-category { width: 33.3334%; }
+.fivo-docs-col-xs-4 .fivo-docs-column,
+.fivo-docs-col-xs-4 .fivo-docs-category { width: 25%; }
+.fivo-docs-col-xs-5 .fivo-docs-column,
+.fivo-docs-col-xs-5 .fivo-docs-category { width: 20%; }
+.fivo-docs-col-xs-6 .fivo-docs-column,
+.fivo-docs-col-xs-6 .fivo-docs-category { width: 16.6667%; }
+
+
+@media ( min-width: 576px ) {
+    .fivo-docs-col-sm-1 .fivo-docs-column,
+    .fivo-docs-col-sm-1 .fivo-docs-category { width: 100%; }
+    .fivo-docs-col-sm-2 .fivo-docs-column,
+    .fivo-docs-col-sm-2 .fivo-docs-category { width: 50%; }
+    .fivo-docs-col-sm-3 .fivo-docs-column,
+    .fivo-docs-col-sm-3 .fivo-docs-category { width: 33.3334%; }
+    .fivo-docs-col-sm-4 .fivo-docs-column,
+    .fivo-docs-col-sm-4 .fivo-docs-category { width: 25%; }
+    .fivo-docs-col-sm-5 .fivo-docs-column,
+    .fivo-docs-col-sm-5 .fivo-docs-category { width: 20%; }
+    .fivo-docs-col-sm-6 .fivo-docs-column,
+    .fivo-docs-col-sm-6 .fivo-docs-category { width: 16.6667%; }
+}
+
+@media ( min-width: 768px ) {
+    .fivo-docs-col-md-1 .fivo-docs-column,
+    .fivo-docs-col-md-1 .fivo-docs-category { width: 100%; }
+    .fivo-docs-col-md-2 .fivo-docs-column,
+    .fivo-docs-col-md-2 .fivo-docs-category { width: 50%; }
+    .fivo-docs-col-md-3 .fivo-docs-column,
+    .fivo-docs-col-md-3 .fivo-docs-category { width: 33.3334%; }
+    .fivo-docs-col-md-4 .fivo-docs-column,
+    .fivo-docs-col-md-4 .fivo-docs-category { width: 25%; }
+    .fivo-docs-col-md-5 .fivo-docs-column,
+    .fivo-docs-col-md-5 .fivo-docs-category { width: 20%; }
+    .fivo-docs-col-md-6 .fivo-docs-column,
+    .fivo-docs-col-md-6 .fivo-docs-category { width: 16.6667%; }
+}
+
+@media ( min-width: 992px ) {
+    .fivo-docs-col-lg-1 .fivo-docs-column,
+    .fivo-docs-col-lg-1 .fivo-docs-category { width: 100%; }
+    .fivo-docs-col-lg-2 .fivo-docs-column,
+    .fivo-docs-col-lg-2 .fivo-docs-category { width: 50%; }
+    .fivo-docs-col-lg-3 .fivo-docs-column,
+    .fivo-docs-col-lg-3 .fivo-docs-category { width: 33.3334%; }
+    .fivo-docs-col-lg-4 .fivo-docs-column,
+    .fivo-docs-col-lg-4 .fivo-docs-category { width: 25%; }
+    .fivo-docs-col-lg-5 .fivo-docs-column,
+    .fivo-docs-col-lg-5 .fivo-docs-category { width: 20%; }
+    .fivo-docs-col-lg-6 .fivo-docs-column,
+    .fivo-docs-col-lg-6 .fivo-docs-category { width: 16.6667%; }
+}
+
+@media ( min-width: 1200px ) {
+    .fivo-docs-col-xl-1 .fivo-docs-column,
+    .fivo-docs-col-xl-1 .fivo-docs-category { width: 100%; }
+    .fivo-docs-col-xl-2 .fivo-docs-column,
+    .fivo-docs-col-xl-2 .fivo-docs-category { width: 50%; }
+    .fivo-docs-col-xl-3 .fivo-docs-column,
+    .fivo-docs-col-xl-3 .fivo-docs-category { width: 33.3334%; }
+    .fivo-docs-col-xl-4 .fivo-docs-column,
+    .fivo-docs-col-xl-4 .fivo-docs-category { width: 25%; }
+    .fivo-docs-col-xl-5 .fivo-docs-column,
+    .fivo-docs-col-xl-5 .fivo-docs-category { width: 20%; }
+    .fivo-docs-col-xl-6 .fivo-docs-column,
+    .fivo-docs-col-xl-6 .fivo-docs-category { width: 16.6667%; }
+}
+
+
+/* 2. Categories
+================================================== */
+.fivo-docs-categories { width: auto; margin: 0 -7px; font-size: 0; }
+
+.fivo-js .fivo-docs-masonry { opacity: 0 }
+.fivo-js .fivo-docs-masonry.is-ready { opacity: 1 }
+
+.fivo-docs-column,
+.fivo-docs-category { width: 100%; display: inline-block; vertical-align: top; padding: 0 7px 14px 7px }
+.fivo-docs-categories .fivo-docs-column .fivo-docs-category { width: 100%; padding: 0; margin-bottom: 14px; }
+.fivo-docs-column .fivo-docs-category:last-child { margin-bottom: 0 }
+
+@media only screen and ( min-width: 768px ) {
+    .fivo-docs-align-left .fivo-docs-category,
+    .fivo-docs-align-right .fivo-docs-category { padding: 0 0 14px 0 }
+    .fivo-docs-align-left .fivo-docs-category:last-child,
+    .fivo-docs-align-right .fivo-docs-category:last-child { padding: 0 }
+}
+
+.fivo-docs-category-title {
+    margin: 0; padding: 10px 15px; background-color: #2e6cba; color: #fff; letter-spacing: 0;
+    font-family: inherit; font-size: 13px; line-height: 18px; font-weight: bold; text-transform: uppercase;
+    border-top-right-radius: 5px; border-top-left-radius: 5px;
+}
+
+.fivo-docs-subcategories { background-color: #fff; border: 1px solid #e7e7e7; border-top: 0; border-bottom: 0; }
+.fivo-docs-subcategory { border-bottom: 1px solid #e7e7e7; }
+.fivo-docs-is-uncategorized { }
+
+.fivo-docs-subcategory-title {
+    position: relative; margin: 0; padding: 10px 40px 10px 15px;  text-transform: uppercase;
+    font-family: inherit; font-size: 12px; line-height: 18px; font-weight: bold; letter-spacing: 0;
+    background-color: #fff; color: #888; border-bottom: 1px solid #fff; cursor: pointer;
+    -webkit-transition: all .4s; transition: all .4s; user-select: none;
+}
+.fivo-docs-subcategory-title.is-active,
+.fivo-docs-subcategory-title:hover {  color: #777 }
+.fivo-docs-subcategory-title:hover { background-color: #fcfcfc; border-color: #fcfcfc; }
+.fivo-docs-subcategory-title.is-active,
+.fivo-docs-subcategory-title.is-active:hover { background-color: #f8f8f8; border-color: #e7e7e7 }
+
+.fivo-docs-subcategory-action {
+    position: absolute; top: 50%; right: 15px; width: 11px; height: 11px;
+    -webkit-transform:translate3d(0,-50%,0); -ms-transform:translate(0,-50%); transform:translate3d(0,-50%,0);
+}
+.fivo-docs-subcategory-action::before,
+.fivo-docs-subcategory-action::after {
+    content: ""; display: block; position: absolute; background-color: #999;
+}
+.fivo-docs-subcategory-action::before { width: 11px; height: 1px; top: 5px; left: 0; }
+.fivo-docs-subcategory-action::after { width: 1px; height: 11px; top: 0; left: 5px; }
+
+.fivo-docs-subcategory-title.is-active span::before,
+.fivo-docs-subcategory-title.is-active span::after { background-color: #555 }
+.fivo-docs-subcategory-title.is-active span::after { opacity: 0 }
+
+.fivo-docs-categories-list { display: none; }
+.is-active .fivo-docs-categories-list { }
+.fivo-docs-subcategory-title.is-open + .fivo-docs-categories-list { display: block; }
+
+
+/* 3. Custom Selection
+================================================== */
+/* 3.1. Boxed
+-----------------------------*/
+.fivo-docs-boxed { margin-bottom: 14px; }
+.fivo-docs-boxed-title  {
+    margin: 0; padding: 10px 15px; background-color: #2e6cba; color: #fff; letter-spacing: 0;
+    font-family: inherit; font-size: 13px; line-height: 18px; font-weight: bold; text-transform: uppercase;
+    border-top-right-radius: 5px; border-top-left-radius: 5px;
+}
+.fivo-docs-boxed-list { border: 1px solid #e7e7e7; }
+.fivo-docs-boxed-title + .fivo-docs-boxed-list { border-top: 0 }
+
+/* 3.2. List
+-----------------------------*/
+.fivo-docs-attachments { margin-bottom: 14px; }
+* > .fivo-docs-attachments:last-child { margin-bottom: 0 }
+.fivo-docs-attachments-title {
+    position: relative; margin: 0 0 5px 0; padding: 0 0 5px 0; border: none; border-bottom: 4px solid #eee;
+    margin: 0; color: #888; text-transform: uppercase; font-size: 14px; line-height: 20px
+}
+.fivo-docs-attachments-list { background-color: transparent; }
+.fivo-docs-attachments .fivo-docs-item { padding-left: 35px; border-color: #e7e7e7; }
+.fivo-docs-attachments .fivo-docs-item .fivo-docs-file-icon { left: 0; }

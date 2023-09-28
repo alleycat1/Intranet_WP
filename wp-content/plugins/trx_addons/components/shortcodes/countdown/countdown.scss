@@ -1,0 +1,78 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+.sc_countdown {
+	position: relative;	
+	overflow:hidden;
+}
+
+.sc_countdown.alignleft .sc_countdown_content {		text-align:left; }
+.sc_countdown.aligncenter .sc_countdown_content {	text-align:center; }
+.sc_countdown.alignright .sc_countdown_content {	text-align:right; }
+
+.sc_countdown .sc_countdown_inner {
+	display:inline-block;
+}
+.sc_countdown .sc_countdown_item {
+	display:block;
+	float:left;
+	text-align:center;
+}
+.sc_countdown .sc_countdown_digits {
+	display:block;
+	overflow:hidden;
+	text-align:center;
+	margin-bottom: 12px;
+}
+.sc_countdown .sc_countdown_digits span {
+	display:inline-block;
+	vertical-align: top;
+}
+.sc_countdown .sc_countdown_separator {
+	display:block;
+	float:left;
+	margin: 0 8px;
+	font-weight:400;
+}
+.sc_countdown .sc_countdown_label {
+	font-weight:400;
+}
+
+/* Style Default */
+.sc_countdown_default .sc_countdown_digits,
+.sc_countdown_default .sc_countdown_separator {
+	@include font(3em, 1.3333em);
+	height: 1.3333em;
+	
+}
+.sc_countdown_default .sc_countdown_digits span {
+	display:inline-block;
+	text-align:center;
+	width: 1.1333em;
+	background-color:#f0f0f0;
+}
+.sc_countdown_default .sc_countdown_digits span+span {
+	margin-left:2px;
+}
+
+/* Style Circle */
+.sc_countdown_circle .sc_countdown_digits,
+.sc_countdown_circle .sc_countdown_separator {
+	@include font(2.4em, 2.1em);
+	height: 2.5em;
+	margin-bottom:6px;
+}
+.sc_countdown_circle .sc_countdown_item {
+	position:relative;
+}
+.sc_countdown_circle .sc_countdown_digits {
+	width: 2.5em;
+	border-width: 6px;
+	border-style: solid;
+	background-color:#f0f0f0;
+	@include border-round;
+}
+.sc_countdown_circle canvas {
+	@include abs-lt;
+	@include rotate(-90deg);
+}

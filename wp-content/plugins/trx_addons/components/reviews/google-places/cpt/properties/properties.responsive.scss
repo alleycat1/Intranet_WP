@@ -1,0 +1,23 @@
+@import "../../../../../css/_mixins.scss";
+@import "../../../../../css/_trx_addons.vars.scss";
+
+//@mixin sc_properties--sm() {
+@media #{$media_sm} {
+
+	// Google Reviews
+	.properties_page_google_reviews_details {
+		@include flex-direction(column);
+	}
+	.properties_page_google_reviews_rating,
+	.properties_page_google_reviews_list,
+	.properties_page_google_reviews_info {
+		width: 100%;
+	}
+	.properties_page_google_reviews_rating {
+		@include flex-align-items(flex-start);
+	}
+	.properties_page_google_reviews_list,
+	.properties_page_google_reviews_info {
+		margin-top: 2em;
+	}
+}

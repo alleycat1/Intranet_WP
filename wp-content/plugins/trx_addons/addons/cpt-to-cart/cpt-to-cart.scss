@@ -1,0 +1,95 @@
+@import "../../css/_mixins.scss";
+@import "../../css/_trx_addons.vars.scss";
+@import "../../css/_trx_addons.colors.scss";
+
+/* CPT to Cart
+--------------------------------------------------------------- */
+
+.cpt_to_cart_button,
+.cpt_to_cart_link {
+	position: relative;
+
+	.cpt_to_cart_text {
+		font-weight: inherit !important;
+	}
+
+	&:before,
+	&[class*=" icon-"]:before {
+		font-weight: inherit;
+		margin-right: 0.25em;
+	}
+
+	&.loading:after,
+	&.added:after {
+		font-family: $trx_addons_icons;
+		font-weight: inherit;
+		font-size: 0.75em;
+		display: inline-block;
+		vertical-align: top;
+	}
+	&.loading:after {
+		content: "\e800";
+		@include animation(spin 2s linear infinite);
+	}
+	&.added:after {
+		content: "\e900";
+	}
+	& + .added_to_cart {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+.cpt_to_cart_button {
+	&.loading:after,
+	&.added:after {
+		@include abs-rt(1em, 30%);
+	}
+	& + .added_to_cart {
+		margin-left: 1em;
+		margin-top: 1.1em;
+	}
+}
+
+.cpt_to_cart_link {
+	font-weight: normal;
+
+	&.loading:after,
+	&.added:after {
+		@include abs-rt(-1.5em, 0);
+	}
+	& + .added_to_cart {
+		margin-left: 2em;
+		font-size: 0.75em;
+	}
+}
+
+/* Links inside the post feature image */
+[class*="_page_featured"],
+.post_featured {
+	& > .cpt_to_cart_link,
+	& > .cpt_to_cart_button {
+		@include abs-rt( 1.5em, 1.5em, 10 );
+	}
+	* > .cpt_to_cart_link {
+		color: inherit;
+	}
+	.cpt_to_cart_link,
+	.cpt_to_cart_button {
+		& + .added_to_cart {
+			@include abs-rt( 2.2em, 3.5em, 10 );
+		}
+	}
+}
+
+/* Links inside the post item titles */
+[class*="_item_title"],
+.post_title,
+.entry-title {
+	& > .cpt_to_cart_link,
+	& > .cpt_to_cart_button {
+		float: right;
+		margin: 0 0 0.5em 0.5em;
+		font-size: 0.75em;
+	}
+}

@@ -1,0 +1,185 @@
+.sc_googlemap_wrap {
+  position: relative;
+}
+
+.sc_googlemap {
+  position: relative;
+  padding-top: 0.0001px;
+}
+
+.sc_googlemap img {
+  max-width: none;
+}
+
+.sc_googlemap img,
+.sc_googlemap map area {
+  cursor: pointer;
+}
+
+.sc_googlemap > iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.sc_googlemap_prevent_scroll {
+  pointer-events: none;
+}
+
+.sc_googlemap_title + .sc_googlemap,
+.sc_googlemap_title + .sc_googlemap_content_wrap,
+.sc_googlemap_subtitle + .sc_googlemap,
+.sc_googlemap_subtitle + .sc_googlemap_content_wrap {
+  margin-top: 4.2em;
+}
+
+.sc_googlemap_descr + .sc_googlemap {
+  margin-top: 1em;
+}
+
+.sc_googlemap_content_wrap {
+  position: relative;
+}
+
+.sc_googlemap_content {
+  pointer-events: none;
+}
+
+.sc_googlemap_content form {
+  pointer-events: initial;
+}
+
+.sc_googlemap_content_default {
+  position: absolute;
+  z-index: 1;
+  top: 10%;
+  right: 10%;
+  bottom: 10%;
+  left: auto;
+  width: 30%;
+  padding: 1.5em;
+  overflow: auto;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.sc_googlemap_content_default p {
+  margin: 0 0 0.3em;
+}
+
+.sc_googlemap_content_detailed {
+  position: relative;
+  padding: 2em 2em 2em 5em;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.sc_googlemap_content_detailed:before {
+  content: '\e8bb';
+  font-family: "trx_addons_icons";
+  font-size: 2em;
+  line-height: 1.3em;
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+
+.sc_googlemap_content_detailed p {
+  margin-bottom: 1em;
+}
+
+.sc_googlemap_info_window {
+  max-width: 30em;
+}
+
+.sc_googlemap_info_window h1,
+.sc_googlemap_info_window h2,
+.sc_googlemap_info_window h3,
+.sc_googlemap_info_window h4,
+.sc_googlemap_info_window h5,
+.sc_googlemap_info_window h6 {
+  margin: 0 0 0.3em;
+}
+
+.sc_googlemap_info_window p {
+  margin: 0;
+}
+
+.sc_googlemap_info_window p + p {
+  margin-top: 0.3em;
+}
+
+/* Custom marker -  */
+.sc_googlemap_custom_marker {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  -webkit-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  background-color: red;
+}
+.sc_googlemap_custom_marker div {
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  opacity: 1;
+  background-color: red;
+}
+.sc_googlemap_custom_marker > div:first-child {
+  -webkit-animation: markerWave 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite forwards;
+  -ms-animation: markerWave 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite forwards;
+  animation: markerWave 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite forwards;
+}
+.sc_googlemap_custom_marker > div:first-child + div {
+  -webkit-animation: markerWave 1.5s 0.45s cubic-bezier(0, 0, 0.2, 1) infinite forwards;
+  -ms-animation: markerWave 1.5s 0.45s cubic-bezier(0, 0, 0.2, 1) infinite forwards;
+  animation: markerWave 1.5s 0.45s cubic-bezier(0, 0, 0.2, 1) infinite forwards;
+}
+
+@-webkit-keyframes markerWave {
+  0% {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+    opacity: .8;
+  }
+  20% {
+    opacity: .8;
+  }
+  100% {
+    -webkit-transform: scale(5.5, 5.5);
+    -ms-transform: scale(5.5, 5.5);
+    transform: scale(5.5, 5.5);
+    opacity: 0;
+  }
+}
+@keyframes markerWave {
+  0% {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+    opacity: .8;
+  }
+  20% {
+    opacity: .8;
+  }
+  100% {
+    -webkit-transform: scale(5.5, 5.5);
+    -ms-transform: scale(5.5, 5.5);
+    transform: scale(5.5, 5.5);
+    opacity: 0;
+  }
+}
+
+/*# sourceMappingURL=googlemap.css.map */

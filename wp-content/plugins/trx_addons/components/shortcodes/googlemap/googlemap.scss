@@ -1,0 +1,140 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+.sc_googlemap_wrap {
+	position:relative;
+}
+.sc_googlemap {
+	position: relative;	
+	padding-top: 0.0001px;
+}
+.sc_googlemap img {
+	max-width: none;
+}
+.sc_googlemap img,
+.sc_googlemap map area {
+	cursor: pointer;
+}
+
+.sc_googlemap > iframe {
+	width: 100%;
+	height: 100%;
+}
+
+.sc_googlemap_prevent_scroll {
+	pointer-events: none;
+}
+
+.sc_googlemap_title + .sc_googlemap,
+.sc_googlemap_title + .sc_googlemap_content_wrap,
+.sc_googlemap_subtitle + .sc_googlemap,
+.sc_googlemap_subtitle + .sc_googlemap_content_wrap {
+	margin-top: 4.2em;
+}
+.sc_googlemap_descr + .sc_googlemap {
+	margin-top: 1em;
+}
+.sc_googlemap_content_wrap {
+	position:relative;
+}
+.sc_googlemap_content {
+	pointer-events: none;
+}
+.sc_googlemap_content form {
+	pointer-events: initial;
+}
+.sc_googlemap_content_default {
+	@include abs-pos(10%, 10%, 10%, auto);
+	width: 30%;
+	padding:1.5em;
+	overflow:auto;
+	@include border-box;
+}
+.sc_googlemap_content_default p {
+	margin: 0 0 0.3em;
+}
+
+.sc_googlemap_content_detailed {
+	position:relative;
+	padding: 2em 2em 2em 5em;
+	@include border-box;
+}
+.sc_googlemap_content_detailed:before {
+	content: '\e8bb';
+	font-family: $trx_addons_icons;
+	@include font(2em, 1.3em);
+	@include abs-lt(1em, 1em, '');
+}
+.sc_googlemap_content_detailed p {
+	margin-bottom:1em;
+}
+
+.sc_googlemap_info_window {
+	max-width: 30em;
+}
+.sc_googlemap_info_window h1,
+.sc_googlemap_info_window h2,
+.sc_googlemap_info_window h3,
+.sc_googlemap_info_window h4,
+.sc_googlemap_info_window h5,
+.sc_googlemap_info_window h6 {
+	margin: 0 0 0.3em;
+}
+.sc_googlemap_info_window p {
+	margin: 0;
+}
+.sc_googlemap_info_window p+p {
+	margin-top: 0.3em;
+}
+
+
+/* Custom marker -  */
+.sc_googlemap_custom_marker {
+	position: absolute;
+	@include square(18px);
+	@include border-round;
+	background-color: red;
+
+	div {
+		display: inline-block;
+		@include abs-cover;
+		@include border-round;
+		opacity: 1;
+		background-color: red;
+	}
+	& > div:first-child {
+		@include animation(markerWave 1.5s cubic-bezier(.4,0,.2,1) infinite forwards);
+	}
+
+	& > div:first-child + div {
+		@include animation(markerWave 1.5s .45s cubic-bezier(0,0,.2,1) infinite forwards);
+	}
+}
+
+@-webkit-keyframes markerWave {
+	0% {
+		@include scale(1);
+		opacity: .8;
+	}
+	20% {
+		opacity: .8;
+	}
+	100% {
+		@include scale(5.5);
+		opacity: 0;
+	}
+}
+@keyframes markerWave {
+	0% {
+		@include scale(1);
+		opacity: .8;
+	}
+	20% {
+		opacity: .8;
+	}
+	100% {
+		@include scale(5.5);
+		opacity: 0;
+	}
+}
+

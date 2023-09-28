@@ -1,0 +1,72 @@
+@import "../../css/_mixins.scss";
+@import "../../css/_theme-vars.scss";
+
+/* About Theme
+----------------------------------------------------------------*/
+.pubzinne_about {
+	margin: 2em 2em 0 0;
+	padding: 6em 3em;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	@include border-radius(2px);
+	@include flex;
+	@include flex-direction(column);
+	@include flex-align-content(center);
+	text-align: center;
+}
+@media (max-width: 959px) {
+	.pubzinne_about {
+		margin: 1em 1em 0 0;
+		padding: 2em;
+	}
+}
+
+.pubzinne_about_logo {
+	margin: 0 0 2em 0;
+}
+.pubzinne_about_logo img {
+	max-width: 30%;
+	height: auto;
+}
+
+.pubzinne_about_title {
+	margin-top:0;
+	line-height:1.5em;
+}
+
+.pubzinne_about_description {
+	margin-bottom: 3em;
+	line-height:1.5em;
+}
+.pubzinne_about_description p {
+	@include font(1.25em, 1.7em);
+	margin: 0.5em 0 0;
+}
+.pubzinne_about_description b,
+.pubzinne_about_description strong {
+	color: #333;
+}
+
+.pubzinne_about_buttons .pubzinne_plugins_installer_link.button {
+	height: 40px;
+	line-height: 38px;
+	padding-left: 16px;
+	padding-right: 16px;
+	font-size: 15px;
+}
+.pubzinne_about_buttons .pubzinne_plugins_installer_link.button.updating-message:before {
+	line-height: 38px;
+	margin-top: 1px;
+}
+.pubzinne_about_buttons .pubzinne_plugins_installer_link.process_now {
+	cursor: not-allowed;
+}
+
+.pubzinne_about_notes {
+	margin-top: 5em;
+	color: #ccc;
+}
+.pubzinne_about_notes p {
+	@include font(1.25em, 1.7em);
+	margin: 0.5em 20% 0;
+}

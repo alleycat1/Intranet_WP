@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA,0BAAoB;EACnB,aAAa;EACb,yDAA0D;IACzD,OAAO,EAAE,CAAC",
+"sources": ["icompare.responsive.scss"],
+"names": [],
+"file": "icompare.responsive.css"
+}

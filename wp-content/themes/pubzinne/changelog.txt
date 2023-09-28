@@ -1,0 +1,45 @@
+Version 1.0.5 
+	Fixed:
+	- Update plugins to their latest versions
+	- Theme styles
+
+	Changed:
+	- Update demo data
+
+Version 1.0.4
+	Fixed:
+	- Update plugins to their latest versions
+	- Theme styles
+
+	Changed:
+	- Update demo data
+
+Version 1.0.3
+	Added:
+	- Smash Balloon Instagram Feed plugin
+
+	Fixed:
+	- Update plugins to their latest versions
+
+	Changed:
+	- Update demo data
+
+Version 1.0.2
+	Fixed:
+	- Update plugins to their latest versions
+
+	Changed:
+	- Update demo data
+
+Version 1.0.1
+	Added:
+	- WP 5.8 compatibility
+
+	Fixed:
+	- Update plugins to their latest versions
+
+	Changed:
+	- Update demo data
+
+Version 1.0.0
+    Release

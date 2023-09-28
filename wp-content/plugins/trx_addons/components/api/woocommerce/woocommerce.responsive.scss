@@ -1,0 +1,146 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+//@mixin sc_woocommerce_search--sm() {
+@media #{$media_sm} {
+	/* WooCommerce */
+
+	/* WooCommerce Search: Style Inline */
+	.trx_addons_woocommerce_search_type_inline .trx_addons_woocommerce_search_form_options,
+	.trx_addons_woocommerce_search_type_inline .trx_addons_woocommerce_search_form_button {
+		display:block;
+		width:100%;
+	}
+	.trx_addons_woocommerce_search_type_inline .trx_addons_woocommerce_search_form_button {
+		text-align: left;
+		margin-top: 1.5em;
+	}
+
+	/* WooCommerce Search: Style Filter */
+	.trx_addons_woocommerce_tools {
+		.trx_addons_woocommerce_search_type_filter {
+			.trx_addons_woocommerce_search_form_fields_wrap {
+				display: block;
+				@include box(280px, 100%);
+				@include fixed-rt(-300px, 0, 100000);	// z-index 100000 is used to place panel over admin bar with z-index 99999
+				background-color: #fff;
+				@include transition-property(transform);
+				@include box-shadow(0px 0px 10px rgba(0,0,0,0.5));
+
+				&.trx_addons_woocommerce_search_form_fields_wrap_opened {
+					@include translateX(-300px);
+
+					.trx_addons_loading {
+						display: block;
+					}
+					.trx_addons_woocommerce_search_header {
+						display: block;
+						@include abs-lt(0,0,2);
+						width: 100%;
+						background-color: #fff;
+						@include border-box;
+						@include box-shadow(0 0 3px 0 rgba(0,0,0,0.2) );
+						padding: 1em 1.5em;
+
+						.trx_addons_woocommerce_search_clear_all {
+							display: block;
+							visibility: hidden;
+							color: #333;
+							text-decoration: underline;
+						}
+						.trx_addons_woocommerce_search_close {
+							display: block;
+							@include square(2em);
+							@include abs-rt(0.75em, 0.75em);
+						}
+					}
+				}
+				&.trx_addons_woocommerce_search_form_fields_filled {
+					.trx_addons_woocommerce_search_header {
+						.trx_addons_woocommerce_search_clear_all {
+							visibility: visible;
+						}
+					}
+				}
+				&.trx_addons_woocommerce_search_form_fields_wrap_show {
+					@include transition-none;
+				}
+				.trx_addons_woocommerce_search_button_show {
+					@include abs-lb(0,0,1);
+					width: 100%;
+				}
+				&.trx_addons_woocommerce_search_form_fields_changed .trx_addons_woocommerce_search_button_show {
+					display: block;
+				}
+				.trx_addons_woocommerce_search_form_fields_wrap_inner {
+					@include abs-lt(0, 4em);
+					right: 0;
+					bottom: 5em;
+					padding: 0 1.5em;
+					@include border-box;
+					overflow-x: hidden;
+					overflow-y: auto;
+				}
+				.sc_form_field {
+					display: block;
+					margin: 0;
+					border-bottom: 1px solid #ccc;
+
+					&:last-child {
+						border-bottom: none;
+					}
+					.sc_form_field_title {
+						position: relative;
+						padding: 0.75em 0;
+
+						.sc_form_field_arrow {
+							@include abs-rt(0, 0.75em);
+							margin-left: 0;
+						}
+					}
+					.sc_form_field_selected_items {
+						display: block;
+					}
+					.sc_form_field_wrap {
+						position: static;
+						width: 100%;
+						border: none;
+						background-color: transparent;
+						padding-left: 0;
+						padding-right: 0;
+						padding-top: 0;						
+					}
+					/* &:not(.sc_form_field_text):not(.sc_form_field_range) .trx_addons_search_buttons, */
+					.trx_addons_search_buttons {
+						display: none;
+					}
+				}
+			}
+			.trx_addons_woocommerce_search_button_filters {
+				display: inline-block;
+				vertical-align: top;
+			}
+		}
+	}
+}
+
+
+//@mixin sc_woocommerce_search--xs() {
+@media #{$media_xs} {
+	/* WooCommerce */
+
+	/* WooCommerce Search: Style 'Filter' */
+	.trx_addons_woocommerce_tools {
+		.trx_addons_woocommerce_search_type_filter {
+			.trx_addons_woocommerce_search_form_fields_wrap {
+				width: 100%;
+				right: -100%;
+				@include box-shadow(none);
+
+				&.trx_addons_woocommerce_search_form_fields_wrap_opened {
+					@include translateX(-100%);
+				}
+			}
+		}
+	}
+}

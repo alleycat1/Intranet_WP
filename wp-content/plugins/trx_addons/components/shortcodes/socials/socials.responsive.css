@@ -1,0 +1,15 @@
+@media (max-width: 767px) {
+  /* Socials */
+  .socials_wrap:not(.socials_type_list) .social_item .social_icon {
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+  }
+
+  .socials_wrap .social_item {
+    margin-right: 6px;
+  }
+}
+
+/*# sourceMappingURL=socials.responsive.css.map */

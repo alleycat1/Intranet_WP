@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA,0BAAoB;EAChB,eAAe",
+"sources": ["gutenberg.responsive.scss"],
+"names": [],
+"file": "gutenberg.responsive.css"
+}

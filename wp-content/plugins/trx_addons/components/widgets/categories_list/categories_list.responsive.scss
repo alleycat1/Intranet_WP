@@ -1,0 +1,18 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+//@mixin categories_list--md() {
+@media #{$media_md} {
+    /* Widget: Categories List (Style 2) */
+	.widget_categories_list .categories_list_style_2 .categories_list_title {
+		width: 60%;
+	}
+}
+
+//@mixin categories_list--sm() {
+@media #{$media_sm} {
+    /* Widget: Categories List (Style 2) */
+	.widget_categories_list .categories_list_style_2 .categories_list_title {
+		width: 50%;
+	}
+}

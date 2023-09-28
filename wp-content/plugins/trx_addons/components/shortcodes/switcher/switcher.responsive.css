@@ -1,0 +1,67 @@
+@media (max-width: 1023px) {
+  /* Switcher Tabs */
+  .sc_switcher_tabs_controls {
+    margin-bottom: 1.5em;
+  }
+
+  .sc_switcher_tab {
+    padding: 1.5em;
+  }
+  .sc_switcher_tab + .sc_switcher_tab {
+    margin-left: 1.5em;
+  }
+}
+@media (max-width: 767px) {
+  /* Swither */
+  .sc_switcher_controls_section1 {
+    margin-right: 1em;
+  }
+
+  .sc_switcher_controls_section2 {
+    margin-left: 1em;
+  }
+
+  .sc_switcher_controls_toggle {
+    width: 4.6em;
+  }
+
+  .sc_switcher_controls_toggle:not(.sc_switcher_controls_toggle_on) .sc_switcher_controls_toggle_button {
+    -webkit-transform: translateX(2em);
+    -ms-transform: translateX(2em);
+    transform: translateX(2em);
+  }
+
+  /* Switcher Tabs */
+  .sc_switcher_tabs_controls {
+    flex-wrap: wrap;
+    margin-left: -2px;
+    margin-right: -2px;
+  }
+
+  .sc_switcher_tab {
+    width: calc( 50% - 4px );
+    flex-grow: 1;
+  }
+  .sc_switcher_tab, .sc_switcher_tab + .sc_switcher_tab {
+    margin: 2px;
+  }
+}
+@media (max-width: 479px) {
+  /* Switcher Tabs */
+  .sc_switcher_tabs_controls {
+    display: block;
+    margin: 0 0 10px;
+  }
+
+  .sc_switcher_tab {
+    width: 100%;
+  }
+  .sc_switcher_tab {
+    margin: 0;
+  }
+  .sc_switcher_tab + .sc_switcher_tab {
+    margin: 10px 0 0 0;
+  }
+}
+
+/*# sourceMappingURL=switcher.responsive.css.map */

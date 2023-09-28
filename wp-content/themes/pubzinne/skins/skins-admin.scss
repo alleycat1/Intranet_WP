@@ -1,0 +1,32 @@
+@import "../css/_mixins.scss";
+@import "../css/_theme-vars.scss";
+@import "../css/_admin-colors.scss";
+
+.pubzinne_upgrade_skins_button[disabled],
+.pubzinne_upgrade_skins_button[disabled]:hover,
+.pubzinne_upgrade_skins_button[disabled]:focus {
+	color: #aaa;
+	cursor: not-allowed;
+}
+.pubzinne_upgrade_skins_status_wrap {
+	text-align: center;
+	font-size: 1.5em;
+}
+.pubzinne_upgrade_skins_status:before {
+	font-family: $theme_icons;
+	display: inline-block;
+	vertical-align: top;
+}
+.pubzinne_upgrade_skins_status_progress:before {
+	content: '\e969';
+	color: $accent_color;
+	@include animation(spin 2s infinite linear);
+}
+.pubzinne_upgrade_skins_status_success:before {
+	content: '\e986';
+	color: $success_color;
+}
+.pubzinne_upgrade_skins_status_error:before {
+	content: '\e987';
+	color: $error_color;
+}

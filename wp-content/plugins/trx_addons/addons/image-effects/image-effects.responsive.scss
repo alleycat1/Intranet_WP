@@ -1,0 +1,20 @@
+@import "../../css/_mixins.scss";
+@import "../../css/_trx_addons.vars.scss";
+
+//@mixin image-effects--lg() {
+@media #{$media_lg} {
+	/* Image effects */
+	body {
+		[id^="trx_addons_image_effects_canvas_"] {
+			display: none !important;
+		}
+		[class*="trx_addons_image_effects_on_"] {
+			img ~ img,
+			.trx_addons_image_effects_ripple_displacement,
+			.trx_addons_image_effects_swap_image,
+			.trx_addons_image_effects_swap_displacement {
+				display: none !important;
+			}
+		}
+	}
+}

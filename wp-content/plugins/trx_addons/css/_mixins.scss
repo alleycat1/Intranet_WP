@@ -1,0 +1,820 @@
+// @required
+
+
+//------------------------------------------
+// Mixins
+//------------------------------------------
+
+$vendors: (webkit, ms);
+$vendors_all: (webkit, moz, ms, o);
+
+
+
+// Block
+//------------------------------------------
+
+// Clear floating
+@mixin clear {
+	clear: both;
+	width:100%;
+	height:0;
+	display:block;
+}
+
+// Size of the box
+@mixin box($w, $h, $lh: '') {
+	width: $w;
+	height: $h;
+	@if $lh != '' {
+		line-height: $lh;
+	}
+}
+
+// Square box
+@mixin square($s) {
+	width: $s;
+	height: $s;
+	line-height: $s;
+	text-align:center;
+}
+
+// Box shadow
+@mixin box-shadow($bs...) {
+	@each $v in $vendors {
+		-#{$v}-box-shadow: $bs;
+	}
+	box-shadow: $bs;
+}
+
+
+// Box sizing
+@mixin box-sizing($bs) {
+	@each $v in $vendors {
+		-#{$v}-box-sizing: $bs;
+	}
+	box-sizing: $bs;
+}
+@mixin border-box {
+	@include box-sizing(border-box);
+}
+@mixin content-box {
+	@include box-sizing(content-box);
+}
+
+
+// Border radius
+@mixin border-radius($br...) {
+	@each $v in $vendors {
+		-#{$v}-border-radius: $br;
+	}
+	border-radius: $br;
+}
+@mixin border-round {
+	@include border-radius(50%);
+}
+@mixin border-sharp {
+	@include border-radius(0);
+}
+
+
+
+
+// Font
+//------------------------------------------
+@mixin font($fsize: '', $lh: '', $fweight: '', $fstyle: '') {
+	@if $fsize != '' {
+		font-size: $fsize;
+	}
+	@if $lh != '' {
+		line-height: $lh;
+	}
+	@if $fweight != '' {
+		font-weight: $fweight;
+	}
+	@if $fstyle != '' {
+		font-style: $fstyle;
+	}
+}
+
+
+
+// Background
+//------------------------------------------
+
+@mixin bg-cover($pos: center, $clr: '') {
+	background-position: $pos;
+	background-repeat:no-repeat;
+	background-size:cover;
+	@if $clr != '' {
+		background-color:$clr;
+	}
+}
+@mixin bg-contain($pos: center, $clr: '') {
+	background-position: $pos;
+	background-repeat:no-repeat;
+	background-size:contain;
+	@if $clr != '' {
+		background-color:$clr;
+	}
+}
+@mixin bg-mask($clr, $alpha:1, $z:'') {
+	@include abs-cover($z);
+	@if $alpha == 1 {
+		background: $clr;
+	} @else {
+		background: rgba($clr, $alpha);
+	}
+}
+@mixin fixed-mask($clr, $alpha:1, $z: '') {
+	@include fixed-cover($z);
+	@if $alpha == 1 {
+		background: $clr;
+	} @else {
+		background: rgba($clr, $alpha);
+	}
+}
+
+
+
+// Mask
+//------------------------------------------
+@mixin mask-type($t) {
+	@each $v in $vendors {
+		-#{$v}-mask-type: $t;
+	}
+	mask-type: $t;
+}
+@mixin mask-position($pos) {
+	@each $v in $vendors {
+		-#{$v}-mask-position: $pos;
+	}
+	mask-position: $pos;
+}
+@mixin mask-repeat($r) {
+	@each $v in $vendors {
+		-#{$v}-mask-repeat: $r;
+	}
+	mask-repeat: $r;
+}
+@mixin mask-size($s) {
+	@each $v in $vendors {
+		-#{$v}-mask-size: $s;
+	}
+	mask-size: $s;
+}
+@mixin mask-image($img) {
+	@each $v in $vendors {
+		-#{$v}-mask-image: $img;
+	}
+	mask-image: $img;
+}
+
+
+
+// Position
+//------------------------------------------
+
+@mixin rel-pos($t: 0, $r: 0, $b: 0, $l: 0, $z: '') {
+	position: relative;
+	@if $z != '' {
+		z-index: $z;
+	}
+	top: $t;
+	right: $r;
+	bottom: $b;
+	left: $l;
+}
+@mixin rel-lt($x:0, $y:0, $z: 1) {
+	position:relative;
+	@if $z != '' {
+		z-index: $z;
+	}
+	top: $y;
+	left: $x;
+}
+
+@mixin abs-cover($z: 1) {
+	position:absolute;
+	@if $z != '' {
+		z-index: $z;
+	}
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+@mixin abs-pos($t: 0, $r: 0, $b: 0, $l: 0, $z: 1) {
+	position:absolute;
+	@if $z != '' {
+		z-index: $z;
+	}
+	top: $t;
+	right: $r;
+	bottom: $b;
+	left: $l;
+}
+
+@mixin abs-lt($x:0, $y:0, $z: 1) {
+	position:absolute;
+	@if $z != '' {
+		z-index: $z;
+	}
+	top: $y;
+	left: $x;
+}
+@mixin abs-lc($x: 0, $z: 1) {
+	position:absolute;
+	@if $z != '' {
+		z-index: $z;
+	}
+	top: 50%;
+	left: $x;
+	@include translateY(-50%);
+}
+@mixin abs-lb($x:0, $y:0, $z: 1) {
+	position:absolute;
+	@if $z != '' {
+		z-index: $z;
+	}
+	bottom: $y;
+	left: $x;
+}
+
+@mixin abs-rt($x:0, $y:0, $z: 1) {
+	position:absolute;
+	@if $z != '' {
+		z-index: $z;
+	}
+	top: $y;
+	right: $x;
+}
+@mixin abs-rc($x: 0, $z: 1) {
+	position:absolute;
+	@if $z != '' {
+		z-index: $z;
+	}
+	top: 50%;
+	right: $x;
+	@include translateY(-50%);
+}
+@mixin abs-rb($x:0, $y:0, $z: 1) {
+	position:absolute;
+	@if $z != '' {
+		z-index: $z;
+	}
+	bottom: $y;
+	right: $x;
+}
+
+@mixin abs-ct($y: 0, $z: 1) {
+	position:absolute;
+	@if $z != '' {
+		z-index: $z;
+	}
+	top: $y;
+	left: 50%;
+	@include translateX(-50%);
+}
+@mixin abs-cc($z: 1, $imp: '') {
+	position:absolute;
+	@if $z != '' {
+		z-index: $z;
+	}
+	@if $imp == '' {
+		top: 50%;
+		left: 50%;
+		@include translate(-50%, -50%);
+	} @else {
+		top: 50% !important;
+		left: 50% !important;
+		@each $v in $vendors {
+			-#{$v}-transform: translate(-50%, 50%) !important;
+		}
+		transform: translate(-50%, 50%) !important;
+	}
+}
+@mixin abs-cb($y: 0, $z: 1) {
+	position:absolute;
+	@if $z != '' {
+		z-index: $z;
+	}
+	bottom: $y;
+	left: 50%;
+	@include translateX(-50%);
+}
+
+
+@mixin fixed-cover($z: '') {
+	position: fixed;
+	@if $z != '' {
+		z-index: $z;
+	}
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+}
+
+@mixin fixed-pos($t: 0, $r: 0, $b: 0, $l: 0, $z: '') {
+	position:fixed;
+	@if $z != '' {
+		z-index: $z;
+	}
+	top: $t;
+	right: $r;
+	bottom: $b;
+	left: $l;
+}
+
+@mixin fixed-lt($x:0, $y:0, $z: '') {
+	position:fixed;
+	@if $z != '' {
+		z-index: $z;
+	}
+	top: $y;
+	left: $x;
+}
+@mixin fixed-lb($x:0, $y:0, $z: '') {
+	position:fixed;
+	@if $z != '' {
+		z-index: $z;
+	}
+	bottom: $y;
+	left: $x;
+}
+@mixin fixed-rt($x:0, $y:0, $z: '') {
+	position:fixed;
+	@if $z != '' {
+		z-index: $z;
+	}
+	top: $y;
+	right: $x;
+}
+@mixin fixed-rb($x:0, $y:0, $z: '') {
+	position:fixed;
+	@if $z != '' {
+		z-index: $z;
+	}
+	bottom: $y;
+	right: $x;
+}
+@mixin fixed-cc($z: '') {
+	position:fixed;
+	@if $z != '' {
+		z-index: $z;
+	}
+	top: 50%;
+	left: 50%;
+	@include translate(-50%, -50%);
+}
+
+@mixin sticky-top($t: 0, $z: '') {
+	-webkit-position: sticky;
+	position: -webkit-sticky;
+	position: sticky;
+	@if $z != '' {
+		z-index: $z;
+	}
+	top: $t;
+}
+@mixin sticky-bottom($b: 0, $z: '') {
+	-webkit-position: sticky;
+	position: -webkit-sticky;
+	position: sticky;
+	@if $z != '' {
+		z-index: $z;
+	}
+	bottom: $b;
+}
+
+
+
+// Flex
+//------------------------------------------
+
+@mixin flex() {
+	@each $v in $vendors {
+		@if $v == ms {
+			display: -ms-flexbox;
+		} @else {
+			display: unquote("-#{$v}-flex");
+		}
+	}
+	display: flex;
+}
+@mixin flex_important() {
+	@each $v in $vendors {
+		@if $v == ms {
+			display: -ms-flexbox !important;
+		} @else {
+			display: unquote("-#{$v}-flex") !important;
+		}
+	}
+	display: flex !important;
+}
+@mixin flex-basis($d) {
+	@each $v in $vendors {
+		-#{$v}-flex-basis: $d;
+	}
+	flex-basis: $d;
+}
+@mixin flex-wrap($d) {
+	@each $v in $vendors {
+		-#{$v}-flex-wrap: $d;
+	}
+	flex-wrap: $d;
+}
+@mixin flex-direction($d) {
+	@each $v in $vendors {
+		-#{$v}-flex-direction: $d;
+	}
+	flex-direction: $d;
+}
+@mixin flex-grow($d) {
+	@each $v in $vendors {
+		-#{$v}-flex-grow: $d;
+	}
+	flex-grow: $d;
+}
+@mixin flex-shrink($d) {
+	@each $v in $vendors {
+		-#{$v}-flex-shrink: $d;
+	}
+	flex-shrink: $d;
+}
+@mixin flex-align-items($a) {
+	@each $v in $vendors {
+		@if $v == ms {
+			-ms-flex-align: if($a==flex-start, start, if($a==flex-end, end, $a));
+		} @else {
+			-#{$v}-align-items: $a;
+		}
+	}
+	align-items: $a;
+}
+@mixin flex-align-self($a) {
+	@each $v in $vendors {
+		@if $v == ms {
+			-ms-align-self: if($a==flex-start, start, if($a==flex-end, end, $a));
+		} @else {
+			-#{$v}-align-self: $a;
+		}
+	}
+	align-self: $a;
+}
+@mixin flex-align-content($a) {
+	@each $v in $vendors {
+		@if $v == ms {
+			-ms-flex-line-pack: if($a==flex-start, start, if($a==flex-end, end, $a));
+		} @else {
+			-#{$v}-align-content: $a;
+		}
+	}
+	align-content: $a;
+}
+@mixin flex-justify-content($j) {
+	@each $v in $vendors {
+		@if $v == ms {
+			-ms-flex-pack: if($j==flex-start, start, if($j==flex-end, end, $j));
+		} @else {
+			-#{$v}-justify-content: $j;
+		}
+	}
+	justify-content: $j;
+}
+@mixin flex-justify-items($j) {
+	@each $v in $vendors {
+		-#{$v}-justify-items: $j;
+	}
+	justify-items: $j;
+}
+@mixin flex-justify-self($j) {
+	@each $v in $vendors {
+		-#{$v}-justify-self: $j;
+	}
+	justify-self: $j;
+}
+
+
+// Columns
+@mixin flex-columns($c) {
+	@each $v in $vendors {
+		-#{$v}-column-count: $c;
+	}
+	column-count: $c;
+}
+@mixin flex-columns-gap($g) {
+	@each $v in $vendors {
+		-#{$v}-column-gap: $g;
+	}
+	column-gap: $g;
+}
+
+
+// Transitions
+//------------------------------------------
+$delay: 0.3s;
+$ease: ease;
+
+@mixin transition($params...) {
+	@each $v in $vendors {
+		-#{$v}-transition: if(str-slice(nth(nth($params, 1), 1), 0, 9) == transform, unquote("-#{$v}-#{$params}"), $params);
+	}
+	transition: $params;
+}
+@mixin transition-property($prop, $d: $delay, $e: $ease) {
+	@include transition($prop $d $e);
+}
+@mixin transition-properties($props...) {
+	$buf: '';
+	@each $p in $props {
+		@if $buf == '' {
+			$buf: unquote("#{$p} #{$delay} #{$ease}");
+		} @else {
+			$buf: unquote("#{$buf}, #{$p} #{$delay} #{$ease}");
+		}
+	}
+	@include transition($buf);
+}
+@mixin transition-none {
+	@include transition(none);
+}
+@mixin transition-all($d: $delay, $e: $ease) {
+	@include transition(all $d $e);
+}
+@mixin transition-color($d: $delay, $e: $ease) {
+	@include transition(color $d $e);
+}
+@mixin transition-bg-color($d: $delay, $e: $ease) {
+	@include transition(background-color $d $e);
+}
+@mixin transition-bd-color($d: $delay, $e: $ease) {
+	@include transition(border-color $d $e);
+}
+@mixin transition-colors($d: $delay, $e: $ease) {
+	@include transition(color $d $e, background-color $d $e, border-color $d $e);
+}
+@mixin transition-timing($x1, $y1, $x2, $y2) {
+	@each $v in $vendors {
+		-#{$v}-transition-timing-function: cubic-bezier($x1, $y1, $x2, $y2);
+	}
+	transition-timing-function: cubic-bezier($x1, $y1, $x2, $y2);
+}
+@mixin transition-duration($d) {
+	@each $v in $vendors {
+		-#{$v}-transition-duration: $d;
+	}
+	transition-duration: $d;
+}
+@mixin transition-delay($d) {
+	@each $v in $vendors {
+		-#{$v}-transition-delay: $d;
+	}
+	transition-delay: $d;
+}
+
+
+
+// Transform
+//------------------------------------------
+@mixin transform($params...) {
+	@each $v in $vendors {
+		-#{$v}-transform: $params;
+	}
+	transform: $params;
+}
+@mixin transform-none($imp: '') {
+	@each $v in $vendors {
+		@if $imp != '' {
+			-#{$v}-transform: none !important;
+		} @else {
+			-#{$v}-transform: none;
+		}
+	}
+	@if $imp != '' {
+		transform: none !important;
+	} @else {
+		transform: none;
+	}
+}
+@mixin transform-origin($params...) {
+	@each $v in $vendors {
+		-#{$v}-transform-origin: $params;
+	}
+	transform-origin: $params;
+}
+@mixin transform-style($s) {
+	@each $v in $vendors {
+		-#{$v}-transform-style: $s;
+	}
+	transform-style: $s;
+}
+@mixin preserve3d {
+	@each $v in $vendors {
+		-#{$v}-transform-style: preserve-3d;
+	}
+	transform-style: preserve-3d;
+}
+
+@mixin translate($x: -50%, $y: -50%) {
+	@each $v in $vendors {
+		-#{$v}-transform: translate($x, $y);
+	}
+	transform: translate($x, $y);
+}
+@mixin translate3d($x: 0, $y: 0, $z: 0) {
+	@each $v in $vendors {
+		-#{$v}-transform: translate3d($x, $y, $z);
+	}
+	transform: translate3d($x, $y, $z);
+}
+@mixin translateX($x: -50%) {
+	@each $v in $vendors {
+		-#{$v}-transform: translateX($x);
+	}
+	transform: translateX($x);
+}
+@mixin translateY($y: -50%) {
+	@each $v in $vendors {
+		-#{$v}-transform: translateY($y);
+	}
+	transform: translateY($y);
+}
+
+@mixin rotate($a) {
+	@each $v in $vendors {
+		-#{$v}-transform: rotate($a);
+	}
+	transform: rotate($a);
+}
+@mixin rotateX($a) {
+	@each $v in $vendors {
+		-#{$v}-transform: rotateX($a);
+	}
+	transform: rotateX($a);
+}
+@mixin rotateY($a) {
+	@each $v in $vendors {
+		-#{$v}-transform: rotateY($a);
+	}
+	transform: rotateY($a);
+}
+@mixin rotateZ($a) {
+	@each $v in $vendors {
+		-#{$v}-transform: rotateZ($a);
+	}
+	transform: rotateZ($a);
+}
+
+@mixin scale($x: 0, $y: '') {
+	@if $y == '' {
+		$y: $x;
+	}
+	@each $v in $vendors {
+		-#{$v}-transform: scale($x, $y);
+	}
+	transform: scale($x, $y);
+}
+@mixin scaleX($x: 0) {
+	@each $v in $vendors {
+		-#{$v}-transform: scaleX($x);
+	}
+	transform: scaleX($x);
+}
+@mixin scaleY($y: 0) {
+	@each $v in $vendors {
+		-#{$v}-transform: scaleY($y);
+	}
+	transform: scaleY($y);
+}
+@mixin scale3d($x: 0, $y: 0, $z: 0) {
+	@each $v in $vendors {
+		-#{$v}-transform: scale3d($x, $y, $z);
+	}
+	transform: scale3d($x, $y, $z);
+}
+
+@mixin skew($x: 0, $y: '') {
+	@if $y == '' {
+		$y: $x;
+	}
+	@each $v in $vendors {
+		-#{$v}-transform: skew($x, $y);
+	}
+	transform: skew($x, $y);
+}
+
+@mixin perspective($p) {
+	@each $v in $vendors {
+		-#{$v}-perspective: $p;
+	}
+	perspective: $p;
+}
+@mixin perspective-origin($params...) {
+	@each $v in $vendors {
+		-#{$v}-perspective-origin: $params;
+	}
+	perspective-origin: $params;
+}
+
+// Backface visibility
+@mixin backface-hidden {
+	@each $v in $vendors {
+		-#{$v}-backface-visibility: hidden;
+	}
+	backface-visibility: hidden;
+}
+@mixin backface-visible {
+	@each $v in $vendors {
+		-#{$v}-backface-visibility: visible;
+	}
+	backface-visibility: visible;
+}
+
+
+
+// Filters
+//------------------------------------------
+
+@mixin filter($params...) {
+	@each $v in $vendors_all {
+		-#{$v}-filter: $params;
+	}
+	filter: $params;
+}
+
+
+// Animation
+//------------------------------------------
+@mixin animation($params...) {
+	@each $v in $vendors {
+		-#{$v}-animation: $params;
+	}
+	animation: $params;
+}
+@mixin animation-timing($t) {
+	@each $v in $vendors {
+		-#{$v}-animation-timing-function: $t;
+	}
+	animation-timing-function: $t;
+}
+@mixin animation-delay($t) {
+	@each $v in $vendors {
+		-#{$v}-animation-delay: $t;
+	}
+	animation-delay: $t;
+}
+@mixin animation-duration($t) {
+	@each $v in $vendors {
+		-#{$v}-animation-duration: $t;
+	}
+	animation-duration: $t;
+}
+@mixin animation-fill-mode($t) {
+	@each $v in $vendors {
+		-#{$v}-animation-fill-mode: $t;
+	}
+	animation-fill-mode: $t;
+}
+@mixin animation-name($t) {
+	@each $v in $vendors {
+		-#{$v}-animation-name: $t;
+	}
+	animation-name: $t;
+}
+@mixin animation-iteration-count($t) {
+	@each $v in $vendors {
+		-#{$v}-animation-iteration-count: $t;
+	}
+	animation-iteration-count: $t;
+}
+
+
+
+// Utils
+//------------------------------------------
+
+@mixin user-select($s) {
+	-webkit-user-select: $s;
+	-khtml-user-select: $s;
+	-moz-user-select: $s;
+	-ms-user-select: $s;
+	user-select: $s;
+}
+@mixin user-select-none {
+	@include user-select(none);
+}
+
+@mixin external-link {
+	content: '\f504';
+	font-family: 'dashicons';
+	font-weight: normal;
+	display: inline-block;
+	vertical-align: baseline;
+	line-height: inherit;
+	position: relative;
+	top: 3px;
+	left: 0.3em;		
+}

@@ -1,0 +1,450 @@
+@charset "UTF-8";
+/*
+Theme Name: PUBZINNE
+Description: Used to style the TinyMCE editor.
+*/
+/**
+ * Table of Contents:
+ *
+ * 1.0 - Body
+ * 2.0 - Typography
+ * 3.0 - Elements
+ * 4.0 - Alignment
+ * 5.0 - Caption
+ * 6.0 - Galleries
+ * 7.0 - Audio / Video
+ * 8.0 - RTL
+ * 9.0 - Media Queries
+ */
+/**
+ * 1.0 Body
+ */
+.mce-content-body {
+  color: #333333;
+  font-family: "Roboto",sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.7857em;
+  text-transform: none;
+  vertical-align: baseline;
+  margin: 1.5em 2em;
+  /**
+   * 2.0 Typography
+   */
+  /**
+   * 3.0 Elements
+   */
+  /**
+   * 4.0 Alignment
+   */
+  /**
+   * 5.0 Caption
+   */
+  /**
+   * 6.0 Galleries
+   */
+  /**
+   * 7.0 Audio / Video
+   */
+  /**
+   * 8.0 RTL
+   */
+}
+.mce-content-body h1, .mce-content-body h2, .mce-content-body h3, .mce-content-body h4, .mce-content-body h5, .mce-content-body h6 {
+  font-family: "Montserrat",sans-serif;
+}
+.mce-content-body h1 {
+  font-size: 3.4286rem;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1.25em;
+  margin-top: 0.9583em;
+  margin-bottom: 0.5833em;
+  letter-spacing: -1.5px;
+  text-transform: none;
+}
+.mce-content-body h2 {
+  font-size: 3.2143rem;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1.1111em;
+  margin-top: 1.0444em;
+  margin-bottom: 0.76em;
+  letter-spacing: -0.3px;
+  text-transform: none;
+}
+.mce-content-body h3 {
+  font-size: 2.3571em;
+  font-weight: 300;
+  font-style: mormal;
+  line-height: 1.1515em;
+  margin-top: 1.3333em;
+  margin-bottom: 0.7879em;
+  letter-spacing: -0.3px;
+  text-transform: none;
+}
+.mce-content-body h4 {
+  font-size: 1.6429em;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.3043em;
+  margin-top: 1.9565em;
+  margin-bottom: 1.0435em;
+  letter-spacing: -0.3px;
+  text-transform: none;
+}
+.mce-content-body h5 {
+  font-size: 1.4286em;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1.35em;
+  margin-top: 1.5em;
+  margin-bottom: 1.3em;
+  letter-spacing: 0px;
+  text-transform: none;
+}
+.mce-content-body h6 {
+  font-size: 1.2143em;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.4706em;
+  margin-top: 2.1176em;
+  margin-bottom: 0.9412em;
+  letter-spacing: 0px;
+  text-transform: none;
+}
+.mce-content-body p, .mce-content-body ul, .mce-content-body ol, .mce-content-body dl, .mce-content-body blockquote, .mce-content-body address {
+  margin: 0 0 1.5em;
+}
+.mce-content-body li > ol, .mce-content-body li > ul, .mce-content-body dl > dd {
+  margin-bottom: 0;
+}
+.mce-content-body li > p {
+  margin-bottom: 0;
+}
+.mce-content-body li > p + p {
+  margin-top: 0.5em;
+}
+.mce-content-body ol, .mce-content-body ul {
+  padding-left: 1.5em;
+}
+.mce-content-body h1, .mce-content-body h2, .mce-content-body h3, .mce-content-body h4, .mce-content-body h5, .mce-content-body h6,
+.mce-content-body h1 a, .mce-content-body h2 a, .mce-content-body h3 a, .mce-content-body h4 a, .mce-content-body h5 a, .mce-content-body h6 a {
+  color: #1d1d1d;
+}
+.mce-content-body a:hover,
+.mce-content-body h1 a:hover, .mce-content-body h2 a:hover, .mce-content-body h3 a:hover, .mce-content-body h4 a:hover, .mce-content-body h5 a:hover, .mce-content-body h6 a:hover {
+  color: #72cfd5;
+}
+.mce-content-body b, .mce-content-body strong {
+  color: #1d1d1d;
+  font-weight: 700;
+}
+.mce-content-body i, .mce-content-body em {
+  color: #1d1d1d;
+}
+.mce-content-body blockquote {
+  font-family: "Montserrat",sans-serif;
+  background-color: #1d1d1d;
+  position: relative;
+  text-align: left;
+  text-transform: uppercase;
+  padding: 3em 3em 3em 6em;
+}
+.mce-content-body blockquote:before {
+  content: '“';
+  font-family: inherit;
+  font-size: 1.6em;
+  display: block;
+  position: absolute;
+  top: 2.1em;
+  left: 2.3em;
+}
+.mce-content-body .blog_mode_post.sidebar_hide blockquote,
+.mce-content-body .blog_mode_page.sidebar_hide blockquote {
+  margin: 4.05em 6.7em;
+}
+.mce-content-body blockquote:after,
+.mce-content-body q:before, .mce-content-body q:after {
+  content: "";
+}
+.mce-content-body blockquote, .mce-content-body q {
+  quotes: "" "";
+}
+.mce-content-body blockquote p {
+  margin: 0;
+  font-size: 1.4286em;
+  font-weight: 200;
+  line-height: 1.35em;
+}
+.mce-content-body blockquote p + p {
+  margin-top: 0.4em;
+}
+.mce-content-body blockquote > a, .mce-content-body blockquote > p > a,
+.mce-content-body blockquote > cite, .mce-content-body blockquote > p > cite {
+  display: block;
+  font-size: 12px;
+  line-height: 1.35em;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+  margin-top: 2.6em;
+  letter-spacing: 3px;
+}
+.mce-content-body dfn,
+.mce-content-body cite,
+.mce-content-body em,
+.mce-content-body i {
+  font-style: italic;
+}
+.mce-content-body address {
+  font-style: italic;
+  margin: 0 0 2em;
+}
+.mce-content-body code,
+.mce-content-body kbd,
+.mce-content-body tt,
+.mce-content-body var,
+.mce-content-body samp,
+.mce-content-body pre {
+  font-family: "Courier New", monospace;
+  font-size: 1em;
+  letter-spacing: 0;
+}
+.mce-content-body pre {
+  background-color: #fcfcfc;
+  border: 1px solid #ebebeb;
+  margin-bottom: 2em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 14px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.mce-content-body abbr[title] {
+  border-bottom: 1px dotted #ebebeb;
+  cursor: help;
+}
+.mce-content-body mark,
+.mce-content-body ins {
+  background-color: #fff9c0;
+  text-decoration: none;
+}
+.mce-content-body sup,
+.mce-content-body sub {
+  font-size: 75%;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.mce-content-body sup {
+  bottom: 1ex;
+}
+.mce-content-body sub {
+  top: .5ex;
+}
+.mce-content-body small {
+  font-size: 75%;
+}
+.mce-content-body big {
+  font-size: 125%;
+}
+.mce-content-body hr {
+  background-color: #ebebeb;
+  border: 0;
+  height: 1px;
+  margin: 4em 0;
+}
+.mce-content-body ul,
+.mce-content-body ol {
+  margin: 0 0 1.5em 0;
+  padding: 0;
+}
+.mce-content-body ul {
+  list-style: disc;
+}
+.mce-content-body ol {
+  list-style: decimal;
+}
+.mce-content-body li > ul,
+.mce-content-body li > ol {
+  margin: 0 0 0 1.5em;
+}
+.mce-content-body dl {
+  margin: 0 0 1.5em;
+}
+.mce-content-body dt {
+  font-weight: bold;
+}
+.mce-content-body dd {
+  margin: 0 0 2em;
+}
+.mce-content-body table,
+.mce-content-body th,
+.mce-content-body td,
+.mce-content-body .mce-item-table,
+.mce-content-body .mce-item-table th,
+.mce-content-body .mce-item-table td {
+  border: 1px solid #ebebeb;
+}
+.mce-content-body table a {
+  color: #72cfd5;
+}
+.mce-content-body table,
+.mce-content-body .mce-item-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-width: 1px 0 0 1px;
+  margin: 0 0 2em;
+  width: 100%;
+}
+.mce-content-body table th,
+.mce-content-body .mce-item-table th,
+.mce-content-body table caption {
+  border-width: 0 1px 1px 0;
+  font-size: 1em;
+  font-weight: 700;
+  padding: 0.5em;
+  text-align: left;
+  vertical-align: baseline;
+}
+.mce-content-body table td,
+.mce-content-body .mce-item-table td {
+  border-width: 0 1px 1px 0;
+  font-family: inherit;
+  font-size: 1em;
+  padding: 0.5em;
+  vertical-align: baseline;
+}
+.mce-content-body img {
+  border: 0;
+  height: auto;
+  max-width: 660px;
+  vertical-align: middle;
+}
+.mce-content-body figure {
+  margin: 0;
+}
+.mce-content-body del {
+  opacity: 0.8;
+}
+.mce-content-body a {
+  border-bottom: 1px solid #85b7d5;
+  color: #85b7d5;
+  text-decoration: none;
+}
+.mce-content-body .alignleft {
+  float: left;
+  margin: 0.5em 2em 2em 0;
+}
+.mce-content-body .alignright {
+  float: right;
+  margin: 0.5em 0 2em 2em;
+}
+.mce-content-body .aligncenter {
+  clear: both;
+  display: inline-block;
+  margin: 0.5em auto;
+}
+.mce-content-body .wp-caption {
+  background: transparent;
+  border: none;
+  color: #858585;
+  font-family: inherit;
+  margin: 0 0 2em 0;
+  max-width: 660px;
+  padding: 0;
+  text-align: inherit;
+}
+.mce-content-body .wp-caption.alignleft {
+  margin: 0.5em 2em 1.5em 0;
+}
+.mce-content-body .wp-caption.alignright {
+  margin: 0.5em 0 1.5em 2em;
+}
+.mce-content-body .wp-caption.aligncenter {
+  margin: 0.5em auto;
+}
+.mce-content-body .wp-caption .wp-caption-text,
+.mce-content-body .wp-caption-dd {
+  font-size: 0.9230em;
+  line-height: 1.5;
+  padding: 0.5em 0;
+}
+.mce-content-body .gallery-item {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
+  padding: 1%;
+}
+.mce-content-body .gallery-columns-2 .gallery-item {
+  width: 50%;
+}
+.mce-content-body .gallery-columns-3 .gallery-item {
+  width: 33.33%;
+}
+.mce-content-body .gallery-columns-4 .gallery-item {
+  width: 25%;
+}
+.mce-content-body .gallery-columns-5 .gallery-item {
+  width: 20%;
+}
+.mce-content-body .gallery-columns-6 .gallery-item {
+  width: 16.66%;
+}
+.mce-content-body .gallery-columns-7 .gallery-item {
+  width: 14.28%;
+}
+.mce-content-body .gallery-columns-8 .gallery-item {
+  width: 12.5%;
+}
+.mce-content-body .gallery-columns-9 .gallery-item {
+  width: 11.11%;
+}
+.mce-content-body .gallery .gallery-caption {
+  color: #858585;
+  display: block;
+  font-size: 0.9230em;
+  line-height: 1.5;
+  padding: 0.5em 0;
+}
+.mce-content-body .gallery-columns-6 .gallery-caption,
+.mce-content-body .gallery-columns-7 .gallery-caption,
+.mce-content-body .gallery-columns-8 .gallery-caption,
+.mce-content-body .gallery-columns-9 .gallery-caption {
+  display: none;
+}
+.mce-content-body .wpview-wrap {
+  margin-bottom: 2em;
+}
+.mce-content-body .wp-audio-playlist {
+  margin: 0;
+}
+.mce-content-body.rtl {
+  font-family: Arial, Tahoma, sans-serif;
+}
+.mce-content-body.rtl li > ul, .mce-content-body.rtl li > ol {
+  margin: 0 2em 0 0;
+}
+.mce-content-body.rtl table th, .mce-content-body.rtl table caption {
+  text-align: right;
+}
+
+/**
+ * 9.0 Media Queries
+ */
+@media screen and (max-width: 740px) {
+  .mce-content-body {
+    max-width: 100%;
+  }
+  .mce-content-body img, .mce-content-body .wp-caption {
+    max-width: 100%;
+    width: auto !important;
+  }
+}
+
+/*# sourceMappingURL=editor-style.css.map */

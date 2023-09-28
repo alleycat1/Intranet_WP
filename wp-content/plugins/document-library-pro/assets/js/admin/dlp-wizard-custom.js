@@ -1,0 +1,1 @@
+window.addEventListener("barn2_setup_wizard_changed",(e=>{const t=e.detail.layout,d=e.detail.showStep,i=e.detail.hideStep;"grid"===t&&(d("grid"),i("table"),i("filters")),"table"===t&&(d("table"),d("filters"),i("grid"))}),!1);

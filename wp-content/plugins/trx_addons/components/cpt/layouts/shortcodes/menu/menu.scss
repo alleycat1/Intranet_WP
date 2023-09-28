@@ -1,0 +1,913 @@
+@import "../../../../../css/_mixins.scss";
+@import "../../../../../css/_trx_addons.vars.scss";
+
+/* Menu mobile button */
+.sc_layouts_item_menu_mobile_button,
+.sc_layouts_menu_mobile_button {
+	display: none !important;
+}
+.elementor-element-edit-mode {
+	.sc_layouts_item_menu_mobile_button,
+	.sc_layouts_menu_mobile_button {
+		display: flex !important;
+		@include flex-align-items(center);
+	}
+	&[data-widget_type^="trx_sc_layouts_menu"] .elementor-widget-container {
+		@include flex;
+	}
+}
+.sc_layouts_menu_mobile_button .sc_layouts_item_icon,
+.sc_layouts_menu_mobile_button_burger .sc_layouts_item_icon {
+	font-size: 2em;
+}
+.sc_layouts_menu_mobile_button .sc_layouts_item_icon:before,
+.sc_layouts_menu_mobile_button_burger .sc_layouts_item_icon:before {
+	line-height:1.2em;
+}
+.sc_layouts_menu_mobile_button_burger {
+	display:inline-block !important;
+}
+
+/* Menu: common rules
+----------------------------------------- */
+.sc_layouts_menu {
+	position:relative;
+	z-index:1000;
+	overflow:hidden;
+	visibility:hidden;
+	max-height:3em;
+}
+.elementor-element-edit-mode .sc_layouts_menu,
+.sc_layouts_menu.inited,
+.sc_layouts_menu > nav {
+	overflow: visible;
+	visibility: inherit;	//visible;
+	max-height:none;
+}
+.sc_layouts_menu_nav, .sc_layouts_menu_nav ul {
+	display:inline-block;
+	margin:0;
+	padding:0;
+	list-style-type:none !important;
+}
+.sc_layouts_menu_nav:after, .sc_layouts_menu_nav ul:after {
+	content:' ';
+	@include clear;
+}
+.sc_layouts_menu_nav li {
+	margin: 0;
+	position:relative;
+}
+.widget .sc_layouts_menu_nav li:before {
+	display: none !important;
+}
+.sc_layouts_menu_nav li > a {
+	display:block;
+	position:relative;
+}
+.sc_layouts_menu_nav li > a:not([class*="icon-"]):empty,
+.sc_layouts_menu_nav li > a > span:not([class*="icon-"]):empty {
+	display: none !important;
+}
+
+.sc_layouts_submenu_freeze {
+	opacity: 1 !important;
+}
+
+.sc_layouts_menu_stretch_bg {
+	display: block;
+	@include abs-cover(-1);
+}
+
+/* 1st level */
+.sc_layouts_menu_nav {
+	text-align:left;
+	vertical-align:middle;
+	padding-left: 0 !important;
+}
+.sc_layouts_menu_nav > li {
+	position:relative;
+	float:left;
+	z-index:20;
+}
+.sc_layouts_menu_nav > li+li { z-index:19; }
+.sc_layouts_menu_nav > li+li+li { z-index:18; }
+.sc_layouts_menu_nav > li+li+li+li { z-index:17; }
+.sc_layouts_menu_nav > li+li+li+li+li { z-index:16; }
+.sc_layouts_menu_nav > li+li+li+li+li+li { z-index:15; }
+.sc_layouts_menu_nav > li+li+li+li+li+li+li { z-index:14; }
+.sc_layouts_menu_nav > li+li+li+li+li+li+li+li { z-index:13; }
+.sc_layouts_menu_nav > li+li+li+li+li+li+li+li+li { z-index:12; }
+.sc_layouts_menu_nav > li+li+li+li+li+li+li+li+li+li { z-index:11; }
+
+.sc_layouts_menu_nav > li > a {
+	padding: 1em;
+	position:relative;
+	color: #333;
+	@include transition-colors;
+}
+
+.sc_layouts_menu_nav > li > a:hover,
+.sc_layouts_menu_nav > li.sfHover > a,
+.sc_layouts_menu_nav > li.current-menu-item > a,
+.sc_layouts_menu_nav > li.current-menu-parent > a,
+.sc_layouts_menu_nav > li.current-menu-ancestor > a {
+	color: #efa758;
+}
+.sc_layouts_menu_nav > li.current-menu-item > a,
+.sc_layouts_menu_nav > li.current-menu-parent > a,
+.sc_layouts_menu_nav > li.current-menu-ancestor > a {
+	font-weight:500;
+}
+.sc_layouts_menu_nav > li.menu-item-has-children > a {
+	padding-right: 2em;
+}
+.sc_layouts_menu_nav > li.menu-item-has-children > a:after {
+	content: '\e882';
+	font-family: $trx_addons_icons;
+	font-weight:normal;
+	display:inline-block;
+	@include abs-rc(1em);
+	@include transition-color;
+}
+
+.sc_layouts_menu_nav li[class*="icon-"]:before {
+	@include transition-color;
+}
+.sc_layouts_menu_nav > li[class*="icon-"] > a {
+	padding-left: 2em;
+}
+.sc_layouts_menu_nav > li[class*="icon-"]:before {
+	display:inline-block;
+	padding:1em 0;
+	width: 1em;
+	line-height:inherit;
+	@include abs-lt(0.5em, 0);
+}
+.sc_layouts_menu_nav > li[class*="columns-"][class*="icon-"]:before {
+	position:static;
+	margin:0 0 0 0.5em;
+	float:left;
+}
+.sc_layouts_menu_nav > li[class*="columns-"][class*="icon-"] > a {
+	float:left;
+	margin-left: -1.5em;
+}
+
+.sc_layouts_menu_nav li[class*="image-"] > a {
+	background-position: 1em center;
+	background-repeat:no-repeat;
+	background-size: 1em;
+	padding-left: 2.3em;
+}
+
+/* Submenu */
+.sc_layouts_menu_popup .sc_layouts_menu_nav,
+.sc_layouts_menu_nav > li ul:not(.sc_item_filters_tabs) {
+	position:absolute;
+	display:none;
+	z-index:10000;
+	width:13em;
+	padding: 1.4em 0;
+	text-align:left;
+	background-color: #f0f0f0;
+	@include border-box;
+	@include box-shadow(1px 1px 2px 0px rgba(0,0,0,0.2));
+
+	&.animated {
+		-webkit-animation-fill-mode: unset;
+		animation-fill-mode: unset;
+	}
+}
+.sc_layouts_menu_popup .sc_layouts_menu_nav {
+	display:block;
+}
+
+.widget_nav_menu li.menu-delimiter,
+.sc_layouts_menu_nav > li li.menu-delimiter {
+	margin-top: 0.5em;
+	padding-top: 0.5em;
+	border-top: 1px solid #f0f0f0;
+	text-align: center;
+	height: 0;
+	overflow:hidden;
+}
+
+.sc_layouts_menu_popup .sc_layouts_menu_nav > li > a,
+.sc_layouts_menu_nav > li li > a {
+	padding: 0.6em 1.5em;
+	color: #333;
+}
+.sc_layouts_menu_popup .sc_layouts_menu_nav > li[class*="icon-"]:before {
+	padding: 0.6em 0;
+}
+
+.sc_layouts_menu_nav > li li > a:hover,
+.sc_layouts_menu_nav > li li.sfHover > a,
+.sc_layouts_menu_nav > li li.current-menu-item > a,
+.sc_layouts_menu_nav > li li.current-menu-parent > a,
+.sc_layouts_menu_nav > li li.current-menu-ancestor > a {
+	color: #efa758;
+}
+
+.sc_layouts_menu_popup .sc_layouts_menu_nav > li.menu-item-has-children > a:after,
+.sc_layouts_menu_nav li li.menu-item-has-children > a:after {
+	content: '\e884';
+	font-family: $trx_addons_icons;
+	font-weight:normal;
+	@include abs-rt(1.5em, 0.65em); //abs-rc(1.5em);
+	@include transition-color;
+}
+.sc_layouts_menu_popup .sc_layouts_menu_nav > li.menu-item-has-children > a:after {
+	top: 1.2em;
+}
+.sc_layouts_menu_popup .sc_layouts_menu_nav > li.menu-item-has-children > a,
+.sc_layouts_menu_nav li li.menu-item-has-children > a {
+	padding-right: 2em;
+}
+
+.sc_layouts_menu_nav > li li[class*="icon-"] > a {
+	padding-left: 3em;
+}
+.sc_layouts_menu_nav > li li[class*="icon-"]:before {
+	@include abs-lc(1.5em);
+	color: #333;
+}
+.sc_layouts_menu_nav > li li[class*="icon-"]:hover:before,
+.sc_layouts_menu_nav > li li[class*="icon-"].shHover:before,
+.sc_layouts_menu_nav > li li.current-menu-item:before,
+.sc_layouts_menu_nav > li li.current-menu-parent:before,
+.sc_layouts_menu_nav > li li.current-menu-ancestor:before {
+	color: #efa758;
+}
+
+.sc_layouts_menu_popup .sc_layouts_menu_nav li[class*="icon-"] {
+	& > a {
+		padding-left: 3em;
+	}
+	&:before {
+		left: 1.5em;
+	}
+}
+
+.sc_layouts_menu_popup .sc_layouts_menu_nav > li ul {
+	font-size: 1em;
+}
+
+.sc_layouts_menu_nav > li li[class*="image-"] > a {
+	background-position: 1.6667em center;
+	padding-left: 3em;
+}
+
+.sc_layouts_menu_nav > li > ul {
+	top:4em;
+
+	/* To align submenu center */
+	/*
+	left:50%;
+	margin-left:-6.5em;	// Don't use translate, because translate is used in the show effects
+	*/
+
+	/* To align submenu left */
+	left: 0;
+}
+.sc_layouts_menu_nav > li:last-child > ul,
+.sc_layouts_column_align_right .sc_layouts_menu_nav > li.menu-collapse > ul {
+	left: auto;
+	right: 0;
+}
+.sc_layouts_menu_popup .sc_layouts_menu_nav,
+.sc_layouts_menu_popup .sc_layouts_menu_nav > li > ul,
+.sc_layouts_menu_nav > li > ul ul {
+	left:13em;
+	top:-1.4em;
+	margin: 0 0 0 2px;
+	background-color: #f0f0f0;
+}
+.sc_layouts_menu_nav > li > ul ul.submenu_left {
+	left:-13em;
+	margin: 0 0 0 -2px;
+}
+.sc_layouts_menu_nav > li > ul ul.sc_layouts_submenu.submenu_left {
+	left: auto;
+	right: 13.1428em;
+	margin: 0;
+}
+
+/* Multi-columns submenu */
+
+/* Remove because 1st-level submenu with columns will be stretched by content in js (as submenu with layouts)
+.sc_layouts_menu_nav > li[class*="columns-"] {
+	position:static;
+}
+
+.sc_layouts_menu_nav > li[class*="columns-"] > ul {
+	left: 0;
+	right: 0;
+	width: 100%;
+	margin-left:0;
+}
+*/
+
+.sc_layouts_menu_nav ul li.columns-2 > ul {					width:26em; }
+.sc_layouts_menu_nav ul li.columns-2 > ul.submenu_left {	left:-26em; }
+.sc_layouts_menu_nav ul li.columns-3 > ul {					width:39em; }
+.sc_layouts_menu_nav ul li.columns-3 > ul.submenu_left {	left:-39em; }
+.sc_layouts_menu_nav ul li.columns-4 > ul {					width:52em; }
+.sc_layouts_menu_nav ul li.columns-4 > ul.submenu_left { 	left:-52em; }
+.sc_layouts_menu_nav ul li.columns-5 > ul {					width:65em; }
+.sc_layouts_menu_nav ul li.columns-5 > ul.submenu_left { 	left:-65em; }
+.sc_layouts_menu_nav ul li.columns-6 > ul {					width:78em; }
+.sc_layouts_menu_nav ul li.columns-6 > ul.submenu_left { 	left:-78em; }
+
+.sc_layouts_menu_nav li[class*="columns-"] > ul > li {
+	display:inline-block;
+	vertical-align:top;
+}
+.sc_layouts_menu_nav li.columns-2 > ul > li {	width:50%; }
+.sc_layouts_menu_nav li.columns-3 > ul > li {	width:33.3333%; }
+.sc_layouts_menu_nav li.columns-4 > ul > li {	width:25%; }
+.sc_layouts_menu_nav li.columns-5 > ul > li {	width:20%; }
+.sc_layouts_menu_nav li.columns-6 > ul > li {	width:16.6666%; }
+
+.sc_layouts_menu_nav li[class*="columns-"] li.menu-item-has-children > a {
+	font-weight:600 !important;
+	font-size: 1.0667em !important;
+}
+.sc_layouts_menu_nav li[class*="columns-"] li.menu-item-has-children > a:after {
+	display:none;
+}
+
+.sc_layouts_menu_nav li[class*="columns-"] > ul ul {
+	position:static !important;
+	display:block !important;
+	//vertical-align:top;
+	margin-left: 0;	// Specify positive value if you want to shift submenu items
+	padding : 0;
+	left: auto;
+	top: auto;
+	width: auto;
+	opacity: 1 !important;
+	@include transform(none !important);
+	@include box-shadow(none !important);
+}
+
+.sc_layouts_menu_popup .sc_layouts_menu_nav li[class*="columns-"] > ul {
+	white-space: normal;
+}
+
+/* Layouts as the menu */
+.sc_layouts_submenu_prepare {
+	visibility: hidden !important;
+	cursor: wait;
+}
+.menu_mobile_nav li > ul.sc_layouts_submenu,
+.sc_layouts_menu li > ul.sc_layouts_submenu {
+	@include border-box;
+	width: auto;
+	max-width: 75em;
+	padding: 1.4em;
+	/* overflow: hidden; */	// Don't use hidden because in the layouts may appears blocks out of sections
+}
+.menu_mobile_nav li > ul.sc_layouts_submenu ul:not(.sc_item_filters_tabs),
+.sc_layouts_menu li > ul.sc_layouts_submenu ul:not(.sc_item_filters_tabs) {
+	display: block !important;
+	position: static;
+	top: auto;
+	left: auto;
+	bottom: auto;
+	right: auto;
+	width: auto;
+}
+.sc_layouts_menu li > ul.sc_layouts_submenu ul:not(.sc_item_filters_tabs) li {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.sc_layouts_menu li > ul.sc_layouts_submenu ul:not(.sc_item_filters_tabs) li + li {
+	margin-top: 1em;
+}
+.menu_mobile_nav li > ul.sc_layouts_submenu ul:not(.sc_item_filters_tabs) li > a,
+.sc_layouts_menu li > ul.sc_layouts_submenu ul:not(.sc_item_filters_tabs) li > a {
+	position: static;
+	padding: 0.3em 0;
+	background-color: transparent;
+}
+.sc_layouts_menu li > ul.sc_layouts_submenu .vc_row {
+	overflow:hidden;
+}
+.menu_mobile_nav li > ul.sc_layouts_submenu .sc_layouts_item,
+.sc_layouts_menu li > ul.sc_layouts_submenu .sc_layouts_item {
+	margin:0 !important;
+	display: block !important;
+	vertical-align:top;
+}
+.menu_mobile_nav li > ul.sc_layouts_submenu .widget_title,
+.sc_layouts_menu li > ul.sc_layouts_submenu .widget_title {
+	text-align: left;
+}
+
+// Submenu inside the Custom Menu widget
+.widget_nav_menu [class*="sc_content_width_"] {
+	width: auto !important;
+}
+.widget_nav_menu ul.sc_layouts_submenu {
+	padding-left: 0;
+	margin-top: 1em;
+}
+.widget_nav_menu ul.sc_layouts_submenu .wpb_column {
+	width: 100% !important;
+	float: none;
+}
+.widget_nav_menu ul.sc_layouts_submenu .wpb_column + .wpb_column {
+	margin-top: 1.5em;
+}
+.widget_nav_menu .post_item .post_thumb {
+	float: none;
+	display: block;
+	margin: 0 0 1em;
+}
+.widget_nav_menu .post_item .post_thumb img {
+	@include border-sharp;
+}
+.widget_nav_menu .post_item .post_title {
+	font-size: 1em;
+}
+
+
+/* Description in the menu items 
+-------------------------------------------------- */
+.sc_layouts_menu_item_description {
+	display: block;
+	margin-top: 2px;
+	@include font(8px, 12px);
+	white-space: normal;
+}
+.sc_layouts_menu_nav > li > a .sc_layouts_menu_item_description {
+	margin-top: 0;
+	@include abs-lt(0, 4.8em);
+	@include border-box;
+	width: 100%;
+	text-align: left;
+	padding: 0 1em 0 2em;
+}
+
+
+/* Dropdown */
+.sc_layouts_dropdown > li > ul {
+	top: 2.6em;
+	left: -1.5em;
+}
+.sc_layouts_column_align_right .sc_layouts_dropdown > li > ul {
+	left: auto;
+	right: -1.5em;
+}
+.sc_layouts_dropdown li.menu-item.menu-item-has-children > a {
+	padding: 0;
+}
+.sc_layouts_dropdown li.menu-item.menu-item-has-children > a:after {
+	position:static;
+	display:inline-block;
+	vertical-align: middle;
+	margin-left: 0.3em;
+	@include transform-none;
+}
+
+
+/* Menu popup
+----------------------------------------------------- */
+.sc_layouts_menu_mobile_button_burger {
+	position:relative;
+}
+.sc_layouts_menu_popup {
+	@include abs-ct(2.4em, 1000);
+	display:none;
+}
+.sc_layouts_menu_popup .sc_layouts_menu_nav {
+	position:relative;
+	left:0;
+	top: 0;
+}
+.sc_layouts_menu_popup .sc_layouts_menu_nav > li {
+	display:block;
+	float:none;
+}
+
+
+/* Menu collapse
+----------------------------------------------------- */
+.sc_layouts_menu_nav .menu-collapse {
+	display:none;
+}
+.sc_layouts_menu_nav .menu-collapse > a {
+	position:relative;
+	text-align:center;
+}
+.sc_layouts_menu_nav .menu-collapse > a:before {
+	@include rel-lt(0, 1px, 2);
+	//@include rotate(90deg);
+}
+.sc_layouts_menu_nav .menu-collapse > a:after {
+	content: ' ';
+	display:block;
+	background-color: #f7f7f7;
+	@include abs-cc;
+	@include box(2em, 2em);
+	@include border-round;
+}
+
+
+/* Menu vertical
+----------------------------------------------------- */
+.sc_layouts_menu_dir_vertical {
+	max-height: none;
+
+	.sc_layouts_menu_nav {
+		display: block;
+
+		& > li {
+			display: block;
+			float: none;
+			width: 100%;
+		}
+		& > li:before {
+			display: none;
+		}
+		& > li > a {
+			padding: 0.25em 0;
+		}
+
+		/* Submenu style: popup */
+		& > li.menu-item-has-children > a:after {
+			content: '\e884';
+		}
+		& > li > ul,
+		& > li:last-child > ul {
+			left:100%;
+			right: auto;
+			top:-1.4em;
+			margin: 0 0 0 2px;
+		}
+	}
+
+	/* Submenu style: dropdown */
+	&.sc_layouts_submenu_dropdown {
+		display: block;
+		visibility: visible;
+
+		.sc_layouts_menu_nav {
+			li.menu-item-has-children > a:after {
+				content: '\e882';
+			}
+			li.menu-item-has-children.opened > a:after {
+				content: '\e885';
+			}
+			& > li ul,
+			& > li:last-child ul {
+				position: static;
+				left:auto;
+				right: auto;
+				top:auto;
+				margin: 0 0 0 1em;
+				background-color: transparent;
+				width: auto;
+				padding: 0;
+				@include box-shadow(none);
+
+				li[class*="icon-"]:before {
+					left: 0;
+					top: 4px;
+					@include transform-none;
+				}
+				li > a {
+					padding: 0.25em 1.5em;
+					color: #333;
+					
+					&:hover,
+					&:focus {
+						color: #000;
+						background-color: transparent;
+					}
+				}
+				li.menu-item-has-children > a {
+					padding-right: 2.5em;
+
+					&:after {
+						right: 1.2em;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+/* Menu hovers
+----------------------------------------------------- */
+
+/* Slide Line and Slide Box */
+.menu_hover_slide_line > ul > li#blob,
+.menu_hover_slide_box > ul > li#blob {
+	position: absolute;
+	top: 0;
+	z-index : 1;
+	opacity:0;
+	@include transition(all 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275)); // easeOutBack
+}
+.menu_hover_slide_line > ul > li#blob {
+	height: 1px;
+	margin-top: 3em;
+}
+.menu_hover_slide_line.sc_layouts_menu_dir_vertical > ul > li#blob {
+	margin-top: 1.75em;
+}
+.menu_hover_slide_line > ul > li.blob_over:not(.menu-collapse):not(.current-menu-item):not(.current-menu-parent):not(.current-menu-ancestor):hover,
+.menu_hover_slide_line > ul > li.blob_over:not(.menu-collapse):not(.current-menu-item):not(.current-menu-parent):not(.current-menu-ancestor).sfHover {
+	background-color: transparent;
+	@include box-shadow(none);
+}
+
+/* Color Line */
+.menu_hover_color_line > ul > li:not(.menu-collapse) > a:hover:before,
+.menu_hover_color_line > ul > li:not(.menu-collapse) > a:focus:before {
+	@include scale3d(1, 1, 1);
+	@include transition-delay(0s);
+}
+
+.menu_hover_color_line > ul > li:not(.menu-collapse) > a:before,
+.menu_hover_color_line > ul > li:not(.menu-collapse) > a:after,
+.menu_hover_color_line > ul > li:not(.menu-collapse).menu-item-has-children > a:after {
+	content: ' ' !important;
+	@include abs-pos(3.3em, 1em !important, auto, 1em, '');
+	margin: 0;
+	height: 1px;
+	@include scale3d(0, 1, 1);
+	@include transform-origin(center left);
+	@include transition(transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1));
+}
+.menu_hover_color_line > ul > li:not(.menu-collapse).menu-item-has-children > a:before,
+.menu_hover_color_line > ul > li:not(.menu-collapse).menu-item-has-children > a:after {
+	right: 2em !important;
+}
+.menu_hover_color_line > ul > li[class*="icon-"]:not(.menu-collapse) > a:before,
+.menu_hover_color_line > ul > li[class*="icon-"]:not(.menu-collapse) > a:after,
+.menu_hover_color_line > ul > li[class*="image-"]:not(.menu-collapse) > a:before,
+.menu_hover_color_line > ul > li[class*="image-"]:not(.menu-collapse) > a:after {
+	left: 0.5em;
+}
+.menu_hover_color_line.sc_layouts_menu_dir_vertical {
+	& > ul > li:not(.menu-collapse) > a:before,
+	& > ul > li:not(.menu-collapse) > a:after {
+		left: 0 !important;
+		right: 0 !important;
+		top: 1.75em !important;
+	}
+}
+.menu_hover_color_line > ul > li:not(.menu-collapse) > a:hover,
+.menu_hover_color_line > ul > li:not(.menu-collapse).sfHover > a:after,
+.menu_hover_color_line > ul > li:not(.menu-collapse) > a:hover:after,
+.menu_hover_color_line > ul > li:not(.menu-collapse) > a:before {
+	@include transition-delay(0.3s);
+}
+
+.menu_hover_color_line > ul > li:not(.menu-collapse).sfHover > a:after,
+.menu_hover_color_line > ul > li:not(.menu-collapse).menu-item-has-children > a:hover:after,
+.menu_hover_color_line > ul > li:not(.menu-collapse) > a:hover:after,
+.menu_hover_color_line > ul > li:not(.menu-collapse).sfHover > a:before,
+.menu_hover_color_line > ul > li:not(.menu-collapse) > a:hover:before,
+.menu_hover_color_line > ul > li:not(.menu-collapse).current-menu-item > a:after,
+.menu_hover_color_line > ul > li:not(.menu-collapse).current-menu-item > a:before,
+.menu_hover_color_line > ul > li:not(.menu-collapse).current-menu-ancestor > a:after,
+.menu_hover_color_line > ul > li:not(.menu-collapse).current-menu-ancestor > a:before,
+.menu_hover_color_line > ul > li:not(.menu-collapse).current-menu-parent > a:after,
+.menu_hover_color_line > ul > li:not(.menu-collapse).current-menu-parent > a:before {
+	@include scale3d(1, 1, 1);
+}
+
+.menu_hover_color_line > ul > li:not(.menu-collapse).sfHover > a:before,
+.menu_hover_color_line > ul > li:not(.menu-collapse) > a:hover:before {
+	@include transition-delay(0s);
+}
+
+/* Zoom Line */
+.menu_hover_zoom_line > ul > li:not(.menu-collapse) > a {
+	position:relative;
+}
+.menu_hover_zoom_line > ul > li:not(.menu-collapse) > a:before {
+	content: "";
+	@include abs-ct(3em);
+	@include box(0, 1px);
+	@include transition-all(0.1s);
+}
+.menu_hover_zoom_line > ul > li:not(.menu-collapse) > a:hover:before,
+.menu_hover_zoom_line > ul > li:not(.menu-collapse).sfHover > a:before,
+.menu_hover_zoom_line > ul > li:not(.menu-collapse).current-menu-item > a:before,
+.menu_hover_zoom_line > ul > li:not(.menu-collapse).current-menu-parent > a:before,
+.menu_hover_zoom_line > ul > li:not(.menu-collapse).current-menu-ancestor > a:before {
+	width: 80%;
+}
+.menu_hover_zoom_line.sc_layouts_menu_dir_vertical {
+	& > ul > li:not(.menu-collapse) > a:before {
+		@include abs-lt(0, 1.75em);
+		@include transform-none;
+	}
+	& > ul > li:not(.menu-collapse) > a:hover:before,
+	& > ul > li:not(.menu-collapse).sfHover > a:before,
+	& > ul > li:not(.menu-collapse).current-menu-item > a:before,
+	& > ul > li:not(.menu-collapse).current-menu-parent > a:before,
+	& > ul > li:not(.menu-collapse).current-menu-ancestor > a:before {
+		width: 100%;
+	}
+}
+
+/* Path Line */
+.menu_hover_path_line > ul > li:not(.menu-collapse) > a {
+	position:relative;
+}
+.menu_hover_path_line > ul > li:not(.menu-collapse):before,
+.menu_hover_path_line > ul > li:not(.menu-collapse):after,
+.menu_hover_path_line > ul > li:not(.menu-collapse) > a:before,
+.menu_hover_path_line > ul > li:not(.menu-collapse) > a:after {
+	content: ' ' !important;
+	position: absolute;
+	@include transition-property(transform, 0.1s);
+	@include transition-timing(1, 0.68, 0.16, 0.9);
+}
+/* left and right line */
+.menu_hover_path_line > ul > li:not(.menu-collapse):before,
+.menu_hover_path_line > ul > li:not(.menu-collapse):after {
+	top: 0.5em;
+	bottom: 0.5em;
+	width: 1px;
+	/*height: 100%;*/
+	@include scale3d(1, 0, 1);
+}
+/* left line */
+.menu_hover_path_line > ul > li:not(.menu-collapse):before {
+	left: 0.2em;
+	@include transform-origin(50% 100%);
+}
+/* right line */
+.menu_hover_path_line > ul > li:not(.menu-collapse):after {
+	right: 0.2em;
+	@include transform-origin(50% 0%);
+}
+/* top and bottom line */
+.menu_hover_path_line > ul > li:not(.menu-collapse) > a:before,
+.menu_hover_path_line > ul > li:not(.menu-collapse) > a:after,
+.menu_hover_path_line > ul > li:not(.menu-collapse).menu-item-has-children > a:after {
+	left: 0.2em;
+	right: 0.2em;
+	/*width: 100%;*/
+	height: 1px;
+	@include scale3d(0, 1, 1);
+}
+/* top line */
+.menu_hover_path_line > ul > li:not(.menu-collapse) > a:before {
+	top: 0.5em;
+	bottom: auto;
+	@include transform-origin(0 50%);
+}
+/* bottom line */
+.menu_hover_path_line > ul > li:not(.menu-collapse) > a:after,
+.menu_hover_path_line > ul > li:not(.menu-collapse).menu-item-has-children > a:after {
+	top: auto;
+	bottom: 0.5em;
+	@include transform-origin(100% 50%);
+}
+
+.menu_hover_path_line.sc_layouts_menu_dir_vertical {
+	/* left and right line */
+	& > ul > li:not(.menu-collapse):before,
+	& > ul > li:not(.menu-collapse):after {
+		top: 0;
+		bottom: 0;
+	}
+	/* left line */
+	& > ul > li:not(.menu-collapse):before {
+		left: 0;
+	}
+	/* right line */
+	& > ul > li:not(.menu-collapse):after {
+		right: 0;
+	}
+	/* top and bottom line */
+	& > ul > li:not(.menu-collapse) > a:before,
+	& > ul > li:not(.menu-collapse) > a:after,
+	& > ul > li:not(.menu-collapse).menu-item-has-children > a:after {
+		left: 0;
+		right: 0;
+	}
+	/* top line */
+	& > ul > li:not(.menu-collapse) > a:before {
+		top: 0;
+	}
+	/* bottom line */
+	& > ul > li:not(.menu-collapse) > a:after,
+	& > ul > li:not(.menu-collapse).menu-item-has-children > a:after {
+		bottom: 0;
+	}
+}
+
+/* Delays (first reverse, then current) */
+/* These rules can be simplified, but let's keep it for better readability */
+/* bottom line */
+.menu_hover_path_line > ul > li:not(.menu-collapse) > a:after,
+.menu_hover_path_line > ul > li:not(.menu-collapse).menu-item-has-children > a:after {
+	@include transition-delay(0.3s);
+}
+
+.menu_hover_path_line > ul > li:not(.menu-collapse) > a:hover:after,
+.menu_hover_path_line > ul > li:not(.menu-collapse).sfHover > a:after,
+.menu_hover_path_line > ul > li:not(.menu-collapse).menu-item-has-children > a:hover:after,
+.menu_hover_path_line > ul > li:not(.menu-collapse).sfHover.menu-item-has-children > a:after {
+	@include transition-delay(0s);
+}
+/* left line */
+.menu_hover_path_line > ul > li:not(.menu-collapse):before {
+	@include transition-delay(0.2s);
+}
+.menu_hover_path_line > ul > li:not(.menu-collapse):hover:before,
+.menu_hover_path_line > ul > li:not(.menu-collapse).sfHover:before {
+	@include transition-delay(0.1s);
+}
+/* top line */
+.menu_hover_path_line > ul > li:not(.menu-collapse) > a:before {
+	@include transition-delay(0.1s);
+}
+.menu_hover_path_line > ul > li:not(.menu-collapse).sfHover > a:before,
+.menu_hover_path_line > ul > li:not(.menu-collapse) > a:hover:before {
+	@include transition-delay(0.2s);
+}
+/* right line */
+.menu_hover_path_line > ul > li:not(.menu-collapse).sfHover:after,
+.menu_hover_path_line > ul > li:not(.menu-collapse):hover:after {
+	@include transition-delay(0.3s);
+}
+
+.menu_hover_path_line > ul > li:not(.menu-collapse).sfHover:before,
+.menu_hover_path_line > ul > li:not(.menu-collapse):hover:before,
+.menu_hover_path_line > ul > li:not(.menu-collapse).sfHover:after,
+.menu_hover_path_line > ul > li:not(.menu-collapse):hover:after,
+.menu_hover_path_line > ul > li:not(.menu-collapse).sfHover > a:before,
+.menu_hover_path_line > ul > li:not(.menu-collapse) > a:hover:before,
+.menu_hover_path_line > ul > li:not(.menu-collapse) > a:hover:after,
+.menu_hover_path_line > ul > li:not(.menu-collapse).sfHover > a:after {
+	@include scale3d(1, 1, 1);
+}
+
+/* Roll Down */
+.menu_hover_roll_down > ul > li:not(.menu-collapse) > a:before {
+	content: ' ';
+	@include abs-pos(3.3em, 0.7em, auto, 0.7em, '');
+	height: 1px;
+	opacity: 0;
+	@include translate3d(0, -3em, 0);
+	@include transition(transform 0s 0.3s, opacity 0.2s);
+}
+.menu_hover_roll_down.sc_layouts_menu_dir_vertical {
+	& > ul > li:not(.menu-collapse) > a:before {
+		left: 0;
+		right: 0;
+		top: 1.75em;
+	}
+}
+.menu_hover_roll_down > ul > li:not(.menu-collapse)[class*="icon-"] > a:before,
+.menu_hover_roll_down > ul > li:not(.menu-collapse)[class*="image-"] > a:before {
+	left: 0.5em;
+}
+.menu_hover_roll_down > ul > li:not(.menu-collapse) > a:hover:before,
+.menu_hover_roll_down > ul > li:not(.menu-collapse).sfHover > a:before,
+.menu_hover_roll_down > ul > li:not(.menu-collapse).current-menu-item > a:before,
+.menu_hover_roll_down > ul > li:not(.menu-collapse).current-menu-ancestor > a:before,
+.menu_hover_roll_down > ul > li:not(.menu-collapse).current-menu-parent > a:before {
+	opacity: 1;
+	@include translate3d(0, 0, 0);
+	@include transition(transform 0.3s, opacity 0.1s);
+	@include transition-timing(0.4, 0, 0.2, 1);
+}
+
+.menu_hover_roll_down > ul > li:not(.menu-collapse) > a > span {
+	display: block;
+	pointer-events: none;
+}
+
+.menu_hover_roll_down > ul > li:not(.menu-collapse).sfHover > a > span,
+.menu_hover_roll_down > ul > li:not(.menu-collapse) > a:hover > span,
+.menu_hover_roll_down > ul > li:not(.menu-collapse).current-menu-item > a > span,
+.menu_hover_roll_down > ul > li:not(.menu-collapse).current-menu-ancestor > a > span,
+.menu_hover_roll_down > ul > li:not(.menu-collapse).current-menu-parent > a > span {
+	@include animation(anim-roll-down 0.3s forwards);
+}
+
+@-webkit-keyframes anim-roll-down {
+	50% { opacity: 0; @include translate3d(0, 100%, 0); }
+	51% { opacity: 0; @include translate3d(0, -100%, 0); }
+	100%{ opacity: 1; @include translate3d(0, 0, 0); }
+}
+
+@keyframes anim-roll-down {
+	50% { opacity: 0; @include translate3d(0, 100%, 0); }
+	51% { opacity: 0; @include translate3d(0, -100%, 0); }
+	100%{ opacity: 1; @include translate3d(0, 0, 0); }
+}

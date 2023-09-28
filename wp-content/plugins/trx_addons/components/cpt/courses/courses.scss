@@ -1,0 +1,178 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/* To move pagination bullets below the items
+.sc_courses .sc_courses_slider.slider_outer_pagination_pos_bottom {
+	padding-bottom: 3em;
+}
+*/
+
+.sc_courses_columns_wrap,
+.courses_page_related .related_columns {
+	display:flex;
+	flex-wrap:wrap;
+}
+.sc_courses_slider .sc_courses_item,
+.sc_courses_columns_wrap .sc_courses_item,
+.courses_page_related .related_columns .sc_courses_item {
+	display:inline-block;
+	vertical-align:top;
+	@include box(100%, 100%);
+	@include border-box;
+}
+.sc_courses_slider .sc_courses_item {
+//	height: 95%;
+	margin-bottom: 0 !important;
+}
+
+.sc_courses {
+	position: relative;	
+}
+
+.sc_courses_default .sc_courses_item {
+	background-color:#fafafa;
+}
+.sc_courses_default .sc_courses_item_image {
+	position:relative;
+}
+.sc_courses_default .sc_courses_item_thumb {
+	margin-bottom: 0;
+}
+.sc_courses_default .sc_courses_item_thumb[class*="hover_"] {
+	display: block;
+}
+.sc_courses_default .sc_courses_item_thumb img {
+	min-width: 100%;
+	height: auto;
+}
+.sc_courses_default .sc_courses_item_categories {
+	@include abs-lt(2em, 2em, 10);
+	display:inline-block;
+	background-color: #292929;
+	@include font(0.9286em, 2em);
+	padding: 0 0.7em;
+	text-transform:uppercase;
+}
+.sc_courses_default .sc_courses_item_categories a {
+	color: #fff;
+}
+.sc_courses_default .sc_courses_item_categories a:hover {
+	color: #efa758;
+}
+.sc_courses_default .sc_courses_item_info {
+	padding: 2em;
+}
+.sc_courses_default .sc_courses_item_title {
+	margin: 0;
+}
+.sc_courses_default .sc_courses_item_title {
+	margin: 0;
+}
+.sc_courses_default .sc_courses_item_meta {
+	@include font(0.9286em, 1.5em);
+	margin-top: 0.5em;
+}
+.sc_courses_default .sc_courses_item_meta_item + .sc_courses_item_meta_item:before {
+	content: '*';
+	margin:0 0.3em;
+}
+.sc_courses_default .sc_courses_item_date {
+	letter-spacing: 0;
+	font-style: italic;
+}
+.sc_courses_default .sc_courses_item_price {
+	@include font(2em, 1em);
+	margin: 0.5em 0.5em 0 0;
+	color: #efa758;
+	min-height:1.2em;
+	display: inline-block;
+	vertical-align: top;
+}
+.sc_courses_default .sc_courses_item_period {
+	font-size:0.4em;
+	color: #888;
+	text-transform:uppercase;
+}
+.sc_courses_default .sc_courses_item_period:before {
+	content: '/';
+	margin: 0 0.5em;
+}
+.sc_courses_default .sc_courses_item_price + .sc_courses_item_button {
+	display: inline-block;
+	vertical-align: bottom;
+	margin-bottom: 0.3em;
+}
+
+
+/* Hover */
+/*
+.sc_courses_default .sc_courses_item .trx_addons_hover_mask {
+	background-color: #000;
+}
+.sc_courses_default .trx_addons_hover_content .trx_addons_hover_title {
+	background-color: transparent;
+	padding: 0;
+	margin:0;
+	text-transform:none;
+	font-size: 1.6667em;
+}
+.sc_courses_default .trx_addons_hover_content .trx_addons_hover_text {
+	padding:0;
+	margin-top:2em;
+	font-style:normal;
+}
+.sc_courses_default .trx_addons_hover_content .trx_addons_hover_links a {
+	margin-top: 3em;
+	@include font(12px, '', bold);
+	text-transform:uppercase;
+	letter-spacing:1px;
+	padding:1.3em 1.9em;
+}
+*/
+
+/* Single page */
+.courses_single .courses_page_header {
+	margin-bottom: 2em;
+}
+.courses_single .courses_page_header > .courses_page_featured {
+	margin-bottom: 1.5em; 
+}
+.courses_single .courses_page_title {
+	position:relative;
+	padding-right:25%
+}
+.courses_single .courses_page_title > .courses_page_price {
+	@include abs-rt(0, 0, 3);
+}
+.courses_single .courses_page_header > .courses_page_price {
+	float: right;
+	@include font(1.5em, 1.4em);
+	margin: 0 0 1.2em 1em;
+}
+.courses_single .courses_page_title + .courses_page_meta {
+	position:relative;
+	top: -1.5em;
+	color: #888;
+}
+.courses_single .courses_page_price + .courses_page_meta {
+	@include font(1.5em, 1.4em);
+	margin: 0 0 1.2em;
+}
+.courses_single .courses_page_meta_item + .courses_page_meta_item:before {
+	content: '*';
+	margin:0 0.3em;
+}
+.courses_single .courses_page_meta_item_date {
+	color: #333;
+}
+.courses_single .courses_page_period {
+	font-size:0.5em;
+	color: #888;
+}
+.courses_single .courses_page_period:before {
+	content: '/';
+	margin: 0 0.5em;
+}
+.courses_single .courses_page_buttons {
+	margin-top: 1em;
+}

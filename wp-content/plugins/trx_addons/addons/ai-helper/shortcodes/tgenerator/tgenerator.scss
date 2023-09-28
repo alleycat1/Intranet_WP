@@ -1,0 +1,337 @@
+@import "../../../../css/_mixins.scss";
+@import "../../../../css/_trx_addons.vars.scss";
+@import "../../../../css/_trx_addons.colors.scss";
+
+.sc_tgenerator_form {
+	@include flex;
+	@include flex-direction(row);
+	@include flex-justify-content(center);
+	@include flex-align-items(flex-start);
+	position: relative;
+
+	&.sc_tgenerator_form_align_left {
+		@include flex-justify-content(flex-start);
+	}
+	&.sc_tgenerator_form_align_right {
+		@include flex-justify-content(flex-end);
+	}
+	.trx_addons_loading {
+		@include abs-cover;
+		background-color: rgba(255, 255, 255, 0.5);
+		z-index: 100;
+		display: none;
+	}
+	&.sc_tgenerator_form_loading {
+		.trx_addons_loading {
+			display: block;
+		}
+	}
+}
+.sc_tgenerator_form_inner {
+	width: 100%;
+	@include flex;
+	@include flex-direction(column);
+	@include flex-justify-content(flex-start);
+	@include flex-align-items(center);
+
+	.sc_tgenerator_form_align_left & {
+		@include flex-align-items(flex-start);
+	}
+	.sc_tgenerator_form_align_right & {
+		@include flex-align-items(flex-end);
+	}
+}
+
+.sc_tgenerator_form_field_prompt {
+	position: relative;
+	width: 100%;
+
+	.sc_tgenerator_form_field_inner {
+		position: relative;
+		width: 100%;
+	}
+	input[type="text"] {
+		width: 100%;
+		@include border-radius(6px);
+		@include border-box;
+		padding-right: 9em;
+		text-overflow: ellipsis;
+	}
+	.sc_tgenerator_form_field_prompt_button {
+		@include flex;
+		@include flex-direction(row);
+		@include flex-justify-content(center);
+		@include flex-align-items(center);
+		@include abs-pos( 4px, 4px, 4px, auto );
+		@include border-box;
+		@include border-radius(6px);
+		@include transition-properties(background-color, color);
+		max-width: 50%;
+		overflow: hidden;
+		padding: 0 2em;
+		background-color: $success_color;
+		color: #fff;
+
+		&:not(.sc_tgenerator_form_field_prompt_button_disabled):hover {
+			background-color: $success_hover;
+		}
+	}
+	.sc_tgenerator_form_field_prompt_button_disabled {
+		background-color: $success_bg_color;
+		color: #aaa;
+		cursor: default;
+	}
+}
+
+.sc_tgenerator_form_field_tags {
+	@include flex;
+	@include flex-direction(row);
+	@include flex-justify-content(center);
+	@include flex-align-items(center);
+	@include flex-wrap(wrap);
+	line-height: 1.7em;
+	margin-top: 1em;
+
+	& > * {
+		margin-right: 0.3em;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+.sc_tgenerator_form_field_tags_label {
+	white-space: nowrap;
+}
+.sc_tgenerator_form_field_select {
+	position: relative;
+	@include transition-property(opacity);
+
+	.sc_tgenerator_form_field_select_label {
+		white-space: nowrap;
+		cursor: pointer;
+		color: $accent_color;
+		padding: 0 0 0.25em 0;
+		border-bottom: 1px solid $accent_color;
+	}
+	.sc_tgenerator_form_field_select_options {
+		display: none;
+		opacity: 0;
+		@include transition-property(opacity);
+		@include abs-lt( 0, 2em, 2 );
+		@include border-radius(3px);
+		@include border-box;
+		background-color: #fff;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	}
+	&.sc_tgenerator_form_field_select_opened {
+		.sc_tgenerator_form_field_select_options {
+			display: block;
+			opacity: 1;
+		}
+	}
+	.sc_tgenerator_form_field_select_option {
+		display: block;
+		cursor: pointer;
+		white-space: nowrap;
+		padding: 0.25em 1em;
+		@include transition-properties(background-color, color);
+
+		&:hover,
+		&:focus {
+			background-color: $background_color;
+			color: $accent_color;
+		}
+	}
+}
+.sc_tgenerator_form_field_hidden {
+	display: none;
+	opacity: 0;
+}
+.sc_tgenerator_form_field_visible {
+	display: inline-block;
+	opacity: 1;
+}
+
+.sc_tgenerator_limits {
+	width: 100%;
+	text-align: center;
+	margin-top: 1em;
+
+	.sc_tgenerator_form_align_left & {
+		text-align: left;
+	}
+	.sc_tgenerator_form_align_right & {
+		text-align: right;
+	}
+	.sc_tgenerator_limits_used {
+		white-space: nowrap;
+	}
+}
+
+.sc_tgenerator_message {
+	@include border-radius(6px);
+	@include border-box;
+	position: relative;
+	padding: 2em 3em;
+	min-width: 40%;
+	background-color: $error_bg_color;
+	color: $error_color;
+	margin: 1em 0;
+	text-align: center;
+	display: none;
+
+	.trx_addons_button_close_icon {
+		color: $error_dark;
+
+		&:before,
+		&:after {
+			border-color: $error_dark;
+		}
+	}
+}
+.sc_tgenerator_message_inner {
+	p,h1,h2,h3,h4,h5,h6 {
+		margin: 0;
+
+		& + p {
+			margin-top: 0.3em;
+		}
+	}
+	h1,h2,h3,h4,h5,h6 {
+		color: $error_dark;
+	}
+	a {
+		font-weight: 500;
+		color: $error_dark;
+		border-bottom: 1px dashed $error_dark;
+
+		&:hover {
+			color: $error_dark;
+			border-bottom-style: solid;
+		}
+	}
+}
+.sc_tgenerator_message_type_info {
+	background-color: $info_bg_color;
+	color: $info_color;
+
+	h1,h2,h3,h4,h5,h6 {
+		color: $info_dark;
+	}
+	a {
+		color: $info_dark;
+		border-bottom-color: $info_dark;
+
+		&:hover {
+			color: $info_dark;
+		}
+	}
+	.trx_addons_button_close_icon {
+		color: $info_dark;
+
+		&:before,
+		&:after {
+			border-color: $info_dark;
+		}
+	}
+}
+.sc_tgenerator_message_type_success {
+	background-color: $success_bg_color;
+	color: $success_color;
+
+	h1,h2,h3,h4,h5,h6 {
+		color: $success_dark;
+	}
+	a {
+		color: $success_dark;
+		border-bottom-color: $success_dark;
+
+		&:hover {
+			color: $success_dark;
+		}
+	}
+	.trx_addons_button_close_icon {
+		color: $success_dark;
+
+		&:before,
+		&:after {
+			border-color: $success_dark;
+		}
+	}
+}
+
+.sc_tgenerator_text {
+	@include box(100%, 20vh);
+	overflow-x: visible;
+	overflow-y: auto;
+	@include border-radius(6px);
+	@include border-box;
+	margin-top: 1em;
+}
+
+.sc_tgenerator_result {
+	display: none;
+	margin-top: 1.5em;
+
+	.sc_tgenerator_result_label {
+		margin-bottom: 0.5em;
+		font-weight: bold;
+	}
+	.sc_tgenerator_result_copy {
+		margin-top: 1em;
+
+		.sc_button {
+			.sc_button_icon {
+				font-size: 1em;
+
+				[class*="trx_addons_icon-"]:before {
+					width: 1em;
+				}
+			}
+			&.sc_button_icon_left .sc_button_icon {
+				margin-right: 0.5em;
+			}
+			&.sc_button_icon_right .sc_button_icon {
+				margin-left: 0.5em;
+			}
+			&.sc_button_copied  .sc_button_icon [class*="trx_addons_icon-"]:before {
+				content: "\e900";
+			}
+		}
+	}
+	.sc_tgenerator_result_content {
+		margin-bottom: 0.5em;
+		width: 100%;
+		max-height: 40vh;
+		overflow-x: visible;
+		overflow-y: auto;
+		@include border-radius(6px);
+		@include border-box;
+		padding: 1em;
+		background-color: $background_color;
+		border: 1px solid $border_color;
+
+	}
+}
+
+.sc_tgenerator_text,
+.sc_tgenerator_result {
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: 500;
+	}
+	h1 {font-size: 2em;}
+	h2 {font-size: 1.8em;}
+	h3 {font-size: 1.6em;}
+	h4 {font-size: 1.4em;}
+	h5 {font-size: 1.2em;}
+	h6 {font-size: 1.1em;}
+
+	p, ol, ul, dl, h1, h2, h3, h4, h5, h6 {
+		margin: 0 0 0.3em 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

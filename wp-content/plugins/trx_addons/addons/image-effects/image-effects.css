@@ -1,0 +1,125 @@
+/* Image effects
+--------------------------------------------------------------- */
+/* Canvas wrapper (holder) */
+.trx_addons_image_effects_holder {
+  position: relative;
+}
+.trx_addons_image_effects_holder.wp-caption .wp-caption-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0.5em !important;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.post_featured_bg.with_thumb[class*="hover_on_"] .trx_addons_image_effects_holder {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Canvas with effect */
+body > [id^="trx_addons_image_effects_canvas_"] {
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.trx_addons_image_effects_holder > [id^="trx_addons_image_effects_canvas_"] {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.slider_container .trx_addons_image_effects_holder > [id^="trx_addons_image_effects_canvas_"] > canvas {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+[id^="trx_addons_image_effects_canvas_"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.trx_addons_image_effects_planes_loaded [id^="trx_addons_image_effects_canvas_"] {
+  opacity: 1;
+}
+
+/* If no curtains supported or any other errors occured - display original images */
+body.no-curtains [id^="trx_addons_image_effects_canvas_"] {
+  display: none;
+}
+
+/* Fix for Elementor editor */
+.elementor-edit-area .post_featured_bg.with_thumb[class*="hover_on_"] .trx_addons_image_effect_original_image {
+  max-width: none;
+  max-height: none;
+  width: auto;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+/* Hide images in blocks with a bg image */
+body:not(.elementor-editor-active):not(.no-curtains) [class*="trx_addons_image_effects_on_"].post_featured_bg .trx_addons_image_effect_original_image,
+body:not(.elementor-editor-active):not(.no-curtains) [class*="trx_addons_image_effects_on_"].post_featured_bg .trx_addons_secondary_image {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  /* Image effects */
+  body:not(.elementor-editor-active):not(.no-curtains) [class*="trx_addons_image_effects_on_"] img {
+    -webkit-transition: opacity 0.3s ease;
+    -ms-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+  }
+  body:not(.elementor-editor-active):not(.no-curtains) [class*="trx_addons_image_effects_on_"]:not(.trx_addons_image_effects_inited) img {
+    opacity: 0;
+  }
+  body:not(.elementor-editor-active):not(.no-curtains) [class*="trx_addons_image_effects_on_"].trx_addons_image_effects_holder > img,
+  body:not(.elementor-editor-active):not(.no-curtains) [class*="trx_addons_image_effects_on_"] .trx_addons_image_effects_holder > img {
+    visibility: hidden;
+  }
+  body:not(.elementor-editor-active):not(.no-curtains) [class*="trx_addons_image_effects_on_"] img ~ img,
+  body:not(.elementor-editor-active):not(.no-curtains) [class*="trx_addons_image_effects_on_"] .trx_addons_image_effect_original_image,
+  body:not(.elementor-editor-active):not(.no-curtains) [class*="trx_addons_image_effects_on_"] .trx_addons_secondary_image,
+  body:not(.elementor-editor-active):not(.no-curtains) [class*="trx_addons_image_effects_on_"] .post_thumb,
+  body:not(.elementor-editor-active):not(.no-curtains) [class*="trx_addons_image_effects_on_"] .mask {
+    display: none;
+  }
+  body:not(.elementor-editor-active):not(.no-curtains) [class*="trx_addons_image_effects_on_"] .icons {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+/*# sourceMappingURL=image-effects.css.map */

@@ -1,0 +1,35 @@
+
+#{$table-class} {
+
+	// Button column
+	td a.posts-table-button {
+		font-size: inherit;
+		display: inline-block;
+		line-height: 1.4;
+		padding: 7px 20px;
+		visibility: visible;
+		word-break: normal;
+		text-decoration: none;
+
+		&::after {
+			display: none;
+		}
+	}
+
+}
+
+// select2 wp admin-bar fix
+body.admin-bar {
+	#{$controls-class} .select2-container {
+		z-index: 1050;
+	}
+
+	.select2-dropdown.#{$prefix}-dropdown {
+		margin-top: 32px;
+	}
+}
+
+// loading icon
+.dlp-folders-container .blockUI.blockOverlay::before {
+	@include spinner-icon(30px);
+}

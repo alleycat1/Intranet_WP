@@ -1,0 +1,25 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+//@mixin sc_price--md() {
+@media #{$media_md} {
+    /* Price */
+	.sc_price_item_title {
+		letter-spacing:0;
+		font-size:2em;
+	}
+	.sc_price_item_info {
+		padding: 2em 1em;
+	}
+	.sc_price_item_price {
+		font-size: 1.5em;
+	}
+}
+
+//@mixin sc_price--xs() {
+@media #{$media_xs} {
+    /* Price */
+	.sc_price_item_link {
+		margin-top:2em;
+	}
+}

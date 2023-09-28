@@ -1,0 +1,211 @@
+.sc_users_columns_wrap {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.sc_users_slider .sc_users_item,
+.sc_users_columns_wrap .sc_users_item {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.sc_users_slider .sc_users_item {
+  margin-bottom: 0 !important;
+}
+
+.sc_users {
+  position: relative;
+}
+
+.sc_users .sc_users_item_thumb[class*="hover_"] {
+  display: block !important;
+  margin-bottom: 0;
+}
+
+.sc_users .sc_users_item_thumb .sc_users_item_link {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Style 'Default' */
+.sc_users_default .sc_users_item {
+  background-color: #fafafa;
+  margin-bottom: 2em;
+}
+
+.sc_users_default.slider_swiper .sc_users_item,
+.sc_users_default .columns_padding_bottom .sc_users_item {
+  margin-bottom: 0;
+}
+
+.sc_users_default .sc_users_item_thumb {
+  position: relative;
+  display: block !important;
+  margin-bottom: 0;
+}
+.sc_users_default .sc_users_item_thumb img {
+  width: 100%;
+}
+.sc_users_default .sc_users_item_thumb .sc_users_item_link {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.sc_users_default .sc_users_item_info {
+  padding: 2.6em 3em;
+  text-align: center;
+}
+
+.sc_users_default .sc_users_item_title,
+.sc_users_short .sc_users_item_title,
+.sc_users_featured .sc_users_item_title {
+  margin: 0;
+}
+
+.sc_users_default .sc_users_item_subtitle {
+  font-size: 13px;
+  line-height: 20px;
+  font-style: italic;
+  letter-spacing: 0;
+  margin-top: 1px;
+}
+
+.sc_users_default .sc_users_item_content {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.sc_users_default .sc_users_item_content p {
+  margin: 0;
+}
+
+.sc_users_default .sc_users_item_socials {
+  margin: 1.5em 0 0;
+}
+
+.sc_users_default .sc_users_item_socials .social_item {
+  display: inline-block;
+  margin: 0 3px 3px 0;
+}
+
+.sc_users_default .sc_users_item_socials .social_item .social_icon {
+  display: block;
+  width: 3em;
+  height: 3em;
+  line-height: 3em;
+  text-align: center;
+}
+
+.sc_users_default .sc_users_item_button {
+  margin: 1.6em 0 0;
+  display: none;
+}
+
+.sc_users_default .trx_addons_hover_content .trx_addons_hover_title {
+  font-size: 1.3333em;
+}
+
+/* Style 'List' */
+.sc_users_list .sc_users_item {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.sc_users_list .sc_users_item:last-child,
+.sc_users_list.slider_swiper .sc_users_item,
+.sc_users_list .columns_padding_bottom .sc_users_item {
+  margin-bottom: 0;
+}
+
+.sc_users_list .sc_users_item_thumb {
+  width: 4em;
+  height: 4em;
+  line-height: 4em;
+  text-align: center;
+  -webkit-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.sc_users_list .sc_users_item_thumb .mask,
+.sc_users_list .sc_users_item_thumb .icons {
+  display: none !important;
+}
+
+.sc_users_list .sc_users_item_thumb + .sc_users_item_info {
+  margin-left: 1.5em;
+}
+
+.sc_users_list .sc_users_item_title {
+  font-size: 1.15em;
+  line-height: 1.5em;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.sc_users_list .sc_users_item_subtitle {
+  font-size: 13px;
+  line-height: 20px;
+  font-style: italic;
+  letter-spacing: 0;
+  margin-top: 1px;
+}
+
+.sc_users_list .sc_users_item_content {
+  margin: 1em 0 0;
+  display: none;
+}
+
+.sc_users_list .sc_users_item_socials {
+  margin: 0;
+}
+
+.sc_users_list .sc_users_item_socials .social_item {
+  display: inline-block;
+  margin: 0 8px 0 0;
+}
+
+.sc_users_list .sc_users_item_socials .social_item .social_icon {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  line-height: inherit;
+  padding: 0;
+  background-color: transparent !important;
+}
+
+.sc_users_list .sc_users_item_button {
+  margin: 1em 0 0;
+  display: none;
+}
+
+/*# sourceMappingURL=users.css.map */

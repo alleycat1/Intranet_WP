@@ -1,0 +1,728 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+/*
+ * --- Archive of cars ---
+ */
+
+.sc_cars_columns_wrap,
+.cars_page_related .related_columns {
+	display:flex;
+	flex-wrap:wrap;
+}
+.sc_cars_slider .sc_cars_item,
+.sc_cars_columns_wrap .sc_cars_item,
+.cars_page_related .related_columns .sc_cars_item {
+	display:inline-block;
+	vertical-align:top;
+	@include box(100%, 100%);
+	@include border-box;
+}
+.sc_cars_slider .sc_cars_item {
+//	height: 95%;
+	margin-bottom: 0 !important;
+}
+
+.sc_cars {
+	position: relative;	
+}
+.sc_cars_item {
+	border: 1px solid #ddd;
+}
+.sc_cars_item .sc_cars_item_thumb {
+	background-color:#f0f0f0;
+	margin-bottom: 1.5em;
+	text-align:center;
+}
+.sc_cars_item .sc_cars_item_thumb[class*="hover_"] {
+	display: block;
+}
+.sc_cars_item .sc_cars_item_thumb img {
+	min-width: 100%;
+	height: auto;
+}
+.sc_cars_item .sc_cars_item_info {
+	padding: 0 1.5em 1.5em;
+}
+
+/* Labels in the featured image */
+.sc_cars_item_thumb .sc_cars_item_labels {
+	@include abs-rt;
+	@include font(10px, 1em);
+}
+.sc_cars_item_thumb .sc_cars_item_labels > a {
+	color: #fff;
+	background-color: rgba(221,144,0,0.7);
+	display: inline-block;
+	padding: 5px 10px;
+	text-transform: uppercase;
+	margin-left:1px;
+}
+.sc_cars_item_thumb .sc_cars_item_labels > a:nth-child(2n+1) {
+	background-color:rgba(0,221,144,0.7);
+}
+
+/* Price in the featured image */
+.sc_cars_item_thumb .sc_cars_item_price {
+	@include abs-lb(0, 0, 4);
+	text-align:left;
+}
+.sc_cars_item_thumb .sc_cars_item_price_with_link {
+	z-index: 10;
+}
+.sc_cars_item_thumb .sc_cars_item_price .cars_price {
+	color: #fff;
+	display: inline-block;
+	padding: 0 0 1em 1em;
+	line-height:1.25em;
+	text-shadow:0px 0px 6px rgba(0, 0, 0, 0.6);
+
+	&:before {
+		margin-right: 0.3em;
+	}
+}
+.sc_cars_item_thumb .sc_cars_item_price .cars_price_before {
+	display:none;
+
+	& + .cars_price_data:before {
+		display: none;
+	}
+}
+
+/* Item's header */
+.sc_cars_item_header {
+	position:relative;
+}
+.sc_cars_item_title {
+	margin: 0;
+	padding-right: 1em;
+}
+.sc_cars_item_status,
+.sc_cars_item_type {
+	line-height:1.5em;
+}
+.sc_cars_item_status > a,
+.sc_cars_item_type > a {
+	color: #aaa;
+}
+.sc_cars_item_compare {
+	@include abs-rt;
+	color: #aaa;
+	cursor: pointer;
+	font-size:1.25em;
+}
+.sc_cars_item_compare.in_compare_list {
+	color: #efa758;
+}
+
+
+/* Item's options */
+.sc_cars_item_options {
+	position:relative;
+}
+.sc_cars_item_options .sc_cars_item_row {
+	line-height:1.5em;
+}
+.sc_cars_item_option {
+	display: inline-block;
+	margin-right: 0.5em;
+}
+.sc_cars_item_option .sc_cars_item_option_label_icon {
+	display: none;
+	margin-right:0.2em;
+}
+
+.sc_cars_item_params {
+	margin: 1.5em 0;
+	border: 1px dashed #ddd;
+	border-width: 1px 0;
+	padding: 1.5em 0;
+}
+.sc_cars_item_param {
+	display:inline-block;
+	text-align:center;
+	width: 25%;
+	color: #aaa;
+	vertical-align:top;
+	padding: 0.5em 0;
+}
+.sc_cars_item_param .sc_cars_item_param_icon {
+	display:block;
+	@include font(3em, 1em);
+}
+.sc_cars_item_param .sc_cars_item_param_text {
+	display:block;
+	color: #888;
+	@include font(12px, 1.5em);
+	margin-top:0.25em;
+}
+
+.sc_cars_item_footer {
+	color: #888;
+	text-align:center;
+}
+.sc_cars_item_footer .sc_cars_item_option {
+	margin-right: 1em;
+}
+
+.sc_cars_item_button {
+	@include abs-rb;
+	display:none;
+}
+
+
+/* One column layout */
+.sc_cars_columns_1 .sc_cars_item {
+	margin-bottom: 1em;
+}
+.sc_cars_columns_1 .sc_cars_item_thumb {
+	width: 35%;
+	display:inline-block !important;
+	vertical-align:middle !important;
+	margin-bottom: 0;
+}
+.sc_cars_columns_1 .sc_cars_item_info {
+	width: 65%;
+	display:inline-block;
+	vertical-align:middle;
+	padding: 1em 1em 1em 2em;
+	@include border-box;
+}
+.sc_cars_columns_1 .sc_cars_item_footer {
+	text-align:left;
+}
+.sc_cars_columns_1 .sc_cars_item_params {
+	margin-top: 1em;
+	padding-top: 1em;
+}
+.sc_cars_columns_1 .sc_cars_item_param {
+	text-align:left;
+	width: 23%;
+	margin-right: 2%;
+}
+.sc_cars_columns_1 .sc_cars_item_options .sc_cars_item_row {
+	line-height:1.7em;
+}
+.sc_cars_columns_1 .sc_cars_item_option .sc_cars_item_option_label_icon {
+	display:inline-block;
+}
+.sc_cars_columns_1 .sc_cars_item_option .sc_cars_item_option_label_text {
+	display:inline-block;
+}
+
+
+
+/*
+ * --- Cars Slider ---
+ */
+
+.sc_cars_slider_columns > .sc_cars_slider_column {
+	vertical-align: middle;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+.sc_cars_slider_columns .sc_cars_slider_title {
+	margin-top:0;
+}
+.sc_cars_slider_columns .trx_addons_list_parameters {
+	margin-bottom: 2em;
+}
+.sc_cars_slider_columns .trx_addons_list_parameters > li > strong {
+	width: 70%;
+}
+.sc_cars_slider_columns .trx_addons_list_parameters > li > em {
+	width: 30%;
+}
+
+
+/*
+ * --- Single car ---
+ */
+
+/* Gallery on the single page */
+.cars_page_gallery {
+	background-color:rgba(0,0,0,0.6);
+	text-align:center;
+	padding:1em;
+}
+.cars_page_gallery_item {
+	display:inline-block;
+	vertical-align:top;
+	position:relative;
+	max-width:6em;
+	cursor: pointer;
+	margin: 4px;
+	border: 1px solid #666;
+	background-color:#f0f0f0;
+	@include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.6));
+}
+.cars_page_gallery_item > img {
+	max-width:100%;
+	height: auto;
+}
+.cars_page_gallery_item:before {
+	content: ' ';
+	@include abs-lt;
+	@include box(100%, 100%);
+	background-color: rgba(0,0,0,0.2);
+	@include transition-property(background-color, .6s);
+}
+.cars_page_gallery_item:hover:before,
+.cars_page_gallery_item_active:before {
+	background-color: rgba(255, 255, 255, 0.2);
+}
+.cars_page_gallery_item_active {
+	border: 1px solid #aaa;
+	top: -4px;
+	@include box-shadow(0 4px 16px 0 rgba(0, 0, 0, 0.6));
+}
+
+/* Featured image */
+.cars_page_featured {
+	text-align: center;
+}
+.cars_page_featured,
+.cars_page_featured img {
+	@include transition-property(height, .5s);
+}
+
+/* Title, Labels, Meta */
+.cars_page_featured + .cars_page_title_wrap,
+.cars_page_gallery + .cars_page_title_wrap {
+	margin-top: 3em;
+}
+.cars_page_title_wrap {
+	position:relative;
+}
+.cars_page_title {
+	margin:0;
+	padding-right: 30%;
+}
+.cars_page_title .cars_page_status {
+	@include font(12px, 1.5em);
+	vertical-align: middle;
+	display:inline-block;
+	margin-right:0.5em;
+}
+.cars_page_title .cars_page_status > a {
+	display: inline-block;
+	padding:0.5em 1em;
+	margin: 0 0.3em;
+	text-transform:uppercase;
+	color: #fff;
+	background-color: #efa758;
+}
+.cars_page_title_address {
+	font-size: 1.1em;
+	margin-top: 0.5em;
+	color: #666;
+}
+.cars_page_city:before {
+	content: ' / ';
+}
+.cars_page_title_meta {
+	@include abs-rc;
+	width:27%;
+	text-align:right;
+}
+.cars_page_title_meta .post_meta_label {
+	display: none;
+}
+
+
+/* Address */
+.cars_address_item + .cars_address_item:before {
+	content: '\00bb';
+	display:inline-block;
+	line-height:inherit;
+	margin:0 0.3em;
+}
+
+/* Price */
+.cars_page_title_price {
+	margin-top: 0.4em;
+}
+.cars_price {
+	color: #888;
+}
+.cars_price_data + .cars_price_label:before,
+.cars_price_label + .cars_price_data:before {
+	content: ' ';
+}
+.cars_price_data {
+	font-weight: bold;
+}
+.cars_price1 {
+	font-size: 1.5em;
+}
+.cars_price_delimiter:before {
+	content: '/';
+	display:inline-block;
+	line-height:inherit;
+	margin:0 0.4em;
+}
+
+/* Page content */
+.cars_page_section + .cars_page_section {
+	margin-top: 3em;
+}
+.cars_page_section.cars_page_content {
+	margin-top: 2em;
+}
+.cars_page_section_title {
+	margin: 0 0 1.25em;
+	padding-bottom: 1em;
+	border-bottom: 1px dashed #ddd;
+}
+.cars_page_section_description {
+	margin-bottom: 2em;
+}
+.cars_page_section_item,
+.cars_page_attachments_list > a,
+.cars_page_features_list > a {
+	display: inline-block;
+	vertical-align:top;
+	width: 33%;
+}
+.cars_page_label,
+.cars_page_data {
+	display:inline-block;
+	vertical-align:top;
+}
+.cars_page_data {
+	font-weight:bold;
+}
+div.cars_page_attachments_list > a,
+div.cars_page_features_list > a {
+	color: inherit;
+}
+.cars_page_attachments_list > a:before,
+.cars_page_features_list > a:before {
+	content: '\e874';
+	font-family: $trx_addons_icons;
+	display: inline-block;
+	line-height:inherit;
+	margin: 0 0.5em 0 0;
+	color: #00a02b;
+}
+.cars_page_attachments_list > a:before {
+	content: '\e86c';
+}
+
+/* Agent info */
+.cars_page_agent_avatar {
+	width: 30%;
+	display: inline-block;
+	vertical-align:top;
+	padding-right: 2em;
+	@include border-box;
+}
+.cars_page_agent_form,
+.cars_page_agent_info {
+	width: 35%;
+	display: inline-block;
+	vertical-align:top;
+	padding-right: 2em;
+	@include border-box;
+}
+.cars_page_agent_info_name {
+	margin:0;
+}
+.cars_page_agent_info_name > a {
+/*
+	display: inline;
+	font-size: 0.8667em;
+*/
+	display: block;
+	font-size: 0.6667em;
+}
+.cars_page_agent_info_name > a:before {
+	content: ' / ';
+	margin: 0 0.3em;
+/*	display:inline-block;*/
+	display:none;
+}
+.cars_page_agent_info_position {
+	margin-bottom: 0.5em;
+	color: #888;
+}
+.cars_page_agent_info_languages {
+	margin-bottom: 0.5em;
+}
+.cars_page_agent_info_description {
+	margin:1em 0;
+	font-style:italic;
+}
+.cars_page_agent_info_address,
+.cars_page_agent_info_phones > span,
+.cars_page_agent_info_phones > a {
+/*	margin-right: 1em;*/
+	display:block;
+}
+.cars_page_agent_info_phones > span,
+.cars_page_agent_info_phones > a {
+	white-space:nowrap;
+}
+.cars_page_agent_info_address:before,
+.cars_page_agent_info_phones > :before {
+	margin-right:0.3em;
+	font-family: $trx_addons_icons;
+	color: #000;
+	width: auto;
+}
+.cars_page_agent_info_address:before {			content: '\e869'; }
+.cars_page_agent_info_phones_mobile:before {	content: '\e8b5'; }
+.cars_page_agent_info_phones_office:before {	content: '\e8c2'; }
+.cars_page_agent_info_phones_fax:before {		content: '\e893'; }
+
+.cars_page_agent_info_profiles.socials_wrap {
+	margin: 1em 0 0;
+}
+.cars_page_agent_info_profiles.socials_wrap .social_item {
+	margin: 0 0.3em 0.3em 0;
+	vertical-align:top;
+}
+.cars_page_agent_info_profiles.socials_wrap .social_item .social_icon {
+	color: #666;
+	@include square(2.5em);
+	@include border-radius(4px);
+}
+
+.cars_page_agent_form {
+	padding-right: 0;
+}
+.cars_page_agent_form_title {
+	margin: 0 0 0.5em;
+}
+.cars_page_agent_form .sc_form_form {
+	margin-top: 1em;
+}
+.cars_page_agent_form textarea {
+	line-height:1.5em;
+}
+
+/* Tabs */
+.cars_page_tabs {
+	margin-top: 3em;
+
+}
+.cars_page_tabs .cars_page_section {
+	display:none;
+}
+.cars_page_tabs.trx_addons_tabs .trx_addons_tabs_titles li.ui-tabs-active:after {
+	display:none;
+}
+.cars_page_tabs.trx_addons_tabs .trx_addons_tabs_titles {
+	border-bottom: 1px solid #ddd;
+}
+.cars_page_tabs.trx_addons_tabs .trx_addons_tabs_titles li {
+	top: 1px;
+}
+.cars_page_tabs.trx_addons_tabs .trx_addons_tabs_titles li + li {
+	margin-left: 0;
+}
+.cars_page_tabs.trx_addons_tabs .trx_addons_tabs_titles li > a {
+	display:block;
+	padding: 1em 2em;
+	background-color: #f7f7f7;
+	border: 1px solid #f7f7f7;
+	border-bottom-color: #ddd;
+}
+.cars_page_tabs.trx_addons_tabs .trx_addons_tabs_titles li.ui-state-active > a {
+	border-color: #ddd;
+	background-color: #fff;
+	border-bottom-color: #fff;
+}
+.cars_page_tabs.trx_addons_tabs .trx_addons_tabs_titles li:not(.ui-state-active) > a:hover {
+	background-color: #f0f0f0;
+	border-color: #f7f7f7 #f7f7f7 #ddd;
+}
+
+
+
+/*
+ * --- Single agent ---
+ */
+
+.agents_page .cars_page_agent_info_name > a {
+	display: none;
+}
+
+
+
+/*
+ * --- Widget: Cars Search ---
+ */
+
+.cars_search_form .sc_form_field .trx_addons_refresh {
+	@include abs-rt(0.5em, 50%);
+	margin-top: -0.8em;
+}
+
+.cars_search_form {
+	position:relative;
+}
+
+.cars_search_form .sc_form_field {
+	position:relative;
+	margin-bottom: 0;
+	display:inline-block;
+	vertical-align:top;
+	@include border-box;
+}
+
+.cars_search_form .cars_search_basic {
+	position:relative;
+}
+.cars_search_form .cars_search_basic .sc_form_field_cars_keyword {
+	width: 100%;
+}
+.cars_search_form .cars_search_basic .sc_form_field_cars_keyword input {
+	width: 100%;
+	padding-right: 70%;
+	@include border-box;
+}
+
+.cars_search_form .cars_search_basic .cars_search_button,
+.cars_search_form .cars_search_basic .cars_search_show_advanced {
+	@include abs-pos(0, 0, 0, auto);
+	width: 5%;
+	display:block;
+	text-align:center;
+	padding: 0;
+	@include transition-all;
+}
+.cars_search_form .cars_search_basic .cars_search_show_advanced {
+	right: 5%;
+	cursor:pointer;
+	top: 50%;
+	bottom: auto;
+	height: 3em;
+	line-height:3em;
+	margin-top:-1.5em;
+	color: #888;
+}
+
+.cars_search_form .cars_search_advanced {
+	margin: 0 -5px;
+	height: 0;
+	overflow:hidden;
+	@include transition-property(height);
+}
+.cars_search_opened .cars_search_form .cars_search_advanced {
+	height: auto;
+	margin-top: 10px;
+}
+.cars_search_form .cars_search_advanced .sc_form_field {
+	width: 25%;
+	padding:0 5px;
+	margin-bottom: 10px;
+}
+.cars_search_form .cars_search_advanced [class*="sc_form_field_cars_features"] {
+	margin-bottom: 3px;
+}
+.cars_search_form .cars_search_advanced .sc_form_field_checkbox input[type="checkbox"] + label {
+	display:block;
+}
+.cars_search_form .cars_search_advanced .sc_form_field_checkbox input[type="checkbox"] + label:before {
+	top: 5px;
+	@include transform-none;
+}
+
+.cars_search_horizontal .cars_search_form .cars_search_advanced .sc_form_field_cars_status,
+.cars_search_horizontal .cars_search_form .cars_search_advanced .sc_form_field_cars_type,
+.cars_search_horizontal .cars_search_form .cars_search_advanced .sc_form_field_cars_maker,
+.cars_search_horizontal .cars_search_form .cars_search_advanced .sc_form_field_cars_city {
+	@include abs-rt(0, 0.4em, 0);
+	width: 15%;
+}
+.cars_search_horizontal .cars_search_form .cars_search_advanced .sc_form_field_cars_status {
+	right: 55%;
+}
+.cars_search_horizontal .cars_search_form .cars_search_advanced .sc_form_field_cars_type {
+	right: 40%;
+}
+.cars_search_horizontal .cars_search_form .cars_search_advanced .sc_form_field_cars_maker {
+	right: 25%;
+}
+.cars_search_horizontal .cars_search_form .cars_search_advanced .sc_form_field_cars_city {
+	right: 10%;
+}
+
+.cars_search_vertical .cars_search_form .cars_search_basic .cars_search_button,
+.cars_search_vertical .cars_search_form .cars_search_basic .cars_search_show_advanced {
+	width: 15%;
+}
+.cars_search_vertical .cars_search_form .cars_search_basic .cars_search_show_advanced {
+	right: 15%;
+}
+.cars_search_vertical .cars_search_form .cars_search_basic .sc_form_field_cars_keyword input {
+	padding-right: 30%;
+}
+.cars_search_vertical .cars_search_form .cars_search_basic .sc_form_field input,
+.cars_search_vertical .cars_search_form .cars_search_basic .sc_form_field input:focus,
+.cars_search_vertical .cars_search_form .cars_search_basic .sc_form_field .select_container {
+	border-color: transparent !important;
+}
+.cars_search_vertical .cars_search_form .cars_search_basic .sc_form_field,
+.cars_search_vertical .cars_search_form .cars_search_advanced .sc_form_field {
+	width: 100%;
+	margin-bottom: 0.5em;
+}
+.cars_search_vertical .cars_search_form .cars_search_basic .sc_form_field_cars_keyword {
+	margin-bottom: 0;
+}
+.cars_search_vertical .cars_search_form .cars_search_advanced [class*="sc_form_field_cars_features"] {
+	width: 50%;
+	@include font(0.9333em, 1.5em);
+}
+.cars_search_vertical .cars_search_form .cars_search_advanced .sc_form_field_checkbox {
+	margin-bottom: 2px;
+}
+.cars_search_vertical .cars_search_form .cars_search_advanced .sc_form_field_checkbox input[type="checkbox"] + label:before {
+	top: 4px;
+}
+
+
+
+/*
+ * --- Widget: Cars Compare ---
+ */
+
+.widget_cars_compare .cars_compare_list > li {
+	cursor: pointer;
+}
+.widget_cars_compare .cars_compare_list > li:before {
+	content: '\e875';
+	font-family: $trx_addons_icons;
+	@include square(1em);
+	background-color: transparent !important;
+	color: #cc0000;
+	top: 0.4em;
+}
+.widget_cars_compare .cars_compare_button {
+	margin-top: 2em;
+}
+.widget_cars_compare .cars_compare_message {
+	margin-top: 2em;
+	font-style:italic;
+}
+.widget_cars_compare .cars_compare_list:not(.cars_compare_list_empty) + .cars_compare_message {
+	display: none;
+}
+.widget_cars_compare .cars_compare_list_empty + .cars_compare_message + .cars_compare_button {
+	display: none;
+}
+
+.sc_cars_compare {
+	overflow-x:auto;
+}
+.sc_cars_compare .sc_cars_compare_table {
+	min-width: 640px;
+}
+.sc_cars_compare_title {
+	font-weight:bold;
+}
+.sc_cars_compare_data {
+	text-align:center;
+}

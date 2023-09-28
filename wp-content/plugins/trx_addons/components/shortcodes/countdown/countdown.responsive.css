@@ -1,0 +1,26 @@
+@media (max-width: 767px) {
+  /* Countdown */
+  .sc_countdown_default .sc_countdown_digits, .sc_countdown_default .sc_countdown_separator {
+    font-size: 2.5em;
+  }
+}
+@media (max-width: 479px) {
+  /* Countdown */
+  .sc_countdown_default .sc_countdown_digits, .sc_countdown_default .sc_countdown_separator {
+    font-size: 1.5em;
+  }
+
+  .sc_countdown_circle .sc_countdown_digits, .sc_countdown_circle .sc_countdown_separator {
+    font-size: 1.4em;
+  }
+
+  .sc_countdown .sc_countdown_separator {
+    margin: 0 5px;
+  }
+
+  .sc_countdown_circle .sc_countdown_digits {
+    border-width: 3px;
+  }
+}
+
+/*# sourceMappingURL=countdown.responsive.css.map */

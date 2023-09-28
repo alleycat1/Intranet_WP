@@ -1,0 +1,361 @@
+@import "_mixins.scss";
+@import "_trx_addons.vars.scss";
+
+/* Hover effects
+-----------------------------------------------------------------*/
+
+/* Common styles */
+.trx_addons_hover {
+	position: relative;
+	overflow: hidden;
+}
+.trx_addons_hover img {
+	position:relative;
+	display:block;
+	width:100%;
+	height:auto;
+}
+.trx_addons_hover_mask {
+	@include abs-cover(10);
+	overflow: hidden;
+	opacity: 0;
+	background-color: rgba(239,167,88,0.8);
+	@include transition(all 0.3s 0.1s ease-out);
+	pointer-events: none;
+}
+.trx_addons_hover:hover .trx_addons_hover_mask {
+	@include transition(all 0.4s ease-out);
+}
+.trx_addons_hover_content {
+	@include abs-lc(0, 11);
+	width: 100%;
+	padding: 20px;
+	text-align: center;
+	@include border-box;
+}
+.trx_addons_hover_content .trx_addons_hover_title {
+	color: #fff;
+	margin:0;
+	position: relative;
+	opacity: 0;
+	@include transition(all 0.2s linear);
+}
+.trx_addons_hover:hover .trx_addons_hover_title {
+	@include transition(all 0.2s 0.1s linear);
+}
+.trx_addons_hover_content .trx_addons_hover_title > a {
+	color: #fff;
+}
+.trx_addons_hover_content .trx_addons_hover_title > a:hover {
+	color: #fff;
+	text-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+.trx_addons_hover_content .trx_addons_hover_text {
+	font-style: italic;
+	line-height:1.3em;
+	position: relative;
+	color: #fff;
+	padding: 0.2em 0;
+	opacity: 0;
+	@include transition(all 0.3s ease-out);
+}
+.trx_addons_hover_content .trx_addons_hover_info {
+	color: #fff;
+	padding: 0.2em 0;
+	opacity: 0;
+	@include transition(all 0.3s ease-out);
+}
+.trx_addons_hover:hover .trx_addons_hover_text,
+.trx_addons_hover:hover .trx_addons_hover_info {
+	@include transition(all 0.3s 0.1s ease-out);
+}
+.trx_addons_hover_content .trx_addons_hover_link,
+.trx_addons_hover_content .trx_addons_hover_links a {
+	display: inline-block;
+	text-decoration: none;
+	@include font(0.7692em, 1.5em, bold);
+	padding: 0.4em 0.8em;
+	margin-top:1em;
+	background-color: rgba(0,0,0,0.6);
+	color: #fff !important;
+	text-transform: uppercase;
+	opacity: 0;
+	@include transition(all 0.3s ease-out);
+}
+.trx_addons_hover_content .trx_addons_hover_links a+a {
+	margin-left: 0.7em;
+}
+.trx_addons_hover:hover .trx_addons_hover_link,
+.trx_addons_hover:hover .trx_addons_hover_links a {
+	@include transition(all 0.3s 0.1s ease-out);
+}
+.trx_addons_hover_link:hover,
+.trx_addons_hover_links a:hover {
+	color: #fff !important;
+	background-color: #000;
+}
+.trx_addons_hover_content .trx_addons_hover_icon {
+	display: inline-block;
+	text-decoration: none;
+	@include square(3em);
+	background-color: rgba(0,0,0,0.6);
+	color: #fff !important;
+	@include border-round;
+	margin-top:1em;
+	opacity: 0;
+	@include transition(all 0.2s linear);
+}
+.trx_addons_hover:hover .trx_addons_hover_icon {
+	@include transition(all 0.2s 0.2s linear);
+}
+.trx_addons_hover_content .trx_addons_hover_icon + .trx_addons_hover_icon {
+	margin-left:0.5em;
+}
+.trx_addons_hover_content .trx_addons_hover_icon:hover {
+	color: #fff !important;
+	background-color: #000;
+}
+.trx_addons_hover_content .trx_addons_hover_icon_link:before {
+	content: '\e86a';
+	font-family: $trx_addons_icons;
+}
+.trx_addons_hover_content .trx_addons_hover_icon_zoom:before {
+	content: '\e898';
+	font-family: $trx_addons_icons;
+}
+
+
+/* Style 'Info' - title, subtitle, button 'Read more' 
+-------------------------------------------------- */
+
+/* Initial state */
+.trx_addons_hover_style_info img {
+	@include transition(all 0.2s linear);
+}
+.trx_addons_hover_style_info .trx_addons_hover_title {
+	@include translateY(-50px);
+}
+.trx_addons_hover_style_info .trx_addons_hover_text {
+	@include translateY(-50px);
+}
+.trx_addons_hover_style_info .trx_addons_hover_link {
+	@include translateY(20px);
+}
+.trx_addons_hover_style_info .trx_addons_hover_info {
+	@include translateY(20px);
+}
+
+/* Hover state */
+.trx_addons_hover_style_info:hover img {
+	@include scale(1.1);
+}
+.trx_addons_hover_style_info:hover .trx_addons_hover_mask {
+	opacity: 1;
+}
+.trx_addons_hover_style_info:hover .trx_addons_hover_title,
+.trx_addons_hover_style_info:hover .trx_addons_hover_text,
+.trx_addons_hover_style_info:hover .trx_addons_hover_link,
+.trx_addons_hover_style_info:hover .trx_addons_hover_info {
+	opacity: 1;
+	@include translateY(0px);
+}
+
+
+/* Style 'Links' - title, subtitle, buttons 'Read more' and "Buy now"
+-------------------------------------------------- */
+
+/* Initial state */
+.trx_addons_hover_style_links .trx_addons_hover_mask {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.trx_addons_hover_style_links .trx_addons_hover_title {
+	@include translateY(-75px);
+}
+.trx_addons_hover_style_links .trx_addons_hover_text {
+	@include translateY(-50px);
+}
+.trx_addons_hover_style_links .trx_addons_hover_link {
+	@include translate(-20px, 20px);
+}
+.trx_addons_hover_style_links .trx_addons_hover_link2 {
+	@include translate(20px, 20px);
+}
+
+/* Hover state */
+.trx_addons_hover_style_links:hover .trx_addons_hover_mask {
+	opacity: 1;
+}
+.trx_addons_hover_style_links:hover .trx_addons_hover_title,
+.trx_addons_hover_style_links:hover .trx_addons_hover_text,
+.trx_addons_hover_style_links:hover .trx_addons_hover_link,
+.trx_addons_hover_style_links:hover .trx_addons_hover_link2 {
+	opacity: 1;
+	@include translate(0px, 0px);
+}
+
+
+
+/* Style 'Plain' - title, subtitle, button 'Read more' with transparent image
+----------------------------------------------------------------------------- */
+
+/* Initial state */
+.trx_addons_hover_style_plain img {
+	@include transition(all 0.2s linear);
+}
+.trx_addons_hover_style_plain .trx_addons_hover_title {
+	@include translateY(-50px);
+}
+.trx_addons_hover_style_plain .trx_addons_hover_text {
+	color: #8b8b8b;
+	padding: 1em 0;
+	@include scale(0.8, 0.8);
+}
+.trx_addons_hover_style_plain .trx_addons_hover_link {
+	@include translateY(20px);
+}
+
+/* Hover state */
+.trx_addons_hover_style_plain:hover img {
+	opacity:0;
+	@include scale(0.8);
+	@include transition(all 0.2s 0.1s linear);
+}
+.trx_addons_hover_style_plain:hover .trx_addons_hover_title,
+.trx_addons_hover_style_plain:hover .trx_addons_hover_link {
+	opacity: 1;
+	@include translateY(0px);
+}
+.trx_addons_hover_style_plain:hover .trx_addons_hover_text {
+	opacity: 1;
+	@include scale(1, 1);
+}
+
+
+/* Style 'Wide' - subtitle and icons 'Link' & 'Zoom'
+-------------------------------------------------- */
+
+/* Initial state */
+.trx_addons_hover_style_wide .trx_addons_hover_mask {
+	top:0; left: 0;
+	@include box(200%, 200%);
+	@include transform(translate(50%, 50%) rotate(45deg));
+ }
+.trx_addons_hover_style_wide .trx_addons_hover_content .trx_addons_hover_title {
+	@include translate(50px,50px);
+/*	border-bottom: 1px solid rgba(0, 0, 0, 0.3);*/
+	background-color: transparent;
+	margin: 0;
+}
+.trx_addons_hover_style_wide .trx_addons_hover_icon {
+	@include transform(translateX(30px) scale(0.3,0.3));
+}
+.trx_addons_hover_style_wide .trx_addons_hover_icon_zoom {
+	@include transform(translateX(-30px) scale(0.3,0.3));
+}
+
+/* Hover state */
+.trx_addons_hover_style_wide:hover .trx_addons_hover_mask {
+	opacity: 1;
+	@include transform(translate(-25%, -25%) rotate(45deg));
+}
+.trx_addons_hover_style_wide:hover .trx_addons_hover_title {
+	opacity: 1;
+	@include translate(0px, 0px);
+}
+.trx_addons_hover_style_wide:hover .trx_addons_hover_icon {
+	opacity: 1;
+	@include transform(translateX(0px) scale(1,1));
+}
+
+
+/* Style 'ZoomIn' - subtitle and icons 'Link' & 'Zoom'
+-------------------------------------------------- */
+
+/* Initial state */
+.trx_addons_hover_style_zoomin .trx_addons_hover_mask {
+	@include scale(0.1, 0.1);
+ }
+.trx_addons_hover_style_zoomin .trx_addons_hover_content .trx_addons_hover_title {
+	@include transform(translateY(30px) scale(0.1, 0.1));
+/*	border-bottom: 1px solid rgba(0, 0, 0, 0.3);*/
+	background-color: transparent;
+	margin: 0;
+	display: none;
+}
+.trx_addons_hover_style_zoomin .trx_addons_hover_icon {
+	@include transform(translate(-30px, -30px) scale(0.1, 0.1));
+}
+.trx_addons_hover_style_zoomin .trx_addons_hover_icon_link {
+	@include transform(translate(30px, -30px) scale(0.1, 0.1));
+}
+
+/* Hover state */
+.trx_addons_hover_style_zoomin:hover .trx_addons_hover_mask {
+	opacity: 1;
+	@include scale(1, 1);
+}
+.trx_addons_hover_style_zoomin:hover .trx_addons_hover_title {
+	opacity: 1;
+	@include transform(translate(0px, 0px) scale(1, 1));
+}
+.trx_addons_hover_style_zoomin:hover .trx_addons_hover_icon {
+	opacity: 1;
+	@include transform(translate(0px, 0px) scale(1, 1));
+}
+
+
+
+
+/* Animations
+------------------------------------------------------------------------------------ */
+@keyframes zoomin {
+	0% { 	opacity: 0; @include scale(.1); }
+	100% {	opacity: 1; @include scale(1);	}
+}
+@-webkit-keyframes zoomin {
+	0% {	opacity: 0;	@include scale(.1); }
+	100% {	opacity: 1;	@include scale(1);	}
+}
+
+@keyframes zoomout {
+	0% {	@include scale(1);	}
+	100% {	@include scale(.1);	}
+}
+@-webkit-keyframes zoomout {
+	0% {	@include scale(1);	}
+	100% {	@include scale(.1);	}
+}
+
+@keyframes flash {
+	0% {	opacity: 1;	}
+	100% {	opacity: 0;	@include scale(1.15); }
+}
+@-webkit-keyframes flash {
+	0% {	opacity: 1;	}
+	100% {	opacity: 0;	@include scale(1.15); }
+}
+
+@keyframes jump {
+	0% {	@include translateY(0);	}
+	50% {	@include translateY(-10px);	}
+	100% {	@include translateY(0);	}
+}
+@-webkit-keyframes jump {
+	0% {	@include translateY(0);	}
+	50% {	@include translateY(-10px);	}
+	100% {	@include translateY(0);	}
+}
+
+@keyframes squat {
+	0% {	@include translateY(0);	}
+	50% {	@include translateY(6px);	}
+	100% {	@include translateY(0);	}
+}
+@-webkit-keyframes squat {
+	0% {	@include translateY(0);	}
+	50% {	@include translateY(6px);	}
+	100% {	@include translateY(0);	}
+}

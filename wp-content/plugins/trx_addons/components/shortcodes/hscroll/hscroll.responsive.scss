@@ -1,0 +1,26 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+//@mixin sc_hscroll--sm() {
+@media #{$media_sm} {	// Use $media_xs if you want to support hscroll down to 480px
+	/* HScroll */
+	.sc_hscroll.sc_hscroll_disable_on_mobile {
+		.sc_hscroll_wrap {
+			position: relative !important;
+			top: unset !important;
+			bottom: unset !important;
+		}
+		.sc_hscroll_slider {
+			width: 100% !important;
+		}
+		.sc_hscroll_section {
+			width: 100% !important;
+			float: none !important;
+		}
+		.sc_hscroll_section_with_bg_image {
+			.elementor-section[class*="scheme_"] {
+				background-color: transparent !important;
+			}
+		}
+	}
+}

@@ -1,0 +1,212 @@
+@import "../../css/_mixins.scss";
+@import "../../css/_trx_addons.vars.scss";
+
+:root {
+	--trx-addons-bg-slides-animation-duration: 6.5s;
+}
+.trx_addons_bg_slides {
+	@include abs-cover('');
+	overflow: hidden;
+}
+@media (min-width: 1025px) {
+	.trx_addons_has_bg_slides {
+		overflow: hidden;
+	}
+	.trx_addons_bg_slides_with_mask {
+		right: auto;
+		bottom: auto;
+		@include box( 100%, calc( 100vh - var(--fixed-rows-height) ) );
+
+		&.trx_addons_bg_slides_fixed {
+			position: fixed;
+		}
+	}
+	.trx_addons_bg_slides_mask {
+		@include abs-lt( -50%, -50%, '' );
+		@include box( 100%,clamp( 100%, calc( 100vh - var(--fixed-rows-height) ), 100vh ) );
+
+		svg {
+			@include abs-cc('');
+			@include box(200%,auto);
+
+		}
+		.trx_addons_mask_in_svg {
+			@include transform-origin(center);
+		}
+	}
+}
+@media (max-width: 1024px) {
+	.trx_addons_bg_slides_mask {
+		display: none;
+	}
+}
+.trx_addons_bg_slides_overlay {
+	@include abs-cover('');
+	/* Opacity is specified in the colorpicker as part of overlay color
+	opacity: 0.15;
+	*/
+}
+.elementor-element.trx_addons_has_bg_slides {
+//	overflow: hidden !important;
+}
+.elementor-element.trx_addons_has_bg_slides .trx_addons_bg_slides_img {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	@include box(100%, 100%);
+	max-width: none !important;
+	max-height: none !important;
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.trx_addons_bg_slides_img_fill {
+	-o-object-fit: fill;
+	object-fit: fill;
+}
+.trx_addons_bg_slides_img_cover {
+	-o-object-fit: cover;
+	   object-fit: cover;
+}
+.trx_addons_bg_slides_img_contain {
+	-o-object-fit: contain;
+	   object-fit: contain;
+}
+
+.trx_addons_bg_slides_img {
+	opacity: 0;
+	@include transition(opacity 0.5s ease);
+	@include animation-duration(var(--trx-addons-bg-slides-animation-duration));
+	@include animation-fill-mode(forwards);
+}
+//.trx_addons_bg_slides_static,
+.trx_addons_bg_slides_active {
+	opacity: 1;
+}
+.trx_addons_bg_slides_animation_zoom_in {
+	@include animation-name(trx-addons-bg-images-animation-zoom-in);
+}
+.trx_addons_bg_slides_animation_zoom_out {
+	@include animation-name(trx-addons-bg-images-animation-zoom-out);
+}
+.trx_addons_bg_slides_animation_infinite_in,
+.trx_addons_bg_slides_animation_infinite_out {
+	@include animation-iteration-count(infinite);
+}
+.trx_addons_bg_slides_animation_infinite_in {
+	@include animation-name(trx-addons-bg-images-animation-infinite-in);
+}
+.trx_addons_bg_slides_animation_infinite_out {
+	@include animation-name(trx-addons-bg-images-animation-infinite-out);
+}
+
+
+.trx_addons_has_bg_slides .trx_addons_bg_slides_animation_origin_lt {
+	@include transform-origin(left top);
+}
+.trx_addons_has_bg_slides .trx_addons_bg_slides_animation_origin_ct {
+	@include transform-origin(center top);
+}
+.trx_addons_has_bg_slides .trx_addons_bg_slides_animation_origin_rt {
+	@include transform-origin(right top);
+}
+.trx_addons_has_bg_slides .trx_addons_bg_slides_animation_origin_lc {
+	@include transform-origin(left center);
+}
+.trx_addons_has_bg_slides .trx_addons_bg_slides_animation_origin_cc {
+	@include transform-origin(center center);
+}
+.trx_addons_has_bg_slides .trx_addons_bg_slides_animation_origin_rc {
+	@include transform-origin(right center);
+}
+.trx_addons_has_bg_slides .trx_addons_bg_slides_animation_origin_lb {
+	@include transform-origin(left bottom);
+}
+.trx_addons_has_bg_slides .trx_addons_bg_slides_animation_origin_cb {
+	@include transform-origin(center bottom);
+}
+.trx_addons_has_bg_slides .trx_addons_bg_slides_animation_origin_rb {
+	@include transform-origin(right bottom);
+}
+
+@-webkit-keyframes trx-addons-bg-images-animation-zoom-in {
+	from {
+		@include scale(1);
+	}
+	to {
+		@include scale(1.1);
+	}
+}
+@keyframes trx-addons-bg-images-animation-zoom-in {
+	from {
+		@include scale(1);
+	}
+	to {
+		@include scale(1.1);
+	}
+}
+
+@-webkit-keyframes trx-addons-bg-images-animation-zoom-out {
+	from {
+		@include scale(1.1);
+	}
+	to {
+		@include scale(1);
+	}
+}
+@keyframes trx-addons-bg-images-animation-zoom-out {
+	from {
+		@include scale(1.1);
+	}
+	to {
+		@include scale(1);
+	}
+}
+
+@-webkit-keyframes trx-addons-bg-images-animation-infinite-in {
+	0% {
+		@include scale(1);
+	}
+	50% {
+		@include scale(1.1);
+	}
+	100% {
+		@include scale(1);
+	}
+}
+@keyframes trx-addons-bg-images-animation-infinite-in {
+	0% {
+		@include scale(1);
+	}
+	50% {
+		@include scale(1.1);
+	}
+	100% {
+		@include scale(1);
+	}
+}
+
+@-webkit-keyframes trx-addons-bg-images-animation-infinite-out {
+	0% {
+		@include scale(1.1);
+	}
+	50% {
+		@include scale(1);
+	}
+	100% {
+		@include scale(1.1);
+	}
+}
+@keyframes trx-addons-bg-images-animation-infinite-out {
+	0% {
+		@include scale(1.1);
+	}
+	50% {
+		@include scale(1);
+	}
+	100% {
+		@include scale(1.1);
+	}
+}

@@ -1,0 +1,38 @@
+@media (max-width: 1023px) {
+  /* OpenStreetMap */
+  .sc_osmap {
+    max-height: 60vh;
+  }
+
+  .sc_osmap_content_default {
+    left: 7%;
+    right: 14%;
+    top: auto;
+    bottom: 7%;
+    width: auto;
+    max-height: 33%;
+    padding: 1em;
+  }
+
+  [data-vc-full-width="true"][data-vc-stretch-content="true"] .sc_osmap_content_default {
+    left: auto;
+    right: 10%;
+    top: 10%;
+    bottom: 10%;
+    width: 30%;
+    max-height: none;
+  }
+}
+@media (max-width: 600px) {
+  /* OpenStreetMap */
+  [data-vc-full-width="true"][data-vc-stretch-content="true"] .sc_osmap_content_default {
+    left: 7%;
+    right: 14%;
+    top: auto;
+    bottom: 7%;
+    width: auto;
+    max-height: 33%;
+  }
+}
+
+/*# sourceMappingURL=osmap.responsive.css.map */

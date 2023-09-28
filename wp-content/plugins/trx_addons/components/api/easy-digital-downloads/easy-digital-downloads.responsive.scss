@@ -1,0 +1,100 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+//@mixin edd--md() {
+@media #{$media_md} {
+	/* EDD */
+	.downloads_page_features_list > span,
+	.downloads_page_features_list > a {
+		width: 50%;
+	}
+}
+
+//@mixin edd--sm() {
+@media #{$media_sm} {
+	/* EDD Themes Market */
+	.sc_edd_add_to_cart_promo .edd_download_purchase_form {
+		text-align:left;
+	}
+	.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options li,
+	.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .trx_addons_edd_purchase_subtotal {
+		display:block;
+		width: 100%;
+	}
+	.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options li + li:before,
+	.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .trx_addons_edd_purchase_subtotal:before {
+		display:none;
+	}
+	.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .edd_price_option_name {
+		display:inline-block;
+		padding-left: 2em;
+		max-width:75%;
+		height: auto;
+		@include border-box;
+	}
+	.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .edd_price_option_price {
+		display:inline-block;
+		height: auto;
+		float: right;
+		max-width:20%;
+	}
+	.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options li label {
+		text-align:left;
+		padding: 0.5em 0;
+		overflow:hidden;
+	}
+	.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options li label .edd_price_option_wrap {
+		display: block;
+	}
+	.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .edd_price_option_name:after {
+		content: '\e8bd';
+		font-family:"trx_addons_icons";
+		display:block;
+		font-size:1em;
+		border-width: 1px;
+		margin-left:0;
+		@include square(1.4em);
+		@include abs-lt;
+	}
+	.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options input[type="checkbox"]:checked + .edd_price_option_wrap > .edd_price_option_name:after,
+	.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options input[type="checkbox"]:checked + .edd_price_option_name:after {
+		border-width: 1px;
+	}
+	.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options.edd_single_mode input[type="radio"]:checked + .edd_price_option_wrap > .edd_price_option_name:after,
+	.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options.edd_single_mode input[type="radio"]:checked + .edd_price_option_name:after {
+		border-width: 1px;
+	}
+	
+	.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .trx_addons_edd_purchase_subtotal {
+		vertical-align:top;
+		padding: 0.5em 0 0;
+		overflow:hidden;
+	}
+	.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .trx_addons_edd_purchase_subtotal_label {
+		display:inline-block;
+		vertical-align:top;
+		padding-left: 2em;
+	}
+	.sc_edd_add_to_cart_promo .edd_download_purchase_form .edd_price_options .trx_addons_edd_purchase_subtotal_value {
+		display:inline-block;
+		vertical-align:top;
+		@include font(1.2em, '', bold);
+		float: right;
+	}
+	
+	.sc_edd_add_to_cart_promo .edd_download_purchase_form > .sc_button,
+	.sc_edd_add_to_cart_promo .edd_download_purchase_form > .edd_purchase_submit_wrapper {
+		display:inline-block;
+		vertical-align:top;
+	}
+}
+
+//@mixin edd--xs() {
+@media #{$media_xs} {
+	/* EDD Themes Market */
+	.downloads_page_features_list > span,
+	.downloads_page_features_list > a {
+		width: 100%;
+		display:block;
+	}
+}

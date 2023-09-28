@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA,0BAAoB;EAChB,uCAAuC;EAC1C,uEAAwE;IACvE,KAAK,EAAE,GAAG;;;AAKZ,yBAAoB;EAChB,uCAAuC;EAC1C,uEAAwE;IACvE,KAAK,EAAE,GAAG",
+"sources": ["categories_list.responsive.scss"],
+"names": [],
+"file": "categories_list.responsive.css"
+}

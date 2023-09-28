@@ -1,0 +1,30 @@
+@import "../../../css/_mixins.scss";
+@import "../../../css/_trx_addons.vars.scss";
+
+//@mixin sc_users--xl() {
+@media #{$media_xl} {
+    /* users */
+	.sc_users_default .sc_users_item_info {
+		padding:2.1429em;
+	}
+}
+
+//@mixin sc_users--md() {
+@media #{$media_md} {
+    /* users */
+	.sc_users_default .sc_users_item_info {
+		padding:1.6154em;
+	}
+}
+
+//@mixin sc_users--xs() {
+@media #{$media_xs} {
+    /* users */
+	.sc_users_default .sc_users_item_info {
+		padding:1.6154em;
+	}
+	.sc_users_default .sc_users_item_content {
+		min-height:0;
+		margin-top:1em;
+	}
+}
