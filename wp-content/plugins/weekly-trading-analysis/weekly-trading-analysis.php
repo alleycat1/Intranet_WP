@@ -13,11 +13,12 @@ License: GPL2
 /*
 Copyright 2023-20237 Oleksandr.P  (email: )
 */
+require "./db_config.php";
 
 function weekly_trading_analysis_table(){
-    
-    $serverName = "80.194.156.115, 8890";
-    $connectionInfo = array('Database'=>'PUBMAN', 'UID'=>'sa', 'PWD'=>'hbGV%953');
+    global $serverName;
+    global $connectionInfo;
+
     $conn = sqlsrv_connect($serverName, $connectionInfo);
 
     if($conn)
