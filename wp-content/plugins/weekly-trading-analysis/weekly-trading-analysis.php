@@ -13,7 +13,7 @@ License: GPL2
 /*
 Copyright 2023-20237 Oleksandr.P  (email: )
 */
-require "./db_config.php";
+require __DIR__ ."/../../../db_config.php";
 
 function weekly_trading_analysis_table(){
     global $serverName;
