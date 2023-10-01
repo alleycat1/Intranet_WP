@@ -16,18 +16,7 @@ Copyright 2023-20237 Oleksandr.P  (email: )
 require __DIR__ ."/../../../db_config.php";
 
 function weekly_trading_analysis_table(){
-    global $serverName;
-    global $connectionInfo;
-
-    $conn = sqlsrv_connect($serverName, $connectionInfo);
-
-    if($conn)
-    {
-        echo "asdf";
-    }
-    else
-        print_r(sqlsrv_errors());
-    
+    require __DIR__ ."/wta.php";
     return "Hello, weekly trading";
 }
 
