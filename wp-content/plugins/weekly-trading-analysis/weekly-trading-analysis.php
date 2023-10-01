@@ -17,7 +17,6 @@ require __DIR__ ."/../../../db_config.php";
 
 function weekly_trading_analysis_table(){
     require __DIR__ ."/wta.php";
-    return "Hello, weekly trading";
 }
 
 add_shortcode('weekly_trading_analysis', 'weekly_trading_analysis_table');

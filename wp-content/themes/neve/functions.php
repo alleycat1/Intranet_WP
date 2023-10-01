@@ -179,7 +179,7 @@ function add_jqwidgets() {
 	// register jQWidgets CSS files
 	wp_register_style( 'jqx.base', get_template_directory_uri() . '/css/jqx.base.css', array(), '3.0.4', 'all' );
 	wp_register_style( 'jqx.orange', get_template_directory_uri() . '/css/jqx.orange.css', array(), '3.0.4', 'all' );
-	if (1){
+	if (get_page_uri() == "weekly-trading-analysis"){
 		// enqueue jQWidgets JavaScript files
 		wp_enqueue_script( 'jqxcore' );
 		wp_enqueue_script( 'jqxdatetimeinput' );
