@@ -163,35 +163,3 @@ add_filter(
 		];
 	}
 );
-
-
-
-function add_jqwidgets() {
-	// registers jQWidgets JavaScript files
-	wp_register_script( 'jqxcore', get_template_directory_uri() . '/js/jqxcore.js', array( 'jquery' ), '3.0.4', false );
-	wp_register_script( 'jqxdatetimeinput', get_template_directory_uri() . '/js/jqxdatetimeinput.js', array( 'jquery' ), '3.0.4', false );
-	wp_register_script( 'jqxcalendar', get_template_directory_uri() . '/js/jqxcalendar.js', array( 'jquery' ), '3.0.4', false );
-	wp_register_script( 'jqxtooltip', get_template_directory_uri() . '/js/jqxtooltip.js', array( 'jquery' ), '3.0.4', false );
-	wp_register_script( 'jqxbuttons', get_template_directory_uri() . '/js/jqxbuttons.js', array( 'jquery' ), '3.0.4', false );
-	wp_register_script( 'globalize', get_template_directory_uri() . '/js/globalize.js', array( 'jquery' ), '3.0.4', false );
-	// register custom script
-	wp_register_script( 'initializewidgets', get_template_directory_uri() . '/js/initialize_calendar.js', array( 'jquery' ), '1.0.0', false );
-	// register jQWidgets CSS files
-	wp_register_style( 'jqx.base', get_template_directory_uri() . '/css/jqx.base.css', array(), '3.0.4', 'all' );
-	wp_register_style( 'jqx.orange', get_template_directory_uri() . '/css/jqx.orange.css', array(), '3.0.4', 'all' );
-	if (get_page_uri() == "weekly-trading-analysis"){
-		// enqueue jQWidgets JavaScript files
-		wp_enqueue_script( 'jqxcore' );
-		wp_enqueue_script( 'jqxdatetimeinput' );
-		wp_enqueue_script( 'jqxcalendar' );
-		wp_enqueue_script( 'jqxtooltip' );
-		wp_enqueue_script( 'jqxbuttons' );
-		wp_enqueue_script( 'globalize' );
-		// enqueue custom script
-		wp_enqueue_script( 'initializewidgets' );
-		// enqueue jQWidgets CSS files
-		wp_enqueue_style( 'jqx.base' );
-		wp_enqueue_style( 'jqx.orange' );
-	};
-}
-add_action( 'wp', 'add_jqwidgets' );
