@@ -70,7 +70,7 @@ if ( ! function_exists('get_wta_data') ) {
                 $week_end_str = $week_end->format('Y-m-d');
 
                 $sql = "SELECT WTA.ID AS ID, CONVERT(varchar(10), WTA.Date, 103) AS Date, ZRef, SalesEXVAT AS ExVat, VATAmount AS Vat, SalesEXVAT+VATAmount AS IncVat, Disrepancy, ISNULL(FromTill, 0) AS FromTill, ISNULL(FromSafe,0) AS FromSafe, AccountSales, AccountReceipts, CardsBanking, 
-                            SalesEXVAT + VATAmount + Disrepancy - ISNULL(FromTill, 0) - ISNULL(FromSafe,0) + AccountReceipts - CardsBanking AS Cash 
+                            SalesEXVAT + VATAmount + Disrepancy - ISNULL(FromTill, 0) - AccountSales + AccountReceipts - CardsBanking AS Cash 
                         FROM WTA 
                             LEFT JOIN (SELECT ZRefID, SUM(PayoutEXVat) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID ) t1 ON t1.ZRefID = WTA.ZRef
                             LEFT JOIN (SELECT ZRefID, SUM(PayoutEXVat) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID ) t2 ON t2.ZRefID = WTA.ZRef
