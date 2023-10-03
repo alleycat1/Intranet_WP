@@ -38,10 +38,10 @@ function add_jqwidgets() {
     wp_register_script( 'jqxdropdownlist', get_template_directory_uri() . '/js/jqxdropdownlist.js', array( 'jquery' ), '3.0.4', false );
     wp_register_script( 'jqxcheckbox', get_template_directory_uri() . '/js/jqxcheckbox.js', array( 'jquery' ), '3.0.4', false );
     wp_register_script( 'jqxnumberinput', get_template_directory_uri() . '/js/jqxnumberinput.js', array( 'jquery' ), '3.0.4', false );
-    wp_register_script( 'jqxdatetimeinput', get_template_directory_uri() . '/js/jqxdatetimeinput.js', array( 'jquery' ), '3.0.4', false );
     wp_register_script( 'jqxsplitter', get_template_directory_uri() . '/js/jqxsplitter.js', array( 'jquery' ), '3.0.4', false );
     wp_register_script( 'jqxdata.export', get_template_directory_uri() . '/js/jqxdata.export.js', array( 'jquery' ), '3.0.4', false ); 
     wp_register_script( 'jqxgrid.export', get_template_directory_uri() . '/js/jqxgrid.export.js', array( 'jquery' ), '3.0.4', false ); 
+    wp_register_script( 'jqxcombobox', get_template_directory_uri() . '/js/jqxcombobox.js', array( 'jquery' ), '3.0.4', false ); 
 	// register jQWidgets CSS files
 	wp_register_style( 'jqx.base', get_template_directory_uri() . '/css/jqx.base.css', array(), '3.0.4', 'all' );
 	wp_register_style( 'jqx.orange', get_template_directory_uri() . '/css/jqx.orange.css', array(), '3.0.4', 'all' );
