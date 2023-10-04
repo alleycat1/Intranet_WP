@@ -229,7 +229,7 @@ function initializeWidgets() {
 
      jQuery("#wta_grid").jqxGrid(
      {
-          width: '100%',
+          width: '1250',
           height: '300',
           source: dataAdapter,
           columnsresize: true,
@@ -290,11 +290,12 @@ jQuery(document).ready(function ($) {
                               <br>
                               <br>
                               <div style="border: none;" id='jqxGrid'>
-                                   <div id="wta_grid"></div>
+                                   <div id="wta_grid" style="width:1250px"></div>
                                    <div style="font-size: 12px; font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif; margin-top: 30px;">
                                         <div id="cellbegineditevent"></div>
                                         <div style="margin-top: 10px;" id="cellendeditevent"></div>
                                    </div>
+                                   <div style="width:1200px">&nbsp;</div>
                               </div>
                          </td>
                     </tr>
