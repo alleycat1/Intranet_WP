@@ -35,8 +35,11 @@ function get_wta_data(outlet, term, date){
     });
 }
 jQuery(document).ready(function($) {
-    document.getElementById("neve_body").style.width = "1600px";
-    document.getElementById("neve_body").style.overflowX = "scroll";
+    if(window.innerWidth < 1300)
+    {
+        document.getElementById("neve_body").style.width = "1300px";
+        document.getElementById("neve_body").style.overflowX = "scroll";
+    }
     
     outlet = jQuery("#jqxOutlet").val();
     term = jQuery("#jqxTerm").val();

@@ -106,7 +106,7 @@ if($conn && count($user_menu) > 0)
 
 <script>
 function initializeWidgets() {
-     jQuery("#jqxMenu").jqxMenu({ width: '220', height: '300', mode: 'vertical'});
+     jQuery("#jqxMenu").jqxMenu({ width: '1250', height: '50', mode: 'horizontal'});
      jQuery("#jqxMenu").css('visibility', 'visible');
 
      jQuery("#jqxOutlet").jqxDropDownList({ source: outlets, selectedIndex: 0, width: '200', height: '30px'});
@@ -266,40 +266,32 @@ jQuery(document).ready(function ($) {
 });
 
 </script>
-<table border=0 hight=450>
+<table border=0 hight=500>
      <tr>
-          <td style="border:0px">
-               <div id='jqxMenuWidget' style='width: 220px; height: 300px'>
+          <td style="border:0px;">
+               <div id='jqxMenuWidget' style='width: 1250px;'>
                     <div id='jqxMenu' style="visibility: hidden;">
                          <ul style="margin:0px">
                               <li>Weekly Trading Analysis</li>
-                              <li>Paid out</li>
-                              <li>Cash Counts</li>
                               <li>Summary</li>
+                              <li>Cash Counts</li>
+                              <li id="current_cash" style="margin-left:100px">Current Cash on Site: <li>
                          </ul>
                     </div>
                </div>
-          </td>
-          <td style="border:0px; width:100%">
-               <table border=0>
-                    <tr>
-                         <td style="border:0px;">
-                              <div style='float: left; margin-top: 10px;' id='jqxOutlet'></div>
-                              <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxCalendar'></div>
-                              <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxTerm'></div>
-                              <br>
-                              <br>
-                              <div style="border: none;" id='jqxGrid'>
-                                   <div id="wta_grid" style="width:1250px"></div>
-                                   <div style="font-size: 12px; font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif; margin-top: 30px;">
-                                        <div id="cellbegineditevent"></div>
-                                        <div style="margin-top: 10px;" id="cellendeditevent"></div>
-                                   </div>
-                                   <div style="width:1200px">&nbsp;</div>
-                              </div>
-                         </td>
-                    </tr>
-               </table>
+               <div style='float: left; margin-top: 10px;' id='jqxOutlet'></div>
+               <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxCalendar'></div>
+               <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxTerm'></div>
+               <br>
+               <br>
+               <div style="border: none;" id='jqxGrid'>
+                    <div id="wta_grid" style="width:1250px"></div>
+                    <div style="font-size: 12px; font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif; margin-top: 30px;">
+                         <div id="cellbegineditevent"></div>
+                         <div style="margin-top: 10px;" id="cellendeditevent"></div>
+                    </div>
+                    <div style="width:1200px">&nbsp;</div>
+               </div>
           </td>
      </tr>
 </table>
