@@ -30,39 +30,62 @@ global $connectionInfo;
 
 $conn = sqlsrv_connect($serverName, $connectionInfo);
 
-$menus = array();
-$menus['Tickety_Boo'] = '001 - Tickety Boo\'s';
-$menus['19th_Hole_Hotel'] = '002 - 19th Hole Hotel';
-$menus['Half_A_Tanner'] = '004 - Half A Tanner';
-$menus['Scone_Arms'] = '005 - Scone Arms';
-$menus['The_Venue'] = '006 - The Venue';
+function getOutLetData($conn, &$outlets)
+{
+     $sql = "SELECT ID, OutletCode, OutletName FROM Outlets WHERE Deleted <> 1";
+     $stmt = sqlsrv_query($conn, $sql);
+     if ($stmt === false) {
+          return;
+     }
+     while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+          $outlets[$row['OutletCode']] = ['id'=>$row['ID'], 'name'=>$row['OutletName']];
+     }
+}
 
-$menuIDs = array();
-$menuIDs['Tickety_Boo'] = 1;
-$menuIDs['19th_Hole_Hotel'] = 2;
-$menuIDs['Half_A_Tanner'] = 3;
-$menuIDs['Scone_Arms'] = 4;
-$menuIDs['The_Venue'] = 5;
+function getTerminalData($conn, &$terminals)
+{
+     $sql = "SELECT ID, OutletID, TerminalID, Description FROM EPOSTerminals WHERE OutletID NOT IN (SELECT ID FROM Outlets WHERE Deleted=1)";
+     $stmt = sqlsrv_query($conn, $sql);
+     if ($stmt === false) {
+          return;
+     }
+     while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+          if(!isset($terminals[$row['OutletID']]))
+               $terminals[$row['OutletID']] = array();
+          $terminals[$row['OutletID']][$row['TerminalID']] = $row['Description'];
+     }
+}
 
-$user_menu = array();
+$outlets = array();
+$terminals = array();
+getOutLetData($conn, $outlets);
+getTerminalData($conn, $terminals);
+
+$user_outlets = array();
 $user = wp_get_current_user();
 if(in_array("administrator", $user->roles))
 {
-     foreach($menus as $role => $data)
-          $user_menu[$role] = $data;
+     foreach($outlets as $code => $data)
+          $user_outlets[$code] = $data;
 }
 else
 {
-     foreach($user->roles as $role => $data)
-          if(isset($menus[$role]))
-               $user_menu[$role] = $data;
+     foreach($user->roles as $role => $role_data)
+     {
+          foreach($outlets as $code => $outlet)
+               if(strpos($role, $code) === 0)
+               {
+                    $user_outlets[$code] = $outlet;
+                    break;
+               }
+     }
 }
-if(count($user_menu) == 0)
+if(count($user_outlets) == 0)
 {
      echo "Please sign up first!";
 }
 
-if($conn && count($user_menu) > 0)
+if($conn && count($user_outlets) > 0)
 {
      sqlsrv_close($conn);
 
@@ -70,37 +93,31 @@ if($conn && count($user_menu) > 0)
      echo "var user_id = $user->id;";
      echo "var wta_data = new Array();";
      echo "var terms = Array();";
-     echo "var outlets=[";
-     foreach($user_menu as $menu => $data)
+     
+     $outlet_obj = array();
+     foreach($user_outlets as $code => $outlet)
      {
-          echo "{label:\"" . $data . "\", value:" . $menuIDs[$menu] . "},";
+          $outlet_obj[count($outlet_obj)] = ['label'=>($code." - ".$outlet['name']), 'value'=>$outlet['id']];
      }
-     echo "];";
-     if(isset($user_menu['Tickety_Boo']))
+     echo "var outlets=" . json_encode($outlet_obj) . ";";
+
+     $terminal_obj = array();
+     $first_id = "";
+     foreach($user_outlets as $code => $outlet)
      {
-          echo "terms[0] = {label:'TBEPOS1', value:1};";
-          echo "terms[1] = {label:'TBEPOS2', value:2};";
+          $id =  $outlet['id'] + 0;
+          foreach($terminals[$id] as $termId => $term_desc)
+          {
+               if(!isset($terminal_obj[$id]))
+                    $terminal_obj[$id] = array();
+               if($first_id == "")
+                    $first_id = $id;
+               $terminal_obj[$id][count($terminal_obj[$id])] = ['label'=>$term_desc, 'value'=>$termId];
+          }
      }
-     else if(isset($user_menu['19th_Hole_Hotel']))
-     {
-          echo "terms[0] = {label:'NHEPOS1', value:1};";
-          echo "terms[1] = {label:'NHEPOS2', value:2};";
-     }
-     else if(isset($user_menu['Half_A_Tanner']))
-     {
-          echo "terms[0] = {label:'HTEPOS1', value:1};";
-          echo "terms[1] = {label:'HTEPOS2', value:2};";
-     }
-     else if(isset($user_menu['Scone_Arms']))
-     {
-          echo "terms[0] = {label:'SAEPOS1', value:1};";
-          echo "terms[1] = {label:'SAEPOS2', value:2};";
-     }
-     else if(isset($user_menu['The_Venue']))
-     {
-          echo "terms[0] = {label:'TVEPOS1', value:1};";
-          echo "terms[1] = {label:'TVEPOS2', value:2};";
-     }
+     echo "var terminals=" . json_encode($terminal_obj) . ";";
+     echo "var terms;";
+     echo "for(var i in terminals[$first_id]) terms[i] = terminals[$first_id][i];";
      echo "</script>";
 ?>
 
@@ -112,31 +129,8 @@ function initializeWidgets() {
      jQuery("#jqxOutlet").jqxDropDownList({ source: outlets, selectedIndex: 0, width: '200', height: '30px'});
      jQuery("#jqxOutlet").on('select', function (e) {
           terms.length = 0;
-          if(outlets[e.args.index].value == 1)
-          {
-               terms[0] = {label:"TBEPOS1", value:1};
-               terms[1] = {label:"TBEPOS2", value:2};
-          }
-          else if(outlets[e.args.index].value == 2)
-          {
-               terms[0] = {label:"NHEPOS1", value:1};
-               terms[1] = {label:"NHEPOS2", value:2};
-          }
-          else if(outlets[e.args.index].value == 3)
-          {
-               terms[0] = {label:"HTEPOS1", value:1};
-               terms[1] = {label:"HTEPOS2", value:2};
-          }
-          else if(outlets[e.args.index].value == 4)
-          {
-               terms[0] = {label:"SAEPOS1", value:1};
-               terms[1] = {label:"SAEPOS2", value:2};
-          }
-          else if(outlets[e.args.index].value == 5)
-          {
-               terms[0] = {label:"TVEPOS1", value:1};
-               terms[1] = {label:"TVEPOS2", value:2};
-          }
+          for(var i in terminals[outlets[e.args.index].value])
+               terms[i] = terminals[outlets[e.args.index].value][i];
           jQuery("#jqxTerm").jqxDropDownList('clear');
           jQuery("#jqxTerm").jqxDropDownList({ source: terms, selectedIndex: 0, width: '200', height: '30px'});
      });
@@ -260,6 +254,16 @@ function initializeWidgets() {
                { text: 'CASH', align: 'center', name: 'cash' }
           ]
      });
+
+     jQuery("#btnWTA").on('click', function (e) {
+          //alert("asdf");
+     });
+     jQuery("#btnSummary").on('click', function (e) {
+          //alert("qwer");
+     });
+     jQuery("#btnCashCounts").on('click', function (e) {
+          //alert("zxcv");
+     });
 }
 jQuery(document).ready(function ($) {
      initializeWidgets();
@@ -272,25 +276,39 @@ jQuery(document).ready(function ($) {
                <div id='jqxMenuWidget' style='width: 1250px;'>
                     <div id='jqxMenu' style="visibility: hidden;">
                          <ul style="margin:0px">
-                              <li>Weekly Trading Analysis</li>
-                              <li>Summary</li>
-                              <li>Cash Counts</li>
-                              <li id="current_cash" style="margin-left:100px">Current Cash on Site: <li>
+                              <li id="btnWTA">Weekly Trading Analysis</li>
+                              <li id="btnSummary">Summary</li>
+                              <li id="btnCashCounts">Cash Counts</li>
+                              <li id="current_cash" style="margin-left:100px;border:0px;">Current Cash on Site: £10.00<li>
                          </ul>
                     </div>
                </div>
-               <div style='float: left; margin-top: 10px;' id='jqxOutlet'></div>
-               <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxCalendar'></div>
-               <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxTerm'></div>
-               <br>
-               <br>
-               <div style="border: none;" id='jqxGrid'>
-                    <div id="wta_grid" style="width:1250px"></div>
-                    <div style="font-size: 12px; font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif; margin-top: 30px;">
-                         <div id="cellbegineditevent"></div>
-                         <div style="margin-top: 10px;" id="cellendeditevent"></div>
+               <div id="tabWTA">
+                    <div style='float: left; margin-top: 10px;' id='jqxOutlet'></div>
+                    <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxCalendar'></div>
+                    <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxTerm'></div>
+                    <br>
+                    <br>
+                    <div style="border: none;" id='jqxGrid'>
+                         <div id="wta_grid" style="width:1250px"></div>
+                         <div style="font-size: 12px; font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif; margin-top: 30px;">
+                              <div id="cellbegineditevent"></div>
+                              <div style="margin-top: 10px;" id="cellendeditevent"></div>
+                         </div>
+                         <div style="width:1200px">&nbsp;</div>
                     </div>
-                    <div style="width:1200px">&nbsp;</div>
+               </div>
+               <div id="tabSummary">>
+                    <div style="border: none;" id='jqxSumarry'>
+                         <div id="summary_grid" style="width:1250px"></div>
+                         <div style="font-size: 12px; font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif; margin-top: 30px;">
+                              <div id="cellbegineditevent"></div>
+                              <div style="margin-top: 10px;" id="cellendeditevent"></div>
+                         </div>
+                         <div style="width:1200px">&nbsp;</div>
+                    </div>
+               </div>
+               <div id="tabCashCount">>
                </div>
           </td>
      </tr>
