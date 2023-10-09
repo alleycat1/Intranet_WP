@@ -10,6 +10,11 @@ function initializeInputWidgets() {
             terms[i] = terminals[outlets[e.args.index].value][i];
         jQuery("#jqxTerm").jqxDropDownList('clear');
         jQuery("#jqxTerm").jqxDropDownList({ source: terms, selectedIndex: 0, width: '200', height: '30px'});
+        if(tabId == 1)
+        {
+            outlet = jQuery("#jqxOutlet").val();
+            get_summary_data(outlet, date);
+        }
     });
 
     jQuery("#jqxTerm").jqxDropDownList({ source: terms, selectedIndex: 0, width: '200', height: '30px'});
@@ -22,8 +27,7 @@ function initializeInputWidgets() {
             get_wta_data(outlet, term, date);
     });
 
-    jQuery("#jqxCalendar").jqxDateTimeInput({ animationType: 'fade', width: '150px', height: '30px', animationType: 'fade', dropDownHorizontalAlignment: 'left'});
-    jQuery("#jqxCalendar").jqxDateTimeInput({ animationType: 'slide' });
+    jQuery("#jqxCalendar").jqxDateTimeInput({ animationType: 'slide', width: '150px', height: '30px', dropDownHorizontalAlignment: 'left'});
     jQuery("#jqxCalendar").on('change', function (e) {
         jQuery('#wta_grid').jqxGrid('endcelledit');
         outlet = jQuery("#jqxOutlet").val();
@@ -32,7 +36,9 @@ function initializeInputWidgets() {
         if(tabId == 0)
             get_wta_data(outlet, term, date);
         if(tabId == 1)
-            get_summary_data(date);
+        {
+            get_summary_data(outlet, date);
+        }
     });
 
 
@@ -91,9 +97,15 @@ function initializeInputWidgets() {
     var cellsrenderer_zref = function (row, column, value, defaultHtml) {
         if (value > 0 && row < 7) {
              var element = jQuery(defaultHtml);
-             value = value.toString().padStart(3, '0');
+             value = value.toString().padStart(4, '0');
              element[0].innerHTML = value;
              return element[0].outerHTML;
+        }
+        else if(value == 0 && row < 7)
+        {
+            var element = jQuery(defaultHtml);
+            element[0].innerHTML = '';
+            return element[0].outerHTML;
         }
         return defaultHtml;
    }
@@ -101,7 +113,7 @@ function initializeInputWidgets() {
     var cellsrenderer_paidout_till = function (row, column, value, defaultHtml) {
          if (row >= 0 && row < 7) {
               var element = jQuery(defaultHtml);
-              element[0].innerHTML = "<a href=''>" + element[0].innerHTML + "</a>";
+              element[0].innerHTML = "<span class='paid_out' onclick='show_paid_popup(0," + row.toString() + ")'>" + element[0].innerHTML + "</span>";
               return element[0].outerHTML;
          }
          return defaultHtml;
@@ -110,7 +122,7 @@ function initializeInputWidgets() {
     var cellsrenderer_paidout_safe = function (row, column, value, defaultHtml) {
          if (row >= 0 && row < 7) {
               var element = jQuery(defaultHtml);
-              element[0].innerHTML = "<a href=''>" + element[0].innerHTML + "</a>";
+              element[0].innerHTML = "<span class='paid_out' onclick='show_paid_popup(1,"  + row.toString() + ")'>" + element[0].innerHTML + "</span>";
               return element[0].outerHTML;
          }
          return defaultHtml;
@@ -155,6 +167,7 @@ function initializeInputWidgets() {
     document.getElementById("tabWTA").hidden = "";
     document.getElementById("tabSummary").hidden = "hidden";
     document.getElementById("tabCashCount").hidden = "hidden";
+    document.getElementById("popup_paid").hidden = "hidden";
     jQuery("#btnWTA").on('click', function (e) {
         tabId = 0;
         document.getElementById("btnWTA").style.border = "1px solid #000088";
@@ -171,7 +184,6 @@ function initializeInputWidgets() {
         get_wta_data(outlet, term, date);
         document.getElementById("jqxOutlet").hidden = "";
         document.getElementById("jqxTerm").hidden = "";
-        document.getElementById("jqxCalendar").style.marginLeft="100px";
     });
     jQuery("#btnSummary").on('click', function (e) {
         tabId = 1;
@@ -182,10 +194,10 @@ function initializeInputWidgets() {
         document.getElementById("tabSummary").hidden = "";
         document.getElementById("tabCashCount").hidden = "hidden";
         date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
-        get_summary_data(date);
-        document.getElementById("jqxOutlet").hidden = "hidden";
+        outlet = jQuery("#jqxOutlet").val();
+        get_summary_data(outlet, date);
+        document.getElementById("jqxOutlet").hidden = "";
         document.getElementById("jqxTerm").hidden = "hidden";
-        document.getElementById("jqxCalendar").style.marginLeft="0px";
     });
     jQuery("#btnCashCounts").on('click', function (e) {
         tabId = 2;
@@ -197,6 +209,5 @@ function initializeInputWidgets() {
         document.getElementById("tabCashCount").hidden = "";
         document.getElementById("jqxOutlet").hidden = "";
         document.getElementById("jqxTerm").hidden = "";
-        document.getElementById("jqxCalendar").style.marginLeft="100px";
     });
 }

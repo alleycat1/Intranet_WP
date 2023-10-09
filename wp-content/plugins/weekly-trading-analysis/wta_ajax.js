@@ -45,14 +45,15 @@ function get_wta_data(outlet, term, date){
     });
 }
 
-function get_summary_data(date){
+function get_summary_data(outlet, date){
     jQuery('#summary_grid').jqxGrid({ disabled: true});
+    jQuery("#jqxOutlet").jqxDropDownList({ disabled: true});
     jQuery("#jqxCalendar").jqxDateTimeInput({ disabled: true});
     var security_nonce = MyAjax.security_nonce;
     jQuery.ajax({
         url: MyAjax.ajaxurl,
         method: "POST",
-        data: { date:date, action:'get_summary_data', security_nonce:security_nonce },
+        data: { outlet:outlet, date:date, action:'get_summary_data', security_nonce:security_nonce },
         dataType: "json",
         success: function (data) {
             summary_data.length = 0;
@@ -61,10 +62,12 @@ function get_summary_data(date){
             jQuery("#summary_grid").jqxGrid('updatebounddata', 'cells');
             jQuery('#summary_grid').jqxGrid({ disabled: false});
             jQuery("#jqxCalendar").jqxDateTimeInput({ disabled: false});
+            jQuery("#jqxOutlet").jqxDropDownList({ disabled: false});
         },
         error: function (e) {
             jQuery('#summary_grid').jqxGrid({ disabled: false});
             jQuery("#jqxCalendar").jqxDateTimeInput({ disabled: false});
+            jQuery("#jqxOutlet").jqxDropDownList({ disabled: false});
             alert("Can not access the database!");
         }
     });

@@ -1,3 +1,11 @@
+<style type="text/css">
+     .paid_out:hover {
+          color: #FF00FF;
+     }
+     .paid_out {
+          cursor: pointer;
+     }
+</style>
 <?php
 wp_enqueue_script( 'jqxcore' );
 wp_enqueue_script( 'jqxdatetimeinput' );
@@ -20,11 +28,13 @@ wp_enqueue_script( 'jqxsplitter' );
 wp_enqueue_script( 'jqxdata.export' );
 wp_enqueue_script( 'jqxgrid.export' );
 wp_enqueue_script( 'jqxcombobox' );
+wp_enqueue_script( 'jqxpopover' );
 
 // enqueue jQWidgets CSS files
 wp_enqueue_style( 'jqx.base' );
 wp_enqueue_style( 'jqx.orange' );
 
+wp_enqueue_script(WTA_NAME . '_wta_paid_out',  WTA_PLUGIN_DIR . '/wta_paid_out.js', array('jquery'), WTA_VAR, true);
 wp_enqueue_script(WTA_NAME . '_wta_input',  WTA_PLUGIN_DIR . '/wta_input.js', array('jquery'), WTA_VAR, true);
 wp_enqueue_script(WTA_NAME . '_wta_summary',  WTA_PLUGIN_DIR . '/wta_summary.js', array('jquery'), WTA_VAR, true);
 
@@ -125,6 +135,7 @@ if($conn && count($user_outlets) > 0)
 
 <script>
 jQuery(document).ready(function ($) {
+     initializePaidoutWidgets();
      initializeInputWidgets();
      initializeSummaryWidgets();
 });
@@ -159,11 +170,11 @@ jQuery(document).ready(function ($) {
                     </div>
                </div>
                <div id="tabSummary">
-                    <div style="border: none;" id='jqxSumarry'>
+                    <div style="border: none;" id='jqxGrid1'>
                          <div id="summary_grid" style="width:1250px"></div>
                          <div style="font-size: 12px; font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif; margin-top: 30px;">
-                              <div id="cellbegineditevent"></div>
-                              <div style="margin-top: 10px;" id="cellendeditevent"></div>
+                              <div id="cellbegineditevent1"></div>
+                              <div style="margin-top: 10px;" id="cellendeditevent1"></div>
                          </div>
                          <div style="width:1200px">&nbsp;</div>
                     </div>
@@ -174,6 +185,30 @@ jQuery(document).ready(function ($) {
      </tr>
 </table>
 
+<div id="popup_paid" hidden>
+     <div id="jqxGrid2">
+     <table border=0 hight=500>
+          <tr>
+               <td style="border:0px;">
+                    <div style="height:40px">
+                         <div style='float: left; margin-top:10px; height:30px' id='ZRef_label'>ZRef:<span>1</span></div>
+                    </div>
+               </td>
+          </tr>
+          <tr>
+               <td>
+                    <div id="paid_grid" style="width:1000px"></div>
+                         <div style="font-size: 12px; font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif; margin-top: 30px;">
+                              <div id="cellbegineditevent2"></div>
+                              <div style="margin-top: 10px;" id="cellendeditevent2"></div>
+                         </div>
+                         <div style="width:1000px">&nbsp;</div>
+                    </div>
+               </td>
+          </tr>
+     </table>
+     </div>
+</div>
 <?php
      wp_enqueue_script(WTA_NAME . '_wta_ajax',  WTA_PLUGIN_DIR . '/wta_ajax.js', array('jquery'), WTA_VAR, true);
 }
