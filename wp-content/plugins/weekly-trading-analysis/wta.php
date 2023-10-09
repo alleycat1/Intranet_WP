@@ -25,6 +25,9 @@ wp_enqueue_script( 'jqxcombobox' );
 wp_enqueue_style( 'jqx.base' );
 wp_enqueue_style( 'jqx.orange' );
 
+wp_enqueue_script(WTA_NAME . '_wta_input',  WTA_PLUGIN_DIR . '/wta_input.js', array('jquery'), WTA_VAR, true);
+wp_enqueue_script(WTA_NAME . '_wta_summary',  WTA_PLUGIN_DIR . '/wta_summary.js', array('jquery'), WTA_VAR, true);
+
 global $serverName;
 global $connectionInfo;
 
@@ -91,9 +94,7 @@ if($conn && count($user_outlets) > 0)
 
      echo "<script>";
      echo "var user_id = $user->id;";
-     echo "var wta_data = new Array();";
      echo "var terms = Array();";
-     
      $outlet_obj = array();
      foreach($user_outlets as $code => $outlet)
      {
@@ -117,156 +118,15 @@ if($conn && count($user_outlets) > 0)
      }
      echo "var terminals=" . json_encode($terminal_obj) . ";";
      echo "var terms;";
+     echo "var tabId=0;";
      echo "for(var i in terminals[$first_id]) terms[i] = terminals[$first_id][i];";
      echo "</script>";
 ?>
 
 <script>
-function initializeWidgets() {
-     jQuery("#jqxMenu").jqxMenu({ width: '1250', height: '50', mode: 'horizontal'});
-     jQuery("#jqxMenu").css('visibility', 'visible');
-
-     jQuery("#jqxOutlet").jqxDropDownList({ source: outlets, selectedIndex: 0, width: '200', height: '30px'});
-     jQuery("#jqxOutlet").on('select', function (e) {
-          terms.length = 0;
-          for(var i in terminals[outlets[e.args.index].value])
-               terms[i] = terminals[outlets[e.args.index].value][i];
-          jQuery("#jqxTerm").jqxDropDownList('clear');
-          jQuery("#jqxTerm").jqxDropDownList({ source: terms, selectedIndex: 0, width: '200', height: '30px'});
-     });
-
-     jQuery("#jqxTerm").jqxDropDownList({ source: terms, selectedIndex: 0, width: '200', height: '30px'});
-     jQuery("#jqxTerm").on('select', function (e) {
-          jQuery('#wta_grid').jqxGrid('endcelledit');
-          outlet = jQuery("#jqxOutlet").val();
-          term = terms[e.args.index].value;
-          date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
-          jQuery('#wta_grid').jqxGrid({ disabled: true});
-          get_wta_data(outlet, term, date);
-     });
-
-     jQuery("#jqxCalendar").jqxDateTimeInput({ animationType: 'fade', width: '150px', height: '30px', animationType: 'fade', dropDownHorizontalAlignment: 'right'});
-     jQuery("#jqxCalendar").jqxDateTimeInput({ animationType: 'slide' });
-     jQuery("#jqxCalendar").on('change', function (e) {
-          jQuery('#wta_grid').jqxGrid('endcelledit');
-          outlet = jQuery("#jqxOutlet").val();
-          term = jQuery("#jqxTerm").val();
-          date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
-          jQuery('#wta_grid').jqxGrid({ disabled: true});
-          get_wta_data(outlet, term, date);
-     });
-
-
-     var options = { style: 'currency', currency: 'GBP' };
-     var source =
-     {
-          localdata: wta_data,
-          datatype: "array",
-          updaterow: function (rowid, rowdata, commit) {
-               outlet = jQuery("#jqxOutlet").val();
-               term = jQuery("#jqxTerm").val();
-               date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
-               jQuery('#wta_grid').jqxGrid({ disabled: true});
-               set_wta_data(outlet, term, wta_data[rowid].id, wta_data[rowid].date, rowdata, user_id);
-          },
-          datafields:
-          [
-               { name: 'day', type: 'string' },
-               { name: 'date', type: 'date', format: 'dd/MM/yyyy' },
-               { name: 'zref', type: 'number' },
-               { name: 'sale_ex', type: 'number' },
-               { name: 'vat', type: 'number' },
-               { name: 'sale_inc', type: 'number' },
-               { name: 'disrepancy', type: 'number' },
-               { name: 'paid_out_from_till', type: 'number' },
-               { name: 'paid_out_from_safe', type: 'number' },
-               { name: 'account_sales', type: 'number' },
-               { name: 'account_receipts', type: 'number' },
-               { name: 'cards_banking', type: 'number' },
-               { name: 'cash_retained', type: 'number' }
-          ]
-     };
-     var dataAdapter = new jQuery.jqx.dataAdapter(source);
-
-     var cellbeginedit = function (row, datafield, columntype, value) {
-          if (row == 7) return false;
-     }
-
-     var cellsrenderer = function (row, column, value, defaultHtml) {
-          if (value < 0) {
-               var element = jQuery(defaultHtml);
-               element.css('color', '#880000');
-               return element[0].outerHTML;
-          }
-          else if (value == 0) {
-               var element = jQuery(defaultHtml);
-               element.css('color', '#000000');
-               return element[0].outerHTML;
-          }
-          else{
-               var element = jQuery(defaultHtml);
-               element.css('color', '#008800');
-               return element[0].outerHTML;
-          }
-          return defaultHtml;
-     }
-
-     var cellsrenderer_zref = function (row, column, value, defaultHtml) {
-          if (value > 0 && row < 7) {
-               var element = jQuery(defaultHtml);
-               value = value.toString().padStart(3, '0');
-               element[0].innerHTML = value;
-               return element[0].outerHTML;
-          }
-          return defaultHtml;
-     }
-
-     jQuery("#wta_grid").jqxGrid(
-     {
-          width: '1250',
-          height: '300',
-          source: dataAdapter,
-          columnsresize: true,
-          editable: true,
-          rowsheight: 30,
-          columnsheight: 25,
-          selectionmode: 'singlerow',
-          columns: [
-               { text: 'DAY', datafield: 'day', columntype: 'textbox', width: 70, align: 'center', cellsalign: 'left', pinned: true, editable:false },
-               { text: 'DATE', datafield: 'date' , columntype: 'textbox', cellsformat: 'dd/MM/yyyy', width: 90, align: 'center', pinned: true, editable:false },
-               { text: 'Z REF', datafield: 'zref', columntype: 'integerinput', width: 90, cellsalign: 'right', cellsformat: 'n3', cellsrenderer:cellsrenderer_zref },
-               { text: 'EX VAT', columngroup: 'sales', datafield: 'sale_ex', cellsformat: 'c2', columntype: 'numberinput', align: 'right', cellsalign: 'right', width: 100, cellbeginedit: cellbeginedit },
-               { text: 'VAT', columngroup: 'sales', datafield: 'vat', cellsformat: 'c2', columntype: 'numberinput', align: 'right', cellsalign: 'right', width: 100, cellbeginedit: cellbeginedit },
-               { text: 'INC VAT', columngroup: 'sales', datafield: 'sale_inc', cellsformat: 'c2', columntype: 'numberinput', align: 'right', cellsalign: 'right', width: 100, cellbeginedit: cellbeginedit, editable:false },
-               { text: 'DISREPANCY', datafield: 'disrepancy', cellsformat: 'c2', align: 'right', cellsalign: 'right', width: 100, cellsrenderer: cellsrenderer, cellbeginedit: cellbeginedit },
-               { text: 'FROM TILL', columngroup: 'paid_out', datafield: 'paid_out_from_till', cellsformat: 'c2', columntype: 'numberinput', align: 'right', cellsalign: 'right', width: 100, cellbeginedit: cellbeginedit, editable:false },
-               { text: 'FROM SAFE', columngroup: 'paid_out', datafield: 'paid_out_from_safe', cellsformat: 'c2', columntype: 'numberinput', align: 'right', cellsalign: 'right', width: 100, cellbeginedit: cellbeginedit, editable:false },
-               { text: 'SALES', columngroup: 'account', datafield: 'account_sales', cellsformat: 'c2', columntype: 'numberinput', align: 'right', cellsalign: 'right', width: 100, cellbeginedit: cellbeginedit },
-               { text: 'RECEIPTS', columngroup: 'account', datafield: 'account_receipts', cellsformat: 'c2', columntype: 'numberinput', align: 'right', cellsalign: 'right', width: 100, cellbeginedit: cellbeginedit },
-               { text: 'BANKING', columngroup: 'cards', datafield: 'cards_banking', cellsformat: 'c2', columntype: 'numberinput', align: 'right', cellsalign: 'right', width: 100, cellbeginedit: cellbeginedit },
-               { text: 'RETAINED', columngroup: 'cash', datafield: 'cash_retained', cellsformat: 'c2', align: 'right', cellsalign: 'right', width: 100, editable:false }
-          ],
-          columngroups:[
-               { text: 'SALES', align: 'center', name: 'sales' },
-               { text: 'PAID OUT',align: 'center', name: 'paid_out' },
-               { text: 'ACCOUNT', align: 'center', name: 'account' },
-               { text: 'CARDS', align: 'center', name: 'cards' },
-               { text: 'CASH', align: 'center', name: 'cash' }
-          ]
-     });
-
-     jQuery("#btnWTA").on('click', function (e) {
-          //alert("asdf");
-     });
-     jQuery("#btnSummary").on('click', function (e) {
-          //alert("qwer");
-     });
-     jQuery("#btnCashCounts").on('click', function (e) {
-          //alert("zxcv");
-     });
-}
 jQuery(document).ready(function ($) {
-     initializeWidgets();
+     initializeInputWidgets();
+     initializeSummaryWidgets();
 });
 
 </script>
@@ -283,12 +143,12 @@ jQuery(document).ready(function ($) {
                          </ul>
                     </div>
                </div>
-               <div id="tabWTA">
+               <div style="height:50px">
                     <div style='float: left; margin-top: 10px;' id='jqxOutlet'></div>
                     <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxCalendar'></div>
                     <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxTerm'></div>
-                    <br>
-                    <br>
+               </div>
+               <div id="tabWTA">
                     <div style="border: none;" id='jqxGrid'>
                          <div id="wta_grid" style="width:1250px"></div>
                          <div style="font-size: 12px; font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif; margin-top: 30px;">
@@ -298,7 +158,7 @@ jQuery(document).ready(function ($) {
                          <div style="width:1200px">&nbsp;</div>
                     </div>
                </div>
-               <div id="tabSummary">>
+               <div id="tabSummary">
                     <div style="border: none;" id='jqxSumarry'>
                          <div id="summary_grid" style="width:1250px"></div>
                          <div style="font-size: 12px; font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif; margin-top: 30px;">
@@ -308,7 +168,7 @@ jQuery(document).ready(function ($) {
                          <div style="width:1200px">&nbsp;</div>
                     </div>
                </div>
-               <div id="tabCashCount">>
+               <div id="tabCashCount">
                </div>
           </td>
      </tr>
