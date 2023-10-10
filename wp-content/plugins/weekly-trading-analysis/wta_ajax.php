@@ -1,15 +1,4 @@
 <?php 
-if ( ! function_exists('wta_test_action') ) {
-	function wta_test_action(){
-		if(isset($_POST) && !empty($_POST)){
-            echo "1";
-		}
-        echo "2";
-        die();
-	}
-    add_action('wp_ajax_wta_test_action', 'wta_test_action');
-}
-
 if ( ! function_exists('get_wta_data') ) {
 	function get_wta_data(){
         header('Content-Type: application/json');
@@ -357,5 +346,198 @@ if ( ! function_exists('set_wta_data') ) {
         die;
 	}
     add_action('wp_ajax_set_wta_data', 'set_wta_data');
+}
+
+if ( ! function_exists('get_paid_data') ) {
+	function get_paid_data(){
+        header('Content-Type: application/json');
+        require __DIR__ ."/../../../db_config.php";
+        global $serverName;
+        global $connectionInfo;
+        $conn = sqlsrv_connect($serverName, $connectionInfo);
+        if($conn)
+        {
+            if(isset($_POST) && !empty($_POST)){
+                $paid_type = $_POST['paid_type'];
+                $date_str = $_POST['date'];
+                $zref = $_POST['zref'];
+
+                $date = DateTime::createFromFormat('d/m/Y', $date_str);
+                $res = array();
+                $date_str = $date->format('Y-m-d');
+                $tbl_name = '';
+                if($paid_type + 0 == 0)
+                    $tbl_name = "WTAEPOSPayouts";
+                else
+                    $tbl_name = "WTASafePayouts";
+    
+                $sql = sprintf("SELECT ID, CONVERT(varchar(10), Date, 103) Date, ZRefID, PayoutEXVAT, PayoutVATAmount, PayoutType, Reference, Description FROM ".$tbl_name." WHERE Date='%s' AND ZRefID=%d ORDER BY ID", $date_str, $zref);
+
+                $stmt = sqlsrv_query($conn, $sql);
+
+                if ($stmt === false) {
+                    sqlsrv_close($conn);
+                    die(print_r(sqlsrv_errors(), true));
+                }
+
+                $ex_sum = 0;
+                $amount_sum = 0;
+                while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                    $res[$row['ID']]['id'] = $row['ID'];
+                    $res[$row['ID']]['date'] = $row['Date'];
+                    $res[$row['ID']]['zref'] = $row['ZRefID'];
+                    $res[$row['ID']]['ex_vat'] = $row['PayoutEXVAT'];
+                    $res[$row['ID']]['vat_amount'] = $row['PayoutVATAmount'];
+                    $res[$row['ID']]['payout_type'] = $row['PayoutType'];
+                    $res[$row['ID']]['reference'] = $row['Reference'];
+                    $res[$row['ID']]['description'] = $row['Description'];
+
+                    $ex_sum += $row['PayoutEXVAT'];
+                    $amount_sum += $row['PayoutVATAmount'];
+                }
+                $res[$row['ID']]['id'] = '';
+                $res[$row['ID']]['date'] = '';
+                $res[$row['ID']]['zref'] = '';
+                $res[$row['ID']]['ex_vat'] = $ex_sum;
+                $res[$row['ID']]['vat_amount'] = $amount_sum;
+                $res[$row['ID']]['payout_type'] = '';
+                $res[$row['ID']]['reference'] = '';
+                $res[$row['ID']]['description'] = '';
+
+                echo json_encode($res);
+            }
+            sqlsrv_close($conn);
+        }
+        else
+        {
+            $response = array(
+                'status' => 'failed',
+                'message' => 'Can not to connect to SQL Server.'
+            );
+            echo json_encode($response);
+        }
+        die;
+	}
+    add_action('wp_ajax_get_paid_data', 'get_paid_data');
+}
+
+if ( ! function_exists('set_paid_data') ) {
+	function set_paid_data(){
+        header('Content-Type: application/json');
+        require __DIR__ ."/../../../db_config.php";
+        global $serverName;
+        global $connectionInfo;
+        $conn = sqlsrv_connect($serverName, $connectionInfo);
+        if($conn)
+        {
+            if(isset($_POST) && !empty($_POST)){
+                $paid_type = $_POST['paid_type'];
+                $data = $_POST['data'];
+                $date_str = $data['date'];
+
+                $date = DateTime::createFromFormat('d/m/Y', $date_str);
+                $date_str = $date->format('Y-m-d');
+                $tbl_name = '';
+                if($paid_type + 0 == 0)
+                    $tbl_name = "WTAEPOSPayouts";
+                else
+                    $tbl_name = "WTASafePayouts";
+
+                if($data['id'] + 0 == -1)
+                {
+                    $sql = "SELECT MAX(ID)+1 new_id FROM $tbl_name";
+                    $stmt = sqlsrv_query($conn, $sql);
+                    if ($stmt === false) {
+                        sqlsrv_close($conn);
+                        die(print_r(sqlsrv_errors(), true));
+                    }
+                    $new_id = 1;
+                    while ($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                        $new_id = $r['new_id'];
+                    }
+                    $sql = sprintf("INSERT INTO $tbl_name(ID, Date, ZRefID, PayoutEXVAT, PayoutVATAmount, PayoutType, Reference, Description) VALUES(%d, '%s', %d, %f, %f, %d, '%s', '%s')",
+                                   $new_id, $date_str, $data['zref'], $data['ex_vat'], $data['vat_amount'], $data["payout_type"], $data["reference"], $data["description"]);
+                    $stmt = sqlsrv_query($conn, $sql);
+                    if ($stmt === false) {
+                        sqlsrv_close($conn);
+                        die(print_r(sqlsrv_errors(), true));
+                    }
+                }
+                else
+                {
+                    $sql = sprintf("UPDATE $tbl_name SET Date='%s', ZRefID=%d, PayoutEXVAT=%f, PayoutVATAmount=%f, PayoutType=%d, Reference='%s', Description='%s' WHERE ID=%d",
+                                    $date_str, $data['zref'], $data['ex_vat'], $data['vat_amount'], $data["payout_type"], $data["reference"], $data["description"], $data["id"]);
+                    $stmt = sqlsrv_query($conn, $sql);
+                    if ($stmt === false) {
+                        sqlsrv_close($conn);
+                        die(print_r(sqlsrv_errors(), true));
+                    }
+                }
+
+                $response = array(
+                    'status' => 'success',
+                    'message' => 'Save successed'
+                );
+                echo json_encode($response);
+            }
+        }
+        else
+        {
+            $response = array(
+                'status' => 'failed',
+                'message' => 'Can not to connect to SQL Server.'
+            );
+            echo json_encode($response);
+        }
+        die;
+	}
+    add_action('wp_ajax_set_paid_data', 'set_paid_data');
+}
+
+if ( ! function_exists('delete_paid_data') ) {
+	function delete_paid_data(){
+        header('Content-Type: application/json');
+        require __DIR__ ."/../../../db_config.php";
+        global $serverName;
+        global $connectionInfo;
+        $conn = sqlsrv_connect($serverName, $connectionInfo);
+        if($conn)
+        {
+            if(isset($_POST) && !empty($_POST)){
+                $paid_type = $_POST['paid_type'];
+                $id = $_POST['id'];
+
+                $tbl_name = '';
+                if($paid_type + 0 == 0)
+                    $tbl_name = "WTAEPOSPayouts";
+                else
+                    $tbl_name = "WTASafePayouts";
+
+                
+                $sql = sprintf("DELETE FROM $tbl_name WHERE ID=%d", $id);
+                $stmt = sqlsrv_query($conn, $sql);
+                if ($stmt === false) {
+                    sqlsrv_close($conn);
+                    die(print_r(sqlsrv_errors(), true));
+                }
+                
+                $response = array(
+                    'status' => 'success',
+                    'message' => 'Save successed'
+                );
+                echo json_encode($response);
+            }
+        }
+        else
+        {
+            $response = array(
+                'status' => 'failed',
+                'message' => 'Can not to connect to SQL Server.'
+            );
+            echo json_encode($response);
+        }
+        die;
+	}
+    add_action('wp_ajax_delete_paid_data', 'delete_paid_data');
 }
 ?>

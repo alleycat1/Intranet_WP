@@ -49,7 +49,6 @@ function initializeInputWidgets() {
          updaterow: function (rowid, rowdata, commit) {
               outlet = jQuery("#jqxOutlet").val();
               term = jQuery("#jqxTerm").val();
-              date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
               set_wta_data(outlet, term, wta_data[rowid].id, wta_data[rowid].date, rowdata, user_id);
          },
          datafields:

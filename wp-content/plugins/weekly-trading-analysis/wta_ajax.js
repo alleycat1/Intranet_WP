@@ -1,19 +1,3 @@
-function my_action_javascript(){
-    var security_nonce = MyAjax.security_nonce;
-    jQuery.ajax({
-        url: MyAjax.ajaxurl,
-        method: "POST",
-        data: { category:'asdf', action:'wta_test_action', security_nonce:security_nonce },
-        dataType: "json",
-        success: function (data) {
-            alert(data);
-        },
-        error: function (e) {
-            alert(e.status);
-        }
-    });
-}
-
 function get_wta_data(outlet, term, date){
     jQuery('#wta_grid').jqxGrid({ disabled: true});
     jQuery("#jqxOutlet").jqxDropDownList({ disabled: true});
@@ -98,6 +82,68 @@ function set_wta_data(outlet, term, id, date, row, user_id){
         },
         error: function (e) {
             alert("Can not access the database!");
+        }
+    });
+}
+
+function get_paid_data(paid_type, date, zref){
+    jQuery('#paid_grid').jqxGrid({ disabled: true});
+    jQuery("#paid_grid").jqxGrid("clearselection");
+    var security_nonce = MyAjax.security_nonce;
+    jQuery.ajax({
+        url: MyAjax.ajaxurl,
+        method: "POST",
+        data: { paid_type:paid_type, date:date, zref:zref, action:'get_paid_data', security_nonce:security_nonce },
+        dataType: "json",
+        success: function (data) {
+            paid_data.length = 0;
+            for(var id in data)
+                paid_data.push(data[id]);
+            jQuery("#paid_grid").jqxGrid('updatebounddata', 'cells');
+            jQuery('#paid_grid').jqxGrid({ disabled: false});
+        },
+        error: function (e) {
+            alert("Can not access the database!");
+            jQuery('#paid_grid').jqxGrid({ disabled: false});
+        }
+    });
+}
+
+function set_paid_data(paid_type, data){
+    paid_changed = 1;
+    var security_nonce = MyAjax.security_nonce;
+    jQuery('#paid_grid').jqxGrid({ disabled: true});
+    jQuery.ajax({
+        url: MyAjax.ajaxurl,
+        method: "POST",
+        data: { paid_type:paid_type, data:data, action:'set_paid_data', security_nonce:security_nonce },
+        dataType: "json",
+        success: function (d) {
+            get_paid_data(paid_type, data.date, data.zref);
+
+        },
+        error: function (e) {
+            alert("Can not access the database!");
+            jQuery('#paid_grid').jqxGrid({ disabled: false});
+        }
+    });
+}
+
+function delete_paid_data(paid_type, id){
+    paid_changed = 1;
+    var security_nonce = MyAjax.security_nonce;
+    jQuery('#paid_grid').jqxGrid({ disabled: true});
+    jQuery.ajax({
+        url: MyAjax.ajaxurl,
+        method: "POST",
+        data: { paid_type:paid_type, id:id, action:'delete_paid_data', security_nonce:security_nonce },
+        dataType: "json",
+        success: function (d) {
+            get_paid_data(paid_type, current_date, current_zref);
+        },
+        error: function (e) {
+            alert("Can not access the database!");
+            jQuery('#paid_grid').jqxGrid({ disabled: false});
         }
     });
 }

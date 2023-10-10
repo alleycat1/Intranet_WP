@@ -5,6 +5,9 @@
      .paid_out {
           cursor: pointer;
      }
+     td {
+          border:0px;
+     }
 </style>
 <?php
 wp_enqueue_script( 'jqxcore' );
@@ -29,6 +32,7 @@ wp_enqueue_script( 'jqxdata.export' );
 wp_enqueue_script( 'jqxgrid.export' );
 wp_enqueue_script( 'jqxcombobox' );
 wp_enqueue_script( 'jqxpopover' );
+wp_enqueue_script( 'jqxwindow' );
 
 // enqueue jQWidgets CSS files
 wp_enqueue_style( 'jqx.base' );
@@ -186,29 +190,64 @@ jQuery(document).ready(function ($) {
 </table>
 
 <div id="popup_paid" hidden>
-     <div id="jqxGrid2">
-     <table border=0 hight=500>
-          <tr>
-               <td style="border:0px;">
-                    <div style="height:40px">
-                         <div style='float: left; margin-top:10px; height:30px' id='ZRef_label'>ZRef:<span>1</span></div>
-                    </div>
-               </td>
-          </tr>
-          <tr>
-               <td>
-                    <div id="paid_grid" style="width:1000px"></div>
-                         <div style="font-size: 12px; font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif; margin-top: 30px;">
-                              <div id="cellbegineditevent2"></div>
-                              <div style="margin-top: 10px;" id="cellendeditevent2"></div>
+     <div>ADD PAID OUT DATA</div>
+     <div style="overflow: hidden;">
+          <table style="width:1080px; border-bottom:0px; height:30px; margin:0px">
+               <tr>
+                    <td colspan=2 style="border-bottom:0px;">
+                         <div id="paid_grid" style="width:1080px; height:250px" ></div>
+                              <div style="font-size: 12px; font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif;">
+                              </div>
                          </div>
-                         <div style="width:1000px">&nbsp;</div>
-                    </div>
-               </td>
-          </tr>
-     </table>
+                    </td>
+               </tr>
+               <tr style="height:30px; margin:0px">
+                    <td border=0 width=50% style="border-bottom:0px; height:30px; margin:0px">
+                         <button style="padding:4px 16px;" id="btn_add">+</button> 
+                         <button style="padding:4px 16px;" id="btn_remove">-</button>
+                    </td>
+                    <td border=0 width=40% style="border-bottom:0px; text-align:right; height:30px; margin:0px">
+                         <button style="padding:4px 16px;" id="btn_close">CLOSE</button> 
+                    </td>
+               </tr>
+          </table>
      </div>
 </div>
+
+<div id="popupEdit" hidden>
+     <div>ADD PAID OUT DATA</div>
+     <div style="overflow: hidden;">
+          <table width=100%>
+               <tr>
+                    <td align="right" style="border:0px">EX VAT(£):</td>
+                    <td align="left" style="border:0px"><input id="ex_vat" style="height:30px" required/></td>
+               </tr>
+               <tr>
+                    <td align="right" style="border:0px">VAT AMOUNT(£):</td>
+                    <td align="left" style="border:0px"><input id="vat_amount" style="height:30px" required/></td>
+               </tr>
+               <tr>
+                    <td align="right" style="border:0px">PAYOUT TYPE:</td>
+                    <td align="left" style="border:0px"><input id="payout_type" style="height:30px" required/></td>
+               </tr>
+               <tr>
+                    <td align="right" style="border:0px">REFERENCE:</td>
+                    <td align="left" style="border:0px"><input id="reference" style="height:30px" /></td>
+               </tr>
+               <tr>
+                    <td align="right" style="border:0px">DESCRIPTION:</td>
+                    <td align="left" style="border:0px"><input id="description" style="height:30px" /></td>
+               </tr>
+               <tr>
+                    <td align="right" style="border:0px"></td>
+                    <td style="padding-top: 10px;border:0px" align="right">
+                         <input style="margin-right: 5px;" type="button" id="Save" value="Save" />
+                         <input id="Cancel" type="button" value="Cancel" />
+                    </td>
+               </tr>
+          </table>
+     </div>
+</div>     
 <?php
      wp_enqueue_script(WTA_NAME . '_wta_ajax',  WTA_PLUGIN_DIR . '/wta_ajax.js', array('jquery'), WTA_VAR, true);
 }
