@@ -90,15 +90,13 @@ function getPaidOutTypeData($conn, &$paidOutTypes)
 
 function getSupplierData($conn, &$suppliers)
 {
-     $sql = "SELECT ID, OutletID, SupplierID, ISNULL(AccountRef, 'Supplier ' + CAST(SupplierID AS VARCHAR(10))) AccountRef FROM OutletsSuppliers WHERE OutletID NOT IN (SELECT ID FROM Outlets WHERE Deleted=1)";
+     $sql = "SELECT ID, SupplierName FROM Suppliers";
      $stmt = sqlsrv_query($conn, $sql);
      if ($stmt === false) {
           return;
      }
      while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-          if(!isset($suppliers[$row['OutletID']]))
-               $suppliers[$row['OutletID']] = array();
-          $suppliers[$row['OutletID']][$row['SupplierID']] = $row['AccountRef'];
+          $suppliers[$row['ID']] = $row['SupplierName'];
      }
 }
 
@@ -179,18 +177,13 @@ if($conn && count($user_outlets) > 0)
      echo "for(var i in terminals[$first_id]) terms[i] = terminals[$first_id][i];";
 
      $supplier_obj = array();
-     foreach($user_outlets as $code => $outlet)
+     foreach($suppliers as $id => $name)
      {
-          $id =  $outlet['id'] + 0;
-          foreach($suppliers[$id] as $supplierId => $supplier_desc)
-          {
-               if(!isset($supplier_obj[$id]))
-                    $supplier_obj[$id] = array();
-               $supplier_obj[$id][count($supplier_obj[$id])] = ['label'=>$supplier_desc, 'value'=>$supplierId];
-          }
+          $supplier_obj[count($supplier_obj)] = ['label'=>$name, 'value'=>$id];
      }
      echo "var suppliers=" . json_encode($supplier_obj) . ";";
      echo "var suppliers_org=" . json_encode($suppliers) . ";";
+
      echo "</script>";
 ?>
 
@@ -274,7 +267,7 @@ function calcPaidOutTotal()
                     <td border=0 width=50% style="border-bottom:0px; height:30px; margin:0px">
                          <button style="padding:4px 16px;" id="btn_add">&nbsp;+&nbsp;</button> 
                     </td>
-                    <td border=0 width=40% style="border-bottom:0px; text-align:right; height:30px; margin:0px">
+                    <td border=0 width=50% style="border-bottom:0px; text-align:right; height:30px; margin:0px">
                          <button style="padding:4px 16px;" id="btn_close">CLOSE</button> 
                     </td>
                </tr>

@@ -4,7 +4,6 @@ var current_outlet = 0;
 var current_zref = 0;
 var current_date = 0;
 var paid_changed = 0;
-var current_suppliers = new Array();
 function show_paid_popup(type, row)
 {
     jQuery('#wta_grid').jqxGrid('endcelledit');
@@ -34,12 +33,6 @@ function show_paid_popup(type, row)
     jQuery("#popup_paid").jqxWindow("open");
     paid_changed = 0;
 
-    current_suppliers.length = 0;
-    for(var i in suppliers[outlet])
-        current_suppliers[i] = suppliers[outlet][i];
-    jQuery("#jqxSupplier").jqxDropDownList('clear');
-    jQuery("#jqxSupplier").jqxDropDownList({ source: current_suppliers, selectedIndex: 0, width: '177', height: '30'});
-
     get_paid_data(paid_type, date, zref);
 }
 
@@ -51,9 +44,9 @@ function delete_paidout(id) {
 
 function initializePaidoutWidgets() {
     jQuery("#jqxPaidOutType").jqxDropDownList({ source: paidOutTypes, selectedIndex: 0, width: '177', height: '30'});
-    jQuery("#jqxSupplier").jqxDropDownList({ source: current_suppliers, selectedIndex: 0, width: '177', height: '30'});
+    jQuery("#jqxSupplier").jqxDropDownList({ source: suppliers, selectedIndex: 0, width: '177', height: '30'});
 
-    jQuery("#popup_paid").jqxWindow({ resizable:false, width: 1080, isModal: true, position: "right", autoOpen: false, title: "Paid out Till", cancelButton: jQuery("#btn_close")});
+    jQuery("#popup_paid").jqxWindow({ resizable:false, width: 1100, isModal: true, position: "right", autoOpen: false, title: "Paid out Till", cancelButton: jQuery("#btn_close")});
     jQuery("#popup_paid").on("close", function(event){
         if(paid_changed == 1)
         {
@@ -114,7 +107,7 @@ function initializePaidoutWidgets() {
     var cellsrenderer_supplier = function (row, column, value, defaultHtml) {
         var element = jQuery(defaultHtml);
         if(row < paid_data.length - 1)
-            element[0].innerHTML = "<center>" + suppliers_org[current_outlet][value] + "</center>";
+            element[0].innerHTML = "<center>" + suppliers_org[value] + "</center>";
         return element[0].outerHTML;
     }
 
@@ -135,7 +128,7 @@ function initializePaidoutWidgets() {
             width = 100;
             height = 30;
         }
-        editor.jqxDropDownList({autoDropDownHeight: true,  width: width, height: height, source: current_suppliers});
+        editor.jqxDropDownList({autoDropDownHeight: true,  width: width, height: height, source: suppliers});
     }
 
     var initGridEditor = function (row, cellValue, editor, cellText, width, height) {
@@ -148,7 +141,7 @@ function initializePaidoutWidgets() {
 
     jQuery("#paid_grid").jqxGrid(
     {
-         width: '1000',
+         width: '1050',
          height: '250',
          source: dataAdapterPaid,
          columnsresize: true,
