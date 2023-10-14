@@ -5,10 +5,13 @@
      .paid_out {
           cursor: pointer;
      }
-     td {
+     .my_td{
+          padding-top:5px;
+          padding-bottom:5px;
           border:0px;
      }
 </style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <?php
 wp_enqueue_script( 'jqxcore' );
 wp_enqueue_script( 'jqxdatetimeinput' );
@@ -73,10 +76,34 @@ function getTerminalData($conn, &$terminals)
      }
 }
 
+function getPaidOutTypeData($conn, &$paidOutTypes)
+{
+     $sql = "SELECT ID, Description FROM SettingsPayoutTypes";
+     $stmt = sqlsrv_query($conn, $sql);
+     if ($stmt === false) {
+          return;
+     }
+     while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+          $paidOutTypes[$row['ID']] = $row['Description'];
+     }
+}
+
+function getSupplierData($conn, &$suppliers)
+{
+     $sql = "SELECT ID, OutletID, SupplierID, ISNULL(AccountRef, 'Supplier ' + CAST(SupplierID AS VARCHAR(10))) AccountRef FROM OutletsSuppliers WHERE OutletID NOT IN (SELECT ID FROM Outlets WHERE Deleted=1)";
+     $stmt = sqlsrv_query($conn, $sql);
+     if ($stmt === false) {
+          return;
+     }
+     while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+          if(!isset($suppliers[$row['OutletID']]))
+               $suppliers[$row['OutletID']] = array();
+          $suppliers[$row['OutletID']][$row['SupplierID']] = $row['AccountRef'];
+     }
+}
+
 $outlets = array();
-$terminals = array();
 getOutLetData($conn, $outlets);
-getTerminalData($conn, $terminals);
 
 $user_outlets = array();
 $user = wp_get_current_user();
@@ -104,17 +131,33 @@ if(count($user_outlets) == 0)
 
 if($conn && count($user_outlets) > 0)
 {
+     $terminals = array();
+     getTerminalData($conn, $terminals);
+
+     $paidOutTypes = array();
+     getPaidOutTypeData($conn, $paidOutTypes);
+
+     $suppliers = array();
+     getSupplierData($conn, $suppliers);
+
      sqlsrv_close($conn);
 
      echo "<script>";
      echo "var user_id = $user->id;";
-     echo "var terms = Array();";
      $outlet_obj = array();
      foreach($user_outlets as $code => $outlet)
      {
           $outlet_obj[count($outlet_obj)] = ['label'=>($code." - ".$outlet['name']), 'value'=>$outlet['id']];
      }
      echo "var outlets=" . json_encode($outlet_obj) . ";";
+
+     $paidOutType_obj = array();
+     foreach($paidOutTypes as $id => $type)
+     {
+          $paidOutType_obj[count($paidOutType_obj)] = ['label'=>$type, 'value'=>$id];
+     }
+     echo "var paidOutTypes=" . json_encode($paidOutType_obj) . ";";
+     echo "var paidOutTypes_org=" . json_encode($paidOutTypes) . ";";
 
      $terminal_obj = array();
      $first_id = "";
@@ -131,9 +174,23 @@ if($conn && count($user_outlets) > 0)
           }
      }
      echo "var terminals=" . json_encode($terminal_obj) . ";";
-     echo "var terms;";
+     echo "var terms = Array();";
      echo "var tabId=0;";
      echo "for(var i in terminals[$first_id]) terms[i] = terminals[$first_id][i];";
+
+     $supplier_obj = array();
+     foreach($user_outlets as $code => $outlet)
+     {
+          $id =  $outlet['id'] + 0;
+          foreach($suppliers[$id] as $supplierId => $supplier_desc)
+          {
+               if(!isset($supplier_obj[$id]))
+                    $supplier_obj[$id] = array();
+               $supplier_obj[$id][count($supplier_obj[$id])] = ['label'=>$supplier_desc, 'value'=>$supplierId];
+          }
+     }
+     echo "var suppliers=" . json_encode($supplier_obj) . ";";
+     echo "var suppliers_org=" . json_encode($suppliers) . ";";
      echo "</script>";
 ?>
 
@@ -144,6 +201,15 @@ jQuery(document).ready(function ($) {
      initializeSummaryWidgets();
 });
 
+function calcPaidOutTotal()
+{
+     ex_vat =  parseFloat(document.getElementById("ex_vat").value);
+     vat_amount =  parseFloat(document.getElementById("vat_amount").value);
+     ex_vat = isNaN(ex_vat) ? 0 : ex_vat;
+     vat_amount = isNaN(vat_amount) ? 0 : vat_amount;
+     total = ex_vat + vat_amount;
+     document.getElementById("paidout_total_amount").value = total;
+}
 </script>
 <table border=0 hight=500>
      <tr>
@@ -153,7 +219,10 @@ jQuery(document).ready(function ($) {
                          <ul style="margin:0px">
                               <li id="btnWTA">Weekly Trading Analysis</li>
                               <li id="btnSummary">Summary</li>
+                              <li id="btnPaidOuts">Paid Outs</li>
+                              <li id="btnOtherIncome">Other Income</li>
                               <li id="btnCashCounts">Cash Counts</li>
+                              <li id="btnBankingAdjustments">Banking & Adjustments</li>
                               <li id="current_cash" style="margin-left:100px;border:0px;">Current Cash on Site: £10.00<li>
                          </ul>
                     </div>
@@ -203,8 +272,7 @@ jQuery(document).ready(function ($) {
                </tr>
                <tr style="height:30px; margin:0px">
                     <td border=0 width=50% style="border-bottom:0px; height:30px; margin:0px">
-                         <button style="padding:4px 16px;" id="btn_add">+</button> 
-                         <button style="padding:4px 16px;" id="btn_remove">-</button>
+                         <button style="padding:4px 16px;" id="btn_add">&nbsp;+&nbsp;</button> 
                     </td>
                     <td border=0 width=40% style="border-bottom:0px; text-align:right; height:30px; margin:0px">
                          <button style="padding:4px 16px;" id="btn_close">CLOSE</button> 
@@ -219,30 +287,38 @@ jQuery(document).ready(function ($) {
      <div style="overflow: hidden;">
           <table width=100%>
                <tr>
-                    <td align="right" style="border:0px">EX VAT(£):</td>
-                    <td align="left" style="border:0px"><input id="ex_vat" style="height:30px" required/></td>
+                    <td class="my_td" align="right">PAYOUT TYPE:</td>
+                    <td class="my_td" align="left"><div style='float: left; margin-top: 10px;' id='jqxPaidOutType'></div></td>
                </tr>
                <tr>
-                    <td align="right" style="border:0px">VAT AMOUNT(£):</td>
-                    <td align="left" style="border:0px"><input id="vat_amount" style="height:30px" required/></td>
+                    <td class="my_td" align="right">SUPPLIER:</td>
+                    <td class="my_td" align="left"><div style='float: left;' id='jqxSupplier'></div></td>
                </tr>
                <tr>
-                    <td align="right" style="border:0px">PAYOUT TYPE:</td>
-                    <td align="left" style="border:0px"><input id="payout_type" style="height:30px" required/></td>
+                    <td class="my_td" align="right">EX VAT(£):</td>
+                    <td class="my_td" align="left"><input id="ex_vat" style="height:30px" onchange="javascript:calcPaidOutTotal()" required/></td>
                </tr>
                <tr>
-                    <td align="right" style="border:0px">REFERENCE:</td>
-                    <td align="left" style="border:0px"><input id="reference" style="height:30px" /></td>
+                    <td class="my_td" align="right">VAT AMOUNT(£):</td>
+                    <td class="my_td" align="left"><input id="vat_amount" style="height:30px" onchange="javascript:calcPaidOutTotal()" required/></td>
                </tr>
                <tr>
-                    <td align="right" style="border:0px">DESCRIPTION:</td>
-                    <td align="left" style="border:0px"><input id="description" style="height:30px" /></td>
+                    <td class="my_td" align="right">TOTAL(£):</td>
+                    <td class="my_td" align="left"><input id="paidout_total_amount" style="height:30px" readonly/></td>
                </tr>
                <tr>
-                    <td align="right" style="border:0px"></td>
-                    <td style="padding-top: 10px;border:0px" align="right">
-                         <input style="margin-right: 5px;" type="button" id="Save" value="Save" />
+                    <td class="my_td" align="right">REFERENCE:</td>
+                    <td class="my_td" align="left"><input id="reference" style="height:30px" /></td>
+               </tr>
+               <tr>
+                    <td class="my_td" align="right">DESCRIPTION:</td>
+                    <td class="my_td" align="left" ><input id="description" style="height:30px" /></td>
+               </tr>
+               <tr>
+                    <td class="my_td" align="left"></td>
+                    <td class="my_td" align="right">
                          <input id="Cancel" type="button" value="Cancel" />
+                         <input type="button" id="Save" value="  Save  " />
                     </td>
                </tr>
           </table>

@@ -61,8 +61,8 @@ if ( ! function_exists('get_wta_data') ) {
                 $sql = "SELECT WTA.ID AS ID, CONVERT(varchar(10), WTA.Date, 103) AS Date, ZRef, SalesEXVAT AS ExVat, VATAmount AS Vat, SalesEXVAT+VATAmount AS IncVat, Disrepancy, ISNULL(FromTill, 0) AS FromTill, ISNULL(FromSafe,0) AS FromSafe, AccountSales, AccountReceipts, CardsBanking, 
                             SalesEXVAT + VATAmount + Disrepancy - ISNULL(FromTill, 0) - AccountSales + AccountReceipts - CardsBanking AS Cash 
                         FROM WTA 
-                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ZRef AND t1.Date = WTA.Date
-                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ZRef AND t2.Date = WTA.Date
+                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ZRef AND t1.Date = WTA.Date
+                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ZRef AND t2.Date = WTA.Date
                         WHERE OutletID=$outlet AND TerminalID=$term AND WTA.Date>='$week_start_str' AND WTA.Date<='$week_end_str'";
 
                 $stmt = sqlsrv_query($conn, $sql);
@@ -200,8 +200,8 @@ if ( ! function_exists('get_summary_data') ) {
                 $sql = "SELECT CONVERT(varchar(10), WTA.Date, 103) AS Date, SUM(CASE WHEN ZRef > 0 THEN 1 ELSE 0 END) AS ZRef, SUM(SalesEXVAT) AS ExVat, SUM(VATAmount) AS Vat, SUM(SalesEXVAT+VATAmount) AS IncVat, SUM(Disrepancy) Disrepancy, SUM(ISNULL(FromTill, 0)) AS FromTill, SUM(ISNULL(FromSafe,0)) AS FromSafe, SUM(AccountSales) AccountSales, SUM(AccountReceipts) AccountReceipts, SUM(CardsBanking) CardsBanking, 
                             SUM(SalesEXVAT) + SUM(VATAmount) + SUM(Disrepancy) - SUM(ISNULL(FromTill, 0)) - SUM(AccountSales) + SUM(AccountReceipts) - SUM(CardsBanking) AS Cash 
                         FROM WTA 
-                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ZRef AND t1.Date = WTA.Date
-                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ZRef AND t2.Date = WTA.Date
+                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ZRef AND t1.Date = WTA.Date
+                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ZRef AND t2.Date = WTA.Date
                         WHERE OutletID=$outlet AND WTA.Date>='$week_start_str' AND WTA.Date<='$week_end_str' GROUP BY WTA.Date";
                 $stmt = sqlsrv_query($conn, $sql);
 
@@ -371,7 +371,7 @@ if ( ! function_exists('get_paid_data') ) {
                 else
                     $tbl_name = "WTASafePayouts";
     
-                $sql = sprintf("SELECT ID, CONVERT(varchar(10), Date, 103) Date, ZRefID, PayoutEXVAT, PayoutVATAmount, PayoutType, Reference, Description FROM ".$tbl_name." WHERE Date='%s' AND ZRefID=%d ORDER BY ID", $date_str, $zref);
+                $sql = sprintf("SELECT ID, CONVERT(varchar(10), Date, 103) Date, ZRefID, PayoutEXVAT, PayoutVATAmount, PayoutEXVAT + PayoutVATAmount total, PayoutType, SupplierID, Reference, Description FROM ".$tbl_name." WHERE Date='%s' AND ZRefID=%d ORDER BY ID", $date_str, $zref);
 
                 $stmt = sqlsrv_query($conn, $sql);
 
@@ -388,7 +388,9 @@ if ( ! function_exists('get_paid_data') ) {
                     $res[$row['ID']]['zref'] = $row['ZRefID'];
                     $res[$row['ID']]['ex_vat'] = $row['PayoutEXVAT'];
                     $res[$row['ID']]['vat_amount'] = $row['PayoutVATAmount'];
+                    $res[$row['ID']]['total'] = $row['total'];
                     $res[$row['ID']]['payout_type'] = $row['PayoutType'];
+                    $res[$row['ID']]['supplier'] = $row['SupplierID'];
                     $res[$row['ID']]['reference'] = $row['Reference'];
                     $res[$row['ID']]['description'] = $row['Description'];
 
@@ -400,7 +402,9 @@ if ( ! function_exists('get_paid_data') ) {
                 $res[$row['ID']]['zref'] = '';
                 $res[$row['ID']]['ex_vat'] = $ex_sum;
                 $res[$row['ID']]['vat_amount'] = $amount_sum;
+                $res[$row['ID']]['total'] = $ex_sum + $amount_sum;
                 $res[$row['ID']]['payout_type'] = '';
+                $res[$row['ID']]['supplier'] = '';
                 $res[$row['ID']]['reference'] = '';
                 $res[$row['ID']]['description'] = '';
 
@@ -455,8 +459,8 @@ if ( ! function_exists('set_paid_data') ) {
                     while ($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
                         $new_id = $r['new_id'];
                     }
-                    $sql = sprintf("INSERT INTO $tbl_name(ID, Date, ZRefID, PayoutEXVAT, PayoutVATAmount, PayoutType, Reference, Description) VALUES(%d, '%s', %d, %f, %f, %d, '%s', '%s')",
-                                   $new_id, $date_str, $data['zref'], $data['ex_vat'], $data['vat_amount'], $data["payout_type"], $data["reference"], $data["description"]);
+                    $sql = sprintf("INSERT INTO $tbl_name(ID, Date, ZRefID, PayoutEXVAT, PayoutVATAmount, PayoutType, SupplierID, Reference, Description) VALUES(%d, '%s', %d, %f, %f, %d, %d, '%s', '%s')",
+                                   $new_id, $date_str, $data['zref'], $data['ex_vat'], $data['vat_amount'], $data["payout_type"], $data["supplier"], $data["reference"], $data["description"]);
                     $stmt = sqlsrv_query($conn, $sql);
                     if ($stmt === false) {
                         sqlsrv_close($conn);
@@ -465,8 +469,8 @@ if ( ! function_exists('set_paid_data') ) {
                 }
                 else
                 {
-                    $sql = sprintf("UPDATE $tbl_name SET Date='%s', ZRefID=%d, PayoutEXVAT=%f, PayoutVATAmount=%f, PayoutType=%d, Reference='%s', Description='%s' WHERE ID=%d",
-                                    $date_str, $data['zref'], $data['ex_vat'], $data['vat_amount'], $data["payout_type"], $data["reference"], $data["description"], $data["id"]);
+                    $sql = sprintf("UPDATE $tbl_name SET Date='%s', ZRefID=%d, PayoutEXVAT=%f, PayoutVATAmount=%f, PayoutType=%d, SupplierID=%d, Reference='%s', Description='%s' WHERE ID=%d",
+                                    $date_str, $data['zref'], $data['ex_vat'], $data['vat_amount'], $data["payout_type"], $data["supplier"], $data["reference"], $data["description"], $data["id"]);
                     $stmt = sqlsrv_query($conn, $sql);
                     if ($stmt === false) {
                         sqlsrv_close($conn);

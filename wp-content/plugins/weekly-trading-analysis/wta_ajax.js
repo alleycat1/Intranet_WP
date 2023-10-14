@@ -88,7 +88,8 @@ function set_wta_data(outlet, term, id, date, row, user_id){
 
 function get_paid_data(paid_type, date, zref){
     jQuery('#paid_grid').jqxGrid({ disabled: true});
-    jQuery("#paid_grid").jqxGrid("clearselection");
+    if(paid_data.length > 0)
+        jQuery("#paid_grid").jqxGrid("clearselection");
     var security_nonce = MyAjax.security_nonce;
     jQuery.ajax({
         url: MyAjax.ajaxurl,

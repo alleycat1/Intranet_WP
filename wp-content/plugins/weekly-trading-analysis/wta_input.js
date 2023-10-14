@@ -75,18 +75,16 @@ function initializeInputWidgets() {
     }
 
     var cellsrenderer_disrepancy = function (row, column, value, defaultHtml) {
+         var element = jQuery(defaultHtml);
          if (value < 0) {
-              var element = jQuery(defaultHtml);
               element.css('color', '#880000');
               return element[0].outerHTML;
          }
          else if (value == 0) {
-              var element = jQuery(defaultHtml);
               element.css('color', '#000000');
               return element[0].outerHTML;
          }
          else{
-              var element = jQuery(defaultHtml);
               element.css('color', '#008800');
               return element[0].outerHTML;
          }
@@ -94,15 +92,14 @@ function initializeInputWidgets() {
     }
 
     var cellsrenderer_zref = function (row, column, value, defaultHtml) {
+        var element = jQuery(defaultHtml);
         if (value > 0 && row < 7) {
-             var element = jQuery(defaultHtml);
              value = value.toString().padStart(4, '0');
              element[0].innerHTML = value;
              return element[0].outerHTML;
         }
         else if(value == 0 && row < 7)
         {
-            var element = jQuery(defaultHtml);
             element[0].innerHTML = '';
             return element[0].outerHTML;
         }
@@ -171,7 +168,10 @@ function initializeInputWidgets() {
         tabId = 0;
         document.getElementById("btnWTA").style.border = "1px solid #000088";
         document.getElementById("btnSummary").style.border = defaultBorder;
+        document.getElementById("btnPaidOuts").style.border = defaultBorder;
+        document.getElementById("btnOtherIncome").style.border = defaultBorder;
         document.getElementById("btnCashCounts").style.border = defaultBorder;
+        document.getElementById("btnBankingAdjustments").style.border = defaultBorder;
         document.getElementById("tabWTA").hidden = "";
         document.getElementById("tabSummary").hidden = "hidden";
         document.getElementById("tabCashCount").hidden = "hidden";
@@ -188,7 +188,10 @@ function initializeInputWidgets() {
         tabId = 1;
         document.getElementById("btnWTA").style.border = defaultBorder;
         document.getElementById("btnSummary").style.border = "1px solid #000088";
+        document.getElementById("btnPaidOuts").style.border = defaultBorder;
+        document.getElementById("btnOtherIncome").style.border = defaultBorder;
         document.getElementById("btnCashCounts").style.border = defaultBorder;
+        document.getElementById("btnBankingAdjustments").style.border = defaultBorder;
         document.getElementById("tabWTA").hidden = "hidden";
         document.getElementById("tabSummary").hidden = "";
         document.getElementById("tabCashCount").hidden = "hidden";
@@ -198,15 +201,60 @@ function initializeInputWidgets() {
         document.getElementById("jqxOutlet").hidden = "";
         document.getElementById("jqxTerm").hidden = "hidden";
     });
-    jQuery("#btnCashCounts").on('click', function (e) {
+    jQuery("#btnPaidOuts").on('click', function (e) {
         tabId = 2;
         document.getElementById("btnWTA").style.border = defaultBorder;
         document.getElementById("btnSummary").style.border = defaultBorder;
-        document.getElementById("btnCashCounts").style.border = "1px solid #000088";
+        document.getElementById("btnPaidOuts").style.border = "1px solid #000088";
+        document.getElementById("btnOtherIncome").style.border = defaultBorder;
+        document.getElementById("btnCashCounts").style.border = defaultBorder;
+        document.getElementById("btnBankingAdjustments").style.border = defaultBorder;
         document.getElementById("tabWTA").hidden = "hidden";
         document.getElementById("tabSummary").hidden = "hidden";
         document.getElementById("tabCashCount").hidden = "";
         document.getElementById("jqxOutlet").hidden = "";
         document.getElementById("jqxTerm").hidden = "";
     });
+    jQuery("#btnOtherIncome").on('click', function (e) {
+          tabId = 3;
+          document.getElementById("btnWTA").style.border = defaultBorder;
+          document.getElementById("btnSummary").style.border = defaultBorder;
+          document.getElementById("btnPaidOuts").style.border = defaultBorder;
+          document.getElementById("btnOtherIncome").style.border = "1px solid #000088";
+          document.getElementById("btnCashCounts").style.border = defaultBorder;
+          document.getElementById("btnBankingAdjustments").style.border = defaultBorder;
+          document.getElementById("tabWTA").hidden = "hidden";
+          document.getElementById("tabSummary").hidden = "hidden";
+          document.getElementById("tabCashCount").hidden = "";
+          document.getElementById("jqxOutlet").hidden = "";
+          document.getElementById("jqxTerm").hidden = "";
+     });
+    jQuery("#btnCashCounts").on('click', function (e) {
+        tabId = 4;
+        document.getElementById("btnWTA").style.border = defaultBorder;
+        document.getElementById("btnSummary").style.border = defaultBorder;
+        document.getElementById("btnPaidOuts").style.border = defaultBorder;
+        document.getElementById("btnOtherIncome").style.border = defaultBorder;
+        document.getElementById("btnCashCounts").style.border = "1px solid #000088";
+        document.getElementById("btnBankingAdjustments").style.border = defaultBorder;
+        document.getElementById("tabWTA").hidden = "hidden";
+        document.getElementById("tabSummary").hidden = "hidden";
+        document.getElementById("tabCashCount").hidden = "";
+        document.getElementById("jqxOutlet").hidden = "";
+        document.getElementById("jqxTerm").hidden = "";
+    });
+    jQuery("#btnBankingAdjustments").on('click', function (e) {
+          tabId = 5;
+          document.getElementById("btnWTA").style.border = defaultBorder;
+          document.getElementById("btnSummary").style.border = defaultBorder;
+          document.getElementById("btnPaidOuts").style.border = defaultBorder;
+          document.getElementById("btnOtherIncome").style.border = defaultBorder;
+          document.getElementById("btnCashCounts").style.border = defaultBorder;
+          document.getElementById("btnBankingAdjustments").style.border = "1px solid #000088";
+          document.getElementById("tabWTA").hidden = "hidden";
+          document.getElementById("tabSummary").hidden = "hidden";
+          document.getElementById("tabCashCount").hidden = "";
+          document.getElementById("jqxOutlet").hidden = "";
+          document.getElementById("jqxTerm").hidden = "";
+     });
 }
