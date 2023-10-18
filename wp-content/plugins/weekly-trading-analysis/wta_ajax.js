@@ -57,6 +57,22 @@ function get_summary_data(outlet, date){
     });
 }
 
+function get_cash_on_site(outlet, date){
+    var security_nonce = MyAjax.security_nonce;
+    jQuery.ajax({
+        url: MyAjax.ajaxurl,
+        method: "POST",
+        data: { outlet:outlet, date:date, action:'get_cash_on_site', security_nonce:security_nonce },
+        dataType: "json",
+        success: function (data) {
+            document.getElementById('current_cash').innerHTML = "Current Cash on Site: £ " + parseFloat(data['CashOnSite']).toFixed(2);
+        },
+        error: function (e) {
+            alert("Can not access the database!");
+        }
+    });
+}
+
 jQuery(document).ready(function($) {
     if(window.innerWidth < 1300)
     {

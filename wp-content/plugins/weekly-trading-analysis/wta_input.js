@@ -15,6 +15,7 @@ function initializeInputWidgets() {
             outlet = jQuery("#jqxOutlet").val();
             get_summary_data(outlet, date);
         }
+        getCashOnSite();
     });
 
     jQuery("#jqxTerm").jqxDropDownList({ source: terms, selectedIndex: 0, width: '200', height: '30px'});
@@ -39,6 +40,7 @@ function initializeInputWidgets() {
         {
             get_summary_data(outlet, date);
         }
+        getCashOnSite();
     });
 
 
@@ -257,4 +259,10 @@ function initializeInputWidgets() {
           document.getElementById("jqxOutlet").hidden = "";
           document.getElementById("jqxTerm").hidden = "";
      });
+}
+
+function getCashOnSite() {
+     outlet = jQuery("#jqxOutlet").val();
+     date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
+     get_cash_on_site(outlet, date);
 }

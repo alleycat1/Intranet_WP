@@ -192,6 +192,8 @@ jQuery(document).ready(function ($) {
      initializePaidoutWidgets();
      initializeInputWidgets();
      initializeSummaryWidgets();
+     setInterval(getCashOnSite, 10*1000);
+     getCashOnSite();
 });
 
 function calcPaidOutTotal()
@@ -216,7 +218,7 @@ function calcPaidOutTotal()
                               <li id="btnOtherIncome">Other Income</li>
                               <li id="btnCashCounts">Cash Counts</li>
                               <li id="btnBankingAdjustments">Banking & Adjustments</li>
-                              <li id="current_cash" style="margin-left:100px;border:0px;">Current Cash on Site: £10.00<li>
+                              <li id="current_cash" style="margin-left:100px;border:0px;">Current Cash on Site: £0.00<li>
                          </ul>
                     </div>
                </div>

@@ -484,6 +484,7 @@ if ( ! function_exists('set_paid_data') ) {
                 );
                 echo json_encode($response);
             }
+            sqlsrv_close($conn);
         }
         else
         {
@@ -531,6 +532,7 @@ if ( ! function_exists('delete_paid_data') ) {
                 );
                 echo json_encode($response);
             }
+            sqlsrv_close($conn);
         }
         else
         {
@@ -543,5 +545,62 @@ if ( ! function_exists('delete_paid_data') ) {
         die;
 	}
     add_action('wp_ajax_delete_paid_data', 'delete_paid_data');
+}
+
+if ( ! function_exists('get_cash_on_site') ) {
+	function get_cash_on_site(){
+        header('Content-Type: application/json');
+        require __DIR__ ."/../../../db_config.php";
+        global $serverName;
+        global $connectionInfo;
+        $conn = sqlsrv_connect($serverName, $connectionInfo);
+        if($conn)
+        {
+            if(isset($_POST) && !empty($_POST)){
+                $outlet = $_POST['outlet'];
+                $date_str = $_POST['date'];
+
+                $date = DateTime::createFromFormat('d/m/Y', $date_str);
+                $week_start = clone $date;
+                $week_end = clone $date;
+                $week_start->modify('this week');
+                $week_end->modify('this week +6 days');
+
+                $week_start_str = $week_start->format('Y-m-d');
+                $week_end_str = $week_end->format('Y-m-d');
+                
+                $sql = "SELECT (SELECT PremisesFloat FROM Outlets WHERE ID = $outlet) + 
+                        (SELECT ISNULL(ISNULL(SUM(SalesEXVAT),0) + ISNULL(SUM(VATAmount),0) + ISNULL(SUM(Disrepancy),0) - SUM(ISNULL(FromTill, 0)) - ISNULL(SUM(AccountSales),0) + ISNULL(SUM(AccountReceipts),0) - ISNULL(SUM(CardsBanking),0),0) AS Cash 
+                        FROM WTA 
+                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ZRef AND t1.Date = WTA.Date
+                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ZRef AND t2.Date = WTA.Date
+                        WHERE OutletID=$outlet AND WTA.Date>='$week_start_str' AND WTA.Date<='$week_end_str') 
+                        - (SELECT ISNULL(SUM(Amount),0) FROM WTABanking WHERE OutletId=$outlet AND Date>'$week_start_str' AND Date<'$week_end_str') AS Cash";
+                $stmt = sqlsrv_query($conn, $sql);
+
+                if ($stmt === false) {
+                    sqlsrv_close($conn);
+                    die(print_r(sqlsrv_errors(), true));
+                }
+                $Cash = 0;
+                while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                    $Cash = $row['Cash'];
+                }
+                $res = array('CashOnSite' => $Cash);
+                echo json_encode($res);
+            }
+            sqlsrv_close($conn);
+        }
+        else
+        {
+            $response = array(
+                'status' => 'failed',
+                'message' => 'Can not to connect to SQL Server.'
+            );
+            echo json_encode($response);
+        }
+        die;
+	}
+    add_action('wp_ajax_get_cash_on_site', 'get_cash_on_site');
 }
 ?>
