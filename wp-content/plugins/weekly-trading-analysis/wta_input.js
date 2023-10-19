@@ -10,10 +10,15 @@ function initializeInputWidgets() {
             terms[i] = terminals[outlets[e.args.index].value][i];
         jQuery("#jqxTerm").jqxDropDownList('clear');
         jQuery("#jqxTerm").jqxDropDownList({ source: terms, selectedIndex: 0, width: '200', height: '30px'});
+        outlet = jQuery("#jqxOutlet").val();
+        date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
         if(tabId == 1)
         {
-            outlet = jQuery("#jqxOutlet").val();
             get_summary_data(outlet, date);
+        }
+        else if(tabId == 2)
+        {
+            get_paidout_view_data(outlet, date);
         }
         getCashOnSite();
     });
@@ -39,6 +44,10 @@ function initializeInputWidgets() {
         if(tabId == 1)
         {
             get_summary_data(outlet, date);
+        }
+        else if(tabId == 2)
+        {
+            get_paidout_view_data(outlet, date);
         }
         getCashOnSite();
     });
@@ -164,7 +173,10 @@ function initializeInputWidgets() {
     document.getElementById("btnWTA").style.border = "1px solid #000088";
     document.getElementById("tabWTA").hidden = "";
     document.getElementById("tabSummary").hidden = "hidden";
+    document.getElementById("tabPaidOuts").hidden = "hidden";
+    document.getElementById("tabOtherIncome").hidden = "hidden";
     document.getElementById("tabCashCount").hidden = "hidden";
+    document.getElementById("tabBanking").hidden = "hidden";
     document.getElementById("popup_paid").hidden = "hidden";
     jQuery("#btnWTA").on('click', function (e) {
         tabId = 0;
@@ -176,7 +188,10 @@ function initializeInputWidgets() {
         document.getElementById("btnBankingAdjustments").style.border = defaultBorder;
         document.getElementById("tabWTA").hidden = "";
         document.getElementById("tabSummary").hidden = "hidden";
+        document.getElementById("tabPaidOuts").hidden = "hidden";
+        document.getElementById("tabOtherIncome").hidden = "hidden";
         document.getElementById("tabCashCount").hidden = "hidden";
+        document.getElementById("tabBanking").hidden = "hidden";
 
         jQuery('#wta_grid').jqxGrid('endcelledit');
         outlet = jQuery("#jqxOutlet").val();
@@ -196,7 +211,10 @@ function initializeInputWidgets() {
         document.getElementById("btnBankingAdjustments").style.border = defaultBorder;
         document.getElementById("tabWTA").hidden = "hidden";
         document.getElementById("tabSummary").hidden = "";
+        document.getElementById("tabPaidOuts").hidden = "hidden";
+        document.getElementById("tabOtherIncome").hidden = "hidden";
         document.getElementById("tabCashCount").hidden = "hidden";
+        document.getElementById("tabBanking").hidden = "hidden";
         date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
         outlet = jQuery("#jqxOutlet").val();
         get_summary_data(outlet, date);
@@ -213,23 +231,31 @@ function initializeInputWidgets() {
         document.getElementById("btnBankingAdjustments").style.border = defaultBorder;
         document.getElementById("tabWTA").hidden = "hidden";
         document.getElementById("tabSummary").hidden = "hidden";
-        document.getElementById("tabCashCount").hidden = "";
+        document.getElementById("tabPaidOuts").hidden = "";
+        document.getElementById("tabOtherIncome").hidden = "hidden";
+        document.getElementById("tabCashCount").hidden = "hidden";
+        document.getElementById("tabBanking").hidden = "hidden";
+        date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
         document.getElementById("jqxOutlet").hidden = "";
-        document.getElementById("jqxTerm").hidden = "";
+        document.getElementById("jqxTerm").hidden = "hidden";
     });
     jQuery("#btnOtherIncome").on('click', function (e) {
-          tabId = 3;
-          document.getElementById("btnWTA").style.border = defaultBorder;
-          document.getElementById("btnSummary").style.border = defaultBorder;
-          document.getElementById("btnPaidOuts").style.border = defaultBorder;
-          document.getElementById("btnOtherIncome").style.border = "1px solid #000088";
-          document.getElementById("btnCashCounts").style.border = defaultBorder;
-          document.getElementById("btnBankingAdjustments").style.border = defaultBorder;
-          document.getElementById("tabWTA").hidden = "hidden";
-          document.getElementById("tabSummary").hidden = "hidden";
-          document.getElementById("tabCashCount").hidden = "";
-          document.getElementById("jqxOutlet").hidden = "";
-          document.getElementById("jqxTerm").hidden = "";
+        tabId = 3;
+        document.getElementById("btnWTA").style.border = defaultBorder;
+        document.getElementById("btnSummary").style.border = defaultBorder;
+        document.getElementById("btnPaidOuts").style.border = defaultBorder;
+        document.getElementById("btnOtherIncome").style.border = "1px solid #000088";
+        document.getElementById("btnCashCounts").style.border = defaultBorder;
+        document.getElementById("btnBankingAdjustments").style.border = defaultBorder;
+        document.getElementById("tabWTA").hidden = "hidden";
+        document.getElementById("tabSummary").hidden = "hidden";
+        document.getElementById("tabPaidOuts").hidden = "hidden";
+        document.getElementById("tabOtherIncome").hidden = "";
+        document.getElementById("tabCashCount").hidden = "hidden";
+        document.getElementById("tabBanking").hidden = "hidden";
+        date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
+        document.getElementById("jqxOutlet").hidden = "";
+        document.getElementById("jqxTerm").hidden = "";
      });
     jQuery("#btnCashCounts").on('click', function (e) {
         tabId = 4;
@@ -241,23 +267,29 @@ function initializeInputWidgets() {
         document.getElementById("btnBankingAdjustments").style.border = defaultBorder;
         document.getElementById("tabWTA").hidden = "hidden";
         document.getElementById("tabSummary").hidden = "hidden";
+        document.getElementById("tabPaidOuts").hidden = "hidden";
+        document.getElementById("tabOtherIncome").hidden = "hidden";
         document.getElementById("tabCashCount").hidden = "";
+        document.getElementById("tabBanking").hidden = "hidden";
         document.getElementById("jqxOutlet").hidden = "";
         document.getElementById("jqxTerm").hidden = "";
     });
     jQuery("#btnBankingAdjustments").on('click', function (e) {
-          tabId = 5;
-          document.getElementById("btnWTA").style.border = defaultBorder;
-          document.getElementById("btnSummary").style.border = defaultBorder;
-          document.getElementById("btnPaidOuts").style.border = defaultBorder;
-          document.getElementById("btnOtherIncome").style.border = defaultBorder;
-          document.getElementById("btnCashCounts").style.border = defaultBorder;
-          document.getElementById("btnBankingAdjustments").style.border = "1px solid #000088";
-          document.getElementById("tabWTA").hidden = "hidden";
-          document.getElementById("tabSummary").hidden = "hidden";
-          document.getElementById("tabCashCount").hidden = "";
-          document.getElementById("jqxOutlet").hidden = "";
-          document.getElementById("jqxTerm").hidden = "";
+        tabId = 5;
+        document.getElementById("btnWTA").style.border = defaultBorder;
+        document.getElementById("btnSummary").style.border = defaultBorder;
+        document.getElementById("btnPaidOuts").style.border = defaultBorder;
+        document.getElementById("btnOtherIncome").style.border = defaultBorder;
+        document.getElementById("btnCashCounts").style.border = defaultBorder;
+        document.getElementById("btnBankingAdjustments").style.border = "1px solid #000088";
+        document.getElementById("tabWTA").hidden = "hidden";
+        document.getElementById("tabSummary").hidden = "hidden";
+        document.getElementById("tabPaidOuts").hidden = "hidden";
+        document.getElementById("tabOtherIncome").hidden = "hidden";
+        document.getElementById("tabCashCount").hidden = "hidden";
+        document.getElementById("tabBanking").hidden = "";
+        document.getElementById("jqxOutlet").hidden = "";
+        document.getElementById("jqxTerm").hidden = "";
      });
 }
 

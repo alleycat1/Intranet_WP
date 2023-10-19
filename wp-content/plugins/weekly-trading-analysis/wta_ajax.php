@@ -603,4 +603,112 @@ if ( ! function_exists('get_cash_on_site') ) {
 	}
     add_action('wp_ajax_get_cash_on_site', 'get_cash_on_site');
 }
+
+if ( ! function_exists('get_paidout_view_data') ) {
+	function get_paidout_view_data(){
+        header('Content-Type: application/json');
+        require __DIR__ ."/../../../db_config.php";
+        global $serverName;
+        global $connectionInfo;
+        $conn = sqlsrv_connect($serverName, $connectionInfo);
+        if($conn)
+        {
+            if(isset($_POST) && !empty($_POST)){
+                $outlet = $_POST['outlet'];
+                $date_str = $_POST['date'];
+
+                $date = DateTime::createFromFormat('d/m/Y', $date_str);
+                $week_start = clone $date;
+                $week_end = clone $date;
+                $week_start->modify('this week');
+                $week_end->modify('this week +6 days');
+
+                $week_start_str = $week_start->format('Y-m-d');
+                $week_end_str = $week_end->format('Y-m-d');
+                
+                $sql = "SELECT CONVERT(varchar(10), Date, 103) date, ZRefID zref, PayoutEXVAT ex_vat, PayoutVATAmount vat_amount, SupplierName supplier_name, t.Description as payout_type, reference, p.description 
+                        FROM WTAEPOSPayouts as p LEFT JOIN SettingsPayoutTypes AS t ON t.ID = p.PayoutType LEFT JOIN Suppliers AS s ON s.ID = p.SupplierID 
+                        WHERE Date>='$week_start_str' AND Date<'$week_end_str' ORDER BY date";
+                $stmt = sqlsrv_query($conn, $sql);
+
+                if ($stmt === false) {
+                    sqlsrv_close($conn);
+                    die(print_r(sqlsrv_errors(), true));
+                }
+
+                $vat_sum = 0;
+                $amount_sum = 0;
+                $index = 0;
+                while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                    $res1[$index]['date'] = $row['date'];
+                    $res1[$index]['zref'] = $row['zref'];
+                    $res1[$index]['supplier_name'] = $row['supplier_name'];
+                    $res1[$index]['payout_type'] = $row['payout_type'];
+                    $res1[$index]['ex_vat'] = $row['ex_vat'];
+                    $res1[$index]['vat_amount'] = $row['vat_amount'];
+                    $res1[$index++]['description'] = $row['description'];
+
+                    $vat_sum += $row['ex_vat'];
+                    $amount_sum += $row['vat_amount'];
+                }
+                $res1[$index]['date'] = '<center>TOTAL</center>';
+                $res1[$index]['zref'] = '';
+                $res1[$index]['supplier_name'] = '';
+                $res1[$index]['payout_type'] = '';
+                $res1[$index]['ex_vat'] = $vat_sum;
+                $res1[$index]['vat_amount'] = $amount_sum;
+                $res1[$index++]['description'] = '';
+
+                $sql = "SELECT CONVERT(varchar(10), Date, 103) date, ZRefID zref, PayoutEXVAT ex_vat, PayoutVATAmount vat_amount, SupplierName supplier_name, t.Description as payout_type, reference, p.description 
+                        FROM WTASafePayouts as p LEFT JOIN SettingsPayoutTypes AS t ON t.ID = p.PayoutType LEFT JOIN Suppliers AS s ON s.ID = p.SupplierID 
+                        WHERE Date>='$week_start_str' AND Date<'$week_end_str' ORDER BY date";
+                $stmt = sqlsrv_query($conn, $sql);
+
+                if ($stmt === false) {
+                    sqlsrv_close($conn);
+                    die(print_r(sqlsrv_errors(), true));
+                }
+
+                $vat_sum = 0;
+                $amount_sum = 0;
+                $index = 0;
+                while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                    $res2[$index]['date'] = $row['date'];
+                    $res2[$index]['zref'] = $row['zref'];
+                    $res2[$index]['supplier_name'] = $row['supplier_name'];
+                    $res2[$index]['payout_type'] = $row['payout_type'];
+                    $res2[$index]['ex_vat'] = $row['ex_vat'];
+                    $res2[$index]['vat_amount'] = $row['vat_amount'];
+                    $res2[$index++]['description'] = $row['description'];
+
+                    $vat_sum += $row['ex_vat'];
+                    $amount_sum += $row['vat_amount'];
+                }
+                $res2[$index]['date'] = '<center>TOTAL</center>';
+                $res2[$index]['zref'] = '';
+                $res2[$index]['supplier_name'] = '';
+                $res2[$index]['payout_type'] = '';
+                $res2[$index]['ex_vat'] = $vat_sum;
+                $res2[$index]['vat_amount'] = $amount_sum;
+                $res2[$index++]['description'] = '';
+
+                $res['data1'] = $res1;
+                $res['data2'] = $res2;
+
+                echo json_encode($res);
+            }
+            sqlsrv_close($conn);
+        }
+        else
+        {
+            $response = array(
+                'status' => 'failed',
+                'message' => 'Can not to connect to SQL Server.'
+            );
+            echo json_encode($response);
+        }
+        die;
+	}
+    add_action('wp_ajax_get_paidout_view_data', 'get_paidout_view_data');
+}
 ?>

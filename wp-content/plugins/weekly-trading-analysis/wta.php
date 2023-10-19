@@ -42,6 +42,7 @@ wp_enqueue_style( 'jqx.base' );
 wp_enqueue_style( 'jqx.orange' );
 
 wp_enqueue_script(WTA_NAME . '_wta_paid_out',  WTA_PLUGIN_DIR . '/wta_paid_out.js', array('jquery'), WTA_VAR, true);
+wp_enqueue_script(WTA_NAME . '_wta_paid_out_view',  WTA_PLUGIN_DIR . '/wta_paid_out_view.js', array('jquery'), WTA_VAR, true);
 wp_enqueue_script(WTA_NAME . '_wta_input',  WTA_PLUGIN_DIR . '/wta_input.js', array('jquery'), WTA_VAR, true);
 wp_enqueue_script(WTA_NAME . '_wta_summary',  WTA_PLUGIN_DIR . '/wta_summary.js', array('jquery'), WTA_VAR, true);
 
@@ -189,9 +190,10 @@ if($conn && count($user_outlets) > 0)
 
 <script>
 jQuery(document).ready(function ($) {
-     initializePaidoutWidgets();
      initializeInputWidgets();
+     initializePaidoutWidgets();
      initializeSummaryWidgets();
+     initializePaidoutViewWidgets();
      setInterval(getCashOnSite, 10*1000);
      getCashOnSite();
 });
@@ -230,24 +232,24 @@ function calcPaidOutTotal()
                <div id="tabWTA">
                     <div style="border: none;" id='jqxGrid'>
                          <div id="wta_grid" style="width:1250px"></div>
-                         <div style="font-size: 12px; font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif; margin-top: 30px;">
-                              <div id="cellbegineditevent"></div>
-                              <div style="margin-top: 10px;" id="cellendeditevent"></div>
-                         </div>
-                         <div style="width:1200px">&nbsp;</div>
                     </div>
                </div>
                <div id="tabSummary">
                     <div style="border: none;" id='jqxGrid1'>
                          <div id="summary_grid" style="width:1250px"></div>
-                         <div style="font-size: 12px; font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif; margin-top: 30px;">
-                              <div id="cellbegineditevent1"></div>
-                              <div style="margin-top: 10px;" id="cellendeditevent1"></div>
-                         </div>
-                         <div style="width:1200px">&nbsp;</div>
                     </div>
                </div>
+               <div id="tabPaidOuts">
+                    <div style="border: none;" id='jqxGrid1'>
+                         <div id="paidout_grid1" style="width:1250px"></div><br>
+                         <div id="paidout_grid2" style="width:1250px"></div>
+                    </div>
+               </div>
+               <div id="tabOtherIncome">
+               </div>
                <div id="tabCashCount">
+               </div>
+               <div id="tabBanking">
                </div>
           </td>
      </tr>

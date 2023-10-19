@@ -164,3 +164,26 @@ function delete_paid_data(paid_type, id){
         }
     });
 }
+
+function get_paidout_view_data(outlet, date){
+    var security_nonce = MyAjax.security_nonce;
+    jQuery.ajax({
+        url: MyAjax.ajaxurl,
+        method: "POST",
+        data: { outlet:outlet, date:date, action:'get_paidout_view_data', security_nonce:security_nonce },
+        dataType: "json",
+        success: function (data) {
+            paidout_data1.length = 0;
+            for(var id in data['data1'])
+                paidout_data1.push(data['data1'][id]);
+            paidout_data2.length = 0;
+            for(var id in data['data2'])
+                paidout_data2.push(data['data2'][id]);
+            jQuery("#paidout_grid1").jqxGrid('updatebounddata', 'cells');
+            jQuery("#paidout_grid2").jqxGrid('updatebounddata', 'cells');
+        },
+        error: function (e) {
+            alert("Can not access the database!");
+        }
+    });
+}
