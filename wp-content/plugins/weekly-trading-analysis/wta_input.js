@@ -235,7 +235,9 @@ function initializeInputWidgets() {
         document.getElementById("tabOtherIncome").hidden = "hidden";
         document.getElementById("tabCashCount").hidden = "hidden";
         document.getElementById("tabBanking").hidden = "hidden";
+        outlet = jQuery("#jqxOutlet").val();
         date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
+        get_paidout_view_data(outlet, date);
         document.getElementById("jqxOutlet").hidden = "";
         document.getElementById("jqxTerm").hidden = "hidden";
     });

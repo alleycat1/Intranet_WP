@@ -77,6 +77,20 @@ function getTerminalData($conn, &$terminals)
      }
 }
 
+function getIncomeInfo($conn, &$incomes)
+{
+     $sql = "SELECT OutletID, IncomeID, Description FROM OutletsIncome t LEFT JOIN SettingsIncomeStreams s ON s.ID = t.IncomeID WHERE OutletID NOT IN (SELECT ID FROM Outlets WHERE Deleted=1) ORDER BY OutLetID";
+     $stmt = sqlsrv_query($conn, $sql);
+     if ($stmt === false) {
+          return;
+     }
+     while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+          if(!isset($incomes[$row['OutletID']]))
+               $incomes[$row['OutletID']] = array();
+          $incomes[$row['OutletID']][$row['IncomeID']] = $row['Description'];
+     }
+}
+
 function getPaidOutTypeData($conn, &$paidOutTypes)
 {
      $sql = "SELECT ID, Description FROM SettingsPayoutTypes";
@@ -139,6 +153,9 @@ if($conn && count($user_outlets) > 0)
      $suppliers = array();
      getSupplierData($conn, $suppliers);
 
+     $incomes = array();
+     getIncomeInfo($conn, $incomes);
+
      sqlsrv_close($conn);
 
      echo "<script>";
@@ -176,6 +193,24 @@ if($conn && count($user_outlets) > 0)
      echo "var terms = Array();";
      echo "var tabId=0;";
      echo "for(var i in terminals[$first_id]) terms[i] = terminals[$first_id][i];";
+
+     $income_obj = array();
+     $first_id = "";
+     foreach($user_outlets as $code => $outlet)
+     {
+          $id =  $outlet['id'] + 0;
+          foreach($incomes[$id] as $incomeId => $income_desc)
+          {
+               if(!isset($income_obj[$id]))
+                    $income_obj[$id] = array();
+               if($first_id == "")
+                    $first_id = $id;
+               $income_obj[$id][count($income_obj[$id])] = ['label'=>$income_desc, 'value'=>$incomeId];
+          }
+     }
+     echo "var incomeInfo=" . json_encode($income_obj) . ";";
+     echo "var incomes = Array();";
+     echo "for(var i in incomeInfo[$first_id]) incomes[i] = incomeInfo[$first_id][i];";
 
      $supplier_obj = array();
      foreach($suppliers as $id => $name)
@@ -228,6 +263,7 @@ function calcPaidOutTotal()
                     <div style='float: left; margin-top: 10px;' id='jqxOutlet'></div>
                     <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxCalendar'></div>
                     <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxTerm'></div>
+                    <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxIncomeType'></div>
                </div>
                <div id="tabWTA">
                     <div style="border: none;" id='jqxGrid'>
