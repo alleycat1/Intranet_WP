@@ -628,7 +628,7 @@ if ( ! function_exists('get_paidout_view_data') ) {
                 
                 $sql = "SELECT CONVERT(varchar(10), Date, 103) date, ZRefID zref, PayoutEXVAT ex_vat, PayoutVATAmount vat_amount, SupplierName supplier_name, t.Description as payout_type, reference, p.description 
                         FROM WTAEPOSPayouts as p LEFT JOIN SettingsPayoutTypes AS t ON t.ID = p.PayoutType LEFT JOIN Suppliers AS s ON s.ID = p.SupplierID 
-                        WHERE Date>='$week_start_str' AND Date<'$week_end_str' ORDER BY date";
+                        WHERE ZRefID IN (SELECT DISTINCT zref FROM WTA WHERE OutletID=$outlet AND Date>='$week_start_str' AND Date<'$week_end_str') AND Date>='$week_start_str' AND Date<'$week_end_str' ORDER BY date";
                 $stmt = sqlsrv_query($conn, $sql);
 
                 if ($stmt === false) {
@@ -661,7 +661,7 @@ if ( ! function_exists('get_paidout_view_data') ) {
 
                 $sql = "SELECT CONVERT(varchar(10), Date, 103) date, ZRefID zref, PayoutEXVAT ex_vat, PayoutVATAmount vat_amount, SupplierName supplier_name, t.Description as payout_type, reference, p.description 
                         FROM WTASafePayouts as p LEFT JOIN SettingsPayoutTypes AS t ON t.ID = p.PayoutType LEFT JOIN Suppliers AS s ON s.ID = p.SupplierID 
-                        WHERE Date>='$week_start_str' AND Date<'$week_end_str' ORDER BY date";
+                        WHERE ZRefID IN (SELECT DISTINCT zref FROM WTA WHERE OutletID=$outlet AND Date>='$week_start_str' AND Date<'$week_end_str') AND Date>='$week_start_str' AND Date<'$week_end_str' ORDER BY date";
                 $stmt = sqlsrv_query($conn, $sql);
 
                 if ($stmt === false) {
