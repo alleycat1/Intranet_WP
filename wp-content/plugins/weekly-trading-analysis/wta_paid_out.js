@@ -28,6 +28,10 @@ function show_paid_popup(type, row)
         title = "<span style='font-size:16px'>PAID OUT FROM TILL ( <b>" + outletTxt + "</b> : <b>" +  termTxt + "</b>, Date:<b>" + date + "</b>,   ZREF:<b>" + zref + "</b> )</span>";
     else
         title = "<span style='font-size:16px'>PAID OUT FROM SAFE ( <b>" + outletTxt + "</b> : <b>" +  termTxt + "</b>, Date:<b>" + date + "</b>,   ZREF:<b>" + zref + "</b> )</span>";
+
+    jQuery("#jqxSupplier").jqxDropDownList('clear');
+    jQuery("#jqxSupplier").jqxDropDownList({ source: suppliers, selectedIndex: 0, width: '177', height: '30'});
+
     jQuery("#popup_paid").jqxWindow({title: title});
     jQuery("#popup_paid").jqxWindow({ position: { x: 150, y: 340 } });
     jQuery("#popup_paid").jqxWindow("open");
@@ -107,7 +111,11 @@ function initializePaidoutWidgets() {
     var cellsrenderer_supplier = function (row, column, value, defaultHtml) {
         var element = jQuery(defaultHtml);
         if(row < paid_data.length - 1)
-            element[0].innerHTML = "<center>" + suppliers_org[value] + "</center>";
+        {
+            for(var i=0; i<suppliers.length; i++)
+                if(suppliers[i].value == value)
+                    element[0].innerHTML = "<center>" + suppliers[i].label + "</center>";
+        }
         return element[0].outerHTML;
     }
 

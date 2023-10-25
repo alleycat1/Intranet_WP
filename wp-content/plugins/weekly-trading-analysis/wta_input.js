@@ -8,6 +8,9 @@ function initializeInputWidgets() {
         terms.length = 0;
         for(var i in terminals[outlets[e.args.index].value])
             terms[i] = terminals[outlets[e.args.index].value][i];
+        suppliers.length = 0;
+        for(var i in supplierInfo[outlets[e.args.index].value])
+            suppliers[i] = supplierInfo[outlets[e.args.index].value][i];
         jQuery("#jqxTerm").jqxDropDownList('clear');
         jQuery("#jqxTerm").jqxDropDownList({ source: terms, selectedIndex: 0, width: '200', height: '30px'});
         outlet = jQuery("#jqxOutlet").val();

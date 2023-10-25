@@ -105,13 +105,15 @@ function getPaidOutTypeData($conn, &$paidOutTypes)
 
 function getSupplierData($conn, &$suppliers)
 {
-     $sql = "SELECT ID, SupplierName FROM Suppliers";
+     $sql = "SELECT OutletID, SupplierID, SupplierName FROM OutletsSuppliers LEFT JOIN Suppliers ON Suppliers.ID=SupplierID WHERE OutletID NOT IN (SELECT ID FROM Outlets WHERE Deleted=1)";
      $stmt = sqlsrv_query($conn, $sql);
      if ($stmt === false) {
           return;
      }
      while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-          $suppliers[$row['ID']] = $row['SupplierName'];
+          if(!isset($suppliers[$row['OutletID']]))
+               $suppliers[$row['OutletID']] = array();
+          $suppliers[$row['OutletID']][$row['SupplierID']] = $row['SupplierName'];
      }
 }
 
@@ -213,12 +215,22 @@ if($conn && count($user_outlets) > 0)
      echo "for(var i in incomeInfo[$first_id]) incomes[i] = incomeInfo[$first_id][i];";
 
      $supplier_obj = array();
-     foreach($suppliers as $id => $name)
+     $first_id = "";
+     foreach($user_outlets as $code => $outlet)
      {
-          $supplier_obj[count($supplier_obj)] = ['label'=>$name, 'value'=>$id];
+          $id =  $outlet['id'] + 0;
+          foreach($suppliers[$id] as $supplierId => $suppler_desc)
+          {
+               if(!isset($supplier_obj[$id]))
+                    $supplier_obj[$id] = array();
+               if($first_id == "")
+                    $first_id = $id;
+               $supplier_obj[$id][count($supplier_obj[$id])] = ['label'=>$suppler_desc, 'value'=>$supplierId];
+          }
      }
-     echo "var suppliers=" . json_encode($supplier_obj) . ";";
-     echo "var suppliers_org=" . json_encode($suppliers) . ";";
+     echo "var supplierInfo=" . json_encode($supplier_obj) . ";";
+     echo "var suppliers = Array();";
+     echo "for(var i in supplierInfo[$first_id]) suppliers[i] = supplierInfo[$first_id][i];";
 
      echo "</script>";
 ?>
