@@ -917,7 +917,7 @@ if ( ! function_exists('get_cash_counts_data') ) {
                 $week_start_str = $week_start->format('Y-m-d');
                 $week_end_str = $week_end->format('Y-m-d');
 
-                $sql = "SELECT ID, CONVERT(varchar(10), Date, 103) AS Date, Amount, UserName FROM CashCounts WHERE OutletID=$outlet AND LocationID=$location_id AND Date>='$week_start_str' AND Date<='$week_end_str' ORDER BY Date, ID";
+                $sql = "SELECT ID, CONVERT(varchar(10), Date, 103) AS Date, Amount FROM CashCounts WHERE OutletID=$outlet AND LocationID=$location_id AND Date>='$week_start_str' AND Date<='$week_end_str' ORDER BY Date, ID";
                 
                 $stmt = sqlsrv_query($conn, $sql);
 
@@ -926,27 +926,18 @@ if ( ! function_exists('get_cash_counts_data') ) {
                     die(print_r(sqlsrv_errors(), true));
                 }
 
-                global $wpdb;
-                $users = $wpdb->get_results("SELECT ID, user_nicename FROM wp_users");
-                $userList = array();
-                foreach($users as $row)
-                {
-                    $userList[$row->ID] = $row->user_nicename;
-                }
                 $amount_sum = 0;
                 $index = 0;
                 while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
                     $res[$index]['id'] = $row['ID'];
                     $res[$index]['date'] = $row['Date'];
-                    $res[$index]['amount'] = $row['Amount'];
-                    $res[$index++]['username'] = $userList[$row['UserName']];
+                    $res[$index++]['amount'] = $row['Amount'];
 
                     $amount_sum += $row['Amount'];
                 }
                 $res[$index]['id'] = '';
                 $res[$index]['date'] = '';
                 $res[$index]['amount'] = $amount_sum;
-                $res[$index]['username'] = '';
 
                 echo json_encode($res);
             }
@@ -981,7 +972,6 @@ if ( ! function_exists('set_cash_counts_data') ) {
 
                 $date = DateTime::createFromFormat('d/m/Y', $data['date']);
                 $date_str = $date->format('Y-m-d');
-                $username = str_replace("\'", "''", $data['username']);
                 $tbl_name = '';
                 $tbl_name = "CashCounts";
 
@@ -997,8 +987,8 @@ if ( ! function_exists('set_cash_counts_data') ) {
                     while ($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
                         $new_id = $r['new_id'];
                     }
-                    $sql = sprintf("INSERT INTO $tbl_name(ID, OutletID, Date, LocationID, Amount, Username) VALUES(%d, %d, '%s', %d, %f, '%s')",
-                                   $new_id, $outlet, $date_str, $location_id, $data['amount'], $username);
+                    $sql = sprintf("INSERT INTO $tbl_name(ID, OutletID, Date, LocationID, Amount) VALUES(%d, %d, '%s', %d, %f)",
+                                   $new_id, $outlet, $date_str, $location_id, $data['amount']);
                     $stmt = sqlsrv_query($conn, $sql);
                     if ($stmt === false) {
                         sqlsrv_close($conn);
@@ -1007,8 +997,8 @@ if ( ! function_exists('set_cash_counts_data') ) {
                 }
                 else
                 {
-                    $sql = sprintf("UPDATE $tbl_name SET Date='%s', Amount=%f, Username='%s' WHERE ID=%d",
-                                    $date_str, $data['amount'], $username, $data['id']);
+                    $sql = sprintf("UPDATE $tbl_name SET Date='%s', Amount=%f WHERE ID=%d",
+                                    $date_str, $data['amount'], $data['id']);
                     $stmt = sqlsrv_query($conn, $sql);
                     if ($stmt === false) {
                         sqlsrv_close($conn);

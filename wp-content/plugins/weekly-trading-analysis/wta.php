@@ -462,10 +462,6 @@ function calcPaidOutTotal()
                     <td class="my_td" align="left"><input id="cash_counts_amount" style="height:30px" required/></td>
                </tr>
                <tr>
-                    <td class="my_td" align="right">USERNAME:</td>
-                    <td class="my_td" align="left" ><input id="cash_counts_username" value="<?php echo $user->data->user_nicename; ?>" style="height:30px" readonly/></td>
-               </tr>
-               <tr>
                     <td class="my_td" align="left"></td>
                     <td class="my_td" align="right">
                          <input id="CashCountsCancel" type="button" value="Cancel" />

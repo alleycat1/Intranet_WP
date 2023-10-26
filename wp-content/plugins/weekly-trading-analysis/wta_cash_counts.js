@@ -21,7 +21,7 @@ function initializeCashCountsWidgets() {
             var month = rowdata.date.getMonth() + 1;
             var day = rowdata.date.getDate();
             var date = day + "/" + month + "/" + year;
-            var row = { id:rowdata.id, date:date, amount:rowdata.amount, username:user_id };
+            var row = { id:rowdata.id, date:date, amount:rowdata.amount};
             outlet = jQuery("#jqxOutlet").val();
             location_id = jQuery("#jqxLocation").val();
             set_cash_counts_data(outlet, location_id, row);
@@ -30,8 +30,7 @@ function initializeCashCountsWidgets() {
          [
               { name: 'id', type: 'number' },
               { name: 'date', type: 'date', format: 'dd/MM/yyyy' },
-              { name: 'amount', type: 'number' },
-              { name: 'username', type: 'string' }
+              { name: 'amount', type: 'number' }
          ]
     };
     var dataAdapterCashCounts = new jQuery.jqx.dataAdapter(sourceCashCounts);
@@ -88,7 +87,6 @@ function initializeCashCountsWidgets() {
                       }
                },
               { text: 'AMOUNT', datafield: 'amount', cellsformat: 'c2', columntype: 'numberinput', align: 'center', cellsalign: 'right', width: 120, cellbeginedit: cellbeginedit },
-              { text: 'USERNAME', datafield: 'username', columntype: 'textbox', align: 'center', cellsalign: 'left', width: 200, editable:false},
               { text: '', datafield: 'id', width: 25, resizable:false,
                 createwidget: function (row, column, value, htmlElement) {
                     if(value + "" != "")
@@ -151,8 +149,7 @@ function initializeCashCountsWidgets() {
         location_id = jQuery("#jqxLocation").val();
         var row = { id:-1,
                     date: jQuery("#jqxCashCountsDate").val(),
-                    amount: parseFloat(document.getElementById("cash_counts_amount").value), 
-                    username: user_id};
+                    amount: parseFloat(document.getElementById("cash_counts_amount").value)};
         set_cash_counts_data(outlet, location_id, row);
         jQuery("#popupCashCountsEdit").jqxWindow('close');
     });
