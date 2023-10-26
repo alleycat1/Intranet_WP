@@ -95,7 +95,7 @@ function getIncomeInfo($conn, &$incomes)
 
 function getLocationInfo($conn, &$locations)
 {
-     $sql = "SELECT OutletID, LocationID, Description FROM OutletsCashLocations t LEFT JOIN Outlets s ON s.ID = t.OutletID WHERE OutletID NOT IN (SELECT ID FROM Outlets WHERE Deleted=1) ORDER BY OutLetID";
+     $sql = "SELECT OutletID, t.ID, Description FROM OutletsCashLocations t LEFT JOIN Outlets s ON s.ID = t.OutletID WHERE OutletID NOT IN (SELECT ID FROM Outlets WHERE Deleted=1) ORDER BY OutLetID";
      $stmt = sqlsrv_query($conn, $sql);
      if ($stmt === false) {
           return;
@@ -103,7 +103,7 @@ function getLocationInfo($conn, &$locations)
      while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
           if(!isset($locations[$row['OutletID']]))
                $locations[$row['OutletID']] = array();
-          $locations[$row['OutletID']][$row['LocationID']] = $row['Description'];
+          $locations[$row['OutletID']][$row['ID']] = $row['Description'];
      }
 }
 
