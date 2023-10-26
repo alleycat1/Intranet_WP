@@ -60,8 +60,8 @@ function initializePaidoutWidgets() {
         }
     });
     
-    jQuery("#popupEdit").jqxWindow({
-        width: 350, resizable: false,  isModal: true, autoOpen: false, cancelButton: jQuery("#Cancel"), modalOpacity: 0.01
+    jQuery("#popupPaidoutInputEdit").jqxWindow({
+        width: 350, resizable: false,  isModal: true, autoOpen: false, cancelButton: jQuery("#PaidoutCancel"), modalOpacity: 0.01
     });
 
     var sourcePaid =
@@ -187,8 +187,8 @@ function initializePaidoutWidgets() {
 
     jQuery("#btn_add").click(function(event) {
         jQuery('#paid_grid').jqxGrid('endcelledit');
-        jQuery("#popupEdit").jqxWindow({ position: { x: 400, y: 330 } });
-        jQuery("#popupEdit").jqxWindow('open');
+        jQuery("#popupPaidoutInputEdit").jqxWindow({ position: { x: 400, y: 330 } });
+        jQuery("#popupPaidoutInputEdit").jqxWindow('open');
         document.getElementById("ex_vat").value = "";
         document.getElementById("vat_amount").value = "";
         document.getElementById("paidout_total_amount").value = "";
@@ -197,7 +197,7 @@ function initializePaidoutWidgets() {
         event.preventDefault();
     });
 
-    jQuery("#Save").click(function () {
+    jQuery("#PaidoutSave").click(function () {
         if(document.getElementById("ex_vat").value == "" || isNaN(parseFloat(document.getElementById("ex_vat").value)))
         {
             alert("Please input the correct EX VAT value.");
@@ -217,6 +217,6 @@ function initializePaidoutWidgets() {
                     vat_amount: parseFloat(document.getElementById("vat_amount").value), 
                     reference: jQuery("#reference").val(), description: jQuery("#description").val()};
         set_paid_data(paid_type, row);
-        jQuery("#popupEdit").jqxWindow('close');
+        jQuery("#popupPaidoutInputEdit").jqxWindow('close');
     });
 }

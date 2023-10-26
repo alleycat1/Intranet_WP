@@ -11,8 +11,13 @@ function initializeInputWidgets() {
         suppliers.length = 0;
         for(var i in supplierInfo[outlets[e.args.index].value])
             suppliers[i] = supplierInfo[outlets[e.args.index].value][i];
+        incomes.length = 0;
+        for(var i in incomeInfo[outlets[e.args.index].value])
+            incomes[i] = incomeInfo[outlets[e.args.index].value][i];
         jQuery("#jqxTerm").jqxDropDownList('clear');
         jQuery("#jqxTerm").jqxDropDownList({ source: terms, selectedIndex: 0, width: '200', height: '30px'});
+        jQuery("#jqxIncomeType").jqxDropDownList('clear');
+        jQuery("#jqxIncomeType").jqxDropDownList({ source: incomes, selectedIndex: 0, width: '200', height: '30px'});
         outlet = jQuery("#jqxOutlet").val();
         date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
         if(tabId == 1)
@@ -22,6 +27,11 @@ function initializeInputWidgets() {
         else if(tabId == 2)
         {
             get_paidout_view_data(outlet, date);
+        }
+        else if(tabId == 3)
+        {
+          income = jQuery("#jqxIncomeType").val();
+          get_income_data(outlet, income, date);
         }
         getCashOnSite();
     });
@@ -36,7 +46,7 @@ function initializeInputWidgets() {
             get_wta_data(outlet, term, date);
     });
 
-    jQuery("#jqxCalendar").jqxDateTimeInput({ animationType: 'slide', width: '150px', height: '30px', dropDownHorizontalAlignment: 'left'});
+    jQuery("#jqxCalendar").jqxDateTimeInput({ animationType: 'fade', width: '150px', height: '30px', dropDownHorizontalAlignment: 'left'});
     jQuery("#jqxCalendar").on('change', function (e) {
         jQuery('#wta_grid').jqxGrid('endcelledit');
         outlet = jQuery("#jqxOutlet").val();
@@ -52,7 +62,22 @@ function initializeInputWidgets() {
         {
             get_paidout_view_data(outlet, date);
         }
+        else if(tabId == 3)
+        {
+            income = jQuery("#jqxIncomeType").val();
+            get_income_data(outlet, income, date);
+        }
         getCashOnSite();
+    });
+
+    jQuery("#jqxIncomeType").jqxDropDownList({ source: incomes, selectedIndex: 0, width: '200', height: '30px'});
+    jQuery("#jqxIncomeType").on('select', function (e) {
+        jQuery('#income_grid').jqxGrid('endcelledit');
+        outlet = jQuery("#jqxOutlet").val();
+        income = incomes[e.args.index].value;
+        date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
+        if(tabId == 3)
+            get_income_data(outlet, income, date);
     });
 
 
@@ -203,6 +228,7 @@ function initializeInputWidgets() {
         get_wta_data(outlet, term, date);
         document.getElementById("jqxOutlet").hidden = "";
         document.getElementById("jqxTerm").hidden = "";
+        document.getElementById("jqxIncomeType").hidden = "hidden";
     });
     jQuery("#btnSummary").on('click', function (e) {
         tabId = 1;
@@ -223,6 +249,7 @@ function initializeInputWidgets() {
         get_summary_data(outlet, date);
         document.getElementById("jqxOutlet").hidden = "";
         document.getElementById("jqxTerm").hidden = "hidden";
+        document.getElementById("jqxIncomeType").hidden = "hidden";
     });
     jQuery("#btnPaidOuts").on('click', function (e) {
         tabId = 2;
@@ -243,6 +270,7 @@ function initializeInputWidgets() {
         get_paidout_view_data(outlet, date);
         document.getElementById("jqxOutlet").hidden = "";
         document.getElementById("jqxTerm").hidden = "hidden";
+        document.getElementById("jqxIncomeType").hidden = "hidden";
     });
     jQuery("#btnOtherIncome").on('click', function (e) {
         tabId = 3;
@@ -258,9 +286,13 @@ function initializeInputWidgets() {
         document.getElementById("tabOtherIncome").hidden = "";
         document.getElementById("tabCashCount").hidden = "hidden";
         document.getElementById("tabBanking").hidden = "hidden";
+        outlet = jQuery("#jqxOutlet").val();
         date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
+        income = jQuery("#jqxIncomeType").val();
+        get_income_data(outlet, income, date);
         document.getElementById("jqxOutlet").hidden = "";
-        document.getElementById("jqxTerm").hidden = "";
+        document.getElementById("jqxTerm").hidden = "hidden";
+        document.getElementById("jqxIncomeType").hidden = "";
      });
     jQuery("#btnCashCounts").on('click', function (e) {
         tabId = 4;

@@ -43,6 +43,7 @@ wp_enqueue_style( 'jqx.orange' );
 
 wp_enqueue_script(WTA_NAME . '_wta_paid_out',  WTA_PLUGIN_DIR . '/wta_paid_out.js', array('jquery'), WTA_VAR, true);
 wp_enqueue_script(WTA_NAME . '_wta_paid_out_view',  WTA_PLUGIN_DIR . '/wta_paid_out_view.js', array('jquery'), WTA_VAR, true);
+wp_enqueue_script(WTA_NAME . '_wta_other_income',  WTA_PLUGIN_DIR . '/wta_other_income.js', array('jquery'), WTA_VAR, true);
 wp_enqueue_script(WTA_NAME . '_wta_input',  WTA_PLUGIN_DIR . '/wta_input.js', array('jquery'), WTA_VAR, true);
 wp_enqueue_script(WTA_NAME . '_wta_summary',  WTA_PLUGIN_DIR . '/wta_summary.js', array('jquery'), WTA_VAR, true);
 
@@ -239,6 +240,7 @@ if($conn && count($user_outlets) > 0)
 jQuery(document).ready(function ($) {
      initializeInputWidgets();
      initializePaidoutWidgets();
+     initializeIncomeWidgets();
      initializeSummaryWidgets();
      initializePaidoutViewWidgets();
      setInterval(getCashOnSite, 10*1000);
@@ -288,12 +290,19 @@ function calcPaidOutTotal()
                     </div>
                </div>
                <div id="tabPaidOuts">
-                    <div style="border: none;" id='jqxGrid1'>
+                    <div style="border: none;" id='jqxGrid2'>
                          <div id="paidout_grid1" style="width:1250px"></div><br>
                          <div id="paidout_grid2" style="width:1250px"></div>
                     </div>
                </div>
                <div id="tabOtherIncome">
+                    <div style="border: none;" id='jqxGrid3'>
+                         <div id="income_grid" style="width:1250px"></div>
+                         <table style="width:1250px; border-bottom:0px; height:30px; margin:0px">
+                         <br>
+                         <button style="padding:4px 16px;" id="income_add">&nbsp;+&nbsp;</button> 
+                    </table>
+                    </div>
                </div>
                <div id="tabCashCount">
                </div>
@@ -327,7 +336,7 @@ function calcPaidOutTotal()
      </div>
 </div>
 
-<div id="popupEdit" hidden>
+<div id="popupPaidoutInputEdit" hidden>
      <div>ADD PAID OUT DATA</div>
      <div style="overflow: hidden;">
           <table width=100%>
@@ -362,13 +371,40 @@ function calcPaidOutTotal()
                <tr>
                     <td class="my_td" align="left"></td>
                     <td class="my_td" align="right">
-                         <input id="Cancel" type="button" value="Cancel" />
-                         <input type="button" id="Save" value="  Save  " />
+                         <input id="PaidoutCancel" type="button" value="Cancel" />
+                         <input type="button" id="PaidoutSave" value="  Save  " />
                     </td>
                </tr>
           </table>
      </div>
-</div>     
+</div>
+
+<div id="popupIncomeEdit" hidden>
+     <div>ADD INCOME DATA</div>
+     <div style="overflow: hidden;">
+          <table width=100%>
+               <tr>
+                    <td class="my_td" align="right">DATE:</td>
+                    <td class="my_td" align="left"><div style='float: left; margin-top: 10px;' id='jqxIncomeDate'></div></td>
+               </tr>
+               <tr>
+                    <td class="my_td" align="right">AMOUNT(£):</td>
+                    <td class="my_td" align="left"><input id="income_amount" style="height:30px" required/></td>
+               </tr>
+               <tr>
+                    <td class="my_td" align="right">COMMENTS:</td>
+                    <td class="my_td" align="left" ><input id="income_comment" style="height:30px" /></td>
+               </tr>
+               <tr>
+                    <td class="my_td" align="left"></td>
+                    <td class="my_td" align="right">
+                         <input id="IncomeCancel" type="button" value="Cancel" />
+                         <input type="button" id="IncomeSave" value="  Save  " />
+                    </td>
+               </tr>
+          </table>
+     </div>
+</div>
 <?php
      wp_enqueue_script(WTA_NAME . '_wta_ajax',  WTA_PLUGIN_DIR . '/wta_ajax.js', array('jquery'), WTA_VAR, true);
 }

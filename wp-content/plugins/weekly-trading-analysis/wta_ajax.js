@@ -187,3 +187,67 @@ function get_paidout_view_data(outlet, date){
         }
     });
 }
+
+function get_income_data(outlet, income, date){
+    var security_nonce = MyAjax.security_nonce;
+    jQuery('#income_grid').jqxGrid({ disabled: true});
+    jQuery.ajax({
+        url: MyAjax.ajaxurl,
+        method: "POST",
+        data: { outlet:outlet, income:income, date:date, action:'get_income_data', security_nonce:security_nonce },
+        dataType: "json",
+        success: function (data) {
+            income_data.length = 0;
+            for(var id in data)
+                income_data.push(data[id]);
+            jQuery("#income_grid").jqxGrid('updatebounddata', 'cells');
+            jQuery('#income_grid').jqxGrid({ disabled: false});
+        },
+        error: function (e) {
+            alert("Can not access the database!");
+        }
+    });
+}
+
+function set_income_data(outlet, income, data){
+    var security_nonce = MyAjax.security_nonce;
+    jQuery('#income_grid').jqxGrid({ disabled: true});
+    jQuery.ajax({
+        url: MyAjax.ajaxurl,
+        method: "POST",
+        data: { outlet:outlet, income:income, data:data, action:'set_income_data', security_nonce:security_nonce },
+        dataType: "json",
+        success: function (d) {
+            outlet = jQuery("#jqxOutlet").val();
+            income = jQuery("#jqxIncomeType").val();
+            date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
+            get_income_data(outlet, income, date);
+
+        },
+        error: function (e) {
+            alert("Can not access the database!");
+            jQuery('#income_grid').jqxGrid({ disabled: false});
+        }
+    });
+}
+
+function delete_income_data( id){
+    var security_nonce = MyAjax.security_nonce;
+    jQuery('#income_grid').jqxGrid({ disabled: true});
+    jQuery.ajax({
+        url: MyAjax.ajaxurl,
+        method: "POST",
+        data: { id:id, action:'delete_income_data', security_nonce:security_nonce },
+        dataType: "json",
+        success: function (d) {
+            outlet = jQuery("#jqxOutlet").val();
+            income = jQuery("#jqxIncomeType").val();
+            date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
+            get_income_data(outlet, income, date);
+        },
+        error: function (e) {
+            alert("Can not access the database!");
+            jQuery('#income_grid').jqxGrid({ disabled: false});
+        }
+    });
+}
