@@ -251,3 +251,66 @@ function delete_income_data( id){
         }
     });
 }
+
+function get_cash_counts_data(outlet, location_id, date){
+    var security_nonce = MyAjax.security_nonce;
+    jQuery('#cash_counts_grid').jqxGrid({ disabled: true});
+    jQuery.ajax({
+        url: MyAjax.ajaxurl,
+        method: "POST",
+        data: { outlet:outlet, location_id:location_id, date:date, action:'get_cash_counts_data', security_nonce:security_nonce },
+        dataType: "json",
+        success: function (data) {
+            cash_counts_data.length = 0;
+            for(var id in data)
+                cash_counts_data.push(data[id]);
+            jQuery("#cash_counts_grid").jqxGrid('updatebounddata', 'cells');
+            jQuery('#cash_counts_grid').jqxGrid({ disabled: false});
+        },
+        error: function (e) {
+            alert("Can not access the database!");
+        }
+    });
+}
+
+function set_cash_counts_data(outlet, location_id, data){
+    var security_nonce = MyAjax.security_nonce;
+    jQuery('#cash_counts_grid').jqxGrid({ disabled: true});
+    jQuery.ajax({
+        url: MyAjax.ajaxurl,
+        method: "POST",
+        data: { outlet:outlet, location_id:location_id, data:data, action:'set_cash_counts_data', security_nonce:security_nonce },
+        dataType: "json",
+        success: function (d) {
+            outlet = jQuery("#jqxOutlet").val();
+            location_id = jQuery("#jqxLocation").val();
+            date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
+            get_cash_counts_data(outlet, location_id, date);
+        },
+        error: function (e) {
+            alert("Can not access the database!");
+            jQuery('#cash_counts_grid').jqxGrid({ disabled: false});
+        }
+    });
+}
+
+function delete_cash_counts_data( id){
+    var security_nonce = MyAjax.security_nonce;
+    jQuery('#cash_counts_grid').jqxGrid({ disabled: true});
+    jQuery.ajax({
+        url: MyAjax.ajaxurl,
+        method: "POST",
+        data: { id:id, action:'delete_cash_counts_data', security_nonce:security_nonce },
+        dataType: "json",
+        success: function (d) {
+            outlet = jQuery("#jqxOutlet").val();
+            location_id = jQuery("#jqxLocation").val();
+            date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
+            get_cash_counts_data(outlet, location_id, date);
+        },
+        error: function (e) {
+            alert("Can not access the database!");
+            jQuery('#cash_counts_grid').jqxGrid({ disabled: false});
+        }
+    });
+}

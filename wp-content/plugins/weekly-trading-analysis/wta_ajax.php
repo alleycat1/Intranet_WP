@@ -441,6 +441,8 @@ if ( ! function_exists('set_paid_data') ) {
 
                 $date = DateTime::createFromFormat('d/m/Y', $date_str);
                 $date_str = $date->format('Y-m-d');
+                $reference = str_replace("\'", "''", $data['reference']);
+                $description = str_replace("\'", "''", $data['description']);
                 $tbl_name = '';
                 if($paid_type + 0 == 0)
                     $tbl_name = "WTAEPOSPayouts";
@@ -460,7 +462,7 @@ if ( ! function_exists('set_paid_data') ) {
                         $new_id = $r['new_id'];
                     }
                     $sql = sprintf("INSERT INTO $tbl_name(ID, Date, ZRefID, PayoutEXVAT, PayoutVATAmount, PayoutType, SupplierID, Reference, Description) VALUES(%d, '%s', %d, %f, %f, %d, %d, '%s', '%s')",
-                                   $new_id, $date_str, $data['zref'], $data['ex_vat'], $data['vat_amount'], $data["payout_type"], $data["supplier"], $data["reference"], $data["description"]);
+                                   $new_id, $date_str, $data['zref'], $data['ex_vat'], $data['vat_amount'], $data["payout_type"], $data["supplier"], $reference, $description);
                     $stmt = sqlsrv_query($conn, $sql);
                     if ($stmt === false) {
                         sqlsrv_close($conn);
@@ -470,7 +472,7 @@ if ( ! function_exists('set_paid_data') ) {
                 else
                 {
                     $sql = sprintf("UPDATE $tbl_name SET Date='%s', ZRefID=%d, PayoutEXVAT=%f, PayoutVATAmount=%f, PayoutType=%d, SupplierID=%d, Reference='%s', Description='%s' WHERE ID=%d",
-                                    $date_str, $data['zref'], $data['ex_vat'], $data['vat_amount'], $data["payout_type"], $data["supplier"], $data["reference"], $data["description"], $data["id"]);
+                                    $date_str, $data['zref'], $data['ex_vat'], $data['vat_amount'], $data["payout_type"], $data["supplier"], $reference, $description, $data["id"]);
                     $stmt = sqlsrv_query($conn, $sql);
                     if ($stmt === false) {
                         sqlsrv_close($conn);
@@ -792,6 +794,7 @@ if ( ! function_exists('set_income_data') ) {
 
                 $date = DateTime::createFromFormat('d/m/Y', $data['date']);
                 $date_str = $date->format('Y-m-d');
+                $comment = str_replace("\'", "''", $data['comment']);
                 $tbl_name = '';
                 $tbl_name = "WTAMiscIncome";
 
@@ -808,7 +811,7 @@ if ( ! function_exists('set_income_data') ) {
                         $new_id = $r['new_id'];
                     }
                     $sql = sprintf("INSERT INTO $tbl_name(ID, OutletID, IncomeID, Date, Amount, Comments) VALUES(%d, %d, %d, '%s', %f, '%s')",
-                                   $new_id, $outlet, $income, $date_str, $data['amount'], $data['comment']);
+                                   $new_id, $outlet, $income, $date_str, $data['amount'], $comment);
                     $stmt = sqlsrv_query($conn, $sql);
                     if ($stmt === false) {
                         sqlsrv_close($conn);
@@ -818,7 +821,7 @@ if ( ! function_exists('set_income_data') ) {
                 else
                 {
                     $sql = sprintf("UPDATE $tbl_name SET Date='%s', Amount=%f, Comments='%s' WHERE ID=%d",
-                                    $date_str, $data['amount'], $data['comment'], $data['id']);
+                                    $date_str, $data['amount'], $comment, $data['id']);
                     $stmt = sqlsrv_query($conn, $sql);
                     if ($stmt === false) {
                         sqlsrv_close($conn);
@@ -889,5 +892,191 @@ if ( ! function_exists('delete_income_data') ) {
         die;
 	}
     add_action('wp_ajax_delete_income_data', 'delete_income_data');
+}
+
+if ( ! function_exists('get_cash_counts_data') ) {
+	function get_cash_counts_data(){
+        header('Content-Type: application/json');
+        require __DIR__ ."/../../../db_config.php";
+        global $serverName;
+        global $connectionInfo;
+        $conn = sqlsrv_connect($serverName, $connectionInfo);
+        if($conn)
+        {
+            if(isset($_POST) && !empty($_POST)){
+                $outlet = $_POST['outlet'];
+                $location_id = $_POST['location_id'];
+                $date_str = $_POST['date'];
+
+                $date = DateTime::createFromFormat('d/m/Y', $date_str);
+                $week_start = clone $date;
+                $week_end = clone $date;
+                $week_start->modify('this week');
+                $week_end->modify('this week +6 days');
+
+                $week_start_str = $week_start->format('Y-m-d');
+                $week_end_str = $week_end->format('Y-m-d');
+
+                $sql = "SELECT ID, CONVERT(varchar(10), Date, 103) AS Date, Amount, UserName FROM CashCounts WHERE OutletID=$outlet AND LocationID=$location_id AND Date>='$week_start_str' AND Date<='$week_end_str' ORDER BY Date, ID";
+                
+                $stmt = sqlsrv_query($conn, $sql);
+
+                if ($stmt === false) {
+                    sqlsrv_close($conn);
+                    die(print_r(sqlsrv_errors(), true));
+                }
+
+                global $wpdb;
+                $users = $wpdb->get_results("SELECT ID, user_nicename FROM wp_users");
+                $userList = array();
+                foreach($users as $row)
+                {
+                    $userList[$row->ID] = $row->user_nicename;
+                }
+                $amount_sum = 0;
+                $index = 0;
+                while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                    $res[$index]['id'] = $row['ID'];
+                    $res[$index]['date'] = $row['Date'];
+                    $res[$index]['amount'] = $row['Amount'];
+                    $res[$index++]['username'] = $userList[$row['UserName']];
+
+                    $amount_sum += $row['Amount'];
+                }
+                $res[$index]['id'] = '';
+                $res[$index]['date'] = '';
+                $res[$index]['amount'] = $amount_sum;
+                $res[$index]['username'] = '';
+
+                echo json_encode($res);
+            }
+            sqlsrv_close($conn);
+        }
+        else
+        {
+            $response = array(
+                'status' => 'failed',
+                'message' => 'Can not to connect to SQL Server.'
+            );
+            echo json_encode($response);
+        }
+        die;
+	}
+    add_action('wp_ajax_get_cash_counts_data', 'get_cash_counts_data');
+}
+
+if ( ! function_exists('set_cash_counts_data') ) {
+	function set_cash_counts_data(){
+        header('Content-Type: application/json');
+        require __DIR__ ."/../../../db_config.php";
+        global $serverName;
+        global $connectionInfo;
+        $conn = sqlsrv_connect($serverName, $connectionInfo);
+        if($conn)
+        {
+            if(isset($_POST) && !empty($_POST)){
+                $outlet = $_POST['outlet'];
+                $location_id = $_POST['location_id'];
+                $data = $_POST['data'];
+
+                $date = DateTime::createFromFormat('d/m/Y', $data['date']);
+                $date_str = $date->format('Y-m-d');
+                $username = str_replace("\'", "''", $data['username']);
+                $tbl_name = '';
+                $tbl_name = "CashCounts";
+
+                if($data['id'] + 0 == -1)
+                {
+                    $sql = "SELECT MAX(ID)+1 new_id FROM $tbl_name";
+                    $stmt = sqlsrv_query($conn, $sql);
+                    if ($stmt === false) {
+                        sqlsrv_close($conn);
+                        die(print_r(sqlsrv_errors(), true));
+                    }
+                    $new_id = 1;
+                    while ($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                        $new_id = $r['new_id'];
+                    }
+                    $sql = sprintf("INSERT INTO $tbl_name(ID, OutletID, Date, LocationID, Amount, Username) VALUES(%d, %d, '%s', %d, %f, '%s')",
+                                   $new_id, $outlet, $date_str, $location_id, $data['amount'], $username);
+                    $stmt = sqlsrv_query($conn, $sql);
+                    if ($stmt === false) {
+                        sqlsrv_close($conn);
+                        die(print_r(sqlsrv_errors(), true));
+                    }
+                }
+                else
+                {
+                    $sql = sprintf("UPDATE $tbl_name SET Date='%s', Amount=%f, Username='%s' WHERE ID=%d",
+                                    $date_str, $data['amount'], $username, $data['id']);
+                    $stmt = sqlsrv_query($conn, $sql);
+                    if ($stmt === false) {
+                        sqlsrv_close($conn);
+                        die(print_r(sqlsrv_errors(), true));
+                    }
+                }
+
+                $response = array(
+                    'status' => 'success',
+                    'message' => 'Save successed'
+                );
+                echo json_encode($response);
+            }
+            sqlsrv_close($conn);
+        }
+        else
+        {
+            $response = array(
+                'status' => 'failed',
+                'message' => 'Can not to connect to SQL Server.'
+            );
+            echo json_encode($response);
+        }
+        die;
+	}
+    add_action('wp_ajax_set_cash_counts_data', 'set_cash_counts_data');
+}
+
+if ( ! function_exists('delete_cash_counts_data') ) {
+	function delete_cash_counts_data(){
+        header('Content-Type: application/json');
+        require __DIR__ ."/../../../db_config.php";
+        global $serverName;
+        global $connectionInfo;
+        $conn = sqlsrv_connect($serverName, $connectionInfo);
+        if($conn)
+        {
+            if(isset($_POST) && !empty($_POST)){
+                $id = $_POST['id'];
+
+                $tbl_name = '';
+                $tbl_name = "CashCounts";
+                
+                $sql = sprintf("DELETE FROM $tbl_name WHERE ID=%d", $id);
+                $stmt = sqlsrv_query($conn, $sql);
+                if ($stmt === false) {
+                    sqlsrv_close($conn);
+                    die(print_r(sqlsrv_errors(), true));
+                }
+                
+                $response = array(
+                    'status' => 'success',
+                    'message' => 'Save successed'
+                );
+                echo json_encode($response);
+            }
+            sqlsrv_close($conn);
+        }
+        else
+        {
+            $response = array(
+                'status' => 'failed',
+                'message' => 'Can not to connect to SQL Server.'
+            );
+            echo json_encode($response);
+        }
+        die;
+	}
+    add_action('wp_ajax_delete_cash_counts_data', 'delete_cash_counts_data');
 }
 ?>

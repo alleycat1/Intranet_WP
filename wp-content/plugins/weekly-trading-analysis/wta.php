@@ -44,6 +44,7 @@ wp_enqueue_style( 'jqx.orange' );
 wp_enqueue_script(WTA_NAME . '_wta_paid_out',  WTA_PLUGIN_DIR . '/wta_paid_out.js', array('jquery'), WTA_VAR, true);
 wp_enqueue_script(WTA_NAME . '_wta_paid_out_view',  WTA_PLUGIN_DIR . '/wta_paid_out_view.js', array('jquery'), WTA_VAR, true);
 wp_enqueue_script(WTA_NAME . '_wta_other_income',  WTA_PLUGIN_DIR . '/wta_other_income.js', array('jquery'), WTA_VAR, true);
+wp_enqueue_script(WTA_NAME . '_wta_cash_counts',  WTA_PLUGIN_DIR . '/wta_cash_counts.js', array('jquery'), WTA_VAR, true);
 wp_enqueue_script(WTA_NAME . '_wta_input',  WTA_PLUGIN_DIR . '/wta_input.js', array('jquery'), WTA_VAR, true);
 wp_enqueue_script(WTA_NAME . '_wta_summary',  WTA_PLUGIN_DIR . '/wta_summary.js', array('jquery'), WTA_VAR, true);
 
@@ -89,6 +90,20 @@ function getIncomeInfo($conn, &$incomes)
           if(!isset($incomes[$row['OutletID']]))
                $incomes[$row['OutletID']] = array();
           $incomes[$row['OutletID']][$row['IncomeID']] = $row['Description'];
+     }
+}
+
+function getLocationInfo($conn, &$locations)
+{
+     $sql = "SELECT OutletID, LocationID, Description FROM OutletsCashLocations t LEFT JOIN Outlets s ON s.ID = t.OutletID WHERE OutletID NOT IN (SELECT ID FROM Outlets WHERE Deleted=1) ORDER BY OutLetID";
+     $stmt = sqlsrv_query($conn, $sql);
+     if ($stmt === false) {
+          return;
+     }
+     while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+          if(!isset($locations[$row['OutletID']]))
+               $locations[$row['OutletID']] = array();
+          $locations[$row['OutletID']][$row['LocationID']] = $row['Description'];
      }
 }
 
@@ -159,6 +174,9 @@ if($conn && count($user_outlets) > 0)
      $incomes = array();
      getIncomeInfo($conn, $incomes);
 
+     $locations = array();
+     getLocationInfo($conn, $locations);
+
      sqlsrv_close($conn);
 
      echo "<script>";
@@ -215,6 +233,24 @@ if($conn && count($user_outlets) > 0)
      echo "var incomes = Array();";
      echo "for(var i in incomeInfo[$first_id]) incomes[i] = incomeInfo[$first_id][i];";
 
+     $location_obj = array();
+     $first_id = "";
+     foreach($user_outlets as $code => $outlet)
+     {
+          $id =  $outlet['id'] + 0;
+          foreach($locations[$id] as $locationId => $location_desc)
+          {
+               if(!isset($location_obj[$id]))
+                    $location_obj[$id] = array();
+               if($first_id == "")
+                    $first_id = $id;
+               $location_obj[$id][count($location_obj[$id])] = ['label'=>$location_desc, 'value'=>$locationId];
+          }
+     }
+     echo "var locationInfo=" . json_encode($location_obj) . ";";
+     echo "var locations = Array();";
+     echo "for(var i in locationInfo[$first_id]) locations[i] = locationInfo[$first_id][i];";
+
      $supplier_obj = array();
      $first_id = "";
      foreach($user_outlets as $code => $outlet)
@@ -241,6 +277,7 @@ jQuery(document).ready(function ($) {
      initializeInputWidgets();
      initializePaidoutWidgets();
      initializeIncomeWidgets();
+     initializeCashCountsWidgets();
      initializeSummaryWidgets();
      initializePaidoutViewWidgets();
      setInterval(getCashOnSite, 10*1000);
@@ -278,35 +315,41 @@ function calcPaidOutTotal()
                     <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxCalendar'></div>
                     <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxTerm'></div>
                     <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxIncomeType'></div>
+                    <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxLocation'></div>
                </div>
                <div id="tabWTA">
                     <div style="border: none;" id='jqxGrid'>
                          <div id="wta_grid" style="width:1250px"></div>
                     </div>
                </div>
-               <div id="tabSummary">
+               <div id="tabSummary" hidden>
                     <div style="border: none;" id='jqxGrid1'>
                          <div id="summary_grid" style="width:1250px"></div>
                     </div>
                </div>
-               <div id="tabPaidOuts">
+               <div id="tabPaidOuts" hidden>
                     <div style="border: none;" id='jqxGrid2'>
                          <div id="paidout_grid1" style="width:1250px"></div><br>
                          <div id="paidout_grid2" style="width:1250px"></div>
                     </div>
                </div>
-               <div id="tabOtherIncome">
+               <div id="tabOtherIncome" hidden>
                     <div style="border: none;" id='jqxGrid3'>
                          <div id="income_grid" style="width:1250px"></div>
                          <table style="width:1250px; border-bottom:0px; height:30px; margin:0px">
-                         <br>
                          <button style="padding:4px 16px;" id="income_add">&nbsp;+&nbsp;</button> 
                     </table>
                     </div>
                </div>
-               <div id="tabCashCount">
+               <div id="tabCashCounts" hidden>
+                    <div style="border: none;" id='jqxGrid4'>
+                         <div id="cash_counts_grid" style="width:1250px"></div>
+                         <table style="width:1250px; border-bottom:0px; height:30px; margin:0px">
+                         <button style="padding:4px 16px;" id="cash_counts_add">&nbsp;+&nbsp;</button> 
+                    </table>
+                    </div>
                </div>
-               <div id="tabBanking">
+               <div id="tabBanking" hidden>
                </div>
           </td>
      </tr>
@@ -400,6 +443,33 @@ function calcPaidOutTotal()
                     <td class="my_td" align="right">
                          <input id="IncomeCancel" type="button" value="Cancel" />
                          <input type="button" id="IncomeSave" value="  Save  " />
+                    </td>
+               </tr>
+          </table>
+     </div>
+</div>
+
+<div id="popupCashCountsEdit" hidden>
+     <div>ADD CASH COUNTS DATA</div>
+     <div style="overflow: hidden;">
+          <table width=100%>
+               <tr>
+                    <td class="my_td" align="right">DATE:</td>
+                    <td class="my_td" align="left"><div style='float: left; margin-top: 10px;' id='jqxCashCountsDate'></div></td>
+               </tr>
+               <tr>
+                    <td class="my_td" align="right">AMOUNT(£):</td>
+                    <td class="my_td" align="left"><input id="cash_counts_amount" style="height:30px" required/></td>
+               </tr>
+               <tr>
+                    <td class="my_td" align="right">USERNAME:</td>
+                    <td class="my_td" align="left" ><input id="cash_counts_username" value="<?php echo $user->data->user_nicename; ?>" style="height:30px" readonly/></td>
+               </tr>
+               <tr>
+                    <td class="my_td" align="left"></td>
+                    <td class="my_td" align="right">
+                         <input id="CashCountsCancel" type="button" value="Cancel" />
+                         <input type="button" id="CashCountsSave" value="  Save  " />
                     </td>
                </tr>
           </table>
