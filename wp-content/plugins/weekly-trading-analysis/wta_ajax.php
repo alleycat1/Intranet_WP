@@ -578,7 +578,8 @@ if ( ! function_exists('get_cash_on_site') ) {
                             LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ZRef AND t2.Date = WTA.Date
                         WHERE OutletID=$outlet AND WTA.Date<='$week_end_str') 
                         - (SELECT ISNULL(SUM(Amount),0) FROM WTABanking WHERE OutletId=$outlet AND Date<'$week_end_str')
-                        AS Cash, (SELECT ISNULL(SUM(Amount),0) FROM WTAMiscIncome WHERE OutletID=$outlet AND Date<='$week_end_str') AS Income";
+                        + (SELECT ISNULL(SUM(Amount),0) FROM WTAMiscIncome WHERE OutletID=$outlet AND Date<='$week_end_str')
+                        AS Cash";
                 $stmt = sqlsrv_query($conn, $sql);
 
                 if ($stmt === false) {
@@ -586,12 +587,10 @@ if ( ! function_exists('get_cash_on_site') ) {
                     die(print_r(sqlsrv_errors(), true));
                 }
                 $Cash = 0;
-                $Income = 0;
                 while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
                     $Cash = $row['Cash'];
-                    $Income = $row['Income'];
                 }
-                $res = array('CashOnSite' => $Cash, 'Income'=>$Income);
+                $res = array('CashOnSite' => $Cash);
                 echo json_encode($res);
             }
             sqlsrv_close($conn);
@@ -947,6 +946,7 @@ if ( ! function_exists('get_cash_counts_data') ) {
                             LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ZRef AND t2.Date = WTA.Date
                         WHERE OutletID=$outlet AND WTA.Date<='$week_end_str') 
                         - (SELECT ISNULL(SUM(Amount),0) FROM WTABanking WHERE OutletId=$outlet AND Date<'$week_end_str')
+                        + (SELECT ISNULL(SUM(Amount),0) FROM WTAMiscIncome WHERE OutletID=$outlet AND Date<='$week_end_str')
                         AS Cash";
 
                 $stmt = sqlsrv_query($conn, $sql);
