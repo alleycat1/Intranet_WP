@@ -577,7 +577,8 @@ if ( ! function_exists('get_cash_on_site') ) {
                             LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ZRef AND t1.Date = WTA.Date
                             LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ZRef AND t2.Date = WTA.Date
                         WHERE OutletID=$outlet AND WTA.Date<='$week_end_str') 
-                        - (SELECT ISNULL(SUM(Amount),0) FROM WTABanking WHERE OutletId=$outlet AND Date<'$week_end_str') AS Cash";
+                        - (SELECT ISNULL(SUM(Amount),0) FROM WTABanking WHERE OutletId=$outlet AND Date<'$week_end_str')
+                        AS Cash, (SELECT ISNULL(SUM(Amount),0) FROM WTAMiscIncome WHERE OutletID=$outlet AND Date<='$week_end_str') AS Income";
                 $stmt = sqlsrv_query($conn, $sql);
 
                 if ($stmt === false) {
@@ -585,10 +586,12 @@ if ( ! function_exists('get_cash_on_site') ) {
                     die(print_r(sqlsrv_errors(), true));
                 }
                 $Cash = 0;
+                $Income = 0;
                 while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
                     $Cash = $row['Cash'];
+                    $Income = $row['Income'];
                 }
-                $res = array('CashOnSite' => $Cash);
+                $res = array('CashOnSite' => $Cash, 'Income'=>$Income);
                 echo json_encode($res);
             }
             sqlsrv_close($conn);
@@ -905,20 +908,18 @@ if ( ! function_exists('get_cash_counts_data') ) {
         {
             if(isset($_POST) && !empty($_POST)){
                 $outlet = $_POST['outlet'];
-                $location_id = $_POST['location_id'];
-                $date_str = $_POST['date'];
 
-                $date = DateTime::createFromFormat('d/m/Y', $date_str);
-                $week_start = clone $date;
+                $currentDate = date('d/m/Y');
+
+                $datetime = new DateTime();
+                $dateStr = $datetime->format('d/m/Y H:i:s');
+                
+                $date = DateTime::createFromFormat('d/m/Y', $currentDate);
                 $week_end = clone $date;
-                $week_start->modify('this week');
                 $week_end->modify('this week +6 days');
-
-                $week_start_str = $week_start->format('Y-m-d');
                 $week_end_str = $week_end->format('Y-m-d');
 
-                $sql = "SELECT ID, CONVERT(varchar(10), Date, 103) AS Date, Amount FROM CashCounts WHERE OutletID=$outlet AND LocationID=$location_id AND Date>='$week_start_str' AND Date<='$week_end_str' ORDER BY Date, ID";
-                
+                $sql = "SELECT c.ID, CONCAT(CONVERT(varchar,ISNULL(Date,GETDATE()),103), ' ', CONVERT(varchar,ISNULL(Date,GETDATE()),8)) Date, ISNULL(Amount,0) Amount FROM OutletsCashLocations c LEFT JOIN CashCounts v ON v.LocationID=c.ID WHERE c.OutletID=$outlet AND (v.Date=(SELECT MAX(date)FROM CashCounts) OR v.Date IS NULL) ORDER BY c.ID";
                 $stmt = sqlsrv_query($conn, $sql);
 
                 if ($stmt === false) {
@@ -928,18 +929,44 @@ if ( ! function_exists('get_cash_counts_data') ) {
 
                 $amount_sum = 0;
                 $index = 0;
+                $id = 0;
                 while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
                     $res[$index]['id'] = $row['ID'];
-                    $res[$index]['date'] = $row['Date'];
+                    $id = $row['ID'];
                     $res[$index++]['amount'] = $row['Amount'];
-
+                    $date = $row['Date'];
                     $amount_sum += $row['Amount'];
                 }
-                $res[$index]['id'] = '';
-                $res[$index]['date'] = '';
-                $res[$index]['amount'] = $amount_sum;
+                $res[$index]['id'] = $id + 1;
+                $res[$index++]['amount'] = $amount_sum;
 
-                echo json_encode($res);
+                $sql = "SELECT (SELECT PremisesFloat FROM Outlets WHERE ID = $outlet) + 
+                        (SELECT ISNULL(ISNULL(SUM(SalesEXVAT),0) + ISNULL(SUM(VATAmount),0) + ISNULL(SUM(Disrepancy),0) - SUM(ISNULL(FromTill, 0)) - ISNULL(SUM(AccountSales),0) + ISNULL(SUM(AccountReceipts),0) - ISNULL(SUM(CardsBanking),0),0) AS Cash 
+                        FROM WTA 
+                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ZRef AND t1.Date = WTA.Date
+                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ZRef AND t2.Date = WTA.Date
+                        WHERE OutletID=$outlet AND WTA.Date<='$week_end_str') 
+                        - (SELECT ISNULL(SUM(Amount),0) FROM WTABanking WHERE OutletId=$outlet AND Date<'$week_end_str')
+                        AS Cash";
+
+                $stmt = sqlsrv_query($conn, $sql);
+                if ($stmt === false) {
+                    sqlsrv_close($conn);
+                    die(print_r(sqlsrv_errors(), true));
+                }
+
+                $Cash = 0;
+                while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                    $Cash = $row['Cash'];
+                }
+
+                $res[$index]['id'] = $id + 2;
+                $res[$index++]['amount'] = $Cash;
+                $res[$index]['id'] = $id + 3;
+                $res[$index++]['amount'] = $amount_sum - $Cash;
+                $data['data'] = $res;
+                $data['date'] = $date;
+                echo json_encode($data);
             }
             sqlsrv_close($conn);
         }
@@ -967,44 +994,35 @@ if ( ! function_exists('set_cash_counts_data') ) {
         {
             if(isset($_POST) && !empty($_POST)){
                 $outlet = $_POST['outlet'];
-                $location_id = $_POST['location_id'];
                 $data = $_POST['data'];
 
-                $date = DateTime::createFromFormat('d/m/Y', $data['date']);
-                $date_str = $date->format('Y-m-d');
                 $tbl_name = '';
                 $tbl_name = "CashCounts";
 
-                if($data['id'] + 0 == -1)
+                sqlsrv_query($conn, "BEGIN TRANSACTION");
+                $sql = "SELECT MAX(ID)+1 new_id FROM $tbl_name";
+                $stmt = sqlsrv_query($conn, $sql);
+                if ($stmt === false) {
+                    sqlsrv_close($conn);
+                    die(print_r(sqlsrv_errors(), true));
+                }
+                $new_id = 1;
+                while ($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                    $new_id = $r['new_id'];
+                }
+                $datetime = new DateTime();
+                $dateStr = $datetime->format('d/m/Y H:i:s');
+                for($i=0; $i<count($data) - 3; $i++)
                 {
-                    $sql = "SELECT MAX(ID)+1 new_id FROM $tbl_name";
-                    $stmt = sqlsrv_query($conn, $sql);
-                    if ($stmt === false) {
-                        sqlsrv_close($conn);
-                        die(print_r(sqlsrv_errors(), true));
-                    }
-                    $new_id = 1;
-                    while ($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-                        $new_id = $r['new_id'];
-                    }
-                    $sql = sprintf("INSERT INTO $tbl_name(ID, OutletID, Date, LocationID, Amount) VALUES(%d, %d, '%s', %d, %f)",
-                                   $new_id, $outlet, $date_str, $location_id, $data['amount']);
+                    $sql = sprintf("INSERT INTO $tbl_name(ID, OutletID, Date, LocationID, Amount) VALUES(%d, %d, CONVERT (datetime, '%s', 103), %d, %f)",
+                                   $new_id++, $outlet, $dateStr, $data[$i]['id'], $data[$i]['amount']);
                     $stmt = sqlsrv_query($conn, $sql);
                     if ($stmt === false) {
                         sqlsrv_close($conn);
                         die(print_r(sqlsrv_errors(), true));
                     }
                 }
-                else
-                {
-                    $sql = sprintf("UPDATE $tbl_name SET Date='%s', Amount=%f WHERE ID=%d",
-                                    $date_str, $data['amount'], $data['id']);
-                    $stmt = sqlsrv_query($conn, $sql);
-                    if ($stmt === false) {
-                        sqlsrv_close($conn);
-                        die(print_r(sqlsrv_errors(), true));
-                    }
-                }
+                sqlsrv_query($conn, "COMMIT");
 
                 $response = array(
                     'status' => 'success',
@@ -1025,48 +1043,5 @@ if ( ! function_exists('set_cash_counts_data') ) {
         die;
 	}
     add_action('wp_ajax_set_cash_counts_data', 'set_cash_counts_data');
-}
-
-if ( ! function_exists('delete_cash_counts_data') ) {
-	function delete_cash_counts_data(){
-        header('Content-Type: application/json');
-        require __DIR__ ."/../../../db_config.php";
-        global $serverName;
-        global $connectionInfo;
-        $conn = sqlsrv_connect($serverName, $connectionInfo);
-        if($conn)
-        {
-            if(isset($_POST) && !empty($_POST)){
-                $id = $_POST['id'];
-
-                $tbl_name = '';
-                $tbl_name = "CashCounts";
-                
-                $sql = sprintf("DELETE FROM $tbl_name WHERE ID=%d", $id);
-                $stmt = sqlsrv_query($conn, $sql);
-                if ($stmt === false) {
-                    sqlsrv_close($conn);
-                    die(print_r(sqlsrv_errors(), true));
-                }
-                
-                $response = array(
-                    'status' => 'success',
-                    'message' => 'Save successed'
-                );
-                echo json_encode($response);
-            }
-            sqlsrv_close($conn);
-        }
-        else
-        {
-            $response = array(
-                'status' => 'failed',
-                'message' => 'Can not to connect to SQL Server.'
-            );
-            echo json_encode($response);
-        }
-        die;
-	}
-    add_action('wp_ajax_delete_cash_counts_data', 'delete_cash_counts_data');
 }
 ?>

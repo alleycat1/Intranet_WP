@@ -44,6 +44,7 @@ function add_jqwidgets() {
     wp_register_script( 'jqxcombobox', get_template_directory_uri() . '/js/jqxcombobox.js', array( 'jquery' ), '3.0.4', false ); 
     wp_register_script( 'jqxpopover', get_template_directory_uri() . '/js/jqxpopover.js', array( 'jquery' ), '3.0.4', false ); 
     wp_register_script( 'jqxwindow', get_template_directory_uri() . '/js/jqxwindow.js', array( 'jquery' ), '3.0.4', false ); 
+    wp_register_script( 'jqxinput', get_template_directory_uri() . '/js/jqxinput.js', array( 'jquery' ), '3.0.4', false ); 
     
 	// register jQWidgets CSS files
 	wp_register_style( 'jqx.base', get_template_directory_uri() . '/css/jqx.base.css', array(), '3.0.4', 'all' );

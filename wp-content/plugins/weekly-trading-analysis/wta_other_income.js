@@ -51,7 +51,7 @@ function initializeIncomeWidgets() {
 
     jQuery("#income_grid").jqxGrid(
     {
-         width: '1050',
+         width: '1250',
          height: '250',
          source: dataAdapterIncome,
          columnsresize: true,

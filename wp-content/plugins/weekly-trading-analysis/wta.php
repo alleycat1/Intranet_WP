@@ -36,6 +36,7 @@ wp_enqueue_script( 'jqxgrid.export' );
 wp_enqueue_script( 'jqxcombobox' );
 wp_enqueue_script( 'jqxpopover' );
 wp_enqueue_script( 'jqxwindow' );
+wp_enqueue_script( 'jqxinput' );
 
 // enqueue jQWidgets CSS files
 wp_enqueue_style( 'jqx.base' );
@@ -315,7 +316,7 @@ function calcPaidOutTotal()
                     <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxCalendar'></div>
                     <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxTerm'></div>
                     <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxIncomeType'></div>
-                    <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxLocation'></div>
+                    <input style='float: left; margin-top: 10px; margin-left: 100px; text-align:center' id='jqxCashSubmitTime' readonly/>
                </div>
                <div id="tabWTA">
                     <div style="border: none;" id='jqxGrid'>
@@ -345,7 +346,9 @@ function calcPaidOutTotal()
                     <div style="border: none;" id='jqxGrid4'>
                          <div id="cash_counts_grid" style="width:1250px"></div>
                          <table style="width:1250px; border-bottom:0px; height:30px; margin:0px">
-                         <button style="padding:4px 16px;" id="cash_counts_add">&nbsp;+&nbsp;</button> 
+                         <button style="padding:4px 16px;" id="cash_counts_submit">&nbsp;SUBMIT&nbsp;</button> 
+                         &nbsp;&nbsp;&nbsp;
+                         <button style="padding:4px 16px;" id="cash_counts_refresh">&nbsp;REFRESH&nbsp;</button> 
                     </table>
                     </div>
                </div>
@@ -449,28 +452,6 @@ function calcPaidOutTotal()
      </div>
 </div>
 
-<div id="popupCashCountsEdit" hidden>
-     <div>ADD CASH COUNTS DATA</div>
-     <div style="overflow: hidden;">
-          <table width=100%>
-               <tr>
-                    <td class="my_td" align="right">DATE:</td>
-                    <td class="my_td" align="left"><div style='float: left; margin-top: 10px;' id='jqxCashCountsDate'></div></td>
-               </tr>
-               <tr>
-                    <td class="my_td" align="right">AMOUNT(£):</td>
-                    <td class="my_td" align="left"><input id="cash_counts_amount" style="height:30px" required/></td>
-               </tr>
-               <tr>
-                    <td class="my_td" align="left"></td>
-                    <td class="my_td" align="right">
-                         <input id="CashCountsCancel" type="button" value="Cancel" />
-                         <input type="button" id="CashCountsSave" value="  Save  " />
-                    </td>
-               </tr>
-          </table>
-     </div>
-</div>
 <?php
      wp_enqueue_script(WTA_NAME . '_wta_ajax',  WTA_PLUGIN_DIR . '/wta_ajax.js', array('jquery'), WTA_VAR, true);
 }

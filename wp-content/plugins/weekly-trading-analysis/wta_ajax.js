@@ -24,7 +24,7 @@ function get_wta_data(outlet, term, date){
             jQuery("#jqxOutlet").jqxDropDownList({ disabled: false});
             jQuery("#jqxTerm").jqxDropDownList({ disabled: false});
             jQuery("#jqxCalendar").jqxDateTimeInput({ disabled: false});
-            alert("Can not access the database!");
+            alert("Can not access the database! - 1");
         }
     });
 }
@@ -52,7 +52,7 @@ function get_summary_data(outlet, date){
             jQuery('#summary_grid').jqxGrid({ disabled: false});
             jQuery("#jqxCalendar").jqxDateTimeInput({ disabled: false});
             jQuery("#jqxOutlet").jqxDropDownList({ disabled: false});
-            alert("Can not access the database!");
+            alert("Can not access the database! - 2");
         }
     });
 }
@@ -65,10 +65,10 @@ function get_cash_on_site(outlet, date){
         data: { outlet:outlet, date:date, action:'get_cash_on_site', security_nonce:security_nonce },
         dataType: "json",
         success: function (data) {
-            document.getElementById('current_cash').innerHTML = "Current Cash on Site: £ " + parseFloat(data['CashOnSite']).toFixed(2);
+            document.getElementById('current_cash').innerHTML = "Current Cash on Site: £ " + (parseFloat(data['CashOnSite']) + parseFloat(data['Income'])).toFixed(2);
         },
         error: function (e) {
-            alert("Can not access the database!");
+            alert("Can not access the database! - 3");
         }
     });
 }
@@ -97,7 +97,7 @@ function set_wta_data(outlet, term, id, date, row, user_id){
             get_wta_data(outlet, term, date);
         },
         error: function (e) {
-            alert("Can not access the database!");
+            alert("Can not access the database! - 4");
         }
     });
 }
@@ -120,7 +120,7 @@ function get_paid_data(paid_type, date, zref){
             jQuery('#paid_grid').jqxGrid({ disabled: false});
         },
         error: function (e) {
-            alert("Can not access the database!");
+            alert("Can not access the database! - 5");
             jQuery('#paid_grid').jqxGrid({ disabled: false});
         }
     });
@@ -140,7 +140,7 @@ function set_paid_data(paid_type, data){
 
         },
         error: function (e) {
-            alert("Can not access the database!");
+            alert("Can not access the database! - 6");
             jQuery('#paid_grid').jqxGrid({ disabled: false});
         }
     });
@@ -159,7 +159,7 @@ function delete_paid_data(paid_type, id){
             get_paid_data(paid_type, current_date, current_zref);
         },
         error: function (e) {
-            alert("Can not access the database!");
+            alert("Can not access the database! - 7");
             jQuery('#paid_grid').jqxGrid({ disabled: false});
         }
     });
@@ -183,7 +183,7 @@ function get_paidout_view_data(outlet, date){
             jQuery("#paidout_grid2").jqxGrid('updatebounddata', 'cells');
         },
         error: function (e) {
-            alert("Can not access the database!");
+            alert("Can not access the database! - 8");
         }
     });
 }
@@ -204,7 +204,7 @@ function get_income_data(outlet, income, date){
             jQuery('#income_grid').jqxGrid({ disabled: false});
         },
         error: function (e) {
-            alert("Can not access the database!");
+            alert("Can not access the database! - 9");
         }
     });
 }
@@ -225,7 +225,7 @@ function set_income_data(outlet, income, data){
 
         },
         error: function (e) {
-            alert("Can not access the database!");
+            alert("Can not access the database! - 10");
             jQuery('#income_grid').jqxGrid({ disabled: false});
         }
     });
@@ -246,71 +246,51 @@ function delete_income_data( id){
             get_income_data(outlet, income, date);
         },
         error: function (e) {
-            alert("Can not access the database!");
+            alert("Can not access the database! - 11");
             jQuery('#income_grid').jqxGrid({ disabled: false});
         }
     });
 }
 
-function get_cash_counts_data(outlet, location_id, date){
+function get_cash_counts_data(outlet){
     var security_nonce = MyAjax.security_nonce;
     jQuery('#cash_counts_grid').jqxGrid({ disabled: true});
     jQuery.ajax({
         url: MyAjax.ajaxurl,
         method: "POST",
-        data: { outlet:outlet, location_id:location_id, date:date, action:'get_cash_counts_data', security_nonce:security_nonce },
+        data: { outlet:outlet, action:'get_cash_counts_data', security_nonce:security_nonce },
         dataType: "json",
         success: function (data) {
             cash_counts_data.length = 0;
-            for(var id in data)
-                cash_counts_data.push(data[id]);
+            for(var id in data.data)
+                cash_counts_data.push(data.data[id]);
+            date = data.date;
+            jQuery("#jqxCashSubmitTime").jqxInput('val', date);
             jQuery("#cash_counts_grid").jqxGrid('updatebounddata', 'cells');
             jQuery('#cash_counts_grid').jqxGrid({ disabled: false});
         },
         error: function (e) {
-            alert("Can not access the database!");
+            alert("Can not access the database! - 12");
         }
     });
 }
 
-function set_cash_counts_data(outlet, location_id, data){
+function set_cash_counts_data(outlet, data){
     var security_nonce = MyAjax.security_nonce;
     jQuery('#cash_counts_grid').jqxGrid({ disabled: true});
     jQuery.ajax({
         url: MyAjax.ajaxurl,
         method: "POST",
-        data: { outlet:outlet, location_id:location_id, data:data, action:'set_cash_counts_data', security_nonce:security_nonce },
+        data: { outlet:outlet, data:data, action:'set_cash_counts_data', security_nonce:security_nonce },
         dataType: "json",
         success: function (d) {
             outlet = jQuery("#jqxOutlet").val();
-            location_id = jQuery("#jqxLocation").val();
-            date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
-            get_cash_counts_data(outlet, location_id, date);
+            get_cash_counts_data(outlet);
         },
         error: function (e) {
-            alert("Can not access the database!");
+            alert("Can not access the database! - 13");
             jQuery('#cash_counts_grid').jqxGrid({ disabled: false});
         }
     });
 }
 
-function delete_cash_counts_data( id){
-    var security_nonce = MyAjax.security_nonce;
-    jQuery('#cash_counts_grid').jqxGrid({ disabled: true});
-    jQuery.ajax({
-        url: MyAjax.ajaxurl,
-        method: "POST",
-        data: { id:id, action:'delete_cash_counts_data', security_nonce:security_nonce },
-        dataType: "json",
-        success: function (d) {
-            outlet = jQuery("#jqxOutlet").val();
-            location_id = jQuery("#jqxLocation").val();
-            date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
-            get_cash_counts_data(outlet, location_id, date);
-        },
-        error: function (e) {
-            alert("Can not access the database!");
-            jQuery('#cash_counts_grid').jqxGrid({ disabled: false});
-        }
-    });
-}
