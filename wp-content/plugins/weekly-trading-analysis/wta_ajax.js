@@ -68,7 +68,7 @@ function get_cash_on_site(outlet, date){
             document.getElementById('current_cash').innerHTML = "Current Cash on Site: £ " + parseFloat(data['CashOnSite']).toFixed(2);
         },
         error: function (e) {
-            alert("Can not access the database! - 3");
+            //alert("Can not access the database! - 3");
         }
     });
 }
@@ -252,6 +252,24 @@ function delete_income_data( id){
     });
 }
 
+function get_cash_counts_editable(outlet){
+    var security_nonce = MyAjax.security_nonce;
+    jQuery.ajax({
+        url: MyAjax.ajaxurl,
+        method: "POST",
+        data: { outlet:outlet, action:'get_cash_counts_editable', security_nonce:security_nonce },
+        dataType: "json",
+        success: function (data) {
+            secs = data.elapsed_seconds;
+            if(data.elapsed_seconds >= 900)
+                get_cash_counts_data(outlet);
+        },
+        error: function (e) {
+            alert("Can not access the database! - 12");
+        }
+    });
+}
+
 function get_cash_counts_data(outlet){
     var security_nonce = MyAjax.security_nonce;
     jQuery('#cash_counts_grid').jqxGrid({ disabled: true});
@@ -267,7 +285,12 @@ function get_cash_counts_data(outlet){
             date = data.date;
             jQuery("#jqxCashSubmitTime").jqxInput('val', date);
             jQuery("#cash_counts_grid").jqxGrid('updatebounddata', 'cells');
+            cash_counts_editable = data.elapsed_seconds >= 900;
             jQuery('#cash_counts_grid').jqxGrid({ disabled: false});
+            if(!cash_counts_editable)
+                cash_counts_check_timer = setInterval(getCashCountsEditable, 60*1000);
+            else
+                clearInterval(cash_counts_check_timer);
         },
         error: function (e) {
             alert("Can not access the database! - 12");
