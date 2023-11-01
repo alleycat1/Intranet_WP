@@ -9,6 +9,12 @@ function initializeCashCountsWidgets() {
          datatype: "array",
          updaterow: function (rowid, rowdata, commit) {
             cash_counts_data[rowid].amount = rowdata.amount;
+            var total = 0;
+            for(var i=0; i<cash_counts_data.length-3; i++)
+                total += parseFloat(cash_counts_data[i].amount);
+            cash_counts_data[cash_counts_data.length - 3].amount = total;
+            cash_counts_data[cash_counts_data.length - 1].amount = total - parseFloat(cash_counts_data[cash_counts_data.length - 2].amount);
+            jQuery("#cash_counts_grid").jqxGrid('updatebounddata', 'cells');
          },
          datafields:
          [

@@ -1087,7 +1087,6 @@ if ( ! function_exists('set_cash_counts_data') ) {
                 {
                     $sql = sprintf("INSERT INTO $tbl_name(ID, OutletID, Date, LocationID, Amount) VALUES(%d, %d, CONVERT (datetime, '%s', 103), %d, %f)",
                                    $new_id++, $outlet, $dateStr, $data[$i]['id'], $data[$i]['amount']);
-                    echo $sql;
                     $stmt = sqlsrv_query($conn, $sql);
                     if ($stmt === false) {
                         sqlsrv_close($conn);
