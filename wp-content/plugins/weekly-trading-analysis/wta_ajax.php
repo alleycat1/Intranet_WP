@@ -998,11 +998,13 @@ if ( ! function_exists('get_cash_counts_data') ) {
                     $res[$index]['id'] = $row['ID'];
                     $id = $row['ID'];
                     if($seconds < 900)
+                    {
                         $res[$index++]['amount'] = $row['Amount'];
+                        $amount_sum += $row['Amount'];
+                    }
                     else
                         $res[$index++]['amount'] = 0;
                     $date = $row['Date'];
-                    $amount_sum += $row['Amount'];
                 }
                 $res[$index]['id'] = $id + 1;
                 $res[$index++]['amount'] = $amount_sum;
