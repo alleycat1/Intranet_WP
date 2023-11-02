@@ -316,7 +316,7 @@ function calcPaidOutTotal()
                     <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxCalendar'></div>
                     <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxTerm'></div>
                     <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxIncomeType'></div>
-                    <input style='float: left; margin-top: 10px; margin-left: 100px; text-align:center' id='jqxCashSubmitTime' readonly/>
+                    <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxCashSubmitTime'></div>
                </div>
                <div id="tabWTA">
                     <div style="border: none;" id='jqxGrid'>

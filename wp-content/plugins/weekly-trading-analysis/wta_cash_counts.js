@@ -1,8 +1,23 @@
 var cash_counts_data = new Array();
 var cash_counts_editable = true;
 var cash_counts_check_timer = 0;
+var cash_counts_submit_times = new Array();
+var enable_submit_time_select = true;
 
 function initializeCashCountsWidgets() {
+    jQuery("#jqxCashSubmitTime").jqxDropDownList({ source: cash_counts_submit_times, selectedIndex: 0, width: '200', height: '30px'});
+    jQuery("#jqxCashSubmitTime").on('select', function (e) {
+        if(enable_submit_time_select)
+        {
+            jQuery('#cash_counts_grid').jqxGrid('endcelledit');
+            outlet = jQuery("#jqxOutlet").val();
+            date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
+            submit_time = cash_counts_submit_times[e.args.index].value;
+            if(tabId == 4)
+                get_cash_counts_data(outlet, date, submit_time);
+        }
+    });
+
     var sourceCashCounts =
     {
          localdata: cash_counts_data,
@@ -79,6 +94,8 @@ function initializeCashCountsWidgets() {
     });
 
     jQuery("#cash_counts_submit").click(function(event) {
+        if(!cash_counts_editable)
+            return;
         jQuery('#cash_counts_grid').jqxGrid('endcelledit');
         if(confirm("Are you sure you want to submit this CASH COUNTS now?"))
         {
@@ -90,7 +107,8 @@ function initializeCashCountsWidgets() {
     jQuery("#cash_counts_refresh").click(function(event) {
         jQuery('#cash_counts_grid').jqxGrid('endcelledit');
         outlet = jQuery("#jqxOutlet").val();
-        get_cash_counts_data(outlet);
+        date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
+        get_cash_counts_data(outlet, date, '');
         event.preventDefault();
     });
 

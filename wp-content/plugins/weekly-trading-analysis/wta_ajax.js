@@ -261,8 +261,12 @@ function get_cash_counts_editable(outlet){
         dataType: "json",
         success: function (data) {
             secs = data.elapsed_seconds;
-            if(data.elapsed_seconds >= 900)
-                get_cash_counts_data(outlet);
+            selectedIndex = $("#jqxCashSubmitTime").jqxDropDownList("getSelectedIndex");
+            if(data.elapsed_seconds >= 900 && selectedIndex == cash_counts_submit_times.length - 1)
+            {
+                date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
+                get_cash_counts_data(outlet, date, '');
+            }
         },
         error: function (e) {
             alert("Can not access the database! - 12");
@@ -270,27 +274,47 @@ function get_cash_counts_editable(outlet){
     });
 }
 
-function get_cash_counts_data(outlet){
+function get_cash_counts_data(outlet, date, submit_time){
     var security_nonce = MyAjax.security_nonce;
     jQuery('#cash_counts_grid').jqxGrid({ disabled: true});
     jQuery.ajax({
         url: MyAjax.ajaxurl,
         method: "POST",
-        data: { outlet:outlet, action:'get_cash_counts_data', security_nonce:security_nonce },
+        data: { outlet:outlet, date:date, submit_time:submit_time, action:'get_cash_counts_data', security_nonce:security_nonce },
         dataType: "json",
         success: function (data) {
             cash_counts_data.length = 0;
             for(var id in data.data)
                 cash_counts_data.push(data.data[id]);
-            date = data.date;
-            jQuery("#jqxCashSubmitTime").jqxInput('val', date);
+            cash_counts_submit_times = data.cash_counts_submit_times;
             jQuery("#cash_counts_grid").jqxGrid('updatebounddata', 'cells');
             cash_counts_editable = data.elapsed_seconds >= 900;
+            if(submit_time != '')
+                cash_counts_editable = false;
             jQuery('#cash_counts_grid').jqxGrid({ disabled: false});
             if(!cash_counts_editable)
                 cash_counts_check_timer = setInterval(getCashCountsEditable, 60*1000);
             else
                 clearInterval(cash_counts_check_timer);
+            enable_submit_time_select = false;
+            jQuery("#jqxCashSubmitTime").jqxDropDownList('clear');
+            selectedTime = cash_counts_submit_times.length == 0 ? 0 : (cash_counts_submit_times.length - 1);
+            if(submit_time == '')
+                jQuery("#jqxCashSubmitTime").jqxDropDownList({ source: cash_counts_submit_times, selectedIndex: selectedTime, width: '200', height: '30px'});
+            else
+            {
+                index = -1;
+                for(var i=0; i<cash_counts_submit_times.length; i++)
+                    if(cash_counts_submit_times[i].value == submit_time)
+                    {
+                        index = i;
+                        break;
+                    }
+                if(index == -1)
+                    index = cash_counts_submit_times.length - 1;
+                    jQuery("#jqxCashSubmitTime").jqxDropDownList({ source: cash_counts_submit_times, selectedIndex: index, width: '200', height: '30px'});
+            }
+            enable_submit_time_select = true;
         },
         error: function (e) {
             alert("Can not access the database! - 12");
@@ -308,7 +332,8 @@ function set_cash_counts_data(outlet, data){
         dataType: "json",
         success: function (d) {
             outlet = jQuery("#jqxOutlet").val();
-            get_cash_counts_data(outlet);
+            date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
+            get_cash_counts_data(outlet, date, '');
         },
         error: function (e) {
             alert("Can not access the database! - 13");

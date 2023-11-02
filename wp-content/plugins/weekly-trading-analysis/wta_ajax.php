@@ -959,6 +959,8 @@ if ( ! function_exists('get_cash_counts_data') ) {
         {
             if(isset($_POST) && !empty($_POST)){
                 $outlet = $_POST['outlet'];
+                $dateInput = $_POST['date'];
+                $submit_time = $_POST['submit_time'];
 
                 $currentDate = date('d/m/Y');
 
@@ -966,9 +968,17 @@ if ( ! function_exists('get_cash_counts_data') ) {
                 $dateStr = $datetime->format('d/m/Y H:i:s');
                 
                 $date = DateTime::createFromFormat('d/m/Y', $currentDate);
+                if($submit_time != '')
+                    $date = DateTime::createFromFormat('d/m/Y', $dateInput);
+                $week_start = clone $date;
+                $week_start->modify('this week');
+                $week_start_str = $week_start->format('Y-m-d');
                 $week_end = clone $date;
                 $week_end->modify('this week +6 days');
                 $week_end_str = $week_end->format('Y-m-d');
+                $week_end1 = clone $date;
+                $week_end1->modify('this week +7 days');
+                $week_end_str1 = $week_end1->format('Y-m-d');
 
                 $sql = "SELECT ISNULL(DATEDIFF(second, (SELECT MAX(Date) FROM CashCounts WHERE OutletID=$outlet), CONVERT (datetime, '$dateStr', 103)), 900) AS sec";
                 $stmt = sqlsrv_query($conn, $sql);
@@ -984,6 +994,13 @@ if ( ! function_exists('get_cash_counts_data') ) {
                 }
 
                 $sql = "SELECT c.ID, CONCAT(CONVERT(varchar,ISNULL(Date,GETDATE()),103), ' ', CONVERT(varchar,ISNULL(Date,GETDATE()),8)) Date, ISNULL(Amount,0) Amount FROM OutletsCashLocations c LEFT JOIN CashCounts v ON v.LocationID=c.ID WHERE c.OutletID=$outlet AND (v.Date=(SELECT MAX(date) FROM CashCounts) OR v.Date IS NULL) ORDER BY c.ID";
+                if($submit_time != '')
+                {
+                    $arr = explode(' ', $submit_time);
+                    $arr1 = explode('/', $arr[0]);
+                    $datetime = $arr1[2].'-'.$arr1[1].'-'.$arr1[0].' '.$arr[1];
+                    $sql = "SELECT c.ID, CONCAT(CONVERT(varchar,ISNULL(Date,GETDATE()),103), ' ', CONVERT(varchar,ISNULL(Date,GETDATE()),8)) Date, ISNULL(Amount,0) Amount FROM OutletsCashLocations c LEFT JOIN CashCounts v ON v.LocationID=c.ID WHERE c.OutletID=$outlet AND (v.Date='$datetime') ORDER BY c.ID";
+                }
                 $stmt = sqlsrv_query($conn, $sql);
 
                 if ($stmt === false) {
@@ -997,7 +1014,7 @@ if ( ! function_exists('get_cash_counts_data') ) {
                 while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
                     $res[$index]['id'] = $row['ID'];
                     $id = $row['ID'];
-                    if($seconds < 900)
+                    if($seconds < 900 || $submit_time != '')
                     {
                         $res[$index++]['amount'] = $row['Amount'];
                         $amount_sum += $row['Amount'];
@@ -1018,7 +1035,6 @@ if ( ! function_exists('get_cash_counts_data') ) {
                         - (SELECT ISNULL(SUM(Amount),0) FROM WTABanking WHERE OutletId=$outlet AND Date<'$week_end_str')
                         + (SELECT ISNULL(SUM(Amount),0) FROM WTAMiscIncome WHERE OutletID=$outlet AND Date<='$week_end_str')
                         AS Cash";
-
                 $stmt = sqlsrv_query($conn, $sql);
                 if ($stmt === false) {
                     sqlsrv_close($conn);
@@ -1034,8 +1050,23 @@ if ( ! function_exists('get_cash_counts_data') ) {
                 $res[$index++]['amount'] = $Cash;
                 $res[$index]['id'] = $id + 3;
                 $res[$index++]['amount'] = $amount_sum - $Cash;
+
+                $sql = "SELECT DISTINCT CONCAT(CONVERT(varchar,ISNULL(Date,GETDATE()),103), ' ', CONVERT(varchar,ISNULL(Date,GETDATE()),8)) Date FROM CashCounts WHERE OutletId=$outlet AND Date >= '$week_start_str' AND Date <'$week_end_str1';";
+                $stmt = sqlsrv_query($conn, $sql);
+                if ($stmt === false) {
+                    sqlsrv_close($conn);
+                    die(print_r(sqlsrv_errors(), true));
+                }
+                $datetimeList = array();
+                while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                    $index = count($datetimeList);
+                    $datetimeList[$index]['label'] = $row['Date'];
+                    $datetimeList[$index]['value'] = $row['Date'];
+                }
+
                 $data['data'] = $res;
-                $data['date'] = $date;
+                $data['submit_time'] = $submit_time;
+                $data['cash_counts_submit_times'] = $datetimeList;
                 $data['elapsed_seconds'] = $seconds;
                 echo json_encode($data);
             }

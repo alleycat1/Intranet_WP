@@ -38,7 +38,7 @@ function initializeInputWidgets() {
         }
         else if(tabId == 4)
         {
-            get_cash_counts_data(outlet);
+            get_cash_counts_data(outlet, date, '');
         }
         getCashOnSite();
     });
@@ -52,8 +52,6 @@ function initializeInputWidgets() {
         if(tabId == 0)
             get_wta_data(outlet, term, date);
     });
-
-    jQuery("#jqxCashSubmitTime").jqxInput({ width: '160', height: '30px'});
 
     jQuery("#jqxCalendar").jqxDateTimeInput({ animationType: 'fade', width: '150px', height: '30px', dropDownHorizontalAlignment: 'left'});
     jQuery("#jqxCalendar").on('change', function (e) {
@@ -75,6 +73,10 @@ function initializeInputWidgets() {
         {
             income = jQuery("#jqxIncomeType").val();
             get_income_data(outlet, income, date);
+        }
+        else if(tabId == 4)
+        {
+            get_cash_counts_data(outlet, date, '');
         }
         getCashOnSite();
     });
@@ -329,7 +331,7 @@ function initializeInputWidgets() {
         get_cash_counts_data(outlet);
         document.getElementById("jqxOutlet").hidden = "";
         document.getElementById("jqxTerm").hidden = "hidden";
-        document.getElementById("jqxCalendar").hidden = "hidden";
+        document.getElementById("jqxCalendar").hidden = "";
         document.getElementById("jqxIncomeType").hidden = "hidden";
         document.getElementById("jqxCashSubmitTime").hidden = "";
     });
