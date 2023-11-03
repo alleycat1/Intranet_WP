@@ -968,7 +968,10 @@ if ( ! function_exists('get_cash_counts_data') ) {
                 $dateStr = $datetime->format('d/m/Y H:i:s');
                 
                 $date = DateTime::createFromFormat('d/m/Y', $currentDate);
-                if($submit_time != '')
+                $week = intval($date->format('W'));
+                $date1 = DateTime::createFromFormat('d/m/Y', $dateInput);
+                $week1 = intval($date1->format('W'));
+                if($week != $week1 || $submit_time != '')
                     $date = DateTime::createFromFormat('d/m/Y', $dateInput);
                 $week_start = clone $date;
                 $week_start->modify('this week');
@@ -1051,7 +1054,7 @@ if ( ! function_exists('get_cash_counts_data') ) {
                 $res[$index]['id'] = $id + 3;
                 $res[$index++]['amount'] = $amount_sum - $Cash;
 
-                $sql = "SELECT DISTINCT CONCAT(CONVERT(varchar,ISNULL(Date,GETDATE()),103), ' ', CONVERT(varchar,ISNULL(Date,GETDATE()),8)) Date FROM CashCounts WHERE OutletId=$outlet AND Date >= '$week_start_str' AND Date <'$week_end_str1';";
+                $sql = "SELECT DISTINCT CONCAT(CONVERT(varchar,ISNULL(Date,GETDATE()),103), ' ', CONVERT(varchar,ISNULL(Date,GETDATE()),8)) Date FROM CashCounts WHERE OutletId=$outlet AND CashCounts.Date >= '$week_start_str' AND CashCounts.Date <'$week_end_str1';";
                 $stmt = sqlsrv_query($conn, $sql);
                 if ($stmt === false) {
                     sqlsrv_close($conn);

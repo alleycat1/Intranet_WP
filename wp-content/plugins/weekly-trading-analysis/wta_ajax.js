@@ -286,7 +286,9 @@ function get_cash_counts_data(outlet, date, submit_time){
             cash_counts_data.length = 0;
             for(var id in data.data)
                 cash_counts_data.push(data.data[id]);
-            cash_counts_submit_times = data.cash_counts_submit_times;
+            cash_counts_submit_times.length = 0;
+            for(var i in data.cash_counts_submit_times)
+                cash_counts_submit_times.push(data.cash_counts_submit_times[i]);
             jQuery("#cash_counts_grid").jqxGrid('updatebounddata', 'cells');
             cash_counts_editable = data.elapsed_seconds >= 900;
             if(submit_time != '')
@@ -312,7 +314,7 @@ function get_cash_counts_data(outlet, date, submit_time){
                     }
                 if(index == -1)
                     index = cash_counts_submit_times.length - 1;
-                    jQuery("#jqxCashSubmitTime").jqxDropDownList({ source: cash_counts_submit_times, selectedIndex: index, width: '200', height: '30px'});
+                jQuery("#jqxCashSubmitTime").jqxDropDownList({ source: cash_counts_submit_times, selectedIndex: index, width: '200', height: '30px'});
             }
             enable_submit_time_select = true;
         },

@@ -328,7 +328,8 @@ function initializeInputWidgets() {
         document.getElementById("tabCashCounts").hidden = "";
         document.getElementById("tabBanking").hidden = "hidden";
         outlet = jQuery("#jqxOutlet").val();
-        get_cash_counts_data(outlet);
+        date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
+        get_cash_counts_data(outlet, date, '');
         document.getElementById("jqxOutlet").hidden = "";
         document.getElementById("jqxTerm").hidden = "hidden";
         document.getElementById("jqxCalendar").hidden = "";
