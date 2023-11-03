@@ -40,6 +40,11 @@ function initializeInputWidgets() {
         {
             get_cash_counts_data(outlet, date, '');
         }
+        else if(tabId == 5)
+        {
+            type = jQuery("#jqxBankingType").val();
+            get_banking_data(outlet, type, date);
+        }
         getCashOnSite();
     });
 
@@ -77,6 +82,11 @@ function initializeInputWidgets() {
         else if(tabId == 4)
         {
             get_cash_counts_data(outlet, date, '');
+        }
+        else if(tabId == 5)
+        {
+            type = jQuery("#jqxBankingType").val();
+            get_banking_data(outlet, type, date);
         }
         getCashOnSite();
     });
