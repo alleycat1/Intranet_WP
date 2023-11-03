@@ -253,7 +253,7 @@ function get_cash_counts_editable(outlet){
         dataType: "json",
         success: function (data) {
             secs = data.elapsed_seconds;
-            selectedIndex = $("#jqxCashSubmitTime").jqxDropDownList("getSelectedIndex");
+            selectedIndex = jQuery("#jqxCashSubmitTime").jqxDropDownList("getSelectedIndex");
             if(data.elapsed_seconds >= 900 && selectedIndex == cash_counts_submit_times.length - 1)
             {
                 date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
