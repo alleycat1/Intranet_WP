@@ -1028,15 +1028,23 @@ if ( ! function_exists('get_cash_counts_data') ) {
                 $res[$index]['id'] = $id + 1;
                 $res[$index++]['amount'] = $amount_sum;
 
-                $sql = "SELECT (SELECT PremisesFloat FROM Outlets WHERE ID = $outlet) + 
-                        (SELECT ISNULL(ISNULL(SUM(SalesEXVAT),0) + ISNULL(SUM(VATAmount),0) + ISNULL(SUM(Disrepancy),0) - SUM(ISNULL(FromTill, 0)) - ISNULL(SUM(AccountSales),0) + ISNULL(SUM(AccountReceipts),0) - ISNULL(SUM(CardsBanking),0),0) AS Cash 
-                        FROM WTA 
-                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ZRef AND t1.Date = WTA.Date
-                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ZRef AND t2.Date = WTA.Date
-                        WHERE OutletID=$outlet AND WTA.Date<='$week_end_str') 
-                        - (SELECT ISNULL(SUM(Amount),0) FROM WTABanking WHERE OutletId=$outlet AND Date<'$week_end_str')
-                        + (SELECT ISNULL(SUM(Amount),0) FROM WTAMiscIncome WHERE OutletID=$outlet AND Date<='$week_end_str')
-                        AS Cash";
+                if($submit_time == '')
+                    $sql = "SELECT (SELECT PremisesFloat FROM Outlets WHERE ID = $outlet) + 
+                            (SELECT ISNULL(ISNULL(SUM(SalesEXVAT),0) + ISNULL(SUM(VATAmount),0) + ISNULL(SUM(Disrepancy),0) - SUM(ISNULL(FromTill, 0)) - ISNULL(SUM(AccountSales),0) + ISNULL(SUM(AccountReceipts),0) - ISNULL(SUM(CardsBanking),0),0) AS Cash 
+                            FROM WTA 
+                                LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ZRef AND t1.Date = WTA.Date
+                                LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ZRef AND t2.Date = WTA.Date
+                            WHERE OutletID=$outlet AND WTA.Date<='$week_end_str') 
+                            - (SELECT ISNULL(SUM(Amount),0) FROM WTABanking WHERE OutletId=$outlet AND Date<'$week_end_str')
+                            + (SELECT ISNULL(SUM(Amount),0) FROM WTAMiscIncome WHERE OutletID=$outlet AND Date<='$week_end_str')
+                            AS Cash";
+                else
+                {
+                    $arr = explode(' ', $submit_time);
+                    $arr1 = explode('/', $arr[0]);
+                    $datetime = $arr1[2].'-'.$arr1[1].'-'.$arr1[0].' '.$arr[1];
+                    $sql = "SELECT ISNULL(CashExpectedOnSIte, 0) Cash FROM CashCountsExpectedValues WHERE OutletID=$outlet AND Date='$datetime'";
+                }
                 $stmt = sqlsrv_query($conn, $sql);
                 if ($stmt === false) {
                     sqlsrv_close($conn);
@@ -1065,6 +1073,9 @@ if ( ! function_exists('get_cash_counts_data') ) {
                     $datetimeList[$index]['label'] = $row['Date'];
                     $datetimeList[$index]['value'] = $row['Date'];
                 }
+                $index = count($datetimeList);
+                $datetimeList[$index]['label'] = 'New Cash Counts';
+                $datetimeList[$index]['value'] = '';
 
                 $data['data'] = $res;
                 $data['submit_time'] = $submit_time;
@@ -1126,6 +1137,50 @@ if ( ! function_exists('set_cash_counts_data') ) {
                         die(print_r(sqlsrv_errors(), true));
                     }
                 }
+
+                $week_end = clone $datetime;
+                $week_end->modify('this week +6 days');
+                $week_end_str = $week_end->format('Y-m-d');
+
+                $sql = "SELECT (SELECT PremisesFloat FROM Outlets WHERE ID = $outlet) + 
+                        (SELECT ISNULL(ISNULL(SUM(SalesEXVAT),0) + ISNULL(SUM(VATAmount),0) + ISNULL(SUM(Disrepancy),0) - SUM(ISNULL(FromTill, 0)) - ISNULL(SUM(AccountSales),0) + ISNULL(SUM(AccountReceipts),0) - ISNULL(SUM(CardsBanking),0),0) AS Cash 
+                        FROM WTA 
+                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ZRef AND t1.Date = WTA.Date
+                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ZRef AND t2.Date = WTA.Date
+                        WHERE OutletID=$outlet AND WTA.Date<='$week_end_str') 
+                        - (SELECT ISNULL(SUM(Amount),0) FROM WTABanking WHERE OutletId=$outlet AND Date<'$week_end_str')
+                        + (SELECT ISNULL(SUM(Amount),0) FROM WTAMiscIncome WHERE OutletID=$outlet AND Date<='$week_end_str')
+                        AS Cash";
+                $stmt = sqlsrv_query($conn, $sql);
+                if ($stmt === false) {
+                    sqlsrv_close($conn);
+                    die(print_r(sqlsrv_errors(), true));
+                }
+
+                $currentCash = 0;
+                while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                    $currentCash = $row['Cash'];
+                }
+
+                $sql = "SELECT MAX(ID)+1 new_id FROM CashCountsExpectedValues";
+                $stmt = sqlsrv_query($conn, $sql);
+                if ($stmt === false) {
+                    sqlsrv_close($conn);
+                    die(print_r(sqlsrv_errors(), true));
+                }
+                $new_id = 1;
+                while ($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                    $new_id = $r['new_id'];
+                }
+
+                $sql = sprintf("INSERT INTO CashCountsExpectedValues(ID, OutletID, Date, CashExpectedOnSIte) VALUES(%d, %d, CONVERT (datetime, '%s', 103), %f)",
+                                $new_id, $outlet, $dateStr, $currentCash);
+                $stmt = sqlsrv_query($conn, $sql);
+                if ($stmt === false) {
+                    sqlsrv_close($conn);
+                    die(print_r(sqlsrv_errors(), true));
+                }
+
                 sqlsrv_query($conn, "COMMIT");
 
                 $response = array(
