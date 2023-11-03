@@ -244,28 +244,6 @@ function delete_income_data( id){
     });
 }
 
-function get_cash_counts_editable(outlet){
-    var security_nonce = MyAjax.security_nonce;
-    jQuery.ajax({
-        url: MyAjax.ajaxurl,
-        method: "POST",
-        data: { outlet:outlet, action:'get_cash_counts_editable', security_nonce:security_nonce },
-        dataType: "json",
-        success: function (data) {
-            secs = data.elapsed_seconds;
-            selectedIndex = jQuery("#jqxCashSubmitTime").jqxDropDownList("getSelectedIndex");
-            if(data.elapsed_seconds >= 900 && selectedIndex == cash_counts_submit_times.length - 1)
-            {
-                date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
-                get_cash_counts_data(outlet, date, '');
-            }
-        },
-        error: function (e) {
-            alert("Can not access the database! - 12");
-        }
-    });
-}
-
 function get_cash_counts_data(outlet, date, submit_time){
     var security_nonce = MyAjax.security_nonce;
     jQuery('#cash_counts_grid').jqxGrid({ disabled: true});
@@ -282,14 +260,8 @@ function get_cash_counts_data(outlet, date, submit_time){
             for(var i in data.cash_counts_submit_times)
                 cash_counts_submit_times.push(data.cash_counts_submit_times[i]);
             jQuery("#cash_counts_grid").jqxGrid('updatebounddata', 'cells');
-            cash_counts_editable = data.elapsed_seconds >= 900;
-            if(submit_time != '')
-                cash_counts_editable = false;
             jQuery('#cash_counts_grid').jqxGrid({ disabled: false});
-            if(!cash_counts_editable)
-                cash_counts_check_timer = setInterval(getCashCountsEditable, 60*1000);
-            else
-                clearInterval(cash_counts_check_timer);
+
             enable_submit_time_select = false;
             jQuery("#jqxCashSubmitTime").jqxDropDownList('clear');
             selectedTime = cash_counts_submit_times.length == 0 ? 0 : (cash_counts_submit_times.length - 1);

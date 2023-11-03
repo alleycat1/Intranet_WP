@@ -902,51 +902,6 @@ if ( ! function_exists('delete_income_data') ) {
 }
 
 
-if ( ! function_exists('get_cash_counts_editable') ) {
-	function get_cash_counts_editable(){
-        header('Content-Type: application/json');
-        require __DIR__ ."/../../../db_config.php";
-        global $serverName;
-        global $connectionInfo;
-        $conn = sqlsrv_connect($serverName, $connectionInfo);
-        if($conn)
-        {
-            if(isset($_POST) && !empty($_POST)){
-                $outlet = $_POST['outlet'];
-
-                $datetime = new DateTime();
-                $dateStr = $datetime->format('d/m/Y H:i:s');
-
-                $sql = "SELECT DATEDIFF(second, (SELECT MAX(Date) FROM CashCounts WHERE OutletID=$outlet), CONVERT (datetime, '$dateStr', 103)) AS sec";
-                $stmt = sqlsrv_query($conn, $sql);
-
-                if ($stmt === false) {
-                    sqlsrv_close($conn);
-                    die(print_r(sqlsrv_errors(), true));
-                }
-
-                $seconds = 0;
-                while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-                    $seconds = $row['sec'];
-                }
-                $data['elapsed_seconds'] = $seconds;
-                echo json_encode($data);
-            }
-            sqlsrv_close($conn);
-        }
-        else
-        {
-            $response = array(
-                'status' => 'failed',
-                'message' => 'Can not to connect to SQL Server.'
-            );
-            echo json_encode($response);
-        }
-        die;
-	}
-    add_action('wp_ajax_get_cash_counts_editable', 'get_cash_counts_editable');
-}
-
 if ( ! function_exists('get_cash_counts_data') ) {
 	function get_cash_counts_data(){
         header('Content-Type: application/json');
@@ -982,19 +937,6 @@ if ( ! function_exists('get_cash_counts_data') ) {
                 $week_end1->modify('this week +7 days');
                 $week_end_str1 = $week_end1->format('Y-m-d');
 
-                $sql = "SELECT ISNULL(DATEDIFF(second, (SELECT MAX(Date) FROM CashCounts WHERE OutletID=$outlet), CONVERT (datetime, '$dateStr', 103)), 900) AS sec";
-                $stmt = sqlsrv_query($conn, $sql);
-
-                if ($stmt === false) {
-                    sqlsrv_close($conn);
-                    die(print_r(sqlsrv_errors(), true));
-                }
-
-                $seconds = 0;
-                while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-                    $seconds = $row['sec'];
-                }
-
                 $sql = "SELECT c.ID, CONCAT(CONVERT(varchar,ISNULL(Date,GETDATE()),103), ' ', CONVERT(varchar,ISNULL(Date,GETDATE()),8)) Date, ISNULL(Amount,0) Amount FROM OutletsCashLocations c LEFT JOIN CashCounts v ON v.LocationID=c.ID WHERE c.OutletID=$outlet AND (v.Date=(SELECT MAX(date) FROM CashCounts) OR v.Date IS NULL) ORDER BY c.ID";
                 if($submit_time != '')
                 {
@@ -1016,7 +958,7 @@ if ( ! function_exists('get_cash_counts_data') ) {
                 while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
                     $res[$index]['id'] = $row['ID'];
                     $id = $row['ID'];
-                    if($seconds < 900 || $submit_time != '')
+                    if($submit_time != '')
                     {
                         $res[$index++]['amount'] = $row['Amount'];
                         $amount_sum += $row['Amount'];
@@ -1080,7 +1022,6 @@ if ( ! function_exists('get_cash_counts_data') ) {
                 $data['data'] = $res;
                 $data['submit_time'] = $submit_time;
                 $data['cash_counts_submit_times'] = $datetimeList;
-                $data['elapsed_seconds'] = $seconds;
                 echo json_encode($data);
             }
             sqlsrv_close($conn);

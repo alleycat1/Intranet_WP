@@ -1,6 +1,5 @@
 var cash_counts_data = new Array();
 var cash_counts_editable = true;
-var cash_counts_check_timer = 0;
 var cash_counts_submit_times = new Array();
 var enable_submit_time_select = true;
 
@@ -40,9 +39,9 @@ function initializeCashCountsWidgets() {
     var dataAdapterCashCounts = new jQuery.jqx.dataAdapter(sourceCashCounts);
 
     var cellbeginedit = function (row, datafield, columntype, value) {
-         if (row >= cash_counts_data.length - 3) return false;
-         else if(!cash_counts_editable) return false;
-         else return true;
+        if(jQuery("#jqxCashSubmitTime").val() != '') return false;
+        if (row >= cash_counts_data.length - 3) return false;
+        else return true;
     }
 
     var cellsrenderer_no = function (row, column, value, defaultHtml) {
@@ -111,11 +110,4 @@ function initializeCashCountsWidgets() {
         get_cash_counts_data(outlet, date, '');
         event.preventDefault();
     });
-
-    cash_counts_check_timer = setInterval(getCashCountsEditable, 60*1000);
-}
-
-function getCashCountsEditable() {
-    outlet = jQuery("#jqxOutlet").val();
-    get_cash_counts_editable(outlet);
 }
