@@ -50,7 +50,7 @@ function initializePaidoutWidgets() {
     jQuery("#jqxPaidOutType").jqxDropDownList({ source: paidOutTypes, selectedIndex: 0, width: '177', height: '30'});
     jQuery("#jqxSupplier").jqxDropDownList({ source: suppliers, selectedIndex: 0, width: '177', height: '30'});
 
-    jQuery("#popup_paid").jqxWindow({ resizable:false, width: 1100, isModal: true, position: "right", autoOpen: false, title: "Paid out Till", cancelButton: jQuery("#btn_close")});
+    jQuery("#popup_paid").jqxWindow({ resizable:false, width: 1100, isModal: true, position: "right", autoOpen: false, title: "PAID OUT TILL", cancelButton: jQuery("#btn_close")});
     jQuery("#popup_paid").on("close", function(event){
         if(paid_changed == 1)
         {

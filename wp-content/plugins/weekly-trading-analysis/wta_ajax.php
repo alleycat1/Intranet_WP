@@ -868,7 +868,6 @@ if ( ! function_exists('delete_income_data') ) {
         if($conn)
         {
             if(isset($_POST) && !empty($_POST)){
-                $paid_type = $_POST['paid_type'];
                 $id = $_POST['id'];
 
                 $tbl_name = '';
@@ -1148,5 +1147,186 @@ if ( ! function_exists('set_cash_counts_data') ) {
         die;
 	}
     add_action('wp_ajax_set_cash_counts_data', 'set_cash_counts_data');
+}
+
+if ( ! function_exists('get_banking_data') ) {
+	function get_banking_data(){
+        header('Content-Type: application/json');
+        require __DIR__ ."/../../../db_config.php";
+        global $serverName;
+        global $connectionInfo;
+        $conn = sqlsrv_connect($serverName, $connectionInfo);
+        if($conn)
+        {
+            if(isset($_POST) && !empty($_POST)){
+                $outlet = $_POST['outlet'];
+                $type = $_POST['type'];
+                $date_str = $_POST['date'];
+
+                $date = DateTime::createFromFormat('d/m/Y', $date_str);
+                $week_start = clone $date;
+                $week_end = clone $date;
+                $week_start->modify('this week');
+                $week_end->modify('this week +6 days');
+
+                $week_start_str = $week_start->format('Y-m-d');
+                $week_end_str = $week_end->format('Y-m-d');
+
+                $sql = "SELECT ID, CONVERT(varchar(10), Date, 103) AS Date, Amount, Comments FROM WTABanking WHERE OutletID=$outlet AND AdjustmentTypeID=$type AND Date>='$week_start_str' AND Date<='$week_end_str' ORDER BY Date, ID";
+
+                $stmt = sqlsrv_query($conn, $sql);
+
+                if ($stmt === false) {
+                    sqlsrv_close($conn);
+                    die(print_r(sqlsrv_errors(), true));
+                }
+
+                $amount_sum = 0;
+                $index = 0;
+                while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                    $res[$index]['id'] = $row['ID'];
+                    $res[$index]['date'] = $row['Date'];
+                    $res[$index]['amount'] = $row['Amount'];
+                    $res[$index++]['comment'] = $row['Comments'];
+
+                    $amount_sum += $row['Amount'];
+                }
+                $res[$index]['id'] = '';
+                $res[$index]['date'] = '';
+                $res[$index]['amount'] = $amount_sum;
+                $res[$index]['comment'] = '';
+
+                echo json_encode($res);
+            }
+            sqlsrv_close($conn);
+        }
+        else
+        {
+            $response = array(
+                'status' => 'failed',
+                'message' => 'Can not to connect to SQL Server.'
+            );
+            echo json_encode($response);
+        }
+        die;
+	}
+    add_action('wp_ajax_get_banking_data', 'get_banking_data');
+}
+
+if ( ! function_exists('set_banking_data') ) {
+	function set_banking_data(){
+        header('Content-Type: application/json');
+        require __DIR__ ."/../../../db_config.php";
+        global $serverName;
+        global $connectionInfo;
+        $conn = sqlsrv_connect($serverName, $connectionInfo);
+        if($conn)
+        {
+            if(isset($_POST) && !empty($_POST)){
+                $outlet = $_POST['outlet'];
+                $type = $_POST['type'];
+                $data = $_POST['data'];
+
+                $date = DateTime::createFromFormat('d/m/Y', $data['date']);
+                $date_str = $date->format('Y-m-d');
+                $comment = str_replace("\'", "''", $data['comment']);
+                $tbl_name = '';
+                $tbl_name = "WTABanking";
+
+                if($data['id'] + 0 == -1)
+                {
+                    sqlsrv_query($conn, "BEGIN TRANSACTION");
+                    $sql = "SELECT MAX(ID)+1 new_id FROM $tbl_name";
+                    $stmt = sqlsrv_query($conn, $sql);
+                    if ($stmt === false) {
+                        sqlsrv_close($conn);
+                        die(print_r(sqlsrv_errors(), true));
+                    }
+                    $new_id = 1;
+                    while ($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                        $new_id = $r['new_id'];
+                    }
+                    $sql = sprintf("INSERT INTO $tbl_name(ID, OutletID, AdjustmentTypeID, Date, Amount, Comments) VALUES(%d, %d, %d, '%s', %f, '%s')",
+                                   $new_id, $outlet, $type, $date_str, $data['amount'], $comment);
+                    $stmt = sqlsrv_query($conn, $sql);
+                    if ($stmt === false) {
+                        sqlsrv_close($conn);
+                        die(print_r(sqlsrv_errors(), true));
+                    }
+                    sqlsrv_query($conn, "COMMIT");
+                }
+                else
+                {
+                    $sql = sprintf("UPDATE $tbl_name SET Date='%s', Amount=%f, Comments='%s' WHERE ID=%d",
+                                    $date_str, $data['amount'], $comment, $data['id']);
+                    $stmt = sqlsrv_query($conn, $sql);
+                    if ($stmt === false) {
+                        sqlsrv_close($conn);
+                        die(print_r(sqlsrv_errors(), true));
+                    }
+                }
+
+                $response = array(
+                    'status' => 'success',
+                    'message' => 'Save successed'
+                );
+                echo json_encode($response);
+            }
+            sqlsrv_close($conn);
+        }
+        else
+        {
+            $response = array(
+                'status' => 'failed',
+                'message' => 'Can not to connect to SQL Server.'
+            );
+            echo json_encode($response);
+        }
+        die;
+	}
+    add_action('wp_ajax_set_banking_data', 'set_banking_data');
+}
+
+if ( ! function_exists('delete_banking_data') ) {
+	function delete_banking_data(){
+        header('Content-Type: application/json');
+        require __DIR__ ."/../../../db_config.php";
+        global $serverName;
+        global $connectionInfo;
+        $conn = sqlsrv_connect($serverName, $connectionInfo);
+        if($conn)
+        {
+            if(isset($_POST) && !empty($_POST)){
+                $id = $_POST['id'];
+
+                $tbl_name = '';
+                $tbl_name = "WTABanking";
+                
+                $sql = sprintf("DELETE FROM $tbl_name WHERE ID=%d", $id);
+                $stmt = sqlsrv_query($conn, $sql);
+                if ($stmt === false) {
+                    sqlsrv_close($conn);
+                    die(print_r(sqlsrv_errors(), true));
+                }
+                
+                $response = array(
+                    'status' => 'success',
+                    'message' => 'Save successed'
+                );
+                echo json_encode($response);
+            }
+            sqlsrv_close($conn);
+        }
+        else
+        {
+            $response = array(
+                'status' => 'failed',
+                'message' => 'Can not to connect to SQL Server.'
+            );
+            echo json_encode($response);
+        }
+        die;
+	}
+    add_action('wp_ajax_delete_banking_data', 'delete_banking_data');
 }
 ?>

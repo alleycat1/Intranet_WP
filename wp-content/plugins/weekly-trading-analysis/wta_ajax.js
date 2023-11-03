@@ -129,7 +129,6 @@ function get_paid_data(paid_type, date, zref){
 function set_paid_data(paid_type, data){
     paid_changed = 1;
     var security_nonce = MyAjax.security_nonce;
-    jQuery('#paid_grid').jqxGrid({ disabled: true});
     jQuery.ajax({
         url: MyAjax.ajaxurl,
         method: "POST",
@@ -137,11 +136,9 @@ function set_paid_data(paid_type, data){
         dataType: "json",
         success: function (d) {
             get_paid_data(paid_type, data.date, data.zref);
-
         },
         error: function (e) {
             alert("Can not access the database! - 6");
-            jQuery('#paid_grid').jqxGrid({ disabled: false});
         }
     });
 }
@@ -149,7 +146,6 @@ function set_paid_data(paid_type, data){
 function delete_paid_data(paid_type, id){
     paid_changed = 1;
     var security_nonce = MyAjax.security_nonce;
-    jQuery('#paid_grid').jqxGrid({ disabled: true});
     jQuery.ajax({
         url: MyAjax.ajaxurl,
         method: "POST",
@@ -160,7 +156,6 @@ function delete_paid_data(paid_type, id){
         },
         error: function (e) {
             alert("Can not access the database! - 7");
-            jQuery('#paid_grid').jqxGrid({ disabled: false});
         }
     });
 }
@@ -205,13 +200,13 @@ function get_income_data(outlet, income, date){
         },
         error: function (e) {
             alert("Can not access the database! - 9");
+            jQuery('#income_grid').jqxGrid({ disabled: true});
         }
     });
 }
 
 function set_income_data(outlet, income, data){
     var security_nonce = MyAjax.security_nonce;
-    jQuery('#income_grid').jqxGrid({ disabled: true});
     jQuery.ajax({
         url: MyAjax.ajaxurl,
         method: "POST",
@@ -226,14 +221,12 @@ function set_income_data(outlet, income, data){
         },
         error: function (e) {
             alert("Can not access the database! - 10");
-            jQuery('#income_grid').jqxGrid({ disabled: false});
         }
     });
 }
 
 function delete_income_data( id){
     var security_nonce = MyAjax.security_nonce;
-    jQuery('#income_grid').jqxGrid({ disabled: true});
     jQuery.ajax({
         url: MyAjax.ajaxurl,
         method: "POST",
@@ -247,7 +240,6 @@ function delete_income_data( id){
         },
         error: function (e) {
             alert("Can not access the database! - 11");
-            jQuery('#income_grid').jqxGrid({ disabled: false});
         }
     });
 }
@@ -320,13 +312,13 @@ function get_cash_counts_data(outlet, date, submit_time){
         },
         error: function (e) {
             alert("Can not access the database! - 12");
+            jQuery('#cash_counts_grid').jqxGrid({ disabled: false});
         }
     });
 }
 
 function set_cash_counts_data(outlet, data){
     var security_nonce = MyAjax.security_nonce;
-    jQuery('#cash_counts_grid').jqxGrid({ disabled: true});
     jQuery.ajax({
         url: MyAjax.ajaxurl,
         method: "POST",
@@ -339,8 +331,64 @@ function set_cash_counts_data(outlet, data){
         },
         error: function (e) {
             alert("Can not access the database! - 13");
-            jQuery('#cash_counts_grid').jqxGrid({ disabled: false});
         }
     });
 }
 
+function get_banking_data(outlet, type, date){
+    var security_nonce = MyAjax.security_nonce;
+    jQuery('#banking_grid').jqxGrid({ disabled: true});
+    jQuery.ajax({
+        url: MyAjax.ajaxurl,
+        method: "POST",
+        data: { outlet:outlet, type:type, date:date, action:'get_banking_data', security_nonce:security_nonce },
+        dataType: "json",
+        success: function (data) {
+            banking_data.length = 0;
+            for(var id in data)
+                banking_data.push(data[id]);
+            jQuery("#banking_grid").jqxGrid('updatebounddata', 'cells');
+            jQuery('#banking_grid').jqxGrid({ disabled: false});
+        },
+        error: function (e) {
+            alert("Can not access the database! - 14");
+            jQuery('#banking_grid').jqxGrid({ disabled: false});
+        }
+    });
+}
+
+function set_banking_data(outlet, type, data){
+    var security_nonce = MyAjax.security_nonce;
+    jQuery.ajax({
+        url: MyAjax.ajaxurl,
+        method: "POST",
+        data: { outlet:outlet, type:type, data:data, action:'set_banking_data', security_nonce:security_nonce },
+        dataType: "json",
+        success: function (d) {
+            outlet = jQuery("#jqxOutlet").val();
+            date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
+            get_banking_data(outlet, type, date);
+        },
+        error: function (e) {
+            alert("Can not access the database! - 15");
+        }
+    });
+}
+
+function delete_banking_data(id, type){
+    var security_nonce = MyAjax.security_nonce;
+    jQuery.ajax({
+        url: MyAjax.ajaxurl,
+        method: "POST",
+        data: { id:id, action:'delete_banking_data', security_nonce:security_nonce },
+        dataType: "json",
+        success: function (d) {
+            outlet = jQuery("#jqxOutlet").val();
+            date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
+            get_banking_data(outlet, type, date);
+        },
+        error: function (e) {
+            alert("Can not access the database! - 16");
+        }
+    });
+}

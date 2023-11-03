@@ -46,6 +46,7 @@ wp_enqueue_script(WTA_NAME . '_wta_paid_out',  WTA_PLUGIN_DIR . '/wta_paid_out.j
 wp_enqueue_script(WTA_NAME . '_wta_paid_out_view',  WTA_PLUGIN_DIR . '/wta_paid_out_view.js', array('jquery'), WTA_VAR, true);
 wp_enqueue_script(WTA_NAME . '_wta_other_income',  WTA_PLUGIN_DIR . '/wta_other_income.js', array('jquery'), WTA_VAR, true);
 wp_enqueue_script(WTA_NAME . '_wta_cash_counts',  WTA_PLUGIN_DIR . '/wta_cash_counts.js', array('jquery'), WTA_VAR, true);
+wp_enqueue_script(WTA_NAME . '_wta_banking',  WTA_PLUGIN_DIR . '/wta_banking.js', array('jquery'), WTA_VAR, true);
 wp_enqueue_script(WTA_NAME . '_wta_input',  WTA_PLUGIN_DIR . '/wta_input.js', array('jquery'), WTA_VAR, true);
 wp_enqueue_script(WTA_NAME . '_wta_summary',  WTA_PLUGIN_DIR . '/wta_summary.js', array('jquery'), WTA_VAR, true);
 
@@ -120,6 +121,18 @@ function getPaidOutTypeData($conn, &$paidOutTypes)
      }
 }
 
+function getBankingTypeData($conn, &$bankingTypes)
+{
+     $sql = "SELECT ID, Description FROM SettingsAdjustmentTypes";
+     $stmt = sqlsrv_query($conn, $sql);
+     if ($stmt === false) {
+          return;
+     }
+     while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+          $bankingTypes[$row['ID']] = $row['Description'];
+     }
+}
+
 function getSupplierData($conn, &$suppliers)
 {
      $sql = "SELECT OutletID, SupplierID, SupplierName FROM OutletsSuppliers LEFT JOIN Suppliers ON Suppliers.ID=SupplierID WHERE OutletID NOT IN (SELECT ID FROM Outlets WHERE Deleted=1)";
@@ -139,8 +152,10 @@ getOutLetData($conn, $outlets);
 
 $user_outlets = array();
 $user = wp_get_current_user();
+$is_admin = false;
 if(in_array("administrator", $user->roles))
 {
+     $is_admin = true;
      foreach($outlets as $code => $data)
           $user_outlets[$code] = $data;
 }
@@ -169,6 +184,9 @@ if($conn && count($user_outlets) > 0)
      $paidOutTypes = array();
      getPaidOutTypeData($conn, $paidOutTypes);
 
+     $bankingTypes = array();
+     getBankingTypeData($conn, $bankingTypes);
+
      $suppliers = array();
      getSupplierData($conn, $suppliers);
 
@@ -196,6 +214,17 @@ if($conn && count($user_outlets) > 0)
      }
      echo "var paidOutTypes=" . json_encode($paidOutType_obj) . ";";
      echo "var paidOutTypes_org=" . json_encode($paidOutTypes) . ";";
+
+     $bankingType_obj = array();
+     foreach($bankingTypes as $id => $type)
+     {
+          $bankingType_obj[count($bankingType_obj)] = ['label'=>$type, 'value'=>$id];
+     }
+     echo "var bankingTypes=" . json_encode($bankingType_obj) . ";";
+     if($is_admin)
+          echo "var adm=1;";
+     else
+          echo "var adm=0;";
 
      $terminal_obj = array();
      $first_id = "";
@@ -281,6 +310,7 @@ jQuery(document).ready(function ($) {
      initializeCashCountsWidgets();
      initializeSummaryWidgets();
      initializePaidoutViewWidgets();
+     initializeBankingWidgets();
      setInterval(getCashOnSite, 10*1000);
      getCashOnSite();
 });
@@ -297,7 +327,7 @@ function calcPaidOutTotal()
 </script>
 <table border=0 hight=500>
      <tr>
-          <td style="border:0px;">
+          <td style="border:0px; width:1250px">
                <div id='jqxMenuWidget' style='width: 1250px;'>
                     <div id='jqxMenu' style="visibility: hidden;">
                          <ul style="margin:0px">
@@ -317,6 +347,7 @@ function calcPaidOutTotal()
                     <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxTerm'></div>
                     <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxIncomeType'></div>
                     <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxCashSubmitTime'></div>
+                    <div style='float: left; margin-top: 10px; margin-left: 100px;' id='jqxBankingType'></div>
                </div>
                <div id="tabWTA">
                     <div style="border: none;" id='jqxGrid'>
@@ -337,22 +368,20 @@ function calcPaidOutTotal()
                <div id="tabOtherIncome" hidden>
                     <div style="border: none;" id='jqxGrid3'>
                          <div id="income_grid" style="width:1250px"></div>
-                         <table style="width:1250px; border-bottom:0px; height:30px; margin:0px">
                          <button style="padding:4px 16px;" id="income_add">&nbsp;+&nbsp;</button> 
-                    </table>
                     </div>
                </div>
                <div id="tabCashCounts" hidden>
                     <div style="border: none;" id='jqxGrid4'>
                          <div id="cash_counts_grid" style="width:1250px"></div>
-                         <table style="width:1250px; border-bottom:0px; height:30px; margin:0px">
                          <button style="padding:4px 16px;" id="cash_counts_submit">&nbsp;SUBMIT&nbsp;</button> 
                          &nbsp;&nbsp;&nbsp;
                          <button style="padding:4px 16px;" id="cash_counts_refresh">&nbsp;REFRESH&nbsp;</button> 
-                    </table>
                     </div>
                </div>
                <div id="tabBanking" hidden>
+                    <div id="banking_grid" style="width:1250px"></div>
+                    <button style="padding:4px 16px;" id="banking_add">TRANSFER TO BANK</button> 
                </div>
           </td>
      </tr>
@@ -446,6 +475,33 @@ function calcPaidOutTotal()
                     <td class="my_td" align="right">
                          <input id="IncomeCancel" type="button" value="Cancel" />
                          <input type="button" id="IncomeSave" value="  Save  " />
+                    </td>
+               </tr>
+          </table>
+     </div>
+</div>
+
+<div id="popupBankingEdit" hidden>
+     <div>ADD BANKING DATA</div>
+     <div style="overflow: hidden;">
+          <table width=100%>
+               <tr>
+                    <td class="my_td" align="right">DATE:</td>
+                    <td class="my_td" align="left"><div style='float: left; margin-top: 10px;' id='jqxBankingDate'></div></td>
+               </tr>
+               <tr>
+                    <td class="my_td" align="right">AMOUNT(£):</td>
+                    <td class="my_td" align="left"><input id="banking_amount" style="height:30px" required/></td>
+               </tr>
+               <tr>
+                    <td class="my_td" align="right">COMMENTS:</td>
+                    <td class="my_td" align="left" ><input id="banking_comment" style="height:30px" /></td>
+               </tr>
+               <tr>
+                    <td class="my_td" align="left"></td>
+                    <td class="my_td" align="right">
+                         <input id="BankingCancel" type="button" value="Cancel" />
+                         <input type="button" id="BankingSave" value="  Save  " />
                     </td>
                </tr>
           </table>
