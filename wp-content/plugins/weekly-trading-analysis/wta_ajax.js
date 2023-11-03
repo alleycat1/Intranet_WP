@@ -375,8 +375,9 @@ function set_banking_data(outlet, type, data){
     });
 }
 
-function delete_banking_data(id, type){
+function delete_banking_data(id){
     var security_nonce = MyAjax.security_nonce;
+    jQuery('#banking_grid').jqxGrid({ disabled: true});
     jQuery.ajax({
         url: MyAjax.ajaxurl,
         method: "POST",
@@ -385,10 +386,13 @@ function delete_banking_data(id, type){
         success: function (d) {
             outlet = jQuery("#jqxOutlet").val();
             date = jQuery("#jqxCalendar").jqxDateTimeInput('getText');
+            type = jQuery("#jqxBankingType").val();
             get_banking_data(outlet, type, date);
+            jQuery('#banking_grid').jqxGrid({ disabled: false});
         },
         error: function (e) {
             alert("Can not access the database! - 16");
+            jQuery('#banking_grid').jqxGrid({ disabled: false});
         }
     });
 }
