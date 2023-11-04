@@ -465,7 +465,7 @@ if ( ! function_exists('set_paid_data') ) {
                         $new_id = $r['new_id'];
                     }
                     $sql = sprintf("INSERT INTO $tbl_name(ID, Date, ZRefID, PayoutEXVAT, PayoutVATAmount, PayoutType, SupplierID, Reference, Description) VALUES(%d, '%s', %d, %f, %f, %d, %d, '%s', '%s')",
-                                   $new_id, $date_str, $data['zref'], $data['ex_vat'], $data['vat_amount'], $data["payout_type"], $data["supplier"], $reference, $description);
+                                   $new_id, $date_str, $data['zref'], $data['ex_vat'], 0, $data["payout_type"], 1, $reference, $description);
                     $stmt = sqlsrv_query($conn, $sql);
                     if ($stmt === false) {
                         sqlsrv_close($conn);
@@ -476,7 +476,7 @@ if ( ! function_exists('set_paid_data') ) {
                 else
                 {
                     $sql = sprintf("UPDATE $tbl_name SET Date='%s', ZRefID=%d, PayoutEXVAT=%f, PayoutVATAmount=%f, PayoutType=%d, SupplierID=%d, Reference='%s', Description='%s' WHERE ID=%d",
-                                    $date_str, $data['zref'], $data['ex_vat'], $data['vat_amount'], $data["payout_type"], $data["supplier"], $reference, $description, $data["id"]);
+                                    $date_str, $data['zref'], $data['ex_vat'], 0, $data["payout_type"], 1, $reference, $description, $data["id"]);
                     $stmt = sqlsrv_query($conn, $sql);
                     if ($stmt === false) {
                         sqlsrv_close($conn);
@@ -1016,7 +1016,7 @@ if ( ! function_exists('get_cash_counts_data') ) {
                     $datetimeList[$index]['value'] = $row['Date'];
                 }
                 $index = count($datetimeList);
-                $datetimeList[$index]['label'] = 'New Cash Counts';
+                $datetimeList[$index]['label'] = 'New Cash Count';
                 $datetimeList[$index]['value'] = '';
 
                 $data['data'] = $res;

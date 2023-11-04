@@ -29,8 +29,8 @@ function show_paid_popup(type, row)
     else
         title = "<span style='font-size:16px'>PAID OUT FROM SAFE ( <b>" + outletTxt + "</b> : <b>" +  termTxt + "</b>, Date:<b>" + date + "</b>,   ZREF:<b>" + zref + "</b> )</span>";
 
-    jQuery("#jqxSupplier").jqxDropDownList('clear');
-    jQuery("#jqxSupplier").jqxDropDownList({ source: suppliers, selectedIndex: 0, width: '177', height: '30'});
+    //jQuery("#jqxSupplier").jqxDropDownList('clear');
+    //jQuery("#jqxSupplier").jqxDropDownList({ source: suppliers, selectedIndex: 0, width: '177', height: '30'});
 
     jQuery("#popup_paid").jqxWindow({title: title});
     jQuery("#popup_paid").jqxWindow({ position: { x: 150, y: 340 } });
@@ -48,7 +48,7 @@ function delete_paidout(id) {
 
 function initializePaidoutWidgets() {
     jQuery("#jqxPaidOutType").jqxDropDownList({ source: paidOutTypes, selectedIndex: 0, width: '177', height: '30'});
-    jQuery("#jqxSupplier").jqxDropDownList({ source: suppliers, selectedIndex: 0, width: '177', height: '30'});
+    //jQuery("#jqxSupplier").jqxDropDownList({ source: suppliers, selectedIndex: 0, width: '177', height: '30'});
 
     jQuery("#popup_paid").jqxWindow({ resizable:false, width: 1100, isModal: true, position: "right", autoOpen: false, title: "PAID OUT TILL", cancelButton: jQuery("#btn_close")});
     jQuery("#popup_paid").on("close", function(event){
@@ -69,8 +69,11 @@ function initializePaidoutWidgets() {
          localdata: paid_data,
          datatype: "array",
          updaterow: function (rowid, rowdata, commit) {
-            var row = { id:rowdata.id, date:current_date, zref:current_zref, payout_type: rowdata.payout_type, supplier: rowdata.supplier, ex_vat:rowdata.ex_vat, 
-                        vat_amount:rowdata.vat_amount, reference: rowdata.reference, description: rowdata.description};
+            var row = { id:rowdata.id, date:current_date, zref:current_zref, payout_type: rowdata.payout_type, 
+                        //supplier: rowdata.supplier, 
+                        ex_vat:rowdata.total, 
+                        //vat_amount:rowdata.vat_amount, 
+                        reference: rowdata.reference, description: rowdata.description};
             set_paid_data(paid_type, row);
          },
          datafields:
@@ -108,6 +111,7 @@ function initializePaidoutWidgets() {
         return element[0].outerHTML;
     }
 
+    /*
     var cellsrenderer_supplier = function (row, column, value, defaultHtml) {
         var element = jQuery(defaultHtml);
         if(row < paid_data.length - 1)
@@ -118,6 +122,7 @@ function initializePaidoutWidgets() {
         }
         return element[0].outerHTML;
     }
+    */
 
     var createGridEditor_paidOutType = function(row, cellValue, editor, cellText, width, height)
     {
@@ -129,6 +134,7 @@ function initializePaidoutWidgets() {
         editor.jqxDropDownList({autoDropDownHeight: true,  width: width, height: height, source: paidOutTypes});
     }
 
+    /*
     var createGridEditor_supplier = function(row, cellValue, editor, cellText, width, height)
     {
         if(width == undefined)
@@ -138,6 +144,7 @@ function initializePaidoutWidgets() {
         }
         editor.jqxDropDownList({autoDropDownHeight: true,  width: width, height: height, source: suppliers});
     }
+    */
 
     var initGridEditor = function (row, cellValue, editor, cellText, width, height) {
         editor.jqxDropDownList('selectItem', cellValue);
@@ -160,10 +167,10 @@ function initializePaidoutWidgets() {
               { text: 'NO', columntype: 'integerinput', width: 60, align: 'center', cellsalign: 'right', pinned: true, cellsrenderer:cellsrenderer_no, editable:false },
               { text: 'DATE', datafield: 'date' , columntype: 'textbox', cellsformat: 'dd/MM/yyyy', width: 90, align: 'center', cellsalign: 'right', pinned: true, editable:false },
               { text: 'PAYOUT TYPE', datafield: 'payout_type', columntype: 'numberinput', align: 'center', cellsalign: 'right', width: 100, cellbeginedit: cellbeginedit, cellsrenderer:cellsrenderer_paidouttype, createeditor:createGridEditor_paidOutType, initeditor:initGridEditor, geteditorvalue:gridEditorValue },
-              { text: 'SUPPLIER', datafield: 'supplier', columntype: 'numberinput', align: 'center', cellsalign: 'right', width: 100, cellbeginedit: cellbeginedit, cellsrenderer:cellsrenderer_supplier, createeditor:createGridEditor_supplier, initeditor:initGridEditor, geteditorvalue:gridEditorValue },
-              { text: 'EX VAT', datafield: 'ex_vat', cellsformat: 'c2', columntype: 'numberinput', align: 'center', cellsalign: 'right', width: 100, cellbeginedit: cellbeginedit },
-              { text: 'VAT AMOUNT', datafield: 'vat_amount', cellsformat: 'c2', columntype: 'numberinput', align: 'center', cellsalign: 'right', width: 100, cellbeginedit: cellbeginedit },
-              { text: 'TOTAL', datafield: 'total', cellsformat: 'c2', columntype: 'numberinput', align: 'center', cellsalign: 'right', width: 100, cellbeginedit: cellbeginedit, editable:false },
+              //{ text: 'SUPPLIER', datafield: 'supplier', columntype: 'numberinput', align: 'center', cellsalign: 'right', width: 100, cellbeginedit: cellbeginedit, cellsrenderer:cellsrenderer_supplier, createeditor:createGridEditor_supplier, initeditor:initGridEditor, geteditorvalue:gridEditorValue },
+              //{ text: 'EX VAT', datafield: 'ex_vat', cellsformat: 'c2', columntype: 'numberinput', align: 'center', cellsalign: 'right', width: 100, cellbeginedit: cellbeginedit },
+              //{ text: 'VAT AMOUNT', datafield: 'vat_amount', cellsformat: 'c2', columntype: 'numberinput', align: 'center', cellsalign: 'right', width: 100, cellbeginedit: cellbeginedit },
+              { text: 'TOTAL', datafield: 'total', cellsformat: 'c2', columntype: 'numberinput', align: 'center', cellsalign: 'right', width: 100, cellbeginedit: cellbeginedit },
               { text: 'REFERENCE', datafield: 'reference', columntype: 'textbox', align: 'center', cellsalign: 'left', width: 150, cellbeginedit: cellbeginedit},
               { text: 'DESCRIPTION', datafield: 'description', columntype: 'textbox', align: 'center', cellsalign: 'left', width: 150, cellbeginedit: cellbeginedit},
               { text: '', datafield: 'id', width: 25, resizable:false,
@@ -189,8 +196,8 @@ function initializePaidoutWidgets() {
         jQuery('#paid_grid').jqxGrid('endcelledit');
         jQuery("#popupPaidoutInputEdit").jqxWindow({ position: { x: 400, y: 330 } });
         jQuery("#popupPaidoutInputEdit").jqxWindow('open');
-        document.getElementById("ex_vat").value = "";
-        document.getElementById("vat_amount").value = "";
+        //document.getElementById("ex_vat").value = "";
+        //document.getElementById("vat_amount").value = "";
         document.getElementById("paidout_total_amount").value = "";
         document.getElementById("reference").value = "";
         document.getElementById("description").value = "";
@@ -198,23 +205,25 @@ function initializePaidoutWidgets() {
     });
 
     jQuery("#PaidoutSave").click(function () {
-        if(document.getElementById("ex_vat").value == "" || isNaN(parseFloat(document.getElementById("ex_vat").value)))
+        if(document.getElementById("paidout_total_amount").value == "" || isNaN(parseFloat(document.getElementById("paidout_total_amount").value)))
         {
-            alert("Please input the correct EX VAT value.");
+            alert("Please input the correct TOTAL value.");
             return;
         }
+        /*
         if(document.getElementById("vat_amount").value == "" || isNaN(parseFloat(document.getElementById("vat_amount").value)))
         {
             alert("Please input VAT AMOUNT value.");
             return;
         }
+        */
         outletTxt = jQuery("#jqxOutlet").text();
         termTxt = jQuery("#jqxTerm").text();
         var row = { id:-1, date:current_date, zref:current_zref, 
                     payout_type: parseInt(jQuery("#jqxPaidOutType").val()),
-                    supplier: parseInt(jQuery("#jqxSupplier").val()),
-                    ex_vat: parseFloat(document.getElementById("ex_vat").value), 
-                    vat_amount: parseFloat(document.getElementById("vat_amount").value), 
+                    //supplier: parseInt(jQuery("#jqxSupplier").val()),
+                    ex_vat: parseFloat(document.getElementById("paidout_total_amount").value), 
+                    //vat_amount: parseFloat(document.getElementById("vat_amount").value), 
                     reference: jQuery("#reference").val(), description: jQuery("#description").val()};
         set_paid_data(paid_type, row);
         jQuery("#popupPaidoutInputEdit").jqxWindow('close');

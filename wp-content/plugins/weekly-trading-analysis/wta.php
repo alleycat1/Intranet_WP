@@ -133,6 +133,7 @@ function getBankingTypeData($conn, &$bankingTypes)
      }
 }
 
+/*
 function getSupplierData($conn, &$suppliers)
 {
      $sql = "SELECT OutletID, SupplierID, SupplierName FROM OutletsSuppliers LEFT JOIN Suppliers ON Suppliers.ID=SupplierID WHERE OutletID NOT IN (SELECT ID FROM Outlets WHERE Deleted=1)";
@@ -146,6 +147,7 @@ function getSupplierData($conn, &$suppliers)
           $suppliers[$row['OutletID']][$row['SupplierID']] = $row['SupplierName'];
      }
 }
+*/
 
 $outlets = array();
 getOutLetData($conn, $outlets);
@@ -187,8 +189,8 @@ if($conn && count($user_outlets) > 0)
      $bankingTypes = array();
      getBankingTypeData($conn, $bankingTypes);
 
-     $suppliers = array();
-     getSupplierData($conn, $suppliers);
+     //$suppliers = array();
+     //getSupplierData($conn, $suppliers);
 
      $incomes = array();
      getIncomeInfo($conn, $incomes);
@@ -281,6 +283,7 @@ if($conn && count($user_outlets) > 0)
      echo "var locations = Array();";
      echo "for(var i in locationInfo[$first_id]) locations[i] = locationInfo[$first_id][i];";
 
+     /*
      $supplier_obj = array();
      $first_id = "";
      foreach($user_outlets as $code => $outlet)
@@ -298,6 +301,7 @@ if($conn && count($user_outlets) > 0)
      echo "var supplierInfo=" . json_encode($supplier_obj) . ";";
      echo "var suppliers = Array();";
      echo "for(var i in supplierInfo[$first_id]) suppliers[i] = supplierInfo[$first_id][i];";
+     */
 
      echo "</script>";
 ?>
@@ -419,6 +423,7 @@ function calcPaidOutTotal()
                     <td class="my_td" align="right">PAYOUT TYPE:</td>
                     <td class="my_td" align="left"><div style='float: left; margin-top: 10px;' id='jqxPaidOutType'></div></td>
                </tr>
+               <!--
                <tr>
                     <td class="my_td" align="right">SUPPLIER:</td>
                     <td class="my_td" align="left"><div style='float: left;' id='jqxSupplier'></div></td>
@@ -431,9 +436,10 @@ function calcPaidOutTotal()
                     <td class="my_td" align="right">VAT AMOUNT(£):</td>
                     <td class="my_td" align="left"><input id="vat_amount" style="height:30px" onchange="javascript:calcPaidOutTotal()" required/></td>
                </tr>
+               -->
                <tr>
                     <td class="my_td" align="right">TOTAL(£):</td>
-                    <td class="my_td" align="left"><input id="paidout_total_amount" style="height:30px" readonly/></td>
+                    <td class="my_td" align="left"><input id="paidout_total_amount" style="height:30px"/></td>
                </tr>
                <tr>
                     <td class="my_td" align="right">REFERENCE:</td>
