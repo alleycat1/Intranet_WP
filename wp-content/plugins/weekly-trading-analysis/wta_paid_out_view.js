@@ -80,10 +80,10 @@ function initializePaidoutViewWidgets() {
               { text: 'NO', columntype: 'integerinput', width: 60, align: 'center', cellsalign: 'right', pinned: true, cellsrenderer:cellsrenderer_no1},
               { text: 'DATE', datafield: 'date' , columntype: 'textbox', cellsformat: 'dd/MM/yyyy', width: 90, align: 'center', pinned: true },
               { text: 'Z REF', datafield: 'zref', columntype: 'integerinput', width: 90, align: 'center', cellsalign: 'right', cellsrenderer:cellsrenderer_zref },
-              { text: 'SUPPLIER', datafield: 'supplier_name', cellsformat: 'textbox', align: 'center', cellsalign: 'center', width: 180 },
+              //{ text: 'SUPPLIER', datafield: 'supplier_name', cellsformat: 'textbox', align: 'center', cellsalign: 'center', width: 180 },
               { text: 'PAYOUT TYPE', datafield: 'payout_type', cellsformat: 'textbox', align: 'center', cellsalign: 'center', width: 180 },
-              { text: 'EX VAT', datafield: 'ex_vat', cellsformat: 'c2', align: 'center', cellsalign: 'right', width: 110 },
-              { text: 'VAT AMOUNT', datafield: 'vat_amount', cellsformat: 'c2', align: 'center', cellsalign: 'right', width: 110 },
+              { text: 'TOTAL', datafield: 'ex_vat', cellsformat: 'c2', align: 'center', cellsalign: 'right', width: 110 },
+              //{ text: 'VAT AMOUNT', datafield: 'vat_amount', cellsformat: 'c2', align: 'center', cellsalign: 'right', width: 110 },
               { text: 'REFERENCE', datafield: 'reference', cellsformat: 'textbox', align: 'center', cellsalign: 'right', width: 200 },
               { text: 'DESCRIPTION', datafield: 'description', cellsformat: 'textbox', align: 'center', cellsalign: 'right', width: 200 }
          ]
@@ -103,10 +103,10 @@ function initializePaidoutViewWidgets() {
                 { text: 'NO', columntype: 'integerinput', width: 60, align: 'center', cellsalign: 'right', pinned: true, cellsrenderer:cellsrenderer_no2 },
                 { text: 'DATE', datafield: 'date' , columntype: 'textbox', cellsformat: 'dd/MM/yyyy', width: 90, align: 'center', pinned: true },
                 { text: 'Z REF', datafield: 'zref', columntype: 'integerinput', width: 90, align: 'center', cellsalign: 'right', cellsrenderer:cellsrenderer_zref },
-                { text: 'SUPPLIER', datafield: 'supplier_name', cellsformat: 'textbox', align: 'center', cellsalign: 'center', width: 180 },
+                //{ text: 'SUPPLIER', datafield: 'supplier_name', cellsformat: 'textbox', align: 'center', cellsalign: 'center', width: 180 },
                 { text: 'PAYOUT TYPE', datafield: 'payout_type', cellsformat: 'textbox', align: 'center', cellsalign: 'center', width: 180 },
-                { text: 'EX VAT', datafield: 'ex_vat', cellsformat: 'c2', align: 'center', cellsalign: 'right', width: 110 },
-                { text: 'VAT AMOUNT', datafield: 'vat_amount', cellsformat: 'c2', align: 'center', cellsalign: 'right', width: 110 },
+                { text: 'TOTAL', datafield: 'ex_vat', cellsformat: 'c2', align: 'center', cellsalign: 'right', width: 110 },
+                //{ text: 'VAT AMOUNT', datafield: 'vat_amount', cellsformat: 'c2', align: 'center', cellsalign: 'right', width: 110 },
                 { text: 'REFERENCE', datafield: 'reference', cellsformat: 'textbox', align: 'center', cellsalign: 'right', width: 200 },
                 { text: 'DESCRIPTION', datafield: 'description', cellsformat: 'textbox', align: 'center', cellsalign: 'right', width: 200 }
             ]
