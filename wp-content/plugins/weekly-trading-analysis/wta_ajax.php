@@ -941,7 +941,7 @@ if ( ! function_exists('get_cash_counts_data') ) {
                 $week_end1->modify('this week +7 days');
                 $week_end_str1 = $week_end1->format('Y-m-d');
 
-                $sql = "SELECT c.ID, CONCAT(CONVERT(varchar,ISNULL(Date,GETDATE()),103), ' ', CONVERT(varchar,ISNULL(Date,GETDATE()),8)) Date, ISNULL(Amount,0) Amount FROM OutletsCashLocations c LEFT JOIN CashCounts v ON v.LocationID=c.ID WHERE c.OutletID=$outlet AND (v.Date=(SELECT MAX(date) FROM CashCounts) OR v.Date IS NULL) ORDER BY c.ID";
+                $sql = "SELECT c.ID, CONCAT(CONVERT(varchar,ISNULL(Date,GETDATE()),103), ' ', CONVERT(varchar,ISNULL(Date,GETDATE()),8)) Date, ISNULL(Amount,0) Amount FROM OutletsCashLocations c LEFT JOIN CashCounts v ON v.LocationID=c.ID WHERE c.OutletID=$outlet AND (v.Date=(SELECT MAX(date) FROM CashCounts WHERE OutletID=$outlet) OR v.Date IS NULL) ORDER BY c.ID";
                 if($submit_time != '')
                 {
                     $arr = explode(' ', $submit_time);
