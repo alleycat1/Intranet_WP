@@ -21,7 +21,7 @@ function show_paid_popup(type, row)
     termTxt = jQuery("#jqxTerm").text();
     date = wta_data[row].date;
     zref = wta_data[row].zref;
-    current_zref = zref;
+    current_zref = wta_data[row].id;
     current_date = date;
     zref = zref.toString().padStart(4, '0');
     if(type == 0)
@@ -37,7 +37,7 @@ function show_paid_popup(type, row)
     jQuery("#popup_paid").jqxWindow("open");
     paid_changed = 0;
 
-    get_paid_data(paid_type, date, zref);
+    get_paid_data(paid_type, date, current_zref);
 }
 
 function delete_paidout(id) {

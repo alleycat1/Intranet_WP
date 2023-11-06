@@ -135,7 +135,7 @@ function set_paid_data(paid_type, data){
         data: { paid_type:paid_type, data:data, action:'set_paid_data', security_nonce:security_nonce },
         dataType: "json",
         success: function (d) {
-            get_paid_data(paid_type, data.date, data.zref);
+            get_paid_data(paid_type, data.date, current_zref);
         },
         error: function (e) {
             alert("Can not access the database! - 6");
