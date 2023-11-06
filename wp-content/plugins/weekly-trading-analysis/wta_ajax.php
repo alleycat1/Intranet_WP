@@ -61,8 +61,8 @@ if ( ! function_exists('get_wta_data') ) {
                 $sql = "SELECT WTA.ID AS ID, CONVERT(varchar(10), WTA.Date, 103) AS Date, ZRef, SalesEXVAT AS ExVat, VATAmount AS Vat, SalesEXVAT+VATAmount AS IncVat, Disrepancy, ISNULL(FromTill, 0) AS FromTill, ISNULL(FromSafe,0) AS FromSafe, AccountSales, AccountReceipts, CardsBanking, 
                             SalesEXVAT + VATAmount + Disrepancy - ISNULL(FromTill, 0) - AccountSales + AccountReceipts - CardsBanking AS Cash 
                         FROM WTA 
-                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ZRef AND t1.Date = WTA.Date
-                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ZRef AND t2.Date = WTA.Date
+                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ID FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ID AND t1.Date = WTA.Date
+                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ID FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ID AND t2.Date = WTA.Date
                         WHERE OutletID=$outlet AND TerminalID=$term AND WTA.Date>='$week_start_str' AND WTA.Date<='$week_end_str'";
 
                 $stmt = sqlsrv_query($conn, $sql);
@@ -200,8 +200,8 @@ if ( ! function_exists('get_summary_data') ) {
                 $sql = "SELECT CONVERT(varchar(10), WTA.Date, 103) AS Date, SUM(CASE WHEN ZRef > 0 THEN 1 ELSE 0 END) AS ZRef, SUM(SalesEXVAT) AS ExVat, SUM(VATAmount) AS Vat, SUM(SalesEXVAT+VATAmount) AS IncVat, SUM(Disrepancy) Disrepancy, SUM(ISNULL(FromTill, 0)) AS FromTill, SUM(ISNULL(FromSafe,0)) AS FromSafe, SUM(AccountSales) AccountSales, SUM(AccountReceipts) AccountReceipts, SUM(CardsBanking) CardsBanking, 
                             SUM(SalesEXVAT) + SUM(VATAmount) + SUM(Disrepancy) - SUM(ISNULL(FromTill, 0)) - SUM(AccountSales) + SUM(AccountReceipts) - SUM(CardsBanking) AS Cash 
                         FROM WTA 
-                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ZRef AND t1.Date = WTA.Date
-                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ZRef AND t2.Date = WTA.Date
+                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ID FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ID AND t1.Date = WTA.Date
+                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ID FROM WTA WHERE Date>='$week_start_str' AND Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ID AND t2.Date = WTA.Date
                         WHERE OutletID=$outlet AND WTA.Date>='$week_start_str' AND WTA.Date<='$week_end_str' GROUP BY WTA.Date";
                 $stmt = sqlsrv_query($conn, $sql);
 
@@ -578,8 +578,8 @@ if ( ! function_exists('get_cash_on_site') ) {
                 $sql = "SELECT (SELECT PremisesFloat FROM Outlets WHERE ID = $outlet) + 
                         (SELECT ISNULL(ISNULL(SUM(SalesEXVAT),0) + ISNULL(SUM(VATAmount),0) + ISNULL(SUM(Disrepancy),0) - SUM(ISNULL(FromTill, 0)) - SUM(ISNULL(FromSafe, 0)) - ISNULL(SUM(AccountSales),0) + ISNULL(SUM(AccountReceipts),0) - ISNULL(SUM(CardsBanking),0),0) AS Cash 
                         FROM WTA 
-                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ZRef AND t1.Date = WTA.Date
-                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ZRef AND t2.Date = WTA.Date
+                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ID FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ID AND t1.Date = WTA.Date
+                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ID FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ID AND t2.Date = WTA.Date
                         WHERE OutletID=$outlet AND WTA.Date<='$week_end_str') 
                         - (SELECT ISNULL(SUM(Amount),0) FROM WTABanking WHERE OutletId=$outlet AND Date<='$week_end_str')
                         + (SELECT ISNULL(SUM(Amount),0) FROM WTAMiscIncome WHERE OutletID=$outlet AND Date<='$week_end_str')
@@ -634,9 +634,9 @@ if ( ! function_exists('get_paidout_view_data') ) {
                 $week_start_str = $week_start->format('Y-m-d');
                 $week_end_str = $week_end->format('Y-m-d');
                 
-                $sql = "SELECT CONVERT(varchar(10), Date, 103) date, Date dd, ZRefID zref, PayoutEXVAT ex_vat, PayoutVATAmount vat_amount, t.Description as payout_type, reference, p.description 
-                        FROM WTAEPOSPayouts as p LEFT JOIN SettingsPayoutTypes AS t ON t.ID = p.PayoutType 
-                        WHERE ZRefID IN (SELECT DISTINCT zref FROM WTA WHERE OutletID=$outlet AND Date>='$week_start_str' AND Date<'$week_end_str') AND Date>='$week_start_str' AND Date<'$week_end_str' ORDER BY dd";
+                $sql = "SELECT CONVERT(varchar(10), p.Date, 103) date, WTA.ZRef zref, PayoutEXVAT ex_vat, PayoutVATAmount vat_amount, t.Description as payout_type, reference, p.description 
+                        FROM WTA LEFT JOIN WTAEPOSPayouts as p ON OutletID=$outlet AND WTA.ID=p.ZRefID
+                        LEFT JOIN SettingsPayoutTypes AS t ON t.ID = p.PayoutType WHERE p.Date>='$week_start_str' AND p.Date<='$week_end_str' ORDER BY p.Date";
                         //SupplierName supplier_name, 
                         //LEFT JOIN Suppliers AS s ON s.ID = p.SupplierID 
                 $stmt = sqlsrv_query($conn, $sql);
@@ -669,9 +669,9 @@ if ( ! function_exists('get_paidout_view_data') ) {
                 $res1[$index]['vat_amount'] = $amount_sum;
                 $res1[$index++]['description'] = '';
 
-                $sql = "SELECT CONVERT(varchar(10), Date, 103) date , Date dd, ZRefID zref, PayoutEXVAT ex_vat, PayoutVATAmount vat_amount, t.Description as payout_type, reference, p.description 
-                        FROM WTASafePayouts as p LEFT JOIN SettingsPayoutTypes AS t ON t.ID = p.PayoutType 
-                        WHERE ZRefID IN (SELECT DISTINCT zref FROM WTA WHERE OutletID=$outlet AND Date>='$week_start_str' AND Date<='$week_end_str') AND Date>='$week_start_str' AND Date<='$week_end_str' ORDER BY dd";
+                $sql = "SELECT CONVERT(varchar(10), p.Date, 103) date, WTA.ZRef zref, PayoutEXVAT ex_vat, PayoutVATAmount vat_amount, t.Description as payout_type, reference, p.description 
+                        FROM WTA LEFT JOIN WTASafePayouts as p ON OutletID=$outlet AND WTA.ID=p.ZRefID
+                        LEFT JOIN SettingsPayoutTypes AS t ON t.ID = p.PayoutType WHERE p.Date>='$week_start_str' AND p.Date<='$week_end_str' ORDER BY p.Date";
                         //SupplierName supplier_name, 
                         //LEFT JOIN Suppliers AS s ON s.ID = p.SupplierID 
                 $stmt = sqlsrv_query($conn, $sql);
@@ -747,7 +747,7 @@ if ( ! function_exists('get_income_data') ) {
                 $week_start_str = $week_start->format('Y-m-d');
                 $week_end_str = $week_end->format('Y-m-d');
 
-                $sql = "SELECT ID, CONVERT(varchar(10), Date, 103) AS Date, Date dd, Amount, Comments FROM WTAMiscIncome WHERE OutletID=$outlet AND IncomeID=$income AND Date>='$week_start_str' AND Date<='$week_end_str' ORDER BY dd, ID";
+                $sql = "SELECT ID, CONVERT(varchar(10), Date, 103) AS Date, Amount, Comments FROM WTAMiscIncome WHERE OutletID=$outlet AND IncomeID=$income AND Date>='$week_start_str' AND Date<='$week_end_str' ORDER BY WTAMiscIncome.Date, ID";
 
                 $stmt = sqlsrv_query($conn, $sql);
 
@@ -978,8 +978,8 @@ if ( ! function_exists('get_cash_counts_data') ) {
                     $sql = "SELECT (SELECT PremisesFloat FROM Outlets WHERE ID = $outlet) + 
                             (SELECT ISNULL(ISNULL(SUM(SalesEXVAT),0) + ISNULL(SUM(VATAmount),0) + ISNULL(SUM(Disrepancy),0) - SUM(ISNULL(FromTill, 0)) - SUM(ISNULL(FromSafe, 0)) - ISNULL(SUM(AccountSales),0) + ISNULL(SUM(AccountReceipts),0) - ISNULL(SUM(CardsBanking),0),0) AS Cash 
                             FROM WTA 
-                                LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ZRef AND t1.Date = WTA.Date
-                                LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ZRef AND t2.Date = WTA.Date
+                                LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ID FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ID AND t1.Date = WTA.Date
+                                LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ID FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ID AND t2.Date = WTA.Date
                             WHERE OutletID=$outlet AND WTA.Date<='$week_end_str') 
                             - (SELECT ISNULL(SUM(Amount),0) FROM WTABanking WHERE OutletId=$outlet AND Date<='$week_end_str')
                             + (SELECT ISNULL(SUM(Amount),0) FROM WTAMiscIncome WHERE OutletID=$outlet AND Date<='$week_end_str')
@@ -1090,8 +1090,8 @@ if ( ! function_exists('set_cash_counts_data') ) {
                 $sql = "SELECT (SELECT PremisesFloat FROM Outlets WHERE ID = $outlet) + 
                         (SELECT ISNULL(ISNULL(SUM(SalesEXVAT),0) + ISNULL(SUM(VATAmount),0) + ISNULL(SUM(Disrepancy),0) - SUM(ISNULL(FromTill, 0)) - SUM(ISNULL(FromSafe, 0)) - ISNULL(SUM(AccountSales),0) + ISNULL(SUM(AccountReceipts),0) - ISNULL(SUM(CardsBanking),0),0) AS Cash 
                         FROM WTA 
-                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ZRef AND t1.Date = WTA.Date
-                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ZRef FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ZRef AND t2.Date = WTA.Date
+                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ID FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ID AND t1.Date = WTA.Date
+                            LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromSafe FROM WTASafePayouts WHERE ZRefID IN (SELECT ID FROM WTA WHERE Date<='$week_end_str') GROUP BY ZRefID, Date ) t2 ON t2.ZRefID = WTA.ID AND t2.Date = WTA.Date
                         WHERE OutletID=$outlet AND WTA.Date<='$week_end_str') 
                         - (SELECT ISNULL(SUM(Amount),0) FROM WTABanking WHERE OutletId=$outlet AND Date<='$week_end_str')
                         + (SELECT ISNULL(SUM(Amount),0) FROM WTAMiscIncome WHERE OutletID=$outlet AND Date<='$week_end_str')
@@ -1172,7 +1172,7 @@ if ( ! function_exists('get_banking_data') ) {
                 $week_start_str = $week_start->format('Y-m-d');
                 $week_end_str = $week_end->format('Y-m-d');
 
-                $sql = "SELECT ID, CONVERT(varchar(10), Date, 103) AS Date, Date dd, Amount, Comments FROM WTABanking WHERE OutletID=$outlet AND AdjustmentTypeID=$type AND Date>='$week_start_str' AND Date<='$week_end_str' ORDER BY dd, ID";
+                $sql = "SELECT ID, CONVERT(varchar(10), Date, 103) AS Date, Amount, Comments FROM WTABanking WHERE OutletID=$outlet AND AdjustmentTypeID=$type AND Date>='$week_start_str' AND Date<='$week_end_str' ORDER BY WTABanking.Date, ID";
 
                 $stmt = sqlsrv_query($conn, $sql);
 
