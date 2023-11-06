@@ -81,7 +81,7 @@ function initializePaidoutWidgets() {
               { name: 'id', type: 'number' },
               { name: 'date', type: 'date', format: 'dd/MM/yyyy' },
               { name: 'payout_type', type: 'number' },
-              { name: 'supplier', type: 'number' },
+              //{ name: 'supplier', type: 'number' },
               { name: 'ex_vat', type: 'number' },
               { name: 'vat_amount', type: 'number' },
               { name: 'total', type: 'number' },

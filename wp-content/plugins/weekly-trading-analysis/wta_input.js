@@ -8,9 +8,9 @@ function initializeInputWidgets() {
         terms.length = 0;
         for(var i in terminals[outlets[e.args.index].value])
             terms[i] = terminals[outlets[e.args.index].value][i];
-        suppliers.length = 0;
-        for(var i in supplierInfo[outlets[e.args.index].value])
-            suppliers[i] = supplierInfo[outlets[e.args.index].value][i];
+        //suppliers.length = 0;
+        //for(var i in supplierInfo[outlets[e.args.index].value])
+        //    suppliers[i] = supplierInfo[outlets[e.args.index].value][i];
         incomes.length = 0;
         for(var i in incomeInfo[outlets[e.args.index].value])
             incomes[i] = incomeInfo[outlets[e.args.index].value][i];
