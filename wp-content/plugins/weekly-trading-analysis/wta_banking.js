@@ -74,7 +74,7 @@ function initializeBankingWidgets() {
          columns: [
               { text: 'NO', columntype: 'integerinput', width: 60, align: 'center', cellsalign: 'right', pinned: true, cellsrenderer:cellsrenderer_no, editable:false },
               { text: 'DATE', datafield: 'date' , columntype: 'datetimeinput', cellsformat: 'dd/MM/yyyy', width: 120, align: 'center', cellsalign: 'right', cellbeginedit: cellbeginedit
-                    , validation: function (cell, value) {
+/*                    , validation: function (cell, value) {
                         let locale = "en-CA";
                         let options = {year: "numeric", month: "numeric", day: "numeric"};
                         var date_str = value.toLocaleDateString(locale, options);
@@ -94,6 +94,7 @@ function initializeBankingWidgets() {
                         }
                         return true;
                       }
+*/
                },
               { text: 'AMOUNT', datafield: 'amount', cellsformat: 'c2', columntype: 'numberinput', align: 'center', cellsalign: 'right', width: 120, cellbeginedit: cellbeginedit },
               { text: 'COMMENT', datafield: 'comment', columntype: 'textbox', align: 'center', cellsalign: 'left', width: 600, cellbeginedit: cellbeginedit},
@@ -134,6 +135,7 @@ function initializeBankingWidgets() {
             return;
         }
 
+        /*
         let locale = "en-CA";
         let options = {year: "numeric", month: "numeric", day: "numeric"};
         var date_str = jQuery("#jqxBankingDate").jqxDateTimeInput('getDate').toLocaleDateString(locale, options);
@@ -152,6 +154,7 @@ function initializeBankingWidgets() {
             alert("Date should be in this week.");
             return;
         }
+        */
 
         outlet_id = jQuery("#jqxOutlet").val();
         type = jQuery("#jqxBankingType").val();
