@@ -333,6 +333,7 @@ function calcPaidOutTotal()
      <tr>
           <td style="border:0px; width:1250px">
                <div id='jqxMenuWidget' style='width: 1250px;'>
+                    <span style="border:0px; width:1250px; text-align:center"><H1>Weekly Trading Analysis</H1></span>
                     <div id='jqxMenu' style="visibility: hidden;">
                          <ul style="margin:0px">
                               <li id="btnWTA">Weekly Trading Analysis</li>
