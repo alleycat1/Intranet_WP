@@ -577,7 +577,7 @@ if ( ! function_exists('get_cash_on_site') ) {
                 $week_end_str = $week_end->format('Y-m-d');
                 */
                 
-                $sql = "SELECT (SELECT PremisesFloat FROM Outlets WHERE ID = $outlet) + 
+                $sql = "SELECT (SELECT ISNULL(PremisesFloat,0) FROM Outlets WHERE ID = $outlet) PremisesFloat, 
                         (SELECT ISNULL(ISNULL(SUM(SalesEXVAT),0) + ISNULL(SUM(VATAmount),0) + ISNULL(SUM(Disrepancy),0) - SUM(ISNULL(FromTill, 0)) - SUM(ISNULL(FromSafe, 0)) - ISNULL(SUM(AccountSales),0) + ISNULL(SUM(AccountReceipts),0) - ISNULL(SUM(CardsBanking),0),0) AS Cash 
                         FROM WTA 
                             LEFT JOIN (SELECT ZRefID, Date, SUM(PayoutEXVat + PayoutVATAmount) FromTill FROM WTAEPOSPayouts WHERE ZRefID IN (SELECT ID FROM WTA) GROUP BY ZRefID, Date ) t1 ON t1.ZRefID = WTA.ID AND t1.Date = WTA.Date
@@ -585,18 +585,20 @@ if ( ! function_exists('get_cash_on_site') ) {
                         WHERE OutletID=$outlet) 
                         - (SELECT ISNULL(SUM(Amount),0) FROM WTABanking WHERE OutletId=$outlet)
                         + (SELECT ISNULL(SUM(Amount),0) FROM WTAMiscIncome WHERE OutletID=$outlet)
-                        AS Cash";
+                        AS Banking";
                 $stmt = sqlsrv_query($conn, $sql);
 
                 if ($stmt === false) {
                     sqlsrv_close($conn);
                     die(print_r(sqlsrv_errors(), true));
                 }
-                $Cash = 0;
+                $PremisesFloat = 0;
+                $Banking = 0;
                 while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-                    $Cash = $row['Cash'];
+                    $PremisesFloat = $row['PremisesFloat'];
+                    $Banking = $row['Banking'];
                 }
-                $res = array('CashOnSite' => $Cash);
+                $res = array('PremisesFloat' => $PremisesFloat, 'Banking' => $Banking);
                 echo json_encode($res);
             }
             sqlsrv_close($conn);

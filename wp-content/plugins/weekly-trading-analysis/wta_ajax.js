@@ -65,7 +65,8 @@ function get_cash_on_site(outlet, date){
         data: { outlet:outlet, date:date, action:'get_cash_on_site', security_nonce:security_nonce },
         dataType: "json",
         success: function (data) {
-            document.getElementById('current_cash').innerHTML = "£ " + parseFloat(data['CashOnSite']).toFixed(2);
+            document.getElementById('current_cash').innerHTML = "£ " + (parseFloat(data['PremisesFloat']) + parseFloat(data['Banking'])).toFixed(2);
+            document.getElementById('expected_banking').innerHTML = "£ " + parseFloat(data['Banking']).toFixed(2);
         },
         error: function (e) {
             //alert("Can not access the database! - 3");
