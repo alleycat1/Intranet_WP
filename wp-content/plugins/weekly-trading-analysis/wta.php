@@ -166,7 +166,7 @@ else
      foreach($user->roles as $role => $role_data)
      {
           foreach($outlets as $code => $outlet)
-               if(strpos($role, $code) === 0)
+               if(strpos($role_data, $code) === 0)
                {
                     $user_outlets[$code] = $outlet;
                     break;
