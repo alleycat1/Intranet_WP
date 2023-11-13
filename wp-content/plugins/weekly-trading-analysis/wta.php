@@ -344,8 +344,8 @@ function calcPaidOutTotal()
                               <li id="btnBankingAdjustments">Banking & Adjustments</li>
                               <li id="current_values" style="margin-left:100px;border:0px; margin-top:0px; padding-top:5px">
                                    <span>
-                                   <table border=0 style="width:200px; height:40px">
-                                        <tr><td style='padding:0px; text-align:right'>Current Cash on Site:&nbsp;</td><td style='padding:0px; text-align:right'><span id="current_cash">£ 0.00</span></td></tr>
+                                   <table border=0 style="width:250px; height:40px">
+                                        <tr><td style='padding:0px; text-align:right; width:160px'>Current Cash on Site:&nbsp;</td><td style='padding:0px; text-align:right'><span id="current_cash">£ 0.00</span></td></tr>
                                         <tr><td style='padding:0px; text-align:right; border:0px'>Expected Banking:&nbsp;</td><td style='padding:0px; border:0px; text-align:right'><span id="expected_banking">£ 0.00</span></td></tr>
                                    </table>
                                    </span>
