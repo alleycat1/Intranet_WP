@@ -127,7 +127,7 @@ $upload_url = $uploads['baseurl'];
 <span style="border:0px; width:1024px; text-align:center">
      <center>
           <a target="_blank" style="display: inline-block !important; visibility: visible !important; font-family: sans-serif !important; color: rgb(119, 119, 119) !important; text-decoration: none !important; box-shadow: none !important; border-width: 0px !important; opacity: 1 !important; margin: 0px 0px 1rem !important; padding: 0px !important; position: static !important; line-height: 1.25 !important;" href="https://www.giftup.com/?utm_source=branding&utm_medium=web">
-               <img style="width:110px;height:50px;margin-top:20px" src="<?php echo $upload_url;?>/gift_cards/gift_up.webp" /><br>
+               <img style="width:110px;height:50px;margin-top:20px" src="<?php echo $upload_url;?>/gift_cards/gift_up.png" /><br>
                The simplest way to sell <br>your business' gift vouchers online
           </a>
      </center>
