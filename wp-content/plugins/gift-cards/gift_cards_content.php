@@ -64,7 +64,7 @@ $upload_url = $uploads['baseurl'];
           <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
                <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="<?php echo $upload_url;?>/gift_cards/spin.svg" />
           </div>
-          <div data-u="slides" onclick="alert('asdf')" style="cursor:pointer;position:relative;top:0px;left:140px;width:720px;height:480px;overflow:hidden;">
+          <div data-u="slides" onclick="" style="cursor:pointer;position:relative;top:0px;left:140px;width:720px;height:480px;overflow:hidden;">
                <div>
                     <img data-u="image" src="<?php echo $upload_url;?>/gift_cards/gift1.png" />
                     <img data-u="thumb" src="<?php echo $upload_url;?>/gift_cards/gift1.png" />
@@ -124,6 +124,16 @@ $upload_url = $uploads['baseurl'];
           </div>
      </div>
 </div>
+<span style="border:0px; width:1024px; text-align:center">
+     <center>
+          <a target="_blank" style="display: inline-block !important; visibility: visible !important; font-family: sans-serif !important; color: rgb(119, 119, 119) !important; text-decoration: none !important; box-shadow: none !important; border-width: 0px !important; opacity: 1 !important; margin: 0px 0px 1rem !important; padding: 0px !important; position: static !important; line-height: 1.25 !important;" href="https://www.giftup.com/?utm_source=branding&utm_medium=web">
+               <img style="width:110px;height:50px;margin-top:20px" src="<?php echo $upload_url;?>/gift_cards/gift_up.webp" /><br>
+               The simplest way to sell <br>your business' gift vouchers online
+          </a>
+     </center>
+</span>
+
+
 <script type="text/javascript">
 !function(i, h, m, e, d, k, f) {
     new (function() {}
