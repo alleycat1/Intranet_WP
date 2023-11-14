@@ -15,21 +15,8 @@
 <?php
 require_once(ABSPATH . 'wp-admin/includes/file.php');
 
-$upload_dir = wp_upload_dir();
-function get_uploaded_images($path, $file_name)
-{
-     $image_file = $upload_dir[$path] . '/' + $file_name;
-
-     $attachment_id = wp_insert_attachment(array(
-     'post_mime_type' => 'image/png',
-     'post_title' => 'image',
-     'post_content' => '',
-     'post_status' => 'inherit'
-     ), $image_file);
-
-     $image_url = wp_get_attachment_url($attachment_id);
-     return $image_url;
-}
+$uploads = wp_upload_dir();
+$upload_url = $uploads['baseurl'];
 ?>
 
 <style>
@@ -68,71 +55,75 @@ function get_uploaded_images($path, $file_name)
      .jssort101 .t {position:absolute;top:0;left:0;width:100%;height:100%;border:none;opacity:.6;}
      .jssort101 .pav .t, .jssort101 .p:hover .t{opacity:1;}
 </style>
-<div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:860px;height:480px;overflow:hidden;visibility:hidden;background-color:#24262e;border:2px solid #aaaaaa;border-radius:10px">
-     <!-- Loading Screen -->
-     <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
-          <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="http://localhost/intranet/wp-content/uploads/gift_cards/spin.svg" />
-     </div>
-     <div data-u="slides" style="cursor:default;position:relative;top:0px;left:140px;width:720px;height:480px;overflow:hidden;">
-          <div>
-               <img data-u="image" src="http://localhost/intranet/wp-content/uploads/gift_cards/gift1.png" />
-               <img data-u="thumb" src="http://localhost/intranet/wp-content/uploads/gift_cards/gift1.png" />
+
+<span style="border:0px; width:1024px; text-align:center"><H1>GIFT CARDS</H1></span>
+
+<div style="position:relative;margin:0 auto;top:0px;left:0px;width:1024px;height:598px;overflow:hidden; background-image:url('<?php echo $upload_url;?>/gift_cards/frame.png');border:0px;background-repeat:no-reapeat;background-size:cover;">
+     <div id="jssor_1" style="position:relative;margin:0 auto;top:30px;left:-1px;width:860px;height:480px;overflow:hidden;visibility:hidden;background-color:#ffffff;border-radius:4px;border:0px solid #ffffff;">
+          <!-- Loading Screen -->
+          <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
+               <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="<?php echo $upload_url;?>/gift_cards/spin.svg" />
           </div>
-          <div>
-               <img data-u="image" src="http://localhost/intranet/wp-content/uploads/gift_cards/gift2.png" />
-               <img data-u="thumb" src="http://localhost/intranet/wp-content/uploads/gift_cards/gift2.png" />
-          </div>
-          <div>
-               <img data-u="image" src="http://localhost/intranet/wp-content/uploads/gift_cards/gift3.png" />
-               <img data-u="thumb" src="http://localhost/intranet/wp-content/uploads/gift_cards/gift3.png" />
-          </div>
-          <div>
-               <img data-u="image" src="http://localhost/intranet/wp-content/uploads/gift_cards/gift4.png" />
-               <img data-u="thumb" src="http://localhost/intranet/wp-content/uploads/gift_cards/gift4.png" />
-          </div>
-          <div>
-               <img data-u="image" src="http://localhost/intranet/wp-content/uploads/gift_cards/gift5.png" />
-               <img data-u="thumb" src="http://localhost/intranet/wp-content/uploads/gift_cards/gift5.png" />
-          </div>
-          <div>
-               <img data-u="image" src="http://localhost/intranet/wp-content/uploads/gift_cards/gift6.png" />
-               <img data-u="thumb" src="http://localhost/intranet/wp-content/uploads/gift_cards/gift6.png" />
-          </div>
-          <div>
-               <img data-u="image" src="http://localhost/intranet/wp-content/uploads/gift_cards/gift7.png" />
-               <img data-u="thumb" src="http://localhost/intranet/wp-content/uploads/gift_cards/gift7.png" />
-          </div>
-     </div>
-     <!-- Thumbnail Navigator -->
-     <div data-u="thumbnavigator" class="jssort101" style="position:absolute;left:0px;top:0px;width:140px;height:480px;background-color:#ffffff;" data-autocenter="2" data-scale-left="0.75">
-          <div data-u="slides">
-               <div data-u="prototype" class="p" style="width:99px;height:66px;">
-               <div data-u="thumbnailtemplate" class="t"></div>
-               <svg viewbox="0 0 16000 16000" class="cv">
-                    <circle class="a" cx="8000" cy="8000" r="3238.1"></circle>
-                    <line class="a" x1="6190.5" y1="8000" x2="9809.5" y2="8000"></line>
-                    <line class="a" x1="8000" y1="9809.5" x2="8000" y2="6190.5"></line>
-               </svg>
+          <div data-u="slides" onclick="alert('asdf')" style="cursor:pointer;position:relative;top:0px;left:140px;width:720px;height:480px;overflow:hidden;">
+               <div>
+                    <img data-u="image" src="<?php echo $upload_url;?>/gift_cards/gift1.png" />
+                    <img data-u="thumb" src="<?php echo $upload_url;?>/gift_cards/gift1.png" />
+               </div>
+               <div>
+                    <img data-u="image" src="<?php echo $upload_url;?>/gift_cards/gift2.png" />
+                    <img data-u="thumb" src="<?php echo $upload_url;?>/gift_cards/gift2.png" />
+               </div>
+               <div>
+                    <img data-u="image" src="<?php echo $upload_url;?>/gift_cards/gift3.png" />
+                    <img data-u="thumb" src="<?php echo $upload_url;?>/gift_cards/gift3.png" />
+               </div>
+               <div>
+                    <img data-u="image" src="<?php echo $upload_url;?>/gift_cards/gift4.png" />
+                    <img data-u="thumb" src="<?php echo $upload_url;?>/gift_cards/gift4.png" />
+               </div>
+               <div>
+                    <img data-u="image" src="<?php echo $upload_url;?>/gift_cards/gift5.png" />
+                    <img data-u="thumb" src="<?php echo $upload_url;?>/gift_cards/gift5.png" />
+               </div>
+               <div>
+                    <img data-u="image" src="<?php echo $upload_url;?>/gift_cards/gift6.png" />
+                    <img data-u="thumb" src="<?php echo $upload_url;?>/gift_cards/gift6.png" />
+               </div>
+               <div>
+                    <img data-u="image" src="<?php echo $upload_url;?>/gift_cards/gift7.png" />
+                    <img data-u="thumb" src="<?php echo $upload_url;?>/gift_cards/gift7.png" />
                </div>
           </div>
-     </div>
-     <!-- Arrow Navigator -->
-     <div data-u="arrowleft" class="jssora093" style="width:50px;height:50px;top:0px;left:170px;" data-autocenter="2">
-          <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
-               <circle class="c" cx="8000" cy="8000" r="5920"></circle>
-               <polyline class="a" points="7777.8,6080 5857.8,8000 7777.8,9920 "></polyline>
-               <line class="a" x1="10142.2" y1="8000" x2="5857.8" y2="8000"></line>
-          </svg>
-     </div>
-     <div data-u="arrowright" class="jssora093" style="width:50px;height:50px;top:0px;right:30px;" data-autocenter="2">
-          <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
-               <circle class="c" cx="8000" cy="8000" r="5920"></circle>
-               <polyline class="a" points="8222.2,6080 10142.2,8000 8222.2,9920 "></polyline>
-               <line class="a" x1="5857.8" y1="8000" x2="10142.2" y2="8000"></line>
-          </svg>
+          <!-- Thumbnail Navigator -->
+          <div data-u="thumbnavigator" class="jssort101" style="position:absolute;left:0px;top:0px;width:140px;height:480px;background-color:#333;background-image:url('<?php echo $upload_url;?>/gift_cards/snow.png');" data-autocenter="2" data-scale-left="0.75">
+               <div data-u="slides">
+                    <div data-u="prototype" class="p" style="width:99px;height:66px;">
+                    <div data-u="thumbnailtemplate" class="t"></div>
+                    <svg viewbox="0 0 16000 16000" class="cv">
+                         <circle class="a" cx="8000" cy="8000" r="3238.1"></circle>
+                         <line class="a" x1="6190.5" y1="8000" x2="9809.5" y2="8000"></line>
+                         <line class="a" x1="8000" y1="9809.5" x2="8000" y2="6190.5"></line>
+                    </svg>
+                    </div>
+               </div>
+          </div>
+          <!-- Arrow Navigator -->
+          <div data-u="arrowleft" class="jssora093" style="width:50px;height:50px;top:0px;left:170px;" data-autocenter="2">
+               <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                    <circle class="c" cx="8000" cy="8000" r="5920"></circle>
+                    <polyline class="a" points="7777.8,6080 5857.8,8000 7777.8,9920 "></polyline>
+                    <line class="a" x1="10142.2" y1="8000" x2="5857.8" y2="8000"></line>
+               </svg>
+          </div>
+          <div data-u="arrowright" class="jssora093" style="width:50px;height:50px;top:0px;right:30px;" data-autocenter="2">
+               <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                    <circle class="c" cx="8000" cy="8000" r="5920"></circle>
+                    <polyline class="a" points="8222.2,6080 10142.2,8000 8222.2,9920 "></polyline>
+                    <line class="a" x1="5857.8" y1="8000" x2="10142.2" y2="8000"></line>
+               </svg>
+          </div>
      </div>
 </div>
-
 <script type="text/javascript">
 !function(i, h, m, e, d, k, f) {
     new (function() {}
