@@ -36,6 +36,7 @@ $upload_url = $uploads['baseurl'];
      /*jssor slider arrow skin 093 css*/
      .jssora093 {display:block;position:absolute;cursor:pointer;}
      .jssora093 .c {fill:none;stroke:#fff;stroke-width:400;stroke-miterlimit:10;}
+     .jssora093 .r {fill:none;stroke:#fff;stroke-width:500;stroke-miterlimit:10;}
      .jssora093 .a {fill:none;stroke:#fff;stroke-width:400;stroke-miterlimit:10;}
      .jssora093:hover {opacity:.8;}
      .jssora093.jssora093dn {opacity:.6;}
@@ -122,14 +123,19 @@ $upload_url = $uploads['baseurl'];
                     <line class="a" x1="5857.8" y1="8000" x2="10142.2" y2="8000"></line>
                </svg>
           </div>
+          <div data-u="buy_button" class="jssora093" style="width:100px;height:55px;top:0px;left:450px;" data-autocenter="2">
+               <svg onclick="" viewbox="0 0 32000 16000" style="position:absolute;top:200px;left:0;width:100%;height:100%;">
+                    <rect class="r" x="100" y="100" width="31800" height="15800" rx="200" ry="200"></rect>
+                    <text class="a" x="7000" y="10000" style="font-size: 7200px;">B u y</text>
+               </svg>
+          </div>
      </div>
 </div>
 <span style="border:0px; width:1024px; text-align:center">
      <center>
-          <a target="_blank" style="display: inline-block !important; visibility: visible !important; font-family: sans-serif !important; color: rgb(119, 119, 119) !important; text-decoration: none !important; box-shadow: none !important; border-width: 0px !important; opacity: 1 !important; margin: 0px 0px 1rem !important; padding: 0px !important; position: static !important; line-height: 1.25 !important;" href="https://www.giftup.com/?utm_source=branding&utm_medium=web">
-               <img style="width:110px;height:50px;margin-top:20px" src="<?php echo $upload_url;?>/gift_cards/gift_up.png" /><br>
-               The simplest way to sell <br>your business' gift vouchers online
-          </a>
+          <span style="display: inline-block !important; visibility: visible !important; font-family: sans-serif !important; color: rgb(119, 119, 119) !important; text-decoration: none !important; box-shadow: none !important; border-width: 0px !important; opacity: 1 !important; margin: 0px 0px 1rem !important; padding: 0px !important; position: static !important; line-height: 1.25 !important;" href="https://www.giftup.com/?utm_source=branding&utm_medium=web">
+               Please choose a gift card. Every gift card is unique.
+          </span>
      </center>
 </span>
 
