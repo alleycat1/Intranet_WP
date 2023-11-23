@@ -143,9 +143,6 @@ if ( ! function_exists('update_gift_card') ) {
                 $Description = $_POST['data']['Description'];
                 $GroupID = $_POST['data']['GroupID'];
 
-                $imagePath = "../wp-content/uploads/gift_cards_upload/" . $ID . ".png";
-                unlink($file);
-
                 sqlsrv_query($conn, "BEGIN TRANSACTION");
                 $sql = sprintf("UPDATE GiftCardImages SET PinNumber=%d, StartDate='%s', EndDate='%s', Description='%s', GroupID=%d WHERE ID=%d",
                                 $PinNumber, $date_str1, $date_str2, $Description, $GroupID, $ID);
@@ -191,7 +188,7 @@ if ( ! function_exists('delete_card_data') ) {
                 $ID = $_POST['imageId'];
 
                 $imagePath = "../wp-content/uploads/gift_cards_upload/" . $ID . ".png";
-                unlink($file);
+                unlink($imagePath);
                 
                 $sql = sprintf("DELETE FROM GiftCardImages WHERE ID=%d", $ID);
                 $stmt = sqlsrv_query($conn, $sql);

@@ -17,6 +17,33 @@ require_once(ABSPATH . 'wp-admin/includes/file.php');
 
 $uploads = wp_upload_dir();
 $upload_url = $uploads['baseurl'];
+
+global $serverName;
+global $connectionInfo;
+
+$conn = sqlsrv_connect($serverName, $connectionInfo);
+
+function getShowingCardInfo($conn, &$cardInfo)
+{
+     $sql = "WITH t AS (SELECT GiftCardImages.ID, PinNumber, CONVERT(VARCHAR(10), StartDate, 103) StartDate, CONVERT(VARCHAR(10), EndDate, 103) EndDate, Description, GroupID ,(CASE WHEN GiftCardPurchases.ID IS NULL THEN CASE WHEN StartDate<=CONVERT(DATE, GETDATE()) AND EndDate>=CONVERT(DATE, GETDATE()) THEN 1 WHEN StartDate>=CONVERT(DATE, GETDATE()) THEN 0 ELSE 3 END ELSE 2 END) AS Status FROM GiftCardImages LEFT JOIN GiftCardPurchases ON GiftCardImages.ID=GiftCardPurchases.ImageID) SELECT * FROM t WHERE Status=1";
+     $stmt = sqlsrv_query($conn, $sql);
+     if ($stmt === false) {
+          sqlsrv_close($conn);
+          return;
+     }
+     $count = 0;
+     while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+          $cardInfo[$count]['ID'] = $row['ID'];
+          $cardInfo[$count]['PinNumber'] = $row['PinNumber'];
+          $cardInfo[$count]['StartDate'] = $row['StartDate'];
+          $cardInfo[$count]['EndDate'] = $row['EndDate'];
+          $cardInfo[$count]['Description'] = $row['Description'];
+          $cardInfo[$count++]['GroupID'] = $row['GroupID'];
+     }
+}
+
+$cardInfoList = array();
+getShowingCardInfo($conn, $cardInfoList);
 ?>
 
 <style>
@@ -66,34 +93,12 @@ $upload_url = $uploads['baseurl'];
                <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="<?php echo $upload_url;?>/gift_cards/spin.svg" />
           </div>
           <div data-u="slides" onclick="" style="cursor:pointer;position:relative;top:0px;left:140px;width:720px;height:480px;overflow:hidden;">
+<?php for($i=0; $i<count($cardInfoList); $i++){ ?>
                <div id="img_cardnumber">
-                    <img data-u="image" src="<?php echo $upload_url;?>/gift_cards/gift1.png" />
-                    <img data-u="thumb" src="<?php echo $upload_url;?>/gift_cards/gift1.png" />
+                    <img data-u="image" src="<?php echo $upload_url;?>/gift_cards_upload/<?php echo $cardInfoList[$i]['ID'];?>.png" />
+                    <img data-u="thumb" src="<?php echo $upload_url;?>/gift_cards_upload/<?php echo $cardInfoList[$i]['ID'];?>.png" />
                </div>
-               <div>
-                    <img data-u="image" src="<?php echo $upload_url;?>/gift_cards/gift2.png" />
-                    <img data-u="thumb" src="<?php echo $upload_url;?>/gift_cards/gift2.png" />
-               </div>
-               <div>
-                    <img data-u="image" src="<?php echo $upload_url;?>/gift_cards/gift3.png" />
-                    <img data-u="thumb" src="<?php echo $upload_url;?>/gift_cards/gift3.png" />
-               </div>
-               <div>
-                    <img data-u="image" src="<?php echo $upload_url;?>/gift_cards/gift4.png" />
-                    <img data-u="thumb" src="<?php echo $upload_url;?>/gift_cards/gift4.png" />
-               </div>
-               <div>
-                    <img data-u="image" src="<?php echo $upload_url;?>/gift_cards/gift5.png" />
-                    <img data-u="thumb" src="<?php echo $upload_url;?>/gift_cards/gift5.png" />
-               </div>
-               <div>
-                    <img data-u="image" src="<?php echo $upload_url;?>/gift_cards/gift6.png" />
-                    <img data-u="thumb" src="<?php echo $upload_url;?>/gift_cards/gift6.png" />
-               </div>
-               <div>
-                    <img data-u="image" src="<?php echo $upload_url;?>/gift_cards/gift7.png" />
-                    <img data-u="thumb" src="<?php echo $upload_url;?>/gift_cards/gift7.png" />
-               </div>
+<?php } ?>
           </div>
           <!-- Thumbnail Navigator -->
           <div data-u="thumbnavigator" class="jssort101" style="position:absolute;left:0px;top:0px;width:140px;height:480px;background-color:#333;background-image:url('<?php echo $upload_url;?>/gift_cards/snow.png');" data-autocenter="2" data-scale-left="0.75">

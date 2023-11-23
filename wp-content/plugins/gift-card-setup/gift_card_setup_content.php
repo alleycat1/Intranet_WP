@@ -147,7 +147,7 @@ jQuery(document).ready(function ($) {
                         </td>
                     </tr>
                 </table>
-                <button style="padding:4px 16px;" id="card_add">&nbsp;Add Card&nbsp;</button> 
+                <button style="padding:4px 16px;" id="card_add">&nbsp;ADD CARD&nbsp;</button> 
             </div>
         </td>
     </tr>
@@ -192,8 +192,8 @@ jQuery(document).ready(function ($) {
                             <tr>
                                 <td class="my_td" style="text-align:left"></td>
                                 <td class="my_td" style="text-align:right">
-                                    <input id="CancelCard" type="button" value="Cancel" />
-                                    <input type="button" id="CardSave" value="  Save  " />
+                                    <input id="CancelCard" type="button" value="CLOSE" />
+                                    <input type="button" id="CardSave" value="  ADD  " />
                                 </td>
                             </tr>
                         </table>

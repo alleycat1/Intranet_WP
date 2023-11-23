@@ -161,6 +161,7 @@ function initializeCardWidgets() {
         document.getElementById("card_number").value = "";
         document.getElementById("pin_number").value = "";
         document.getElementById("card_image_path").value = "";
+        document.getElementById("card_image_temp_showing").src = "";
         event.preventDefault();
     });
 
