@@ -329,7 +329,7 @@ function calcPaidOutTotal()
      document.getElementById("paidout_total_amount").value = total;
 }
 </script>
-<table border=0 hight=500>
+<table border=0 height=500>
      <tr>
           <td style="border:0px; width:1250px">
                <div id='jqxMenuWidget' style='width: 1250px;'>
@@ -428,38 +428,38 @@ function calcPaidOutTotal()
      <div style="overflow: hidden;">
           <table width=100%>
                <tr>
-                    <td class="my_td" align="right">PAYOUT TYPE:</td>
-                    <td class="my_td" align="left"><div style='float: left; margin-top: 10px;' id='jqxPaidOutType'></div></td>
+                    <td class="my_td" style="text-align:right">PAYOUT TYPE:</td>
+                    <td class="my_td" style="text-align:left"><div style='float: left; margin-top: 10px;' id='jqxPaidOutType'></div></td>
                </tr>
                <!--
                <tr>
-                    <td class="my_td" align="right">SUPPLIER:</td>
-                    <td class="my_td" align="left"><div style='float: left;' id='jqxSupplier'></div></td>
+                    <td class="my_td" style="text-align:right">SUPPLIER:</td>
+                    <td class="my_td" style="text-align:left"><div style='float: left;' id='jqxSupplier'></div></td>
                </tr>
                <tr>
-                    <td class="my_td" align="right">EX VAT(£):</td>
-                    <td class="my_td" align="left"><input id="ex_vat" style="height:30px" onchange="javascript:calcPaidOutTotal()" required/></td>
+                    <td class="my_td" style="text-align:right">EX VAT(£):</td>
+                    <td class="my_td" style="text-align:left"><input id="ex_vat" style="height:30px" onchange="javascript:calcPaidOutTotal()" required/></td>
                </tr>
                <tr>
-                    <td class="my_td" align="right">VAT AMOUNT(£):</td>
-                    <td class="my_td" align="left"><input id="vat_amount" style="height:30px" onchange="javascript:calcPaidOutTotal()" required/></td>
+                    <td class="my_td" style="text-align:right">VAT AMOUNT(£):</td>
+                    <td class="my_td" style="text-align:left"><input id="vat_amount" style="height:30px" onchange="javascript:calcPaidOutTotal()" required/></td>
                </tr>
                -->
                <tr>
-                    <td class="my_td" align="right">TOTAL(£):</td>
-                    <td class="my_td" align="left"><input id="paidout_total_amount" style="height:30px"/></td>
+                    <td class="my_td" style="text-align:right">TOTAL(£):</td>
+                    <td class="my_td" style="text-align:left"><input id="paidout_total_amount" style="height:30px"/></td>
                </tr>
                <tr>
-                    <td class="my_td" align="right">REFERENCE:</td>
-                    <td class="my_td" align="left"><input id="reference" style="height:30px" /></td>
+                    <td class="my_td" style="text-align:right">REFERENCE:</td>
+                    <td class="my_td" style="text-align:left"><input id="reference" style="height:30px" /></td>
                </tr>
                <tr>
-                    <td class="my_td" align="right">DESCRIPTION:</td>
-                    <td class="my_td" align="left" ><input id="description" style="height:30px" /></td>
+                    <td class="my_td" style="text-align:right">DESCRIPTION:</td>
+                    <td class="my_td" style="text-align:left" ><input id="description" style="height:30px" /></td>
                </tr>
                <tr>
-                    <td class="my_td" align="left"></td>
-                    <td class="my_td" align="right">
+                    <td class="my_td" style="text-align:left"></td>
+                    <td class="my_td" style="text-align:right">
                          <input id="PaidoutCancel" type="button" value="Cancel" />
                          <input type="button" id="PaidoutSave" value="  Save  " />
                     </td>
@@ -473,20 +473,20 @@ function calcPaidOutTotal()
      <div style="overflow: hidden;">
           <table width=100%>
                <tr>
-                    <td class="my_td" align="right">DATE:</td>
-                    <td class="my_td" align="left"><div style='float: left; margin-top: 10px;' id='jqxIncomeDate'></div></td>
+                    <td class="my_td" style="text-align:right">DATE:</td>
+                    <td class="my_td" style="text-align:left"><div style='float: left; margin-top: 10px;' id='jqxIncomeDate'></div></td>
                </tr>
                <tr>
-                    <td class="my_td" align="right">AMOUNT(£):</td>
-                    <td class="my_td" align="left"><input id="income_amount" style="height:30px" required/></td>
+                    <td class="my_td" style="text-align:right">AMOUNT(£):</td>
+                    <td class="my_td" style="text-align:left"><input id="income_amount" style="height:30px" required/></td>
                </tr>
                <tr>
-                    <td class="my_td" align="right">COMMENTS:</td>
-                    <td class="my_td" align="left" ><input id="income_comment" style="height:30px" /></td>
+                    <td class="my_td" style="text-align:right">COMMENTS:</td>
+                    <td class="my_td" style="text-align:left" ><input id="income_comment" style="height:30px" /></td>
                </tr>
                <tr>
-                    <td class="my_td" align="left"></td>
-                    <td class="my_td" align="right">
+                    <td class="my_td" style="text-align:left"></td>
+                    <td class="my_td" style="text-align:right">
                          <input id="IncomeCancel" type="button" value="Cancel" />
                          <input type="button" id="IncomeSave" value="  Save  " />
                     </td>
@@ -500,20 +500,20 @@ function calcPaidOutTotal()
      <div style="overflow: hidden;">
           <table width=100%>
                <tr>
-                    <td class="my_td" align="right">DATE:</td>
-                    <td class="my_td" align="left"><div style='float: left; margin-top: 10px;' id='jqxBankingDate'></div></td>
+                    <td class="my_td" style="text-align:right">DATE:</td>
+                    <td class="my_td" style="text-align:left"><div style='float: left; margin-top: 10px;' id='jqxBankingDate'></div></td>
                </tr>
                <tr>
-                    <td class="my_td" align="right">AMOUNT(£):</td>
-                    <td class="my_td" align="left"><input id="banking_amount" style="height:30px" required/></td>
+                    <td class="my_td" style="text-align:right">AMOUNT(£):</td>
+                    <td class="my_td" style="text-align:left"><input id="banking_amount" style="height:30px" required/></td>
                </tr>
                <tr>
-                    <td class="my_td" align="right">COMMENTS:</td>
-                    <td class="my_td" align="left" ><input id="banking_comment" style="height:30px" /></td>
+                    <td class="my_td" style="text-align:right">COMMENTS:</td>
+                    <td class="my_td" style="text-align:left" ><input id="banking_comment" style="height:30px" /></td>
                </tr>
                <tr>
-                    <td class="my_td" align="left"></td>
-                    <td class="my_td" align="right">
+                    <td class="my_td" style="text-align:left"></td>
+                    <td class="my_td" style="text-align:right">
                          <input id="BankingCancel" type="button" value="Cancel" />
                          <input type="button" id="BankingSave" value="  Save  " />
                     </td>

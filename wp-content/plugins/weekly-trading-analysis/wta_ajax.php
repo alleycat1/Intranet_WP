@@ -130,7 +130,7 @@ if ( ! function_exists('get_wta_data') ) {
         {
             $response = array(
                 'status' => 'failed',
-                'message' => 'Can not to connect to SQL Server.'
+                'message' => 'Can not connect to SQL Server.'
             );
             echo json_encode($response);
         }
@@ -268,7 +268,7 @@ if ( ! function_exists('get_summary_data') ) {
         {
             $response = array(
                 'status' => 'failed',
-                'message' => 'Can not to connect to SQL Server.'
+                'message' => 'Can not connect to SQL Server.'
             );
             echo json_encode($response);
         }
@@ -341,7 +341,7 @@ if ( ! function_exists('set_wta_data') ) {
         {
             $response = array(
                 'status' => 'failed',
-                'message' => 'Can not to connect to SQL Server.'
+                'message' => 'Can not connect to SQL Server.'
             );
             echo json_encode($response);
         }
@@ -418,7 +418,7 @@ if ( ! function_exists('get_paid_data') ) {
         {
             $response = array(
                 'status' => 'failed',
-                'message' => 'Can not to connect to SQL Server.'
+                'message' => 'Can not connect to SQL Server.'
             );
             echo json_encode($response);
         }
@@ -496,7 +496,7 @@ if ( ! function_exists('set_paid_data') ) {
         {
             $response = array(
                 'status' => 'failed',
-                'message' => 'Can not to connect to SQL Server.'
+                'message' => 'Can not connect to SQL Server.'
             );
             echo json_encode($response);
         }
@@ -544,7 +544,7 @@ if ( ! function_exists('delete_paid_data') ) {
         {
             $response = array(
                 'status' => 'failed',
-                'message' => 'Can not to connect to SQL Server.'
+                'message' => 'Can not connect to SQL Server.'
             );
             echo json_encode($response);
         }
@@ -607,7 +607,7 @@ if ( ! function_exists('get_cash_on_site') ) {
         {
             $response = array(
                 'status' => 'failed',
-                'message' => 'Can not to connect to SQL Server.'
+                'message' => 'Can not connect to SQL Server.'
             );
             echo json_encode($response);
         }
@@ -719,7 +719,7 @@ if ( ! function_exists('get_paidout_view_data') ) {
         {
             $response = array(
                 'status' => 'failed',
-                'message' => 'Can not to connect to SQL Server.'
+                'message' => 'Can not connect to SQL Server.'
             );
             echo json_encode($response);
         }
@@ -783,7 +783,7 @@ if ( ! function_exists('get_income_data') ) {
         {
             $response = array(
                 'status' => 'failed',
-                'message' => 'Can not to connect to SQL Server.'
+                'message' => 'Can not connect to SQL Server.'
             );
             echo json_encode($response);
         }
@@ -857,7 +857,7 @@ if ( ! function_exists('set_income_data') ) {
         {
             $response = array(
                 'status' => 'failed',
-                'message' => 'Can not to connect to SQL Server.'
+                'message' => 'Can not connect to SQL Server.'
             );
             echo json_encode($response);
         }
@@ -900,7 +900,7 @@ if ( ! function_exists('delete_income_data') ) {
         {
             $response = array(
                 'status' => 'failed',
-                'message' => 'Can not to connect to SQL Server.'
+                'message' => 'Can not connect to SQL Server.'
             );
             echo json_encode($response);
         }
@@ -1038,7 +1038,7 @@ if ( ! function_exists('get_cash_counts_data') ) {
         {
             $response = array(
                 'status' => 'failed',
-                'message' => 'Can not to connect to SQL Server.'
+                'message' => 'Can not connect to SQL Server.'
             );
             echo json_encode($response);
         }
@@ -1144,7 +1144,7 @@ if ( ! function_exists('set_cash_counts_data') ) {
         {
             $response = array(
                 'status' => 'failed',
-                'message' => 'Can not to connect to SQL Server.'
+                'message' => 'Can not connect to SQL Server.'
             );
             echo json_encode($response);
         }
@@ -1208,7 +1208,7 @@ if ( ! function_exists('get_banking_data') ) {
         {
             $response = array(
                 'status' => 'failed',
-                'message' => 'Can not to connect to SQL Server.'
+                'message' => 'Can not connect to SQL Server.'
             );
             echo json_encode($response);
         }
@@ -1282,7 +1282,7 @@ if ( ! function_exists('set_banking_data') ) {
         {
             $response = array(
                 'status' => 'failed',
-                'message' => 'Can not to connect to SQL Server.'
+                'message' => 'Can not connect to SQL Server.'
             );
             echo json_encode($response);
         }
@@ -1325,7 +1325,7 @@ if ( ! function_exists('delete_banking_data') ) {
         {
             $response = array(
                 'status' => 'failed',
-                'message' => 'Can not to connect to SQL Server.'
+                'message' => 'Can not connect to SQL Server.'
             );
             echo json_encode($response);
         }

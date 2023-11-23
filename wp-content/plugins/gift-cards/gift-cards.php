@@ -11,7 +11,7 @@ License: GPL2
 */
 
 /*
-Copyright 2023-20237 Oleksandr.P  (email: )
+Copyright 2023-2023 Oleksandr.P  (email: )
 */
 require __DIR__ ."/../../../db_config.php";
 

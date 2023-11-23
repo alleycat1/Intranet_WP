@@ -66,7 +66,7 @@ $upload_url = $uploads['baseurl'];
                <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="<?php echo $upload_url;?>/gift_cards/spin.svg" />
           </div>
           <div data-u="slides" onclick="" style="cursor:pointer;position:relative;top:0px;left:140px;width:720px;height:480px;overflow:hidden;">
-               <div>
+               <div id="img_cardnumber">
                     <img data-u="image" src="<?php echo $upload_url;?>/gift_cards/gift1.png" />
                     <img data-u="thumb" src="<?php echo $upload_url;?>/gift_cards/gift1.png" />
                </div>
@@ -5110,8 +5110,12 @@ var jssor_1_slider_init = function() {
 
 jQuery(document).ready(function ($) {
      jssor_1_slider_init();
+     document.getElementById("neve_body").style.backgroundImage="url(http://localhost/intranet/wp-content/uploads/gift_cards/page_bg.png)";
+     document.getElementById("header-grid").children[0].children[0].style.backgroundImage="url(http://localhost/intranet/wp-content/uploads/gift_cards/page_bg.png)";
+     document.getElementById("header-grid").children[0].children[0].style.backgroundRepeat="repeat";
+     document.getElementById("header-grid").children[0].children[0].style.backgroundSize="initial";
+     document.getElementById("header-grid").children[0].children[0].style.backgroundPosition="unset";
 });
 </script>
     <!-- #endregion Jssor Slider End -->
-</body>
-</html>
+<br>
