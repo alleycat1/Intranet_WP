@@ -309,6 +309,8 @@ if ( ! function_exists('set_wta_data') ) {
                     while ($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
                         $new_id = $r['new_id'];
                     }
+                    if($new_id == "")
+                        $new_id = 1;
 
                     $sql = sprintf("INSERT INTO WTA(ID, OutletID, TerminalID, Date, ZRef, SalesEXVAT, VATAmount, Disrepancy, AccountSales, AccountReceipts, CardsBanking, UsernameID) VALUES(%d, %d, %d, '%s', %d, %f, %f, %f, %f, %f, %f, %d)",
                                    $new_id, $outlet, $term, $date_str, $row["zref"], $row["sale_ex"], $row["vat"], $row["disrepancy"], $row["account_sales"], $row["account_receipts"], $row["cards_banking"], $user_id);
@@ -464,6 +466,8 @@ if ( ! function_exists('set_paid_data') ) {
                     while ($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
                         $new_id = $r['new_id'];
                     }
+                    if($new_id == "")
+                        $new_id = 1;
                     $sql = sprintf("INSERT INTO $tbl_name(ID, Date, ZRefID, PayoutEXVAT, PayoutVATAmount, PayoutType, SupplierID, Reference, Description) VALUES(%d, '%s', %d, %f, %f, %d, %d, '%s', '%s')",
                                    $new_id, $date_str, $data['zref'], $data['ex_vat'], 0, $data["payout_type"], 1, $reference, $description);
                     $stmt = sqlsrv_query($conn, $sql);
@@ -825,6 +829,8 @@ if ( ! function_exists('set_income_data') ) {
                     while ($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
                         $new_id = $r['new_id'];
                     }
+                    if($new_id == "")
+                        $new_id = 1;
                     $sql = sprintf("INSERT INTO $tbl_name(ID, OutletID, IncomeID, Date, Amount, Comments) VALUES(%d, %d, %d, '%s', %f, '%s')",
                                    $new_id, $outlet, $income, $date_str, $data['amount'], $comment);
                     $stmt = sqlsrv_query($conn, $sql);
@@ -1074,6 +1080,8 @@ if ( ! function_exists('set_cash_counts_data') ) {
                 while ($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
                     $new_id = $r['new_id'];
                 }
+                if($new_id == "")
+                    $new_id = 1;
                 $datetime = new DateTime();
                 $dateStr = $datetime->format('d/m/Y H:i:s');
                 for($i=0; $i<count($data) - 3; $i++)
@@ -1121,7 +1129,8 @@ if ( ! function_exists('set_cash_counts_data') ) {
                 while ($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
                     $new_id = $r['new_id'];
                 }
-
+                if($new_id == "")
+                    $new_id = 1;
                 $sql = sprintf("INSERT INTO CashCountsExpectedValues(ID, OutletID, Date, CashExpectedOnSIte) VALUES(%d, %d, CONVERT (datetime, '%s', 103), %f)",
                                 $new_id, $outlet, $dateStr, $currentCash);
                 $stmt = sqlsrv_query($conn, $sql);
@@ -1250,6 +1259,8 @@ if ( ! function_exists('set_banking_data') ) {
                     while ($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
                         $new_id = $r['new_id'];
                     }
+                    if($new_id == "")
+                        $new_id = 1;
                     $sql = sprintf("INSERT INTO $tbl_name(ID, OutletID, AdjustmentTypeID, Date, Amount, Comments) VALUES(%d, %d, %d, '%s', %f, '%s')",
                                    $new_id, $outlet, $type, $date_str, $data['amount'], $comment);
                     $stmt = sqlsrv_query($conn, $sql);

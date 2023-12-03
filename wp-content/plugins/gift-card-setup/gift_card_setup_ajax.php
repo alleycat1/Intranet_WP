@@ -22,10 +22,11 @@ if ( ! function_exists('save_gift_image') ) {
                     die(print_r(sqlsrv_errors(), true));
                 }
                 $new_id = 1;
-
                 while ($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
                     $new_id = $r['new_id'];
                 }
+                if($new_id == "")
+                    $new_id = 1;
 
                 $imagePath = "../wp-content/uploads/gift_images_upload/" . $new_id . ".png";
                 $handle = fopen($imagePath, "w");
