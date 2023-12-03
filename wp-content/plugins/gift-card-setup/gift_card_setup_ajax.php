@@ -101,19 +101,19 @@ if ( ! function_exists('get_gift_images') ) {
                 }
                 if($outlet == 0 && $group == 0)
                     $sql = "SELECT ID, Description, GroupID, " . join(",", $pv_base_fields) . "
-                            FROM (SELECT i.ID, i.Description, GroupID, ImageID, OutletID FROM GiftCardImages i LEFT JOIN OutletsGiftCards o ON o.ImageID=i.ID LEFT JOIN GiftCardCategories g ON g.ID=i.GroupID WHERE g.ActiveFlag=1) p
+                            FROM (SELECT i.ID, i.Description, GroupID, ImageID, OutletID FROM GiftCardImages i LEFT JOIN OutletsGiftCards o ON o.ImageID=i.ID LEFT JOIN GiftCardCategories g ON g.ID=i.GroupID WHERE g.Active=1) p
                             PIVOT(COUNT(ImageID) FOR OutletID IN (" . join(",", $pv_fields) . ")) AS pv";
                 else if($outlet != 0 && $group == 0)
                     $sql = "SELECT ID, Description, GroupID, " . join(",", $pv_base_fields) . "
-                            FROM (SELECT i.ID, i.Description, GroupID, ImageID, OutletID FROM GiftCardImages i LEFT JOIN OutletsGiftCards o ON o.ImageID=i.ID LEFT JOIN GiftCardCategories g ON g.ID=i.GroupID WHERE g.ActiveFlag=1 AND OutletID=$outlet) p
+                            FROM (SELECT i.ID, i.Description, GroupID, ImageID, OutletID FROM GiftCardImages i LEFT JOIN OutletsGiftCards o ON o.ImageID=i.ID LEFT JOIN GiftCardCategories g ON g.ID=i.GroupID WHERE g.Active=1 AND OutletID=$outlet) p
                             PIVOT(COUNT(ImageID) FOR OutletID IN (" . join(",", $pv_fields) . ")) AS pv";
                 else if($outlet == 0 && $group != 0)
                     $sql = "SELECT ID, Description, GroupID, " . join(",", $pv_base_fields) . "
-                            FROM (SELECT i.ID, i.Description, GroupID, ImageID, OutletID FROM GiftCardImages i LEFT JOIN OutletsGiftCards o ON o.ImageID=i.ID LEFT JOIN GiftCardCategories g ON g.ID=i.GroupID WHERE g.ActiveFlag=1 AND GroupID=$group) p
+                            FROM (SELECT i.ID, i.Description, GroupID, ImageID, OutletID FROM GiftCardImages i LEFT JOIN OutletsGiftCards o ON o.ImageID=i.ID LEFT JOIN GiftCardCategories g ON g.ID=i.GroupID WHERE g.Active=1 AND GroupID=$group) p
                             PIVOT(COUNT(ImageID) FOR OutletID IN (" . join(",", $pv_fields) . ")) AS pv";
                 else
                     $sql = "SELECT ID, Description, GroupID, " . join(",", $pv_base_fields) . "
-                            FROM (SELECT i.ID, i.Description, GroupID, ImageID, OutletID FROM GiftCardImages i LEFT JOIN OutletsGiftCards o ON o.ImageID=i.ID LEFT JOIN GiftCardCategories g ON g.ID=i.GroupID WHERE g.ActiveFlag=1 AND OutletID=$outlet AND GroupID=$group) p
+                            FROM (SELECT i.ID, i.Description, GroupID, ImageID, OutletID FROM GiftCardImages i LEFT JOIN OutletsGiftCards o ON o.ImageID=i.ID LEFT JOIN GiftCardCategories g ON g.ID=i.GroupID WHERE g.Active=1 AND OutletID=$outlet AND GroupID=$group) p
                             PIVOT(COUNT(ImageID) FOR OutletID IN (" . join(",", $pv_fields) . ")) AS pv";
                 $stmt = sqlsrv_query($conn, $sql);
 

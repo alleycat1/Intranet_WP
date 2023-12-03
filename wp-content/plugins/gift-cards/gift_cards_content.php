@@ -42,9 +42,9 @@ function getShowingCardInfo($conn, $outlet, &$cardInfo)
 {
     $sql = "";
     if($outlet != -1)
-        $sql = "SELECT i.ID, i.Description, i.GroupID, g.Description AS GroupName FROM OutletsGiftCards AS o LEFT JOIN GiftCardImages AS i ON o.ImageID = i.ID AND o.OutletID = $outlet LEFT JOIN GiftCardCategories AS g ON i.GroupID=g.ID AND g.ActiveFlag=1 WHERE g.ActiveFlag IS NOT NULL ORDER BY i.ID";
+        $sql = "SELECT i.ID, i.Description, i.GroupID, g.Description AS GroupName FROM OutletsGiftCards AS o LEFT JOIN GiftCardImages AS i ON o.ImageID = i.ID AND o.OutletID = $outlet LEFT JOIN GiftCardCategories AS g ON i.GroupID=g.ID AND g.Active=1 WHERE g.Active IS NOT NULL ORDER BY i.ID";
     else
-        $sql = "SELECT i.ID, i.Description, i.GroupID, g.Description AS GroupName FROM GiftCardImages AS i LEFT JOIN GiftCardCategories AS g ON i.GroupID=g.ID AND g.ActiveFlag=1 WHERE g.ActiveFlag IS NOT NULL ORDER BY i.ID";
+        $sql = "SELECT i.ID, i.Description, i.GroupID, g.Description AS GroupName FROM GiftCardImages AS i LEFT JOIN GiftCardCategories AS g ON i.GroupID=g.ID AND g.Active=1 WHERE g.Active IS NOT NULL ORDER BY i.ID";
     $stmt = sqlsrv_query($conn, $sql);
     if ($stmt === false) {
         sqlsrv_close($conn);
