@@ -1,6 +1,6 @@
 <?php
-if ( ! function_exists('save_gift_card') ) {
-	function save_gift_card(){
+if ( ! function_exists('save_gift_image') ) {
+	function save_gift_image(){
         header('Content-Type: application/json');
         require __DIR__ ."/../../../db_config.php";
         global $serverName;
@@ -9,34 +9,30 @@ if ( ! function_exists('save_gift_card') ) {
         if($conn)
         {
             if(isset($_POST) && !empty($_POST)){
-                $ID = $_POST['data']['ID'];
-                $PinNumber = $_POST['data']['PinNumber'];
-                $StartDate = $_POST['data']['StartDate'];
-                $EndDate = $_POST['data']['EndDate'];
-                $date_obj1 = DateTime::createFromFormat('d/m/Y', $StartDate);
-                $date_str1 = $date_obj1->format('Y-m-d');
-                $date_obj2 = DateTime::createFromFormat('d/m/Y', $EndDate);
-                $date_str2 = $date_obj2->format('Y-m-d');
                 $Description = $_POST['data']['Description'];
                 $GroupID = $_POST['data']['GroupID'];
                 $imageData = $_POST['data']['Image'];
                 $imageContent = base64_decode(substr($imageData, 22));
-                $imagePath = "../wp-content/uploads/gift_cards_upload/" . $ID . ".png";
+
+                sqlsrv_query($conn, "BEGIN TRANSACTION");
+                $sql = "SELECT MAX(ID)+1 new_id FROM GiftCardImages";
+                $stmt = sqlsrv_query($conn, $sql);
+                if ($stmt === false) {
+                    sqlsrv_close($conn);
+                    die(print_r(sqlsrv_errors(), true));
+                }
+                $new_id = 1;
+
+                while ($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                    $new_id = $r['new_id'];
+                }
+
+                $imagePath = "../wp-content/uploads/gift_images_upload/" . $new_id . ".png";
                 $handle = fopen($imagePath, "w");
                 if($handle)
                 {
                     fwrite($handle, $imageContent);
                     fclose($handle);
-
-                    sqlsrv_query($conn, "BEGIN TRANSACTION");
-                    $sql = sprintf("INSERT INTO GiftCardImages(ID, PinNumber, StartDate, EndDate, Description, GroupID) VALUES(%d, %d, '%s', '%s', '%s', %d)",
-                                   $ID, $PinNumber, $date_str1, $date_str2, $Description, $GroupID);
-                    $stmt = sqlsrv_query($conn, $sql);
-                    if ($stmt === false) {
-                        sqlsrv_close($conn);
-                        die(print_r(sqlsrv_errors(), true));
-                    }
-                    sqlsrv_query($conn, "COMMIT");
                 }
                 else{
                     $response = array(
@@ -46,6 +42,16 @@ if ( ! function_exists('save_gift_card') ) {
                     echo json_encode($response);
                     die;
                 }
+
+                $sql = sprintf("INSERT INTO GiftCardImages(ID, Description, GroupID) VALUES(%d, '%s', %d)",
+                                $new_id, $Description, $GroupID);
+                $stmt = sqlsrv_query($conn, $sql);
+                if ($stmt === false) {
+                    sqlsrv_close($conn);
+                    die(print_r(sqlsrv_errors(), true));
+                }
+                sqlsrv_query($conn, "COMMIT");
+                
                 $response = array(
                     'status' => 'success',
                     'message' => 'Save successed'
@@ -64,11 +70,11 @@ if ( ! function_exists('save_gift_card') ) {
         }
         die;
 	}
-    add_action('wp_ajax_save_gift_card', 'save_gift_card');
+    add_action('wp_ajax_save_gift_image', 'save_gift_image');
 }
 
-if ( ! function_exists('get_gift_cards') ) {
-	function get_gift_cards(){
+if ( ! function_exists('get_gift_images') ) {
+	function get_gift_images(){
         header('Content-Type: application/json');
         require __DIR__ ."/../../../db_config.php";
         global $serverName;
@@ -78,32 +84,52 @@ if ( ! function_exists('get_gift_cards') ) {
         {
             if(isset($_POST) && !empty($_POST)){
                 $group = $_POST['group'];
-                $status = $_POST['stats'];
+                $outlet = $_POST['outlet'];
 
-                $sql = "WITH t AS (SELECT GiftCardImages.ID, PinNumber, CONVERT(VARCHAR(10), StartDate, 103) StartDate, CONVERT(VARCHAR(10), EndDate, 103) EndDate, Description, GroupID ,(CASE WHEN GiftCardPurchases.ID IS NULL THEN CASE WHEN StartDate<=CONVERT(DATE, GETDATE()) AND EndDate>=CONVERT(DATE, GETDATE()) THEN 1 WHEN StartDate>=CONVERT(DATE, GETDATE()) THEN 0 ELSE 3 END ELSE 2 END) AS Status FROM GiftCardImages LEFT JOIN GiftCardPurchases ON GiftCardImages.ID=GiftCardPurchases.ImageID) SELECT * FROM t";
-                if($group>=0 || $status>=0)
-                    $sql .= " WHERE 1=1";
-                if($group>=0)
-                    $sql .= " AND GroupId=$group";
-                if($status>=0)
-                    $sql .= " AND Status=$status";
+                $pv_base_fields = array();
+                $pv_fields = array();
+                $sql = "SELECT ID FROM Outlets WHERE Deleted <> 1";
+                $stmt = sqlsrv_query($conn, $sql);
+                if ($stmt === false) {
+                    print_r(sqlsrv_errors());
+                    sqlsrv_close($conn);
+                    die();
+                }
+                while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                    $pv_base_fields[count($pv_base_fields)] = '[' . $row['ID'] . '] AS outlet_' . $row['ID'];
+                    $pv_fields[count($pv_fields)] = '[' . $row['ID'] . ']';
+                }
+                if($outlet == 0 && $group == 0)
+                    $sql = "SELECT ID, Description, GroupID, " . join(",", $pv_base_fields) . "
+                            FROM (SELECT i.ID, i.Description, GroupID, ImageID, OutletID FROM GiftCardImages i LEFT JOIN OutletsGiftCards o ON o.ImageID=i.ID LEFT JOIN GiftCardCategories g ON g.ID=i.GroupID WHERE g.ActiveFlag=1) p
+                            PIVOT(COUNT(ImageID) FOR OutletID IN (" . join(",", $pv_fields) . ")) AS pv";
+                else if($outlet != 0 && $group == 0)
+                    $sql = "SELECT ID, Description, GroupID, " . join(",", $pv_base_fields) . "
+                            FROM (SELECT i.ID, i.Description, GroupID, ImageID, OutletID FROM GiftCardImages i LEFT JOIN OutletsGiftCards o ON o.ImageID=i.ID LEFT JOIN GiftCardCategories g ON g.ID=i.GroupID WHERE g.ActiveFlag=1 AND OutletID=$outlet) p
+                            PIVOT(COUNT(ImageID) FOR OutletID IN (" . join(",", $pv_fields) . ")) AS pv";
+                else if($outlet == 0 && $group != 0)
+                    $sql = "SELECT ID, Description, GroupID, " . join(",", $pv_base_fields) . "
+                            FROM (SELECT i.ID, i.Description, GroupID, ImageID, OutletID FROM GiftCardImages i LEFT JOIN OutletsGiftCards o ON o.ImageID=i.ID LEFT JOIN GiftCardCategories g ON g.ID=i.GroupID WHERE g.ActiveFlag=1 AND GroupID=$group) p
+                            PIVOT(COUNT(ImageID) FOR OutletID IN (" . join(",", $pv_fields) . ")) AS pv";
+                else
+                    $sql = "SELECT ID, Description, GroupID, " . join(",", $pv_base_fields) . "
+                            FROM (SELECT i.ID, i.Description, GroupID, ImageID, OutletID FROM GiftCardImages i LEFT JOIN OutletsGiftCards o ON o.ImageID=i.ID LEFT JOIN GiftCardCategories g ON g.ID=i.GroupID WHERE g.ActiveFlag=1 AND OutletID=$outlet AND GroupID=$group) p
+                            PIVOT(COUNT(ImageID) FOR OutletID IN (" . join(",", $pv_fields) . ")) AS pv";
                 $stmt = sqlsrv_query($conn, $sql);
 
                 if ($stmt === false) {
+                    print_r(sqlsrv_errors());
                     sqlsrv_close($conn);
-                    die(print_r(sqlsrv_errors(), true));
+                    die();
                 }
 
                 $count = 0;
                 while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-                    $res[$count]['ID'] = $row['ID'];
-                    $res[$count]['PinNumber'] = $row['PinNumber'];
-                    $res[$count]['StartDate'] = $row['StartDate'];
-                    $res[$count]['EndDate'] = $row['EndDate'];
-                    $res[$count]['Description'] = $row['Description'];
-                    $res[$count]['GroupID'] = $row['GroupID'];
-                    $res[$count]['deleteID'] = $row['ID'];
-                    $res[$count++]['Status'] = $row['Status'];
+                    foreach($row as $id => $value)
+                    {
+                        $res[$count][$id] = $value;
+                    }
+                    $count++;
                 }
                 echo json_encode($res);
             }
@@ -119,11 +145,11 @@ if ( ! function_exists('get_gift_cards') ) {
         }
         die;
 	}
-    add_action('wp_ajax_get_gift_cards', 'get_gift_cards');
+    add_action('wp_ajax_get_gift_images', 'get_gift_images');
 }
 
-if ( ! function_exists('update_gift_card') ) {
-	function update_gift_card(){
+if ( ! function_exists('update_gift_image') ) {
+	function update_gift_image(){
         header('Content-Type: application/json');
         require __DIR__ ."/../../../db_config.php";
         global $serverName;
@@ -133,19 +159,26 @@ if ( ! function_exists('update_gift_card') ) {
         {
             if(isset($_POST) && !empty($_POST)){
                 $ID = $_POST['data']['ID'];
-                $PinNumber = $_POST['data']['PinNumber'];
-                $StartDate = $_POST['data']['StartDate'];
-                $EndDate = $_POST['data']['EndDate'];
-                $date_obj1 = DateTime::createFromFormat('d/m/Y', $StartDate);
-                $date_str1 = $date_obj1->format('Y-m-d');
-                $date_obj2 = DateTime::createFromFormat('d/m/Y', $EndDate);
-                $date_str2 = $date_obj2->format('Y-m-d');
                 $Description = $_POST['data']['Description'];
                 $GroupID = $_POST['data']['GroupID'];
+                $outlets = array();
 
                 sqlsrv_query($conn, "BEGIN TRANSACTION");
-                $sql = sprintf("UPDATE GiftCardImages SET PinNumber=%d, StartDate='%s', EndDate='%s', Description='%s', GroupID=%d WHERE ID=%d",
-                                $PinNumber, $date_str1, $date_str2, $Description, $GroupID, $ID);
+                $sql = sprintf("DELETE FROM OutletsGiftCards WHERE ImageID=%d", $ID);
+                sqlsrv_query($conn, $sql);
+                foreach($_POST['data'] as $id => $value)
+                {
+                    if(strpos($id, "outlet_") !== false)
+                    {
+                        if($value == "true")
+                        {
+                            $sql = sprintf("INSERT INTO OutletsGiftCards VALUES(%d, %d)", $ID, substr($id, 7) + 0);
+                            sqlsrv_query($conn, $sql);
+                        }
+                    }
+                }
+                $sql = sprintf("UPDATE GiftCardImages SET Description='%s', GroupID=%d WHERE ID=%d",
+                                $Description, $GroupID, $ID);
                 $stmt = sqlsrv_query($conn, $sql);
                 if ($stmt === false) {
                     sqlsrv_query($conn, "ROLL BACK");
@@ -172,11 +205,11 @@ if ( ! function_exists('update_gift_card') ) {
         }
         die;
 	}
-    add_action('wp_ajax_update_gift_card', 'update_gift_card');
+    add_action('wp_ajax_update_gift_image', 'update_gift_image');
 }
 
-if ( ! function_exists('delete_card_data') ) {
-	function delete_card_data(){
+if ( ! function_exists('delete_card_image') ) {
+	function delete_card_image(){
         header('Content-Type: application/json');
         require __DIR__ ."/../../../db_config.php";
         global $serverName;
@@ -185,17 +218,25 @@ if ( ! function_exists('delete_card_data') ) {
         if($conn)
         {
             if(isset($_POST) && !empty($_POST)){
-                $ID = $_POST['imageId'];
+                $ID = $_POST['ID'];
 
-                $imagePath = "../wp-content/uploads/gift_cards_upload/" . $ID . ".png";
+                $imagePath = "../wp-content/uploads/gift_images_upload/" . $ID . ".png";
                 unlink($imagePath);
                 
+                sqlsrv_query($conn, "BEGIN TRANSACTION");
+                $sql = sprintf("DELETE FROM OutletsGiftCards WHERE ImageID=%d", $ID);
+                $stmt = sqlsrv_query($conn, $sql);
+                if ($stmt === false) {
+                    sqlsrv_close($conn);
+                    die(print_r(sqlsrv_errors(), true));
+                }
                 $sql = sprintf("DELETE FROM GiftCardImages WHERE ID=%d", $ID);
                 $stmt = sqlsrv_query($conn, $sql);
                 if ($stmt === false) {
                     sqlsrv_close($conn);
                     die(print_r(sqlsrv_errors(), true));
                 }
+                sqlsrv_query($conn, "COMMIT");
                 
                 $response = array(
                     'status' => 'success',
@@ -215,7 +256,7 @@ if ( ! function_exists('delete_card_data') ) {
         }
         die;
 	}
-    add_action('wp_ajax_delete_card_data', 'delete_card_data');
+    add_action('wp_ajax_delete_card_image', 'delete_card_image');
 }
 
 ?>

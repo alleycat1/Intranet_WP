@@ -58,6 +58,20 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 if(!$conn)
     print_r(sqlsrv_errors());
 
+function getOutLetData($conn, &$outlets, &$outlets1)
+{
+     $sql = "SELECT ID, OutletCode, OutletName FROM Outlets WHERE Deleted <> 1";
+     $stmt = sqlsrv_query($conn, $sql);
+     if ($stmt === false) {
+          return;
+     }
+     $outlets[0] = ['label'=>'ALL', 'value'=>'0'];
+     while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+          $outlets[count($outlets)] = ['label'=>$row['OutletName'], 'value'=>$row['ID']];
+          $outlets1[count($outlets1)] = ['label'=>$row['OutletName'], 'value'=>$row['ID']];
+     }
+}
+
 function getCardGroups($conn, &$cardGroups)
 {
      $sql = "SELECT ID, Description FROM GiftCardCategories";
@@ -78,16 +92,22 @@ if(in_array("administrator", $user->roles) || in_array("editor", $user->roles))
 if($is_admin == false)
     echo "Please sign up first!";
 else {
+    $outlets = array();
+    $outlets1 = array();
+    getOutLetData($conn, $outlets, $outlets1);
+
     $cardCroups = array();
     getCardGroups($conn, $cardCroups);
 
     echo "<script>";
+    echo "var outlets=" . json_encode($outlets) . ";";
+    echo "var outlets1=" . json_encode($outlets1) . ";";
 
     echo "var upload_url='".$upload_url."';";
     $group_obj = array();
     $group_obj1 = array();
     $first_id = "";
-    $group_obj[count($group_obj)] = ['label'=>'ALL', 'value'=>'-1'];
+    $group_obj[count($group_obj)] = ['label'=>'ALL', 'value'=>'0'];
     foreach($cardCroups as $groupId => $group_desc)
     {
         $group_obj[count($group_obj)] = ['label'=>$group_desc, 'value'=>$groupId];
@@ -96,24 +116,13 @@ else {
     echo "var groups=" . json_encode($group_obj) . ";";
     echo "var groups1=" . json_encode($cardCroups) . ";";
 
-    $status_obj = array();
-    $first_id = "";
-    $status_obj[count($status_obj)] = ['label'=>'ALL', 'value'=>'-1'];
-    $status_obj[count($status_obj)] = ['label'=>'READY', 'value'=>'0'];
-    $status_obj[count($status_obj)] = ['label'=>'SHOWN', 'value'=>'1'];
-    $status_obj[count($status_obj)] = ['label'=>'SOLD', 'value'=>'2'];
-    $status_obj[count($status_obj)] = ['label'=>'EXPIRED', 'value'=>'3'];
-    echo "var statusList=" . json_encode($status_obj) . ";";
-    echo "var status_names = Array();";
-    echo "for(var i in statusList) status_names[i] = statusList[i]; status_names.shift();";
-
     echo "</script>";
 ?>
 
 <script>
 jQuery(document).ready(function ($) {
     initializeCardWidgets();
-    get_gift_cards(-1, -1);
+    get_gift_images(0, 0);
 });
 </script>
 
@@ -128,8 +137,8 @@ jQuery(document).ready(function ($) {
                     <tr>
                         <td style="padding:10px; border:none">Group:</td>
                         <td style="padding:0px; border:none"><div style='float: left;' id='jqxCardGroup'></div></td>
-                        <td style="padding:10px; padding-left:20px; border:none">Status:</td>
-                        <td style="padding:0px; border:none"><div style='float: left;' id='jqxCardStatus'></div></td>
+                        <td style="padding:10px; padding-left:20px; border:none">Outlets:</td>
+                        <td style="padding:0px; border:none"><div style='float: left;' id='jqxOutlets'></div></td>
                         <td width=100% style="border:none">&nbsp;</td>
                     </tr>
                 </table>
@@ -159,53 +168,41 @@ jQuery(document).ready(function ($) {
         <form id="card_form" enctype="multipart/form-data" name="card_form">
             <table width=100%>
                 <tr>
-                    <td style="padding:0px; border:none">
-                        <table>
-                            <tr>
-                                <td class="my_td" style="text-align:right">CARD NUMBER:</td>
-                                <td class="my_td" style="text-align:left"><input type="text" id="card_number" style="height:30px; width:177px" required/></td>
-                            </tr>
-                            <tr>
-                                <td class="my_td" style="text-align:right">PIN NUMBER:</td>
-                                <td class="my_td" style="text-align:left"><input type="text" id="pin_number" style="height:30px; width:177px" required/></td>
-                            </tr>
-                            <tr>
-                                <td class="my_td" style="text-align:right">GROUP:</td>
-                                <td class="my_td" style="text-align:left"><div style='float: left; margin-top: 10px;' id='jqxInputCardGroup'></td>
-                            </tr>
-                            <tr>
-                                <td class="my_td" style="text-align:right">START DATE:</td>
-                                <td class="my_td" style="text-align:left"><div style='float: left; margin-top: 10px;' id='jqxStartDate'></div></td>
-                            </tr>
-                            <tr>
-                                <td class="my_td" style="text-align:right">END DATE:</td>
-                                <td class="my_td" style="text-align:left"><div style='float: left; margin-top: 10px;' id='jqxEndDate'></div></td>
-                            </tr>
-                            <tr>
-                                <td class="my_td" style="text-align:right">DESCRIPTION:</td>
-                                <td class="my_td" style="text-align:left"><input type="text" id="description" style="height:30px; width:177px" /></td>
-                            </tr>
-                            <tr>
-                                <td class="my_td" style="text-align:right">CARD IMAGE:</td>
-                                <td class="my_td" style="text-align:left" ><input type="file" id="card_image_path" onchange="javascript:gift_card_show(this)" accept="image/png" style="height:30px; width:177px" required/></td>
-                            </tr>
-                            <tr>
-                                <td class="my_td" style="text-align:left"></td>
-                                <td class="my_td" style="text-align:right">
-                                    <input id="CancelCard" type="button" value="CLOSE" />
-                                    <input type="button" id="CardSave" value="  ADD  " />
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
                     <td style="padding:0px; border:none; padding-top:10px" valign=top>
                         <div style="width:380px; height:380px; border:1px solid lightgray">
                             <img id="card_image_temp_showing" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <td style="padding:0px; border:none" class="my_td">
+                        <table>
+                            <tr>
+                                <td class="my_td" style="text-align:right; width:80px;">GROUP:</td>
+                                <td class="my_td" style="text-align:left"><div style='float: left' id='jqxInputCardGroup'></td>
+                            </tr>
+                            <tr>
+                                <td class="my_td" style="text-align:right; width:80px;">IMAGE:</td>
+                                <td class="my_td" style="text-align:left" ><input type="file" id="card_image_path" onchange="javascript:gift_card_show(this)" accept="image/png" style="height:30px; width:177px; margin-top:5px" required/></td>
+                            </tr>
+                            <tr>
+                                <td class="my_td" style="text-align:right; width:80px;">DESCRIPTION:</td>
+                                <td class="my_td" style="text-align:left"><input type="text" id="description" style="height:30px; width:177px" /></td>
+                            </tr>
+                            <tr>
+                                <td class="my_td" style="text-align:right; width:80px;">&nbsp;</td>
+                                <td class="my_td" style="">
+                                    <input id="CancelCard" type="button" value="CLOSE" />
+                                    <input type="button" id="CardSave" value="  ADD  " />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>                
             </table>
         </form>
     </div>
+</div>
+<div style="width:100%; height:100%; position:absolute; left:0px; top:0px; visibility:hidden; z-order:1000" id="disable_pane">
 </div>
 <?php } ?>

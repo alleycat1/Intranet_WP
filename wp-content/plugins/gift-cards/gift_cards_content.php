@@ -23,27 +23,70 @@ global $connectionInfo;
 
 $conn = sqlsrv_connect($serverName, $connectionInfo);
 
-function getShowingCardInfo($conn, &$cardInfo)
+if(!$conn)
+    print_r(sqlsrv_errors());
+
+function getOutLetData($conn, &$outlets)
 {
-     $sql = "WITH t AS (SELECT GiftCardImages.ID, PinNumber, CONVERT(VARCHAR(10), StartDate, 103) StartDate, CONVERT(VARCHAR(10), EndDate, 103) EndDate, Description, GroupID ,(CASE WHEN GiftCardPurchases.ID IS NULL THEN CASE WHEN StartDate<=CONVERT(DATE, GETDATE()) AND EndDate>=CONVERT(DATE, GETDATE()) THEN 1 WHEN StartDate>=CONVERT(DATE, GETDATE()) THEN 0 ELSE 3 END ELSE 2 END) AS Status FROM GiftCardImages LEFT JOIN GiftCardPurchases ON GiftCardImages.ID=GiftCardPurchases.ImageID) SELECT * FROM t WHERE Status=1";
-     $stmt = sqlsrv_query($conn, $sql);
-     if ($stmt === false) {
-          sqlsrv_close($conn);
-          return;
-     }
-     $count = 0;
-     while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-          $cardInfo[$count]['ID'] = $row['ID'];
-          $cardInfo[$count]['PinNumber'] = $row['PinNumber'];
-          $cardInfo[$count]['StartDate'] = $row['StartDate'];
-          $cardInfo[$count]['EndDate'] = $row['EndDate'];
-          $cardInfo[$count]['Description'] = $row['Description'];
-          $cardInfo[$count++]['GroupID'] = $row['GroupID'];
-     }
+    $sql = "SELECT ID, OutletCode, OutletName FROM Outlets WHERE Deleted <> 1";
+    $stmt = sqlsrv_query($conn, $sql);
+    if ($stmt === false) {
+        return;
+    }
+    while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+        $outlets[$row['OutletCode']] = ['id'=>$row['ID'], 'name'=>$row['OutletName']];
+    }
 }
 
-$cardInfoList = array();
-getShowingCardInfo($conn, $cardInfoList);
+function getShowingCardInfo($conn, $outlet, &$cardInfo)
+{
+    $sql = "";
+    if($outlet != -1)
+        $sql = "SELECT i.ID, i.Description, i.GroupID, g.Description AS GroupName FROM OutletsGiftCards AS o LEFT JOIN GiftCardImages AS i ON o.ImageID = i.ID AND o.OutletID = $outlet LEFT JOIN GiftCardCategories AS g ON i.GroupID=g.ID AND g.ActiveFlag=1 WHERE g.ActiveFlag IS NOT NULL ORDER BY i.ID";
+    else
+        $sql = "SELECT i.ID, i.Description, i.GroupID, g.Description AS GroupName FROM GiftCardImages AS i LEFT JOIN GiftCardCategories AS g ON i.GroupID=g.ID AND g.ActiveFlag=1 WHERE g.ActiveFlag IS NOT NULL ORDER BY i.ID";
+    $stmt = sqlsrv_query($conn, $sql);
+    if ($stmt === false) {
+        sqlsrv_close($conn);
+        return;
+    }
+    $count = 0;
+    while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+        $cardInfo[$count]['ID'] = $row['ID'];
+        $cardInfo[$count]['Description'] = $row['Description'];
+        $cardInfo[$count]['GroupID'] = $row['GroupID'];
+        $cardInfo[$count]['GroupName'] = $row['GroupName'];
+    }
+}
+
+$outlet = -1;
+$outlets = array();
+getOutLetData($conn, $outlets);
+
+$user = wp_get_current_user();
+$is_admin = false;
+if(in_array("administrator", $user->roles))
+{
+    $is_admin = true;
+}
+else
+{
+    foreach($user->roles as $role => $role_data)
+    {
+        foreach($outlets as $code => $outlet)
+            if(strpos($role_data, $code) === 0)
+            {
+                if($outlet == -1)
+                    $outlet = $code;
+                break;
+            }
+    }
+}
+
+if($outlet != -1 || $is_admin == true)
+{
+    $cardInfoList = array();
+    getShowingCardInfo($conn, $outlet, $cardInfoList);
 ?>
 
 <style>
@@ -5124,3 +5167,8 @@ jQuery(document).ready(function ($) {
 </script>
     <!-- #endregion Jssor Slider End -->
 <br>
+<?php 
+} 
+else 
+    echo "Please sign up first!";
+?>
