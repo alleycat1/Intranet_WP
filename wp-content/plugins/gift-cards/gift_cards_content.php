@@ -138,8 +138,8 @@ if($outlet != -1 || $is_admin == true)
           <div data-u="slides" onclick="" style="cursor:pointer;position:relative;top:0px;left:140px;width:720px;height:480px;overflow:hidden;">
 <?php for($i=0; $i<count($cardInfoList); $i++){ ?>
                <div id="img_cardnumber">
-                    <img data-u="image" src="<?php echo $upload_url;?>/gift_cards_upload/<?php echo $cardInfoList[$i]['ID'];?>.png" />
-                    <img data-u="thumb" src="<?php echo $upload_url;?>/gift_cards_upload/<?php echo $cardInfoList[$i]['ID'];?>.png" />
+                    <img data-u="image" src="<?php echo $upload_url;?>/gift_images_upload/<?php echo $cardInfoList[$i]['ID'];?>.png" />
+                    <img data-u="thumb" src="<?php echo $upload_url;?>/gift_images_upload/<?php echo $cardInfoList[$i]['ID'];?>.png" />
                </div>
 <?php } ?>
           </div>
