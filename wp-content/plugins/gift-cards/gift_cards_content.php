@@ -12,7 +12,39 @@
      }
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<script src="https://js.stripe.com/v3/"></script>
 <?php
+wp_enqueue_script( 'jqxcore' );
+wp_enqueue_script( 'jqxdatetimeinput' );
+wp_enqueue_script( 'jqxcalendar' );
+wp_enqueue_script( 'jqxtooltip' );
+wp_enqueue_script( 'jqxbuttons' );
+wp_enqueue_script( 'jqxmenu' );
+wp_enqueue_script( 'jqxdata' );
+wp_enqueue_script( 'jqxscrollbar' );
+wp_enqueue_script( 'jqxgrid' );
+wp_enqueue_script( 'jqxgrid.edit' );
+wp_enqueue_script( 'jqxgrid.columnsresize', );
+wp_enqueue_script( 'jqxgrid.sort' );
+wp_enqueue_script( 'jqxgrid.selection' );
+wp_enqueue_script( 'jqxlistbox' );
+wp_enqueue_script( 'jqxdropdownlist' );
+wp_enqueue_script( 'jqxcheckbox' );
+wp_enqueue_script( 'jqxnumberinput' );
+wp_enqueue_script( 'jqxsplitter' );
+wp_enqueue_script( 'jqxdata.export' );
+wp_enqueue_script( 'jqxgrid.export' );
+wp_enqueue_script( 'jqxcombobox' );
+wp_enqueue_script( 'jqxpopover' );
+wp_enqueue_script( 'jqxwindow' );
+wp_enqueue_script( 'jqxinput' );
+
+// enqueue jQWidgets CSS files
+wp_enqueue_style( 'jqx.base' );
+wp_enqueue_style( 'jqx.orange' );
+
+wp_enqueue_script(GIFT_CARDS_NAME . '_ajax',  GIFT_CARDS_PLUGIN_DIR . '/gift_cards_ajax.js', array('jquery'), GIFT_CARDS_VAR, true);
+
 require_once(ABSPATH . 'wp-admin/includes/file.php');
 
 $uploads = wp_upload_dir();
@@ -28,65 +60,67 @@ if(!$conn)
 
 function getOutLetData($conn, &$outlets)
 {
-    $sql = "SELECT ID, OutletCode, OutletName FROM Outlets WHERE Deleted <> 1";
+    $sql = "SELECT ID, OutletName, Address1, City, Postcode, Telephone, eMail, Website FROM Outlets WHERE Deleted <> 1";
     $stmt = sqlsrv_query($conn, $sql);
     if ($stmt === false) {
         return;
     }
     while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-        $outlets[$row['OutletCode']] = ['id'=>$row['ID'], 'name'=>$row['OutletName']];
+        $outlets[$row['ID']]['OutletName'] = $row['OutletName'];
+        $outlets[$row['ID']]['Address'] = $row['Address1'];
+        $outlets[$row['ID']]['City'] = $row['City'];
+        $outlets[$row['ID']]['Postcode'] = $row['Postcode'];
+        $outlets[$row['ID']]['Telephone'] = $row['Telephone'];
+        $outlets[$row['ID']]['eMail'] = $row['eMail'];
+        $outlets[$row['ID']]['Website'] = $row['Website'];
     }
 }
 
-function getShowingCardInfo($conn, $outlet, &$cardInfo)
+function getShowingCardInfo($conn, &$cardInfo)
 {
-    $sql = "";
-    if($outlet != -1)
-        $sql = "SELECT i.ID, i.Description, i.GroupID, g.Description AS GroupName FROM OutletsGiftCards AS o LEFT JOIN GiftCardImages AS i ON o.ImageID = i.ID AND o.OutletID = $outlet LEFT JOIN GiftCardCategories AS g ON i.GroupID=g.ID AND g.Active=1 WHERE g.Active IS NOT NULL ORDER BY i.ID";
-    else
-        $sql = "SELECT i.ID, i.Description, i.GroupID, g.Description AS GroupName FROM GiftCardImages AS i LEFT JOIN GiftCardCategories AS g ON i.GroupID=g.ID AND g.Active=1 WHERE g.Active IS NOT NULL ORDER BY i.ID";
+    $pv_base_fields = array();
+    $pv_fields = array();
+    $sql = "SELECT ID FROM Outlets WHERE Deleted <> 1";
     $stmt = sqlsrv_query($conn, $sql);
     if ($stmt === false) {
+        print_r(sqlsrv_errors());
         sqlsrv_close($conn);
-        return;
+        die();
     }
+    while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+        $pv_base_fields[count($pv_base_fields)] = '[' . $row['ID'] . '] AS outlet_' . $row['ID'];
+        $pv_fields[count($pv_fields)] = '[' . $row['ID'] . ']';
+    }
+
+    $sql = "SELECT ID, Description, GroupID, " . join(",", $pv_base_fields) . "
+            FROM (SELECT i.ID, i.Description, GroupID, ImageID, OutletID FROM GiftCardImages i LEFT JOIN OutletsGiftCards o ON o.ImageID=i.ID LEFT JOIN GiftCardCategories g ON g.ID=i.GroupID WHERE g.Active=1) p
+            PIVOT(COUNT(ImageID) FOR OutletID IN (" . join(",", $pv_fields) . ")) AS pv";
+
+    $stmt = sqlsrv_query($conn, $sql);
+
+    if ($stmt === false) {
+        print_r(sqlsrv_errors());
+        sqlsrv_close($conn);
+        die();
+    }
+
     $count = 0;
     while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-        $cardInfo[$count]['ID'] = $row['ID'];
-        $cardInfo[$count]['Description'] = $row['Description'];
-        $cardInfo[$count]['GroupID'] = $row['GroupID'];
-        $cardInfo[$count]['GroupName'] = $row['GroupName'];
+        foreach($row as $id => $value)
+            $cardInfo[$count][$id] = $value;
+        $count++;
     }
 }
 
-$outlet = -1;
 $outlets = array();
 getOutLetData($conn, $outlets);
 
-$user = wp_get_current_user();
-$is_admin = false;
-if(in_array("administrator", $user->roles))
-{
-    $is_admin = true;
-}
-else
-{
-    foreach($user->roles as $role => $role_data)
-    {
-        foreach($outlets as $code => $outlet)
-            if(strpos($role_data, $code) === 0)
-            {
-                if($outlet == -1)
-                    $outlet = $code;
-                break;
-            }
-    }
-}
-
-if($outlet != -1 || $is_admin == true)
-{
-    $cardInfoList = array();
-    getShowingCardInfo($conn, $outlet, $cardInfoList);
+$cardInfoList = array();
+getShowingCardInfo($conn, $cardInfoList);
+echo "<script>";
+echo "var card_infos=" . json_encode($cardInfoList) . ";";
+echo "var outlets=" . json_encode($outlets) . ";";
+echo "</script>";
 ?>
 
 <style>
@@ -105,9 +139,9 @@ if($outlet != -1 || $is_admin == true)
 
      /*jssor slider arrow skin 093 css*/
      .jssora093 {display:block;position:absolute;cursor:pointer;}
-     .jssora093 .c {fill:none;stroke:#fff;stroke-width:400;stroke-miterlimit:10;}
-     .jssora093 .r {fill:none;stroke:#fff;stroke-width:500;stroke-miterlimit:10;}
-     .jssora093 .a {fill:none;stroke:#fff;stroke-width:400;stroke-miterlimit:10;}
+     .jssora093 .c {fill:none;stroke:#800;stroke-width:400;stroke-miterlimit:10;}
+     .jssora093 .r {fill:none;stroke:#800;stroke-width:500;stroke-miterlimit:10;}
+     .jssora093 .a {fill:none;stroke:#800;stroke-width:400;stroke-miterlimit:10;}
      .jssora093:hover {opacity:.8;}
      .jssora093.jssora093dn {opacity:.6;}
      .jssora093.jssora093ds {opacity:.3;pointer-events:none;}
@@ -137,8 +171,8 @@ if($outlet != -1 || $is_admin == true)
           </div>
           <div data-u="slides" onclick="" style="cursor:pointer;position:relative;top:0px;left:140px;width:720px;height:480px;overflow:hidden;">
 <?php for($i=0; $i<count($cardInfoList); $i++){ ?>
-               <div id="img_cardnumber">
-                    <img data-u="image" src="<?php echo $upload_url;?>/gift_images_upload/<?php echo $cardInfoList[$i]['ID'];?>.png" />
+               <div id="img_gift_<?php echo $i;?>">
+                    <img data-u="image" src="<?php echo $upload_url;?>/gift_images_upload/<?php echo $cardInfoList[$i]['ID'];?>.png"/>
                     <img data-u="thumb" src="<?php echo $upload_url;?>/gift_images_upload/<?php echo $cardInfoList[$i]['ID'];?>.png" />
                </div>
 <?php } ?>
@@ -171,8 +205,8 @@ if($outlet != -1 || $is_admin == true)
                     <line class="a" x1="5857.8" y1="8000" x2="10142.2" y2="8000"></line>
                </svg>
           </div>
-          <div data-u="buy_button" class="jssora093" style="width:100px;height:55px;top:0px;left:450px;" data-autocenter="2">
-               <svg onclick="" viewbox="0 0 32000 16000" style="position:absolute;top:200px;left:0;width:100%;height:100%;">
+          <div class="jssora093" style="width:100px;height:55px;top:0px;left:450px;" data-autocenter="2">
+               <svg id="buy_button" viewbox="0 0 32000 16000" style="position:absolute;top:200px;left:0;width:100%;height:100%;">
                     <rect class="r" x="100" y="100" width="31800" height="15800" rx="200" ry="200"></rect>
                     <text class="a" x="7000" y="10000" style="font-size: 7200px;">B u y</text>
                </svg>
@@ -5163,12 +5197,96 @@ jQuery(document).ready(function ($) {
      document.getElementById("header-grid").children[0].children[0].style.backgroundRepeat="repeat";
      document.getElementById("header-grid").children[0].children[0].style.backgroundSize="initial";
      document.getElementById("header-grid").children[0].children[0].style.backgroundPosition="unset";
+     initializeSellCard();
 });
 </script>
-    <!-- #endregion Jssor Slider End -->
-<br>
-<?php 
-} 
-else 
-    echo "Please sign up first!";
-?>
+
+<div id="popupSellCard" hidden>
+    <div>SEND GIFT CARD</div>
+    <div style="overflow: hidden;">
+        <div id="card_info" style="position:absolute; left:0px; top:30px">
+            <form>
+                <table width=100% style="margin-top:10px; font-size:12pt">
+                    <tr>
+                        <td class="my_td" style="text-align:left; width:50%; margin-top:10px">
+                            Price(£)<br>
+                            <input type="text" id="price" pattern="[1-9][0-9]?" style="height:30px; width:210px" required/>
+                        </td>
+                        <td class="my_td" style="text-align:left; width:50%; margin-top:10px">
+                            Issued From<br>
+                            <div style='float: left; width:210px' id='jqxCardOutlet'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="my_td" style="text-align:left; width:50%; margin-top:10px">
+                            Gift Card Number<br>
+                            <input type="text" id="card_number" pattern="\d{9}" style="height:30px; width:210px" required/>
+                        </td>
+                        <td class="my_td" style="text-align:left; width:50%; margin-top:10px">
+                            PIN<br>
+                            <input type="text" id="pin" pattern="\d{4}" style="height:30px; width:210px" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="my_td" style="text-align:left; width:50%; margin-top:10px">
+                            Your Name<br>
+                            <input type="text" id="sender" style="height:30px; width:210px" required/>
+                        </td>
+                        <td class="my_td" style="text-align:left; width:50%; margin-top:10px">
+                            Recipient Name<br>
+                            <input type="text" id="recipient" style="height:30px; width:210px" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="my_td" style="text-align:left; margin-top:10px" colspan=2>
+                            Message<br>
+                            <input type="text" id="message" style="height:30px; width:460px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="my_td" style="text-align:left; margin-top:10px" colspan=2>
+                            What email address should we send the gift card to?<br>
+                            <input type="text" id="email" style="height:30px; width:460px" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="my_td" style="text-align:center">
+                            <input id="CancelSell" type="button" value="Close" style="width:200px; margin-top:20px" />
+                        </td>
+                        <td class="my_td" style="text-align:center">
+                            <input id="Continue" type="button" value="Continue" style="width:200px; margin-top:20px; background-color:darkgreen" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div id="stripe_panel" style="visibility:hidden; position:absolute; left:0px; top:30px">
+            <div id="paymentResponse"></div>
+            <form id="paymentFrm">
+                <table width=100% style="margin-top:10px; font-size:12pt">
+                    <tr>
+                        <td class="my_td" colspan=2>
+                            <b>YOUR EMAIL</b><br>
+                            <input type="text" id="sender_email" style="height:30px; width:460px" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="my_td" colspan=2>
+                            <div id="paymentElement" style="width:460px; height:242px">
+                                <!--Stripe.js injects the Payment Element-->
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="my_td" style="text-align:center">
+                            <input id="Back" type="button" value="Back" style="width:200px" />
+                        </td>
+                        <td class="my_td" style="text-align:center">
+                            <input id="Confirm" type="button" value="Pay Now" style="width:200px; background-color:darkgreen" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>

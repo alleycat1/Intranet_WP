@@ -19,6 +19,8 @@ define('GIFT_CARDS_VAR', '1.0.0');
 define('GIFT_CARDS_NAME', 'gift-cards');
 define('GIFT_CARDS_PLUGIN_DIR',plugin_dir_url( __FILE__ ));
 
+require dirname( __FILE__ ) .'/gift_cards_ajax.php';
+
 function gift_cards_content(){
     require __DIR__ ."/gift_cards_content.php";
 }
